@@ -3919,8 +3919,8 @@ function get_shortcut_link() {
 */
 function wp_ajax_press_this_save_post() {
 	_deprecated_function( __FUNCTION__, '4.9.0' );
-	if ( is_plugin_active( 'press-this/press-this-plugin.php' ) ) {
-		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+	if ( is_plugin_active( 'press-this/press-this-plugins.php' ) ) {
+		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugins.php' );
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->save_post();
 	} else {
@@ -3936,8 +3936,8 @@ function wp_ajax_press_this_save_post() {
 */
 function wp_ajax_press_this_add_category() {
 	_deprecated_function( __FUNCTION__, '4.9.0' );
-	if ( is_plugin_active( 'press-this/press-this-plugin.php' ) ) {
-		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+	if ( is_plugin_active( 'press-this/press-this-plugins.php' ) ) {
+		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugins.php' );
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->add_category();
 	} else {

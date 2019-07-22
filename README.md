@@ -1,1 +1,0 @@
-# sotana_lens

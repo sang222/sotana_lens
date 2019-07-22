@@ -1,0 +1,52 @@
+2019-06-29T15:00:41+00:00 CRITICAL syntax error, unexpected '$stock' (T_VARIABLE) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php on line 24
+
+2019-06-29T15:43:00+00:00 CRITICAL Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:78
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php(25): get_attributes(Object(WC_Product_Simple))
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#3 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#4 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\content.php(5): get_template_part('template_part/p...', 'bestsale')
+#5 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#7 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#8 C in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 78
+
+2019-06-29T15:43:37+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php on line 25
+
+2019-06-29T15:43:44+00:00 CRITICAL Uncaught Error: Class 'WC_API_Products' not found in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php:25
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\content.php(5): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\index.php(4): get_template_part('content', '')
+#8 C:\xampp\htdocs\outsource\wp-includes\template-loade in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php on line 25
+
+2019-06-29T16:42:10+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_qty() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php:49
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\content.php(5): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\index.php(4): get_template_part('content', '')
+#8 C:\xampp\htdocs\outsource\wp-inc in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php on line 49
+
+2019-06-29T16:42:17+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_qty() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php:49
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\content.php(5): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\index.php(4): get_template_part('content', '')
+#8 C:\xampp\htdocs\outsource\wp-inc in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php on line 49
+

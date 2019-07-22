@@ -1,0 +1,232 @@
+2019-06-25T14:21:35+00:00 CRITICAL Uncaught Error: Call to undefined function wp_get_attachment() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:25
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(564): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\shortcodes.php(319): WC_Shortcodes::product_page(Array, '', 'product_page')
+#4 [internal function]: do_shortcode_tag(Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(produc...', 'do_shortcode_ta...', '[product_page i...')
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-template-loader.php(496): do_shortcode('[product_page i...')
+#7 C:\xampp\htdocs\outsource\wp-in in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 25
+
+2019-06-25T14:22:23+00:00 CRITICAL Uncaught Error: Call to undefined function wp_get_attachment() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:25
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(564): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\shortcodes.php(319): WC_Shortcodes::product_page(Array, '', 'product_page')
+#4 [internal function]: do_shortcode_tag(Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(produc...', 'do_shortcode_ta...', '[product_page i...')
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-template-loader.php(496): do_shortcode('[product_page i...')
+#7 C:\xampp\htdocs\outsource\wp-in in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 25
+
+2019-06-25T14:22:38+00:00 CRITICAL Uncaught Error: Call to undefined function wp_get_attachment() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:25
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-shortcodes.php(564): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\shortcodes.php(319): WC_Shortcodes::product_page(Array, '', 'product_page')
+#4 [internal function]: do_shortcode_tag(Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(produc...', 'do_shortcode_ta...', '[product_page i...')
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-template-loader.php(496): do_shortcode('[product_page i...')
+#7 C:\xampp\htdocs\outsource\wp-in in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 25
+
+2019-06-25T14:37:46+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 4
+
+2019-06-25T14:37:47+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 4
+
+2019-06-25T16:09:08+00:00 CRITICAL syntax error, unexpected '$totalcart' (T_VARIABLE) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\header.php on line 119
+
+2019-06-25T16:12:20+00:00 CRITICAL syntax error, unexpected 'endforeach' (T_ENDFOREACH) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\header.php on line 142
+
+2019-06-25T16:15:16+00:00 CRITICAL syntax error, unexpected end of file in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\header.php on line 351
+
+2019-06-25T16:42:18+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:21+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:22+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:36+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:36+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:41+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:46+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(13): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:49+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin.php(31): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-admin\post.php(12): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:51+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:42:55+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin.php(31): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-admin\edit.php(10): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:43:21+00:00 CRITICAL Uncaught Error: Call to a member function get_cart_url() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:2
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php(7): include()
+#1 C:\xampp\htdocs\outsource\wp-settings.php(426): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\wp-config.php(89): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\outsource\wp-load.php(37): require_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(22): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 2
+
+2019-06-25T16:50:51+00:00 CRITICAL syntax error, unexpected 'add_filter' (T_STRING) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php on line 10
+
+2019-06-25T16:50:52+00:00 CRITICAL syntax error, unexpected 'add_filter' (T_STRING) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php on line 10
+
+2019-06-25T16:51:05+00:00 CRITICAL Cannot redeclare woocommerceframework_header_add_to_cart_fragment() (previously declared in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php:12) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 18
+
+2019-06-25T17:35:49+00:00 CRITICAL Uncaught Error: Call to a member function is_registration_enabled() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php:28
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\page.php(24): get_template_part('template_part/c...', 'checkout')
+#4 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php on line 28
+
+2019-06-25T17:36:10+00:00 CRITICAL Uncaught Error: Call to a member function is_registration_enabled() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php:28
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\page.php(24): get_template_part('template_part/c...', 'checkout')
+#4 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php on line 28
+
+2019-06-25T17:36:29+00:00 CRITICAL Uncaught Error: Call to a member function is_registration_enabled() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php:28
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\page.php(24): get_template_part('template_part/c...', 'checkout')
+#4 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php on line 28
+
+2019-06-25T17:45:26+00:00 CRITICAL Uncaught Error: Call to a member function get_checkout_fields() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php:36
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\page.php(24): get_template_part('template_part/c...', 'checkout')
+#4 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php on line 36
+
+2019-06-25T17:45:47+00:00 CRITICAL Uncaught Error: Call to a member function get_checkout_fields() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php:36
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\page.php(24): get_template_part('template_part/c...', 'checkout')
+#4 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-checkout.php on line 36
+
+2019-06-25T17:50:11+00:00 CRITICAL Uncaught Error: Call to undefined function dimox_breadcrumbs() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\page.php:6
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\page.php on line 6
+

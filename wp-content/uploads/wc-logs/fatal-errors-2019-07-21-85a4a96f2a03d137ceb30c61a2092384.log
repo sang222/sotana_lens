@@ -1,0 +1,36 @@
+2019-07-21T12:00:46+00:00 CRITICAL syntax error, unexpected '*', expecting end of file in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php on line 17
+
+2019-07-21T12:00:47+00:00 CRITICAL syntax error, unexpected '*', expecting end of file in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php on line 17
+
+2019-07-21T12:01:27+00:00 CRITICAL syntax error, unexpected '*', expecting end of file in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php on line 17
+
+2019-07-21T12:06:03+00:00 CRITICAL syntax error, unexpected '*', expecting end of file in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\functions.php on line 17
+
+2019-07-21T13:05:24+00:00 CRITICAL Object of class WP_Error could not be converted to string in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-sidebar.php on line 95
+
+2019-07-21T13:05:40+00:00 CRITICAL Object of class WP_Error could not be converted to string in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-sidebar.php on line 94
+
+2019-07-21T13:08:42+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-sidebar.php:90
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\collection-page.php(97): get_template_part('template_part/c...', 'sidebar')
+#4 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-sidebar.php on line 90
+
+2019-07-21T13:08:59+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-sidebar.php:91
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\collection-page.php(97): get_template_part('template_part/c...', 'sidebar')
+#4 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-sidebar.php on line 91
+

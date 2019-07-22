@@ -1888,7 +1888,7 @@ function wp_clean_plugins_cache( $clear_update_cache = true ) {
  * Load a given plugin attempt to generate errors.
  *
  * @since 3.0.0
- * @since 4.4.0 Function was moved into the `wp-admin/includes/plugin.php` file.
+ * @since 4.4.0 Function was moved into the `wp-admin/includes/plugins.php` file.
  *
  * @param string $plugin Plugin file to load.
  */

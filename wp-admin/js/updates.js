@@ -1799,9 +1799,9 @@
 				$updatingMessage.removeClass( 'updating-message' );
 			} else if ( 'plugins' === pagenow || 'plugins-network' === pagenow ) {
 				if ( 'update-plugin' === job.action ) {
-					$message = $( 'tr[data-plugin="' + job.data.plugin + '"]' ).find( '.update-message' );
+					$message = $( 'tr[data-plugin="' + job.data.plugins + '"]' ).find( '.update-message' );
 				} else if ( 'delete-plugin' === job.action ) {
-					$message = $( '[data-plugin="' + job.data.plugin + '"]' ).find( '.row-actions a.delete' );
+					$message = $( '[data-plugin="' + job.data.plugins + '"]' ).find( '.row-actions a.delete' );
 				}
 			} else if ( 'themes' === pagenow || 'themes-network' === pagenow ) {
 				if ( 'update-theme' === job.action ) {

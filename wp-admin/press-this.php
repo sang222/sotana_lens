@@ -13,7 +13,7 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 
 function wp_load_press_this() {
 	$plugin_slug = 'press-this';
-	$plugin_file = 'press-this/press-this-plugin.php';
+	$plugin_file = 'press-this/press-this-plugins.php';
 
 	if ( ! current_user_can( 'edit_posts' ) || ! current_user_can( get_post_type_object( 'post' )->cap->create_posts ) ) {
 		wp_die(
@@ -22,7 +22,7 @@ function wp_load_press_this() {
 			403
 		);
 	} elseif ( is_plugin_active( $plugin_file ) ) {
-		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugin.php' );
+		include( WP_PLUGIN_DIR . '/press-this/class-wp-press-this-plugins.php' );
 		$wp_press_this = new WP_Press_This_Plugin();
 		$wp_press_this->html();
 	} elseif ( current_user_can( 'activate_plugins' ) ) {

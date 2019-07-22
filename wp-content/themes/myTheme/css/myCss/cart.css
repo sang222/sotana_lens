@@ -1,0 +1,45 @@
+#tbl-content .table-cart thead tr th, .table-cart tbody tr td {
+    border: none;
+
+}
+
+#tbl-content {
+    margin-bottom: 30px;
+}
+
+#tbl-content .table-cart tbody tr {
+    border-top: 1px solid #f0f0f0;
+}
+
+#tbl-content .table-cart tbody tr td .reduced {
+    margin-right: -4px;
+}
+
+#tbl-content .table-cart tbody tr td .action-count {
+    padding: 8px 12px;
+    background: #ffffff;
+    border: 1px solid #dfdfdf;
+}
+
+#tbl-content .table-cart tbody tr td .increase {
+    margin-left: -4px;
+}
+
+#tbl-content .table-cart tbody tr td .input-text {
+    padding: 8px 0px;
+    border: 1px solid #dfdfdf;
+    width: 50px;
+}
+
+#tbl-content .btnCart {
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    display: inline-block;
+    text-align: center;
+    background: #22232b;
+    color: #ffffff;
+    border-radius: 5px;
+    outline: 0 !important;
+    border: none;
+}
