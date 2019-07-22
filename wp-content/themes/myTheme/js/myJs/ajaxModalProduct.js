@@ -90,9 +90,10 @@ function viewProduct(product_id, $this) {
 
 $(document).ready(function () {
     jaxButtonCart();
-    $('.owl-carousel').owlCarousel({
+    $('#sale-carousel').owlCarousel({
         loop: true,
         margin: 10,
+        autoplay: true,
         responsiveClass: true,
         responsive: {
             0: {

@@ -2,7 +2,7 @@
     <span>BEST SALE</span>
 </div>
 <div class="row-product fixed-width" style="margin: 0 auto;text-align: center">
-    <div class="owl-carousel owl-theme">
+    <div class="owl-carousel owl-theme " id="sale-carousel">
         <?php
         $feat_pro = new WP_Query(array('posts_per_page' => 8,
             'tax_query' => array(

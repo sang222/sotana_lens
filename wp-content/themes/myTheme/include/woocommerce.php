@@ -266,7 +266,8 @@ add_action('wp_ajax_nopriv_filter', 'filter_product');
 function filter_product()
 {
 
-    $price = (isset($_POST['price'])) ? esc_attr($_POST['price']) : '';
+    $price = (isset($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
+    $price = explode(':', $price);
     $cate_name = (isset($_POST['cat_name'])) ? esc_attr($_POST['cat_name']) : '';
     $vendor = (isset($_POST['vendor'])) ? trim(esc_attr($_POST['vendor'])) : '';
     $vendor = explode(',', $vendor);
@@ -276,10 +277,16 @@ function filter_product()
             'post_type' => array('product', 'product_variation'),
             'product_cat' => $cate_name,
             'meta_query' => array(
-                'relation' => 'OR',
+                'relation' => 'AND',
                 array(
                     'key' => '_price',
-                    'value' => $price,
+                    'value' => $price[0],
+                    'compare' => '>=',
+                    'type' => 'NUMERIC'
+                ),
+                array(
+                    'key' => '_price',
+                    'value' => $price[1],
                     'compare' => '<=',
                     'type' => 'NUMERIC'
                 ),
@@ -300,10 +307,16 @@ function filter_product()
             'post_type' => array('product', 'product_variation'),
             'product_cat' => $cate_name,
             'meta_query' => array(
-                'relation' => 'OR',
+                'relation' => 'AND',
                 array(
                     'key' => '_price',
-                    'value' => $price,
+                    'value' => $price[0],
+                    'compare' => '>=',
+                    'type' => 'NUMERIC'
+                ),
+                array(
+                    'key' => '_price',
+                    'value' => $price[1],
                     'compare' => '<=',
                     'type' => 'NUMERIC'
                 ),

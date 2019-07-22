@@ -15,54 +15,60 @@
                         <li class="text-left">
                             <label>
                                 <input type="radio"
-                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, null, '<?php echo $actual_link ?>&price=50')<?php endif; ?>"
-                                       name="price-filter" checked="<?php ?>" data-price="0:max" value="50">
+                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, null, '<?php echo $actual_link ?>&price=0:500000000')<?php endif; ?>"
+                                       name="price-filter" checked="<?php ?>" data-price="0:500000000"
+                                       value="0:500000000">
                                 <span>Tất cả</span>
                             </label>
                         </li>
                         <li class="text-left">
                             <label>
                                 <input type="radio"
-                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=5')<?php endif; ?>"
-                                       name="price-filter" data-price="7000" value="5">
+                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=0:5')<?php endif; ?>"
+                                       name="price-filter" data-price="0:5" value="0:5">
                                 <span>Nhỏ hơn 50,000₫</span>
                             </label>
                         </li>
                         <li class="text-left">
                             <label>
                                 <input type="radio"
-                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=5')<?php endif; ?>"
-                                       name="price-filter" data-price="7000" value="5">
-                                <span>Từ 100,000₫ - 100,000₫</span>
+                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=50000:100000')<?php endif; ?>"
+                                       name="price-filter" data-price="7000" value="50000:100000">
+                                <span>Từ 50,000₫ - 100,000₫</span>
                             </label>
                         </li>
                         <li class="text-left">
                             <label>
                                 <input type="radio"
-                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=5')<?php endif; ?>"
-                                       name="price-filter" data-price="7000" value="5">
+                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=100000:300000')<?php endif; ?>"
+                                       name="price-filter" data-price="7000" value="100000:300000">
                                 <span>Từ 100,000₫ - 300,000₫</span>
                             </label>
                         </li>
                         <li class="text-left">
                             <label>
                                 <input type="radio"
-                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=5')<?php endif; ?>"
-                                       name="price-filter" data-price="7000" value="5">
+                                       onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=300000:500000')<?php endif; ?>"
+                                       name="price-filter" data-price="7000" value="300000:500000">
                                 <span>Từ 300,000₫ - 500,000₫</span>
                             </label>
                         </li>
                         <li class="text-left">
                             <label>
-                                <input type="radio" name="price-filter" data-price="500000:700000"
-                                       value="((price:product>=500000)&amp;&amp;(price:product<700000))">
+                                <input
+                                        onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=500000:700000')<?php endif; ?>"
+                                        type="radio" name="price-filter" data-price="500000:700000"
+                                        value="500000:700000">
                                 <span>Từ 500,000₫ - 700,000₫</span>
                             </label>
                         </li>
                         <li class="text-left">
                             <label>
-                                <input type="radio" name="price-filter" data-price="700000:max"
-                                       value="((price:product>=700000))">
+                                <input
+                                        onchange="<?php if (!isset($_GET['price'])): ?>window.history.replaceState(null, 'price', '<?php echo $actual_link ?>&price=700000:500000000')<?php endif; ?>"
+                                        type="radio" name="price-filter"
+                                        data-price="700000:500000000"
+                                        value="700000:500000000">
                                 <span>Lớn hơn 700,000₫</span>
                             </label>
                         </li>

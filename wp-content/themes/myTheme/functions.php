@@ -20,11 +20,20 @@ function add_theme_scripts()
     wp_enqueue_script('ajax-cart', get_theme_file_uri('/js/myJs/ajaxCart.js'), array('jquery'), '1.0', true);
     wp_enqueue_script('ajax-modal-js', get_theme_file_uri('/js/myJS/ajaxModalProduct.js'), array('jquery'), '1.1', true);
     wp_enqueue_script('account-js', get_theme_file_uri('/js/myJs/account.js'), array('jquery'), '1.0', true);
+    if (is_single()) {
+        wp_enqueue_script('slick-js', get_theme_file_uri('/plugin/slick-master/slick/slick.js'), array('jquery'), '1.1', true);
+        wp_enqueue_script('single-product-js', get_theme_file_uri('/js/myJs/single-product.js'), array('jquery'), '1.0', true);
+
+    }
+
     wp_enqueue_script('auth-js', get_theme_file_uri('/js/myJs/auth.js'), array('jquery'), '1.1', true);
 
     //plugin
-    wp_enqueue_script('zoom-image', get_theme_file_uri('/js/myJs/zoom.js'), array('jquery'), '1.0', true);
+
     wp_enqueue_script('carousel-js', get_theme_file_uri('/plugin/OwlCarousel/dist/owl.carousel.min.js'), array('jquery'), '1.1', true);
+
+//    wp_enqueue_script('zoom-plugin-js', get_theme_file_uri('/plugin/zoom-master/jquery.zoom.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('zoom-plugin-js', get_theme_file_uri('/plugin/elevatezoom-master/jquery.elevatezoom.js'), array('jquery'), '1.0', true);
 
 
     //    css
@@ -37,6 +46,12 @@ function add_theme_scripts()
     wp_enqueue_style('cart-css', get_template_directory_uri() . '/css/myCss/cart.css', array(), '1.0');
     // collection css
     wp_enqueue_style('collection-css', get_template_directory_uri() . '/css/myCss/collection.css', array(), '1.0');
+    if (is_single()) {
+        // single product css single-product.css
+        wp_enqueue_style('slick-css', get_template_directory_uri() . '/plugin/slick-master/slick/slick-theme.css', array(), '1.0');
+        wp_enqueue_style('single-product', get_template_directory_uri() . '/css/myCss/single-product.css', array(), '1.0');
+    }
+
 }
 
 add_action('wp_enqueue_scripts', 'add_theme_scripts');

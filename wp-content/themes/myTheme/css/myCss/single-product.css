@@ -1,0 +1,33 @@
+.slick-carousel img {
+    width: 100px;
+    /*transition: 1s all ease;*/
+    /*-webkit-transition: 1s all ease;*/
+    /*-moz-transition: 1s all ease;*/
+    /*-o-transition: 1s all ease;*/
+    border-radius: 2px;
+}
+
+.slick-carousel img.active {
+    border: 1px solid;
+}
+
+.slick-carousel img:hover {
+    border: 1px solid;
+    opacity: 0.8;
+
+}
+
+
+.title {
+    display: none;
+}
+
+
+.slick-carousel {
+    height: 100%;
+    overflow: hidden;
+}
+
+#zoom_01 {
+    margin-top: 30px;
+}
