@@ -1,5 +1,3 @@
-
-
 function viewProduct(product_id, $this) {
     $("#qty").val(1);
     $($this).addClass('view-now')
@@ -63,6 +61,7 @@ function viewProduct(product_id, $this) {
             //Làm gì đó khi dữ liệu đã được xử lý
             if (response.success) {
                 var html_cate = '';
+                console.log(response.data.data['post_excerpt'])
                 response.data.category.forEach(function (value, index) {
                     html_cate += '<a href="' + value.link + '">' + value.name + '</a>'
                 })
@@ -71,7 +70,7 @@ function viewProduct(product_id, $this) {
                 $("#myModal").modal('show');
                 $('#picture-quickview').prop('src', response.data.image)
                 $(".nameQuickview").text(response.data.data['post_title'])
-                $(".description-quick-view").text(response.data.data['post_content'])
+                $(".description-quick-view").text(response.data.data['post_excerpt'])
                 $(".price-regular").text(choise_price)
                 $(".price-sale").text(price_sale)
                 $(".category-items").html(html_cate);
@@ -167,6 +166,7 @@ function jaxButtonCart() {
     });
 
 }
+
 $(document).on('click', '.remove-product', function (e) {
     // e.preventDefault();
     var product_id = $(this).data("product_id");

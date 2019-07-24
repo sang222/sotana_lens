@@ -35,7 +35,6 @@ Template Name: collection-Page
                         $koostis = wc_get_product_terms($product->id, 'pa_color', array('fields' => 'names'));
                         $stock = $product->get_stock_status();
                         ?>
-
                         <?php if (!empty($sale)): ?>
                             <p class="sale-banner">Sale!</p>
                         <?php endif; ?>
