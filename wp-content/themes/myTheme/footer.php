@@ -1,10 +1,11 @@
 <!-- Footer -->
-<footer id="footer" class="footer divider layer-overlay overlay-dark-8" data-bg-img="images/bg/bg6.jpg">
+<?php $baseURL = esc_url(get_template_directory_uri()); ?>
+<footer id="footer" class="footer divider layer-overlay overlay-dark-8">
     <div class="container pt-70 pb-40">
         <div class="row border-bottom">
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <img class="mt-5 mb-20" alt="" src="images/logo-white-footer.png">
+                    <img class="mt-5 mb-20" alt="" src="<?php echo $baseURL ?>/images/logo-white-footer.png">
                     <p>203, Envato Labs, Behind Alis Steet, Melbourne, Australia.</p>
                     <ul class="list-inline mt-5">
                         <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-color-2 mr-5"></i> <a class="text-gray" href="#">123-456-789</a> </li>
@@ -82,10 +83,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-5 col-md-offset-2">
+            <!-- <div class="col-md-5 col-md-offset-2">
                 <div class="widget dark">
                     <h5 class="widget-title mb-10">Subscribe Us</h5>
-                    <!-- Mailchimp Subscription Form Starts Here -->
                     <form id="mailchimp-subscription-form-footer" class="newsletter-form">
                         <div class="input-group">
                             <input type="email" value="" name="EMAIL" placeholder="Your Email" class="form-control input-lg font-16" data-height="45px" id="mce-EMAIL-footer">
@@ -94,29 +94,8 @@
                 </span>
                         </div>
                     </form>
-                    <!-- Mailchimp Subscription Form Validation-->
-                    <script type="text/javascript">
-                        $('#mailchimp-subscription-form-footer').ajaxChimp({
-                            callback: mailChimpCallBack,
-                            url: '//thememascot.us9.list-manage.com/subscribe/post?u=a01f440178e35febc8cf4e51f&amp;id=49d6d30e1e'
-                        });
-
-                        function mailChimpCallBack(resp) {
-                            // Hide any previous response text
-                            var $mailchimpform = $('#mailchimp-subscription-form-footer'),
-                                $response = '';
-                            $mailchimpform.children(".alert").remove();
-                            if (resp.result === 'success') {
-                                $response = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + resp.msg + '</div>';
-                            } else if (resp.result === 'error') {
-                                $response = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + resp.msg + '</div>';
-                            }
-                            $mailchimpform.prepend($response);
-                        }
-                    </script>
-                    <!-- Mailchimp Subscription Form Ends Here -->
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="footer-bottom bg-black-333">
@@ -153,13 +132,14 @@
 <!-- Footer Scripts -->
 <!-- JS | Calendar Event Data -->
 <?php wp_footer() ?>
-<script src="js/calendar-events-data.js"></script>
+<script src="<?php echo  $baseURL ?>/js/calendar-events-data.js"></script>
 <!-- JS | Custom script for all pages -->
-<script src="js/custom.js"></script>
-<?php $baseURL = esc_url(get_template_directory_uri()); ?>
+<script src="<?php echo  $baseURL ?>/js/custom.js"></script>
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS
       (Load Extensions only on Local File Systems !
        The following part can be removed on Server for On Demand Loading) -->
+<script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
 <script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
 <script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>

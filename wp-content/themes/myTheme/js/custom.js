@@ -192,7 +192,7 @@ var THEMEMASCOT = {};
         TM_datePicker: function() {
             $( ".date-picker" ).datepicker();
             $( ".time-picker" ).timepicker();
-            $( ".datetime-picker" ).datetimepicker();
+            // $( ".datetime-picker" ).datetimepicker();
         },
 
         /* ---------------------------------------------------------------------- */
@@ -242,28 +242,28 @@ var THEMEMASCOT = {};
         /* ------------------------ Bootstrap Parent Modal  --------------------- */
         /* ---------------------------------------------------------------------- */
         TM_loadBSParentModal: function() {
-            var ajaxLoadContent = true;
-            if( ajaxLoadContent ) {
-                $.ajax({
-                    url: "ajax-load/bootstrap-parent-modal.html",
-                    success: function (data) { $body.append(data); },
-                    dataType: 'html'
-                });
-            }
+            // var ajaxLoadContent = true;
+            // if( ajaxLoadContent ) {
+            //     $.ajax({
+            //         url: "ajax-load/bootstrap-parent-modal.html",
+            //         success: function (data) { $body.append(data); },
+            //         dataType: 'html'
+            //     });
+            // }
         },
         /* ---------------------------------------------------------------------- */
         /* ------------------------------ Demo Switcher  ------------------------ */
         /* ---------------------------------------------------------------------- */
         TM_demoSwitcher: function() {
-            var showSwitcher = true;
-            var $style_switcher = $('#style-switcher');
-            if( !$style_switcher.length && showSwitcher ) {
-                $.ajax({
-                    url: "color-switcher/style-switcher.html",
-                    success: function (data) { $body.append(data); },
-                    dataType: 'html'
-                });
-            }
+            // var showSwitcher = true;
+            // var $style_switcher = $('#style-switcher');
+            // if( !$style_switcher.length && showSwitcher ) {
+            //     $.ajax({
+            //         url: "color-switcher/style-switcher.html",
+            //         success: function (data) { $body.append(data); },
+            //         dataType: 'html'
+            //     });
+            // }
         },
 
         /* ---------------------------------------------------------------------- */
@@ -763,7 +763,7 @@ var THEMEMASCOT = {};
         /* ----------------------------- Fit Vids ------------------------------- */
         /* ---------------------------------------------------------------------- */
         TM_fitVids: function() {
-            $body.fitVids();
+            // $body.fitVids();
         },
 
         /* ---------------------------------------------------------------------- */
@@ -824,8 +824,8 @@ var THEMEMASCOT = {};
                 THEMEMASCOT.header.TM_scrollToFixed();
                 THEMEMASCOT.header.TM_topnavAnimate();
                 THEMEMASCOT.header.TM_scrolltoTarget();
-                THEMEMASCOT.header.TM_menuzord();
-                THEMEMASCOT.header.TM_navLocalScorll();
+                // THEMEMASCOT.header.TM_menuzord();
+                // THEMEMASCOT.header.TM_navLocalScorll();
                 THEMEMASCOT.header.TM_menuCollapseOnClick();
                 THEMEMASCOT.header.TM_homeParallaxFadeEffect();
                 THEMEMASCOT.header.TM_topsearch_toggle();

@@ -296,9 +296,9 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-6">
                         <div class="widget no-border m-0">
-                            <a href="index-mp-layout1.html"
+                            <a href="<?php echo get_site_url() ?>"
                                class="menuzord-brand pull-left flip xs-pull-center mt-10 mb-10"><img alt=""
-                                                                                                     src="images/logo-wide-white.png"></a>
+                                                                                                     src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo-wide-white.png"></a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-2">

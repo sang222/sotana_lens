@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var panelOne = $('.form-panel.two').height();
-    var panelTwo = $('.form-panel.two')[0].scrollHeight;
-
+    var panelTwo = $('.form-panel.two').scrollHeight;
+    
     $('.form-panel.two').not('.form-panel.two.active').on('click', function (e) {
         e.preventDefault();
 
