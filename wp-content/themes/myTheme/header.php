@@ -21,7 +21,8 @@
     <link href="<?php echo $baseURL ?>/css/animate.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $baseURL ?>/css/css-plugin-collections.css" rel="stylesheet"/>
     <!-- CSS | menuzord megamenu skins -->
-
+<!--lato font-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">-->
     <!-- CSS | Main style file -->
     <link href="<?php echo $baseURL ?>/css/style-main.css" rel="stylesheet" type="text/css">
     <!-- CSS | Preloader Styles -->
@@ -142,10 +143,10 @@
     <!--    </div>-->
 
     <!-- Header -->
-    <header id="header" class="header">
+    <div id="header" class="header">
         <div class="header-top  sm-text-center" style="background: #d85c5c">
             <div class="fixed-width">
-                <div class="row">
+                <div class="row mx-0">
                     <div class="col-md-4">
                         <div class="widget no-border m-0">
                             <ul class="list-inline font-13 sm-text-center mt-5">
@@ -161,15 +162,16 @@
                                     <?php
                                     if (is_user_logged_in()) {
                                         ?>
-                                        <a  href="<?php echo home_url() ?>/order-history" class="text-white"><i
+                                        <a href="<?php echo home_url() ?>/order-history" class="text-white"><i
                                                     class="fa fa-user"></i>
-                                            Hello <?php echo wp_get_current_user()->display_name ?> - <a class="text-white"
+                                            Hello <?php echo wp_get_current_user()->display_name ?> - <a
+                                                    class="text-white"
                                                     href="<?php echo wp_logout_url('index.php'); ?>">Logout</a>
                                         </a>
                                         <?php
                                     } else {
                                         ?>
-                                        <a  class="text-white" href="<?php echo home_url() ?>/dang-nhap">Login</a>
+                                        <a class="text-white" href="<?php echo home_url() ?>/dang-nhap">Login</a>
                                         <?php
                                     }
                                     ?>
@@ -293,7 +295,7 @@
         </div>
         <div class="header-middle p-0 bg-lightest xs-text-center">
             <div class="fixed-width pt-0 pb-0">
-                <div class="row">
+                <div class="row mx-0">
                     <div class="col-xs-12 col-sm-3 col-md-6">
                         <div class="widget no-border m-0">
                             <a href="index-mp-layout1.html"
@@ -336,7 +338,7 @@
         </div>
         <div class="header-nav">
             <div class="header-nav-wrapper navbar-scrolltofixed bg-theme-colored border-bottom-theme-color-2-1px">
-                <div class="fixed-width prefix">
+                <div class="fixed-width">
                     <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
                         <ul class="menuzord-menu">
                             <?php
@@ -370,7 +372,7 @@
                         <ul class="pull-right flip hidden-sm hidden-xs">
                             <li>
                                 <!-- Modal: Book Now Starts -->
-                                <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15"
+                                <a class="btn btn-colored btn-flat bg-theme-color text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15"
                                    data-toggle="modal" data-target="#BSParentModal"
                                    href="ajax-load/reservation-form.html">Shop Now</a>
                                 <!-- Modal: Book Now End -->
@@ -389,7 +391,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
     <!--<!DOCTYPE html>-->
     <!--<html>-->

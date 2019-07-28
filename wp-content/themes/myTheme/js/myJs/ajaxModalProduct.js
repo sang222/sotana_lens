@@ -89,27 +89,7 @@ function viewProduct(product_id, $this) {
 
 $(document).ready(function () {
     jaxButtonCart();
-    $('#sale-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true
-            },
-            600: {
-                items: 3,
-                nav: false
-            },
-            1000: {
-                items: 5,
-                nav: true,
-                loop: true
-            }
-        }
-    });
+
 })
 
 function jaxButtonCart() {
@@ -132,8 +112,8 @@ function jaxButtonCart() {
             variation_id: variation_id,
         };
 
-        $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
 
+        $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
         $.ajax({
             type: 'post',
             url: wc_add_to_cart_params.ajax_url,
@@ -150,7 +130,7 @@ function jaxButtonCart() {
                 $("#myModal").modal('hide')
                 if (response.error & response.product_url) {
                     console.log('error', response.error)
-                    window.location = response.product_url;
+                    // window.location = response.product_url;
                     return;
                 } else {
                     console.log('success', response)

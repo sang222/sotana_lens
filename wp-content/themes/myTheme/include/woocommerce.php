@@ -11,26 +11,26 @@ function woocommerce_ajax_add_to_cart()
     $passed_validation = apply_filters('woocommerce_add_to_cart_validation', true, $product_id, $quantity);
     $product_status = get_post_status($product_id);
 
-//    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && 'publish' === $product_status) {
-//
-//        do_action('woocommerce_ajax_added_to_cart', $product_id);
-//
-//        if ('yes' === get_option('woocommerce_cart_redirect_after_add')) {
-//            wc_add_to_cart_message(array($product_id => $quantity), true);
-//        }
-//        $data1 = array(
-//            abc => 'ddd'
-//        );
-//        wp_send_json($data1);
-//        WC_AJAX:: get_refreshed_fragments();
-//    } else {
+    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && 'publish' === $product_status) {
 
-    $data = array(
-        'error' => true,
-        'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id));
+        do_action('woocommerce_ajax_added_to_cart', $product_id);
 
-    echo wp_send_json($data);
-//    }
+        if ('yes' === get_option('woocommerce_cart_redirect_after_add')) {
+            wc_add_to_cart_message(array($product_id => $quantity), true);
+        }
+        $data1 = array(
+            abc => 'ddd'
+        );
+        wp_send_json($data1);
+        WC_AJAX:: get_refreshed_fragments();
+    } else {
+
+        $data = array(
+            'error' => true,
+            'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id));
+
+        echo wp_send_json($data);
+    }
 
     wp_die();
 }
@@ -268,14 +268,14 @@ function filter_product()
 
     $price = (isset($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
     $price = explode(':', $price);
-    $cate_name = (isset($_POST['cat_name'])) ? esc_attr($_POST['cat_name']) : '';
+    $cate_id = (isset($_POST['cat_id'])) ? esc_attr($_POST['cat_id']) : '';
     $vendor = (isset($_POST['vendor'])) ? trim(esc_attr($_POST['vendor'])) : '';
     $vendor = explode(',', $vendor);
     if (sizeof($vendor) > 1) {
         $params = array(
             'posts_per_page' => 100,
             'post_type' => array('product', 'product_variation'),
-            'product_cat' => $cate_name,
+//            'product_cat' => $cate_id,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -298,6 +298,19 @@ function filter_product()
                     'terms' => $vendor,
                     'operator' => 'IN'
                 ),
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                    'terms' => $cate_id,
+                    'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                ),
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field' => 'slug',
+                    'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                    'operator' => 'NOT IN'
+                )
+
 
             ),
         );
@@ -305,7 +318,7 @@ function filter_product()
         $params = array(
             'posts_per_page' => 100,
             'post_type' => array('product', 'product_variation'),
-            'product_cat' => $cate_name,
+
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -321,7 +334,24 @@ function filter_product()
                     'type' => 'NUMERIC'
                 ),
             ),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                    'terms' => $cate_id,
+                    'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                ),
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field' => 'slug',
+                    'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                    'operator' => 'NOT IN'
+                )
+
+
+            ),
         );
+
     }
     $query = new WP_Query($params);
     ob_start();

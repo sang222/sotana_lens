@@ -1,5 +1,8 @@
 <div class="pro-title">
-    <span>HOT SALE</span>
+    <div class="fixed-width content-title">
+        <span>HOT SALE</span>
+    </div>
+
 </div>
 <div class="row-product fixed-width" id="product-option" style="margin: 0 auto;text-align: center">
     <?php global $tp_option;
@@ -94,9 +97,10 @@
             <?php
             endwhile;
             wp_reset_query();
+
             ?>
             <div class="text-center prefix"><span>View all product</span><a class="color-general weight-600"
-                                                                            href="<?php echo home_url() ?>/collection?cat_name=<?php echo get_term($cate_id)->slug ?>"
+                                                                            href="<?php echo get_category_link($cate_id)?>"
                                                                             title="<?php echo get_the_category_by_ID($cate_id) ?>"> <?php echo get_the_category_by_ID($cate_id) ?>
                     <i class="fa fa-angle-double-right"></i></a></div>
         </div>

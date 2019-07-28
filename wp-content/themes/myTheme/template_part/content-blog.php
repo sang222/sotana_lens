@@ -1,6 +1,9 @@
 <?php $baseURL = esc_url(get_template_directory_uri()); ?>
 <div class="pro-title">
-    <span>BLOG US</span>
+    <div class="fixed-width content-title">
+        <span>BLOG US</span>
+    </div>
+
 </div>
 <section class="blog-posts">
     <div class="d-flex flex-wrap fixed-width">

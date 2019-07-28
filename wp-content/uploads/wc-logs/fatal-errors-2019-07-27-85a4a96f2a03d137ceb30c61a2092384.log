@@ -1,0 +1,6 @@
+2019-07-27T10:50:28+00:00 CRITICAL syntax error, unexpected 'if' (T_IF) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\core\options.php on line 413
+
+2019-07-27T10:51:10+00:00 CRITICAL syntax error, unexpected 'if' (T_IF) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\core\options.php on line 413
+
+2019-07-27T10:51:22+00:00 CRITICAL syntax error, unexpected 'Redux' (T_STRING) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\core\options.php on line 329
+

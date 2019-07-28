@@ -42,32 +42,81 @@ $(document).ready(function () {
         $("#zoom").attr('src', src_tem);
     })
     console.log($("#mark-fixed").offset().top);
-//    add cart
-    acttion_add_cart();
+//    slide related
+    $('#sale-carousel-related').owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 2,
+                nav: false
+            },
+            600: {
+                items: 3,
+                nav: false
+            },
+            1000: {
+                items: 5,
+                nav: true,
+                loop: false
+            }
+        }
+    });
 })
 
-function acttion_add_cart() {
-    // alert(1)
-    // $(".qty-quick-view").append(`
-    //
-    // `)
-}
+//check cart add notice
+function jaxButtonCart() {
+    $(document).on('click', '.ajax_add_to_cart', function (e) {
+        e.preventDefault();
+        $(this).removeClass('added');
+        $(".notification").removeClass('-active')
+        var $thisbutton = $(this),
+            $form = $thisbutton.closest('form.cart'),
+            id = $thisbutton.val(),
+            product_qty = $form.find('input[name=quantity]').val() || 1,
 
-window.onscroll = function () {
-    console.log($(this).scrollTop());
-    // console.log($("#mark-fixed").offset().top);
-    // if ($(this).scrollTop() >= 280) {
-    //     console.log($(this).scrollTop())
-    //     // alert(window.innerWidth - $('.content-cart').width())
-    //     $(".product-detail").css({
-    //         position: 'fixed',
-    //         maxWidth: '400px',
-    //         right: '215px',
-    //         top: '50px',
-    //     })
-    // } else {
-    //     $(".product-detail").css({
-    //         top: '260px',
-    //     })
-    // }
-};
+            product_id = $form.find('input[name=product_id]').val() || id,
+            variation_id = $form.find('input[name=variation_id]').val() || 0;
+        var data = {
+            action: 'woocommerce_ajax_add_to_cart',
+            product_id: product_id,
+            product_sku: '',
+            quantity: product_qty,
+            variation_id: variation_id,
+        };
+
+        $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
+        var $this = $(this);
+        $.ajax({
+            type: 'post',
+            url: wc_add_to_cart_params.ajax_url,
+            data: data,
+            beforeSend: function (response) {
+                $thisbutton.removeClass('added').addClass('loading');
+            },
+            complete: function (response) {
+                $thisbutton.addClass('added').removeClass('loading');
+            },
+            success: function (response) {
+                if ($(e.target).hasClass('added')) {
+                    $(".notification").addClass('-active')
+                    setTimeout(function () {
+                        $(".notification").removeClass('-active')
+                    }, 2000)
+                }
+
+                if (response.error & response.product_url) {
+                    window.location = response.product_url;
+                    return;
+                } else {
+                    $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+                }
+            },
+        });
+
+        return false;
+    });
+
+}
