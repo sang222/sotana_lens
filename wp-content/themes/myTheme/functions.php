@@ -11,23 +11,28 @@ include 'include/slider.php';
 include 'include/checkout_func.php';
 include 'include/woocommerce.php';
 include 'include/auth.php';
-add_theme_support( 'woocommerce' );
-add_filter( 'woocommerce_breadcrumb_main_term', 'change_breadcrumb' );
-function change_breadcrumb( $main_term ) {
-    var_dump( $main_term );
+add_theme_support('woocommerce');
+add_filter('woocommerce_breadcrumb_main_term', 'change_breadcrumb');
+function change_breadcrumb($main_term)
+{
+    var_dump($main_term);
 
     return $main_term;
 }
-//disble warning Yith checkout
-add_filter( 'woocommerce_cart_needs_shipping_address', '__return_false');
-add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
-// Remove Order Notes Field
-add_filter( 'woocommerce_checkout_fields' , 'remove_order_notes' );
 
-function remove_order_notes( $fields ) {
+//disble warning Yith checkout
+add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
+add_filter('woocommerce_enable_order_notes_field', '__return_false', 9999);
+// Remove Order Notes Field
+add_filter('woocommerce_checkout_fields', 'remove_order_notes');
+
+
+function remove_order_notes($fields)
+{
     unset($fields['order']['order_comments']);
     return $fields;
 }
+
 function add_theme_scripts()
 {
     wp_enqueue_script('jquery-js', get_theme_file_uri('/js/jquery-2.2.4.min.js'), array('jquery'), '1.0', true);
@@ -68,7 +73,9 @@ function add_theme_scripts()
         wp_enqueue_style('slick-css', get_template_directory_uri() . '/plugin/slick-master/slick/slick-theme.css', array(), '1.0');
         wp_enqueue_style('single-product', get_template_directory_uri() . '/css/myCss/single-product.css', array(), '1.0');
     }
-
+    if (is_checkout()) {
+        wp_enqueue_style('checkout-css', get_template_directory_uri() . '/css/myCss/checkout.css', array(), '1.0');
+    }
 }
 
 add_action('wp_enqueue_scripts', 'add_theme_scripts');

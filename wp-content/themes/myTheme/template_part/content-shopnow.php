@@ -6,10 +6,10 @@
         <!--<!--            <img src="-->--><?php ////echo $baseURL ?><!--<!--/images/myimage/glasses.png">--> -->
         <!--        </div>-->
         <?php global $tp_option;
-        $banner_home = $tp_option['banner-title'];
+
         $cate_id = $tp_option['banner-category'];
         $banner_description = $tp_option['banner-description'];
-        $banner_title = $tp_option['banner-home'];
+        $banner_title = $tp_option['banner-title'];
         ?>
         <div class="w-100 m-auto shop-now-right text-center">
             <h1><span class="pink"><?php echo $banner_title ?><br/></span></h1>
