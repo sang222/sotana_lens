@@ -34,7 +34,7 @@ function misha_labels_placeholders($f)
     $f['billing']['billing_address_1']['label'] = 'Địa chỉ';
     $f['billing']['billing_address_1']['placeholder'] = 'Nhập địa chỉ';
     // Change Phone
-    $f['billing']['billing_phone']['label'] = 'Số điện thoại';
+    $f['billing']['billing_phone']['label'] = 'Phone';
     $f['billing']['billing_phone']['placeholder'] = 'Nhập số điện thoại';
     //Change email
     $f['billing']['billing_email']['label'] = 'Email';
