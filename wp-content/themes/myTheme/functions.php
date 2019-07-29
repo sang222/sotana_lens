@@ -22,7 +22,7 @@ function add_theme_scripts()
     wp_enqueue_script('bootstrap-js', get_theme_file_uri() . '/js/bootstrap.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('main-js', get_theme_file_uri() . '/js/myJs/index.js', array('jquery'), '1.1', true);
     wp_enqueue_script('ajax-cart', get_theme_file_uri() . '/js/myJs/ajaxCart.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('ajax-modal-js', get_theme_file_uri() . '/js/myJS/ajaxModalProduct.js', array('jquery'), '1.1', true);
+    wp_enqueue_script('ajax-modal-js', get_theme_file_uri() . '/js/myJs/ajaxModalProduct.js', array('jquery'), '1.1', true);
     wp_enqueue_script('account-js', get_theme_file_uri()  . '/js/myJs/account.js', array('jquery'), '1.0', true);
     if (is_single()) {
         wp_enqueue_script('slick-js', get_theme_file_uri() . '/plugin/slick-master/slick/slick.js', array('jquery'), '1.1', true);
