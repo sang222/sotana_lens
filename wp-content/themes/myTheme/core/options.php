@@ -278,11 +278,18 @@ Redux::setHelpSidebar($opt_name, $content);
 
 // -> START Basic Fields
 Redux::setSection($opt_name, array(
+    'title' => __('Home', 'redux-framework-demo'),
+    'id' => 'home',
+    'desc' => __('', 'redux-framework-demo'),
+    'icon' => 'el el-picture'
+));
+
+Redux::setSection($opt_name, array(
     'title' => __('Category product', 'shop-glass'),
-    'id' => 'basic',
+    'id' => 'home-cate-product',
     'desc' => __('Category in home', 'shop-glass'),
     'customizer_width' => '400px',
-    'icon' => 'el el-align-justify',
+    'subsection' => true,
     'fields' => array(
         array(
             'id' => 'product-hot',
@@ -301,10 +308,10 @@ Redux::setSection($opt_name, array(
 
 Redux::setSection($opt_name, array(
     'title' => __('Banner', 'shop-glass'),
-    'id' => 'banner',
+    'id' => 'home-banner',
     'desc' => __('Set banner view select in home', 'shop-glass'),
     'customizer_width' => '400px',
-    'icon' => 'el el-glasses',
+    'subsection' => true,
     'fields' => array(
         array(
             'id' => 'banner-title',
@@ -335,6 +342,62 @@ Redux::setSection($opt_name, array(
         ),
     )
 ));
+// Contact Add on
+Redux::setSection($opt_name, array(
+    'title' => __('Slides contact', 'shop-glass'),
+    'id' => 'home-contact-slides',
+    'desc' => __('Add on slide contact ', 'shop-glass'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'home-slides',
+            'type' => 'slides',
+            'title' => __('Slides Contact', 'shop-glass'),
+            'subtitle' => __('Click add on contact slider home', 'shop-glass'),
+            'show' => array(
+                'title' => true,
+                'description' => false,
+                'url' => true,
+            ),
+//            'desc' => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo'),
+            'placeholder' => array(
+                'title' => __('This is a title', 'shop-glass'),
+//                'description' => __('Description Here', 'shop-glass'),
+                'url' => __('Give us a link!', 'shop-glass'),
+            ),
+        ),
+    )
+));
+//End Contact Add on
+//Start slider customer
+Redux::setSection($opt_name, array(
+    'title' => __('Slides customer', 'shop-glass'),
+    'id' => 'home-customer-slides',
+    'desc' => __('Add on slide Customer ', 'shop-glass'),
+    'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'home-customer',
+            'type' => 'slides',
+            'title' => __('Slides Customer', 'shop-glass'),
+            'subtitle' => __('Click add on contact slider home', 'shop-glass'),
+            'show' => array(
+                'title' => true,
+                'description' => true,
+                'url' => true,
+            ),
+//            'desc' => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo'),
+            'placeholder' => array(
+                'title' => __('This is a Name', 'shop-glass'),
+                'description' => __('Comment  Here', 'shop-glass'),
+                'url' => __('Give us Job name', 'shop-glass'),
+            ),
+        ),
+    )
+));
+
+//End slider customer
+
 
 /**
  * This is a test function that will let you see when the compiler hook occurs.
