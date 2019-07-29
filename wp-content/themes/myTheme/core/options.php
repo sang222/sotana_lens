@@ -278,11 +278,11 @@ Redux::setHelpSidebar($opt_name, $content);
 
 // -> START Basic Fields
 Redux::setSection($opt_name, array(
-    'title' => __('Home Page', 'shop-glass'),
+    'title' => __('Category product', 'shop-glass'),
     'id' => 'basic',
-    'desc' => __('These are really basic fields!', 'shop-glass'),
+    'desc' => __('Category in home', 'shop-glass'),
     'customizer_width' => '400px',
-    'icon' => 'el el-home',
+    'icon' => 'el el-align-justify',
     'fields' => array(
         array(
             'id' => 'product-hot',
@@ -295,30 +295,47 @@ Redux::setSection($opt_name, array(
             'subtitle' => __('No validation can be done on this field type', 'shop-glass'),
             'desc' => __('Choose show a top page', 'shop-glass'),
         ),
-//        array(
-//            'id' => 'mid-news-select',
-//            'type' => 'select',
-//            'data' => 'pages',
-//            'multi' => true,
-//            'sortable' => true,
-//            'title' => __('Select mid news', 'shop-glass'),
-//            'subtitle' => __('No validation can be done on this field type', 'shop-glass'),
-//            'desc' => __('Choose show a top page', 'shop-glass'),
-//        ),
-//        array(
-//            'id' => 'bottom-news-select',
-//            'type' => 'select',
-//            'data' => 'pages',
-//            'sortable' => true,
-//            'multi' => true,
-//            'title' => __('Select Bottom news', 'shop-glass'),
-//            'subtitle' => __('No validation can be done on this field type', 'shop-glass'),
-//            'desc' => __('Choose show a top page', 'shop-glass'),
-//        ),
-
 
     )
 ));
+
+Redux::setSection($opt_name, array(
+    'title' => __('Banner', 'shop-glass'),
+    'id' => 'banner',
+    'desc' => __('Set banner view select in home', 'shop-glass'),
+    'customizer_width' => '400px',
+    'icon' => 'el el-glasses',
+    'fields' => array(
+        array(
+            'id' => 'banner-title',
+            'type' => 'text',
+            'sortable' => true,
+            'title' => __('Create banner title', 'shop-glass'),
+//            'subtitle' => __('Input banner title', 'shop-glass'),
+            'desc' => __('Input title banner', 'shop-glass'),
+        ),
+        array(
+            'id' => 'banner-description',
+            'type' => 'editor',//multi_text
+            'sortable' => true,
+            'title' => __('Create banner description', 'shop-glass'),
+//            'subtitle' => __('Input banner title', 'shop-glass'),
+            'desc' => __('Input description banner', 'shop-glass'),
+        ),
+        array(
+            'id' => 'banner-category',
+            'type' => 'select',
+            'data' => 'terms',
+            'args' => array('taxonomies' => 'product_cat', 'args' => array()),
+            'multi' => false,
+            'sortable' => false,
+            'title' => __('Select category banner', 'shop-glass'),
+//            'subtitle' => __('No validation can be done on this field type', 'shop-glass'),
+            'desc' => __('Choose category action', 'shop-glass'),
+        ),
+    )
+));
+
 /**
  * This is a test function that will let you see when the compiler hook occurs.
  * It only runs if a field    set with compiler=>true is changed.

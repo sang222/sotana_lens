@@ -1,5 +1,8 @@
 <div class="pro-title">
-    <span>BEST SALE</span>
+    <div class="fixed-width content-title title-slider">
+        <span class="text-uppercase">BEST SALE</span>
+    </div>
+
 </div>
 <div class="row-product fixed-width" style="margin: 0 auto;text-align: center">
     <div class="owl-carousel owl-theme " id="sale-carousel">

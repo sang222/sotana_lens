@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
     <div class="view-product">
         <div class="row">
             <?php $attachment_ids = $product->get_gallery_attachment_ids(); ?>
-            <div class="col-lg-1 col-xs-12 list-picture "
+            <div class="col-lg-1 col-sm-1 col-xs-12 list-picture "
                  style="padding: 0px 0px !important;">
                 <?php if (sizeof($attachment_ids) >= 4) : ?>
                     <div class="top-arrow text-center w-100" style="display: inline-block;"><i
@@ -54,7 +54,7 @@ defined('ABSPATH') || exit;
 
             </div>
             <div id="mark-fixed"></div>
-            <div class="col-lg-7 col-xs-12">
+            <div class="col-lg-7 col-sm-7 col-xs-12">
                 <div class="text-center">
                     <img id="zoom" style="max-height: 505px"
                          src="<?php echo $image[0] ?>"
@@ -66,7 +66,7 @@ defined('ABSPATH') || exit;
                     </p>
                 </div>
             </div>
-            <div class="col-lg-4 col-xs-12 product-detail">
+            <div class="col-lg-4 col-sm-4 col-xs-12 product-detail">
                 <div class="d-flex w-100 justify-content-between align-items-center">
                     <div>
                         <h2 class="my-0 title-product"><?php the_title() ?></h2>
@@ -92,21 +92,22 @@ defined('ABSPATH') || exit;
                 </div>
                 <div class="social-product">
                     <span class="share-in">Chia sẻ trên </span>
-                    <span class="icon-share facebook-icon">
-                        <a href="#">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </span>
+                    <a href="#">
+                        <span class="icon-share facebook-icon">
+
+                                <i class="fa fa-facebook"></i>
+                        </span>
+                    </a>
+                    <a href="#">
                     <span class="icon-share twitter-icon">
-                         <a href="#">
                             <i class="fa fa-twitter"></i>
-                         </a>
                     </span>
+                    </a>
+                    <a href="#">
                     <span class="icon-share google-icon">
-                         <a href="#">
                             <i class="fa fa-google"></i>
-                         </a>
                     </span>
+                    </a>
                 </div>
                 <div class="description">
                     <p>
@@ -121,7 +122,7 @@ defined('ABSPATH') || exit;
                     ><?php if ($product->get_sale_price()) echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ'; ?></span>
                 </div>
 
-                <div class="acttion-carts">
+                <div class="acttion-carts qty-quick-view">
                     <!--                    <form method="post" class="cart">-->
                     <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                             class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i></button>
@@ -134,10 +135,14 @@ defined('ABSPATH') || exit;
                     } ?>" maxlength="3" name="quantity"
                            onkeyup="valid(this,&#39;numbers&#39;)" onblur="valid(this,&#39;numbers&#39;)">
                     <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                            class="increase action-count items-count2" type="button"><i class="fa fa-plus"></i></button>
+                            class="increase action-count items-count2"
+                            data-id="<?php echo $product->get_id(); ?>"
+                            type="button">
+                        <i class="fa fa-plus"></i></button>
                     <a title="Add cart" id="add-more"
-                       class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
-                       href="?add-to-cart=54" data-quantity="1" data-attribute_pa_size="3" data-product_id="54"><i
+                       class="cart-product add-cart quick_add_to_cart_button  button product_type_simple add_to_cart_button ajax_add_to_cart"
+                       href="?add-to-cart=<?php echo $product->get_id() ?>" data-quantity="1" data-attribute_pa_size="3"
+                       data-product_id="<?php echo $product->get_id() ?>"><i
                                 class="fa fa-cart-plus"></i> Add to cart</a>
 
                     <!--                    </form>-->
@@ -198,7 +203,7 @@ defined('ABSPATH') || exit;
         <span>RELATED PRODUCTS</span>
     </div>
     <div class="row-product fixed-width w-100 prefix">
-        <div class="owl-carousel owl-theme " id="sale-carousel">
+        <div class="owl-carousel owl-theme " id="sale-carousel-related">
             <?php
             global $post;
             // get categories
@@ -211,7 +216,6 @@ defined('ABSPATH') || exit;
                     'terms' => $cats_array
                 )));
             $r = new WP_Query($query_args);
-
             if ($r->have_posts()) {
                 ?>
                 <?php while ($r->have_posts()) : $r->the_post();
@@ -242,7 +246,7 @@ defined('ABSPATH') || exit;
                             <div class="content-action d-flex flex-column justify-content-end">
                                 <?php if ($stock == 'instock'): ?>
                                     <a title="Add cart"
-                                       class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       class="cart-product add-cart  quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
                                        href="?add-to-cart=<?php echo $product->get_id(); ?>"
                                        data-quantity="<?php echo $product->qty ?>"
                                        data-product_id="<?php echo $product->get_id(); ?>"
@@ -250,7 +254,7 @@ defined('ABSPATH') || exit;
                                     ><i class="fa fa-cart-plus"></i></a>
                                 <?php else: ?>
                                     <a title="View"
-                                       class="cart-product add-cart "
+                                       class="cart-product add-cart
                                        href="<?php the_permalink() ?>"
                                     ><i class="fa fa-eye"></i></a>
                                 <?php endif; ?>
@@ -286,4 +290,8 @@ defined('ABSPATH') || exit;
             ?>
         </div>
     </div>
+    <!--    Quick view-->
+    <?php get_template_part('template_part/content', 'quickview') ?>
+    <!-- content notice -->
+    <?php get_template_part('template_part/content', 'notice') ?>
 </div>
