@@ -43,7 +43,7 @@
 
     <?php wp_head() ?>
 </head>
-<body class="white" <?php body_class(); ?>>
+<body <?php body_class('white'); ?>>
 <!--<script>-->
 <!--    // This is called with the results from from FB.getLoginStatus().-->
 <!--    function statusChangeCallback(response) {-->
@@ -150,15 +150,15 @@
                     <div class="col-md-4">
                         <div class="widget no-border m-0">
                             <ul class="list-inline font-13 sm-text-center mt-5">
-                                <li>
+                                <!-- <li>
                                     <a class="text-white" href="#">FAQ</a>
                                 </li>
                                 <li class="text-white">|</li>
                                 <li>
                                     <a class="text-white" href="#">Help Desk</a>
                                 </li>
-                                <li class="text-white">|</li>
-                                <li>
+                                <li class="text-white">|</li> -->
+                                <!-- <li>
                                     <?php
                                     if (is_user_logged_in()) {
                                         ?>
@@ -176,7 +176,7 @@
                                     }
                                     ?>
 
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -284,9 +284,10 @@
                             <ul class="styled-icons icon-circled icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
                                 <li><a href="#"><i class="fa fa-facebook text-white"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter text-white"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest text-white"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus text-white"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube text-white"></i></a></li>
                                 <li><a href="#"><i class="fa fa-instagram text-white"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin text-white"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -301,36 +302,6 @@
                             <a href="<?php echo get_site_url() ?>"
                                class="menuzord-brand pull-left flip xs-pull-center mt-10 mb-10"><img alt=""
                                                                                                      src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo-wide-white.png"></a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-2">
-                        <div class="widget no-border m-0">
-                            <div class="mt-15 mb-10 text-right flip sm-text-center">
-                                <div class="font-15 text-black-333 mb-5 font-weight-600"><i
-                                            class="fa fa-envelope text-theme-colored font-18"></i> Mail Us Today
-                                </div>
-                                <a href="#" class="font-12 text-gray"> info@yourdomain.com</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-2">
-                        <div class="widget no-border m-0">
-                            <div class="mt-15 mb-10 text-right flip sm-text-center">
-                                <div class="font-15 text-black-333 mb-5 font-weight-600"><i
-                                            class="fa fa-map-marker text-theme-colored font-18"></i> Company Location
-                                </div>
-                                <a href="#" class="font-12 text-gray"> 121 King Street, Melbourne</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-2">
-                        <div class="widget no-border m-0">
-                            <div class="mt-15 mb-10 text-right flip sm-text-center">
-                                <div class="font-15 text-black-333 mb-5 font-weight-600"><i
-                                            class="fa fa-phone-square text-theme-colored font-18"></i> +(012) 345 6789
-                                </div>
-                                <a href="#" class="font-12 text-gray"> Call us for more details</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -374,7 +345,7 @@
                                 <!-- Modal: Book Now Starts -->
                                 <a class="btn btn-colored btn-flat bg-theme-color text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15"
                                    data-toggle="modal" data-target="#BSParentModal"
-                                   href="ajax-load/reservation-form.html">Shop Now</a>
+                                   href="ajax-load/reservation-form.html" style="background: #e8d460 !important;">Shop Now</a>
                                 <!-- Modal: Book Now End -->
                             </li>
                         </ul>

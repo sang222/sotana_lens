@@ -1,28 +1,27 @@
 <!-- Footer -->
 <?php $baseURL = esc_url(get_template_directory_uri()); ?>
-<footer id="footer" class="footer divider layer-overlay overlay-dark-8">
+<footer id="footer" class="footer divider bg-theme-colored">
     <div class="container pt-70 pb-40">
         <div class="row border-bottom">
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
                     <img class="mt-5 mb-20" alt="" src="<?php echo $baseURL ?>/images/logo-white-footer.png">
-                    <p>203, Envato Labs, Behind Alis Steet, Melbourne, Australia.</p>
+                    <a>203, Envato Labs, Behind Alis Steet, Melbourne, Australia.</a>
                     <ul class="list-inline mt-5">
-                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-color-2 mr-5"></i> <a class="text-gray" href="#">123-456-789</a> </li>
-                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-color-2 mr-5"></i> <a class="text-gray" href="#">contact@yourdomain.com</a> </li>
-                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-color-2 mr-5"></i> <a class="text-gray" href="#">www.yourdomain.com</a> </li>
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone color-general mr-5"></i> <a href="tel:(028) 5412.5427">(028) 5412.5427</a></li>
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o color-general mr-5"></i> <a href="#">contact@yourdomain.com</a> </li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2">Useful Links</h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2">Liên kết</h4>
                     <ul class="list angle-double-right list-border">
-                        <li><a href="#">Body Building</a></li>
-                        <li><a href="#">Fitness Classes</a></li>
-                        <li><a href="#">Weight lifting</a></li>
-                        <li><a href="#">Yoga Courses</a></li>
-                        <li><a href="#">Training</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng online</a></li>
+                        <li><a href="#">Chính sách thanh toán, giao nhận</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Chính sách bảo hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả và hoàn tiền</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,20 +39,10 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2">Opening Hours</h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2">Hotlines:</h4>
                     <div class="opening-hours">
                         <ul class="list-border">
-                            <li class="clearfix"> <span> Mon - Tues :  </span>
-                                <div class="value pull-right"> 6.00 am - 10.00 pm </div>
-                            </li>
-                            <li class="clearfix"> <span> Wednes - Thurs :</span>
-                                <div class="value pull-right"> 8.00 am - 6.00 pm </div>
-                            </li>
-                            <li class="clearfix"> <span> Fri : </span>
-                                <div class="value pull-right"> 3.00 pm - 8.00 pm </div>
-                            </li>
-                            <li class="clearfix"> <span> Sun : </span>
-                                <div class="value pull-right"> Closed </div>
+                            <li class="clearfix"><a>Tổng đài hỗ trợ hoạt động từ T2 đến T6</a>
                             </li>
                         </ul>
                     </div>
@@ -61,25 +50,16 @@
             </div>
         </div>
         <div class="row mt-30">
-            <div class="col-md-2">
-                <div class="widget dark">
-                    <h5 class="widget-title mb-10">Call Us Now</h5>
-                    <div class="text-gray">
-                        +61 3 1234 5678 <br>
-                        +12 3 1234 5678
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="widget dark">
                     <h5 class="widget-title mb-10">Connect With Us</h5>
                     <ul class="styled-icons icon-bordered icon-sm">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" class="border-yellow"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="border-yellow"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="border-yellow"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" class="border-yellow"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" class="border-yellow"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#" class="border-yellow"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -98,7 +78,7 @@
             </div> -->
         </div>
     </div>
-    <div class="footer-bottom bg-black-333">
+    <!-- <div class="footer-bottom bg-black-333">
         <div class="container pt-20 pb-20">
             <div class="row">
                 <div class="col-md-6">
@@ -123,9 +103,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </footer>
-<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<!-- <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a> -->
 </div>
 <!-- end wrapper -->
 

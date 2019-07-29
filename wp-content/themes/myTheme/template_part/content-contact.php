@@ -3,7 +3,7 @@
         <span class="text-uppercase">Contact  FOR US</span>
     </div>
 </div>
-<div class="containter-fluid" style="margin: 30px 0px;background: #dfdfdf; padding:30px 15px">
+<div class="containter-fluid" style="margin: 30px 0px; padding:30px 15px">
     <div style="max-width: 1500px" class="m-auto">
         <div class="owl-carousel owl-theme " id="contact-carousel">
             <?php global $tp_option;
