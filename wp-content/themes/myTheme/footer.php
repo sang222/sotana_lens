@@ -5,9 +5,9 @@
         <div class="row border-bottom">
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <img class="mt-5 mb-20" alt="" src="<?php echo $baseURL ?>/images/logo-white-footer.png">
-                    <a>203, Envato Labs, Behind Alis Steet, Melbourne, Australia.</a>
-                    <ul class="list-inline mt-5">
+                <h4 class="widget-title line-bottom-theme-colored-2">Thông tin</h4>
+                    <ul class="list angle-double-right list-border">
+                        <li><a>R4-64 Mỹ Toàn 2, Phường Tân Phong, Quận 7, TP. HCM, Vietnam</a></li>
                         <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone color-general mr-5"></i> <a href="tel:(028) 5412.5427">(028) 5412.5427</a></li>
                         <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o color-general mr-5"></i> <a href="#">contact@yourdomain.com</a> </li>
                     </ul>

@@ -300,8 +300,8 @@
                     <div class="col-xs-12 col-sm-3 col-md-6">
                         <div class="widget no-border m-0">
                             <a href="<?php echo get_site_url() ?>"
-                               class="menuzord-brand pull-left flip xs-pull-center mt-10 mb-10"><img alt=""
-                                                                                                     src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo-wide-white.png"></a>
+                               class="menuzord-brand pull-left flip xs-pull-center mt-10 mb-10">
+                                <img alt="" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png"></a>
                         </div>
                     </div>
                 </div>
@@ -312,6 +312,9 @@
                 <div class="fixed-width">
                     <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
                         <ul class="menuzord-menu">
+                            <li class="menu-item167"> 
+                                <a href="<?php echo site_url() ?>" title="Gọng kính">Trang chủ</a>
+                            </li>
                             <?php
                             $menuLocations = get_nav_menu_locations();
                             $menuID = $menuLocations['main-nav'];
