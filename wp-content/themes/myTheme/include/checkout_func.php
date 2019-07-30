@@ -4,13 +4,13 @@ add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 function custom_override_checkout_fields($fields)
 {
 //    unset($fields['billing']['billing_first_name']);
-    unset($fields['billing']['billing_last_name']);
-    unset($fields['billing']['billing_company']);
-//    unset($fields['billing']['billing_address_1']);
-    unset($fields['billing']['billing_address_2']);
-    unset($fields['billing']['billing_city']);
-    unset($fields['billing']['billing_postcode']);
-    unset($fields['billing']['billing_country']);
+//    unset($fields['billing']['billing_last_name']);
+//    unset($fields['billing']['billing_company']);
+////    unset($fields['billing']['billing_address_1']);
+//    unset($fields['billing']['billing_address_2']);
+//    unset($fields['billing']['billing_city']);
+//    unset($fields['billing']['billing_postcode']);
+//    unset($fields['billing']['billing_country']);
 //    unset($fields['billing']['billing_state']);
 //    unset($fields['billing']['billing_phone']);
 //    unset($fields['order']['order_comments']);
@@ -28,17 +28,23 @@ function misha_labels_placeholders($f)
 {
 
     // first name can be changed with woocommerce_default_address_fields as well
-    $f['billing']['billing_first_name']['label'] = 'Tên của bạn';
-    $f['billing']['billing_first_name']['placeholder'] = 'Nhập tên';
+//    $f['billing']['billing_first_name']['label'] = 'Tên của bạn';
+//    $f['billing']['billing_first_name']['placeholder'] = 'Nhập tên';
     // Change address
-    $f['billing']['billing_address_1']['label'] = 'Địa chỉ';
-    $f['billing']['billing_address_1']['placeholder'] = 'Nhập địa chỉ';
+//    $f['billing']['billing_address_1']['label'] = 'Phường/Xã';
+//    $f['billing']['billing_address_1']['placeholder'] = 'Nhập địa chỉ';
+
+
+//    $f['billing']['billing_address_2']['label'] = 'Phường/Xã';
+//    $f['billing']['billing_address_2']['placeholder'] = 'Nhập địa chỉ';
+//    $f['billing']['full_name']['label'] = 'Tên';
+//    $f['billing']['full_name']['placeholder'] = 'Nhập tên';
     // Change Phone
-    $f['billing']['billing_phone']['label'] = 'Phone';
-    $f['billing']['billing_phone']['placeholder'] = 'Nhập số điện thoại';
-    //Change email
-    $f['billing']['billing_email']['label'] = 'Email';
-    $f['billing']['billing_email']['placeholder'] = 'Nhập Email';
+//    $f['billing']['billing_phone']['label'] = 'Phone';
+//    $f['billing']['billing_phone']['placeholder'] = 'Nhập số điện thoại';
+//    //Change email
+//    $f['billing']['billing_email']['label'] = 'Email';
+//    $f['billing']['billing_email']['placeholder'] = 'Nhập Email';
     return $f;
 
 }
