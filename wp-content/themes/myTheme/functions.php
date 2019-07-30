@@ -35,30 +35,34 @@ function remove_order_notes($fields)
 
 function add_theme_scripts()
 {
-    wp_enqueue_script('jquery-js', get_theme_file_uri('/js/jquery-2.2.4.min.js'), array('jquery'), '1.0', true);
-    wp_enqueue_script('bootstrap-js', get_theme_file_uri('/js/bootstrap.min.js'), array('jquery'), '1.0', true);
-    wp_enqueue_script('main-js', get_theme_file_uri('/js/myJs/index.js'), array('jquery'), '1.1', true);
-    wp_enqueue_script('ajax-cart', get_theme_file_uri('/js/myJs/ajaxCart.js'), array('jquery'), '1.0', true);
-    wp_enqueue_script('ajax-modal-js', get_theme_file_uri('/js/myJS/ajaxModalProduct.js'), array('jquery'), '1.1', true);
-    wp_enqueue_script('account-js', get_theme_file_uri('/js/myJs/account.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('jquery-js', get_theme_file_uri() . '/js/jquery-2.2.4.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('bootstrap-datepicker', get_theme_file_uri() . '/js/bootstrap-datepicker.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('bootstrap-timepicker', get_theme_file_uri() . '/js/bootstrap-timepicker.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('scrollToFixed', get_theme_file_uri() . '/js/jquery-scrolltofixed-min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('wow-js', get_theme_file_uri() . '/js/wow.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('bootstrap-js', get_theme_file_uri() . '/js/bootstrap.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('main-js', get_theme_file_uri() . '/js/myJs/index.js', array('jquery'), '1.1', true);
+    wp_enqueue_script('ajax-cart', get_theme_file_uri() . '/js/myJs/ajaxCart.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('ajax-modal-js', get_theme_file_uri() . '/js/myJs/ajaxModalProduct.js', array('jquery'), '1.1', true);
+    wp_enqueue_script('account-js', get_theme_file_uri()  . '/js/myJs/account.js', array('jquery'), '1.0', true);
     if (is_single()) {
-        wp_enqueue_script('slick-js', get_theme_file_uri('/plugin/slick-master/slick/slick.js'), array('jquery'), '1.1', true);
-        wp_enqueue_script('single-product-js', get_theme_file_uri('/js/myJs/single-product.js'), array('jquery'), '1.0', true);
+        wp_enqueue_script('slick-js', get_theme_file_uri() . '/plugin/slick-master/slick/slick.js', array('jquery'), '1.1', true);
+        wp_enqueue_script('single-product-js', get_theme_file_uri() . '/js/myJs/single-product.js', array('jquery'), '1.0', true);
 
     }
 
-    wp_enqueue_script('auth-js', get_theme_file_uri('/js/myJs/auth.js'), array('jquery'), '1.1', true);
+    wp_enqueue_script('auth-js', get_theme_file_uri() . '/js/myJs/auth.js', array('jquery'), '1.1', true);
 
     //plugin
 
-    wp_enqueue_script('carousel-js', get_theme_file_uri('/plugin/OwlCarousel/dist/owl.carousel.min.js'), array('jquery'), '1.1', true);
+    wp_enqueue_script('carousel-js', get_theme_file_uri() . '/plugin/OwlCarousel/dist/owl.carousel.min.js', array('jquery'), '1.1', true);
 
 //    wp_enqueue_script('zoom-plugin-js', get_theme_file_uri('/plugin/zoom-master/jquery.zoom.js'), array('jquery'), '1.0', true);
-    wp_enqueue_script('zoom-plugin-js', get_theme_file_uri('/plugin/elevatezoom-master/jquery.elevatezoom.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('zoom-plugin-js', get_theme_file_uri() . '/plugin/elevatezoom-master/jquery.elevatezoom.js', array('jquery'), '1.0', true);
 
 
     //    css
-    wp_enqueue_style('modal-animate-css', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css', array(), '3.2');
+    wp_enqueue_style('modal-animate-css',get_template_directory_uri() . '/css/animate.css', array(), '3.2');
     wp_enqueue_style('carousel-css', get_template_directory_uri() . '/plugin/OwlCarousel/dist/assets/owl.carousel.css', array(), '3.2');
     wp_enqueue_style('auth-css', get_template_directory_uri() . '/css/myCss/auth.css', array(), '3.2');
     //account css
@@ -67,6 +71,10 @@ function add_theme_scripts()
     wp_enqueue_style('cart-css', get_template_directory_uri() . '/css/myCss/cart.css', array(), '1.0');
     // collection css
     wp_enqueue_style('collection-css', get_template_directory_uri() . '/css/myCss/collection.css', array(), '1.0');
+    // time picker
+    wp_enqueue_style('bootstrap-timepicker', get_template_directory_uri() . '/css/bootstrap-timepicker.min.css', array(), '1.0');
+    // menuzord menu
+    // wp_enqueue_style('bootstrap-timepicker', get_template_directory_uri() . '/css/menuzord.css', array(), '1.0');
     wp_enqueue_style('notice-css', get_template_directory_uri() . '/css/myCss/notice.css', array(), '1.0');
     if (is_single()) {
         // single product css single-product.css

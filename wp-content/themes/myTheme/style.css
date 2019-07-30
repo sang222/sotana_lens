@@ -211,7 +211,7 @@ body {
     font-weight: 700;
     width: 100%;
     color: #444444;
-    margin: 30px 0px;
+    margin: 70px 0px;
 }
 
 .pro-title .content-title, .pro-title .content-title-slider {
@@ -1145,3 +1145,44 @@ input[type="checkbox"]:checked + label:after {
 }
 
 /*End scroll top*/
+/* CUSTOM CSS */
+.home.white .owl-carousel .owl-nav {
+    display: none;
+}
+.blog-posts .content-post .detail-post .date-post i, .blog-posts .content-post .detail-post .reading-next, .color-general, .content-cart .price-product {
+    color: #e8d460 !important;
+}
+.border-yellow, .border-yellow {
+    border: 1px solid #e8d460 !important;
+}
+#footer.bg-theme-colored, 
+#header .header-nav .bg-theme-colored, 
+#header .header-top, 
+#header .header-nav, 
+.row-product .product-item .sale-banner, 
+.shop-now-container .shop-now .shop-now-right .btn-shopnow,
+.row-product .product-item .content-action .cart-product:hover {
+    background-color: #789be6 !important;
+}
+#footer.footer a:focus, #footer.footer a:hover, #footer.footer a:active, #footer.footer a {
+    color: #ffffff;
+}
+#footer.footer .widget.dark .list-border li {
+    border-bottom: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.scrollTop, [type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #e8d460;
+}
+.single-product .acttion-carts .add-cart, .modal-content .qty-quick-view .add-cart {
+    background: #789be6 !important;
+}
+.acttion-carts .input-text, .modal-content .qty-quick-view .input-text {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+.single-product .slick-carousel img.active, .single-product .slick-carousel img:hover {
+    border: 1px solid #789be6;
+}

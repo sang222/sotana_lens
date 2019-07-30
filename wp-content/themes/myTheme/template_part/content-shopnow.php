@@ -12,7 +12,7 @@
         $banner_title = $tp_option['banner-title'];
         ?>
         <div class="w-100 m-auto shop-now-right text-center">
-            <h1><span class="pink"><?php echo $banner_title ?><br/></span></h1>
+            <h1><span class="color-general"><?php echo $banner_title ?><br/></span></h1>
             <p class="description-shopnow w-75 m-auto"><?php echo $banner_description ?></p>
             <a class="text-white color-general weight-600"
                href="<?php echo get_category_link($cate_id) ?>"
