@@ -1186,3 +1186,9 @@ input[type="checkbox"]:checked + label:after {
 .single-product .slick-carousel img.active, .single-product .slick-carousel img:hover {
     border: 1px solid #789be6;
 }
+#menuzord.menuzord {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
