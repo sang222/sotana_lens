@@ -154,6 +154,36 @@
                                 <img alt="" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png"></a>
                         </div>
                     </div>
+                    <div class="col-xs-12 col-sm-3 col-md-2">
+                        <div class="widget no-border m-0">
+                            <div class="mt-15 mb-10 text-right flip sm-text-center">
+                                <div class="font-15 text-black-333 mb-5 font-weight-600"><i
+                                            class="fa fa-envelope text-theme-colored font-18"></i> Mail Us Today
+                                </div>
+                                <a href="#" class="font-12 text-gray"> info@yourdomain.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-2">
+                        <div class="widget no-border m-0">
+                            <div class="mt-15 mb-10 text-right flip sm-text-center">
+                                <div class="font-15 text-black-333 mb-5 font-weight-600"><i
+                                            class="fa fa-map-marker text-theme-colored font-18"></i> Company Location
+                                </div>
+                                <a href="#" class="font-12 text-gray"> 121 King Street, Melbourne</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-2">
+                        <div class="widget no-border m-0">
+                            <div class="mt-15 mb-10 text-right flip sm-text-center">
+                                <div class="font-15 text-black-333 mb-5 font-weight-600"><i
+                                            class="fa fa-phone-square text-theme-colored font-18"></i> +(012) 345 6789
+                                </div>
+                                <a href="#" class="font-12 text-gray"> Call us for more details</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
