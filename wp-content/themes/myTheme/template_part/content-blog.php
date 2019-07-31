@@ -16,7 +16,6 @@
                     <h2>Glasses for you</h2>
                     <div class="meta-post d-flex justify-content-between align-items-center">
                         <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                        <span><i class="fa fa-comments"></i> 6 Comment</span>
                     </div>
                     <div class="post-cmt">
                         <p class="post-description">
@@ -39,7 +38,6 @@
                     <h2>Glasses for you</h2>
                     <div class="meta-post d-flex justify-content-between align-items-center">
                         <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                        <span><i class="fa fa-comments"></i> 6 Comment</span>
                     </div>
                     <div class="post-cmt">
                         <p class="post-description">
@@ -62,7 +60,6 @@
                     <h2>Glasses for you</h2>
                     <div class="meta-post d-flex justify-content-between align-items-center">
                         <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                        <span><i class="fa fa-comments"></i> 6 Comment</span>
                     </div>
                     <div class="post-cmt">
                         <p class="post-description">
