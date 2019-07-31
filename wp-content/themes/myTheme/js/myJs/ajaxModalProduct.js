@@ -96,6 +96,7 @@ function jaxButtonCart() {
 
     $(document).on('click', '.quick_add_to_cart_button', function (e) {
         e.preventDefault();
+
         // $("#modalCart").modal('show');
         var $thisbutton = $(this),
             $form = $thisbutton.closest('form.cart'),
@@ -125,7 +126,11 @@ function jaxButtonCart() {
                 $thisbutton.addClass('added').removeClass('loading');
             },
             success: function (response) {
-                console.log(response.items);
+                $("#modal-empty-cart").addClass('d-none');
+                if ($(".modal-action").hasClass('d-none')) {
+                    $(".modal-action").removeClass('d-none')
+                }
+
                 $("#modalCart").modal('show');
                 $("#myModal").modal('hide')
                 if (response.error & response.product_url) {
@@ -152,6 +157,7 @@ $(document).on('click', '.remove-product', function (e) {
     var product_id = $(this).data("product_id");
     var line = $(this).data('line');
     var $this = $(this);
+
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -160,12 +166,20 @@ $(document).on('click', '.remove-product', function (e) {
             action: "product_remove",
             product_id: product_id
         }, success: function (data) {
-            console.log(data);
             var count = 0;
             $.each(data.data, function (index, value) {
                 count += value.quantity;
             })
-            $this.parents('tr').remove();
+
+            if ($this.parents('tr').prev().size() > 0 || $this.parents('tr').next().size() > 0) {
+                $this.parents('tr').remove();
+            } else {
+                $this.parents('tr').remove();
+                $(".modal-action").addClass('d-none')
+                $(".shop_table").addClass('d-none')
+                $("#empty-cart").removeClass('d-none');
+                $("#modal-empty-cart").removeClass('d-none');
+            }
             $("#mini-cart-container table #mini-item-" + line).remove();
             $("#count-mini-cart").text(count)
         }, error: function (err) {
@@ -216,4 +230,36 @@ $(document).on('click', '.reduced,.increase', function () {
         
         ><i class="fa fa-cart-plus"></i> Add to cart</a>
     `)
+})
+
+//update cart
+$(document).on('click', '.increase,.increase', function () {
+    var id = $(this).data('id');
+    var quantity = $("#qty_" + id).val();
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: $("#url_admin").val(),
+        data: {
+            'action': 'update_my_cart',
+            'item_id': id,
+            'quantity': quantity,
+            // 'variation_id': variathionID,
+            // 'atributes': atributes,
+            // 'attribute_pa_macaroons': itemData
+        }
+    })
+        .done(function (response) {
+            if (response.ajax_complete) {
+                document.location.reload(true);
+            }
+        })
+        .error(function (error) {
+            console.log(error);
+        })
+        .always(function (response) {
+            if (response.ajax_complete) {
+                document.location.reload(true);
+            }
+        });
 })

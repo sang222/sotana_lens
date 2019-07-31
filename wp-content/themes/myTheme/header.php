@@ -243,7 +243,8 @@
                                         <li>
                                             <!-- dropdown cart -->
                                             <div class="dropdown-cart">
-                                                <table class="table cart-table-list table-responsive">
+                                                <div class="dropdown--content-tbl">
+                                                    <table class="table cart-table-list table-responsive">
                                                     <tbody>
                                                     <?php
                                                     $items = $woocommerce->cart->get_cart();
@@ -282,6 +283,7 @@
                                                     <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
+                                                </div>
                                                 <div class="total-cart text-right">
                                                     <table class="table table-responsive">
                                                         <tbody>
