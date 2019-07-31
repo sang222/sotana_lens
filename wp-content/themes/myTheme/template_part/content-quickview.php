@@ -4,7 +4,7 @@
         <div class="modal-dialog vertical-align-center">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal"><span
+                    <button type="button" class="close close-custom" data-dismiss="modal"><span
                             aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 
                     </button>

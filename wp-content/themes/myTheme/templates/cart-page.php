@@ -5,26 +5,35 @@ Template Name: Cart-Page
 $items = $woocommerce->cart->get_cart();
 ?>
 <?php get_header() ?>
+    <div class="container-fluid prefix">
+        <div class="fixed-width">
+            <div class="pro-title-breadcrumb text-center">
+                <h4><?php $the_title = get_term_by('slug', $_GET['cat_name'], 'product_cat')->name;
+                    echo $cate->name;
+                    ?> </h4>
+
+            </div>
+            <div class="text-center"><?php woocommerce_breadcrumb(); ?></div>
+            <br/>
+            <br/>
+        </div>
+    </div>
     <div class="fixed-width " id="tbl-content">
-        <h3>My cart</h3>
+        <h2 class="title-cart"><i class="fa fa-cart-plus"></i> My cart</h2>
         <?php if (sizeof($items) > 0) : ?>
-            <table
-                    class="table table-bordered table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+            <table class="table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                 <thead>
-                <tr>
-                    <th class="text-center"></th>
-                    <th class="text-center">Sản phẩm</th>
-                    <th class="text-center">Đơn giá</th>
-                    <th class="text-center">Giá sale</th>
-                    <th class="text-center">Số lượng</th>
-                    <th class="text-center">Số Thành tiền</th>
-                    <th class="text-center"></th>
-                </tr>
+                <th></th>
+                <th>Sản phẩm</th>
+                <th class="text-center">Đơn giá</th>
+                <th class="text-center">Giá sale</th>
+                <th class="text-center">Số lượng</th>
+                <th class="text-center" colspan="2">Thành tiền</th>
                 </th>
                 </thead>
                 <tbody>
                 <?php
-
+                $items = $woocommerce->cart->get_cart();
                 $vt = 0;
                 foreach ($items as $item => $values) :
                     $_product = wc_get_product($values['data']->get_id());
@@ -32,16 +41,15 @@ $items = $woocommerce->cart->get_cart();
                     $price = get_post_meta($values['product_id'], '_price', true);
                     ?>
                     <tr>
-                        <td style="vertical-align: middle;"
-                            class="text-center"><?php echo $getProductDetail->get_image('thumbnail'); // accepts 2 arguments ( size, attr )
+                        <td class="text-center modal-cart-image"
+                            style="vertical-align: middle;"><?php echo $getProductDetail->get_image('thumbnail'); // accepts 2 arguments ( size, attr )
                             ?></td>
-                        <td style="vertical-align: middle;" class="text-center">
-                            <h4><?php echo $_product->get_title(); ?></h4></td>
-                        <td style="vertical-align: middle;"
-                            class="text-center"><?php echo get_post_meta($values['product_id'], '_regular_price', true) ?></td>
-                        <td style="vertical-align: middle;"
-                            class="text-center"><?php echo get_post_meta($values['product_id'], '_sale_price', true) ?></td>
-                        <td style="vertical-align: middle;" class="text-center">
+                        <td style="vertical-align: middle;"><?php echo $_product->get_title(); ?></td>
+                        <td class="text-center"
+                            style="vertical-align: middle;"><?php echo get_post_meta($values['product_id'], '_regular_price', true) ?></td>
+                        <td class="text-center"
+                            style="vertical-align: middle;"><?php echo get_post_meta($values['product_id'], '_sale_price', true) ?></td>
+                        <td class="qty-modal text-center" style="vertical-align: middle;">
                             <div class="js-qty">
                                 <button onclick="var result = document.getElementById(&#39;qty&#39;);
             var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
@@ -68,34 +76,57 @@ $items = $woocommerce->cart->get_cart();
                                 </button>
                             </div>
                         </td>
-                        <td style="vertical-align: middle;" class="text-center"><?php echo $values['quantity']; ?></td>
-                        <td style="vertical-align: middle;" class="product-remove text-center">
-                                        <span
+                        <td colspan="2" class="" style="vertical-align: middle;">
+                            <span><?php echo $values['quantity']; ?></span>
+                            <span
 
-                                                class=" remove-product"
-                                                data-line="<?php echo $vt ?>"
-                                                data-product_id="<?php echo $values['product_id'] ?>"
-                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
+                                    class=" remove-product float-right"
+                                    data-line="<?php echo $vt ?>"
+                                    data-product_id="<?php echo $values['product_id'] ?>"
+                                    data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
 
-                                        ><i class="fa fa-trash"></i></span></td>
+                            ><i class="fa fa-trash"></i></span></td>
+                        </td>
                     </tr>
                     <?php
                     $vt++;
                 endforeach; ?>
                 </tbody>
             </table>
+
         <?php else: ?>
-            <p class="">
-                <a href="#">Cart Empty</a><br/>
-                <a href="">Return shop</a>
+            <p class="text-center">
+                <img width="100" class="img-fluid"
+                     src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
+            <div class="prefix"></div>
+            <a class="text-center d-block empty-shop" href="#">Cart Empty</a>
+            <a class="text-center d-block " href=""><span class="return-shop">Return shop</span></a>
             </p>
         <?php endif; ?>
+        <div id="empty-cart" class="d-none">
+            <p class="text-center">
+                <img width="100" class="img-fluid"
+                     src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
+            <div class="prefix"></div>
+            <a class="text-center d-block empty-shop" href="#">Cart Empty</a>
+            <a class="text-center d-block " href=""><span class="return-shop">Return shop</span></a>
+            </p>
+        </div>
         <div style="text-align: right">
-            <div><span>Tổng tiền:<h3 style="display: inline-block">300,000đ</h3></span></div>
-            <div class="d-block">
-                <button type="submit" name="update" class="btnCart update-cart" onclick="buyXgetY.UpdateCartFromCart();">Cập nhật</button>
-                <button type="submit" name="update" class="btnCart update-cart" onclick="buyXgetY.UpdateCartFromCart();">Thanh Toán</button>
-            </div>
+            <?php $totalamount = $woocommerce->cart->get_cart_total(); ?>
+            <?php if ($woocommerce->cart->get_cart_total() > 0): ?>
+                <div><span>Tổng tiền:<h3
+                                style="display: inline-block"><?php echo number_format($totalamount, 2, '.', '') ?></h3></span>
+                </div>
+                <div class="d-block">
+                    <button type="submit" name="update" class="btnCart update-cart"
+                            onclick="buyXgetY.UpdateCartFromCart();">Cập nhật
+                    </button>
+                    <button type="submit" name="update" class="btnCart update-cart"
+                            onclick="buyXgetY.UpdateCartFromCart();">Thanh Toán
+                    </button>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 <?php get_footer() ?>
