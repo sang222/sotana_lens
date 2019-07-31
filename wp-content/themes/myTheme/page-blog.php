@@ -19,245 +19,49 @@
     <div class="row" style="margin: 50px 0">
         <div class="col-md-8" style="padding: 0">
             <div class="row">
+                <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 10;
+                    $args = array(
+                        'post_type'	 => 'news',
+                        'post_status'	 => 'publish',
+                        'posts_per_page' => $paged
+                    );
+                    $query = new WP_Query( $args );
+                    if( $query -> have_posts()) : while ($query -> have_posts()) : $query->the_post();
+                    $feature_image_id = get_post_thumbnail_id(get_the_ID());
+                    $feature_image_meta = wp_get_attachment_image_src($feature_image_id, 'full');
+                    $short_description = get_field('short_description')
+                ?>
+                <!-- Item -->
                 <article class="blog-posts">
                     <div class="content-post clearfix">
                         <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
+                            <a href="<?php echo get_the_permalink() ?>" class="hover-animated"><img src="<?php echo $feature_image_meta[0] ?>"></a>
                         </div>
                         <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
+                            <h4 style="margin-top: 0"><a href="<?php echo get_the_permalink() ?>"><?php echo the_title() ?></a></h4>
                             <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
+                                <div class="date-post"><i class="fa fa-calendar"></i> 
+                                    <?php echo get_the_date('M') ?> <?php echo get_the_date('d') ?>, <?php echo get_the_date('Y') ?>
+                                </div>
                             </div>
                             <div class="post-cmt">
                                 <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
+                                    <?php echo $short_description ?>
                                 </p>
                             </div>
                             <div class="reading-next">
-                                <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="<?php echo get_the_permalink() ?>" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                 </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                            <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                            <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                                <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                            <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                            <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                                <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                            <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="blog-posts">
-                    <div class="content-post clearfix">
-                        <div class="img-post col-md-4">
-                            <a href=""><img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg"></a>
-                        </div>
-                        <div class="detail-post col-md-8">
-                            <h4 style="margin-top: 0"><a href="">Kính áp tròng bị rách có nên sử dụng</a></h4>
-                            <div class="meta-post d-flex justify-content-between align-items-center">
-                                <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                            </div>
-                            <div class="post-cmt">
-                                <p class="post-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                                    magna, iaculis ut purus ut, facilisis...
-                                </p>
-                            </div>
-                            <div class="reading-next">
-                            <a href="" class="linkTo">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                <!-- End Item -->
+                <?php endwhile;endif; wp_reset_postdata();?>
             </div>
         </div>
         <div class="col-md-4 sidebar-blog fixed-top">
-            <div class="pro-title-breadcrumb">
-                <h4 style="margin: 0 0 20px">Bài viết mới nhất</h4>
-                <article class="blog-posts clearfix">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg">
-                    <div class="blog-content pull-left">
-                        <a class="title" href="#">Kính áp tròng bị rách có nên sử dụng</a>
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                    </div>
-                </article>
-                <article class="blog-posts clearfix">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg">
-                    <div class="blog-content pull-left">
-                        <a class="title" href="#">Kính áp tròng bị rách có nên sử dụng</a>
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                    </div>
-                </article>
-                <article class="blog-posts clearfix">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg">
-                    <div class="blog-content pull-left">
-                        <a class="title" href="#">Kính áp tròng bị rách có nên sử dụng</a>
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                    </div>
-                </article>
-                <article class="blog-posts clearfix">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg">
-                    <div class="blog-content pull-left">
-                        <a class="title" href="#">Kính áp tròng bị rách có nên sử dụng</a>
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                    </div>
-                </article>
-                <article class="blog-posts clearfix">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg">
-                    <div class="blog-content pull-left">
-                        <a class="title" href="#">Kính áp tròng bị rách có nên sử dụng</a>
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                    </div>
-                </article>
-            </div>
+            <?php get_sidebar() ?>
         </div>
     </div>
 </div>

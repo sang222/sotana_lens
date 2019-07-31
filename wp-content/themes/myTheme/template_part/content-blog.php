@@ -6,72 +6,38 @@
 
 </div>
 <section class="blog-posts">
-    <div class="d-flex flex-wrap fixed-width">
-        <div class="col-lg-4 col-sm-4 col-xs-12">
+    <div class="d-flex flex-wrap fixed-width owl-carousel owl-theme" id="carousel-blog">
+        <?php
+            $args = array(
+                'post_type'	 => 'news',
+                'post_status'	 => 'publish',
+                'posts_per_page' => -1
+            );
+            $query = new WP_Query( $args );
+            if( $query -> have_posts()) : while ($query -> have_posts()) : $query->the_post();
+            $feature_image_id = get_post_thumbnail_id(get_the_ID());
+            $feature_image_meta = wp_get_attachment_image_src($feature_image_id, 'full');
+            $short_description = get_field('short_description')
+        ?>
             <div class="content-post">
                 <div class="img-post">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog1.jpg">
+                    <a class="hover-animated" href="<?php echo get_the_permalink() ?>"><img src="<?php echo $feature_image_meta[0] ?>"></a>
                 </div>
                 <div class="detail-post">
-                    <h2>Glasses for you</h2>
-                    <div class="meta-post d-flex justify-content-between align-items-center">
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
+                    <h4><a href="<?php echo get_the_permalink() ?>"><?php echo the_title() ?></a></h4>
+                    <div class="date-post"><i class="fa fa-calendar"></i> 
+                        <?php echo get_the_date('M') ?> <?php echo get_the_date('d') ?>, <?php echo get_the_date('Y') ?>
                     </div>
-                    <div class="post-cmt">
+                    <div class="post-cmt" style="padding-top: 10px">
                         <p class="post-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                            magna, iaculis ut purus ut, facilisis...
+                            <?php echo $short_description ?>
                         </p>
                     </div>
                     <div class="reading-next">
-                        <span>Continue Reading</span>
+                        <a href="<?php echo get_the_permalink() ?>" style="color: #ed030e">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-sm-4 col-xs-12">
-            <div class="content-post">
-                <div class="img-post">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog2.jpg">
-                </div>
-                <div class="detail-post">
-                    <h2>Glasses for you</h2>
-                    <div class="meta-post d-flex justify-content-between align-items-center">
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                    </div>
-                    <div class="post-cmt">
-                        <p class="post-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                            magna, iaculis ut purus ut, facilisis...
-                        </p>
-                    </div>
-                    <div class="reading-next">
-                        <span>Continue Reading</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-4 col-xs-12">
-            <div class="content-post">
-                <div class="img-post">
-                    <img src="<?php echo $baseURL ?>/images/myimage/blog3.jpg">
-                </div>
-                <div class="detail-post">
-                    <h2>Glasses for you</h2>
-                    <div class="meta-post d-flex justify-content-between align-items-center">
-                        <div class="date-post"><i class="fa fa-calendar"></i> March 6, 2018</div>
-                    </div>
-                    <div class="post-cmt">
-                        <p class="post-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed vulputate massa. Fusce ante
-                            magna, iaculis ut purus ut, facilisis...
-                        </p>
-                    </div>
-                    <div class="reading-next">
-                        <span>Continue Reading</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endwhile;endif; wp_reset_postdata();?>
     </div>
 </section>

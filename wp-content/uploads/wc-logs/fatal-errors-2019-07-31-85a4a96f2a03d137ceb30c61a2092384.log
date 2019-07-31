@@ -1,0 +1,8 @@
+2019-07-31T13:29:25+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_cotent() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\single-news.php:26
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#3 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\single-news.php on line 26
+

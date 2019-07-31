@@ -46,7 +46,7 @@ $(document).ready(function () {
     });
 //    customer comment carousel
     $('#customer-carousel').owlCarousel({
-        loop: false,
+        loop: true,
         margin: 15,
         autoplay: true,
         responsiveClass: true,
@@ -63,6 +63,23 @@ $(document).ready(function () {
                 items: 5,
                 nav: true,
                 loop: false
+            }
+        }
+    });
+
+    $('#carousel-blog').owlCarousel({
+        loop: true,
+        margin: 15,
+        autoplay: true,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false
+            },
+            600: {
+                items: 3,
+                nav: false
             }
         }
     });
