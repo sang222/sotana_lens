@@ -113,7 +113,7 @@ function header_add_to_cart_fragment($fragments)
                             <div class="cart-btn text-right">
                                 <a class="btn btn-theme-colored btn-xs"
                                    href="<?php echo wc_get_cart_url(); ?>"> View cart</a>
-                                <a class="btn btn-dark btn-xs" href="shop-checkout.html">
+                                <a class="btn btn-dark btn-xs" href="<?php echo wc_get_checkout_url() ?>">
                                     Checkout</a>
                             </div>
                         </div>

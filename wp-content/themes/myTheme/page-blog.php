@@ -23,8 +23,8 @@
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 10;
                     $args = array(
                         'post_type'	 => 'news',
-                        'post_status'	 => 'publish',
-                        'posts_per_page' => $paged
+                        'posts_per_page' => $paged,
+                        'post_status' => 'publish'
                     );
                     $query = new WP_Query( $args );
                     if( $query -> have_posts()) : while ($query -> have_posts()) : $query->the_post();
@@ -59,6 +59,18 @@
                 <!-- End Item -->
                 <?php endwhile;endif; wp_reset_postdata();?>
             </div>
+            <!-- Pagination -->
+            <div class="paging pagenavi pagination">
+  							<div class="paging-normal">
+                <?php 
+                if (function_exists('wp_pagenavi')) {
+                    wp_pagenavi(array('query' => $query));
+                }
+                wp_reset_query();
+                ?>
+            </div>
+            </div>
+            <!-- End Pagination -->
         </div>
         <div class="col-md-4 sidebar-blog fixed-top">
             <?php get_sidebar() ?>

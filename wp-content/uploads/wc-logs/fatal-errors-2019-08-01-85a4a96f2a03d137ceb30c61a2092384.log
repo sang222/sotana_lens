@@ -1,0 +1,13 @@
+2019-08-01T14:54:16+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\include\main_menu.php on line 8
+
+2019-08-01T15:03:46+00:00 CRITICAL Object of class WP_Error could not be converted to string in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\footer.php on line 46
+
+2019-08-01T15:09:55+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-c in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+

@@ -3,5 +3,7 @@ add_theme_support( 'menus' );
 
 register_nav_menus(
     array(
-        'main-nav' => 'Menu chính' ) );
+        'main-nav' => 'Menu chính' ,
+        'footer-nav' => 'Menu footer' 
+    ));
 ?>
