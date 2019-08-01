@@ -233,33 +233,108 @@ $(document).on('click', '.reduced,.increase', function () {
 })
 
 //update cart
-$(document).on('click', '.increase,.increase', function () {
-    var id = $(this).data('id');
-    var quantity = $("#qty_" + id).val();
-    $.ajax({
-        type: 'post',
-        dataType: 'json',
-        url: $("#url_admin").val(),
-        data: {
-            'action': 'update_my_cart',
-            'item_id': id,
-            'quantity': quantity,
-            // 'variation_id': variathionID,
-            // 'atributes': atributes,
-            // 'attribute_pa_macaroons': itemData
-        }
-    })
-        .done(function (response) {
-            if (response.ajax_complete) {
-                document.location.reload(true);
-            }
-        })
-        .error(function (error) {
-            console.log(error);
-        })
-        .always(function (response) {
-            if (response.ajax_complete) {
-                document.location.reload(true);
+$(document).on('change', 'input.qty', function () {
+    // alert(1)
+    var item_hash = $(this).attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
+    var item_quantity = $(this).val();
+    var currentVal = parseFloat(item_quantity);
+    var $this = $(this);
+    function qty_cart() {
+
+        $.ajax({
+            type: 'POST',
+            url: $("#url_admin").val(),
+            data: {
+                action: 'qty_cart',
+                hash: item_hash,
+                quantity: currentVal
+            },
+            success: function (data) {
+                var price = $this.data('price');
+                var price_after_update = price * currentVal;
+                var id = $this.data('id');
+                $('.total-price-' + id).text(price_after_update + ' VND')
             }
         });
-})
+
+    }
+
+    qty_cart();
+
+});
+$(document).on('click', '.reduced', function () {
+    var item_hash = $(this).next('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
+    var item_quantity = $(this).next('input').val();
+    var currentVal = parseFloat(item_quantity);
+    var $this = $(this);
+    function qty_cart() {
+
+        $.ajax({
+            type: 'POST',
+            url: $("#url_admin").val(),
+            data: {
+                action: 'qty_cart',
+                hash: item_hash,
+                quantity: currentVal
+            },
+            success: function (data) {
+                var price = $this.data('price');
+                var price_after_update = price * currentVal;
+                var id = $this.data('id');
+                $('.total-price-' + id).text(price_after_update + ' VND')
+            }
+        });
+
+    }
+
+    qty_cart();
+});
+$(document).on('click', '.increase', function () {
+    var item_hash = $(this).prev('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
+    var item_quantity = $(this).prev('input').val();
+    var currentVal = parseFloat(item_quantity);
+    var $this = $(this);
+
+    function qty_cart() {
+
+        $.ajax({
+            type: 'POST',
+            url: $("#url_admin").val(),
+            data: {
+                action: 'qty_cart',
+                hash: item_hash,
+                quantity: currentVal
+            },
+            success: function (data) {
+                var price = $this.data('price');
+                var price_after_update = price * currentVal;
+                var id = $this.data('id');
+                $('.total-price-' + id).text(price_after_update + ' VND')
+            }
+        });
+
+    }
+
+    qty_cart();
+});
+// $(document).on('click', '.btn-update-cart', function (e) {
+//     e.preventDefault();
+//     $.ajax({
+//         type: 'POST',
+//         url: 'http://localhost:8080/outsource/cart/',
+//         data: $('.woocommerce-cart-form').serialize() ,
+//         beforeSend: function () {
+//             //You could show a loader here
+//         },
+//         success: function (data) {
+//             //Hide loader here
+//             console.log(data)
+//             // $( '.view-cart-popup' ).html(data);
+//             // activateReturnToShop();
+//         },
+//         error: function () {
+//             //If an ajax error has occured, do something here...
+//             // $(".product-container").html('<p>There has been an error</p>');
+//         }
+//     });
+// })

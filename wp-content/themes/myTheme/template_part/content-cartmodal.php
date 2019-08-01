@@ -20,18 +20,23 @@ global $woocommerce;
                             <th></th>
                             <th>Sản phẩm</th>
                             <th class="text-center">Đơn giá</th>
-                            <th class="text-center">Giá sale</th>
                             <th class="text-center">Số lượng</th>
                             <th class="text-center" colspan="2">Thành tiền</th>
                             </th>
                             </thead>
                             <tbody>
                             <?php
+                            $total_price = 0;
                             $items = $woocommerce->cart->get_cart();
                             $vt = 0;
                             foreach ($items as $item => $values) :
                                 $_product = wc_get_product($values['data']->get_id());
                                 $getProductDetail = wc_get_product($values['product_id']);
+                                if ($getProductDetail->get_sale_price() > 0) {
+                                    $total_price += $getProductDetail->get_sale_price() * $values['quantity'];
+                                } else {
+                                    $total_price += $getProductDetail->get_regular_price() * $values['quantity'];
+                                }
                                 $price = get_post_meta($values['product_id'], '_price', true);
                                 ?>
                                 <tr>
@@ -40,9 +45,17 @@ global $woocommerce;
                                         ?></td>
                                     <td style="vertical-align: middle;"><?php echo $_product->get_title(); ?></td>
                                     <td class="text-center"
-                                        style="vertical-align: middle;"><?php echo get_post_meta($values['product_id'], '_regular_price', true) ?></td>
-                                    <td class="text-center"
-                                        style="vertical-align: middle;"><?php echo get_post_meta($values['product_id'], '_sale_price', true) ?></td>
+                                        style="vertical-align: middle;">
+                                        <?php
+                                        if ($getProductDetail->get_sale_price() > 0) {
+                                            echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . ' VND';
+                                        } else {
+                                            echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . ' VND';
+                                        }
+                                        ?>
+
+                                    </td>
+
                                     <td class="qty-modal text-center" style="vertical-align: middle;">
                                         <div class="js-qty">
                                             <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>');
@@ -50,28 +63,56 @@ global $woocommerce;
                                                     class="action-count reduced items-count2"
                                                     type="button"
                                                     data-id="<?php echo $values['product_id'] ?>"
-                                            ><i
-                                                        class="fa fa-minus"></i>
+                                                    data-price="<?php
+                                                    if ($getProductDetail->get_sale_price() > 0) {
+                                                        echo $getProductDetail->get_sale_price();
+                                                    } else {
+                                                        echo $getProductDetail->get_regular_price();
+                                                    }
+                                                    ?>"
+                                            ><i class="fa fa-minus"></i>
                                             </button>
                                             <input type="text" pattern="[0-9]*"
                                                    class="input-text qty text-center"
                                                    id="qty_<?php echo $values['product_id'] ?>" min="1"
                                                    value="<?php echo $values['quantity']; ?>"
                                                    title="SL" max="100"
-                                                   max inputmode="numeric" value="1"
-                                                   maxlength="3" name="quantity"
-                                                   onkeyup="valid(this,&#39;numbers&#39;)"
-                                                   onblur="valid(this,&#39;numbers&#39;)">
+                                                   max inputmode="numeric"
+                                                   data-price="<?php
+                                                   if ($getProductDetail->get_sale_price() > 0) {
+                                                       echo $getProductDetail->get_sale_price();
+                                                   } else {
+                                                       echo $getProductDetail->get_regular_price();
+                                                   }
+                                                   ?>"
+                                                   data-id="<?php echo $values['product_id'] ?>"
+                                                   maxlength="3"
+                                                   name="cart[<?php echo $item ?>][qty]"
+                                            >
                                             <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                                     class=" action-count increase items-count2"
                                                     data-id="<?php echo $values['product_id'] ?>"
-                                                    type="button"><i
-                                                        class="fa fa-plus"></i>
+                                                    type="button"
+                                                    data-price="<?php
+                                                    if ($getProductDetail->get_sale_price() > 0) {
+                                                        echo $getProductDetail->get_sale_price();
+                                                    } else {
+                                                        echo $getProductDetail->get_regular_price();
+                                                    }
+                                                    ?>"
+                                            ><i class="fa fa-plus"></i>
                                             </button>
                                         </div>
                                     </td>
                                     <td colspan="2" class="" style="vertical-align: middle;">
-                                        <span><?php echo $values['quantity']; ?></span>
+                                        <span class="total-price-<?php echo $values['product_id'] ?>"><?php
+                                            if ($getProductDetail->get_sale_price() > 0) {
+                                                echo number_format(($getProductDetail->get_sale_price() * $values['quantity']), 0, ',', '.') . ' VND';
+                                            } else {
+                                                echo number_format(($getProductDetail->get_regular_price() * $values['quantity']), 0, ',', '.') . ' VND';
+                                            }
+
+                                            ?></span>
                                         <span
 
                                                 class=" remove-product float-right"
@@ -104,12 +145,12 @@ global $woocommerce;
                     <div class="cart-btn modal-action text-right ">
                         <div>
                             <span>Order Total</span>
-                            <span><?php echo WC()->cart->get_cart_subtotal(); ?></span>
-
+                            <span class="total-price"><?php echo $total_price ?></span> VND
                         </div>
                         <br/>
-                        <button type="button" name="update"
-                                class=" btn-modal-cart btn  btn-xs">Update Cart
+                        <!--                            <button type="submit" class="button btn-update-cart btn-modal-cart btn  btn-xs" name="update_cart"-->
+                        <!--                                    value="Update cart" disabled="">Update Cart-->
+                        <!--                            </button>-->
                         </button>
                         <a href="/checkout" class=" btn-modal-cart btn  btn-xs">Checkout</a>
                     </div>

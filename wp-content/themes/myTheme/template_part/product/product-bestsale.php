@@ -28,7 +28,6 @@
                         $koostis = wc_get_product_terms($product->id, 'pa_color', array('fields' => 'names'));
                         $stock = $product->get_stock_status();
                         ?>
-
                         <?php if (!empty($sale)): ?>
                             <p class="sale-banner">Sale!</p>
                         <?php endif; ?>
@@ -36,9 +35,9 @@
 
                         <div class="action-detail">
                             <p class="title-product"><?php echo get_the_title() ?></p>
-                            <p class="price-product"><?php echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                            <p class="price-product"><?php echo number_format($product->price, 0, ',', '.') . 'vnđ'; ?>
                                 <span style="text-decoration: line-through"><?php if ($product->sale_price) {
-                                        echo number_format($product->sale_price, 0, ',', '.') . 'đ';
+                                        echo number_format($product->sale_price, 0, ',', '.') . 'vnđ';
                                     } ?></span>
                             </p>
                         </div>
