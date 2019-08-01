@@ -64,3 +64,38 @@
 .empty-shop {
     margin-bottom: 30px;
 }
+
+.check-out-cart {
+    text-transform: uppercase;
+    margin-top: 20px;
+    display: block;
+}
+
+.check-out-cart a {
+    font-size: 1.2em;
+    border-radius: 0;
+    color: white;
+    background: #789be6;
+}
+
+.check-out-cart a:hover {
+    color: white;
+    opacity: .8;
+}
+
+.total-order-cart {
+    border: 1px solid #dfdfdf;
+    display: inline-block;
+
+    padding: 10px;
+}
+
+.total-order-cart span:nth-child(1) {
+    font-size: 1.2em;
+
+}
+
+.total-order-cart span:nth-child(2) {
+    font-size: 1.2em;
+    font-weight: 700;
+}

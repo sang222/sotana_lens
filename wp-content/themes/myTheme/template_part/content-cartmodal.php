@@ -12,7 +12,7 @@ global $woocommerce;
                     <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
                 </div>
                 <div class="modal-body frm-cart ">
-                    <div class="  table-responsive">
+                    <div class="  ">
                         <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
                         <?php //echo esc_url(wc_get_cart_url()) ?><!--" method="post">-->
                         <table class="table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
@@ -60,7 +60,7 @@ global $woocommerce;
                                         <div class="js-qty">
                                             <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>');
                                                     var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
-                                                    class="action-count reduced items-count2"
+                                                    class="action-count reduced items-count2 <?php if ($values['quantity'] == '1') echo 'none-click' ?>"
                                                     type="button"
                                                     data-id="<?php echo $values['product_id'] ?>"
                                                     data-price="<?php
@@ -90,7 +90,7 @@ global $woocommerce;
                                                    name="cart[<?php echo $item ?>][qty]"
                                             >
                                             <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                                                    class=" action-count increase items-count2"
+                                                    class=" action-count increase items-count2 "
                                                     data-id="<?php echo $values['product_id'] ?>"
                                                     type="button"
                                                     data-price="<?php
@@ -152,7 +152,7 @@ global $woocommerce;
                         <!--                                    value="Update cart" disabled="">Update Cart-->
                         <!--                            </button>-->
                         </button>
-                        <a href="/checkout" class=" btn-modal-cart btn  btn-xs">Checkout</a>
+                        <a href="<?php wc_get_checkout_url()  ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
                     </div>
                 </div>
 
