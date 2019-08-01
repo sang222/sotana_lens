@@ -170,7 +170,10 @@ $(document).on('click', '.remove-product', function (e) {
             $.each(data.data, function (index, value) {
                 count += value.quantity;
             })
-
+            var old_price_update = $('.total-price').text();
+            var new_price_update = parseInt(old_price_update) - parseInt($(".total-price-" + product_id).text().split(' ')[0]);
+            $(".total-price-dropdown").text(new_price_update);
+            $('.total-price').text(new_price_update);
             if ($this.parents('tr').prev().size() > 0 || $this.parents('tr').next().size() > 0) {
                 $this.parents('tr').remove();
             } else {
@@ -181,7 +184,9 @@ $(document).on('click', '.remove-product', function (e) {
                 $("#modal-empty-cart").removeClass('d-none');
             }
             $("#mini-cart-container table #mini-item-" + line).remove();
-            $("#count-mini-cart").text(count)
+            $("#count-mini-cart").text(count + ' Items');
+            $(".total-amount-dropdown").text(count + ' Items');
+
         }, error: function (err) {
             console.log(err);
         }
@@ -239,6 +244,7 @@ $(document).on('change', 'input.qty', function () {
     var item_quantity = $(this).val();
     var currentVal = parseFloat(item_quantity);
     var $this = $(this);
+
     function qty_cart() {
 
         $.ajax({
@@ -253,7 +259,21 @@ $(document).on('change', 'input.qty', function () {
                 var price = $this.data('price');
                 var price_after_update = price * currentVal;
                 var id = $this.data('id');
-                $('.total-price-' + id).text(price_after_update + ' VND')
+                var old_total_price_child = $('.total-price-' + id).text().split(' ')[0];
+                if (parseInt(old_total_price_child) > parseInt(price_after_update)) {
+                    var new_total_price1 = parseInt(old_total_price_child) - parseInt(price_after_update);
+                    var old_total_price1 = $('.total-price').text()
+                    var update_total_price1 = parseInt(old_total_price1) - parseInt(new_total_price1);
+                    $('.total-price').text(update_total_price1);
+                } else {
+                    var new_total_price2 = parseInt(price_after_update) - parseInt(old_total_price_child);
+                    var old_total_price2 = $('.total-price').text();
+                    var update_total_price2 = parseInt(old_total_price2) + parseInt(new_total_price2);
+                    $('.total-price').text(update_total_price2);
+
+                }
+                $('.total-price-' + id).text(price_after_update + ' VND');
+
             }
         });
 
@@ -267,6 +287,10 @@ $(document).on('click', '.reduced', function () {
     var item_quantity = $(this).next('input').val();
     var currentVal = parseFloat(item_quantity);
     var $this = $(this);
+    if (currentVal == 1) {
+        $(this).addClass('none-click')
+    }
+
     function qty_cart() {
 
         $.ajax({
@@ -278,10 +302,20 @@ $(document).on('click', '.reduced', function () {
                 quantity: currentVal
             },
             success: function (data) {
+
                 var price = $this.data('price');
                 var price_after_update = price * currentVal;
                 var id = $this.data('id');
-                $('.total-price-' + id).text(price_after_update + ' VND')
+                $(".quantity-head-" + id).text(currentVal);
+                $('.total-price-' + id).text(price_after_update + ' VND');
+                var old_total_price = $('.total-price-dropdown').text();
+                var update_total_price = parseInt(old_total_price) - parseInt(price);
+                $('.total-price').text(update_total_price);
+                $(".total-price-dropdown").text(update_total_price);
+                //total amount head
+                var old_total_amount_dropdown = $(".total-amount-dropdown").text();
+                $(".total-amount-dropdown").text(parseInt(old_total_amount_dropdown) - 1);
+                $("#count-mini-cart").text('(' + (parseInt(old_total_amount_dropdown) - 1) + ' Items)')
             }
         });
 
@@ -294,6 +328,7 @@ $(document).on('click', '.increase', function () {
     var item_quantity = $(this).prev('input').val();
     var currentVal = parseFloat(item_quantity);
     var $this = $(this);
+    $(this).prev().prev('.reduced').removeClass('none-click')
 
     function qty_cart() {
 
@@ -306,10 +341,20 @@ $(document).on('click', '.increase', function () {
                 quantity: currentVal
             },
             success: function (data) {
+
                 var price = $this.data('price');
                 var price_after_update = price * currentVal;
                 var id = $this.data('id');
+                $(".quantity-head-" + id).text(currentVal);
                 $('.total-price-' + id).text(price_after_update + ' VND')
+                var old_total_price = $('.total-price-dropdown').text();
+                var update_total_price = parseInt(old_total_price) + parseInt(price);
+                $('.total-price').text(update_total_price);
+                $(".total-price-dropdown").text(update_total_price);
+                //total amount head
+                var old_total_amount_dropdown = $(".total-amount-dropdown").text();
+                $(".total-amount-dropdown").text(parseInt(old_total_amount_dropdown) + 1)
+                $("#count-mini-cart").text('(' + (parseInt(old_total_amount_dropdown) + 1) + ' Items)')
             }
         });
 
@@ -317,24 +362,3 @@ $(document).on('click', '.increase', function () {
 
     qty_cart();
 });
-// $(document).on('click', '.btn-update-cart', function (e) {
-//     e.preventDefault();
-//     $.ajax({
-//         type: 'POST',
-//         url: 'http://localhost:8080/outsource/cart/',
-//         data: $('.woocommerce-cart-form').serialize() ,
-//         beforeSend: function () {
-//             //You could show a loader here
-//         },
-//         success: function (data) {
-//             //Hide loader here
-//             console.log(data)
-//             // $( '.view-cart-popup' ).html(data);
-//             // activateReturnToShop();
-//         },
-//         error: function () {
-//             //If an ajax error has occured, do something here...
-//             // $(".product-container").html('<p>There has been an error</p>');
-//         }
-//     });
-// })

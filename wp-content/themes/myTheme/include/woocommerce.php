@@ -55,19 +55,25 @@ function header_add_to_cart_fragment($fragments)
                     <li>
                         <!-- dropdown cart -->
                         <div class="dropdown-cart">
-                            <div class="dropdown--content-tbl">
+                            <div class="dropdown--content-tbl table-responsive">
                                 <table class="table cart-table-list table-responsive">
                                     <tbody>
                                     <?php
                                     $items = $woocommerce->cart->get_cart();
                                     $totalitem = 0;
                                     $haveitems = 0;
+                                    $total_price = 0;
                                     $vt = 0;
                                     foreach ($items as $item => $values):
                                         $_product = apply_filters('woocommerce_cart_item_product', $values['data'], $values, $item);
                                         if ($_product && $_product->exists() && $values['quantity'] > 0):
                                             $haveitems = 1;
                                             $_product = wc_get_product($values['data']->get_id());
+                                            if ($_product->get_sale_price() > 0) {
+                                                $total_price += $_product->get_sale_price() * $values['quantity'];
+                                            } else {
+                                                $total_price += $_product->get_regular_price() * $values['quantity'];
+                                            }
                                             $linkpro = get_permalink($values['product_id']);
                                             $titlepro = $_product->get_title();
                                             $getProductDetail = wc_get_product($values['product_id']);
@@ -81,8 +87,11 @@ function header_add_to_cart_fragment($fragments)
                                                                 alt="<?php echo $titlepro; ?>"
                                                         <?php echo $imgpro; ?></a>
                                                 </td>
-                                                <td><a href="#"> Product Title</a></td>
-                                                <td>X<?php echo $quantitypro; ?></td>
+                                                <td><a href="<?php echo $linkpro; ?>"
+                                                       class="truncate"> <?php echo $titlepro ?></a></td>
+                                                <td>
+                                                    X<span class="quantity-head-<?php echo $_product->get_id() ?>"><?php echo $quantitypro; ?></span>
+                                                </td>
                                                 <td><?php echo $pricepro; ?></td>
                                                 <td><a class="close remove-product"
                                                        data-product_id="<?php echo $_product->get_id() ?>"
@@ -101,11 +110,13 @@ function header_add_to_cart_fragment($fragments)
                                     <tbody>
                                     <tr>
                                         <td> Item Total</td>
-                                        <td><?php echo $totalitem; ?> Items</td>
+                                        <td><span class="total-amount-dropdown"><?php echo $totalitem; ?></span> Items
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Order Total</td>
-                                        <td><?php echo WC()->cart->get_cart_subtotal(); ?></td>
+                                        <td><span class="total-price-dropdown"><?php echo $total_price ?></span> VND
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -305,7 +316,7 @@ function modal_add_to_cart_fragment($fragments)
                 <br/>
 
                 </button>
-                <a href="/checkout" class=" btn-modal-cart btn  btn-xs">Checkout</a>
+                <a href="<?php echo wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
             </div>
         </div>
 
@@ -369,12 +380,143 @@ function product_remove()
 }
 
 //end remove product
+//pagination
+function devvn_corenavi_ajax($custom_query = null, $paged = 1)
+{
+    global $wp_query, $wp_rewrite;
+    if ($custom_query) $main_query = $custom_query;
+    else $main_query = $wp_query;
+    $big = 999999999;
+    $total = isset($main_query->max_num_pages) ? $main_query->max_num_pages : '';
+    if ($total > 1) echo '<div class="paginate_links">';
+    echo paginate_links(array(
+        'base' => trailingslashit(home_url()) . "{$wp_rewrite->pagination_base}/%#%/",
+        'format' => '?paged=%#%',
+        'current' => max(1, $paged),
+        'total' => $total,
+        'mid_size' => '5',
+        'prev_text' => __('<<', 'devvn'),
+        'next_text' => __('>>', 'devvn'),
+    ));
+    if ($total > 1) echo '</div>';
+}
+
+add_action('wp_ajax_ajax_load_post', 'ajax_load_post_func');
+add_action('wp_ajax_nopriv_ajax_load_post', 'ajax_load_post_func');
+function ajax_load_post_func()
+{
+
+    $paged = isset($_POST['ajax_paged']) ? intval($_POST['ajax_paged']) : '';
+    if ($paged <= 0 || !$paged || !is_numeric($paged)) wp_send_json_error('Paged?');
+    $args = array(
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'ignore_sticky_posts' => 1,
+        'paged' => $paged,
+        'posts_per_page' => 4,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                'terms' => $_POST['cat_id'],
+                'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+            ),
+            array(
+                'taxonomy' => 'product_visibility',
+                'field' => 'slug',
+                'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                'operator' => 'NOT IN'
+            )
+        )
+    );
+    $loop = new WP_Query($args);
+    $stt = 1;
+    ob_start();
+    while ($loop->have_posts()) : $loop->the_post();
+        global $product;
+        $max_post_count = $loop->post_count;
+
+        ?>
+        <div class="col-lg-3 col-sm-6 col-xs-6 ">
+            <div class="product-item">
+                <a href="<?php the_permalink() ?>">
+                    <?php
+                    $sale = $product->sale_price;
+                    $koostis = wc_get_product_terms($product->id, 'pa_color', array('fields' => 'names'));
+                    $stock = $product->get_stock_status();
+                    ?>
+                    <?php if (!empty($sale)): ?>
+                        <p class="sale-banner">Sale!</p>
+                    <?php endif; ?>
+                    <?php the_post_thumbnail('shop_catalog', array("title" => get_the_title(), 'alt' => get_the_title())) ?>
+
+                    <div class="action-detail">
+                        <p class="title-product"><?php echo get_the_title() ?></p>
+                        <p class="price-product"><?php echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                            <span style="text-decoration: line-through"><?php if ($product->sale_price) {
+                                    echo number_format($product->sale_price, 0, ',', '.') . 'đ';
+                                } ?></span>
+                        </p>
+                    </div>
+                </a>
+                <div class="content-action d-flex flex-column justify-content-end">
+                    <?php if ($stock == 'instock'): ?>
+                        <a title="Add cart"
+                           class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
+                           href="?add-to-cart=<?php echo $product->get_id(); ?>"
+                           data-quantity="<?php echo $product->qty ?>"
+                           data-product_id="<?php echo $product->get_id(); ?>"
+                           data-product_sku="<?php echo $product->sku ?>"
+                        ><i class="fa fa-cart-plus"></i></a>
+                    <?php else: ?>
+                        <a title="View"
+                           class="cart-product add-cart "
+                           href="<?php the_permalink() ?>"
+                        ><i class="fa fa-eye"></i></a>
+                    <?php endif; ?>
+                    <span class="cart-product view-product"
+                          class="tooltip-left" data-tooltip="Quick view"
+                          onclick="viewProduct(
+                          <?php echo $product->get_id() ?>,this)"
+                          data-quantity="<?php echo $product->qty ?>"
+                          data-product_id="<?php echo $product->get_id(); ?>"
+                          data-product_sku="<?php echo $product->sku ?>"
+                          data-product_price="<?php if ($product->get_price()) {
+                              echo number_format($product->get_price(), 0, ',', '.') . 'đ';
+                          } ?>"
+                          data-product_price_regular="<?php if ($product->get_regular_price()) {
+                              echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
+                          } ?>"
+                          data-product_price_sale="<?php if ($product->get_sale_price()) {
+                              echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
+                          } ?>"
+                          data-product_price_stock="<?php $product->get_stock_status(); ?>"
+                          data-product_link="<?php the_permalink() ?>"
+                    ><i
+                                class="fa fa-search"></i></span>
+                </div>
+            </div>
+
+        </div>
+
+        <?php
+        $stt++;
+    endwhile;
+    wp_reset_query();
+    ?>
+    <?php devvn_corenavi_ajax($loop, $paged); ?>
+    <?php
+    $content = ob_get_clean();
+    wp_send_json_success($content);
+    die();
+}
+
+//endpagination
 //filter product
 add_action('wp_ajax_filter', 'filter_product');
 add_action('wp_ajax_nopriv_filter', 'filter_product');
 function filter_product()
 {
-
     $price = (isset($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
     $price = explode(':', $price);
     $cate_id = (isset($_POST['cat_id'])) ? esc_attr($_POST['cat_id']) : '';

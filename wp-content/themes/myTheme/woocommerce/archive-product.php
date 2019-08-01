@@ -55,7 +55,7 @@ get_header('shop');
             'post_type' => 'product',
             'post_status' => 'publish',
             'ignore_sticky_posts' => 1,
-            'posts_per_page' => '12',
+            'posts_per_page' => '4',
             'tax_query' => array(
                 array(
                     'taxonomy' => 'product_cat',
@@ -76,9 +76,11 @@ get_header('shop');
         <input type="hidden" id="cate_id" value="<?php echo $cateID ?>"/>
         <div class="collection float-left col-lg-9 ml-0 row colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
             <?php
+            $stt = 1;
             while ($loop->have_posts()) : $loop->the_post();
-                global $product; ?>
-
+                global $product;
+                $max_post_count = $loop->post_count;
+                ?>
                 <div class="col-lg-3 col-sm-6 col-xs-6 ">
                     <div class="product-item">
                         <a href="<?php the_permalink() ?>">
@@ -141,11 +143,14 @@ get_header('shop');
 
                 </div>
 
-            <?php
+                <?php
+                $stt++;
             endwhile;
             wp_reset_query();
             ?>
+            <?php devvn_corenavi_ajax($loop); ?>
         </div>
+
         <div class="float-right col-lg-3 col-sm-3 col-xs-12">
             <?php get_template_part('template_part/content', 'sidebar') ?>
         </div>
@@ -249,6 +254,39 @@ get_footer('shop');
 
             }, error: function (err) {
                 console.log(err);
+            }
+        });
+    });
+    //    click pagination
+    $(".collection").on('click', '.paginate_links a', function (e) {
+        e.preventDefault();
+        var hrefThis = $(this).attr('href');
+        var paged = hrefThis.match(/\/\d+\//)[0];
+
+        paged = paged.match(/\d+/)[0];
+        if (!paged) paged = 1;
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: $("#url_admin").val(),
+            data: {
+                action: "ajax_load_post",
+                cat_id: $("#cate_id").val(),
+                ajax_paged: paged,
+            },
+            context: this,
+            beforeSend: function () {
+                $('.collection').addClass('active');
+            },
+            success: function (response) {
+                console.log(response)
+                if (response.success) {
+
+                    $(response.data).addClass('holder');
+                    $(".collection").empty();
+                    $(".collection").append($(response.data));
+                }
+                $('.collection').removeClass('active');
             }
         });
     });

@@ -24,6 +24,17 @@ body {
     background: #d85c5c !important;
 
 }
+.none-click{
+    cursor: not-allowed;
+    background: #dfdfdf !important;
+    pointer-events: none;
+}
+.truncate {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 body ul.list li {
     font-weight: normal

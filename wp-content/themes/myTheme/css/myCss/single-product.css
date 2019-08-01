@@ -15,16 +15,18 @@
 }
 
 .slick-carousel img.active {
-    border: 1px solid #d85c5c;
+
     width: calc(100% - 2px);
     box-sizing: border-box;
+    padding-left:1px;
 }
 
 .slick-carousel img:hover {
-    border: 1px solid #d85c5c;
+
     width: calc(100% - 2px);
     opacity: 0.8;
-
+    box-sizing: border-box;
+    padding-left:1px;
 }
 
 

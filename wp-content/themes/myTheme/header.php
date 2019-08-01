@@ -21,8 +21,8 @@
     <link href="<?php echo $baseURL ?>/css/animate.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $baseURL ?>/css/css-plugin-collections.css" rel="stylesheet"/>
     <!-- CSS | menuzord megamenu skins -->
-<!--lato font-->
-<!--    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">-->
+    <!--lato font-->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">-->
     <!-- CSS | Main style file -->
     <link href="<?php echo $baseURL ?>/css/style-main.css" rel="stylesheet" type="text/css">
     <!-- CSS | Preloader Styles -->
@@ -151,7 +151,8 @@
                         <div class="widget no-border m-0">
                             <a href="<?php echo get_site_url() ?>"
                                class="menuzord-brand pull-left flip xs-pull-center mt-10 mb-10">
-                                <img alt="" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png"></a>
+                                <img alt=""
+                                     src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png"></a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-2">
@@ -225,13 +226,13 @@
                         </ul>
                         <!-- <ul class="pull-right flip hidden-sm hidden-xs">
                             <li> -->
-                                <!-- Modal: Book Now Starts -->
-                                <!-- <a class="btn btn-colored btn-flat bg-theme-color text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15"
-                                   data-toggle="modal" data-target="#BSParentModal"
-                                   href="ajax-load/reservation-form.html" style="background: #e8d460 !important;">Shop Now</a> -->
-                                <!-- Modal: Book Now End -->
-                            <!-- </li>
-                        </ul> -->
+                        <!-- Modal: Book Now Starts -->
+                        <!-- <a class="btn btn-colored btn-flat bg-theme-color text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15"
+                           data-toggle="modal" data-target="#BSParentModal"
+                           href="ajax-load/reservation-form.html" style="background: #e8d460 !important;">Shop Now</a> -->
+                        <!-- Modal: Book Now End -->
+                        <!-- </li>
+                    </ul> -->
                         <ul class="list-inline flip container-mini-cart pull-right">
                             <li class="mb-0 pb-0">
                                 <?php global $woocommerce; ?>
@@ -245,63 +246,76 @@
                                             <div class="dropdown-cart">
                                                 <div class="dropdown--content-tbl">
                                                     <table class="table cart-table-list table-responsive">
-                                                    <tbody>
-                                                    <?php
-                                                    $items = $woocommerce->cart->get_cart();
-                                                    $totalitem = 0;
-                                                    $haveitems = 0;
-                                                    $vt = 0;
-                                                    foreach ($items as $item => $values):
-                                                        $_product = apply_filters('woocommerce_cart_item_product', $values['data'], $values, $item);
-                                                        if ($_product && $_product->exists() && $values['quantity'] > 0):
-                                                            $haveitems = 1;
-                                                            $_product = wc_get_product($values['data']->get_id());
-                                                            $linkpro = get_permalink($values['product_id']);
-                                                            $titlepro = $_product->get_title();
-                                                            $getProductDetail = wc_get_product($values['product_id']);
-                                                            $imgpro = $getProductDetail->get_image(array(80, 80));
-                                                            $pricepro = get_post_meta($values['product_id'], '_price', true);
-                                                            $quantitypro = $values['quantity'];
-                                                            $totalitem += $quantitypro;
-                                                            ?>
-                                                            <tr id="mini-item-<?php echo $vt ?>">
-                                                                <td><a href="<?php echo $linkpro; ?>"><img
-                                                                                alt="<?php echo $titlepro; ?>"
-                                                                        <?php echo $imgpro; ?></a>
-                                                                </td>
-                                                                <td><a href="#"> Product Title</a></td>
-                                                                <td>X<?php echo $quantitypro; ?></td>
-                                                                <td><?php echo $pricepro; ?></td>
-                                                                <td><a class="close remove-product"
-                                                                        data-product_id="<?php echo $_product->get_id() ?>"
-                                                                        href="#"><i
-                                                                                class="fa fa-close font-13"></i></a>
-                                                                </td>
-                                                            </tr>
-                                                            <?php $vt++; ?>
-                                                        <?php endif; ?>
-                                                    <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
+                                                        <tbody>
+                                                        <?php
+                                                        $items = $woocommerce->cart->get_cart();
+                                                        $totalitem = 0;
+                                                        $total_price = 0;
+                                                        $haveitems = 0;
+                                                        $vt = 0;
+                                                        foreach ($items as $item => $values):
+                                                            $_product = apply_filters('woocommerce_cart_item_product', $values['data'], $values, $item);
+                                                            if ($_product && $_product->exists() && $values['quantity'] > 0):
+                                                                $haveitems = 1;
+                                                                $_product = wc_get_product($values['data']->get_id());
+                                                                if ($_product->get_sale_price() > 0) {
+                                                                    $total_price += $_product->get_sale_price() * $values['quantity'];
+                                                                } else {
+                                                                    $total_price += $_product->get_regular_price() * $values['quantity'];
+                                                                }
+                                                                $linkpro = get_permalink($values['product_id']);
+                                                                $titlepro = $_product->get_title();
+                                                                $getProductDetail = wc_get_product($values['product_id']);
+                                                                $imgpro = $getProductDetail->get_image(array(80, 80));
+                                                                $pricepro = get_post_meta($values['product_id'], '_price', true);
+                                                                $quantitypro = $values['quantity'];
+                                                                $totalitem += $quantitypro;
+                                                                ?>
+                                                                <tr id="mini-item-<?php echo $vt ?>">
+                                                                    <td><a href="<?php echo $linkpro; ?>"><img
+                                                                                    alt="<?php echo $titlepro; ?>"
+                                                                            <?php echo $imgpro; ?></a>
+                                                                    </td>
+                                                                    <td><a href="<?php echo $linkpro; ?>"
+                                                                           class="truncate"> <?php echo $titlepro ?></a>
+                                                                    </td>
+                                                                    <td>X
+                                                                        <span class="quantity-head-<?php echo $_product->get_id() ?>"><?php echo $quantitypro; ?></span>
+                                                                    </td>
+                                                                    <td><?php echo $pricepro; ?></td>
+                                                                    <td><a class="close remove-product"
+                                                                           data-product_id="<?php echo $_product->get_id() ?>"
+                                                                           href="#"><i
+                                                                                    class="fa fa-close font-13"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <?php $vt++; ?>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                                 <div class="total-cart text-right">
                                                     <table class="table table-responsive">
                                                         <tbody>
                                                         <tr>
                                                             <td> Item Total</td>
-                                                            <td><?php echo $totalitem; ?> Items</td>
+                                                            <td>
+                                                                <span class="total-amount-dropdown"><?php echo $totalitem; ?></span>
+                                                                Items
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Order Total</td>
-                                                            <td><?php echo WC()->cart->get_cart_subtotal(); ?></td>
+                                                            <td><span class="total-price-dropdown"><?php echo $total_price ?></span> VND</td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                                 <div class="cart-btn text-right">
                                                     <a class="btn btn-theme-colored btn-xs"
-                                                        href="<?php echo wc_get_cart_url(); ?>"> View cart</a>
-                                                    <a class="btn btn-dark btn-xs" href="<?php echo wc_get_checkout_url() ?>">
+                                                       href="<?php echo wc_get_cart_url(); ?>"> View cart</a>
+                                                    <a class="btn btn-dark btn-xs" href="shop-checkout.html">
                                                         Checkout</a>
                                                 </div>
                                             </div>
@@ -319,10 +333,10 @@
                                             <div class="search-form-wrapper">
                                                 <form method="get" class="mt-10">
                                                     <input type="text"
-                                                            onfocus="if(this.value =='Enter your search') { this.value = ''; }"
-                                                            onblur="if(this.value == '') { this.value ='Enter your search'; }"
-                                                            value="Enter your search" id="searchinput" name="s"
-                                                            class="">
+                                                           onfocus="if(this.value =='Enter your search') { this.value = ''; }"
+                                                           onblur="if(this.value == '') { this.value ='Enter your search'; }"
+                                                           value="Enter your search" id="searchinput" name="s"
+                                                           class="">
                                                     <label><input type="submit" name="submit" value=""></label>
                                                 </form>
                                             </div>
