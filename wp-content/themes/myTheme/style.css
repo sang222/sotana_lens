@@ -1468,7 +1468,7 @@ body .pagination {
 
 @media (max-width: 992px) {
     .header .show-on-mobile, .nav-mobile {
-        display: block
+        display: block !important;
     }
     .header .col-logo {
         display: none;
@@ -1481,9 +1481,26 @@ body .pagination {
         align-items: center;
         justify-content: space-between;
         background: #fff;
+        position: fixed;
+        z-index: 99999;
+        width: 100%;
+        top: 0;
+    }
+    .wrapper-nav-mobile {
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+        margin-top: 25px;
     }
     .header .nav-mobile .menuzord-brand {
         margin: 10px 0;
+    }
+    .header .nav-mobile .container-mini-cart, .header .nav-mobile .container-mini-cart .dropdown  > * {
+        display: block;
+    }
+    .header .nav-mobile .container-mini-cart li.mb-0.pb-0:last-child, .header .nav-mobile .container-mini-cart .top-cart-link {
+        display: none;
     }
     .header .nav-mobile .menuzord-brand img {
         max-height: 45px;
@@ -1492,8 +1509,11 @@ body .pagination {
         font-size: 20px;
         margin-right: 17px;
     }
+    #header {
+        overflow: hidden;
+    }
     #header .header-nav .bg-theme-colored#menuzord {
-        position: absolute;
+        position: fixed;
         width: 70%;
         height: 103vh;
         top: 0;
@@ -1505,9 +1525,24 @@ body .pagination {
         justify-content: flex-start;
         border-left: 1px solid #ccc;
         transition: all 0.3s ease;
+        z-index: 99999;
     }
     #header .header-nav .bg-theme-colored#menuzord.menu-opening {
         right: -2%;
+    }
+    .hd-cart-count {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 50%;
+        background: #000000;
+        font-size: 10px;
+        color: #fff;
+        position: absolute;
+        right: 3px;
+        top: -18px;
     }
     .header #menuzord .close-button {
         position: absolute;

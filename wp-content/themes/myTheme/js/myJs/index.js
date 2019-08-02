@@ -12,6 +12,9 @@ $(document).ready(function () {
     $('.close-button').click(function() {
         $('#menuzord').removeClass('menu-opening')
     })
+    $('#icon-cart-mobile').click(function() {
+        $('#mini-cart-container').toggle()
+    })
     $('.collapse.in').prev('.panel-heading').addClass('active');
     $('#accordion, #bs-collapse')
         .on('show.bs.collapse', function (a) {
