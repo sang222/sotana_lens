@@ -109,8 +109,8 @@
                             <div class="wrapper-nav-mobile">
                                 <ul class="list-inline flip container-mini-cart pull-right">
                                     <li class="mb-0 pb-0">
-                                        <div style="position: relative" class="show-on-mobile">
-                                            <img id="icon-cart-mobile" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/hd_mainmenu_icon_cart.png"
+                                        <div style="position: relative" class="show-on-mobile" id="icon-cart-mobile">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/images/hd_mainmenu_icon_cart.png"
                                                 alt="" style="margin-top: -11px;margin-right: 10px;">
                                             <span class="hd-cart-count"
                                                 id="count-mini-cart"><?php echo $woocommerce->cart->cart_contents_count ?></span>
