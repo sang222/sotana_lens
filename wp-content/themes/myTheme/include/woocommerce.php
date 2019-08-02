@@ -140,7 +140,7 @@ function header_add_to_cart_fragment($fragments)
                 <ul class="dropdown">
                     <li>
                         <div class="search-form-wrapper">
-                            <form method="get" class="mt-10">
+                            <form action="<?php esc_url( home_url( '/' ) ) ?>" class="mt-10">
                                 <input type="text"
                                        onfocus="if(this.value =='Enter your search') { this.value = ''; }"
                                        onblur="if(this.value == '') { this.value ='Enter your search'; }"

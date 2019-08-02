@@ -1459,3 +1459,6 @@ body .pagination {
     color: #fff;
     border-color: #789be6;
 }
+.search-results .search-form-wrapper form label:before {
+    top: 11px;
+}

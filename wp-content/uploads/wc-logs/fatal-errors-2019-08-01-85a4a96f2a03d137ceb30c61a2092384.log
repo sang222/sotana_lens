@@ -23,3 +23,23 @@ Stack trace:
 2019-08-01T07:40:51+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\content-cartmodal.php on line 120
 >>>>>>> d0186431063f4d93584cd0a6710702a9d89ddd63
 
+2019-08-01T18:07:49+00:00 CRITICAL Uncaught Error: Call to a member function get() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\wp-pagenavi\core.php:257
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\wp-pagenavi\core.php(40): PageNavi_Call->get_pagination_args()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\page.php(41): wp_pagenavi(Array)
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include('D:\\xampp\\source...')
+#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#5 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\wp-pagenavi\core.php on line 257
+
+2019-08-01T18:08:02+00:00 CRITICAL Uncaught Error: Call to a member function get() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\wp-pagenavi\core.php:257
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\wp-pagenavi\core.php(40): PageNavi_Call->get_pagination_args()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\page.php(41): wp_pagenavi(Array)
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include('D:\\xampp\\source...')
+#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#5 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\wp-pagenavi\core.php on line 257
+
