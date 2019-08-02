@@ -6,6 +6,12 @@ function openProTabs(index, $this) {
 }
 
 $(document).ready(function () {
+    $('#toggle-mobile-menu').click(function() {
+        $('#menuzord').addClass('menu-opening')
+    })
+    $('.close-button').click(function() {
+        $('#menuzord').removeClass('menu-opening')
+    })
     $('.collapse.in').prev('.panel-heading').addClass('active');
     $('#accordion, #bs-collapse')
         .on('show.bs.collapse', function (a) {

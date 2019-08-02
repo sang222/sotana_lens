@@ -1461,3 +1461,92 @@ body .pagination {
 .search-results .search-form-wrapper form label:before {
     top: 11px;
 }
+
+.header .show-on-mobile, .nav-mobile {
+    display: none
+}
+
+@media (max-width: 992px) {
+    .header .show-on-mobile, .nav-mobile {
+        display: block
+    }
+    .header .col-logo {
+        display: none;
+    }
+    #header .header-nav .bg-theme-colored, #header .header-nav {
+        background: transparent !important;
+    }
+    .header .nav-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+    }
+    .header .nav-mobile .menuzord-brand {
+        margin: 10px 0;
+    }
+    .header .nav-mobile .menuzord-brand img {
+        max-height: 45px;
+    }
+    .header .nav-mobile i {
+        font-size: 20px;
+        margin-right: 17px;
+    }
+    #header .header-nav .bg-theme-colored#menuzord {
+        position: absolute;
+        width: 70%;
+        height: 103vh;
+        top: 0;
+        background: #fff !important;
+        right: -72%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-left: 1px solid #ccc;
+        transition: all 0.3s ease;
+    }
+    #header .header-nav .bg-theme-colored#menuzord.menu-opening {
+        right: -2%;
+    }
+    .header #menuzord .close-button {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 25px;
+        z-index: 9999;
+    }
+    .header-middle {
+        display:  none;
+    }
+    .header .show-on-mobile.search-form-wrapper {
+        width: 95%;
+        padding-top: 20px;
+    }
+    .header .show-on-mobile.search-form-wrapper form {
+        padding: 0 10px;
+    }
+    .header .show-on-mobile.search-form-wrapper form label {
+        top: 0;
+        bottom: 0;
+    }
+    .header .show-on-mobile.search-form-wrapper form label:before {
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+    }
+    .header .show-on-mobile.search-form-wrapper form label input {
+        background: transparent;
+    }
+    .header .container-mini-cart {
+        display: none;
+    }
+}
+@media (min-width: 767px) and (max-width: 992px) {
+    .header .row-top {
+        display: flex;
+        justify-content: center;
+    }
+}

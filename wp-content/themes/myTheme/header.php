@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<!-- Mirrored from html.kodesolution.live/m/repairshop/v3.1/demo/index-dark-mp-layout3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Jun 2019 16:44:40 GMT -->
 <head>
     <?php $baseURL = esc_url(get_template_directory_uri()); ?>
     <!-- Meta Tags -->
@@ -44,110 +43,18 @@
     <?php wp_head() ?>
 </head>
 <body <?php body_class('white'); ?>>
-<!--<script>-->
-<!--    // This is called with the results from from FB.getLoginStatus().-->
-<!--    function statusChangeCallback(response) {-->
-<!--        console.log('statusChangeCallback');-->
-<!--        console.log(response);-->
-<!--        // The response object is returned with a status field that lets the-->
-<!--        // app know the current login status of the person.-->
-<!--        // Full docs on the response object can be found in the documentation-->
-<!--        // for FB.getLoginStatus().-->
-<!--        if (response.status === 'connected') {-->
-<!--            // Logged into your app and Facebook.-->
-<!--            testAPI();-->
-<!--        } else {-->
-<!--            // The person is not logged into your app or we are unable to tell.-->
-<!--            document.getElementById('status').innerHTML = 'Please log ' +-->
-<!--                'into this app.';-->
-<!--        }-->
-<!--    }-->
-<!---->
-<!--    // This function is called when someone finishes with the Login-->
-<!--    // Button.  See the onlogin handler attached to it in the sample-->
-<!--    // code below.-->
-<!--    function checkLoginState() {-->
-<!--        FB.getLoginStatus(function(response) {-->
-<!--            statusChangeCallback(response);-->
-<!--        });-->
-<!--    }-->
-<!---->
-<!--    window.fbAsyncInit = function () {-->
-<!--        window.fbAsyncInit = function () {-->
-<!--            FB.init({-->
-<!--                appId: '696519377442949',-->
-<!--                xfbml: true,-->
-<!--                version: 'v3.3'-->
-<!--            });-->
-<!--            FB.AppEvents.logPageView();-->
-<!--        };-->
-<!---->
-<!--        // Now that we've initialized the JavaScript SDK, we call-->
-<!--        // FB.getLoginStatus().  This function gets the state of the-->
-<!--        // person visiting this page and can return one of three states to-->
-<!--        // the callback you provide.  They can be:-->
-<!--        //-->
-<!--        // 1. Logged into your app ('connected')-->
-<!--        // 2. Logged into Facebook, but not your app ('not_authorized')-->
-<!--        // 3. Not logged into Facebook and can't tell if they are logged into-->
-<!--        //    your app or not.-->
-<!--        //-->
-<!--        // These three cases are handled in the callback function.-->
-<!---->
-<!--        FB.getLoginStatus(function (response) {-->
-<!--            statusChangeCallback(response);-->
-<!--        });-->
-<!---->
-<!--    };-->
-<!---->
-<!--    // Load the SDK asynchronously-->
-<!--    (function(d, s, id) {-->
-<!--        var js, fjs = d.getElementsByTagName(s)[0];-->
-<!--        if (d.getElementById(id)) return;-->
-<!--        js = d.createElement(s); js.id = id;-->
-<!--        js.src = "https://connect.facebook.net/en_US/sdk.js";-->
-<!--        fjs.parentNode.insertBefore(js, fjs);-->
-<!--    }(document, 'script', 'facebook-jssdk'));-->
-<!---->
-<!--    // Here we run a very simple test of the Graph API after login is-->
-<!--    // successful.  See statusChangeCallback() for when this call is made.-->
-<!--    function testAPI() {-->
-<!--        console.log('Welcome!  Fetching your information.... ');-->
-<!--        FB.api('/me', function(response) {-->
-<!--            console.log('Successful login for: ' + response.name);-->
-<!--            document.getElementById('status').innerHTML =-->
-<!--                'Thanks for logging in, ' + response.name + '!';-->
-<!--        });-->
-<!--    }-->
-<!--</script>-->
-
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-<!---->
-<!--<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">-->
-<!--</fb:login-button>-->
 
 <div id="status">
 </div>
 <input type="hidden" id="url_admin" value="<?php echo admin_url('admin-ajax.php') ?>">
 <div id="wrapper" class="clearfix">
-    <!-- preloader -->
-    <!--    <div id="preloader">-->
-    <!--        <div id="spinner">-->
-    <!--            <img alt="" src="images/preloaders/5.gif">-->
-    <!--        </div>-->
-    <!--        <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>-->
-    <!--    </div>-->
 
     <!-- Header -->
     <div id="header" class="header">
         <div class="header-middle p-0 bg-lightest xs-text-center">
             <div class="fixed-width pt-0 pb-0">
-                <div class="row mx-0">
-                    <div class="col-xs-12 col-sm-3 col-md-6">
+                <div class="row mx-0 row-top">
+                    <div class="col-xs-12 col-sm-3 col-md-6 col-logo">
                         <div class="widget no-border m-0">
                             <a href="<?php echo get_site_url() ?>"
                                class="menuzord-brand pull-left flip xs-pull-center mt-10 mb-10">
@@ -157,31 +64,31 @@
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-2">
                         <div class="widget no-border m-0">
-                            <div class="mt-15 mb-10 text-right flip sm-text-center">
+                            <div class="mt-15 mb-10 text-right flip text-center">
                                 <div class="font-15 text-black-333 mb-5 font-weight-600"><i
-                                            class="fa fa-envelope text-theme-colored font-18"></i> Mail Us Today
+                                            class="fa fa-envelope text-theme-colored font-18"></i> Email
                                 </div>
-                                <a href="#" class="font-12 text-gray"> info@yourdomain.com</a>
+                                <a href="mailto: gentleromeos@gmail.com" class="font-12 text-gray"> gentleromeos@gmail.com</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-2">
                         <div class="widget no-border m-0">
-                            <div class="mt-15 mb-10 text-right flip sm-text-center">
+                            <div class="mt-15 mb-10 text-right flip text-center">
                                 <div class="font-15 text-black-333 mb-5 font-weight-600"><i
-                                            class="fa fa-map-marker text-theme-colored font-18"></i> Company Location
+                                            class="fa fa-map-marker text-theme-colored font-18"></i> Địa chỉ
                                 </div>
-                                <a href="#" class="font-12 text-gray"> 121 King Street, Melbourne</a>
+                                <a href="#" class="font-12 text-gray"> R4-64 Mỹ Toàn 2, Phường Tân Phong, Quận 7, TP. HCM</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-2">
                         <div class="widget no-border m-0">
-                            <div class="mt-15 mb-10 text-right flip sm-text-center">
+                            <div class="mt-15 mb-10 text-right flip text-center">
                                 <div class="font-15 text-black-333 mb-5 font-weight-600"><i
-                                            class="fa fa-phone-square text-theme-colored font-18"></i> +(012) 345 6789
+                                            class="fa fa-phone-square text-theme-colored font-18"></i> (028) 5412.5427
                                 </div>
-                                <a href="#" class="font-12 text-gray"> Call us for more details</a>
+                                <a href="#" class="font-12 text-gray"> Gọi để biết thêm chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -191,7 +98,15 @@
         <div class="header-nav">
             <div class="header-nav-wrapper navbar-scrolltofixed bg-theme-colored border-bottom-theme-color-2-1px">
                 <div class="fixed-width">
+                    <nav class="nav-mobile">
+                        <a href="<?php echo get_site_url() ?>"
+                            class="menuzord-brand pull-left">
+                            <img alt=""
+                                    src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png"></a>
+                            <i id="toggle-mobile-menu" class="fa fa-bars" aria-hidden="true"></i>
+                    </nav>
                     <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
+                        <i class="fa fa-times show-on-mobile close-button" aria-hidden="true"></i>
                         <ul class="menuzord-menu">
                             <!-- <li class="menu-item167"> 
                                 <a href="<?php echo site_url() ?>" title="Gọng kính">Trang chủ</a>
@@ -224,15 +139,6 @@
                             }
                             ?>
                         </ul>
-                        <!-- <ul class="pull-right flip hidden-sm hidden-xs">
-                            <li> -->
-                        <!-- Modal: Book Now Starts -->
-                        <!-- <a class="btn btn-colored btn-flat bg-theme-color text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15"
-                           data-toggle="modal" data-target="#BSParentModal"
-                           href="ajax-load/reservation-form.html" style="background: #e8d460 !important;">Shop Now</a> -->
-                        <!-- Modal: Book Now End -->
-                        <!-- </li>
-                    </ul> -->
                         <ul class="list-inline flip container-mini-cart pull-right">
                             <li class="mb-0 pb-0">
                                 <?php global $woocommerce; ?>
@@ -242,7 +148,6 @@
                                         <span id="count-mini-cart">(<?php echo $woocommerce->cart->cart_contents_count ?> Items) </span></a>
                                     <ul class="dropdown " id="mini-cart-container">
                                         <li>
-                                            <!-- dropdown cart -->
                                             <div class="dropdown-cart">
                                                 <div class="dropdown--content-tbl">
                                                     <table class="table cart-table-list table-responsive">
@@ -319,7 +224,6 @@
                                                         Checkout</a>
                                                 </div>
                                             </div>
-                                            <!-- dropdown cart ends -->
                                         </li>
                                     </ul>
                                 </div>
@@ -345,42 +249,18 @@
                                 </div>
                             </li>
                         </ul>
-                        <div id="top-search-bar" class="collapse">
-                            <div class="fixed-width">
-                                <form role="search" action="#" class="search_form_top" method="get">
-                                    <input type="text" placeholder="Type text and press Enter..." name="s"
-                                           class="form-control" autocomplete="off">
-                                    <span class="search-close"><i class="fa fa-search"></i></span>
-                                </form>
-                            </div>
+                        <div class="search-form-wrapper show-on-mobile">
+                            <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>">
+                                <input type="text"
+                                        onfocus="if(this.value =='Enter your search') { this.value = ''; }"
+                                        onblur="if(this.value == '') { this.value ='Enter your search'; }"
+                                        value="Enter your search" id="searchinput" name="s"
+                                        class="">
+                                <label></label>
+                            </form>
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--<!DOCTYPE html>-->
-    <!--<html>-->
-    <!--<head>-->
-    <!--    --><?php //wp_head();
-    ?>
-    <!--    --><?php //$baseURL = esc_url(get_template_directory_uri());
-    ?>
-    <!--    <base href="--><?php //echo $baseURL . '/';
-    ?><!--" target="_blank">-->
-    <!--</head>-->
-    <!--<div>-->
-    <!--    <ul>-->
-    <!--        <li>--><?php
-    //            $fb = get_theme_mod('Facebook');
-    //            if (!empty($fb)) {
-    //                echo '<a href="' . $fb . '">Facebook</a>';
-    //            }
-    //            $logo=get_theme_mod('logo');
-    //            var_dump($logo);
-    //
-    ?><!--</li>-->
-    <!--    </ul>-->
-    <!--</div>-->
-    <!--<body>-->
