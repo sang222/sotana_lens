@@ -1585,3 +1585,14 @@ body .pagination {
         justify-content: center;
     }
 }
+.modal.fade {
+    padding-right: 0 !important;
+    z-index: 999998 !important;
+}
+.modal.fade .modal-dialog {
+    padding: 0 30px;
+}
+.modal.fade .modal-dialog .close-custom {
+    position: relative;
+    top: -2px;
+}

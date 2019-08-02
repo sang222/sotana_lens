@@ -37,6 +37,7 @@ $(document).ready(function () {
         margin: 15,
         autoplay: true,
         responsiveClass: true,
+        autoHeight:true,
         responsive: {
             0: {
                 items: 2,
@@ -59,6 +60,7 @@ $(document).ready(function () {
         margin: 15,
         autoplay: true,
         responsiveClass: true,
+        autoHeight:true,
         responsive: {
             0: {
                 items: 2,
@@ -80,6 +82,7 @@ $(document).ready(function () {
         loop: true,
         margin: 15,
         autoplay: true,
+        autoHeight:true,
         responsiveClass: true,
         responsive: {
             0: {
@@ -99,6 +102,7 @@ $(document).ready(function () {
         dots: false,
         autoplay: true,
         nav: false,
+        autoHeight:true,
         responsiveClass: true,
         responsive: {
             0: {
