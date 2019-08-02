@@ -28,9 +28,13 @@
 #tbl-content .table-cart tbody tr td .input-text {
     padding: 8px 0px;
     border: 1px solid #dfdfdf;
+    margin-top: -4px;
     width: 50px;
 }
-
+#tbl-content .remove-product
+{
+    margin-left:10px;
+}
 #tbl-content .btnCart {
     height: 40px;
     line-height: 40px;
@@ -68,12 +72,14 @@
 .check-out-cart {
     text-transform: uppercase;
     margin-top: 20px;
+
     display: block;
 }
 
 .check-out-cart a {
     font-size: 1.2em;
     border-radius: 0;
+    padding: 10px 15px;
     color: white;
     background: #789be6;
 }

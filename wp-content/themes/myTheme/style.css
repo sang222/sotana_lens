@@ -1465,7 +1465,9 @@ body .pagination {
 .header .show-on-mobile, .nav-mobile {
     display: none
 }
-
+.header-nav-wrapper{
+    z-index: 999999 !important;
+}
 @media (max-width: 992px) {
     .header .show-on-mobile, .nav-mobile {
         display: block

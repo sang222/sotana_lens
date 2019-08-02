@@ -140,7 +140,7 @@ function header_add_to_cart_fragment($fragments)
                 <ul class="dropdown">
                     <li>
                         <div class="search-form-wrapper">
-                            <form action="<?php esc_url( home_url( '/' ) ) ?>" class="mt-10">
+                            <form action="<?php esc_url(home_url('/')) ?>" class="mt-10">
                                 <input type="text"
                                        onfocus="if(this.value =='Enter your search') { this.value = ''; }"
                                        onblur="if(this.value == '') { this.value ='Enter your search'; }"
@@ -405,37 +405,107 @@ add_action('wp_ajax_ajax_load_post', 'ajax_load_post_func');
 add_action('wp_ajax_nopriv_ajax_load_post', 'ajax_load_post_func');
 function ajax_load_post_func()
 {
-
+    $price = (isset($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
+    $price = explode(':', $price);
+    $cate_id = (isset($_POST['cat_id'])) ? esc_attr($_POST['cat_id']) : '';
+    $vendor = (isset($_POST['vendor'])) ? trim(esc_attr($_POST['vendor'])) : '';
+    $vendor = explode(',', $vendor);
     $paged = isset($_POST['ajax_paged']) ? intval($_POST['ajax_paged']) : '';
-    if ($paged <= 0 || !$paged || !is_numeric($paged)) wp_send_json_error('Paged?');
-    $args = array(
-        'post_type' => 'product',
-        'post_status' => 'publish',
-        'ignore_sticky_posts' => 1,
-        'paged' => $paged,
-        'posts_per_page' => 4,
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'product_cat',
-                'field' => 'term_id', //This is optional, as it defaults to 'term_id'
-                'terms' => $_POST['cat_id'],
-                'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+    if ($paged <= 0 || !$paged || !is_numeric($paged)) wp_send_json_error('');
+    if (sizeof($vendor) > 1) {
+        $args = array(
+            'post_type' => array('product', 'product_variation'),
+            'ignore_sticky_posts' => 1,
+            'post_status' => 'publish',
+            'paged' => $paged,
+            'posts_per_page' => 4,
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => '_price',
+                    'value' => $price[0],
+                    'compare' => '>=',
+                    'type' => 'NUMERIC'
+                ),
+                array(
+                    'key' => '_price',
+                    'value' => $price[1],
+                    'compare' => '<=',
+                    'type' => 'NUMERIC'
+                ),
             ),
-            array(
-                'taxonomy' => 'product_visibility',
-                'field' => 'slug',
-                'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
-                'operator' => 'NOT IN'
-            )
-        )
-    );
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => $vendor,
+                    'operator' => 'IN'
+                ),
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                    'terms' => $cate_id,
+                    'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                ),
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field' => 'slug',
+                    'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                    'operator' => 'NOT IN'
+                )
+
+
+            ),
+        );
+    } else {
+        $args = array(
+            'post_type' => array('product', 'product_variation'),
+            'ignore_sticky_posts' => 1,
+            'post_status' => 'publish',
+            'paged' => $paged,
+            'posts_per_page' => 4,
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => '_price',
+                    'value' => $price[0],
+                    'compare' => '>=',
+                    'type' => 'NUMERIC'
+                ),
+                array(
+                    'key' => '_price',
+                    'value' => $price[1],
+                    'compare' => '<=',
+                    'type' => 'NUMERIC'
+                ),
+            ),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                    'terms' => $cate_id,
+                    'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                ),
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field' => 'slug',
+                    'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                    'operator' => 'NOT IN'
+                )
+
+
+            ),
+        );
+
+    }
     $loop = new WP_Query($args);
     $stt = 1;
+    $dem = 0;
     ob_start();
     while ($loop->have_posts()) : $loop->the_post();
         global $product;
         $max_post_count = $loop->post_count;
-
+        $dem++;
         ?>
         <div class="col-lg-3 col-sm-6 col-xs-6 ">
             <div class="product-item">
@@ -504,6 +574,8 @@ function ajax_load_post_func()
     endwhile;
     wp_reset_query();
     ?>
+    <?php if ($dem > 0): ?>
+    <div class="prefix"></div><?php endif; ?>
     <?php devvn_corenavi_ajax($loop, $paged); ?>
     <?php
     $content = ob_get_clean();
@@ -522,11 +594,13 @@ function filter_product()
     $cate_id = (isset($_POST['cat_id'])) ? esc_attr($_POST['cat_id']) : '';
     $vendor = (isset($_POST['vendor'])) ? trim(esc_attr($_POST['vendor'])) : '';
     $vendor = explode(',', $vendor);
+//    $paged = isset($_POST['ajax_paged']) ? intval($_POST['ajax_paged']) : '';
+//    if ($paged <= 0 || !$paged || !is_numeric($paged)) wp_send_json_error('');
     if (sizeof($vendor) > 1) {
         $params = array(
-            'posts_per_page' => 100,
             'post_type' => array('product', 'product_variation'),
-//            'product_cat' => $cate_id,
+            'post_status' => 'publish',
+            'posts_per_page' => 4,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -567,9 +641,9 @@ function filter_product()
         );
     } else {
         $params = array(
-            'posts_per_page' => 100,
             'post_type' => array('product', 'product_variation'),
-
+            'post_status' => 'publish',
+            'posts_per_page' => 4,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -606,8 +680,11 @@ function filter_product()
     }
     $query = new WP_Query($params);
     ob_start();
+    $dem = 0;
     while ($query->have_posts()) : $query->the_post();
-        global $product; ?>
+        global $product;
+        $dem++;
+        ?>
         <div class="col-lg-3 col-sm-6 col-xs-6 ">
             <div class="product-item">
                 <a href="<?php the_permalink() ?>">
@@ -675,8 +752,10 @@ function filter_product()
     endwhile;
     wp_reset_query();
     ?>
+    <?php if ($dem > 0): ?>
+    <div class="prefix"></div><?php endif; ?>
     <?php
-//    ob_get_clean()
+    devvn_corenavi_ajax($query, 1);
     wp_send_json_success(ob_get_clean());
     //echo json_encode(array('status' => 0));
     die();
@@ -715,3 +794,23 @@ function ajax_qty_cart()
 
 add_action('wp_ajax_qty_cart', 'ajax_qty_cart');
 add_action('wp_ajax_nopriv_qty_cart', 'ajax_qty_cart');
+// TÙy bient product
+// Change currency symbols
+add_filter( 'woocommerce_currencies', 'add_my_currency' );
+
+function add_my_currency( $currencies )
+{
+    $currencies['VND'] = __( 'Vietnam Dong', 'woocommerce' );
+    return $currencies;
+}
+
+add_filter('woocommerce_currency_symbol', 'add_my_currency_symbol', 10, 2);
+
+function add_my_currency_symbol( $currency_symbol, $currency )
+{
+    switch( $currency )
+    {
+        case 'VND': $currency_symbol = ' VND'; break;
+    }
+    return $currency_symbol;
+}

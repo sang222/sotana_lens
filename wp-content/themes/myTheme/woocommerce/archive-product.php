@@ -148,6 +148,7 @@ get_header('shop');
             endwhile;
             wp_reset_query();
             ?>
+            <div class="prefix"></div>
             <?php devvn_corenavi_ajax($loop); ?>
         </div>
 
@@ -262,7 +263,13 @@ get_footer('shop');
         e.preventDefault();
         var hrefThis = $(this).attr('href');
         var paged = hrefThis.match(/\/\d+\//)[0];
-
+        let send_vendor = '';
+        for (var i = 0; i < arr.length; i++) {
+            send_vendor += arr[i];
+            if (i < arr.length - 1) {
+                send_vendor += ',';
+            }
+        }
         paged = paged.match(/\d+/)[0];
         if (!paged) paged = 1;
         $.ajax({
@@ -273,6 +280,8 @@ get_footer('shop');
                 action: "ajax_load_post",
                 cat_id: $("#cate_id").val(),
                 ajax_paged: paged,
+                price: $("#price").val(),
+                vendor: send_vendor,
             },
             context: this,
             beforeSend: function () {
