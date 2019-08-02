@@ -405,7 +405,7 @@ add_action('wp_ajax_ajax_load_post', 'ajax_load_post_func');
 add_action('wp_ajax_nopriv_ajax_load_post', 'ajax_load_post_func');
 function ajax_load_post_func()
 {
-    $price = (isset($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
+    $price = (isset($_POST['price']) && !empty($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
     $price = explode(':', $price);
     $cate_id = (isset($_POST['cat_id'])) ? esc_attr($_POST['cat_id']) : '';
     $vendor = (isset($_POST['vendor'])) ? trim(esc_attr($_POST['vendor'])) : '';
@@ -589,7 +589,7 @@ add_action('wp_ajax_filter', 'filter_product');
 add_action('wp_ajax_nopriv_filter', 'filter_product');
 function filter_product()
 {
-    $price = (isset($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
+    $price = (isset($_POST['price'])&& !empty($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
     $price = explode(':', $price);
     $cate_id = (isset($_POST['cat_id'])) ? esc_attr($_POST['cat_id']) : '';
     $vendor = (isset($_POST['vendor'])) ? trim(esc_attr($_POST['vendor'])) : '';
