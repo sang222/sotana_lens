@@ -141,5 +141,6 @@
     </div>
 </div>
 <?php
-    get_footer();
+get_template_part('template_part/content', 'quickview');
+get_footer('shop');
 ?>

@@ -1324,7 +1324,6 @@ nav .breadcrumb .custom-breadcrumb:before {
 .sidebar-blog.fixed-top {
     position: sticky;
     top: 0;
-    z-index: 99999;
     /* background: #fff; */
     padding-top: 72px;
 }

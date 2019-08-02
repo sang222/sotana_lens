@@ -60,16 +60,18 @@
                 <?php endwhile;endif; wp_reset_postdata();?>
             </div>
             <!-- Pagination -->
-            <div class="paging pagenavi pagination">
-  							<div class="paging-normal">
-                <?php 
-                if (function_exists('wp_pagenavi')) {
-                    wp_pagenavi(array('query' => $query));
-                }
-                wp_reset_query();
-                ?>
-            </div>
-            </div>
+            <?php if(count($query->posts) >= $paged) : ?>
+                <div class="paging pagenavi pagination">
+                    <div class="paging-normal">
+                        <?php 
+                        if (function_exists('wp_pagenavi')) {
+                            wp_pagenavi(array('query' => $query));
+                        }
+                        wp_reset_query();
+                        ?>
+                    </div>
+                </div>
+            <?php endif; ?>
             <!-- End Pagination -->
         </div>
         <div class="col-md-4 sidebar-blog fixed-top">
