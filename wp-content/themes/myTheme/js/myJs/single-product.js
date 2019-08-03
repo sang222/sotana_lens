@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var src_tem = $('.slick-carousel img.active').attr('src');
+    var src_tem = $('#verticle-slick img.active').attr('src');
     $(".title").next().next('p').remove();
     $("#zoom").elevateZoom({
         scrollZoom: true,
@@ -8,7 +8,7 @@ $(document).ready(function () {
         zoomWindowFadeIn: 500,
         zoomWindowFadeOut: 750
     });
-    $('.slick-carousel').slick({
+    $('#verticle-slick').slick({
         infinite: false,
         vertical: true,
         verticalSwiping: true,
@@ -17,7 +17,7 @@ $(document).ready(function () {
         prevArrow: $('.top-arrow'),
         nextArrow: $('.bottom-arrow')
     });
-    $(".slick-carousel img").click(function (e) {
+    $("#verticle-slick img").click(function (e) {
         $('.slick-carousel img').removeClass('active');
         $(this).addClass('active');
         src_tem = $(this).attr('src');
@@ -34,7 +34,7 @@ $(document).ready(function () {
         });
     })
 
-    $(".slick-carousel img").hover(function (e) {
+    $("#verticle-slick img").hover(function (e) {
 
         $('.zoomContainer').remove();
         $("#zoom").attr('src', $(this).attr('src'));
@@ -42,6 +42,41 @@ $(document).ready(function () {
         $("#zoom").attr('src', src_tem);
     })
     console.log($("#mark-fixed").offset().top);
+    //Slider product mobile
+    $(".slick-carousel-mobile").owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: false,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 4,
+                nav: false
+            },
+            600: {
+                items: 5,
+                nav: false
+            },
+            1000: {
+                items: 5,
+                nav: false,
+                loop: false
+            }
+        }
+    });
+    $(".slick-carousel-mobile img").click(function () {
+        $('.zoomContainer').remove();
+        $("#zoom").removeData('elevateZoom');
+        $("#zoom").attr('src', $(this).attr('src'));
+        $("#zoom").data('zoom-image', $(this).attr('src'));
+        $("#zoom").elevateZoom({
+            scrollZoom: true,
+            zoomType: "inner",
+            cursor: "crosshair",
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 750
+        });
+    })
 //    slide related
     $('#sale-carousel-related').owlCarousel({
         loop: true,

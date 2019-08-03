@@ -30,7 +30,7 @@ defined('ABSPATH') || exit;
                     <div class="top-arrow text-center w-100" style="display: inline-block;"><i
                                 class="fa fa-angle-up fa-2x"></i></div>
                 <?php endif; ?>
-                <div class="slick-carousel <?php if (sizeof($attachment_ids) < 4) echo 'mt-4'; ?>">
+                <div id="verticle-slick" class="slick-carousel <?php if (sizeof($attachment_ids) < 4) echo 'mt-4'; ?>">
                     <?php
                     $vt = 0;
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($product->post->ID), 'single-post-thumbnail');
@@ -65,6 +65,23 @@ defined('ABSPATH') || exit;
                         <small class="weight-600">Zoom in and Zoom out to view product</small>
                     </p>
                 </div>
+                <div class="slick-carousel-mobile owl-carousel owl-theme w-100">
+                    <?php
+                    $vt1 = 0;
+                    $image = wp_get_attachment_image_src(get_post_thumbnail_id($product->post->ID), 'single-post-thumbnail');
+                    $active = 'active';
+                    ?>
+                    <div><img src="<?php echo $image[0] ?>" class="img-responsive active"></div>
+                    <?php
+                    foreach ($attachment_ids as $attachment_id):
+                        $vt1++;
+                        $image_link = wp_get_attachment_url($attachment_id);
+                        ?>
+                        <div><img src="<?php echo $image_link ?>" class="img-responsive"></div>
+
+                    <?php endforeach; ?>
+                </div>
+
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12 product-detail">
                 <div class="d-flex w-100 justify-content-between align-items-center">

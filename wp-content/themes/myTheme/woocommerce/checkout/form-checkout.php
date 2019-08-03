@@ -37,19 +37,31 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
         <?php do_action('woocommerce_checkout_before_customer_details'); ?>
 
         <div class="col2-set row" id="customer_details">
-            <div class="col-lg-6 float-left">
+            <div class="col-lg-6 float-left left-checkout">
                 <?php do_action('woocommerce_checkout_billing'); ?>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 right-checkout">
                 <div id="order_review" class="woocommerce-checkout-review-order">
                     <h3 class="title-product-checkout">Detail product</h3>
                     <?php do_action('woocommerce_checkout_order_review'); ?>
-
+                </div>
+                <div class="account-back">
+                    <div class="text-center">
+                        <h5>Thông tin chuyển khoản: 1</h5>
+                        <p>- Ngân hàng Vietcombank - Chi nhánh Bến Thành</p>
+                        <p>- Tên Tài khoản: Hồng Hải Toàn</p>
+                        <p>- Số tài khoản: ‎0331000462086</p>
+                        <hr/>
+                        <h5>Thông tin chuyển khoản :2</h5>
+                        <p>- Ngân hàng TMCP Á Châu - Chi Nhánh Sài Gòn.</p>
+                        <p>- Tên Tài khoản: Hồng Hải Toàn</p>
+                        <p>- Số tài khoản: 183858519</p>
+                    </div>
                 </div>
             </div>
             <div class="prefix"></div>
             <div class="w-100 ">
-                <button id="checkout_now" class="float-right">Thanh toán</button>
+                <div id="checkout_now" class="float-right">Check Out</div>
             </div>
             <!--			<div class="col-2">-->
             <!--				--><?php //do_action( 'woocommerce_checkout_shipping' ); ?>

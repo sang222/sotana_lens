@@ -22,7 +22,7 @@
                         <input type="radio"
                                id="test2"
                                onchange="<?php if (!isset($_GET['price'])): ?>//window.history.replaceState(null, 'price', '<?php echo $actual_link ?>//&price=0:5')<?php endif; ?>"
-                               name="price-filter" data-price="0:5" value="0:5">
+                               name="price-filter" data-price="0:50000" value="0:50000">
                         <label for="test2">Nhỏ hơn 50,000₫</label>
                     </p>
 
