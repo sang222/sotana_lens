@@ -18,10 +18,10 @@ $items = $woocommerce->cart->get_cart();
             <br/>
         </div>
     </div>
-    <div class="fixed-width " id="tbl-content">
+    <div class="fixed-width p-15 " id="tbl-content">
         <h2 class="title-cart"><i class="fa fa-cart-plus"></i> My cart</h2>
         <?php if (sizeof($items) > 0) : ?>
-            <table class="table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+            <table class=" table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                 <thead>
                 <th></th>
                 <th>Sản phẩm</th>
@@ -45,7 +45,7 @@ $items = $woocommerce->cart->get_cart();
                     }
                     $price = get_post_meta($values['product_id'], '_price', true);
                     ?>
-                    <tr>
+                    <tr id="table-normal-<?php echo $vt ?>">
                         <td class="text-center modal-cart-image"
                             style="vertical-align: middle;"><?php echo $getProductDetail->get_image('thumbnail'); // accepts 2 arguments ( size, attr )
                             ?></td>
@@ -86,6 +86,7 @@ $items = $woocommerce->cart->get_cart();
                                        value="<?php echo $values['quantity']; ?>"
                                        title="SL" max="100"
                                        max inputmode="numeric"
+                                       data-quantity="<?php echo $values['quantity']; ?>"
                                        data-price="<?php
                                        if ($getProductDetail->get_sale_price() > 0) {
                                            echo $getProductDetail->get_sale_price();
@@ -156,7 +157,7 @@ $items = $woocommerce->cart->get_cart();
             </p>
         </div>
         <div style="text-align: right">
-            <div class="cart-btn modal-action text-right ">
+            <div class="cart-btn modal-action <?php if ($vt == 0) echo 'd-none' ?> text-right ">
                 <div class="total-order-cart">
                     <span>Order Total :</span>
                     <span class="total-price"><?php echo $total_price ?></span> VND

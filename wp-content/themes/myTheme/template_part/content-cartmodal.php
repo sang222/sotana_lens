@@ -15,7 +15,9 @@ global $woocommerce;
                     <div class="  ">
                         <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
                         <?php //echo esc_url(wc_get_cart_url()) ?><!--" method="post">-->
-                        <table class="table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+                        <table class="
+                        tablesaw tablesaw-stack
+                        table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                             <thead>
                             <th></th>
                             <th>Sản phẩm</th>
@@ -77,6 +79,7 @@ global $woocommerce;
                                                    id="qty_<?php echo $values['product_id'] ?>" min="1"
                                                    value="<?php echo $values['quantity']; ?>"
                                                    title="SL" max="100"
+                                                   data-quantity="<?php echo $values['quantity']; ?>"
                                                    max inputmode="numeric"
                                                    data-price="<?php
                                                    if ($getProductDetail->get_sale_price() > 0) {

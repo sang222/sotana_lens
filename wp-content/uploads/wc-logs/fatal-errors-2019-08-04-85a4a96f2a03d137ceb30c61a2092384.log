@@ -1,0 +1,55 @@
+2019-08-04T10:06:55+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(791): WC_Cart->set_quantity('17e62166fc8586d...', 14, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\ in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-04T13:33:39+00:00 CRITICAL Uncaught Error: Call to a member function get_gallery_attachment_ids() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:353
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): viewProduct_init('')
+#1 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(114): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 353
+
+2019-08-04T13:33:42+00:00 CRITICAL Uncaught Error: Call to a member function get_gallery_attachment_ids() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:353
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): viewProduct_init('')
+#1 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(114): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 353
+
+2019-08-04T13:34:49+00:00 CRITICAL Uncaught Error: Call to a member function get_gallery_attachment_ids() on null in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:353
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): viewProduct_init('')
+#1 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(114): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 353
+
+2019-08-04T13:36:05+00:00 CRITICAL Uncaught Error: Call to undefined function get_gallery_attachment_ids() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:352
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): viewProduct_init('')
+#1 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(114): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 352
+
+2019-08-04T13:45:55+00:00 CRITICAL Uncaught Error: Call to undefined function the_post_gallery_images() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:353
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): viewProduct_init('')
+#1 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_viewPro...')
+#4 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 353
+

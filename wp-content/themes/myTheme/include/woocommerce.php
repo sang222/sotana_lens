@@ -49,14 +49,15 @@ function header_add_to_cart_fragment($fragments)
             <?php global $woocommerce; ?>
             <div style="position: relative" class="show-on-mobile" id="icon-cart-mobile">
                 <img src="<?php echo esc_url(get_template_directory_uri()) ?>/images/hd_mainmenu_icon_cart.png"
-                    alt="" style="margin-top: -11px;margin-right: 10px;">
-                <span class="hd-cart-count"
-                    id="count-mini-cart"><?php echo $woocommerce->cart->cart_contents_count ?></span>
+                     alt="" style="margin-top: -11px;margin-right: 10px;">
+                <span class="hd-cart-count total-outer"
+                      id="count-mini-cart"><?php echo $woocommerce->cart->cart_contents_count ?></span>
             </div>
             <div class="top-dropdown-outer pt-5 pb-10">
                 <a class="top-cart-link has-dropdown text-white text-hover-theme-colored"><i
                             class="fa fa-shopping-cart font-13"></i>
-                    <span id="count-mini-cart">(<?php echo $woocommerce->cart->cart_contents_count ?> Items) </span></a>
+                    <span class="total-outer"
+                          id="count-mini-cart">(<?php echo $woocommerce->cart->cart_contents_count ?> Items) </span></a>
                 <ul class="dropdown " id="mini-cart-container">
                     <li>
                         <!-- dropdown cart -->
@@ -100,6 +101,7 @@ function header_add_to_cart_fragment($fragments)
                                                 </td>
                                                 <td><?php echo $pricepro; ?></td>
                                                 <td><a class="close remove-product"
+                                                       data-line="<?php echo $vt; ?>"
                                                        data-product_id="<?php echo $_product->get_id() ?>"
                                                        href="#"><i
                                                                 class="fa fa-close font-13"></i></a>
@@ -116,12 +118,15 @@ function header_add_to_cart_fragment($fragments)
                                     <tbody>
                                     <tr>
                                         <td> Item Total</td>
-                                        <td><span class="total-amount-dropdown"><?php echo $totalitem; ?></span> Items
+                                        <td><span data-amount="<?php echo $totalitem; ?>"
+                                                  class="total-amount-dropdown"><?php echo $totalitem; ?></span> Items
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Order Total</td>
-                                        <td><span class="total-price-dropdown"><?php echo $total_price ?></span> VND
+                                        <td><span class="total-price-dropdown"
+                                                  data-total="<?php echo $total_price ?>"><?php echo $total_price ?></span>
+                                            VND
                                         </td>
                                     </tr>
                                     </tbody>
@@ -183,7 +188,9 @@ function modal_add_to_cart_fragment($fragments)
                 <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
                 <?php //echo esc_url(wc_get_cart_url())
                 ?><!--" method="post">-->
-                <table class="table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+                <table class="
+                tablesaw tablesaw-stack
+                table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                     <thead>
                     <th></th>
                     <th>Sản phẩm</th>
@@ -207,7 +214,7 @@ function modal_add_to_cart_fragment($fragments)
                         }
                         $price = get_post_meta($values['product_id'], '_price', true);
                         ?>
-                        <tr>
+                        <tr id="table-normal-<?php echo $vt; ?>">
                             <td class="text-center modal-cart-image"
                                 style="vertical-align: middle;"><?php echo $getProductDetail->get_image('thumbnail'); // accepts 2 arguments ( size, attr )
                                 ?></td>
@@ -247,6 +254,7 @@ function modal_add_to_cart_fragment($fragments)
                                            id="qty_<?php echo $values['product_id'] ?>" min="1"
                                            value="<?php echo $values['quantity']; ?>"
                                            title="SL" max="100"
+                                           data-quantity="<?php echo $values['quantity']; ?>"
                                            max inputmode="numeric"
                                            data-price="<?php
                                            if ($getProductDetail->get_sale_price() > 0) {
@@ -341,6 +349,7 @@ function viewProduct_init()
 {
     //do bên js để dạng json nên giá trị trả về dùng phải encode
     $id = (isset($_POST['id'])) ? esc_attr($_POST['id']) : '';
+    $attachment_ids = get_post_gallery_images($id);;
     $terms = get_the_terms($id, 'product_cat');
     $arr_link_category = array();
     $_product = array();
@@ -353,14 +362,16 @@ function viewProduct_init()
         array(
             'post_type' => 'product',
             'posts_per_page' => 1,
-            'post__in' => array($id)
+            'post__in' => array($id),
+
         )
     );
     $data = array(
-        data => $feat_pro->post,
-        price => json_encode($_pf),
-        image => get_the_post_thumbnail_url($id, 'large'),
-        category => $arr_link_category
+        'data' => $feat_pro->post,
+        'price' => json_encode($_pf),
+        'image' => get_the_post_thumbnail_url($id, 'large'),
+        'category' => $arr_link_category,
+        'attachment_ids' => $attachment_ids
     );
     wp_send_json_success($data);
     die();//bắt buộc phải có khi kết thúc
@@ -595,7 +606,7 @@ add_action('wp_ajax_filter', 'filter_product');
 add_action('wp_ajax_nopriv_filter', 'filter_product');
 function filter_product()
 {
-    $price = (isset($_POST['price'])&& !empty($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
+    $price = (isset($_POST['price']) && !empty($_POST['price'])) ? esc_attr($_POST['price']) : '0:500000000';
     $price = explode(':', $price);
     $cate_id = (isset($_POST['cat_id'])) ? esc_attr($_POST['cat_id']) : '';
     $vendor = (isset($_POST['vendor'])) ? trim(esc_attr($_POST['vendor'])) : '';
@@ -802,21 +813,22 @@ add_action('wp_ajax_qty_cart', 'ajax_qty_cart');
 add_action('wp_ajax_nopriv_qty_cart', 'ajax_qty_cart');
 // TÙy bient product
 // Change currency symbols
-add_filter( 'woocommerce_currencies', 'add_my_currency' );
+add_filter('woocommerce_currencies', 'add_my_currency');
 
-function add_my_currency( $currencies )
+function add_my_currency($currencies)
 {
-    $currencies['VND'] = __( 'Vietnam Dong', 'woocommerce' );
+    $currencies['VND'] = __('Vietnam Dong', 'woocommerce');
     return $currencies;
 }
 
 add_filter('woocommerce_currency_symbol', 'add_my_currency_symbol', 10, 2);
 
-function add_my_currency_symbol( $currency_symbol, $currency )
+function add_my_currency_symbol($currency_symbol, $currency)
 {
-    switch( $currency )
-    {
-        case 'VND': $currency_symbol = ' VND'; break;
+    switch ($currency) {
+        case 'VND':
+            $currency_symbol = ' VND';
+            break;
     }
     return $currency_symbol;
 }

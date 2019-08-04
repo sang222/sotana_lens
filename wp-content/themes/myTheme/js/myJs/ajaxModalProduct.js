@@ -8,7 +8,7 @@ function viewProduct(product_id, $this) {
     var product_link = $($this).data('product_link');
     $(".reduced").attr('data-id', product_id);
     $(".increase").attr('data-id', product_id);
-    $(".qty-quick-view").children().remove();
+    $(".qty-quick-view").empty();
     $(".qty-quick-view").append(`
         <button onclick="var result = document.getElementById(&#39;qty&#39;);
             var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
@@ -62,6 +62,7 @@ function viewProduct(product_id, $this) {
             if (response.success) {
                 var html_cate = '';
                 console.log(response.data.data['post_excerpt'])
+                console.log(response)
                 response.data.category.forEach(function (value, index) {
                     html_cate += '<a href="' + value.link + '">' + value.name + '</a>'
                 })
@@ -184,7 +185,8 @@ $(document).on('click', '.remove-product', function (e) {
                 $("#modal-empty-cart").removeClass('d-none');
             }
             $("#mini-cart-container table #mini-item-" + line).remove();
-            $("#count-mini-cart").text(count + ' Items');
+            $("table #table-normal-" + line).remove();
+            $(".total-outer").text(count + ' Items');
             $(".total-amount-dropdown").text(count + ' Items');
 
         }, error: function (err) {
@@ -243,10 +245,10 @@ $(document).on('change', 'input.qty', function () {
     var item_hash = $(this).attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).val();
     var currentVal = parseFloat(item_quantity);
+    const old_quantity = $(this).data('quantity');
     var $this = $(this);
 
     function qty_cart() {
-
         $.ajax({
             type: 'POST',
             url: $("#url_admin").val(),
@@ -265,13 +267,34 @@ $(document).on('change', 'input.qty', function () {
                     var old_total_price1 = $('.total-price').text()
                     var update_total_price1 = parseInt(old_total_price1) - parseInt(new_total_price1);
                     $('.total-price').text(update_total_price1);
+                    $(".total-price-dropdown").text(update_total_price1);
                 } else {
                     var new_total_price2 = parseInt(price_after_update) - parseInt(old_total_price_child);
                     var old_total_price2 = $('.total-price').text();
                     var update_total_price2 = parseInt(old_total_price2) + parseInt(new_total_price2);
                     $('.total-price').text(update_total_price2);
-
+                    $(".total-price-dropdown").text(update_total_price2);
                 }
+                //change quantity
+                if ($this.val() > old_quantity) {
+
+                    var old_total_amount1 = $(".total-amount-dropdown:nth-child(1)").data('amount');
+                    var differene_amount1 = parseInt($this.val()) - parseInt(old_quantity);
+                    var new_total_amount1 = parseInt(old_total_amount1) + parseInt(differene_amount1);
+                    // console.log(old_total_amount1,differene_amount1)
+                    $(".total-amount-dropdown").text(new_total_amount1);
+                    $(".total-amount-dropdown").attr('data-amount', new_total_amount1)
+                    $(".total-outer").text(new_total_amount1 + ' ITEMS')
+                } else {
+                    var old_total_amount2 = $(".total-amount-dropdown:nth-child(1)").data('amount');
+                    var differene_amount2 = parseInt(old_quantity) - parseInt($this.val());
+                    var new_total_amount2 = parseInt(old_total_amount2) - parseInt(differene_amount2);
+                    console.log(old_total_amount2, differene_amount2)
+                    $(".total-amount-dropdown").text(new_total_amount2);
+                    $(".total-amount-dropdown").attr('data-amount', new_total_amount2)
+                    $(".total-outer").text(new_total_amount2 + ' ITEMS')
+                }
+
                 $('.total-price-' + id).text(price_after_update + ' VND');
 
             }
@@ -304,18 +327,21 @@ $(document).on('click', '.reduced', function () {
             success: function (data) {
 
                 var price = $this.data('price');
-                var price_after_update = price * currentVal;
+                var price_after_update = parseInt(price) * parseInt(currentVal);
                 var id = $this.data('id');
                 $(".quantity-head-" + id).text(currentVal);
                 $('.total-price-' + id).text(price_after_update + ' VND');
-                var old_total_price = $('.total-price-dropdown').text();
+                var old_total_price = $('.total-price-dropdown:nth-child(1)').data('total');
                 var update_total_price = parseInt(old_total_price) - parseInt(price);
                 $('.total-price').text(update_total_price);
+                $('.total-price-dropdown').data('total', update_total_price);
                 $(".total-price-dropdown").text(update_total_price);
                 //total amount head
-                var old_total_amount_dropdown = $(".total-amount-dropdown").text();
-                $(".total-amount-dropdown").text(parseInt(old_total_amount_dropdown) - 1);
-                $("#count-mini-cart").text('(' + (parseInt(old_total_amount_dropdown) - 1) + ' Items)')
+                var old_total_amount_dropdown = $(".total-amount-dropdown:nth-child(1)").data('amount');
+                var new_total_amount_dropdown = parseInt(old_total_amount_dropdown) - 1;
+                $(".total-amount-dropdown").text(new_total_amount_dropdown);
+                $(".total-amount-dropdown:nth-child(1)").data('amount', new_total_amount_dropdown);
+                $(".total-outer").text('(' + new_total_amount_dropdown + ' Items)')
             }
         });
 
@@ -343,18 +369,25 @@ $(document).on('click', '.increase', function () {
             success: function (data) {
 
                 var price = $this.data('price');
-                var price_after_update = price * currentVal;
+                var price_after_update = parseInt(price) * parseInt(currentVal);
                 var id = $this.data('id');
                 $(".quantity-head-" + id).text(currentVal);
                 $('.total-price-' + id).text(price_after_update + ' VND')
-                var old_total_price = $('.total-price-dropdown').text();
+                var old_total_price = $('.total-price-dropdown:nth-child(1)').data('total');
                 var update_total_price = parseInt(old_total_price) + parseInt(price);
+
                 $('.total-price').text(update_total_price);
                 $(".total-price-dropdown").text(update_total_price);
+                $('.total-price-dropdown').data('total', update_total_price);
+
                 //total amount head
-                var old_total_amount_dropdown = $(".total-amount-dropdown").text();
-                $(".total-amount-dropdown").text(parseInt(old_total_amount_dropdown) + 1)
-                $("#count-mini-cart").text('(' + (parseInt(old_total_amount_dropdown) + 1) + ' Items)')
+                var old_total_amount_dropdown = $(".total-amount-dropdown:nth-child(1)").data('amount');
+                var new_total_amount_dropdown = parseInt(old_total_amount_dropdown) + 1;
+                $(".total-amount-dropdown").text(new_total_amount_dropdown);
+                $(".total-amount-dropdown:nth-child(1)").data('amount', new_total_amount_dropdown);
+
+                $(".total-outer").text('(' + new_total_amount_dropdown + ' Items)')
+
             }
         });
 

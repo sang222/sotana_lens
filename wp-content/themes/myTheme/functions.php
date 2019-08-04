@@ -80,6 +80,7 @@ function add_theme_scripts()
     // menuzord menu
     // wp_enqueue_style('bootstrap-timepicker', get_template_directory_uri() . '/css/menuzord.css', array(), '1.0');
     wp_enqueue_style('notice-css', get_template_directory_uri() . '/css/myCss/notice.css', array(), '1.0');
+    wp_enqueue_style('table-responsive-css', get_template_directory_uri() . '/css/myCss/table-responsive.css', array(), '1.0');
     if (is_single()) {
         // single product css single-product.css
         wp_enqueue_style('slick-css', get_template_directory_uri() . '/plugin/slick-master/slick/slick-theme.css', array(), '1.0');
