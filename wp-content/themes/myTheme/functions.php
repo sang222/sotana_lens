@@ -92,6 +92,17 @@ function add_theme_scripts()
 }
 
 add_action('wp_enqueue_scripts', 'add_theme_scripts');
+
+function push_to_cat($arrs) {
+    $arrTmp = [];
+    foreach ($arrs as $key => $arr) {
+        if($key > 0) {
+            array_push($arrTmp, ', ' . '<a href="'. get_term_link($arr->term_id) .'" target="_blank">'. $arr->name .'</a>');
+        } else
+        array_push($arrTmp, '<a href="'. get_term_link($arr->term_id) .'" target="_blank">'. $arr->name .'</a>');
+    }
+    return implode($arrTmp);
+}
 /** Disable Ajax Call from WooCommerce */
 //add_action('wp_enqueue_scripts', 'dequeue_woocommerce_cart_fragments', 11);
 //function dequeue_woocommerce_cart_fragments()

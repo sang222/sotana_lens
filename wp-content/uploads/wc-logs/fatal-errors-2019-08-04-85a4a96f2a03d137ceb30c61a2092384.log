@@ -53,3 +53,5 @@ Stack trace:
 #4 {main}
   thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 353
 
+2019-08-04T15:13:00+00:00 CRITICAL syntax error, unexpected '}', expecting ';' in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\functions.php on line 105
+
