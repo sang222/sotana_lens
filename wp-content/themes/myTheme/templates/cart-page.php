@@ -49,6 +49,7 @@ $items = $woocommerce->cart->get_cart();
                             </td>
                             <td class="product_infomation">
                                 <h5><?php echo $_product->get_title(); ?></h5>
+                                <p style="margin-bottom: 0">Color: White</p>
                                 <p>Categories: <?php echo push_to_cat(get_the_terms( $values['product_id'], 'product_cat' )) ?></p>
                                 <small 
                                     class="remove-product removeItem m-0" 
