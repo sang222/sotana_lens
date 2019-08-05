@@ -349,7 +349,19 @@ function viewProduct_init()
 {
     //do bên js để dạng json nên giá trị trả về dùng phải encode
     $id = (isset($_POST['id'])) ? esc_attr($_POST['id']) : '';
-    $attachment_ids = get_post_gallery_images($id);;
+    $product = new WC_product($id);
+    $attachment_ids = $product->get_gallery_image_ids($id);
+    $arr_attachment = array();
+    foreach ($attachment_ids as $attachment_id) {
+        // Display the image URL
+        $Original_image_url = wp_get_attachment_url($attachment_id);
+        array_push($arr_attachment, $Original_image_url);
+        // Display Image instead of URL
+
+
+    }
+
+
     $terms = get_the_terms($id, 'product_cat');
     $arr_link_category = array();
     $_product = array();
@@ -371,7 +383,7 @@ function viewProduct_init()
         'price' => json_encode($_pf),
         'image' => get_the_post_thumbnail_url($id, 'large'),
         'category' => $arr_link_category,
-        'attachment_ids' => $attachment_ids
+        'arr_attachment' => $arr_attachment
     );
     wp_send_json_success($data);
     die();//bắt buộc phải có khi kết thúc

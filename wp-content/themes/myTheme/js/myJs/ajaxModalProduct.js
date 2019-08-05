@@ -61,15 +61,31 @@ function viewProduct(product_id, $this) {
             //Làm gì đó khi dữ liệu đã được xử lý
             if (response.success) {
                 var html_cate = '';
-                console.log(response.data.data['post_excerpt'])
-                console.log(response)
                 response.data.category.forEach(function (value, index) {
-                    html_cate += '<a href="' + value.link + '">' + value.name + '</a>'
+                    if (index == 0) {
+                        html_cate += '<a href="' + value.link + '">' + value.name + '</a>'
+                    } else {
+                        html_cate += ' , <a href="' + value.link + '">' + value.name + '</a>'
+                    }
+
                 })
                 $($this).removeClass('view-now')
                 $($this).find('i').css('opacity', '1')
                 $("#myModal").modal('show');
-                $('#picture-quickview').prop('src', response.data.image)
+                $('#picture-quickview').prop('src', response.data.image);
+                $('#picture-quickview').attr('data-zoom-image', response.data.image);
+                $('.zoomContainer').remove();
+                $("#picture-quickview").removeData('elevateZoom');
+                setTimeout(function () {
+                    $("#picture-quickview").elevateZoom({
+                        scrollZoom: true,
+                        zoomType: "inner",
+                        cursor: "crosshair",
+                        zoomWindowFadeIn: 500,
+                        zoomWindowFadeOut: 750
+                    });
+                }, 2000)
+
                 $(".nameQuickview").text(response.data.data['post_title'])
                 $(".description-quick-view").text(response.data.data['post_excerpt'])
                 $(".price-regular").text(choise_price)
@@ -77,6 +93,60 @@ function viewProduct(product_id, $this) {
                 $(".category-items").html(html_cate);
                 $(".quick_add_to_cart_button").val(product_id);
                 $(".frm-cart").attr('action', product_link)
+                //    list gallery
+                var arr_attachment = response.data.arr_attachment;
+                var html = '';
+
+                new Promise(function (resolve, reject) {
+
+                    setTimeout(function () {
+                        $(".quick-slider").children().remove();
+                        html += '<div><img class="active img-responsive" src="' + response.data.image + '"></div>'
+                        Array.from(arr_attachment).forEach(function (value, key) {
+                            html += '<div>';
+                            html += '<img  class="img-responsive" src="' + value + '" />'
+                            html += '</div>'
+                        })
+                        // html += '</div>';
+                        $(".quickview-carousel").append(html);
+                        if ($(".quickview-carousel").children().size() > 0) {
+                            resolve('success')
+                        }
+
+                    }, 1000)
+                    // html += '<div class="quickview-carousel owl-carousel owl-theme w-100">'
+
+                }).then(function (success) {
+                    $('.quickview-carousel').owlCarousel('destroy');
+                    // $('#quickview-carousel').data('owl.carousel').destroy();
+                    if (screen.width <= 767) {
+                        $(".img-lst").width($("#myModal").width() - 80)
+                    }
+
+                    $(".quickview-carousel").owlCarousel({
+                        loop: false,
+                        margin: 15,
+                        autoplay: false,
+                        dots: false,
+                        responsiveClass: true,
+                        responsive: {
+                            0: {
+                                items: 3,
+                                nav: false
+                            },
+                            600: {
+                                items: 4,
+                                nav: false
+                            },
+                            1000: {
+                                items: 5,
+                                nav: false,
+                                loop: false
+                            }
+                        }
+                    });
+                }, 1000)
+
 
             }
         },
@@ -113,8 +183,6 @@ function jaxButtonCart() {
             quantity: product_qty,
             variation_id: variation_id,
         };
-
-
         $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
         $.ajax({
             type: 'post',
