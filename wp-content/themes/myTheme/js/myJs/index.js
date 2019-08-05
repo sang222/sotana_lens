@@ -6,13 +6,13 @@ function openProTabs(index, $this) {
 }
 
 $(document).ready(function () {
-    $('#toggle-mobile-menu').click(function() {
+    $('#toggle-mobile-menu').click(function () {
         $('#menuzord').addClass('menu-opening')
     })
-    $('.close-button').click(function() {
+    $('.close-button').click(function () {
         $('#menuzord').removeClass('menu-opening')
     })
-    $('#icon-cart-mobile').click(function() {
+    $('#icon-cart-mobile').click(function () {
         $('#mini-cart-container').toggle()
     })
     $('.collapse.in').prev('.panel-heading').addClass('active');
@@ -24,7 +24,6 @@ $(document).ready(function () {
             $(a.target).prev('.panel-heading').removeClass('active');
         });
 // append menu
-
     $('.menuzord-menu>li').each(function () {
         console.log($(this).find('ul').children().context);
         if ($(this).find('ul.dropdown').children('li').size() > 0) {
@@ -37,7 +36,7 @@ $(document).ready(function () {
         margin: 15,
         autoplay: true,
         responsiveClass: true,
-        autoHeight:true,
+        autoHeight: true,
         responsive: {
             0: {
                 items: 2,
@@ -60,7 +59,7 @@ $(document).ready(function () {
         margin: 15,
         autoplay: true,
         responsiveClass: true,
-        autoHeight:true,
+        autoHeight: true,
         responsive: {
             0: {
                 items: 2,
@@ -82,7 +81,7 @@ $(document).ready(function () {
         loop: true,
         margin: 15,
         autoplay: true,
-        autoHeight:true,
+        autoHeight: true,
         responsiveClass: true,
         responsive: {
             0: {
@@ -95,6 +94,27 @@ $(document).ready(function () {
             }
         }
     });
+    $(".slick-carousel-mobile").owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: false,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 4,
+                nav: false
+            },
+            600: {
+                items: 5,
+                nav: false
+            },
+            1000: {
+                items: 5,
+                nav: false,
+                loop: false
+            }
+        }
+    });
 //    contact slidercontact-carousel
     $('#contact-carousel').owlCarousel({
         loop: false,
@@ -102,7 +122,7 @@ $(document).ready(function () {
         dots: false,
         autoplay: true,
         nav: false,
-        autoHeight:true,
+        autoHeight: true,
         responsiveClass: true,
         responsive: {
             0: {
@@ -185,6 +205,44 @@ $(document).ready(function () {
         return false;
 
     }); // left menu link3 click() scroll END
+    $(document).on('click', '.owl-item img', function () {
+        $("#picture-quickview").attr('src', $(this).attr('src'))
+        $(".owl-item img").removeClass('active');
+        $(this).addClass('active');
+        $('#picture-quickview').attr('data-zoom-image', $(this).attr('src'));
+        $('.zoomContainer').remove();
+        $("#picture-quickview").removeData('elevateZoom');
+            $("#picture-quickview").elevateZoom({
+                scrollZoom: true,
+                zoomType: "inner",
+                cursor: "crosshair",
+                zoomWindowFadeIn: 500,
+                zoomWindowFadeOut: 750
+            });
 
+    })
+    // $(".quickview-carousel").owlCarousel({});
+//    quickview slider
+    $(window).resize(function () {
+        if (screen.width <= 767) {
+            $(".img-lst").width($("#myModal").width() - 80)
+        }
 
+    })
+
+    $("#picture-quickview").elevateZoom({
+        scrollZoom: true,
+        zoomType: "inner",
+        cursor: "crosshair",
+        zoomWindowFadeIn: 500,
+        zoomWindowFadeOut: 750
+    });
+    // $("#pictures-quickview").elevateZoom({
+    //     scrollZoom: true,
+    //     zoomType: "inner",
+    //     cursor: "crosshair",
+    //     zoomWindowFadeIn: 500,
+    //     zoomWindowFadeOut: 750
+    // });
 });
+//zoom quick view

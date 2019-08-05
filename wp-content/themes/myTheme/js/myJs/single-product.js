@@ -43,27 +43,7 @@ $(document).ready(function () {
     })
     console.log($("#mark-fixed").offset().top);
     //Slider product mobile
-    $(".slick-carousel-mobile").owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: false,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 4,
-                nav: false
-            },
-            600: {
-                items: 5,
-                nav: false
-            },
-            1000: {
-                items: 5,
-                nav: false,
-                loop: false
-            }
-        }
-    });
+
     $(".slick-carousel-mobile img").click(function () {
         $('.zoomContainer').remove();
         $("#zoom").removeData('elevateZoom');
