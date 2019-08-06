@@ -55,6 +55,13 @@ function add_theme_scripts()
 
     }
 
+    if(is_page('try-eyewear')) {
+        wp_enqueue_script('tween-max-js', get_theme_file_uri() . '/js/TweenMax.min.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('draggable-js', get_theme_file_uri() . '/js/Draggable.min.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('webcam-js', get_theme_file_uri() . '/js/webcam.min.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('try-eyewear', get_theme_file_uri() . '/js/try-eyewear.js', array('jquery'), '1.0', true);
+    }
+
     wp_enqueue_script('auth-js', get_theme_file_uri() . '/js/myJs/auth.js', array('jquery'), '1.1', true);
 
     //plugin
@@ -93,8 +100,7 @@ function add_theme_scripts()
 
 add_action('wp_enqueue_scripts', 'add_theme_scripts');
 
-function push_to_cat($arrs)
-{
+function push_to_cat($arrs) {
     $arrTmp = [];
     foreach ($arrs as $key => $arr) {
         if ($key > 0) {
@@ -104,39 +110,4 @@ function push_to_cat($arrs)
     }
     return implode($arrTmp);
 }
-/** Disable Ajax Call from WooCommerce */
-//add_action('wp_enqueue_scripts', 'dequeue_woocommerce_cart_fragments', 11);
-//function dequeue_woocommerce_cart_fragments()
-//{
-//    if (is_front_page()) wp_dequeue_script('wc-cart-fragments');
-//}
-
-//add_filter('woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_loop_ajax_add_to_cart', 10, 2);
-//function quantity_inputs_for_loop_ajax_add_to_cart($html, $product)
-//{
-//    if ($product && $product->is_type('simple') && $product->is_purchasable() && $product->is_in_stock() && !$product->is_sold_individually()) {
-//        // Get the necessary classes
-//        $class = implode(' ', array_filter(array(
-//            'button',
-//            'product_type_' . $product->get_type(),
-//            $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-//            $product->supports('ajax_add_to_cart') ? 'ajax_add_to_cart' : '',
-//        )));
-//
-//        // Adding embeding <form> tag and the quantity field
-//        $html = sprintf('%s%s<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s">%s</a>%s',
-//            '<form class="cart">',
-//            woocommerce_quantity_input(array(), $product, false),
-//            esc_url($product->add_to_cart_url()),
-//            esc_attr(isset($quantity) ? $quantity : 1),
-//            esc_attr($product->get_id()),
-//            esc_attr($product->get_sku()),
-//            esc_attr(isset($class) ? $class : 'button'),
-//            esc_html($product->add_to_cart_text()),
-//            '</form>'
-//        );
-//    }
-//    return $html;
-//}
-
-// update mini
+?>
