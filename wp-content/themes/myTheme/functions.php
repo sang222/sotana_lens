@@ -36,6 +36,7 @@ function remove_order_notes($fields)
 function add_theme_scripts()
 {
     wp_enqueue_script('jquery-js', get_theme_file_uri() . '/js/jquery-2.2.4.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('tween-max-js', get_theme_file_uri() . '/js/TweenMax.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('bootstrap-datepicker', get_theme_file_uri() . '/js/bootstrap-datepicker.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('bootstrap-timepicker', get_theme_file_uri() . '/js/bootstrap-timepicker.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('scrollToFixed', get_theme_file_uri() . '/js/jquery-scrolltofixed-min.js', array('jquery'), '1.0', true);
@@ -56,7 +57,6 @@ function add_theme_scripts()
     }
 
     if(is_page('try-eyewear')) {
-        wp_enqueue_script('tween-max-js', get_theme_file_uri() . '/js/TweenMax.min.js', array('jquery'), '1.0', true);
         wp_enqueue_script('draggable-js', get_theme_file_uri() . '/js/Draggable.min.js', array('jquery'), '1.0', true);
         wp_enqueue_script('webcam-js', get_theme_file_uri() . '/js/webcam.min.js', array('jquery'), '1.0', true);
         wp_enqueue_script('html2canvas', get_theme_file_uri() . '/js/html2canvas.js', array('jquery'), '1.0', true);
@@ -90,6 +90,8 @@ function add_theme_scripts()
     // wp_enqueue_style('bootstrap-timepicker', get_template_directory_uri() . '/css/menuzord.css', array(), '1.0');
     wp_enqueue_style('notice-css', get_template_directory_uri() . '/css/myCss/notice.css', array(), '1.0');
     wp_enqueue_style('table-responsive-css', get_template_directory_uri() . '/css/myCss/table-responsive.css', array(), '1.0');
+    wp_enqueue_style('header-css', get_template_directory_uri() . '/css/header.css', array(), '1.0');
+
     if (is_single()) {
         // single product css single-product.css
         wp_enqueue_style('slick-css', get_template_directory_uri() . '/plugin/slick-master/slick/slick-theme.css', array(), '1.0');

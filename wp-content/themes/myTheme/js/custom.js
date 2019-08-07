@@ -19,7 +19,38 @@ var THEMEMASCOT = {};
     var portfolio_filter = ".portfolio-filter a";
     var $portfolio_filter_first_child = $(".portfolio-filter a:eq(0)");
     var $portfolio_flex_slider = $(".portfolio-slider");
+    var menu_flag = false;
+    var tl = new TimelineMax({paused: true})
+    var tl1 = new TimelineMax({paused: true})
 
+    $('.icon-menu').click(function() {
+        menuInit()
+        $wrapper.addClass('menu-active');
+        if(menu_flag) {
+            tl.reverse()
+            tl1.reverse()
+            $wrapper.removeClass('menu-active')
+            menu_flag = false;
+        } else {
+            tl.play()
+            menu_flag = true
+        }
+    })
+
+    $('#search').click(function(e) {
+        tl1.set('.search-box', {display: 'table'})
+        tl1.staggerTo('.menu-pri li', 0.3, {ease: Power2.easeOut, y: 1150, force3D: true, autoAlpha: 0}, 0.06)
+        tl1.to('.menu-pri', 0.3, {ease: Power2.easeOut, y: 1150, force3D: true, autoAlpha: 0, height: 0})
+        tl1.to('.search-box', 0.3, {ease: Power2.easeOut, y: 0, force3D: true, autoAlpha: 1}, '-=0.5')
+        tl1.play()
+        return false
+    })
+
+    function menuInit() {
+        tl.to('.circle', 0.7, {width: $body.width() * 5 + 'px', height: $body.width() * 5 + 'px'})
+            .set('.menu-main', {display: 'table'})
+            .staggerTo('.menu-pri li', 0.3, {ease: Power2.easeOut, y: 0, force3D: true, autoAlpha: 1}, 0.06)
+    }
 
     THEMEMASCOT.isMobile = {
         Android: function() {
