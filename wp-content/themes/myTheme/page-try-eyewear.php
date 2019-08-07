@@ -29,19 +29,26 @@
                 <input type="file" class="uploadInput" onchange="onFileSelected(event)">
             </div>
             <p class="text-center">Upload a picture</p>
+            <a class="boxTry" id="download" download>
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+            </a>
+            <p class="text-center">Download</p>
         </div>
         <div class="col-md-10 col-right">
-            <div class="pictureRender"></div>
-            <button id="takePicture" style="display: none">Take picture</button>
-            <div id="imageProduct" class="draggable">
-                <img src="<?php echo get_the_post_thumbnail_url($_GET['id_lens'])?>" style= alt="">
-                <div class="resize-handle"></div>
+            <div id="exportImage">
+                <div class="pictureRender"></div>
+                <div id="imageProduct" class="draggable">
+                    <img src="<?php echo get_the_post_thumbnail_url($_GET['id_lens'])?>" style= alt="">
+                    <div class="resize-handle"></div>
+                </div>
             </div>
+            <button id="takePicture" style="display: none">Take picture</button>
         </div>
     </div>
 </div>
 <script>
     function onFileSelected(event) {
+        $('.resize-handle').removeClass('hiddenResize')
         var w = $('.pictureRender').width(),
         h = $('.pictureRender').height();
         var selectedFile = event.target.files[0];
@@ -50,7 +57,8 @@
         var imgtag = $('.pictureRender');
 
         reader.addEventListener("load", function () {
-            imgtag.append('<img src="'+ reader.result +'" style="width: '+ w +'px; height: '+ h +'px" />')
+            imgtag.empty()
+            imgtag.append('<img src="'+ reader.result +'" />')
         }, false);
 
         reader.readAsDataURL(selectedFile);

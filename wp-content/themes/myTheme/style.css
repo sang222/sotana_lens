@@ -1841,14 +1841,23 @@ body .pagination {
 }
 .col-right {
     padding: 50px;
-    border: 1px dotted #ccc;
     position: relative;
 }
-.pictureRender {
+#exportImage {
     width: 70%;
+    height: 398px;
+    margin: auto;
+}
+.pictureRender {
+    border: 1px dotted #000000;
+    height: 100%;
+    overflow: hidden;
+}
+.pictureRender img {
+    max-width: none;
     height: 400px;
-    background: #000;
-    margin: auto
+    margin: auto;
+    display: table;
 }
 .draggable {
     position: absolute;
@@ -1883,7 +1892,33 @@ body .pagination {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: -5px;
+    right: -3px;
     transform: rotate(90deg);
+    color: #000;
+}
+.hiddenResize {
+    opacity: 0;
+}
+#takePicture {
+    font-size: 100%;
+    display: table;
+    color: white !important;
+    margin: 20px auto;
+    background: #789be6 !important;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: .618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    left: auto;
+    color: #515151;
+    background-color: #ebe9eb;
+    border: 0;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
 }

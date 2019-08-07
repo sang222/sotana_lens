@@ -165,7 +165,7 @@ defined('ABSPATH') || exit;
                     <!--                    </form>-->
                 </div>
                 <div class="try_eyewear">
-                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a href="<?php echo esc_url(get_page_link(268)) ?>&id_lens=<?php echo get_the_ID() ?>" target="_blank">Thử kính ngay</a>.</p>
+                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a href="<?php echo esc_url(get_page_link(268)) ?>&id_lens=<?php echo get_the_ID() ?>">Thử kính ngay</a>.</p>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">

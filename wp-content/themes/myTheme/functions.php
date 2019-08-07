@@ -59,6 +59,8 @@ function add_theme_scripts()
         wp_enqueue_script('tween-max-js', get_theme_file_uri() . '/js/TweenMax.min.js', array('jquery'), '1.0', true);
         wp_enqueue_script('draggable-js', get_theme_file_uri() . '/js/Draggable.min.js', array('jquery'), '1.0', true);
         wp_enqueue_script('webcam-js', get_theme_file_uri() . '/js/webcam.min.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('html2canvas', get_theme_file_uri() . '/js/html2canvas.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('canvas2image', get_theme_file_uri() . '/js/canvas2image.js', array('jquery'), '1.0', true);
         wp_enqueue_script('try-eyewear', get_theme_file_uri() . '/js/try-eyewear.js', array('jquery'), '1.0', true);
     }
 
