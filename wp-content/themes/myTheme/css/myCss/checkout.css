@@ -51,11 +51,11 @@
 
 /*remove notice checkout*/
 .woocommerce-NoticeGroup, .woocommerce-notices-wrapper {
-    display: none;
+    /*display: none;*/
 }
 
 #payment {
-    display: none;
+    /*display: none;*/
 }
 
 #checkout_now {

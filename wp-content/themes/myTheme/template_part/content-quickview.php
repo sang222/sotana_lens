@@ -23,6 +23,7 @@
                         <div class="col-lg-6 col-sm-6 col-xs-12">
                             <h3 class="nameQuickview"></h3>
                             <p class="description-quick-view"></p>
+                            <div class="variable-quick"></div>
                             <p class="price-quickview d-flex">
                                 <span class="price-regular"></span>
                                 <span class="price-sale"></span>

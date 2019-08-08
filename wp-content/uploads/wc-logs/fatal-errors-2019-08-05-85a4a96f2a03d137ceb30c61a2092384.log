@@ -1,0 +1,91 @@
+2019-08-05T16:03:03+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variable::get_attribute_taxonomy_names() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:157
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\single-product.php(27): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 157
+
+2019-08-05T16:11:04+00:00 CRITICAL syntax error, unexpected '**' (T_POW) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 167
+
+2019-08-05T16:11:28+00:00 CRITICAL syntax error, unexpected '**' (T_POW) in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 169
+
+2019-08-05T16:25:39+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:164
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\single-product.php(27): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 164
+
+2019-08-05T16:26:21+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:164
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\single-product.php(27): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 164
+
+2019-08-05T16:26:29+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:164
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\single-product.php(27): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 164
+
+2019-08-05T16:26:47+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php:164
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(195): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\single-product.php(27): wc_get_template_part('content', 'single-product')
+#3 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 164
+
+2019-08-05T17:43:00+00:00 CRITICAL Uncaught Error: Call to a member function get_attributes() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:39
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 39
+
+2019-08-05T17:47:24+00:00 CRITICAL Uncaught Error: Call to a member function get_attributes() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:40
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 40
+
+2019-08-05T18:10:05+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Attribute::get_value() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:42
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 42
+
+2019-08-05T18:20:14+00:00 CRITICAL Uncaught Error: Call to a member function get_attributes() on string in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:42
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 42
+

@@ -1,0 +1,1066 @@
+2019-08-07T09:48:10+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1068): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-h in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T09:48:10+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1068): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-h in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T09:48:10+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1068): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-h in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T09:49:12+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1068): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-h in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T12:22:46+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:72
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 72
+
+2019-08-07T12:23:14+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:72
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 72
+
+2019-08-07T12:36:17+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:71
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 71
+
+2019-08-07T12:37:31+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:71
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 71
+
+2019-08-07T12:37:38+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:71
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 71
+
+2019-08-07T12:39:43+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(426): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::add_to_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_add_to_...')
+#8 C:\xampp\htdocs in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:39:46+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(426): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::add_to_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_add_to_...')
+#8 C:\xampp\htdocs in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:39:57+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(426): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::add_to_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_add_to_...')
+#8 C:\xampp\htdocs in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:39:58+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(426): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::add_to_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_add_to_...')
+#8 C:\xampp\htdocs in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:40:00+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(426): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::add_to_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_add_to_...')
+#8 C:\xampp\htdocs in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:40:41+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:40:43+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(426): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::add_to_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_add_to_...')
+#8 C:\xampp\htdocs in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:44:22+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(634): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): product_remove('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_product...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:44:32+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(634): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): product_remove('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_product...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:45:48+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:45:50+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(634): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): product_remove('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_product...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:46:03+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:46:04+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(634): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): product_remove('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_product...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:46:21+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:46:25+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(634): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): product_remove('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_product...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:47:25+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:47:30+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(634): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): product_remove('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_product...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:47:39+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:48:43+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:49:04+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:50:44+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:50:47+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:50:49+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:08+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1103): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): add_product_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_add_pro...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:08+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1103): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): add_product_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_add_pro...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:09+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1103): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): add_product_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_add_pro...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:09+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1103): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): add_product_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_add_pro...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:10+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1103): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): add_product_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_add_pro...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:10+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1103): WC_AJAX::get_refreshed_fragments()
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): add_product_cart('')
+#5 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\outsource\wp-admin\admin-ajax.php(99): do_action('wp_ajax_add_pro...')
+#8 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:15+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:16+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T12:51:19+00:00 CRITICAL Uncaught Error: Call to undefined function push_to_cat() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php:230
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): table_cart_page_fragment(Array)
+#1 C:\xampp\htdocs\outsource\wp-includes\plugin.php(203): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(192): apply_filters('woocommerce_add...', Array)
+#3 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::get_refreshed_fragments('')
+#4 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 C:\xampp\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-ajax.php(87): do_action('wc_ajax_get_ref...')
+#7 C:\xampp\htdocs\outsource\wp-includes\class-wp-hook.php(286): WC_AJAX::do_wc_ajax('')
+#8 C:\xampp\htdocs\outsource\wp-includes\clas in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php on line 230
+
+2019-08-07T13:51:32+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(885): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T13:51:33+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(885): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T13:51:48+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(885): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T13:51:48+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(885): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T13:53:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(885): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T13:53:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(885): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T13:58:12+00:00 CRITICAL Uncaught Error: Call to a member function get_available_variations() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T13:58:22+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T13:58:51+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T13:58:58+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T13:59:12+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T14:00:28+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T14:00:42+00:00 CRITICAL Uncaught Error: Call to a member function get_available_variations() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T14:00:45+00:00 CRITICAL Uncaught Error: Call to a member function get_available_variations() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T14:00:54+00:00 CRITICAL Uncaught Error: Call to a member function get_available_variations() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T14:01:03+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T14:01:16+00:00 CRITICAL Uncaught Error: Call to a member function get_available_variations() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:109
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 109
+
+2019-08-07T15:42:52+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:55
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 55
+
+2019-08-07T15:43:05+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:59
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 59
+
+2019-08-07T15:43:41+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:57
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 57
+
+2019-08-07T15:44:28+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:58
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 58
+
+2019-08-07T15:44:50+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:58
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 58
+
+2019-08-07T15:49:13+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:57
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 57
+
+2019-08-07T15:49:25+00:00 CRITICAL Uncaught Error: Call to a member function get_available_variations() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:57
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 57
+
+2019-08-07T15:49:41+00:00 CRITICAL Uncaught Error: Call to a member function get_attributes() on array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:57
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 57
+
+2019-08-07T15:54:52+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:57
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 57
+
+2019-08-07T15:55:34+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:58
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 58
+
+2019-08-07T15:56:16+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php:58
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php on line 58
+
+2019-08-07T15:56:56+00:00 CRITICAL Uncaught Exception: Invalid product. in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php:163
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product_Variable))
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(135): WC_Data_Store->read(Object(WC_Product_Variable))
+#2 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php(57): WC_Product->__construct(281)
+#3 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php on line 163
+
+2019-08-07T15:57:09+00:00 CRITICAL Uncaught Exception: Invalid product. in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php:163
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product_Variable))
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(135): WC_Data_Store->read(Object(WC_Product_Variable))
+#2 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\templates\cart-page.php(57): WC_Product->__construct(281)
+#3 C:\xampp\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\index.php(17): require('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php on line 163
+
+2019-08-07T16:44:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 7, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 9, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 8, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 10, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-h in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:33+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:33+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:34+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:34+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:34+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T16:44:34+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(911): WC_Cart->set_quantity('quantity', 7, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:14:22+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variable as array in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php:72
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#2 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', false)
+#6 C:\xampp\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp\htdocs\outsource\ in C:\xampp\htdocs\outsource\wp-content\themes\myTheme\template_part\product\product-bestsale.php on line 72
+
+2019-08-07T17:31:14+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(920): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:31:14+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(920): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:31:14+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(920): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:39:10+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:39:10+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:39:10+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:41:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:41:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:41:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:48:43+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:48:43+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(937): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:59:48+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(936): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:59:48+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(936): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:59:48+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(936): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T17:59:48+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(936): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T18:04:42+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(936): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-07T18:04:43+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(936): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp\htdocs\outsource\wp-includes\class-wp-ho in C:\xampp\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+

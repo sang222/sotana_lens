@@ -1,4 +1,80 @@
 $(document).ready(function () {
+    settingSlider();
+    viewVariable();
+    submitProductVariable();
+})
+
+function submitProductVariable() {
+    $('.add-variable').click(function (e) {
+        e.preventDefault();
+        var product_id = $(this).attr('data-product_id');
+        var variation_id = $(this).attr('data-variation_id');
+        var attribute_pa_color = $(this).attr('data-attribute_pa_color');
+        var attribute_pa_size = $(this).attr('data-attribute_pa_size');
+        $.ajax({
+            url: $("#url_admin").val(),
+            type: 'POST',
+            data: {
+                action: "add_product",
+                'quantity': 1,
+                'product_id': product_id,
+                'variation_id': variation_id,
+                'variation': {
+                    'attribute_pa_color': attribute_pa_color,
+                    'attribute_pa_size': attribute_pa_size,
+                }
+
+            },
+            success: function (res) {
+                // $('body').empty().append(res);
+                // console.log(res);
+                // console.log(res.find('.list-inline'))
+                var mini = res.fragments['.container-mini-cart'];
+
+                $(".container-mini-cart").empty().append(mini);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    })
+}
+
+function viewVariable() {
+
+    $(".product-variable .box-variable").click(function () {
+        $('.product-variable .box-variable').removeClass('active');
+        $(this).addClass('active');
+        $('#verticle-slick img').removeClass('active');
+        var variation_id = $(this).attr('data-variation_id');
+        var display_price = $(this).attr('data-display_price');
+        var display_regular_price = $(this).attr('data-display_regular_price');
+        var attribute_pa_color = $(this).attr('data-attribute_pa_color');
+        var attribute_pa_size = $(this).attr('data-attribute_pa_size');
+
+        $("#add-variable").attr('data-attribute_pa_color', attribute_pa_color);
+        $("#add-variable").attr('data-attribute_pa_size', attribute_pa_size);
+        $("#add-variable").attr('data-variation_id', variation_id);
+        //add on
+        $(".current-price").text(display_regular_price + 'đ');
+        $(".sale-price").text(display_price + 'đ');
+
+        var src = $(this).find('img').attr('src');
+        $('.zoomContainer').remove();
+        $("#zoom").removeData('elevateZoom');
+        $("#zoom").attr('src', src);
+        $("#zoom").data('zoom-image', src);
+        $("#zoom").elevateZoom({
+            scrollZoom: true,
+            zoomType: "inner",
+            cursor: "crosshair",
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 750
+        });
+    })
+}
+
+function settingSlider() {
     var src_tem = $('#verticle-slick img.active').attr('src');
     $(".title").next().next('p').remove();
     $("#zoom").elevateZoom({
@@ -79,59 +155,6 @@ $(document).ready(function () {
             }
         }
     });
-})
+}
 
 //check cart add notice
-function jaxButtonCart() {
-    $(document).on('click', '.ajax_add_to_cart', function (e) {
-        e.preventDefault();
-        $(this).removeClass('added');
-        $(".notification").removeClass('-active')
-        var $thisbutton = $(this),
-            $form = $thisbutton.closest('form.cart'),
-            id = $thisbutton.val(),
-            product_qty = $form.find('input[name=quantity]').val() || 1,
-
-            product_id = $form.find('input[name=product_id]').val() || id,
-            variation_id = $form.find('input[name=variation_id]').val() || 0;
-        var data = {
-            action: 'woocommerce_ajax_add_to_cart',
-            product_id: product_id,
-            product_sku: '',
-            quantity: product_qty,
-            variation_id: variation_id,
-        };
-
-        $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
-        var $this = $(this);
-        $.ajax({
-            type: 'post',
-            url: wc_add_to_cart_params.ajax_url,
-            data: data,
-            beforeSend: function (response) {
-                $thisbutton.removeClass('added').addClass('loading');
-            },
-            complete: function (response) {
-                $thisbutton.addClass('added').removeClass('loading');
-            },
-            success: function (response) {
-                if ($(e.target).hasClass('added')) {
-                    $(".notification").addClass('-active')
-                    setTimeout(function () {
-                        $(".notification").removeClass('-active')
-                    }, 2000)
-                }
-
-                if (response.error & response.product_url) {
-                    window.location = response.product_url;
-                    return;
-                } else {
-                    $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
-                }
-            },
-        });
-
-        return false;
-    });
-
-}

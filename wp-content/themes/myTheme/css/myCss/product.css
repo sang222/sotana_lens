@@ -1,0 +1,15 @@
+.variable-item {
+    width: 32px !important;
+    height: 32px !important;
+}
+.item-variable.active{
+    border: 1px solid #789be6;
+}
+/*tool tip*/
+/* START TOOLTIP STYLES */
+.box-variable-pr.active{
+    border: 1px solid #789be6;
+}
+/* Owl Carousel Bootstrap Custom CSS */
+
+/* Header Navigation */
