@@ -24,14 +24,14 @@
 
 #verticle-slick img.active {
 
-    width: calc(100% - 2px);
+    /*width: calc(100% - 2px);*/
     box-sizing: border-box;
     padding-left: 1px;
 }
 
 #verticle-slick img:hover {
 
-    width: calc(100% - 2px);
+    /*width: calc(100% - 2px);*/
     opacity: 0.8;
     box-sizing: border-box;
     padding-left: 1px;

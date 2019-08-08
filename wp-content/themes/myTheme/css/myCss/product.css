@@ -10,6 +10,11 @@
 .box-variable-pr.active{
     border: 1px solid #789be6;
 }
+.box-variable-pr img{
+    cursor: pointer;
+    width:32px !important;
+    height: 32px !important;
+}
 /* Owl Carousel Bootstrap Custom CSS */
 
 /* Header Navigation */

@@ -209,13 +209,8 @@ function submitProductQuick() {
                 $(".container-mini-cart").empty().append(mini);
                 var modal = res.fragments['.modal-cart-content'];
                 $(".modal-cart-add").empty().append(modal);
-                $(".notification").removeClass('-active')
-                $(".notification").addClass('-active')
                 $("#modalCart").modal('show');
                 $("#myModal").modal('hide')
-                setTimeout(function () {
-                    $(".notification").removeClass('-active')
-                }, 3000)
 
 
             },
@@ -229,7 +224,7 @@ function submitProductQuick() {
 function submitProductVariable() {
     $(document).on('click', '.add-variable', function (e) {
         e.preventDefault();
-        $(this).addClass('loading')
+        // $(this).addClass('loading')
         var product_id = $(this).attr('data-product_id');
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
@@ -251,11 +246,7 @@ function submitProductVariable() {
             success: function (res) {
 
                 $this.removeClass('loading');
-                $(".notification").removeClass('-active')
-                $(".notification").addClass('-active')
-                setTimeout(function () {
-                    $(".notification").removeClass('-active')
-                }, 3000)
+
                 var mini = res.fragments['.container-mini-cart'];
                 $(".container-mini-cart").empty().append(mini);
 

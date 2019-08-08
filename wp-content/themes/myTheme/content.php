@@ -19,8 +19,7 @@
 <?php get_template_part('template_part/content', 'blog') ?>
 <!-- cart Modal-->
 <?php get_template_part('template_part/content', 'cartmodal') ?>
-<!-- content notice -->
-<?php get_template_part('template_part/content', 'notice') ?>
+
 <div id="stop" class="scrollTop">
     <span><a href=""><i class="fa fa-arrow-up"></i></a></span>
 </div>

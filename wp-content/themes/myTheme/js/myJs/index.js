@@ -7,7 +7,7 @@ function openProTabs(index, $this) {
 
 function clickItemVariableItem() {
     $('.box-variable-pr img').click(function () {
-        $('.box-variable-pr').removeClass('active');
+        $(this).parents('.product-item').find('.box-variable-pr').removeClass('active');
         $(this).parents('.box-variable-pr').addClass('active');
         var src = $(this).attr('src');
         $(this).parents('.product-item').find('.img-thumb img').attr('src', src);
@@ -254,7 +254,7 @@ $(document).ready(function () {
         return false;
 
     }); // left menu link3 click() scroll END
-    $(document).on('click', '.owl-item img', function () {
+    $(document).on('click', '.quickview-carousel .owl-item img', function () {
         $("#picture-quickview").attr('src', $(this).attr('src'))
         $(".owl-item img").removeClass('active');
         $(this).addClass('active');
