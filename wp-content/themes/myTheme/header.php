@@ -47,7 +47,7 @@
 <div id="status">
 </div>
 <input type="hidden" id="url_admin" value="<?php echo admin_url('admin-ajax.php') ?>">
-<div id="wrapper" class="clearfix" style="overflow: hidden;">
+<div id="wrapper" class="clearfix">
     <div>
         <!-- Header -->
         <div class="header fixed-width">
