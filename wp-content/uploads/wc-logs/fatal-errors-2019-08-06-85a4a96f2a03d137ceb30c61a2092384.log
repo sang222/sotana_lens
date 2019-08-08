@@ -1,0 +1,42 @@
+2019-08-06T08:43:48+00:00 CRITICAL Uncaught Error: Call to undefined method WooCommerce::check_cart_items() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\templates\page-checkout.php:6
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#3 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\templates\page-checkout.php on line 6
+
+2019-08-06T08:44:14+00:00 CRITICAL Uncaught Error: Call to a member function check_cart_items() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\templates\page-checkout.php:6
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#3 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\templates\page-checkout.php on line 6
+
+2019-08-06T08:51:34+00:00 CRITICAL Uncaught Error: Cannot instantiate abstract class WC_Abstract_Order in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\templates\page-checkout.php:5
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#3 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\templates\page-checkout.php on line 5
+
+2019-08-06T09:30:51+00:00 CRITICAL Uncaught Error: Array callback has to contain indices 0 and 1 in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\page-try-eyewear.php:3
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#3 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\page-try-eyewear.php on line 3
+
+2019-08-06T09:31:15+00:00 CRITICAL Uncaught Error: Array callback has to contain indices 0 and 1 in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\page-try-eyewear.php:3
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#3 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\page-try-eyewear.php on line 3
+
+2019-08-06T14:31:59+00:00 CRITICAL syntax error, unexpected end of file in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\functions.php on line 75
+
