@@ -39,7 +39,7 @@ var THEMEMASCOT = {};
 
     $('#search').click(function(e) {
         tl1.set('.search-box', {display: 'table'})
-        tl1.staggerTo('.menu-pri li', 0.3, {ease: Power2.easeOut, y: 1150, force3D: true, autoAlpha: 0}, 0.06)
+        tl1.staggerTo('.menu-pri li', 0.3, {ease: Power2.easeOut, y: -50, force3D: true, autoAlpha: 0}, 0.06)
         tl1.to('.menu-pri', 0.3, {ease: Power2.easeOut, y: 1150, force3D: true, autoAlpha: 0, height: 0})
         tl1.to('.search-box', 0.3, {ease: Power2.easeOut, y: 0, force3D: true, autoAlpha: 1}, '-=0.5')
         tl1.play()
