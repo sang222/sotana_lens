@@ -84,9 +84,9 @@
 <!-- Footer Scripts -->
 <!-- JS | Calendar Event Data -->
 <?php wp_footer() ?>
-<!--<script src="--><?php //echo  $baseURL ?><!--/js/calendar-events-data.js"></script>-->
-<!--<!-- JS | Custom script for all pages -->-->
-<!--<script src="--><?php //echo  $baseURL ?><!--/js/custom.js"></script>-->
+<script src="<?php echo  $baseURL ?>/js/calendar-events-data.js"></script>
+<!-- JS | Custom script for all pages -->
+<script src="<?php echo $baseURL ?>/js/custom.js"></script>
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS
       (Load Extensions only on Local File Systems !
        The following part can be removed on Server for On Demand Loading) -->
