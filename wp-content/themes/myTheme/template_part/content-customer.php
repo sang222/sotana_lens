@@ -4,7 +4,7 @@
         <span class="text-uppercase">CUSTOMER COMMENT FOR US</span>
     </div>
 </div>
-<div class="fixed-width" style="margin-top:35px;">
+<div class="fixed-width" style="margin-top:35px;padding: 15px">
     <div class="owl-carousel owl-theme " id="customer-carousel">
         <?php global $tp_option;
         $arr_customer_slides = $tp_option['home-customer'];

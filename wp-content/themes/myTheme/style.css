@@ -179,7 +179,7 @@ body ul.list li {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .d-inline-block {
@@ -1192,7 +1192,7 @@ input[type="checkbox"]:checked + label:after {
     display: inline-block;
     width: 100%;
     max-width: 350px;
-    margin: 20px;
+    /*margin: 20px;*/
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
@@ -1984,3 +1984,4 @@ body .pagination {
     box-shadow: none;
     text-shadow: none;
 }
+

@@ -2,7 +2,7 @@ function openProTabs(index, $this) {
     $(".pro-tablinks").removeClass('active');
     $($this).addClass('active');
     $(".collection").fadeOut(500)
-    $(".colection-" + index).fadeIn(1500)
+    $(".colection-" + index).fadeIn(1500).removeClass('d-none')
 }
 
 function clickItemVariableItem() {

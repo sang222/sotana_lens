@@ -161,8 +161,7 @@
                                       } ?>"
                                       data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                       data-product_link="<?php the_permalink() ?>"
-                                ><i
-                                            class="fa fa-search"></i></span>
+                                ><i class="fa fa-search"></i></span>
 
                             </div>
                         </div>
