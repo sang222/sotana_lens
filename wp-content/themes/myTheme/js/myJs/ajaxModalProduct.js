@@ -384,8 +384,9 @@ $(document).on('click', '.remove-product-variable', function (e) {
             key_items: key_items,
         }, success: function (data) {
             var mini = data.fragments['.container-mini-cart'];
-
             $(".container-mini-cart").empty().append(mini);
+            var modal = data.fragments['.modal-cart-content'];
+            $(".modal-cart-add").empty().append(modal);
             $(".total-price").text($('.total-price-dropdown').attr('data-total'))
             if ($this.parents('tr').prev().size() > 0 || $this.parents('tr').next().size() > 0) {
                 $this.parents('tr').remove();
