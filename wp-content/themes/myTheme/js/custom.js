@@ -23,6 +23,10 @@ var THEMEMASCOT = {};
     var tl = new TimelineMax({paused: true})
     var tl1 = new TimelineMax({paused: true})
 
+    $('#icon-cart-mobile').click(function() {
+        $('.popup-view-cart').toggleClass('d-none')
+    })
+
     $('.icon-menu').click(function() {
         menuInit()
         $wrapper.addClass('menu-active');

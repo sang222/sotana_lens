@@ -37,13 +37,10 @@ function woocommerce_ajax_add_to_cart()
 
 //mini c
 add_filter('woocommerce_add_to_cart_fragments', 'header_add_to_cart_fragment', 30, 1);
-function header_add_to_cart_fragment($fragments)
-{
+function header_add_to_cart_fragment($fragments) {
     global $woocommerce;
-
     ob_start();
-
-    ?>
+?>
     <ul class="list-inline flip container-mini-cart pull-right">
         <li class="mb-0 pb-0">
             <?php global $woocommerce; ?>

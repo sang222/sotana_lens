@@ -177,3 +177,113 @@
     color: #fff;
     border-color: #789be6;
 }
+.popup-view-cart {
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    z-index: 9999;
+    margin-top: 20px;
+}
+.popup-view-cart:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    right: 9px;
+    top: -11px;
+    transform: rotate(45deg);
+    border-left: 1px solid #d3d3d3;
+    z-index: -1;
+    border-top: 1px solid #d3d3d3;
+}
+.popup-cart-title h5 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+}
+.popup-cart-content {
+    padding: 20px;
+}
+.popup-cart-content .item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.popup-cart-content .item:last-child {
+    margin-bottom: 0;
+}
+.popup-cart-content .item img {
+    margin-right: 15px;
+    max-width: 80px;
+}
+.popup-cart-content .item a {
+    color: #000;
+    font-weight: 500;
+}
+.popup-cart-content .item p, .popup-cart-content .item a {
+    margin: 0;
+}
+.popup-cart-content .item p {
+    font-size: 12px;
+    line-height: 1.2;
+}
+.popup-cart-content .item span {
+    font-size: 12px;
+}
+.item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.popup-cart-footer {
+    padding: 0 20px;
+    padding-bottom: 13px
+}
+.popup-cart-footer p {
+    margin-bottom: 0;
+}
+.group-btn .btn {
+    padding: 5px 15px;
+}
+.group-btn {
+    display: flex;
+}
+.group-btn a {
+    background: #22232b;
+    color: #fff;
+}
+.group-btn a:first-of-type {
+    margin-right: 10px;
+}
+body.home .header .icon-menu .icon-menu__bar {
+    background: #fff
+}
+body .header .icon-menu .icon-menu__bar {
+    background: #000;
+}
+body.home .cart-icon {
+    width: 28px;
+    height: 34px;
+    background-size: cover;
+    background: url('../images/hd_mainmenu_icon_cart.png') top left no-repeat;
+}
+body .cart-icon {
+    width: 28px;
+    height: 34px;
+    background-size: cover;
+    background: url('../images/hd_mainmenu_icon_cart-black.png') top left no-repeat;
+}
+body.home .header {
+    position: absolute;
+}
+body .header {
+    position: relative;
+}
