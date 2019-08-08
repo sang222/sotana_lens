@@ -18,10 +18,10 @@ function woocommerce_ajax_add_to_cart()
         if ('yes' === get_option('woocommerce_cart_redirect_after_add')) {
             wc_add_to_cart_message(array($product_id => $quantity), true);
         }
-        $data1 = array(
-            abc => 'ddd'
-        );
-        wp_send_json($data1);
+//        $data1 = array(
+//            abc => 'ddd'
+//        );
+//        wp_send_json($data1);
         WC_AJAX:: get_refreshed_fragments();
     } else {
 
@@ -90,21 +90,43 @@ function header_add_to_cart_fragment($fragments)
                                             $totalitem += $quantitypro;
                                             ?>
                                             <tr id="mini-item-<?php echo $vt ?>">
-                                                <td><a href="<?php echo $linkpro; ?>"><img
-                                                                alt="<?php echo $titlepro; ?>"
-                                                        <?php echo $imgpro; ?></a>
+                                                <td><a href="<?php echo $linkpro; ?>">
+                                                        <?php
+                                                        if ($_product->product_type != 'variation') : ?>
+                                                            <?php echo $imgpro; ?>
+                                                        <?php else: ?>
+                                                            <?php
+                                                            $variation_id2 = $values['variation_id'];
+                                                            $variable_product2 = new WC_Product_Variation($variation_id2);
+                                                            ?>
+                                                            <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
+                                                        <?php endif; ?>
+
+                                                    </a>
                                                 </td>
                                                 <td><a href="<?php echo $linkpro; ?>"
                                                        class="truncate"> <?php echo $titlepro ?></a></td>
                                                 <td>
                                                     X<span class="quantity-head-<?php echo $_product->get_id() ?>"><?php echo $quantitypro; ?></span>
                                                 </td>
-                                                <td><?php echo $pricepro; ?></td>
-                                                <td><a class="close remove-product"
-                                                       data-line="<?php echo $vt; ?>"
-                                                       data-product_id="<?php echo $_product->get_id() ?>"
-                                                       href="#"><i
-                                                                class="fa fa-close font-13"></i></a>
+                                                <td><?php echo number_format($pricepro, 0, ',', '.') . 'đ'; ?></td>
+                                                <td>
+                                                    <?php if ($_product->product_type != 'variation') : ?>
+                                                        <span
+                                                                class=" remove-product float-right"
+                                                                data-product_id="<?php echo $values['product_id'] ?>"
+                                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                                    class="fa fa-close font-13"></i>
+                                                                                </span>
+                                                    <?php else: ?>
+                                                        <span
+                                                                class=" remove-product-variable float-right"
+                                                                data-key_items="<?php echo $item ?>"
+                                                                data-product_id="<?php echo $values['product_id'] ?>"
+                                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                                    class="fa fa-close font-13"></i>
+                                                                                </span>
+                                                    <?php endif; ?>
                                                 </td>
                                             </tr>
                                             <?php $vt++; ?>
@@ -123,10 +145,11 @@ function header_add_to_cart_fragment($fragments)
                                         </td>
                                     </tr>
                                     <tr>
+                                        <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
                                         <td>Order Total</td>
                                         <td><span class="total-price-dropdown"
-                                                  data-total="<?php echo $total_price ?>"><?php echo $total_price ?></span>
-                                            VND
+
+                                                  data-total="<?php echo $amount2 ?>"><?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -171,6 +194,7 @@ function header_add_to_cart_fragment($fragments)
     return $fragments;
 }
 
+
 //modal cart
 add_filter('woocommerce_add_to_cart_fragments', 'modal_add_to_cart_fragment', 20, 1);
 function modal_add_to_cart_fragment($fragments)
@@ -184,13 +208,13 @@ function modal_add_to_cart_fragment($fragments)
             <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
         </div>
         <div class="modal-body frm-cart ">
-            <div class="  table-responsive">
+            <div class="  ">
                 <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
                 <?php //echo esc_url(wc_get_cart_url())
                 ?><!--" method="post">-->
                 <table class="
-                tablesaw tablesaw-stack
-                table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+                        tablesaw tablesaw-stack
+                        table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                     <thead>
                     <th></th>
                     <th>Sản phẩm</th>
@@ -207,47 +231,81 @@ function modal_add_to_cart_fragment($fragments)
                     foreach ($items as $item => $values) :
                         $_product = wc_get_product($values['data']->get_id());
                         $getProductDetail = wc_get_product($values['product_id']);
-                        if ($getProductDetail->get_sale_price() > 0) {
-                            $total_price += $getProductDetail->get_sale_price() * $values['quantity'];
-                        } else {
-                            $total_price += $getProductDetail->get_regular_price() * $values['quantity'];
-                        }
                         $price = get_post_meta($values['product_id'], '_price', true);
                         ?>
-                        <tr id="table-normal-<?php echo $vt; ?>">
-                            <td class="text-center modal-cart-image"
-                                style="vertical-align: middle;"><?php echo $getProductDetail->get_image('thumbnail'); // accepts 2 arguments ( size, attr )
-                                ?></td>
-                            <td style="vertical-align: middle;"><?php echo $_product->get_title(); ?></td>
+                        <tr>
+                            <td class="text-center modal-cart-image" style="vertical-align: middle;">
+                                <?php
+                                if ($_product->product_type != 'variation') : ?>
+                                    <?php echo $getProductDetail->get_image('thumbnail'); ?>
+                                <?php else: ?>
+                                    <?php
+                                    $variation_id2 = $values['variation_id'];
+
+                                    $variable_product2 = new WC_Product_Variation($variation_id2);
+
+                                    ?>
+                                    <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
+                                <?php endif; ?>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <h4 class="title-product-modal"><?php echo $_product->get_title(); ?></h4>
+                                <?php if ($_product->product_type == 'variation') :
+                                    ?>
+                                    <?php foreach ($values['variation'] as $key => $vari): ?>
+                                    <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
+                                        <p style="margin-bottom: 0">Color:
+                                            <?php echo $vari ?>
+                                        </p>
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                                <p>
+                                    Categories:
+                                    <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
+                                    ?></p>
+                            </td>
                             <td class="text-center"
                                 style="vertical-align: middle;">
                                 <?php
-                                if ($getProductDetail->get_sale_price() > 0) {
-                                    echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . ' VND';
-                                } else {
-                                    echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . ' VND';
-                                }
-                                ?>
-
+                                if ($_product->product_type != 'variation') :
+                                    if ($getProductDetail->get_sale_price() > 0) {
+                                        echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . 'đ';
+                                    } else {
+                                        echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . 'đ';
+                                    }
+                                    ?>
+                                <?php else: ?>
+                                    <?php
+                                    $variation_id = $values['variation_id'];
+                                    $variable_product1 = new WC_Product_Variation($variation_id);
+                                    $regular_price = $variable_product1->regular_price;
+                                    $sales_price = $variable_product1->sale_price;
+                                    if ($sales_price > 0) {
+                                        echo number_format(($sales_price), 0, ',', '.') . '<u>đ</u>';
+                                    } else {
+                                        echo number_format(($regular_price), 0, ',', '.') . '<u>đ</u>';
+                                    }
+                                    ?>
+                                <?php endif; ?>
                             </td>
 
                             <td class="qty-modal text-center" style="vertical-align: middle;">
                                 <div class="js-qty">
                                     <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>');
                                             var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
-                                            class="action-count reduced items-count2"
-                                            data-id="<?php echo $values['product_id'] ?>"
+                                            class="action-count reduced items-count2 <?php if ($values['quantity'] == '1') echo 'none-click' ?>"
                                             type="button"
+                                            data-id="<?php echo $values['product_id'] ?>"
                                             data-price="<?php
                                             if ($getProductDetail->get_sale_price() > 0) {
                                                 echo $getProductDetail->get_sale_price();
                                             } else {
                                                 echo $getProductDetail->get_regular_price();
                                             }
-                                            ?>"
-                                            data-id="<?php echo $values['product_id'] ?>"
-                                    ><i
-                                                class="fa fa-minus"></i>
+                                            ?>" data-product_id="<?php echo $values['product_id'] ?>"
+                                    ><i class="fa fa-minus"></i>
                                     </button>
                                     <input type="text" pattern="[0-9]*"
                                            class="input-text qty text-center"
@@ -268,7 +326,7 @@ function modal_add_to_cart_fragment($fragments)
                                            name="cart[<?php echo $item ?>][qty]"
                                     >
                                     <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                                            class=" action-count increase items-count2"
+                                            class=" action-count increase items-count2 "
                                             data-id="<?php echo $values['product_id'] ?>"
                                             type="button"
                                             data-price="<?php
@@ -278,28 +336,50 @@ function modal_add_to_cart_fragment($fragments)
                                                 echo $getProductDetail->get_regular_price();
                                             }
                                             ?>"
-                                    >
-                                        <i class="fa fa-plus"></i>
+                                    ><i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </td>
                             <td colspan="2" class="" style="vertical-align: middle;">
-                                        <span class="total-price-<?php echo $values['product_id'] ?>"><?php
-                                            if ($getProductDetail->get_sale_price() > 0) {
-                                                echo number_format(($getProductDetail->get_sale_price() * $values['quantity']), 0, ',', '.') . ' VND';
+                                <?php if ($_product->product_type != 'variation') : ?>
+                                    <span class="total-price-<?php echo $values['product_id'] ?>">
+                                            <?php if ($getProductDetail->get_sale_price() > 0) {
+                                                echo number_format(($getProductDetail->get_sale_price() * $values['quantity']), 0, ',', '.') . 'đ';
                                             } else {
-                                                echo number_format(($getProductDetail->get_regular_price() * $values['quantity']), 0, ',', '.') . ' VND';
+                                                echo number_format(($getProductDetail->get_regular_price() * $values['quantity']), 0, ',', '.') . 'đ';
                                             }
-
-                                            ?></span>
-                                <span
-
-                                        class=" remove-product float-right"
-                                        data-line="<?php echo $vt ?>"
-                                        data-product_id="<?php echo $values['product_id'] ?>"
-                                        data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
-
-                                ><i class="fa fa-trash"></i></span></td>
+                                            ?>
+                                        </span>
+                                <?php else: ?>
+                                    <?php
+                                    $variation_id = $values['variation_id'];
+                                    $variable_product1 = new WC_Product_Variation($variation_id);
+                                    $regular_price = $variable_product1->regular_price;
+                                    $sales_price = $variable_product1->sale_price;
+                                    if ($sales_price > 0) {
+                                        echo number_format(($sales_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                    } else {
+                                        echo number_format(($regular_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                    }
+                                    ?>
+                                <?php endif; ?>
+                                <?php if ($_product->product_type != 'variation') : ?>
+                                    <span
+                                            class=" remove-product float-right"
+                                            data-product_id="<?php echo $values['product_id'] ?>"
+                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                class="fa fa-trash"></i>
+                                            </span>
+                                <?php else: ?>
+                                    <span
+                                            class=" remove-product-variable float-right"
+                                            data-key_items="<?php echo $item ?>"
+                                            data-product_id="<?php echo $values['product_id'] ?>"
+                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                class="fa fa-trash"></i>
+                                            </span>
+                                <?php endif; ?>
+                            </td>
                             </td>
                         </tr>
                         <?php
@@ -311,8 +391,7 @@ function modal_add_to_cart_fragment($fragments)
             <div id="modal-empty-cart" class="d-none">
                 <p class="text-center">Cart empty</p>
                 <p class="text-center">
-
-                    <img width="100" class="img-fluid"
+                    <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
                 <a class="text-center d-block " style="margin-top: 10px" href=""><span
@@ -324,16 +403,15 @@ function modal_add_to_cart_fragment($fragments)
         <div class="modal-footer">
             <div class="cart-btn modal-action text-right ">
                 <div>
+                    <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
                     <span>Order Total</span>
-                    <span class="total-price"><?php echo $total_price ?></span> VND
+                    <span class="total-price"><?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></span>
                 </div>
                 <br/>
-
                 </button>
-                <a href="<?php echo wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
+                <a href="<?php wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
             </div>
         </div>
-
     </div>
     <?php
     $fragments['.modal-cart-content'] = ob_get_clean();
@@ -350,8 +428,12 @@ function viewProduct_init()
     //do bên js để dạng json nên giá trị trả về dùng phải encode
     $id = (isset($_POST['id'])) ? esc_attr($_POST['id']) : '';
     $product = new WC_product($id);
+    $handle = new WC_Product_Variable($id);
     $attachment_ids = $product->get_gallery_image_ids($id);
     $arr_attachment = array();
+
+    $available_variations = new WC_Product_Variable($id);
+//    print_r($available_variations);
     foreach ($attachment_ids as $attachment_id) {
         // Display the image URL
         $Original_image_url = wp_get_attachment_url($attachment_id);
@@ -359,6 +441,41 @@ function viewProduct_init()
         // Display Image instead of URL
 
 
+    }
+    $html_variable = null;
+    if ($handle->product_type == 'variable') {
+        $available_variations = $handle->get_available_variations();
+        $attributes = $handle->get_attributes();
+        $variation_id_first = '';
+        $first_instock = null;
+        $vt = 0;
+        ob_start();
+        foreach ($available_variations as $key => $variations) {
+            $variation_id = $available_variations[$key]['variation_id'];
+            $variable_product1 = new WC_Product_Variation($variation_id);
+            ?>
+            <div class="<?php if ($vt == 0) echo 'active' ?> item-variable  d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
+
+                <?php if ($variable_product1->stock_status == 'instock'):
+
+                    ?>
+                    <div class="d-inline-block box-variable-quick border <?php if ($vt == 1) echo 'active' ?>"
+                         data-variation_id="<?php echo $variation_id ?>"
+                         data-display_price="<?php echo $variations['display_price'] ?>"
+                         data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
+                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                         style="padding: 5px">
+                        <span><?php echo $variations['attributes']['attribute_pa_color'] ?></span>
+                        <img width="30" height="30" src="<?php echo $variations['image']['src'] ?>"/>
+                    </div>
+                    <?php
+                    $vt++;
+                endif; ?>
+            </div>
+            <?php
+
+        }
+        $html_variable = ob_get_clean();
     }
 
 
@@ -383,13 +500,14 @@ function viewProduct_init()
         'price' => json_encode($_pf),
         'image' => get_the_post_thumbnail_url($id, 'large'),
         'category' => $arr_link_category,
-        'arr_attachment' => $arr_attachment
+        'arr_attachment' => $arr_attachment,
+        'html_variable' => $html_variable . ''
     );
     wp_send_json_success($data);
     die();//bắt buộc phải có khi kết thúc
 }
 
-//remove product
+//remove product simple
 add_action('wp_ajax_product_remove', 'product_remove');
 add_action('wp_ajax_nopriv_product_remove', 'product_remove');
 function product_remove()
@@ -403,12 +521,38 @@ function product_remove()
             $cart->remove_cart_item($cart_item_key);
         }
     }
-    wp_send_json_success($woocommerce->cart->get_cart());
+    wp_send_json_success(WC_AJAX::get_refreshed_fragments());
     //echo json_encode(array('status' => 0));
     die();
 }
 
-//end remove product
+//end remove product simple
+// Remove product variable
+function product_remove_variable()
+{
+    global $wpdb, $woocommerce;
+    $cart = $woocommerce->cart;
+    $key_items = $_POST['key_items'];
+
+    foreach ($woocommerce->cart->get_cart() as $cart_item_key => $cart_item) {
+//        if ($cart_item['product_id'] == $_POST['product_id']) {
+//            // Remove product in the cart using  cart_item_key.
+//            $cart->remove_cart_item($cart_item_key);
+//        }
+        if ($cart_item_key == $key_items) {
+            //remove single product
+            $woocommerce->cart->remove_cart_item($key_items);
+        }
+    }
+    wp_send_json_success(WC_AJAX::get_refreshed_fragments());
+    //echo json_encode(array('status' => 0));
+    die();
+}
+
+add_action('wp_ajax_product_remove_variable', 'product_remove_variable');
+add_action('wp_ajax_nopriv_product_remove_variable', 'product_remove_variable');
+
+// Remove product variable
 //pagination
 function devvn_corenavi_ajax($custom_query = null, $paged = 1)
 {
@@ -815,21 +959,62 @@ function ajax_qty_cart()
     }
 
     // Refresh the page
-    echo do_shortcode('[woocommerce_cart]');
-
+//    echo do_shortcode('[woocommerce_cart]');
+    WC_AJAX::get_refreshed_fragments();
     die();
 
 }
 
 add_action('wp_ajax_qty_cart', 'ajax_qty_cart');
 add_action('wp_ajax_nopriv_qty_cart', 'ajax_qty_cart');
+//add product
+add_action('wp_ajax_add_product', 'add_product_cart');
+add_action('wp_ajax_nopriv_add_product', 'add_product_cart');
+function add_product_cart()
+{
+
+    ob_start();
+
+    $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
+    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
+    $variation_id = isset($_POST['variation_id']) ? absint($_POST['variation_id']) : '';
+    $variations = !empty($_POST['variation']) ? (array)$_POST['variation'] : '';
+    $passed_validation = apply_filters('woocommerce_add_to_cart_validation', true, $product_id, $quantity, $variation_id, $variations, null);
+
+    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id, $variations)) {
+
+        do_action('woocommerce_ajax_added_to_cart', $product_id);
+
+        if (get_option('woocommerce_cart_redirect_after_add') == 'yes') {
+            wc_add_to_cart_message($product_id);
+        }
+
+        // Return fragments
+        WC_AJAX::get_refreshed_fragments();
+
+    } else {
+
+        // If there was an error adding to the cart, redirect to the product page to show any errors
+        $data = array(
+            'error' => true,
+            'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id)
+        );
+
+        wp_send_json($data);
+
+    }
+
+    die();
+}
+
+//end product
 // TÙy bient product
 // Change currency symbols
 add_filter('woocommerce_currencies', 'add_my_currency');
 
 function add_my_currency($currencies)
 {
-    $currencies['VND'] = __('Vietnam Dong', 'woocommerce');
+    $currencies['đ'] = __('Vietnam Dong', 'woocommerce');
     return $currencies;
 }
 
@@ -839,8 +1024,9 @@ function add_my_currency_symbol($currency_symbol, $currency)
 {
     switch ($currency) {
         case 'VND':
-            $currency_symbol = ' VND';
+            $currency_symbol = ' đ';
             break;
     }
     return $currency_symbol;
 }
+//get variable

@@ -5,7 +5,51 @@ function openProTabs(index, $this) {
     $(".colection-" + index).fadeIn(1500)
 }
 
+function clickItemVariableItem() {
+    $('.box-variable-pr img').click(function () {
+        $('.box-variable-pr').removeClass('active');
+        $(this).parents('.box-variable-pr').addClass('active');
+        var src = $(this).attr('src');
+        $(this).parents('.product-item').find('.img-thumb img').attr('src', src);
+        $(this).parents('.product-item').find('.img-thumb img').attr('srcset', src);
+        var product_id = $(this).parents('.box-variable-pr').attr('data-product_id');
+        var variation_id = $(this).parents('.box-variable-pr').attr('data-variation_id');
+        var attribute_pa_color = $(this).parents('.box-variable-pr').attr('data-attribute_pa_color');
+        console.log(variation_id, attribute_pa_color)
+        var addCartbtn = $(this).parents('.product-item').find('.add-variable');
+        addCartbtn.attr('data-variation_id', variation_id);
+        addCartbtn.attr('data-attribute_pa_color', attribute_pa_color);
+    })
+}
+
+function clickItemVariableQuick() {
+    $(document).on('click', '.item-variable .box-variable-quick', function () {
+        var src_tem = $(this).find('img').attr('src');
+        $('.item-variable').removeClass('active');
+        $(this).parents('.item-variable').addClass('active');
+        var variation_id = $(this).attr('data-variation_id');
+        var attribute_pa_color = $(this).attr('data-attribute_pa_color');
+        $("#add-variable").attr('data-variation_id', variation_id);
+        $("#add-variable").attr('data-attribute_pa_color', attribute_pa_color);
+        $('.zoomContainer').remove();
+        $("#picture-quickview").removeData('elevateZoom');
+        $("#picture-quickview").attr('src', src_tem);
+        $("#picture-quickview").data('zoom-image', src_tem);
+        $("#picture-quickview").elevateZoom({
+            scrollZoom: true,
+            zoomType: "inner",
+            cursor: "crosshair",
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 750
+        });
+    })
+}
+
 $(document).ready(function () {
+    //funciton
+    clickItemVariableItem();
+    clickItemVariableQuick();
+    //all
     $('#toggle-mobile-menu').click(function () {
         $('#menuzord').addClass('menu-opening')
     })
@@ -32,9 +76,10 @@ $(document).ready(function () {
     });
 //  sale slider
     $('#sale-carousel').owlCarousel({
+        lazyLoad: true,
         loop: true,
         margin: 15,
-        autoplay: true,
+        autoplay: false,
         responsiveClass: true,
         autoHeight: true,
         responsive: {
@@ -59,6 +104,7 @@ $(document).ready(function () {
         margin: 15,
         autoplay: true,
         responsiveClass: true,
+        lazyLoad: true,
         autoHeight: true,
         responsive: {
             0: {
@@ -80,6 +126,7 @@ $(document).ready(function () {
     $('#carousel-blog').owlCarousel({
         loop: true,
         margin: 15,
+        lazyLoad: true,
         autoplay: true,
         autoHeight: true,
         responsiveClass: true,
@@ -97,6 +144,7 @@ $(document).ready(function () {
     $(".slick-carousel-mobile").owlCarousel({
         loop: true,
         margin: 10,
+        lazyLoad: true,
         autoplay: false,
         responsiveClass: true,
         responsive: {
@@ -120,6 +168,7 @@ $(document).ready(function () {
         loop: false,
         margin: 55,
         dots: false,
+        lazyLoad: true,
         autoplay: true,
         nav: false,
         autoHeight: true,
@@ -212,13 +261,13 @@ $(document).ready(function () {
         $('#picture-quickview').attr('data-zoom-image', $(this).attr('src'));
         $('.zoomContainer').remove();
         $("#picture-quickview").removeData('elevateZoom');
-            $("#picture-quickview").elevateZoom({
-                scrollZoom: true,
-                zoomType: "inner",
-                cursor: "crosshair",
-                zoomWindowFadeIn: 500,
-                zoomWindowFadeOut: 750
-            });
+        $("#picture-quickview").elevateZoom({
+            scrollZoom: true,
+            zoomType: "inner",
+            cursor: "crosshair",
+            zoomWindowFadeIn: 500,
+            zoomWindowFadeOut: 750
+        });
 
     })
     // $(".quickview-carousel").owlCarousel({});

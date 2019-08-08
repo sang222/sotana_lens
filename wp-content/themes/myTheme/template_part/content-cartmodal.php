@@ -4,8 +4,8 @@ global $woocommerce;
 ?>
 <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
-    <div class="vertical-alignment-helper">
-        <div class="modal-dialog vertical-align-center">
+    <div class="vertical-alignment-helper ">
+        <div class="modal-dialog vertical-align-center modal-cart-add">
             <div class="modal-content modal-cart-content">
                 <div class="modal-header">
                     <button type="button" class="close close-custom" data-dismiss="modal">&times;</button>
@@ -14,7 +14,8 @@ global $woocommerce;
                 <div class="modal-body frm-cart ">
                     <div class="  ">
                         <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
-                        <?php //echo esc_url(wc_get_cart_url()) ?><!--" method="post">-->
+                        <?php //echo esc_url(wc_get_cart_url())
+                        ?><!--" method="post">-->
                         <table class="
                         tablesaw tablesaw-stack
                         table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
@@ -34,28 +35,64 @@ global $woocommerce;
                             foreach ($items as $item => $values) :
                                 $_product = wc_get_product($values['data']->get_id());
                                 $getProductDetail = wc_get_product($values['product_id']);
-                                if ($getProductDetail->get_sale_price() > 0) {
-                                    $total_price += $getProductDetail->get_sale_price() * $values['quantity'];
-                                } else {
-                                    $total_price += $getProductDetail->get_regular_price() * $values['quantity'];
-                                }
                                 $price = get_post_meta($values['product_id'], '_price', true);
                                 ?>
                                 <tr>
-                                    <td class="text-center modal-cart-image"
-                                        style="vertical-align: middle;"><?php echo $getProductDetail->get_image('thumbnail'); // accepts 2 arguments ( size, attr )
-                                        ?></td>
-                                    <td style="vertical-align: middle;"><?php echo $_product->get_title(); ?></td>
+                                    <td class="text-center modal-cart-image" style="vertical-align: middle;">
+                                        <?php
+                                        if ($_product->product_type != 'variation') : ?>
+                                            <?php echo $getProductDetail->get_image('thumbnail'); ?>
+                                        <?php else: ?>
+                                            <?php
+                                            $variation_id2 = $values['variation_id'];
+
+                                            $variable_product2 = new WC_Product_Variation($variation_id2);
+
+                                            ?>
+                                            <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td style="vertical-align: middle;">
+                                        <h4 class="title-product-modal"><?php echo $_product->get_title(); ?></h4>
+                                        <?php if ($_product->product_type == 'variation') :
+                                            ?>
+                                            <?php foreach ($values['variation'] as $key => $vari): ?>
+                                            <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
+                                                <p style="margin-bottom: 0">Color:
+                                                    <?php echo $vari ?>
+                                                </p>
+                                            <?php endif; ?>
+
+                                        <?php endforeach; ?>
+                                        <?php endif; ?>
+                                        <p>
+                                            Categories:
+                                            <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
+                                            ?></p>
+                                    </td>
                                     <td class="text-center"
                                         style="vertical-align: middle;">
                                         <?php
-                                        if ($getProductDetail->get_sale_price() > 0) {
-                                            echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . ' VND';
-                                        } else {
-                                            echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . ' VND';
-                                        }
-                                        ?>
-
+                                        if ($_product->product_type != 'variation') :
+                                            if ($getProductDetail->get_sale_price() > 0) {
+                                                echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . 'đ';
+                                            } else {
+                                                echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . 'đ';
+                                            }
+                                            ?>
+                                        <?php else: ?>
+                                            <?php
+                                            $variation_id = $values['variation_id'];
+                                            $variable_product1 = new WC_Product_Variation($variation_id);
+                                            $regular_price = $variable_product1->regular_price;
+                                            $sales_price = $variable_product1->sale_price;
+                                            if ($sales_price > 0) {
+                                                echo number_format(($sales_price), 0, ',', '.') . '<u>đ</u>';
+                                            } else {
+                                                echo number_format(($regular_price), 0, ',', '.') . '<u>đ</u>';
+                                            }
+                                            ?>
+                                        <?php endif; ?>
                                     </td>
 
                                     <td class="qty-modal text-center" style="vertical-align: middle;">
@@ -71,7 +108,7 @@ global $woocommerce;
                                                     } else {
                                                         echo $getProductDetail->get_regular_price();
                                                     }
-                                                    ?>"
+                                                    ?>" data-product_id="<?php echo $values['product_id'] ?>"
                                             ><i class="fa fa-minus"></i>
                                             </button>
                                             <input type="text" pattern="[0-9]*"
@@ -108,22 +145,45 @@ global $woocommerce;
                                         </div>
                                     </td>
                                     <td colspan="2" class="" style="vertical-align: middle;">
-                                        <span class="total-price-<?php echo $values['product_id'] ?>"><?php
-                                            if ($getProductDetail->get_sale_price() > 0) {
-                                                echo number_format(($getProductDetail->get_sale_price() * $values['quantity']), 0, ',', '.') . ' VND';
+                                        <?php if ($_product->product_type != 'variation') : ?>
+                                            <span class="total-price-<?php echo $values['product_id'] ?>">
+                                            <?php if ($getProductDetail->get_sale_price() > 0) {
+                                                echo number_format(($getProductDetail->get_sale_price()*$values['quantity']), 0, ',', '.') . 'đ';
                                             } else {
-                                                echo number_format(($getProductDetail->get_regular_price() * $values['quantity']), 0, ',', '.') . ' VND';
+                                                echo number_format(($getProductDetail->get_regular_price()*$values['quantity']), 0, ',', '.') . 'đ';
                                             }
-
-                                            ?></span>
-                                        <span
-
-                                                class=" remove-product float-right"
-                                                data-line="<?php echo $vt ?>"
-                                                data-product_id="<?php echo $values['product_id'] ?>"
-                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
-
-                                        ><i class="fa fa-trash"></i></span></td>
+                                            ?>
+                                        </span>
+                                        <?php else: ?>
+                                            <?php
+                                            $variation_id = $values['variation_id'];
+                                            $variable_product1 = new WC_Product_Variation($variation_id);
+                                            $regular_price = $variable_product1->regular_price;
+                                            $sales_price = $variable_product1->sale_price;
+                                            if ($sales_price > 0) {
+                                                echo number_format(($sales_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                            } else {
+                                                echo number_format(($regular_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                            }
+                                            ?>
+                                        <?php endif; ?>
+                                        <?php if ($_product->product_type != 'variation') : ?>
+                                            <span
+                                                    class=" remove-product float-right"
+                                                    data-product_id="<?php echo $values['product_id'] ?>"
+                                                    data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                        class="fa fa-trash"></i>
+                                            </span>
+                                        <?php else: ?>
+                                            <span
+                                                    class=" remove-product-variable float-right"
+                                                    data-key_items="<?php echo $item ?>"
+                                                    data-product_id="<?php echo $values['product_id'] ?>"
+                                                    data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                        class="fa fa-trash"></i>
+                                            </span>
+                                        <?php endif; ?>
+                                    </td>
                                     </td>
                                 </tr>
                                 <?php
@@ -135,11 +195,11 @@ global $woocommerce;
                     <div id="modal-empty-cart" class="d-none">
                         <p class="text-center">Cart empty</p>
                         <p class="text-center">
-
-                            <img width="100" class="img-fluid"
+                            <img width="100" class="img-fluid m-auto"
                                  src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                         <div class="prefix"></div>
-                        <a class="text-center d-block " style="margin-top: 10px" href=""><span class="return-shop">Return shop</span></a>
+                        <a class="text-center d-block " style="margin-top: 10px" href=""><span
+                                    class="return-shop">Return shop</span></a>
                         <br/>
                         </p>
                     </div>
@@ -147,18 +207,15 @@ global $woocommerce;
                 <div class="modal-footer">
                     <div class="cart-btn modal-action text-right ">
                         <div>
+                            <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
                             <span>Order Total</span>
-                            <span class="total-price"><?php echo $total_price ?></span> VND
+                            <span class="total-price"><?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></span>
                         </div>
                         <br/>
-                        <!--                            <button type="submit" class="button btn-update-cart btn-modal-cart btn  btn-xs" name="update_cart"-->
-                        <!--                                    value="Update cart" disabled="">Update Cart-->
-                        <!--                            </button>-->
                         </button>
-                        <a href="<?php wc_get_checkout_url()  ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
+                        <a href="<?php wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

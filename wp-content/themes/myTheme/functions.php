@@ -91,6 +91,7 @@ function add_theme_scripts()
     wp_enqueue_style('notice-css', get_template_directory_uri() . '/css/myCss/notice.css', array(), '1.0');
     wp_enqueue_style('table-responsive-css', get_template_directory_uri() . '/css/myCss/table-responsive.css', array(), '1.0');
     wp_enqueue_style('header-css', get_template_directory_uri() . '/css/header.css', array(), '1.0');
+    wp_enqueue_style('product-css', get_template_directory_uri() . '/css/myCss/product.css', array(), '1.0');
 
     if (is_single()) {
         // single product css single-product.css

@@ -4,10 +4,32 @@ function viewProduct(product_id, $this) {
     var price = $($this).data('product_price');
     var price_regular = $($this).data('product_price_regular');
     var choise_price = (price == "") ? price_regular : price;
+    var variable_id = $($this).attr('data-variable_id');
+    var attribute_pa_color = $($this).data('attribute_pa_color');
     var price_sale = $($this).data('product_price_sale');
     var product_link = $($this).data('product_link');
     $(".reduced").attr('data-id', product_id);
     $(".increase").attr('data-id', product_id);
+    var btnAddCart = null;
+    var buttonHtmlSimple = `<a title="Add cart"
+    id="add-more"
+    class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
+    href="?add-to-cart=` + product_id + `"
+    data-quantity="1"
+    data-attribute_pa_size="3"
+    data-product_id="` + product_id + `"
+    ><i class="fa fa-cart-plus"></i> Add to cart</a>`
+    var buttonHtmlVariable = `<a title="Add cart" id="add-variable"
+                           class="cart-product add-cart"
+                           data-variation_id="` + variable_id + `"
+                           data-attribute_pa_color="` + attribute_pa_color + `"
+                           data-product_id="` + product_id + `">
+                           <i class="fa fa-cart-plus"></i> Add to cart</a>`
+    if (variable_id != "") {
+        btnAddCart = buttonHtmlVariable;
+    } else {
+        btnAddCart = buttonHtmlSimple;
+    }
     $(".qty-quick-view").empty();
     $(".qty-quick-view").append(`
         <button onclick="var result = document.getElementById(&#39;qty&#39;);
@@ -31,17 +53,7 @@ function viewProduct(product_id, $this) {
                     data-id="` + product_id + `"
                     type="button"><i
                         class="fa fa-plus"></i>
-            </button>
-             <a title="Add cart"
-               id="add-more"
-               class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
-               href="?add-to-cart=` + product_id + `"
-               data-quantity="1"
-               data-attribute_pa_size="3"
-               data-product_id="` + product_id + `"
-            
-            ><i class="fa fa-cart-plus"></i> Add to cart</a>
-    `)
+            </button> ` + btnAddCart + ``)
     $.ajax({
         type: "post", //Phương thức truyền post hoặc get
         dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
@@ -57,6 +69,7 @@ function viewProduct(product_id, $this) {
             //Làm gì đó trước khi gửi dữ liệu vào xử lý
         },
         success: function (response) {
+            console.log(response)
             // console.log(response);
             //Làm gì đó khi dữ liệu đã được xử lý
             if (response.success) {
@@ -92,6 +105,7 @@ function viewProduct(product_id, $this) {
                 $(".price-sale").text(price_sale)
                 $(".category-items").html(html_cate);
                 $(".quick_add_to_cart_button").val(product_id);
+                $(".variable-quick").empty().append(response.data.html_variable)
                 $(".frm-cart").attr('action', product_link)
                 //    list gallery
                 var arr_attachment = response.data.arr_attachment;
@@ -159,21 +173,113 @@ function viewProduct(product_id, $this) {
 }
 
 $(document).ready(function () {
+    $(".total-price").text($('.total-price-dropdown').attr('data-total'))
     jaxButtonCart();
-
+    submitProductVariable();
+    submitProductQuick();
 })
+
+function submitProductQuick() {
+    $(document).on('click', '#add-variable', function (e) {
+        e.preventDefault();
+        $(this).addClass('loading')
+        var product_id = $(this).attr('data-product_id');
+        var variation_id = $(this).attr('data-variation_id');
+        var attribute_pa_color = $(this).attr('data-attribute_pa_color');
+        var attribute_pa_size = $(this).attr('data-attribute_pa_size');
+        console.log(variation_id)
+        var quantity = (document.getElementById('qty')) ? document.getElementById('qty').value : 1;
+        $this = $(this);
+        $.ajax({
+            url: $("#url_admin").val(),
+            type: 'POST',
+            data: {
+                action: "add_product",
+                'quantity': quantity,
+                'product_id': product_id,
+                'variation_id': variation_id,
+                'variation': {
+                    'attribute_pa_color': attribute_pa_color,
+                    'attribute_pa_size': attribute_pa_size,
+                }
+            },
+            success: function (res) {
+                $this.removeClass('loading');
+                var mini = res.fragments['.container-mini-cart'];
+                $(".container-mini-cart").empty().append(mini);
+                var modal = res.fragments['.modal-cart-content'];
+                $(".modal-cart-add").empty().append(modal);
+                $(".notification").removeClass('-active')
+                $(".notification").addClass('-active')
+                $("#modalCart").modal('show');
+                $("#myModal").modal('hide')
+                setTimeout(function () {
+                    $(".notification").removeClass('-active')
+                }, 3000)
+
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    })
+}
+
+function submitProductVariable() {
+    $(document).on('click', '.add-variable', function (e) {
+        e.preventDefault();
+        $(this).addClass('loading')
+        var product_id = $(this).attr('data-product_id');
+        var variation_id = $(this).attr('data-variation_id');
+        var attribute_pa_color = $(this).attr('data-attribute_pa_color');
+        console.log(variation_id)
+        var quantity = (document.getElementById('qty')) ? document.getElementById('qty').value : 1;
+        $this = $(this);
+        $.ajax({
+            url: $("#url_admin").val(),
+            type: 'POST',
+            data: {
+                action: "add_product",
+                'quantity': quantity,
+                'product_id': product_id,
+                'variation_id': variation_id,
+                'variation': {
+                    'attribute_pa_color': attribute_pa_color,
+                }
+            },
+            success: function (res) {
+
+                $this.removeClass('loading');
+                $(".notification").removeClass('-active')
+                $(".notification").addClass('-active')
+                setTimeout(function () {
+                    $(".notification").removeClass('-active')
+                }, 3000)
+                var mini = res.fragments['.container-mini-cart'];
+                $(".container-mini-cart").empty().append(mini);
+
+                var modal = res.fragments['.modal-cart-content'];
+                $(".modal-cart-add").empty().append(modal);
+                $("#modalCart").modal('show');
+                $("#myModal").modal('hide')
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    })
+}
 
 function jaxButtonCart() {
 
     $(document).on('click', '.quick_add_to_cart_button', function (e) {
         e.preventDefault();
-
         // $("#modalCart").modal('show');
         var $thisbutton = $(this),
             $form = $thisbutton.closest('form.cart'),
             id = $thisbutton.val(),
-            product_qty = $form.find('input[name=quantity]').val() || 1,
-
+            product_qty = (document.getElementById('qty')) ? document.getElementById('qty').value : 1,
             product_id = $form.find('input[name=product_id]').val() || id,
             variation_id = $form.find('input[name=variation_id]').val() || 0;
         var data = {
@@ -221,10 +327,13 @@ function jaxButtonCart() {
 
 }
 
+//remove product simple
 $(document).on('click', '.remove-product', function (e) {
     // e.preventDefault();
+    // $(this).css('pointer-events', 'none')
     var product_id = $(this).data("product_id");
     var line = $(this).data('line');
+
     var $this = $(this);
 
     $.ajax({
@@ -233,16 +342,14 @@ $(document).on('click', '.remove-product', function (e) {
         url: $("#url_admin").val(),
         data: {
             action: "product_remove",
-            product_id: product_id
+            product_id: product_id,
+
         }, success: function (data) {
             var count = 0;
-            $.each(data.data, function (index, value) {
-                count += value.quantity;
-            })
-            var old_price_update = $('.total-price').text();
-            var new_price_update = parseInt(old_price_update) - parseInt($(".total-price-" + product_id).text().split(' ')[0]);
-            $(".total-price-dropdown").text(new_price_update);
-            $('.total-price').text(new_price_update);
+            var mini = data.fragments['.container-mini-cart'];
+            var modal = data.fragments['.modal-cart-content'];
+            $(".container-mini-cart").empty().append(mini);
+            $('.modal-cart-add').empty().append(modal);
             if ($this.parents('tr').prev().size() > 0 || $this.parents('tr').next().size() > 0) {
                 $this.parents('tr').remove();
             } else {
@@ -252,10 +359,44 @@ $(document).on('click', '.remove-product', function (e) {
                 $("#empty-cart").removeClass('d-none');
                 $("#modal-empty-cart").removeClass('d-none');
             }
-            $("#mini-cart-container table #mini-item-" + line).remove();
-            $("table #table-normal-" + line).remove();
-            $(".total-outer").text(count + ' Items');
-            $(".total-amount-dropdown").text(count + ' Items');
+        }, error: function (err) {
+            console.log(err);
+        }
+    });
+    return false;
+});
+//end remove product simple
+//Remove product variable
+$(document).on('click', '.remove-product-variable', function (e) {
+    // e.preventDefault();
+    $(this).css('pointer-events', 'none')
+    var product_id = $(this).data("product_id");
+    var line = $(this).data('line');
+    var key_items = $(this).attr('data-key_items');
+    var $this = $(this);
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: $("#url_admin").val(),
+        data: {
+            action: "product_remove_variable",
+            product_id: product_id,
+            key_items: key_items,
+        }, success: function (data) {
+            var mini = data.fragments['.container-mini-cart'];
+
+            $(".container-mini-cart").empty().append(mini);
+            $(".total-price").text($('.total-price-dropdown').attr('data-total'))
+            if ($this.parents('tr').prev().size() > 0 || $this.parents('tr').next().size() > 0) {
+                $this.parents('tr').remove();
+            } else {
+                $this.parents('tr').remove();
+                $(".modal-action").addClass('d-none')
+                $(".shop_table").addClass('d-none')
+                $("#empty-cart").removeClass('d-none');
+                $("#modal-empty-cart").removeClass('d-none');
+            }
+            ;
 
         }, error: function (err) {
             console.log(err);
@@ -264,57 +405,12 @@ $(document).on('click', '.remove-product', function (e) {
     return false;
 });
 
-//action count
-
-$(document).on('click', '.reduced,.increase', function () {
-    var value = $("#qty").val();
-    var id = $(".increase").data('id');
-    $(".qty-quick-view").children().remove();
-    $(".qty-quick-view").append(`
-        <button onclick="var result = document.getElementById(&#39;qty&#39;);
-            var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
-                    class="action-count reduced items-count2"
-                    type="button"
-                     data-id="` + id + `"
-                    ><i
-                        class="fa fa-minus"></i>
-            </button>
-            <input type="text" pattern="[0-9]*"
-                   class="input-text qty text-center"
-                   id="qty" min="1"
-                   value="` + value + `"
-                   title="SL" max="100"
-                   max inputmode="numeric" value="1"
-                   maxlength="3" name="quantity"
-                   onkeyup="valid(this,&#39;numbers&#39;)"
-                   onblur="valid(this,&#39;numbers&#39;)">
-            <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                    class=" action-count increase items-count2"
-                       data-id="` + id + `"
-                    type="button"><i
-                        class="fa fa-plus"></i>
-            </button>
-           
-         <a title="Add cart"
-           id="add-more"
-           class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
-           href="?add-to-cart=` + id + `"
-           data-quantity="` + value + `"
-           data-attribute_pa_size="3"
-           data-product_id="` + id + `"
-        
-        ><i class="fa fa-cart-plus"></i> Add to cart</a>
-    `)
-})
-
 //update cart
 $(document).on('change', 'input.qty', function () {
     // alert(1)
     var item_hash = $(this).attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).val();
     var currentVal = parseFloat(item_quantity);
-    const old_quantity = $(this).data('quantity');
-    var $this = $(this);
 
     function qty_cart() {
         $.ajax({
@@ -325,45 +421,13 @@ $(document).on('change', 'input.qty', function () {
                 hash: item_hash,
                 quantity: currentVal
             },
-            success: function (data) {
-                var price = $this.data('price');
-                var price_after_update = price * currentVal;
-                var id = $this.data('id');
-                var old_total_price_child = $('.total-price-' + id).text().split(' ')[0];
-                if (parseInt(old_total_price_child) > parseInt(price_after_update)) {
-                    var new_total_price1 = parseInt(old_total_price_child) - parseInt(price_after_update);
-                    var old_total_price1 = $('.total-price').text()
-                    var update_total_price1 = parseInt(old_total_price1) - parseInt(new_total_price1);
-                    $('.total-price').text(update_total_price1);
-                    $(".total-price-dropdown").text(update_total_price1);
-                } else {
-                    var new_total_price2 = parseInt(price_after_update) - parseInt(old_total_price_child);
-                    var old_total_price2 = $('.total-price').text();
-                    var update_total_price2 = parseInt(old_total_price2) + parseInt(new_total_price2);
-                    $('.total-price').text(update_total_price2);
-                    $(".total-price-dropdown").text(update_total_price2);
+            success: function (res) {
+                if (res) {
+                    var mini = res.fragments['.container-mini-cart'];
+                    $(".container-mini-cart").empty().append(mini);
+                    var modal = res.fragments['.modal-cart-content'];
+                    $(".modal-cart-add").empty().append(modal);
                 }
-                //change quantity
-                if ($this.val() > old_quantity) {
-
-                    var old_total_amount1 = $(".total-amount-dropdown:nth-child(1)").data('amount');
-                    var differene_amount1 = parseInt($this.val()) - parseInt(old_quantity);
-                    var new_total_amount1 = parseInt(old_total_amount1) + parseInt(differene_amount1);
-                    // console.log(old_total_amount1,differene_amount1)
-                    $(".total-amount-dropdown").text(new_total_amount1);
-                    $(".total-amount-dropdown").attr('data-amount', new_total_amount1)
-                    $(".total-outer").text(new_total_amount1 + ' ITEMS')
-                } else {
-                    var old_total_amount2 = $(".total-amount-dropdown:nth-child(1)").data('amount');
-                    var differene_amount2 = parseInt(old_quantity) - parseInt($this.val());
-                    var new_total_amount2 = parseInt(old_total_amount2) - parseInt(differene_amount2);
-                    console.log(old_total_amount2, differene_amount2)
-                    $(".total-amount-dropdown").text(new_total_amount2);
-                    $(".total-amount-dropdown").attr('data-amount', new_total_amount2)
-                    $(".total-outer").text(new_total_amount2 + ' ITEMS')
-                }
-
-                $('.total-price-' + id).text(price_after_update + ' VND');
 
             }
         });
@@ -392,24 +456,13 @@ $(document).on('click', '.reduced', function () {
                 hash: item_hash,
                 quantity: currentVal
             },
-            success: function (data) {
-
-                var price = $this.data('price');
-                var price_after_update = parseInt(price) * parseInt(currentVal);
-                var id = $this.data('id');
-                $(".quantity-head-" + id).text(currentVal);
-                $('.total-price-' + id).text(price_after_update + ' VND');
-                var old_total_price = $('.total-price-dropdown:nth-child(1)').data('total');
-                var update_total_price = parseInt(old_total_price) - parseInt(price);
-                $('.total-price').text(update_total_price);
-                $('.total-price-dropdown').data('total', update_total_price);
-                $(".total-price-dropdown").text(update_total_price);
-                //total amount head
-                var old_total_amount_dropdown = $(".total-amount-dropdown:nth-child(1)").data('amount');
-                var new_total_amount_dropdown = parseInt(old_total_amount_dropdown) - 1;
-                $(".total-amount-dropdown").text(new_total_amount_dropdown);
-                $(".total-amount-dropdown:nth-child(1)").data('amount', new_total_amount_dropdown);
-                $(".total-outer").text('(' + new_total_amount_dropdown + ' Items)')
+            success: function (res) {
+                if (res) {
+                    var mini = res.fragments['.container-mini-cart'];
+                    $(".container-mini-cart").empty().append(mini);
+                    var modal = res.fragments['.modal-cart-content'];
+                    $(".modal-cart-add").empty().append(modal);
+                }
             }
         });
 
@@ -434,27 +487,13 @@ $(document).on('click', '.increase', function () {
                 hash: item_hash,
                 quantity: currentVal
             },
-            success: function (data) {
-
-                var price = $this.data('price');
-                var price_after_update = parseInt(price) * parseInt(currentVal);
-                var id = $this.data('id');
-                $(".quantity-head-" + id).text(currentVal);
-                $('.total-price-' + id).text(price_after_update + ' VND')
-                var old_total_price = $('.total-price-dropdown:nth-child(1)').data('total');
-                var update_total_price = parseInt(old_total_price) + parseInt(price);
-
-                $('.total-price').text(update_total_price);
-                $(".total-price-dropdown").text(update_total_price);
-                $('.total-price-dropdown').data('total', update_total_price);
-
-                //total amount head
-                var old_total_amount_dropdown = $(".total-amount-dropdown:nth-child(1)").data('amount');
-                var new_total_amount_dropdown = parseInt(old_total_amount_dropdown) + 1;
-                $(".total-amount-dropdown").text(new_total_amount_dropdown);
-                $(".total-amount-dropdown:nth-child(1)").data('amount', new_total_amount_dropdown);
-
-                $(".total-outer").text('(' + new_total_amount_dropdown + ' Items)')
+            success: function (res) {
+                if (res) {
+                    var mini = res.fragments['.container-mini-cart'];
+                    $(".container-mini-cart").empty().append(mini);
+                    var modal = res.fragments['.modal-cart-content'];
+                    $(".modal-cart-add").empty().append(modal);
+                }
 
             }
         });

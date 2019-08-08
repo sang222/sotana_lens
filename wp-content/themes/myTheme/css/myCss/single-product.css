@@ -258,3 +258,14 @@
     pointer-events: none;
     opacity: 0.5;
 }
+
+/*Variable product */
+.product-variable{
+    margin-bottom: 30px;
+}
+.product-variable .box-variable.active {
+    border: 1px solid #789be6;
+}
+.product-variable .box-variable{
+    cursor: pointer;
+}
