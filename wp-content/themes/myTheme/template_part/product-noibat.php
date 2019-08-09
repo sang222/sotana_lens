@@ -29,7 +29,7 @@
         $dem2 = 1;
         ?>
         <div class="collection w-100  colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
-            <div class="abc">
+            <div class="grid--product">
                 <?php
                 while ($loop->have_posts()) : $loop->the_post();
                     global $product; ?>

@@ -37,10 +37,11 @@ function woocommerce_ajax_add_to_cart()
 
 //mini c
 add_filter('woocommerce_add_to_cart_fragments', 'header_add_to_cart_fragment', 30, 1);
-function header_add_to_cart_fragment($fragments) {
+function header_add_to_cart_fragment($fragments)
+{
     global $woocommerce;
     ob_start();
-?>
+    ?>
     <ul class="list-inline flip container-mini-cart pull-right">
         <li class="mb-0 pb-0">
             <?php global $woocommerce; ?>
@@ -203,7 +204,7 @@ function modal_add_to_cart_fragment($fragments)
             <button type="button" class="close close-custom" data-dismiss="modal">&times;</button>
             <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
         </div>
-        <div class="modal-body frm-cart ">
+        <div class="modal-body frm-cart " id="cart-roll">
             <div class="  ">
                 <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
                 <?php //echo esc_url(wc_get_cart_url())
@@ -289,7 +290,7 @@ function modal_add_to_cart_fragment($fragments)
 
                             <td class="qty-modal text-center" style="vertical-align: middle;">
                                 <div class="js-qty">
-                                    <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>');
+                                    <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>');
                                             var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                                             class="action-count reduced items-count2 <?php if ($values['quantity'] == '1') echo 'none-click' ?>"
                                             type="button"
@@ -305,7 +306,7 @@ function modal_add_to_cart_fragment($fragments)
                                     </button>
                                     <input type="text" pattern="[0-9]*"
                                            class="input-text qty text-center"
-                                           id="qty_<?php echo $values['product_id'] ?>" min="1"
+                                           id="qty_<?php echo $values['product_id'] ?>_<?php echo $vt ?>" min="1"
                                            value="<?php echo $values['quantity']; ?>"
                                            title="SL" max="100"
                                            data-quantity="<?php echo $values['quantity']; ?>"
@@ -321,7 +322,7 @@ function modal_add_to_cart_fragment($fragments)
                                            maxlength="3"
                                            name="cart[<?php echo $item ?>][qty]"
                                     >
-                                    <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                    <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                             class=" action-count increase items-count2 "
                                             data-id="<?php echo $values['product_id'] ?>"
                                             type="button"
@@ -427,7 +428,6 @@ function viewProduct_init()
     $handle = new WC_Product_Variable($id);
     $attachment_ids = $product->get_gallery_image_ids($id);
     $arr_attachment = array();
-
     $available_variations = new WC_Product_Variable($id);
 //    print_r($available_variations);
     foreach ($attachment_ids as $attachment_id) {
@@ -438,7 +438,14 @@ function viewProduct_init()
 
 
     }
-    $html_variable = null;
+    $html_price = null;
+
+    //create price
+    if ($handle->product_type != 'variable') {
+        $sale_price = $handle->sale_price;
+    } else {
+        $regular_price = $handle->price;
+    }
     if ($handle->product_type == 'variable') {
         $available_variations = $handle->get_available_variations();
         $attributes = $handle->get_attributes();
@@ -451,9 +458,7 @@ function viewProduct_init()
             $variable_product1 = new WC_Product_Variation($variation_id);
             ?>
             <div class="<?php if ($vt == 0) echo 'active' ?> item-variable  d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
-
                 <?php if ($variable_product1->stock_status == 'instock'):
-
                     ?>
                     <div class="d-inline-block box-variable-quick border <?php if ($vt == 1) echo 'active' ?>"
                          data-variation_id="<?php echo $variation_id ?>"

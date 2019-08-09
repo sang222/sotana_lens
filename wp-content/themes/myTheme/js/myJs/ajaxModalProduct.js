@@ -1,13 +1,13 @@
 function viewProduct(product_id, $this) {
     $("#qty").val(1);
     $($this).addClass('view-now')
-    var price = $($this).data('product_price');
-    var price_regular = $($this).data('product_price_regular');
-    var choise_price = (price == "") ? price_regular : price;
+    var price = $($this).attr('data-product_price_sale');
+    var price_regular = $($this).attr('data-product_price_regular');
     var variable_id = $($this).attr('data-variable_id');
-    var attribute_pa_color = $($this).data('attribute_pa_color');
-    var price_sale = $($this).data('product_price_sale');
-    var product_link = $($this).data('product_link');
+    var attribute_pa_color = $($this).attr('data-attribute_pa_color');
+    var price_sale = $($this).attr('data-product_price_sale');
+    var product_link = $($this).attr('data-product_link');
+
     $(".reduced").attr('data-id', product_id);
     $(".increase").attr('data-id', product_id);
     var btnAddCart = null;
@@ -101,7 +101,7 @@ function viewProduct(product_id, $this) {
 
                 $(".nameQuickview").text(response.data.data['post_title'])
                 $(".description-quick-view").text(response.data.data['post_excerpt'])
-                $(".price-regular").text(choise_price)
+                $(".price-regular").text(price_regular)
                 $(".price-sale").text(price_sale)
                 $(".category-items").html(html_cate);
                 $(".quick_add_to_cart_button").val(product_id);
@@ -114,7 +114,7 @@ function viewProduct(product_id, $this) {
                 new Promise(function (resolve, reject) {
 
                     setTimeout(function () {
-                        $(".quick-slider").children().remove();
+                        $(".quickview-carousel").children().remove();
                         html += '<div><img class="active img-responsive" src="' + response.data.image + '"></div>'
                         Array.from(arr_attachment).forEach(function (value, key) {
                             html += '<div>';
@@ -134,7 +134,8 @@ function viewProduct(product_id, $this) {
                     $('.quickview-carousel').owlCarousel('destroy');
                     // $('#quickview-carousel').data('owl.carousel').destroy();
                     if (screen.width <= 767) {
-                        $(".img-lst").width($("#myModal").width() - 80)
+
+                        $(".img-lst").width($("body").width() - 80)
                     }
 
                     $(".quickview-carousel").owlCarousel({
@@ -244,16 +245,14 @@ function submitProductVariable() {
                 }
             },
             success: function (res) {
-
                 $this.removeClass('loading');
-
                 var mini = res.fragments['.container-mini-cart'];
                 $(".container-mini-cart").empty().append(mini);
-
                 var modal = res.fragments['.modal-cart-content'];
                 $(".modal-cart-add").empty().append(modal);
                 $("#modalCart").modal('show');
-                $("#myModal").modal('hide')
+                $("#myModal").modal('hide');
+
             },
             error: function (err) {
                 console.log(err);
@@ -403,6 +402,11 @@ $(document).on('change', 'input.qty', function () {
     var item_hash = $(this).attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).val();
     var currentVal = parseFloat(item_quantity);
+    if (document.getElementById("cart-roll")) {
+        var scrollTop = document.getElementById("cart-roll").scrollTop
+    }
+
+    localStorage.setItem('scrollModal', scrollTop);
 
     function qty_cart() {
         $.ajax({
@@ -419,6 +423,9 @@ $(document).on('change', 'input.qty', function () {
                     $(".container-mini-cart").empty().append(mini);
                     var modal = res.fragments['.modal-cart-content'];
                     $(".modal-cart-add").empty().append(modal);
+                    $('#cart-roll').animate({
+                        scrollTop: localStorage.scrollModal
+                    }, 800);
                 }
 
             }
@@ -433,6 +440,11 @@ $(document).on('click', '.reduced', function () {
     var item_hash = $(this).next('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).next('input').val();
     var currentVal = parseFloat(item_quantity);
+    if (document.getElementById("cart-roll")) {
+        var scrollTop = document.getElementById("cart-roll").scrollTop
+    }
+
+    localStorage.setItem('scrollModal', scrollTop);
     var $this = $(this);
     if (currentVal == 1) {
         $(this).addClass('none-click')
@@ -454,6 +466,9 @@ $(document).on('click', '.reduced', function () {
                     $(".container-mini-cart").empty().append(mini);
                     var modal = res.fragments['.modal-cart-content'];
                     $(".modal-cart-add").empty().append(modal);
+                    $('#cart-roll').animate({
+                        scrollTop: localStorage.scrollModal
+                    }, 800);
                 }
             }
         });
@@ -466,6 +481,8 @@ $(document).on('click', '.increase', function () {
     var item_hash = $(this).prev('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).prev('input').val();
     var currentVal = parseFloat(item_quantity);
+    var scrollTop = document.getElementById("cart-roll").scrollTop
+    localStorage.setItem('scrollModal', scrollTop);
     var $this = $(this);
     $(this).prev().prev('.reduced').removeClass('none-click')
 
@@ -485,6 +502,9 @@ $(document).on('click', '.increase', function () {
                     $(".container-mini-cart").empty().append(mini);
                     var modal = res.fragments['.modal-cart-content'];
                     $(".modal-cart-add").empty().append(modal);
+                    $('#cart-roll').animate({
+                        scrollTop: localStorage.scrollModal
+                    }, 800);
                 }
 
             }
@@ -494,3 +514,9 @@ $(document).on('click', '.increase', function () {
 
     qty_cart();
 });
+//function general
+function formatCurrency(number){
+    var n = number.split('').reverse().join("");
+    var n2 = n.replace(/\d\d\d(?!$)/g, "$&,");
+    return  n2.split('').reverse().join('') + 'VNĐ';
+}

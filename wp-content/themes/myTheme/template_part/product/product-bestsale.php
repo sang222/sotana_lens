@@ -41,14 +41,26 @@
 
                         <p class="title-product"><?php echo get_the_title() ?></p>
                         <p class="price-product">
-                             <span class="sale-price" style="text-decoration: line-through">
+                            <?php if ($product->product_type != 'variable') : ?>
+                                <span class="sale-price" style="text-decoration: line-through">
                                 <?php if ($product->sale_price) {
                                     echo number_format($product->sale_price, 0, ',', '.') . 'đ';
                                 } ?>
-                            </span>
-                            <span class="regular-price">
-                                <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                            </span>
+                                </span>
+                                <span class="regular-price">
+                                    <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                                </span>
+                            <?php else: ?>
+                                <?php $available_variations = $product->get_available_variations(); ?>
+                                <span class="sale-price" style="text-decoration: line-through">
+                                <?php if ($available_variations[0]['display_price']) {
+                                    echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                } ?>
+                                </span>
+                                <span class="regular-price">
+                                    <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                </span>
+                            <?php endif; ?>
 
                         </p>
                         <?php
@@ -150,15 +162,30 @@
                                       ?>"
                                       data-product_id="<?php echo $product->get_id(); ?>"
                                       data-product_sku="<?php echo $product->sku ?>"
-                                      data-product_price="<?php if ($product->get_price()) {
-                                          echo number_format($product->get_price(), 0, ',', '.') . 'đ';
-                                      } ?>"
-                                      data-product_price_regular="<?php if ($product->get_regular_price()) {
+
+                                      data-product_price_regular="
+                                      <?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_regular_price()) {
                                           echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
-                                      } ?>"
-                                      data-product_price_sale="<?php if ($product->get_sale_price()) {
-                                          echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
-                                      } ?>"
+                                      } ?>
+                                          <?php else:
+                                          $available_variations = $product->get_available_variations();
+                                          if ($available_variations[0]['display_regular_price']) {
+                                              echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
+                                          }
+                                          ?>
+                                       <?php endif; ?>"
+                                      data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_price()) {
+                                          echo number_format($product->get_price(), 0, ',', '.') . 'đ';
+                                      } ?>
+                                          <?php else:
+                                          $available_variations = $product->get_available_variations();
+                                          if ($available_variations[0]['display_price']) {
+                                              echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                          }
+                                          ?>
+                                       <?php endif; ?>"
                                       data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                       data-product_link="<?php the_permalink() ?>"
                                 ><i class="fa fa-search"></i></span>

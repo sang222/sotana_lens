@@ -61,38 +61,39 @@
             <div class="logo">
                 <a href="<?php echo get_site_url() ?>"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png" alt=""></a>
             </div>
-<!--            <div id="icon-cart-mobile">-->
-<!--                <div style="position: relative">-->
-<!--                    <div class="cart-icon"></div>-->
-<!--                    <!-- <img src="--><?php ////echo esc_url(get_template_directory_uri()) ?><!--/images/hd_mainmenu_icon_cart.png" /> -->-->
-<!--                    <span class="hd-cart-count total-outer" id="count-mini-cart ">0</span>-->
-<!--                </div>-->
-<!--                <div class="popup-view-cart d-none">-->
-<!--                    <div class="popup-cart-title">-->
-<!--                        <h5>Shopping cart</h5>-->
-<!--                    </div>-->
-<!--                    <ul class="popup-cart-content">-->
-<!--                        <li class="item">-->
-<!--                            <img src="http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/01/image00013_1bca332ec4644cbcb806359b173bd255_master-100x100.jpg" alt="">-->
-<!--                            <div class="item-content">-->
-<!--                                <div class="item-content-sub">-->
-<!--                                    <a href="#">Logo Collection</a>-->
-<!--                                    <p>$99 x 1</p>-->
-<!--                                    <p>Color: White</p>-->
-<!--                                </div>-->
-<!--                                <span class="color-general">Xoá</span>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                    <div class="popup-cart-footer">-->
-<!--                        <p>Tổng cộng: $99</p>-->
-<!--                        <div class="group-btn">-->
-<!--                            <a href="" class="btn btn-default">View cart</a>-->
-<!--                            <a href="" class="btn btn-default">Checkout</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div id="icon-cart-mobile">
+                <div style="position: relative">
+                    <div class="cart-icon"></div>
+                    <!-- <img src="<?php //echo esc_url(get_template_directory_uri()) ?>/images/hd_mainmenu_icon_cart.png" /> -->
+                    <span class="hd-cart-count total-outer" id="count-mini-cart ">0</span>
+                </div>
+                <div class="popup-view-cart d-none">
+                    <div class="popup-cart-title">
+                        <h5>Shopping cart</h5>
+                    </div>
+                    <ul class="popup-cart-content">
+                        <li class="item">
+                            <img src="http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/01/image00013_1bca332ec4644cbcb806359b173bd255_master-100x100.jpg"
+                                 alt="">
+                            <div class="item-content">
+                                <div class="item-content-sub">
+                                    <a href="#">Logo Collection</a>
+                                    <p>$99 x 1</p>
+                                    <p>Color: White</p>
+                                </div>
+                                <span class="color-general">Xoá</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="popup-cart-footer">
+                        <p>Tổng cộng: $99</p>
+                        <div class="group-btn">
+                            <a href="" class="btn btn-default">View cart</a>
+                            <a href="" class="btn btn-default">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="circle"></div>
         <ul class="menu-main">

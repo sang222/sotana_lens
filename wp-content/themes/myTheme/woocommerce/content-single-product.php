@@ -92,10 +92,14 @@ defined('ABSPATH') || exit;
                     </div>
                     <?php
                     global $post, $product;
-                    $stock = $product->get_stock_status();
-                    $stock = str_replace(array('instock', 'outofstock'), array('Còn hàng', 'Hết hàng'), $stock);
+                    $stock_st = $product->get_stock_status();
+                    $stock = str_replace(array('instock', 'outofstock'), array('Còn hàng', 'Hết hàng'), $stock_st);
                     ?>
-                    <div class="status-product"><?php echo $stock; ?></div>
+                    <?php if ($stock_st == 'instock'): ?>
+                        <div class="status-product has"><?php echo $stock; ?></div>
+                    <?php else: ?>
+                        <div class="status-product  not-has"><?php echo $stock; ?></div>
+                    <?php endif; ?>
                 </div>
                 <div class="meta-product">
                     <?php
@@ -145,9 +149,9 @@ defined('ABSPATH') || exit;
                     $available_variations = $product->get_available_variations();
                     ?>
                     <div class="price-product">
-                    <span class="current-price <?php if ($available_variations[0]['display_regular_price']) {
-                        echo 'through';
-                    } ?>"><?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?></span>
+                        <span class="current-price <?php if ($available_variations[0]['display_regular_price']) {
+                            echo 'through';
+                        } ?>"><?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?></span>
                         <span class="sale-price"
                         ><?php if ($available_variations[0]['display_price']) echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ'; ?></span>
                     </div>
@@ -205,23 +209,26 @@ defined('ABSPATH') || exit;
                     </p>
                 </div>
                 <div class="acttion-carts qty-quick-view">
-                    <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
-                            class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i>
-                    </button>
-                    <input type="text" pattern="[0-9]*" class="input-text qty" id="qty" min="1" title="SL" max="100"
-                           max inputmode="numeric" value="<?php if (isset($_POST['quantity'])) {
-                        echo $_POST['quantity'];
-                    } else {
-                        echo '1';
-                    } ?>" maxlength="3" name="quantity"
-                           onkeyup="valid(this,&#39;numbers&#39;)" onblur="valid(this,&#39;numbers&#39;)">
-                    <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                            class="increase action-count items-count2"
-                            data-id="<?php echo $product->get_id(); ?>"
-                            type="button">
-                        <i class="fa fa-plus"></i>
-                    </button>
-                    <?php if ($product->is_type('simple')) : ?>
+                    <?php $stock_st = $product->get_stock_status();
+                    if ($stock_st == 'instock'):
+                        ?>
+                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
+                                class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i>
+                        </button>
+                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty" min="1" title="SL" max="100"
+                               max inputmode="numeric" value="<?php if (isset($_POST['quantity'])) {
+                            echo $_POST['quantity'];
+                        } else {
+                            echo '1';
+                        } ?>" maxlength="3" name="quantity"
+                               onkeyup="valid(this,&#39;numbers&#39;)" onblur="valid(this,&#39;numbers&#39;)">
+                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                class="increase action-count items-count2"
+                                data-id="<?php echo $product->get_id(); ?>"
+                                type="button">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <?php if ($product->is_type('simple')) : ?>
                         <a title="Add cart" id="add-more"
                            class="cart-product add-cart quick_add_to_cart_button  button product_type_simple add_to_cart_button ajax_add_to_cart"
                            href="?add-to-cart=<?php echo $product->get_id() ?>"
@@ -238,7 +245,7 @@ defined('ABSPATH') || exit;
                            data-attribute_pa_size="<?php echo $first_size ?>"
                         ><i class="fa fa-cart-plus"></i> Add to cart</a>
                     <?php endif; ?>
-
+                    <?php endif; ?>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
@@ -325,7 +332,6 @@ defined('ABSPATH') || exit;
                                     <p class="sale-banner">Sale!</p>
                                 <?php endif; ?>
                                 <div class="img-thumb">
-
                                     <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
 
                                 </div>
@@ -474,7 +480,7 @@ defined('ABSPATH') || exit;
         </div>
     </div>
     <!--    Quick view-->
-    <?php get_template_part('template_part/content', 'quickview') ?>
+    <?php get_template_part('template_part/content', 'cartmodal') ?>
     <!-- content notice -->
     <?php get_template_part('template_part/content', 'notice') ?>
 </div>
