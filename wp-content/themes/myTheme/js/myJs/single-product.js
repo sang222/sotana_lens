@@ -11,6 +11,8 @@ function submitProductVariable() {
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
         var attribute_pa_size = $(this).attr('data-attribute_pa_size');
+        $(this).addClass('loading').removeClass('added');
+        $this = $(this);
         $.ajax({
             url: $("#url_admin").val(),
             type: 'POST',
@@ -21,17 +23,23 @@ function submitProductVariable() {
                 'variation_id': variation_id,
                 'variation': {
                     'attribute_pa_color': attribute_pa_color,
-                    'attribute_pa_size': attribute_pa_size,
                 }
 
             },
             success: function (res) {
                 // $('body').empty().append(res);
                 // console.log(res);
-                // console.log(res.find('.list-inline'))
-                var mini = res.fragments['.container-mini-cart'];
+                if (res) {
+                    $this.removeClass('loading')
+                    $this.addClass('added')
+                    // console.log(res.find('.list-inline'))
+                    var mini = res.fragments['.container-mini-cart'];
+                    $(".container-mini-cart").empty().append(mini);
+                    var modal = res.fragments['.modal-cart-content'];
+                    $(".modal-cart-add").empty().append(modal);
+                    $("#modalCart").modal('show');
+                }
 
-                $(".container-mini-cart").empty().append(mini);
             },
             error: function (err) {
                 console.log(err);
@@ -56,8 +64,8 @@ function viewVariable() {
         $("#add-variable").attr('data-attribute_pa_size', attribute_pa_size);
         $("#add-variable").attr('data-variation_id', variation_id);
         //add on
-        $(".current-price").text(display_regular_price + 'đ');
-        $(".sale-price").text(display_price + 'đ');
+        $(".current-price").text(formatCurrency(display_regular_price));
+        $(".sale-price").text(formatCurrency(display_price));
 
         var src = $(this).find('img').attr('src');
         $('.zoomContainer').remove();
@@ -158,3 +166,8 @@ function settingSlider() {
 }
 
 //check cart add notice
+function formatCurrency(number) {
+    var n = number.split('').reverse().join("");
+    var n2 = n.replace(/\d\d\d(?!$)/g, "$&,");
+    return n2.split('').reverse().join('') + 'VNĐ';
+}

@@ -38,3 +38,5 @@ Stack trace:
 #5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(958): WC_Cart->set_quantity('quantity', 5, true)
 #6 C:\xampp1\htdocs\outsource\wp-includes\cla in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
+2019-08-08T17:00:42+00:00 CRITICAL syntax error, unexpected 'var' (T_VAR) in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-noibat.php on line 31
+

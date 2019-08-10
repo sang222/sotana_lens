@@ -56,7 +56,7 @@ function add_theme_scripts()
 
     }
 
-    if(is_page('try-eyewear')) {
+    if (is_page('try-eyewear')) {
         wp_enqueue_script('draggable-js', get_theme_file_uri() . '/js/Draggable.min.js', array('jquery'), '1.0', true);
         wp_enqueue_script('webcam-js', get_theme_file_uri() . '/js/webcam.min.js', array('jquery'), '1.0', true);
         wp_enqueue_script('html2canvas', get_theme_file_uri() . '/js/html2canvas.js', array('jquery'), '1.0', true);
@@ -102,11 +102,15 @@ function add_theme_scripts()
     if (is_checkout()) {
         wp_enqueue_style('checkout-css', get_template_directory_uri() . '/css/myCss/checkout.css', array(), '1.0');
     }
+    if (is_product_category()) {
+        wp_enqueue_style('category-css', get_template_directory_uri() . '/css/myCss/category.css', array(), '1.0');
+    }
 }
 
 add_action('wp_enqueue_scripts', 'add_theme_scripts');
 
-function push_to_cat($arrs) {
+function push_to_cat($arrs)
+{
     $arrTmp = [];
     foreach ($arrs as $key => $arr) {
         if ($key > 0) {
@@ -116,4 +120,5 @@ function push_to_cat($arrs) {
     }
     return implode($arrTmp);
 }
+
 ?>

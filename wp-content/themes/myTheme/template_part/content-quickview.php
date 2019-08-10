@@ -14,17 +14,20 @@
 
                     <div class="row ">
                         <div class="col-lg-6 col-sm-6 col-xs-12">
-                            <img src="" class="img-responsive w-100" id="picture-quickview">
-                            <div>
-                                <div class="quickview-carousel owl-carousel owl-theme w-100" style="margin-top:10px">
+                            <img src="" class="img-responsive" id="picture-quickview">
+                            <div class="img-lst">
+                                <div class="quickview-carousel  owl-carousel owl-theme w-100" style="margin-top:10px">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-sm-6 col-xs-12">
-                            <h3 class="nameQuickview"></h3>
+                        <div class="col-lg-6 col-sm-6 col-xs-12 content-quick">
+                            <div class="d-flex justify-content-between align-items-center top-detail">
+                                <h3 class="nameQuickview"></h3>
+                                <span class="status-product">Còn hàng</span>
+                            </div>
                             <p class="description-quick-view"></p>
                             <div class="variable-quick"></div>
-                            <p class="price-quickview d-flex">
+                            <p class="price-quickview d-flex align-items-center">
                                 <span class="price-regular"></span>
                                 <span class="price-sale"></span>
                             </p>

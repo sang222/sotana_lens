@@ -11,7 +11,7 @@ global $woocommerce;
                     <button type="button" class="close close-custom" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
                 </div>
-                <div class="modal-body frm-cart ">
+                <div class="modal-body frm-cart " id="cart-roll">
                     <div class="  ">
                         <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
                         <?php //echo esc_url(wc_get_cart_url())
@@ -97,7 +97,7 @@ global $woocommerce;
 
                                     <td class="qty-modal text-center" style="vertical-align: middle;">
                                         <div class="js-qty">
-                                            <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>');
+                                            <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>');
                                                     var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                                                     class="action-count reduced items-count2 <?php if ($values['quantity'] == '1') echo 'none-click' ?>"
                                                     type="button"
@@ -113,7 +113,7 @@ global $woocommerce;
                                             </button>
                                             <input type="text" pattern="[0-9]*"
                                                    class="input-text qty text-center"
-                                                   id="qty_<?php echo $values['product_id'] ?>" min="1"
+                                                   id="qty_<?php echo $values['product_id'] ?>_<?php echo $vt ?>" min="1"
                                                    value="<?php echo $values['quantity']; ?>"
                                                    title="SL" max="100"
                                                    data-quantity="<?php echo $values['quantity']; ?>"
@@ -129,7 +129,7 @@ global $woocommerce;
                                                    maxlength="3"
                                                    name="cart[<?php echo $item ?>][qty]"
                                             >
-                                            <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                            <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                                     class=" action-count increase items-count2 "
                                                     data-id="<?php echo $values['product_id'] ?>"
                                                     type="button"

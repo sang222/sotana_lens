@@ -92,10 +92,14 @@ defined('ABSPATH') || exit;
                     </div>
                     <?php
                     global $post, $product;
-                    $stock = $product->get_stock_status();
-                    $stock = str_replace(array('instock', 'outofstock'), array('Còn hàng', 'Hết hàng'), $stock);
+                    $stock_st = $product->get_stock_status();
+                    $stock = str_replace(array('instock', 'outofstock'), array('Còn hàng', 'Hết hàng'), $stock_st);
                     ?>
-                    <div class="status-product"><?php echo $stock; ?></div>
+                    <?php if ($stock_st == 'instock'): ?>
+                        <div class="status-product has"><?php echo $stock; ?></div>
+                    <?php else: ?>
+                        <div class="status-product  not-has"><?php echo $stock; ?></div>
+                    <?php endif; ?>
                 </div>
                 <div class="meta-product">
                     <?php
@@ -145,9 +149,9 @@ defined('ABSPATH') || exit;
                     $available_variations = $product->get_available_variations();
                     ?>
                     <div class="price-product">
-                    <span class="current-price <?php if ($available_variations[0]['display_regular_price']) {
-                        echo 'through';
-                    } ?>"><?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?></span>
+                        <span class="current-price <?php if ($available_variations[0]['display_regular_price']) {
+                            echo 'through';
+                        } ?>"><?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?></span>
                         <span class="sale-price"
                         ><?php if ($available_variations[0]['display_price']) echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ'; ?></span>
                     </div>
@@ -205,23 +209,26 @@ defined('ABSPATH') || exit;
                     </p>
                 </div>
                 <div class="acttion-carts qty-quick-view">
-                    <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
-                            class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i>
-                    </button>
-                    <input type="text" pattern="[0-9]*" class="input-text qty" id="qty" min="1" title="SL" max="100"
-                           max inputmode="numeric" value="<?php if (isset($_POST['quantity'])) {
-                        echo $_POST['quantity'];
-                    } else {
-                        echo '1';
-                    } ?>" maxlength="3" name="quantity"
-                           onkeyup="valid(this,&#39;numbers&#39;)" onblur="valid(this,&#39;numbers&#39;)">
-                    <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                            class="increase action-count items-count2"
-                            data-id="<?php echo $product->get_id(); ?>"
-                            type="button">
-                        <i class="fa fa-plus"></i>
-                    </button>
-                    <?php if ($product->is_type('simple')) : ?>
+                    <?php $stock_st = $product->get_stock_status();
+                    if ($stock_st == 'instock'):
+                        ?>
+                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
+                                class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i>
+                        </button>
+                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty" min="1" title="SL" max="100"
+                               max inputmode="numeric" value="<?php if (isset($_POST['quantity'])) {
+                            echo $_POST['quantity'];
+                        } else {
+                            echo '1';
+                        } ?>" maxlength="3" name="quantity"
+                               onkeyup="valid(this,&#39;numbers&#39;)" onblur="valid(this,&#39;numbers&#39;)">
+                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                class="increase action-count items-count2"
+                                data-id="<?php echo $product->get_id(); ?>"
+                                type="button">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <?php if ($product->is_type('simple')) : ?>
                         <a title="Add cart" id="add-more"
                            class="cart-product add-cart quick_add_to_cart_button  button product_type_simple add_to_cart_button ajax_add_to_cart"
                            href="?add-to-cart=<?php echo $product->get_id() ?>"
@@ -238,7 +245,7 @@ defined('ABSPATH') || exit;
                            data-attribute_pa_size="<?php echo $first_size ?>"
                         ><i class="fa fa-cart-plus"></i> Add to cart</a>
                     <?php endif; ?>
-
+                    <?php endif; ?>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
@@ -321,57 +328,146 @@ defined('ABSPATH') || exit;
                                 $koostis = wc_get_product_terms($product->id, 'pa_color', array('fields' => 'names'));
                                 $stock = $product->get_stock_status();
                                 ?>
-
                                 <?php if (!empty($sale)): ?>
                                     <p class="sale-banner">Sale!</p>
                                 <?php endif; ?>
-                                <?php the_post_thumbnail('shop_catalog', array("title" => get_the_title(), 'alt' => get_the_title())) ?>
+                                <div class="img-thumb">
+                                    <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
 
-                                <div class="action-detail">
-                                    <p class="title-product"><?php echo get_the_title() ?></p>
-                                    <p class="price-product"><?php echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                                        <span style="text-decoration: line-through"><?php if ($product->sale_price) {
-                                                echo number_format($product->sale_price, 0, ',', '.') . 'đ';
-                                            } ?></span>
-                                    </p>
                                 </div>
                             </a>
-                            <div class="content-action d-flex flex-column justify-content-end">
-                                <?php if ($stock == 'instock'): ?>
-                                    <a title="Add cart"
-                                       class="cart-product add-cart  quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                       href="?add-to-cart=<?php echo $product->get_id(); ?>"
-                                       data-quantity="<?php echo $product->qty ?>"
-                                       data-product_id="<?php echo $product->get_id(); ?>"
-                                       data-product_sku="<?php echo $product->sku ?>"
-                                    ><i class="fa fa-cart-plus"></i></a>
-                                <?php else: ?>
-                                    <a title="View"
-                                       class="cart-product add-cart
-                                       href="<?php the_permalink() ?>"
-                                    ><i class="fa fa-eye"></i></a>
-                                <?php endif; ?>
-                                <span class="cart-product view-product"
-                                      class="tooltip-left" data-tooltip="Quick view"
-                                      onclick="viewProduct(
-                                      <?php echo $product->get_id() ?>,this)"
-                                      data-quantity="<?php echo $product->qty ?>"
-                                      data-product_id="<?php echo $product->get_id(); ?>"
-                                      data-product_sku="<?php echo $product->sku ?>"
-                                      data-product_price="<?php if ($product->get_price()) {
-                                          echo number_format($product->get_price(), 0, ',', '.') . 'đ';
-                                      } ?>"
-                                      data-product_price_regular="<?php if ($product->get_regular_price()) {
-                                          echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
-                                      } ?>"
-                                      data-product_price_sale="<?php if ($product->get_sale_price()) {
-                                          echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
-                                      } ?>"
-                                      data-product_price_stock="<?php $product->get_stock_status(); ?>"
-                                      data-product_link="<?php the_permalink() ?>"
-                                ><i
-                                            class="fa fa-search"></i></span>
+                            <div class="action-detail">
+
+                                <p class="title-product"><?php echo get_the_title() ?></p>
+                                <p class="price-product">
+                             <span class="sale-price" style="text-decoration: line-through">
+                                <?php if ($product->sale_price) {
+                                    echo number_format($product->sale_price, 0, ',', '.') . 'đ';
+                                } ?>
+                            </span>
+                                    <span class="regular-price">
+                                <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                            </span>
+
+                                </p>
+                                <?php
+                                if ($product->product_type == 'variable') {
+                                    $available_variations = $product->get_available_variations();
+                                    $attributes = $product->get_attributes();
+                                    $variation_id_first = '';
+                                    $first_instock = null;
+                                    $vt = 0;
+                                    ?>
+                                    <?php
+                                    foreach ($available_variations as $key => $variations) {
+                                        $variation_id = $available_variations[$key]['variation_id'];
+                                        $variable_product1 = new WC_Product_Variation($variation_id);
+                                        ?>
+                                        <div class="d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
+
+                                            <?php if ($variable_product1->stock_status == 'instock'):
+                                                $vt++;
+                                                if ($vt == 1) {
+                                                    $variation_id_first = $variation_id;
+                                                    $first_color = $variations['attributes']['attribute_pa_color'];
+                                                    $first_size = $variations['attributes']['attribute_pa_size'];
+                                                }
+                                                ?>
+                                                <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
+                                                     data-variation_id="<?php echo $variation_id ?>"
+                                                     data-product_id="<?php echo $product->get_id() ?>"
+                                                     data-display_price="<?php echo $variations['display_price'] ?>"
+                                                     data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
+                                                     data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
+                                                     data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                                >
+                                                    <img style="width:32px" height="32px"
+                                                         src="<?php echo $variations['image']['src'] ?>"/>
+                                                </div>
+                                            <?php
+
+                                            endif; ?>
+
+                                        </div>
+                                        <?php
+
+
+                                    }
+                                } else {
+                                    ?>
+                                    <div class="d-inline-block box-variable-pr border active ">
+                                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                                <div class="action-add">
+                                    <div class="content-action d-flex flex-column justify-content-end">
+                                        <?php if ($stock == 'instock'): ?>
+                                            <?php if ($product->product_type != 'variable'): ?>
+                                                <a title="Add cart"
+                                                   class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                   href="?add-to-cart=<?php echo $product->get_id(); ?>"
+                                                   data-quantity="<?php echo $product->qty ?>"
+                                                   data-product_id="<?php echo $product->get_id(); ?>"
+                                                   data-product_sku="<?php echo $product->sku ?>"
+                                                   tooltip="Add to cart" flow="left"
+                                                ><i class="fa fa-cart-plus"></i></a>
+                                            <?php else: ?>
+                                                <a title="Add cart"
+                                                   class="cart-product add-cart add-variable"
+                                                   href="?add-to-cart=<?php echo $product->get_id() ?>"
+                                                   data-variation_id="<?php echo $variation_id_first; ?>"
+                                                   data-attribute_pa_color="<?php echo $first_color; ?>"
+                                                   data-product_id="<?php echo $product->get_id() ?>"
+                                                   data-attribute_pa_size="<?php echo $first_size ?>"
+                                                ><i class="fa fa-cart-plus"></i> </a>
+                                                </a>
+
+                                            <?php endif; ?>
+                                        <?php else: ?>
+                                            <a title="View"
+                                               class="cart-product add-cart "
+                                               href="<?php the_permalink() ?>"
+                                            ><i class="fa fa-eye"></i></a>
+                                        <?php endif; ?>
+                                        <span class="cart-product view-product"
+                                              onclick="viewProduct(
+                                              <?php echo $product->get_id() ?>,this)"
+                                              data-quantity="<?php echo $product->qty ?>"
+                                              data-variable_id="<?php
+                                              if ($product->product_type == 'variable') {
+                                                  $available_variations = $product->get_available_variations();
+                                                  echo $available_variations[0]['variation_id'];
+                                              }
+                                              ?>"
+                                              data-attribute_pa_color="<?php
+                                              if ($product->product_type == 'variable') {
+                                                  $available_variations = $product->get_available_variations();
+                                                  echo $available_variations[0]['attributes']['attribute_pa_color'];
+                                              }
+                                              ?>"
+                                              data-product_id="<?php echo $product->get_id(); ?>"
+                                              data-product_sku="<?php echo $product->sku ?>"
+                                              data-product_price="<?php if ($product->get_price()) {
+                                                  echo number_format($product->get_price(), 0, ',', '.') . 'đ';
+                                              } ?>"
+                                              data-product_price_regular="<?php if ($product->get_regular_price()) {
+                                                  echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
+                                              } ?>"
+                                              data-product_price_sale="<?php if ($product->get_sale_price()) {
+                                                  echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
+                                              } ?>"
+                                              data-product_price_stock="<?php $product->get_stock_status(); ?>"
+                                              data-product_link="<?php the_permalink() ?>"
+                                        ><i
+                                                    class="fa fa-search"></i></span>
+
+                                    </div>
+                                </div>
                             </div>
+
+
                         </div>
                     </div>
                 <?php endwhile; ?>
@@ -384,7 +480,7 @@ defined('ABSPATH') || exit;
         </div>
     </div>
     <!--    Quick view-->
-    <?php get_template_part('template_part/content', 'quickview') ?>
+    <?php get_template_part('template_part/content', 'cartmodal') ?>
     <!-- content notice -->
     <?php get_template_part('template_part/content', 'notice') ?>
 </div>

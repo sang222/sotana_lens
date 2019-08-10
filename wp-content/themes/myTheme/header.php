@@ -73,7 +73,8 @@
                     </div>
                     <ul class="popup-cart-content">
                         <li class="item">
-                            <img src="http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/01/image00013_1bca332ec4644cbcb806359b173bd255_master-100x100.jpg" alt="">
+                            <img src="http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/01/image00013_1bca332ec4644cbcb806359b173bd255_master-100x100.jpg"
+                                 alt="">
                             <div class="item-content">
                                 <div class="item-content-sub">
                                     <a href="#">Logo Collection</a>

@@ -1,0 +1,8 @@
+.row-product .product-item:hover .content-action .cart-product.add-cart {
+    right: 27% !important;
+}
+
+.row-product .product-item:hover .content-action .cart-product.view-product {
+    left: 27% !important;
+}
+/*grid*/
