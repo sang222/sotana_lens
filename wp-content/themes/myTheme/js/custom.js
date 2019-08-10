@@ -23,6 +23,30 @@ var THEMEMASCOT = {};
     var tl = new TimelineMax({paused: true})
     var tl1 = new TimelineMax({paused: true})
 
+    // $('.sliderHome').owlCarousel({
+    //     loop: true,
+    //     autoWidth: true,
+    //     items: 1,
+    //     responsiveClass:true,
+    //     dots: true,
+    //     singleItem: true,
+    //     responsive: {
+    //         0: {
+    //             items: 2,
+    //             nav: false
+    //         },
+    //         600: {
+    //             items: 3,
+    //             nav: false
+    //         },
+    //         1000: {
+    //             items: 5,
+    //             nav: true,
+    //             loop: true
+    //         }
+    //     }
+    // })
+
     $('#icon-cart-mobile').click(function() {
         $('.popup-view-cart').toggleClass('d-none')
     })
@@ -51,7 +75,7 @@ var THEMEMASCOT = {};
     })
 
     function menuInit() {
-        tl.to('.circle', 0.7, {width: $body.width() * 5 + 'px', height: $body.width() * 5 + 'px'})
+        tl.to('.circle', 0.7, {width: '4800px', height: '4800px'})
             .set('.menu-main', {display: 'table'})
             .staggerTo('.menu-pri li', 0.3, {ease: Power2.easeOut, y: 0, force3D: true, autoAlpha: 1}, 0.06)
     }

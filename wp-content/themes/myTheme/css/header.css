@@ -52,6 +52,18 @@
 .header .icon-menu .icon-menu__bar.icon-menu__bar-3 {
     top: 20px;
 }
+#wrapper {
+    padding: 0 15px;
+    position: relative;
+}
+#wrapper.menu-active {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    z-index: 99;
+    width: 100%;    
+}
 .menu-active .header .icon-menu .icon-menu__bar.icon-menu__bar-1 {
     transform: rotate(45deg) translate3d(6px, 5.5px, 0);
 }

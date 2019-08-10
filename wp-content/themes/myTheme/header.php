@@ -48,7 +48,7 @@
 </div>
 <input type="hidden" id="url_admin" value="<?php echo admin_url('admin-ajax.php') ?>">
 <div id="wrapper" class="clearfix">
-    <div>
+    <div style="position: relative;">
         <!-- Header -->
         <div class="header fixed-width">
             <div id="menu" aria-controls="page-menu" data-modal-nav-toggle="">
