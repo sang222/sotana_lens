@@ -23,31 +23,30 @@ var THEMEMASCOT = {};
     var tl = new TimelineMax({paused: true})
     var tl1 = new TimelineMax({paused: true})
 
-    // $('.sliderHome').owlCarousel({
-    //     loop: true,
-    //     autoWidth: true,
-    //     items: 1,
-    //     responsiveClass:true,
-    //     dots: true,
-    //     singleItem: true,
-    //     responsive: {
-    //         0: {
-    //             items: 2,
-    //             nav: false
-    //         },
-    //         600: {
-    //             items: 3,
-    //             nav: false
-    //         },
-    //         1000: {
-    //             items: 5,
-    //             nav: true,
-    //             loop: true
-    //         }
-    //     }
-    // })
+    $('.sliderHome').owlCarousel({
+        loop: true,
+        items: 1,
+        dots: true,
+        singleItem: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false
+            },
+            600: {
+                items: 1,
+                nav: false
+            },
+            1000: {
+                items: 1,
+                nav: true,
+                loop: true
+            }
+        }
+    })
 
-    $('#icon-cart-mobile').click(function() {
+    $(document).on('click', '#icon-cart-mobile', function() {
+        console.log("fdhgkjdfh")
         $('.popup-view-cart').toggleClass('d-none')
     })
 

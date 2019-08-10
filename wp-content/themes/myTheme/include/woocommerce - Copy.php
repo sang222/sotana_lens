@@ -37,89 +37,157 @@ function woocommerce_ajax_add_to_cart()
 
 //mini c
 add_filter('woocommerce_add_to_cart_fragments', 'header_add_to_cart_fragment', 30, 1);
-function header_add_to_cart_fragment($fragments) {
+function header_add_to_cart_fragment($fragments)
+{
     global $woocommerce;
     ob_start();
-?>
-    <div class="container-mini-cart" id="icon-cart-mobile">
-        <div style="position: relative">
-            <div class="cart-icon"></div>
-            <span class="hd-cart-count total-outer" id="count-mini-cart "><?php echo $woocommerce->cart->cart_contents_count ?></span>
-        </div>
-        <div class="popup-view-cart d-none">
-            <div class="popup-cart-title">
-                <h5>Shopping cart</h5>
+    ?>
+    <ul class="list-inline flip container-mini-cart pull-right">
+        <li class="mb-0 pb-0">
+            <?php global $woocommerce; ?>
+            <div style="position: relative" class="show-on-mobile" id="icon-cart-mobile">
+                <img src="<?php echo esc_url(get_template_directory_uri()) ?>/images/hd_mainmenu_icon_cart.png"
+                     alt="" style="margin-top: -11px;margin-right: 10px;">
+                <span class="hd-cart-count total-outer"
+                      id="count-mini-cart"><?php echo $woocommerce->cart->cart_contents_count ?></span>
             </div>
-            <ul class="popup-cart-content">
-            <?php
-                $items = $woocommerce->cart->get_cart();
-                $totalitem = 0;
-                $total_price = 0;
-                $vt = 0;
-                if(!empty($items)) :
-                foreach ($items as $item => $values):
-                    $_product = apply_filters('woocommerce_cart_item_product', $values['data'], $values, $item);
-                    if ($_product && $_product->exists() && $values['quantity'] > 0):
-                        $haveitems = 1;
-                        $_product = wc_get_product($values['data']->get_id());
-                        if ($_product->get_sale_price() > 0) {
-                            $total_price += $_product->get_sale_price() * $values['quantity'];
-                        } else {
-                            $total_price += $_product->get_regular_price() * $values['quantity'];
-                        }
-                        $linkpro = get_permalink($values['product_id']);
-                        $titlepro = $_product->get_title();
-                        $getProductDetail = wc_get_product($values['product_id']);
-                        $imgpro = $getProductDetail->get_image(array(80, 80));
-                        $pricepro = get_post_meta($values['product_id'], '_price', true);
-                        $quantitypro = $values['quantity'];
-                        $totalitem += $quantitypro;
-            ?>
-                <li class="item item-<?php echo $values['product_id'] ?>">
-                    <a href="<?php echo $linkpro; ?>" class="product-id-<?php echo $_product->get_id() ?>">
-                    <?php
-                        if ($_product->product_type != 'variation') : ?>
-                            <?php echo $imgpro; ?>
-                        <?php else: ?>
-                            <?php
-                            $variation_id2 = $values['variation_id'];
-                            $variable_product2 = new WC_Product_Variation($variation_id2);
-                            ?>
-                            <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
-                        <?php endif; ?>
-                    </a>
-                    <div class="item-content">
-                        <div class="item-content-sub">
-                            <a href="<?php echo $linkpro; ?>"><?php echo $titlepro ?></a>
-                            <p><?php echo number_format($pricepro, 0, ',', '.') . 'đ'; ?> x <?php echo $quantitypro; ?></p>
-                            <p>Color: White</p>
+            <div class="top-dropdown-outer pt-5 pb-10">
+                <a class="top-cart-link has-dropdown text-white text-hover-theme-colored"><i
+                            class="fa fa-shopping-cart font-13"></i>
+                    <span class="total-outer"
+                          id="count-mini-cart">(<?php echo $woocommerce->cart->cart_contents_count ?> Items) </span></a>
+                <ul class="dropdown " id="mini-cart-container">
+                    <li>
+                        <!-- dropdown cart -->
+                        <div class="dropdown-cart">
+                            <div class="dropdown--content-tbl table-responsive">
+                                <table class="table cart-table-list table-responsive">
+                                    <tbody>
+                                    <?php
+                                    $items = $woocommerce->cart->get_cart();
+                                    $totalitem = 0;
+                                    $total_price = 0;
+                                    $vt = 0;
+                                    foreach ($items as $item => $values):
+                                        $_product = apply_filters('woocommerce_cart_item_product', $values['data'], $values, $item);
+                                        if ($_product && $_product->exists() && $values['quantity'] > 0):
+                                            $haveitems = 1;
+                                            $_product = wc_get_product($values['data']->get_id());
+                                            if ($_product->get_sale_price() > 0) {
+                                                $total_price += $_product->get_sale_price() * $values['quantity'];
+                                            } else {
+                                                $total_price += $_product->get_regular_price() * $values['quantity'];
+                                            }
+                                            $linkpro = get_permalink($values['product_id']);
+                                            $titlepro = $_product->get_title();
+                                            $getProductDetail = wc_get_product($values['product_id']);
+                                            $imgpro = $getProductDetail->get_image(array(80, 80));
+                                            $pricepro = get_post_meta($values['product_id'], '_price', true);
+                                            $quantitypro = $values['quantity'];
+                                            $totalitem += $quantitypro;
+                                            ?>
+                                            <tr id="mini-item-<?php echo $vt ?>">
+                                                <td><a href="<?php echo $linkpro; ?>">
+                                                        <?php
+                                                        if ($_product->product_type != 'variation') : ?>
+                                                            <?php echo $imgpro; ?>
+                                                        <?php else: ?>
+                                                            <?php
+                                                            $variation_id2 = $values['variation_id'];
+                                                            $variable_product2 = new WC_Product_Variation($variation_id2);
+                                                            ?>
+                                                            <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
+                                                        <?php endif; ?>
+
+                                                    </a>
+                                                </td>
+                                                <td><a href="<?php echo $linkpro; ?>"
+                                                       class="truncate"> <?php echo $titlepro ?></a></td>
+                                                <td>
+                                                    X<span class="quantity-head-<?php echo $_product->get_id() ?>"><?php echo $quantitypro; ?></span>
+                                                </td>
+                                                <td><?php echo number_format($pricepro, 0, ',', '.') . 'đ'; ?></td>
+                                                <td>
+                                                    <?php if ($_product->product_type != 'variation') : ?>
+                                                        <span
+                                                                class=" remove-product float-right"
+                                                                data-product_id="<?php echo $values['product_id'] ?>"
+                                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                                    class="fa fa-close font-13"></i>
+                                                                                </span>
+                                                    <?php else: ?>
+                                                        <span
+                                                                class=" remove-product-variable float-right"
+                                                                data-key_items="<?php echo $item ?>"
+                                                                data-product_id="<?php echo $values['product_id'] ?>"
+                                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                                    class="fa fa-close font-13"></i>
+                                                                                </span>
+                                                    <?php endif; ?>
+                                                </td>
+                                            </tr>
+                                            <?php $vt++; ?>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="total-cart text-right">
+                                <table class="table table-responsive">
+                                    <tbody>
+                                    <tr>
+                                        <td> Item Total</td>
+                                        <td><span data-amount="<?php echo $totalitem; ?>"
+                                                  class="total-amount-dropdown"><?php echo $totalitem; ?></span> Items
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
+                                        <td>Order Total</td>
+                                        <td><span class="total-price-dropdown"
+
+                                                  data-total="<?php echo $amount2 ?>"><?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="cart-btn text-right">
+                                <a class="btn btn-theme-colored btn-xs"
+                                   href="<?php echo wc_get_cart_url(); ?>"> View cart</a>
+                                <a class="btn btn-dark btn-xs" href="<?php echo wc_get_checkout_url() ?>">
+                                    Checkout</a>
+                            </div>
                         </div>
-                        <span 
-                            class="color-general remove-product"
-                            data-product_id="<?php echo $values['product_id'] ?>"
-                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
-                            >Xoá</span>
-                    </div>
-                </li>
-                        <?php $vt++; ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </ul>
-            <div class="popup-cart-footer">
-                <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
-                <p data-total="<?php echo $amount2 ?>">Tổng cộng: <?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></p>
-                <div class="group-btn">
-                    <a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-default">View cart</a>
-                    <a href="<?php echo wc_get_checkout_url() ?>" class="btn btn-default">Checkout</a>
-                </div>
+                        <!-- dropdown cart ends -->
+                    </li>
+                </ul>
             </div>
-            <?php else : ?>
-                <p>Hiện không có sản phẩm nào</p>                        
-            <?php endif; ?>
-        </div>
-    </div>
-<?php
+        </li>
+        <li class="mb-0 pb-0">
+            <div class="top-dropdown-outer pt-5 pb-10">
+                <a class="top-search-box has-dropdown text-white text-hover-theme-colored"><i
+                            class="fa fa-search font-13"></i> &nbsp;</a>
+                <ul class="dropdown">
+                    <li>
+                        <div class="search-form-wrapper">
+                            <form action="<?php esc_url(home_url('/')) ?>" class="mt-10">
+                                <input type="text"
+                                       onfocus="if(this.value =='Enter your search') { this.value = ''; }"
+                                       onblur="if(this.value == '') { this.value ='Enter your search'; }"
+                                       value="Enter your search" id="searchinput" name="s"
+                                       class="">
+                                <label><input type="submit" name="submit" value=""></label>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <?php
     $fragments['.container-mini-cart'] = ob_get_clean();
+
     return $fragments;
 }
 

@@ -278,7 +278,7 @@ body ul.list li {
     -webkit-transform: perspective(200px) rotateX(20deg);
     -moz-transform: perspective(200px) rotateX(20deg);
     -o-transform: perspective(200px) rotateX(20deg);
-    margin: 0 20px;
+    width: 90%;
 }
 
 .pro-title .content-title span {

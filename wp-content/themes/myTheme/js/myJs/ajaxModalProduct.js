@@ -338,7 +338,8 @@ $(document).on('click', '.remove-product', function (e) {
             var count = 0;
             var mini = data.fragments['.container-mini-cart'];
             var modal = data.fragments['.modal-cart-content'];
-            $(".container-mini-cart").empty().append(mini);
+            $(".container-mini-cart").remove()
+            $('.header').append(mini);
             $('.modal-cart-add').empty().append(modal);
             if ($this.parents('tr').prev().size() > 0 || $this.parents('tr').next().size() > 0) {
                 $this.parents('tr').remove();

@@ -46,6 +46,8 @@ function add_theme_scripts()
     wp_enqueue_script('ajax-cart', get_theme_file_uri() . '/js/myJs/ajaxCart.js', array('jquery'), '1.0', true);
     wp_enqueue_script('ajax-modal-js', get_theme_file_uri() . '/js/myJs/ajaxModalProduct.js', array('jquery'), '1.1', true);
     wp_enqueue_script('account-js', get_theme_file_uri() . '/js/myJs/account.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('video-js', get_theme_file_uri() . '/js/video.min.js', array('jquery'), '1.0', true);
+
     if (is_checkout()) {
         wp_enqueue_script('checkouts-js', get_theme_file_uri() . '/js/myJs/checkout.js', array('jquery'), '1.0', true);
     }
@@ -93,6 +95,7 @@ function add_theme_scripts()
     wp_enqueue_style('header-css', get_template_directory_uri() . '/css/header.css', array(), '1.0');
     wp_enqueue_style('product-css', get_template_directory_uri() . '/css/myCss/product.css', array(), '1.0');
     wp_enqueue_style('slider-css', get_template_directory_uri() . '/css/slider.css', array(), '1.0');
+    wp_enqueue_style('video-css', get_template_directory_uri() . '/css/video-js.min.css', array(), '1.0');
 
     if (is_single()) {
         // single product css single-product.css
