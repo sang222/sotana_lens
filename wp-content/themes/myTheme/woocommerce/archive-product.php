@@ -105,14 +105,26 @@ get_header('shop');
 
                                 <p class="title-product"><?php echo get_the_title() ?></p>
                                 <p class="price-product">
-                             <span class="sale-price" style="text-decoration: line-through">
+                                    <?php if ($product->product_type != 'variable') : ?>
+                                        <span class="sale-price" style="text-decoration: line-through">
                                 <?php if ($product->sale_price) {
                                     echo number_format($product->sale_price, 0, ',', '.') . 'đ';
                                 } ?>
-                            </span>
-                                    <span class="regular-price">
-                                <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                            </span>
+                                </span>
+                                        <span class="regular-price">
+                                    <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                                </span>
+                                    <?php else: ?>
+                                        <?php $available_variations = $product->get_available_variations(); ?>
+                                        <span class="sale-price" style="text-decoration: line-through">
+                                <?php if ($available_variations[0]['display_price']) {
+                                    echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                } ?>
+                                </span>
+                                        <span class="regular-price">
+                                    <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                </span>
+                                    <?php endif; ?>
 
                                 </p>
                                 <?php
@@ -214,23 +226,39 @@ get_header('shop');
                                               ?>"
                                               data-product_id="<?php echo $product->get_id(); ?>"
                                               data-product_sku="<?php echo $product->sku ?>"
-                                              data-product_price="<?php if ($product->get_price()) {
-                                                  echo number_format($product->get_price(), 0, ',', '.') . 'đ';
-                                              } ?>"
-                                              data-product_price_regular="<?php if ($product->get_regular_price()) {
+
+                                              data-product_price_regular="
+                                      <?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_regular_price()) {
                                                   echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
-                                              } ?>"
-                                              data-product_price_sale="<?php if ($product->get_sale_price()) {
-                                                  echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
-                                              } ?>"
+                                              } ?>
+                                          <?php else:
+                                                  $available_variations = $product->get_available_variations();
+                                                  if ($available_variations[0]['display_regular_price']) {
+                                                      echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
+                                                  }
+                                                  ?>
+                                       <?php endif; ?>"
+                                              data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_price()) {
+                                                  echo number_format($product->get_price(), 0, ',', '.') . 'đ';
+                                              } ?>
+                                          <?php else:
+                                                  $available_variations = $product->get_available_variations();
+                                                  if ($available_variations[0]['display_price']) {
+                                                      echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                                  }
+                                                  ?>
+                                       <?php endif; ?>"
                                               data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                               data-product_link="<?php the_permalink() ?>"
                                         ><i class="fa fa-search"></i></span>
 
                                     </div>
                                 </div>
-
                             </div>
+
+
                         </div>
                     </div>
                     <?php
@@ -254,6 +282,8 @@ get_header('shop');
 get_template_part('template_part/content', 'quickview');
 //cart Modal
 get_template_part('template_part/content', 'cartmodal');
+//conent loading
+get_template_part('template_part/content', 'loading');
 get_footer('shop');
 ?>
 <script>
@@ -275,6 +305,8 @@ get_footer('shop');
 
     var arr = Array.from($('#vendor').val().split(','));
     $(".no-bullets input[type=radio]").change(function () {
+        $('.fixed-loading').removeClass('d-none')
+        $('body').css({'overflow': 'hidden'})
         var newurl = replaceUrlParam('price', $(this).val());
         let send_vendor = '';
         for (var i = 0; i < arr.length; i++) {
@@ -297,6 +329,8 @@ get_footer('shop');
             }, success: function (data) {
                 console.log(data);
                 $(window).scrollTop(0);
+                $(".fixed-loading").addClass('d-none')
+                $('body').css({'overflow': 'auto'})
                 $(".collection-one").children().remove();
                 if (data.data.trim() != '') {
                     $(".collection-one").append(data.data);
@@ -312,6 +346,8 @@ get_footer('shop');
     })
 
     $(".no-bullets input[type=checkbox]").change(function (e) {
+        $(".fixed-loading").removeClass('d-none')
+        $('body').css({'overflow': 'hidden'})
         if (e.target.checked) {
             arr.push($(this).val().trim())
         } else {
@@ -338,6 +374,8 @@ get_footer('shop');
                 vendor: send_vendor,
             }, success: function (data) {
                 console.log(data);
+                $('body').css({'overflow': 'auto'})
+                $(".fixed-loading").addClass('d-none')
                 $(window).scrollTop(0);
                 $(".collection-one").children().remove();
                 if (data.data.trim() != '') {
@@ -354,7 +392,6 @@ get_footer('shop');
     });
     //    click pagination
     $(".collection-one").on('click', '.paginate_links a', function (e) {
-        alert(1)
         e.preventDefault();
         var hrefThis = $(this).attr('href');
         var paged = hrefThis.match(/\/\d+\//)[0];

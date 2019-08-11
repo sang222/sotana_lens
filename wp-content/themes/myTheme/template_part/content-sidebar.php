@@ -3,6 +3,48 @@
         <div class="font-weight-600"><i class="fa fa-filter"></i> Bộ lọc tìm kiếm</div>
     </div>
     <hr/>
+    <?php
+    $term = get_queried_object();
+    $children = get_terms($term->taxonomy, array(
+        'parent' => $term->term_id,
+        'hide_empty' => false
+    ));
+    ?>
+    <?php if (sizeof($children) > 0): ?>
+        <div class="filter-list" id="bs-collapse">
+            <h5 class="text-left"><i class="fa fa-bars"></i> Category </h5>
+            <div style="margin-left: 20px">
+                <ul class="no-bullets filter-price clearfix">
+                    <?php foreach ($children as $child):
+//                        var_dump($child);
+                        ?>
+                        <li class="text-left text-uppercase" style="margin-left: 5px">
+                            <i style="margin-right:15px;" class="weight-600"> - </i> <a
+                                    href="<?php echo get_category_link($child->term_id) ?>"><?php echo $child->name; ?></a>
+                        </li>
+                        <?php
+                        $children1 = get_terms($term->taxonomy, array(
+                            'parent' => $child->term_id,
+                            'hide_empty' => false
+                        ));
+                        if (sizeof($children1) > 0):
+                            ?>
+                            <ul>
+                                <?php foreach ($children1 as $child1): ?>
+                                    <li class="text-left text-uppercase" style="margin-left: 5px">
+                                        <i style="margin-right:15px;" class="weight-600"> - </i> <a
+                                                href="<?php echo get_category_link($child1->term_id) ?>"><?php echo $child1->name; ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+
+        </div>
+    <?php endif; ?>
+
     <div class="filter-list" id="bs-collapse">
         <h5 class="text-left"><i class="fa fa-tags"></i> Filter by price</h5>
         <div style="margin-left: 20px">
@@ -88,7 +130,7 @@
         <div style="margin-left: 20px">
             <ul class="no-bullets filter-price clearfix">
                 <?php
-                $dem=1;
+                $dem = 1;
                 foreach ($term_children as $cate_id): ?>
 
                     <?php $vendor_arr = explode(',', $_GET['vendor']) ?>

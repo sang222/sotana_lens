@@ -249,14 +249,14 @@ defined('ABSPATH') || exit;
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
-                        <div class="product-hotline d-flex justify-content-between">
+                        <div class="product-hotline d-flex justify-content-between align-items-center">
                             <a href="tel:0902 547 710">
                                 <img
                                         src="//theme.hstatic.net/1000269337/1000458651/14/phone-receiver.png?v=78"><span> 0989633508</span>
                             </a>
-                            <p>
+                            <span>
                                 <img src="//theme.hstatic.net/1000269337/1000458651/14/open.png?v=78"> 9h00 : 20h00
-                            </p>
+                            </span>
                         </div>
                         <div class="product-policy">
                             <ul class="no-bullets">

@@ -903,6 +903,13 @@ body ul.list li {
     font-size: 1.5em;
 }
 
+#myModal .top-detail .status-product {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-top: 11px;
+}
+
 .modal-content .price-quickview .price-regular {
     color: #666;
     text-decoration: line-through;
@@ -2049,4 +2056,69 @@ myModal .add-cart.added:after {
     100% {
         transform: translate3d(-50%, -50%, 0) rotate(360deg);
     }
+}
+
+/*loading bar*/
+.bar {
+    width: 6px;
+    height: 30px;
+
+    display: inline-block;
+    transform-origin: center;
+    animation: loading 1s ease-in-out infinite;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    z-index: 999;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bar1 {
+    animation-delay: 0.1s;
+}
+
+.bar2 {
+    animation-delay: 0.2s;
+}
+
+.bar3 {
+    animation-delay: 0.3s;
+}
+
+.bar4 {
+    animation-delay: 0.2s;
+}
+
+.bar5 {
+    animation-delay: 0.1s;
+}
+
+@keyframes loading {
+    0% {
+        transform: scaleY(0.1);
+
+    }
+
+    50% {
+        transform: scaleY(1);
+        background: #ec1414;
+    }
+
+    100% {
+        transform: scaleY(0.1);
+        background: transparent;
+    }
+}
+
+.fixed-loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 9999;
 }
