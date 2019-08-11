@@ -54,7 +54,9 @@ function viewProduct(product_id, $this) {
                 var html_cate = '';
 
                 $(".qty-quick-view").empty();
+                $(".stock-quick").empty();
                 if (stock == 'instock') {
+                    $(".stock-quick").append('<span class="status-product status-instock">Còn hàng</span>')
                     $(".qty-quick-view").append(`
                 <button onclick="var result = document.getElementById(&#39;qty&#39;);
                     var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
@@ -78,7 +80,10 @@ function viewProduct(product_id, $this) {
                             type="button"><i
                                 class="fa fa-plus"></i>
                     </button> ` + btnAddCart + ``)
+                }else{
+                    $(".stock-quick").append('<span class="status-product out-instock">Hết hàng</span>')
                 }
+
                 response.data.category.forEach(function (value, index) {
                     if (index == 0) {
                         html_cate += '<a href="' + value.link + '">' + value.name + '</a>'
@@ -488,8 +493,7 @@ $(document).on('click', '.increase', function () {
     var item_hash = $(this).prev('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).prev('input').val();
     var currentVal = parseFloat(item_quantity);
-    if(document.getElementById("cart-roll"))
-    {
+    if (document.getElementById("cart-roll")) {
         var scrollTop = document.getElementById("cart-roll").scrollTop
         localStorage.setItem('scrollModal', scrollTop);
     }

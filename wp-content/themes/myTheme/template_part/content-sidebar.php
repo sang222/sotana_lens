@@ -42,8 +42,9 @@
                 </ul>
             </div>
         </div>
+        <hr/>
     <?php endif; ?>
-    <hr/>
+
     <div class="filter-list" id="bs-collapse">
         <h5 class="text-left"><i class="fa fa-tags"></i> Filter by price</h5>
         <div style="margin-left: 20px">

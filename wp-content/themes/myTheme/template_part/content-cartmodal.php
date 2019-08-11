@@ -8,7 +8,7 @@ global $woocommerce;
         <div class="modal-dialog vertical-align-center modal-cart-add">
             <div class="modal-content modal-cart-content">
                 <div class="modal-header">
-                    <button type="button" class="close close-custom" data-dismiss="modal">&times;</button>
+                   <button type="button" class="close close-custom" data-dismiss="modal"></button>
                     <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
                 </div>
                 <div class="modal-body frm-cart " id="cart-roll">
@@ -76,7 +76,7 @@ global $woocommerce;
                                         if ($_product->product_type != 'variation') :
                                             if ($getProductDetail->get_sale_price() > 0) {
                                                 echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . 'đ';
-                                            } else {
+                                            } else if ($getProductDetail->get_regular_price()) {
                                                 echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . 'đ';
                                             }
                                             ?>
@@ -113,7 +113,8 @@ global $woocommerce;
                                             </button>
                                             <input type="text" pattern="[0-9]*"
                                                    class="input-text qty text-center"
-                                                   id="qty_<?php echo $values['product_id'] ?>_<?php echo $vt ?>" min="1"
+                                                   id="qty_<?php echo $values['product_id'] ?>_<?php echo $vt ?>"
+                                                   min="1"
                                                    value="<?php echo $values['quantity']; ?>"
                                                    title="SL" max="100"
                                                    data-quantity="<?php echo $values['quantity']; ?>"
@@ -148,9 +149,9 @@ global $woocommerce;
                                         <?php if ($_product->product_type != 'variation') : ?>
                                             <span class="total-price-<?php echo $values['product_id'] ?>">
                                             <?php if ($getProductDetail->get_sale_price() > 0) {
-                                                echo number_format(($getProductDetail->get_sale_price()*$values['quantity']), 0, ',', '.') . 'đ';
-                                            } else {
-                                                echo number_format(($getProductDetail->get_regular_price()*$values['quantity']), 0, ',', '.') . 'đ';
+                                                echo number_format(($getProductDetail->get_sale_price() * $values['quantity']), 0, ',', '.') . 'đ';
+                                            } else if($getProductDetail->get_regular_price()) {
+                                                echo number_format(($getProductDetail->get_regular_price() * $values['quantity']), 0, ',', '.') . 'đ';
                                             }
                                             ?>
                                         </span>

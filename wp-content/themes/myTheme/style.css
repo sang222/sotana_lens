@@ -390,6 +390,7 @@ body ul.list li {
     border-bottom: none !important;
     /*z-index: 99999;*/
     padding: .5em;
+    text-align: center;
     padding-bottom: 10px !important;
     clear: both;
     background: #ffffff;
@@ -468,6 +469,8 @@ body ul.list li {
     font-weight: bold;
     font-size: 15px;
     padding: 10px 5px;
+    text-align: center;
+    width: 100%;
     color: #000000;
 }
 
@@ -893,7 +896,7 @@ body ul.list li {
     /* To center horizontally */
     margin: 0 auto;
     max-width: 920px;
-    border-radius: 0 !important;
+    /*border-radius: 0 !important;*/
 
 }
 
@@ -908,6 +911,33 @@ body ul.list li {
     border-radius: 4px;
     padding: 5px 10px;
     margin-top: 11px;
+}
+
+#myModal .top-detail .status-product.out-instock {
+    color: #ed030e;
+    border-color: #ed030e;
+}
+
+#modalCart .modal-content:after,#myModal .modal-content:after  {
+    content: '\f00d';
+    background: white;
+    position: absolute;
+    cursor: pointer;
+    font-family: FontAwesome;
+    top: -15px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    right: -16px;
+    color: red;
+    box-shadow: 0px 0px 1px 1px #a2868675;
+    width: 35px;
+    height: 35px;
+}
+
+#myModal .top-detail .status-product.status-instock {
+    border-color: #26BB4E;
+    color: #26BB4E;
 }
 
 .modal-content .price-quickview .price-regular {
@@ -1028,11 +1058,10 @@ body ul.list li {
 }
 
 .close-custom {
-    /*border: 1px solid !important;*/
-    margin-top: 5px !important;
-    border-radius: 100% !important;
-    width: 30px !important;
-    height: 30px !important;
+    position: absolute;
+    top: -10px;
+    z-index: 99;
+    right: -7px;
 }
 
 /*end more*/
@@ -1712,9 +1741,13 @@ body .pagination {
 
 .modal.fade .modal-dialog .close-custom {
     position: absolute;
-    top: 6px;
+    top: -14px;
     z-index: 99;
-    right: 8px;
+    width: 33px;
+    right: -15px;
+    border-radius: 50%;
+    height: 33px;
+    background: #ffffff;
 }
 
 /*table*/
@@ -1760,7 +1793,7 @@ body .pagination {
     color: #ed030e;
 }
 
-.zoomContainer {
+#myModal .zoomContainer {
     z-index: 9999999999999999999999;
 }
 
@@ -2121,4 +2154,13 @@ myModal .add-cart.added:after {
     height: 100%;
     background: #fff;
     z-index: 9999;
+}
+/*dots*/
+.owl-theme .owl-dots .owl-dot.active span{
+    background: #ed030e !important;
+    border-color: #ed030e  !important;
+}
+.owl-theme .owl-dots .owl-dot span{
+    border-color: #789be6 !important;
+    background: transparent !important;
 }

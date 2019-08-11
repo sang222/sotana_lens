@@ -136,7 +136,7 @@ function modal_add_to_cart_fragment($fragments)
     ?>
     <div class="modal-content modal-cart-content">
         <div class="modal-header">
-            <button type="button" class="close close-custom" data-dismiss="modal">&times;</button>
+            <button type="button" class="close close-custom" data-dismiss="modal"></button>
             <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
         </div>
         <div class="modal-body frm-cart " id="cart-roll">

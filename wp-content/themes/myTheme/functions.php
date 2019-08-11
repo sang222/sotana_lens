@@ -100,6 +100,7 @@ function add_theme_scripts()
     wp_enqueue_style('product-css', get_template_directory_uri() . '/css/myCss/product.css', array(), '1.0');
     wp_enqueue_style('slider-css', get_template_directory_uri() . '/css/slider.css', array(), '1.0');
     wp_enqueue_style('video-css', get_template_directory_uri() . '/css/video-js.min.css', array(), '1.0');
+    wp_enqueue_style('responsive-css', get_template_directory_uri() . '/css/myCss/responsive.css', array(), '1.0');
 
     if (is_single()) {
         // single product css single-product.css

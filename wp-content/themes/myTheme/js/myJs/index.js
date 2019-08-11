@@ -312,16 +312,21 @@ $(document).ready(function () {
         zoomWindowFadeIn: 500,
         zoomWindowFadeOut: 750
     });
-    // $("#pictures-quickview").elevateZoom({
-    //     scrollZoom: true,
-    //     zoomType: "inner",
-    //     cursor: "crosshair",
-    //     zoomWindowFadeIn: 500,
-    //     zoomWindowFadeOut: 750
-    // });
+
+    //    function
+
 });
 //zoom quick view
 //function general
+$(window).resize(function () {
+
+    if (window.innerWidth <= 767) {
+
+        $('.zoomContainer').remove();
+        $("#picture-quickview").removeData('elevateZoom');
+    }
+})
+
 function formatCurrency(number) {
     var n = number.split('').reverse().join("");
     var n2 = n.replace(/\d\d\d(?!$)/g, "$&.");
@@ -338,3 +343,4 @@ function changeInputTextQty() {
         }
     })
 }
+

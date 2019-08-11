@@ -3,13 +3,13 @@ global $tp_option;
 $category_hot = $tp_option['product-hot'];
 ?>
 <?php if (sizeof($category_hot) > 0): ?>
-    <div class="pro-title wow fadeIn">
+    <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
             <span>HOT SALE</span>
         </div>
 
     </div>
-    <div class="row-product fixed-width wow fadeIn" id="product-option" style="margin: 0 auto;text-align: center">
+    <div class="row-product fixed-width wow fadeInDown" id="product-option" style="margin: 0 auto;text-align: center">
         <div class="tab clearfix text-center clearfix">
             <?php $dem = 0; ?>
             <?php foreach ($category_hot as $cate_id): ?>
@@ -21,12 +21,12 @@ $category_hot = $tp_option['product-hot'];
                 <?php $dem++; endforeach; ?>
         </div>
     </div>
-    <div class="row-product fixed-width wow bounceInUp" style="margin: 0 auto;text-align: center">
+    <div class="row-product fixed-width wow fadeInDown" style="margin: 0 auto;text-align: center">
         <?php
         $dem1 = 0;
 
         foreach ($category_hot as $cate_id):
-            $args = array('post_type' => 'product', 'posts_per_page' => 8, 'product_cat' => get_the_category_by_ID($cate_id), 'orderby' => 'rand');
+            $args = array('post_type' => 'product', 'posts_per_page' => 10, 'product_cat' => get_the_category_by_ID($cate_id), 'orderby' => 'rand');
             $loop = new WP_Query($args);
             $dem2 = 1;
             ?>
