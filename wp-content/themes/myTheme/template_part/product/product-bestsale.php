@@ -1,22 +1,26 @@
-<div class="pro-title">
-    <div class="fixed-width content-title title-slider">
-        <span class="text-uppercase">BEST SALE</span>
-    </div>
+<?php
+$feat_pro = new WP_Query(array('posts_per_page' => 8,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_visibility',
+            'field' => 'name',
+            'terms' => 'featured',
+            'operator' => 'IN'),
+    ),
+));
 
-</div>
-<div class="row-product fixed-width" style="margin: 0 auto;text-align: center">
+?>
+<?php if ($feat_pro->have_posts()): ?>
+    <div class="pro-title wow fadeIn">
+        <div class="fixed-width content-title title-slider">
+            <span class="text-uppercase">BEST SALE</span>
+        </div>
+
+    </div>
+<?php endif; ?>
+<div class="row-product fixed-width wow fadeIn" style="margin: 0 auto;text-align: center">
     <div class="owl-carousel  owl-theme " id="sale-carousel">
         <?php
-        $feat_pro = new WP_Query(array('posts_per_page' => 8,
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'product_visibility',
-                    'field' => 'name',
-                    'terms' => 'featured',
-                    'operator' => 'IN'),
-            ),
-        ));
-
         while ($feat_pro->have_posts()) :
             $feat_pro->the_post();
             global $product ?>

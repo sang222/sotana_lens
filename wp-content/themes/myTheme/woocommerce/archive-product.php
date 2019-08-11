@@ -50,12 +50,29 @@ get_header('shop');
         <?php
         global $post;
         $dem1 = 0;
+        $price = (isset($_GET['price']) && !empty($_GET['price'])) ? esc_attr($_GET['price']) : '0:500000000';
+        $price = explode(':', $price);
         $cateID = $cate->term_id;
         $args = array(
             'post_type' => 'product',
             'post_status' => 'publish',
             'ignore_sticky_posts' => 1,
             'posts_per_page' => '4',
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => '_price',
+                    'value' => $price[0],
+                    'compare' => '>=',
+                    'type' => 'NUMERIC'
+                ),
+                array(
+                    'key' => '_price',
+                    'value' => $price[1],
+                    'compare' => '<=',
+                    'type' => 'NUMERIC'
+                ),
+            ),
             'tax_query' => array(
                 array(
                     'taxonomy' => 'product_cat',
@@ -83,7 +100,6 @@ get_header('shop');
                     global $product;
                     $max_post_count = $loop->post_count;
                     ?>
-
                     <div class=" ">
                         <div class="product-item">
                             <a href="<?php the_permalink() ?>">
@@ -267,6 +283,7 @@ get_header('shop');
                 wp_reset_query();
                 ?>
             </div>
+            <?php if($max_post_count==0) echo '<h3>Not found product</h3>'  ?>
             <div class="prefix"></div>
             <?php devvn_corenavi_ajax($loop); ?>
         </div>

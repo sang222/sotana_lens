@@ -1,13 +1,18 @@
 <?php $baseURL = esc_url(get_template_directory_uri()); ?>
-<div class="pro-title">
-    <div class="fixed-width content-title">
-        <span class="text-uppercase">CUSTOMER COMMENT FOR US</span>
+<?php
+global $tp_option;
+$arr_customer_slides = $tp_option['home-customer'];
+?>
+<?php if (sizeof($arr_customer_slides) > 0): ?>
+    <div class="pro-title wow fadeInDown">
+        <div class="fixed-width content-title">
+            <span class="text-uppercase">CUSTOMER COMMENT FOR US</span>
+        </div>
     </div>
-</div>
-<div class="fixed-width" style="margin-top:35px;padding: 15px">
+<?php endif; ?>
+<div class="fixed-width wow fadeInDown" style="margin-top:35px;padding: 15px">
     <div class="owl-carousel owl-theme " id="customer-carousel">
-        <?php global $tp_option;
-        $arr_customer_slides = $tp_option['home-customer'];
+        <?php
         foreach ($arr_customer_slides as $item_customer):
             ?>
             <article class="c-card">
