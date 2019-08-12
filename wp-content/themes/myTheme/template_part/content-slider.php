@@ -7,7 +7,9 @@
         <h5>after party</h5>
         <p>The style of the season</p>
     </div>
-    <div class="sliderHome-item item-video" style="padding: 0">
-        <a class="owl-video" href="http://www.youtube.com/embed/QIjZn_fiS3M?html5=1&controls=0&version=3&loop=1&autoplay=1"></a>
+    <div class="sliderHome-item videoWrapper" style="padding: 0">
+        <video autoplay muted loop>
+            <source src="http://ak4.picdn.net/shutterstock/videos/4170274/preview/stock-footage-beautiful-girl-lying-on-the-meadow-and-dreaming-enjoy-nature-close-up-slow-motion-footage.mp4" type="video/mp4">
+        </video>
     </div>
 </div>

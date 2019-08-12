@@ -47,6 +47,7 @@ function add_theme_scripts()
     wp_enqueue_script('ajax-modal-js', get_theme_file_uri() . '/js/myJs/ajaxModalProduct.js', array('jquery'), '1.1', true);
     wp_enqueue_script('account-js', get_theme_file_uri() . '/js/myJs/account.js', array('jquery'), '1.0', true);
     wp_enqueue_script('video-js', get_theme_file_uri() . '/js/video.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('media-video-js', get_theme_file_uri() . '/js/media.youtube.js', array('jquery'), '1.0', true);
 
     if (is_checkout()) {
         wp_enqueue_script('checkouts-js', get_theme_file_uri() . '/js/myJs/checkout.js', array('jquery'), '1.0', true);
