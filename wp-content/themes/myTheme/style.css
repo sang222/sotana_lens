@@ -2160,7 +2160,10 @@ myModal .add-cart.added:after {
     background: #ed030e !important;
     border-color: #ed030e  !important;
 }
-.owl-theme .owl-dots .owl-dot span{
+.owl-theme .owl-dots .owl-dot span {
     border-color: #789be6 !important;
     background: transparent !important;
+}
+body .owl-carousel .owl-video-tn {
+    background-size: cover;
 }
