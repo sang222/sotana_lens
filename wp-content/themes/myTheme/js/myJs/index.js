@@ -68,6 +68,7 @@ function clickItemVariableQuick() {
 
 $(document).ready(function () {
     //funciton
+    changeInputTextQty();
     clickItemVariableItem();
     clickItemVariableQuick();
     //all
@@ -298,6 +299,7 @@ $(document).ready(function () {
 //    quickview slider
     $(window).resize(function () {
         if (screen.width <= 767) {
+            $('.zoomContainer').remove();
             $(".img-lst").width($("body").width() - 80)
         }
 
@@ -310,18 +312,35 @@ $(document).ready(function () {
         zoomWindowFadeIn: 500,
         zoomWindowFadeOut: 750
     });
-    // $("#pictures-quickview").elevateZoom({
-    //     scrollZoom: true,
-    //     zoomType: "inner",
-    //     cursor: "crosshair",
-    //     zoomWindowFadeIn: 500,
-    //     zoomWindowFadeOut: 750
-    // });
+
+    //    function
+
 });
 //zoom quick view
 //function general
+$(window).resize(function () {
+
+    if (window.innerWidth <= 767) {
+
+        $('.zoomContainer').remove();
+        $("#picture-quickview").removeData('elevateZoom');
+    }
+})
+
 function formatCurrency(number) {
     var n = number.split('').reverse().join("");
     var n2 = n.replace(/\d\d\d(?!$)/g, "$&.");
     return n2.split('').reverse().join('') + 'đ';
 }
+
+function changeInputTextQty() {
+    $(".input-text").change(function () {
+        if ($(this).val() <= 0) {
+            $(this).val(1);
+        }
+        if (!Number.isInteger($(this).val())) {
+            $(this).val(1);
+        }
+    })
+}
+

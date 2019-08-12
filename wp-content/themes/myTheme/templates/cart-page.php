@@ -131,50 +131,84 @@ $items = $woocommerce->cart->get_cart();
                                 <td class="qty-modal text-center" style="vertical-align: middle;">
                                     <div class="js-qty">
                                         <button
-
-                                                onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>');
+                                                onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>');
                                                         var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                                                 class="action-count reduced items-count2 <?php if ($values['quantity'] == '1') echo 'none-click' ?>"
                                                 type="button"
                                                 data-id="<?php echo $values['product_id'] ?>"
                                                 data-price="<?php
-                                                if ($getProductDetail->get_sale_price() > 0) {
-                                                    echo $getProductDetail->get_sale_price();
-                                                } else {
-                                                    echo $getProductDetail->get_regular_price();
-                                                }
-                                                ?>"
-                                        ><i class="fa fa-minus"></i>
+                                                if ($_product->product_type != 'variation') :
+                                                    if ($getProductDetail->get_sale_price() > 0) {
+                                                        echo $getProductDetail->get_sale_price();
+                                                    } else if ($getProductDetail->get_regular_price()) {
+                                                        echo $getProductDetail->get_regular_price();
+                                                    }
+                                                    ?>
+                                                <?php else:
+                                                    $variation_id = $values['variation_id'];
+                                                    $variable_product1 = new WC_Product_Variation($variation_id);
+                                                    $regular_price = $variable_product1->regular_price;
+                                                    $sales_price = $variable_product1->sale_price;
+                                                    if ($sales_price > 0) {
+                                                        echo $sales_price;
+                                                    } else {
+                                                        echo $regular_price;
+                                                    }
+                                                    ?><?php endif; ?>"><i class="fa fa-minus"></i>
                                         </button>
                                         <input type="text" pattern="[0-9]*"
                                                class="input-text qty text-center"
-                                               id="qty_<?php echo $values['product_id'] ?>" min="1"
+                                               id="qty_<?php echo $values['product_id'] ?>_<?php echo $vt ?>" min="1"
                                                value="<?php echo $values['quantity']; ?>"
                                                title="SL" max="100"
                                                max inputmode="numeric"
                                                data-quantity="<?php echo $values['quantity']; ?>"
                                                data-price="<?php
-                                               if ($getProductDetail->get_sale_price() > 0) {
-                                                   echo $getProductDetail->get_sale_price();
-                                               } else {
-                                                   echo $getProductDetail->get_regular_price();
-                                               }
-                                               ?>"
+                                               if ($_product->product_type != 'variation') :
+                                                   if ($getProductDetail->get_sale_price() > 0) {
+                                                       echo $getProductDetail->get_sale_price();
+                                                   } else if ($getProductDetail->get_regular_price()) {
+                                                       echo $getProductDetail->get_regular_price();
+                                                   }
+                                                   ?>
+                                                <?php else:
+                                                   $variation_id = $values['variation_id'];
+                                                   $variable_product1 = new WC_Product_Variation($variation_id);
+                                                   $regular_price = $variable_product1->regular_price;
+                                                   $sales_price = $variable_product1->sale_price;
+                                                   if ($sales_price > 0) {
+                                                       echo $sales_price;
+                                                   } else {
+                                                       echo $regular_price;
+                                                   }
+                                                   ?><?php endif; ?>"
                                                data-id="<?php echo $values['product_id'] ?>"
                                                maxlength="3"
                                                name="cart[<?php echo $item ?>][qty]"
                                         >
-                                        <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                        <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                                 class=" action-count increase items-count2 "
                                                 data-id="<?php echo $values['product_id'] ?>"
                                                 type="button"
                                                 data-price="<?php
-                                                if ($getProductDetail->get_sale_price() > 0) {
-                                                    echo $getProductDetail->get_sale_price();
-                                                } else {
-                                                    echo $getProductDetail->get_regular_price();
-                                                }
-                                                ?>"
+                                                if ($_product->product_type != 'variation') :
+                                                    if ($getProductDetail->get_sale_price() > 0) {
+                                                        echo $getProductDetail->get_sale_price();
+                                                    } else if ($getProductDetail->get_regular_price()) {
+                                                        echo $getProductDetail->get_regular_price();
+                                                    }
+                                                    ?>
+                                                <?php else:
+                                                    $variation_id = $values['variation_id'];
+                                                    $variable_product1 = new WC_Product_Variation($variation_id);
+                                                    $regular_price = $variable_product1->regular_price;
+                                                    $sales_price = $variable_product1->sale_price;
+                                                    if ($sales_price > 0) {
+                                                        echo $sales_price;
+                                                    } else {
+                                                        echo $regular_price;
+                                                    }
+                                                    ?><?php endif; ?>"
                                         ><i class="fa fa-plus"></i>
                                         </button>
                                     </div>
@@ -239,7 +273,8 @@ $items = $woocommerce->cart->get_cart();
                 <div class="cart-btn modal-action <?php if ($vt == 0) echo 'd-none' ?> text-right ">
                     <div class="total-order-cart">
                         <span>Tổng tiền:</span>
-                        <span class="total-price"><?php echo $total_price ?></span><strong><u>đ</u></strong>
+                        <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
+                        <span class="total-price"><?php echo number_format($amount2, 0, ',', '.') . '<u>đ</u>'; ?></span><strong></strong>
                     </div>
                     <br/>
                     <div class="check-out-cart">

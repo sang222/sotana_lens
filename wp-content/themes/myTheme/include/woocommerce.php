@@ -4,7 +4,6 @@ add_action('wp_ajax_nopriv_woocommerce_ajax_add_to_cart', 'woocommerce_ajax_add_
 //call ajax button cart
 function woocommerce_ajax_add_to_cart()
 {
-
     $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
     $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
     $variation_id = absint($_POST['variation_id']);
@@ -37,26 +36,28 @@ function woocommerce_ajax_add_to_cart()
 
 //mini c
 add_filter('woocommerce_add_to_cart_fragments', 'header_add_to_cart_fragment', 30, 1);
-function header_add_to_cart_fragment($fragments) {
+function header_add_to_cart_fragment($fragments)
+{
     global $woocommerce;
     ob_start();
-?>
+    ?>
     <div class="container-mini-cart" id="icon-cart-mobile">
         <div style="position: relative">
             <div class="cart-icon"></div>
-            <span class="hd-cart-count total-outer" id="count-mini-cart "><?php echo $woocommerce->cart->cart_contents_count ?></span>
+            <span class="hd-cart-count total-outer"
+                  id="count-mini-cart "><?php echo $woocommerce->cart->cart_contents_count ?></span>
         </div>
         <div class="popup-view-cart d-none">
             <div class="popup-cart-title">
                 <h5>Shopping cart</h5>
             </div>
             <ul class="popup-cart-content">
-            <?php
+                <?php
                 $items = $woocommerce->cart->get_cart();
                 $totalitem = 0;
                 $total_price = 0;
                 $vt = 0;
-                if(!empty($items)) :
+                if (!empty($items)) :
                 foreach ($items as $item => $values):
                     $_product = apply_filters('woocommerce_cart_item_product', $values['data'], $values, $item);
                     if ($_product && $_product->exists() && $values['quantity'] > 0):
@@ -74,51 +75,53 @@ function header_add_to_cart_fragment($fragments) {
                         $pricepro = get_post_meta($values['product_id'], '_price', true);
                         $quantitypro = $values['quantity'];
                         $totalitem += $quantitypro;
-            ?>
-                <li class="item item-<?php echo $values['product_id'] ?>">
-                    <a href="<?php echo $linkpro; ?>" class="product-id-<?php echo $_product->get_id() ?>">
-                    <?php
-                        if ($_product->product_type != 'variation') : ?>
-                            <?php echo $imgpro; ?>
-                        <?php else: ?>
-                            <?php
-                            $variation_id2 = $values['variation_id'];
-                            $variable_product2 = new WC_Product_Variation($variation_id2);
-                            ?>
-                            <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
-                        <?php endif; ?>
-                    </a>
-                    <div class="item-content">
-                        <div class="item-content-sub">
-                            <a href="<?php echo $linkpro; ?>"><?php echo $titlepro ?></a>
-                            <p><?php echo number_format($pricepro, 0, ',', '.') . 'đ'; ?> x <?php echo $quantitypro; ?></p>
-                            <p>Color: White</p>
-                        </div>
-                        <span 
-                            class="color-general remove-product"
-                            data-product_id="<?php echo $values['product_id'] ?>"
-                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
-                            >Xoá</span>
-                    </div>
-                </li>
+                        ?>
+                        <li class="item item-<?php echo $values['product_id'] ?>">
+                            <a href="<?php echo $linkpro; ?>" class="product-id-<?php echo $_product->get_id() ?>">
+                                <?php
+                                if ($_product->product_type != 'variation') : ?>
+                                    <?php echo $imgpro; ?>
+                                <?php else: ?>
+                                    <?php
+                                    $variation_id2 = $values['variation_id'];
+                                    $variable_product2 = new WC_Product_Variation($variation_id2);
+                                    ?>
+                                    <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
+                                <?php endif; ?>
+                            </a>
+                            <div class="item-content">
+                                <div class="item-content-sub">
+                                    <a href="<?php echo $linkpro; ?>"><?php echo $titlepro ?></a>
+                                    <p><?php echo number_format($pricepro, 0, ',', '.') . 'đ'; ?>
+                                        x <?php echo $quantitypro; ?></p>
+                                    <p>Color: White</p>
+                                </div>
+                                <span
+                                        class="color-general remove-product"
+                                        data-product_id="<?php echo $values['product_id'] ?>"
+                                        data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
+                                >Xoá</span>
+                            </div>
+                        </li>
                         <?php $vt++; ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
             <div class="popup-cart-footer">
                 <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
-                <p data-total="<?php echo $amount2 ?>">Tổng cộng: <?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></p>
+                <p data-total="<?php echo $amount2 ?>">Tổng
+                    cộng: <?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></p>
                 <div class="group-btn">
                     <a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-default">View cart</a>
                     <a href="<?php echo wc_get_checkout_url() ?>" class="btn btn-default">Checkout</a>
                 </div>
             </div>
             <?php else : ?>
-                <p>Hiện không có sản phẩm nào</p>                        
+                <p>Hiện không có sản phẩm nào</p>
             <?php endif; ?>
         </div>
     </div>
-<?php
+    <?php
     $fragments['.container-mini-cart'] = ob_get_clean();
     return $fragments;
 }
@@ -133,7 +136,7 @@ function modal_add_to_cart_fragment($fragments)
     ?>
     <div class="modal-content modal-cart-content">
         <div class="modal-header">
-            <button type="button" class="close close-custom" data-dismiss="modal">&times;</button>
+            <button type="button" class="close close-custom" data-dismiss="modal"></button>
             <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
         </div>
         <div class="modal-body frm-cart " id="cart-roll">
@@ -381,6 +384,7 @@ function viewProduct_init()
     if ($handle->product_type == 'variable') {
         $available_variations = $handle->get_available_variations();
         $attributes = $handle->get_attributes();
+        $stock = $product->get_stock_status();
         $variation_id_first = '';
         $first_instock = null;
         $vt = 0;
@@ -434,6 +438,7 @@ function viewProduct_init()
         'image' => get_the_post_thumbnail_url($id, 'large'),
         'category' => $arr_link_category,
         'arr_attachment' => $arr_attachment,
+        'stock' => $stock,
         'html_variable' => $html_variable . ''
     );
     wp_send_json_success($data);
@@ -613,7 +618,10 @@ function ajax_load_post_func()
         $max_post_count = $loop->post_count;
         $dem++;
         ?>
-        <div class="col-lg-3 col-sm-6 col-xs-6 ">
+        <?php if ($dem == 1): ?>
+            <div class="grid--product">
+        <?php endif; ?>
+        <div class="">
             <div class="product-item">
                 <a href="<?php the_permalink() ?>">
                     <?php
@@ -672,9 +680,10 @@ function ajax_load_post_func()
                                 class="fa fa-search"></i></span>
                 </div>
             </div>
-
         </div>
-
+        <?php if($dem==$max_post_count): ?>
+        </div>
+        <?php endif; ?>
         <?php
         $stt++;
     endwhile;
@@ -690,7 +699,7 @@ function ajax_load_post_func()
 }
 
 //endpagination
-//filter product
+//filter product by category
 add_action('wp_ajax_filter', 'filter_product');
 add_action('wp_ajax_nopriv_filter', 'filter_product');
 function filter_product()
@@ -790,8 +799,12 @@ function filter_product()
     while ($query->have_posts()) : $query->the_post();
         global $product;
         $dem++;
+        $max_post_count = $query->post_count;
         ?>
-        <div class="col-lg-3 col-sm-6 col-xs-6 ">
+        <?php if ($dem == 1): ?>
+            <div class="grid--product <?php echo $dem; ?>">
+        <?php endif; ?>
+        <div class="">
             <div class="product-item">
                 <a href="<?php the_permalink() ?>">
                     <?php
@@ -939,6 +952,9 @@ function filter_product()
                 </div>
             </div>
         </div>
+        <?php if ($dem == $max_post_count): ?>
+            </div>
+        <?php endif; ?>
     <?php
     endwhile;
     wp_reset_query();
@@ -951,7 +967,6 @@ function filter_product()
     //echo json_encode(array('status' => 0));
     die();
 }
-
 
 //UPDATE CART
 

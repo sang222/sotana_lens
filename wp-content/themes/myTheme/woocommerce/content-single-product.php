@@ -249,14 +249,14 @@ defined('ABSPATH') || exit;
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
-                        <div class="product-hotline d-flex justify-content-between">
+                        <div class="product-hotline d-flex justify-content-between align-items-center">
                             <a href="tel:0902 547 710">
                                 <img
                                         src="//theme.hstatic.net/1000269337/1000458651/14/phone-receiver.png?v=78"><span> 0989633508</span>
                             </a>
-                            <p>
+                            <span>
                                 <img src="//theme.hstatic.net/1000269337/1000458651/14/open.png?v=78"> 9h00 : 20h00
-                            </p>
+                            </span>
                         </div>
                         <div class="product-policy">
                             <ul class="no-bullets">
@@ -332,6 +332,7 @@ defined('ABSPATH') || exit;
                                     <p class="sale-banner">Sale!</p>
                                 <?php endif; ?>
                                 <div class="img-thumb">
+
                                     <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
 
                                 </div>
@@ -340,14 +341,26 @@ defined('ABSPATH') || exit;
 
                                 <p class="title-product"><?php echo get_the_title() ?></p>
                                 <p class="price-product">
-                             <span class="sale-price" style="text-decoration: line-through">
+                                    <?php if ($product->product_type != 'variable') : ?>
+                                        <span class="sale-price" style="text-decoration: line-through">
                                 <?php if ($product->sale_price) {
                                     echo number_format($product->sale_price, 0, ',', '.') . 'đ';
                                 } ?>
-                            </span>
-                                    <span class="regular-price">
-                                <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                            </span>
+                                </span>
+                                        <span class="regular-price">
+                                    <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                                </span>
+                                    <?php else: ?>
+                                        <?php $available_variations = $product->get_available_variations(); ?>
+                                        <span class="sale-price" style="text-decoration: line-through">
+                                <?php if ($available_variations[0]['display_price']) {
+                                    echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                } ?>
+                                </span>
+                                        <span class="regular-price">
+                                    <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                </span>
+                                    <?php endif; ?>
 
                                 </p>
                                 <?php
@@ -449,19 +462,33 @@ defined('ABSPATH') || exit;
                                               ?>"
                                               data-product_id="<?php echo $product->get_id(); ?>"
                                               data-product_sku="<?php echo $product->sku ?>"
-                                              data-product_price="<?php if ($product->get_price()) {
-                                                  echo number_format($product->get_price(), 0, ',', '.') . 'đ';
-                                              } ?>"
-                                              data-product_price_regular="<?php if ($product->get_regular_price()) {
+
+                                              data-product_price_regular="
+                                      <?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_regular_price()) {
                                                   echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
-                                              } ?>"
-                                              data-product_price_sale="<?php if ($product->get_sale_price()) {
-                                                  echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
-                                              } ?>"
+                                              } ?>
+                                          <?php else:
+                                                  $available_variations = $product->get_available_variations();
+                                                  if ($available_variations[0]['display_regular_price']) {
+                                                      echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
+                                                  }
+                                                  ?>
+                                       <?php endif; ?>"
+                                              data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_price()) {
+                                                  echo number_format($product->get_price(), 0, ',', '.') . 'đ';
+                                              } ?>
+                                          <?php else:
+                                                  $available_variations = $product->get_available_variations();
+                                                  if ($available_variations[0]['display_price']) {
+                                                      echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                                  }
+                                                  ?>
+                                       <?php endif; ?>"
                                               data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                               data-product_link="<?php the_permalink() ?>"
-                                        ><i
-                                                    class="fa fa-search"></i></span>
+                                        ><i class="fa fa-search"></i></span>
 
                                     </div>
                                 </div>
@@ -469,6 +496,7 @@ defined('ABSPATH') || exit;
 
 
                         </div>
+
                     </div>
                 <?php endwhile; ?>
 

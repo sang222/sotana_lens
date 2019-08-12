@@ -259,7 +259,7 @@ COLOR CODE2: #F2184F
 .section-title .left-side-line::before,
 .section-title .right-side-line::before,
 .product .tag-sale,
-.owl-theme .owl-dots .owl-dot.active span,
+/*.owl-theme .owl-dots .owl-dot.active span,*/
 .line-bottom:after,
 .line-bottom-center:after,
 .progress-item .progress-bar .percent,

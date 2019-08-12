@@ -8,8 +8,7 @@
 
                 <div class="modal-body  ">
                     <button type="button" class="close close-custom" data-dismiss="modal"><span
-                                aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-
+                                aria-hidden="true"><i class="fa fa-cslose"></i></span>
                     </button>
 
                     <div class="row ">
@@ -23,7 +22,9 @@
                         <div class="col-lg-6 col-sm-6 col-xs-12 content-quick">
                             <div class="d-flex justify-content-between align-items-center top-detail">
                                 <h3 class="nameQuickview"></h3>
-                                <span class="status-product">Còn hàng</span>
+                                <div class="stock-quick">
+                                    <span class="status-product">Còn hàng</span>
+                                </div>
                             </div>
                             <p class="description-quick-view"></p>
                             <div class="variable-quick"></div>

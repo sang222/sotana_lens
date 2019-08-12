@@ -1,11 +1,11 @@
 <?php $baseURL = esc_url(get_template_directory_uri()); ?>
-<div class="pro-title">
+<div class="pro-title wow fadeInDown">
     <div class="fixed-width content-title">
         <span>BLOG US</span>
     </div>
 
 </div>
-<section class="blog-posts">
+<section class="blog-posts wow fadeInDown">
     <div class="d-flex flex-wrap fixed-width owl-carousel owl-theme" id="carousel-blog">
         <?php
             $args = array(

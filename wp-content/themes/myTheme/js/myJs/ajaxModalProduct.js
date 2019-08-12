@@ -30,30 +30,7 @@ function viewProduct(product_id, $this) {
     } else {
         btnAddCart = buttonHtmlSimple;
     }
-    $(".qty-quick-view").empty();
-    $(".qty-quick-view").append(`
-        <button onclick="var result = document.getElementById(&#39;qty&#39;);
-            var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
-                    class="action-count reduced items-count2"
-                    type="button"><i
-                    data-id="` + product_id + `"
-                        class="fa fa-minus"></i>
-            </button>
-            <input type="text" pattern="[0-9]*"
-                   class="input-text qty text-center"
-                   id="qty" min="1"
-                   value="1"
-                   title="SL" max="100"
-                   max inputmode="numeric" value="1"
-                   maxlength="3" name="quantity"
-                   onkeyup="valid(this,&#39;numbers&#39;)"
-                   onblur="valid(this,&#39;numbers&#39;)">
-            <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                    class=" action-count increase items-count2"
-                    data-id="` + product_id + `"
-                    type="button"><i
-                        class="fa fa-plus"></i>
-            </button> ` + btnAddCart + ``)
+
     $.ajax({
         type: "post", //Phương thức truyền post hoặc get
         dataType: "json", //Dạng dữ liệu trả về xml, json, script, or html
@@ -69,11 +46,44 @@ function viewProduct(product_id, $this) {
             //Làm gì đó trước khi gửi dữ liệu vào xử lý
         },
         success: function (response) {
-            console.log(response)
+            console.log(response.data.stock)
             // console.log(response);
+            var stock = response.data.stock;
             //Làm gì đó khi dữ liệu đã được xử lý
             if (response.success) {
                 var html_cate = '';
+
+                $(".qty-quick-view").empty();
+                $(".stock-quick").empty();
+                if (stock == 'instock') {
+                    $(".stock-quick").append('<span class="status-product status-instock">Còn hàng</span>')
+                    $(".qty-quick-view").append(`
+                <button onclick="var result = document.getElementById(&#39;qty&#39;);
+                    var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
+                            class="action-count reduced items-count2"
+                            type="button"><i
+                            data-id="` + product_id + `"
+                                class="fa fa-minus"></i>
+                    </button>
+                    <input type="text" pattern="[0-9]*"
+                           class="input-text qty text-center"
+                           id="qty" min="1"
+                           value="1"
+                           title="SL" max="100"
+                           max inputmode="numeric" value="1"
+                           maxlength="3" name="quantity"
+                           onkeyup="valid(this,&#39;numbers&#39;)"
+                           onblur="valid(this,&#39;numbers&#39;)">
+                    <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                            class=" action-count increase items-count2"
+                            data-id="` + product_id + `"
+                            type="button"><i
+                                class="fa fa-plus"></i>
+                    </button> ` + btnAddCart + ``)
+                }else{
+                    $(".stock-quick").append('<span class="status-product out-instock">Hết hàng</span>')
+                }
+
                 response.data.category.forEach(function (value, index) {
                     if (index == 0) {
                         html_cate += '<a href="' + value.link + '">' + value.name + '</a>'
@@ -82,6 +92,7 @@ function viewProduct(product_id, $this) {
                     }
 
                 })
+
                 $($this).removeClass('view-now')
                 $($this).find('i').css('opacity', '1')
                 $("#myModal").modal('show');
@@ -134,7 +145,7 @@ function viewProduct(product_id, $this) {
                     $('.quickview-carousel').owlCarousel('destroy');
                     // $('#quickview-carousel').data('owl.carousel').destroy();
                     if (screen.width <= 767) {
-
+                        $('.zoomContainer').remove();
                         $(".img-lst").width($("body").width() - 80)
                     }
 
@@ -225,7 +236,7 @@ function submitProductQuick() {
 function submitProductVariable() {
     $(document).on('click', '.add-variable', function (e) {
         e.preventDefault();
-        // $(this).addClass('loading')
+        $(this).addClass('loading')
         var product_id = $(this).attr('data-product_id');
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
@@ -482,8 +493,10 @@ $(document).on('click', '.increase', function () {
     var item_hash = $(this).prev('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).prev('input').val();
     var currentVal = parseFloat(item_quantity);
-    var scrollTop = document.getElementById("cart-roll").scrollTop
-    localStorage.setItem('scrollModal', scrollTop);
+    if (document.getElementById("cart-roll")) {
+        var scrollTop = document.getElementById("cart-roll").scrollTop
+        localStorage.setItem('scrollModal', scrollTop);
+    }
     var $this = $(this);
     $(this).prev().prev('.reduced').removeClass('none-click')
 
@@ -515,9 +528,10 @@ $(document).on('click', '.increase', function () {
 
     qty_cart();
 });
+
 //function general
-function formatCurrency(number){
+function formatCurrency(number) {
     var n = number.split('').reverse().join("");
     var n2 = n.replace(/\d\d\d(?!$)/g, "$&,");
-    return  n2.split('').reverse().join('') + 'VNĐ';
+    return n2.split('').reverse().join('') + 'VNĐ';
 }
