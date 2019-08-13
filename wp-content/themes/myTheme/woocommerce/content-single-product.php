@@ -17,7 +17,12 @@
 
 defined('ABSPATH') || exit;
 ?>
-<?php global $product;
+
+<?php
+global $product;
+global $wp;
+$currentURL = home_url($wp->request);
+
 ?>
 
 <div class="content-cart container">
@@ -114,18 +119,17 @@ defined('ABSPATH') || exit;
                 </div>
                 <div class="social-product">
                     <span class="share-in">Chia sẻ trên </span>
-                    <a href="#">
+                    <a class="fb-share" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentURL; ?>">
                         <span class="icon-share facebook-icon">
-
                                 <i class="fa fa-facebook"></i>
                         </span>
                     </a>
-                    <a href="#">
+                    <a class="fb-share" href="https://twitter.com/home?status=<?php echo $currentURL; ?>">
                     <span class="icon-share twitter-icon">
                             <i class="fa fa-twitter"></i>
                     </span>
                     </a>
-                    <a href="#">
+                    <a class="fb-share" href="https://plus.google.com/share?url=<?php echo $currentURL; ?>">
                     <span class="icon-share google-icon">
                             <i class="fa fa-google"></i>
                     </span>
@@ -299,8 +303,11 @@ defined('ABSPATH') || exit;
             <?php the_content() ?>
         </div>
     </div>
-    <div class="pro-title prefix">
-        <span>RELATED PRODUCTS</span>
+    <div class="pro-title wow fadeIn">
+        <div class="fixed-width content-title title-slider">
+            <span class="text-uppercase">RELATED PRODUCTS</span>
+        </div>
+
     </div>
     <div class="row-product fixed-width w-100 prefix">
         <div class="owl-carousel owl-theme " id="sale-carousel-related">
@@ -419,7 +426,7 @@ defined('ABSPATH') || exit;
                                         <?php if ($stock == 'instock'): ?>
                                             <?php if ($product->product_type != 'variable'): ?>
                                                 <a title="Add cart"
-                                                   class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                   class="cart-product add-cart  quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    href="?add-to-cart=<?php echo $product->get_id(); ?>"
                                                    data-quantity="<?php echo $product->qty ?>"
                                                    data-product_id="<?php echo $product->get_id(); ?>"
@@ -511,4 +518,6 @@ defined('ABSPATH') || exit;
     <?php get_template_part('template_part/content', 'cartmodal') ?>
     <!-- content notice -->
     <?php get_template_part('template_part/content', 'notice') ?>
+    <!-- content notice -->
+    <?php get_template_part('template_part/content', 'quickview') ?>
 </div>

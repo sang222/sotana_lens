@@ -36,7 +36,7 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2">Services</h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2">Danh Mục</h4>
                     <ul class="list list-border">
                         <?php
                             $menuLocations = get_nav_menu_locations();
@@ -101,6 +101,16 @@
 <script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
 <script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="<?php echo  $baseURL ?>/js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.fb-share').click(function (e) {
+            e.preventDefault();
+            window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+            return false;
+        });
+    })
+</script>
+
 </body>
 <div id="fb-root"></div>
 <!--<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=2065120307060425&autoLogAppEvents=1"></script>-->

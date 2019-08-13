@@ -1,8 +1,8 @@
 <div class="sidebar-filter" style="margin-bottom: 30px">
-    <div class="text-transform text-left font-weight-bold " style="margin-bottom: 20px">
-        <div class="font-weight-600"><i class="fa fa-filter"></i> Bộ lọc tìm kiếm</div>
+    <div class="text-transform text-left font-weight-bold "
+         style="padding-bottom: 20px;border-bottom:1px solid #dfdfdf">
+        <div class="font-weight-600 text-uppercase top-filter"><i class="fa fa-filter"></i> Filter Search</div>
     </div>
-    <hr/>
     <?php
     $term = get_queried_object();
     $children = get_terms($term->taxonomy, array(
@@ -11,8 +11,10 @@
     ));
     ?>
     <?php if (sizeof($children) > 0): ?>
+
         <div class="filter-list" id="bs-collapse">
-            <h5 class="text-left"><i class="fa fa-bars"></i> Category </h5>
+            <h5 class="text-left text-uppercase"><i class="fa fa-bars"></i> Category<span
+                        class="float-right icon-right"><i class="fa fa-angle-right"></i></h5>
             <div style="margin-left: 20px">
                 <ul class="no-bullets filter-price clearfix">
                     <?php foreach ($children as $child):
@@ -46,15 +48,16 @@
     <?php endif; ?>
 
     <div class="filter-list" id="bs-collapse">
-        <h5 class="text-left"><i class="fa fa-tags"></i> Filter by price</h5>
-        <div style="margin-left: 20px">
+        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> Filter by price <span
+                    class="float-right icon-right"><i class="fa fa-angle-right"></i></span></h5>
+        <div style="margin-left: 20px" class="content-down">
             <ul class="no-bullets filter-price clearfix">
                 <li class="text-left">
                     <p>
                         <input type="radio"
                                id="test1"
                                name="price-filter"
-                               <?php if (!isset($_GET['price']) && empty($_GET['price'])) echo 'checked'; ?>
+                            <?php if (!isset($_GET['price']) && empty($_GET['price']) || $_GET['price'] == '0:500000000') echo 'checked'; ?>
                                data-price="0:500000000"
                                value="0:500000000">
                         <label for="test1">Tất cả</label>
@@ -65,8 +68,8 @@
                         <input type="radio"
                                id="test2"
                                data-price="<?php echo $_GET['price'] ?>"
-                               <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price']=='0:50000') echo 'checked'  ?>
-                               name="price-filter"  value="0:50000">
+                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '0:50000') echo 'checked' ?>
+                               name="price-filter" value="0:50000">
                         <label for="test2">Nhỏ hơn 50,000₫</label>
                     </p>
 
@@ -75,7 +78,7 @@
                     <p>
                         <input type="radio"
                                id="test3"
-                               <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price']=='50000:100000') echo 'checked'; ?>
+                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '50000:100000') echo 'checked'; ?>
                                name="price-filter" data-price="7000" value="50000:100000">
                         <label for="test3">Từ 50,000₫ - 100,000₫</label>
                     </p>
@@ -84,7 +87,7 @@
                     <p>
                         <input type="radio"
                                id="test4"
-                               <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price']=='100000:300000') echo 'checked'; ?>
+                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '100000:300000') echo 'checked'; ?>
                                name="price-filter" data-price="100000:300000" value="100000:300000">
                         <label for="test4">Từ 100,000₫ - 300,000₫</label>
                     </p>
@@ -93,7 +96,7 @@
                     <p>
                         <input type="radio"
                                id="test5"
-                              <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price']=='300000:500000') echo 'checked'; ?>
+                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '300000:500000') echo 'checked'; ?>
                                name="price-filter" data-price="300000:500000" value="300000:500000">
                         <label for="test5">Từ 300,000₫ - 500,000₫</label>
                     </p>
@@ -102,7 +105,7 @@
                     <p>
                         <input type="radio"
                                id="test6"
-                               <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price']=='500000:700000') echo 'checked'; ?>
+                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '500000:700000') echo 'checked'; ?>
                                name="price-filter" data-price="500000:700000" value="500000:700000">
                         <label for="test6">Từ 500,000₫ - 700,000₫</label>
                     </p>
@@ -111,7 +114,7 @@
                     <p>
                         <input type="radio"
                                id="test7"
-                               <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price']=='700000:500000000') echo 'checked'; ?>
+                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '700000:500000000') echo 'checked'; ?>
                                name="price-filter" data-price="700000:500000000" value="700000:500000000">
                         <label for="test7">Lớn hơn 700,000₫</label>
                     </p>
@@ -128,7 +131,8 @@
     if (sizeof($term_children) > 0):
     ?>
     <div class="filter-list" id="bs-collapse">
-        <h5 class="text-left"><i class="fa fa-tags"></i> Filter by trademark</h5>
+        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> Filter by trademark <span
+                    class="float-right icon-right"><i class="fa fa-angle-right"></i></h5>
         <div style="margin-left: 20px">
             <ul class="no-bullets filter-price clearfix">
                 <?php

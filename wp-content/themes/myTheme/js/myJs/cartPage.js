@@ -17,8 +17,15 @@ $(document).on('click', '#container-tbl .remove-product', function (e) {
             $(".container-mini-cart").remove()
             $('.header').append(mini);
             var total = $("#icon-cart-mobile").find('.popup-cart-footer p').attr('data-total');
-            $(".total-order-cart .total-price").text(formatCurrency(total))
-            $this.parents('tr').find('.total-price-' + id).text(formatCurrency(total_price.toString()))
+            if (total > 0) {
+                $(".total-order-cart .total-price").text(formatCurrency(total))
+
+                $this.parents('tr').find('.total-price-' + id).text(formatCurrency(total_price.toString()))
+                $this.parents('tr').remove();
+            } else {
+                $('.cart-page-content').empty();
+                $("#empty-cart").removeClass('d-none');
+            }
         }, error: function (err) {
             console.log(err);
         }
@@ -49,9 +56,15 @@ $(document).on('click', '#container-tbl .remove-product-variable', function (e) 
             var mini = data.fragments['.container-mini-cart'];
             $(".container-mini-cart").empty().append(mini);
             var total = $("#icon-cart-mobile").find('.popup-cart-footer p').attr('data-total');
-            $(".total-order-cart .total-price").text(formatCurrency(total))
-            $this.parents('tr').find('.total-price-' + id).text(formatCurrency(total_price.toString()))
-
+            if (total > 0) {
+                $(".total-order-cart .total-price").text(formatCurrency(total))
+                $this.parents('tr').find('.total-price-' + id).text(formatCurrency(total_price.toString()))
+                $this.parents('tr').remove();
+            } else
+            {
+                $('.cart-page-content').empty();
+                $("#empty-cart").removeClass('d-none');
+            }
         }, error: function (err) {
             console.log(err);
         }
@@ -69,7 +82,8 @@ $(document).on('change', '#container-tbl input.qty', function () {
     var id = $(this).attr('data-id');
     var quantity = $(this).val();
     var total_price = price * quantity;
-    $this=$(this);
+    $this = $(this);
+
     function qty_cart() {
         $.ajax({
             type: 'POST',
@@ -110,6 +124,7 @@ $(document).on('click', ' #container-tbl .reduced', function () {
     var id = $(this).attr('data-id');
     var quantity = $(this).next('input').val();
     var total_price = price * quantity;
+
     function qty_cart() {
 
         $.ajax({

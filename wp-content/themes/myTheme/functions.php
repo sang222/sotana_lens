@@ -46,6 +46,10 @@ function add_theme_scripts()
     if(!is_cart()) {
         wp_enqueue_script('ajax-modal-js', get_theme_file_uri() . '/js/myJs/ajaxModalProduct.js', array('jquery'), '1.1', true);
     }
+    if(is_product_category())
+    {
+        wp_enqueue_script('category-js', get_theme_file_uri() . '/js/myJs/category.js', array('jquery'), '1.1', true);
+    }
     wp_enqueue_script('account-js', get_theme_file_uri() . '/js/myJs/account.js', array('jquery'), '1.0', true);
     wp_enqueue_script('video-js', get_theme_file_uri() . '/js/video.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('media-video-js', get_theme_file_uri() . '/js/media.youtube.js', array('jquery'), '1.0', true);

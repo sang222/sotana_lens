@@ -80,7 +80,7 @@ function viewProduct(product_id, $this) {
                             type="button"><i
                                 class="fa fa-plus"></i>
                     </button> ` + btnAddCart + ``)
-                }else{
+                } else {
                     $(".stock-quick").append('<span class="status-product out-instock">Hết hàng</span>')
                 }
 
@@ -95,7 +95,7 @@ function viewProduct(product_id, $this) {
 
                 $($this).removeClass('view-now')
                 $($this).find('i').css('opacity', '1')
-                $("#myModal").modal('show');
+                $("#myModal").appendTo("body").modal('show');
                 $('#picture-quickview').prop('src', response.data.image);
                 $('#picture-quickview').attr('data-zoom-image', response.data.image);
                 $('.zoomContainer').remove();
@@ -346,21 +346,11 @@ $(document).on('click', '.remove-product', function (e) {
             product_id: product_id,
 
         }, success: function (data) {
-            var count = 0;
             var mini = data.fragments['.container-mini-cart'];
             var modal = data.fragments['.modal-cart-content'];
             $(".container-mini-cart").remove()
             $('.header').append(mini);
             $('.modal-cart-add').empty().append(modal);
-            if ($this.parents('tr').prev().size() > 0 || $this.parents('tr').next().size() > 0) {
-                $this.parents('tr').remove();
-            } else {
-                $this.parents('tr').remove();
-                $(".modal-action").addClass('d-none')
-                $(".shop_table").addClass('d-none')
-                $("#empty-cart").removeClass('d-none');
-                $("#modal-empty-cart").removeClass('d-none');
-            }
         }, error: function (err) {
             console.log(err);
         }
@@ -409,43 +399,49 @@ $(document).on('click', '.remove-product-variable', function (e) {
 });
 
 //update cart
-$(document).on('change', 'input.qty', function () {
+$(document).on('keyup', 'input.qty', function () {
     // alert(1)
+    var old_value=$(this).attr('data-quantity');
     var item_hash = $(this).attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).val();
-    var currentVal = parseFloat(item_quantity);
-    if (document.getElementById("cart-roll")) {
-        var scrollTop = document.getElementById("cart-roll").scrollTop
-    }
+    var currentVal = parseInt(item_quantity);
 
-    localStorage.setItem('scrollModal', scrollTop);
+    alert(item_quantity)
+    if ($.isNumeric(item_quantity)) {
+        if (document.getElementById("cart-roll")) {
+            var scrollTop = document.getElementById("cart-roll").scrollTop
+        }
+        localStorage.setItem('scrollModal', scrollTop);
+        function qty_cart() {
+            $.ajax({
+                type: 'POST',
+                url: $("#url_admin").val(),
+                data: {
+                    action: 'qty_cart',
+                    hash: item_hash,
+                    quantity: currentVal
+                },
+                success: function (res) {
+                    if (res) {
+                        var mini = res.fragments['.container-mini-cart'];
+                        $(".container-mini-cart").empty().append(mini);
+                        var modal = res.fragments['.modal-cart-content'];
+                        $(".modal-cart-add").empty().append(modal);
+                        $('#cart-roll').animate({
+                            scrollTop: localStorage.scrollModal
+                        }, 800);
+                    }
 
-    function qty_cart() {
-        $.ajax({
-            type: 'POST',
-            url: $("#url_admin").val(),
-            data: {
-                action: 'qty_cart',
-                hash: item_hash,
-                quantity: currentVal
-            },
-            success: function (res) {
-                if (res) {
-                    var mini = res.fragments['.container-mini-cart'];
-                    $(".container-mini-cart").empty().append(mini);
-                    var modal = res.fragments['.modal-cart-content'];
-                    $(".modal-cart-add").empty().append(modal);
-                    $('#cart-roll').animate({
-                        scrollTop: localStorage.scrollModal
-                    }, 800);
                 }
+            });
 
-            }
-        });
+        }
 
+        qty_cart();
+    } else {
+        $(this).val(old_value);
     }
 
-    qty_cart();
 
 });
 $(document).on('click', '.reduced', function () {
@@ -455,7 +451,6 @@ $(document).on('click', '.reduced', function () {
     if (document.getElementById("cart-roll")) {
         var scrollTop = document.getElementById("cart-roll").scrollTop
     }
-
     localStorage.setItem('scrollModal', scrollTop);
     var $this = $(this);
     if (currentVal == 1) {

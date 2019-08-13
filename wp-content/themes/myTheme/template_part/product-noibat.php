@@ -211,6 +211,7 @@ $category_hot = $tp_option['product-hot'];
                                 </div>
                             </div>
 
+
                         </div>
                         <!--                --><?php //if ($dem2 % 4 == 0 || $dem2 == $loop->post_count) echo '</div>' ?>
                         <?php

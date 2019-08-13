@@ -68,7 +68,6 @@ function clickItemVariableQuick() {
 
 $(document).ready(function () {
     //funciton
-    changeInputTextQty();
     clickItemVariableItem();
     clickItemVariableQuick();
     //all
@@ -331,16 +330,5 @@ function formatCurrency(number) {
     var n = number.split('').reverse().join("");
     var n2 = n.replace(/\d\d\d(?!$)/g, "$&.");
     return n2.split('').reverse().join('') + 'đ';
-}
-
-function changeInputTextQty() {
-    $(".input-text").change(function () {
-        if ($(this).val() <= 0) {
-            $(this).val(1);
-        }
-        if (!Number.isInteger($(this).val())) {
-            $(this).val(1);
-        }
-    })
 }
 
