@@ -193,17 +193,7 @@ global $woocommerce;
                             </tbody>
                         </table>
                     </div>
-                    <div id="modal-empty-cart" class="d-none">
-                        <p class="text-center">Cart empty</p>
-                        <p class="text-center">
-                            <img width="100" class="img-fluid m-auto"
-                                 src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
-                        <div class="prefix"></div>
-                        <a class="text-center d-block " style="margin-top: 10px" href=""><span
-                                    class="return-shop">Return shop</span></a>
-                        <br/>
-                        </p>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <div class="cart-btn modal-action text-right ">

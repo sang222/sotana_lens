@@ -114,18 +114,32 @@ function header_add_to_cart_fragment($fragments)
                                             ?>
                                         <?php endif; ?>
                                         x <?php echo $quantitypro; ?></p>
-                                    <?php if ($_product->product_type == 'variation') : ?>
+                                    <?php if ($_product->product_type == 'variation') :
+                                        ?>
                                         <?php foreach ($values['variation'] as $key => $vari): ?>
-                                            <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
-                                                <p>Color: <?php echo $vari ?></p>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
+                                        <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
+                                            <p style="margin-bottom: 0">Color:
+                                                <?php echo $vari ?>
+                                            </p>
+                                        <?php endif; ?>
+
+                                    <?php endforeach; ?>
                                     <?php endif; ?>
                                 </div>
-                                <span class="color-general remove-product"
-                                    data-product_id="<?php echo $values['variation_id'] ?>"
-                                    data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
-                                >Xoá</span>
+                                <?php if ($_product->product_type != 'variation') : ?>
+                                    <span
+                                            class=" remove-product float-right"
+                                            data-product_id="<?php echo $values['product_id'] ?>"
+                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>">Xóa
+                                            </span>
+                                <?php else: ?>
+                                    <span
+                                            class=" remove-product-variable float-right"
+                                            data-key_items="<?php echo $item ?>"
+                                            data-product_id="<?php echo $values['product_id'] ?>"
+                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>">Xóa
+                                            </span>
+                                <?php endif; ?>
                             </div>
                         </li>
                         <?php $vt++; ?>
@@ -158,6 +172,8 @@ function modal_add_to_cart_fragment($fragments)
 {
     global $woocommerce;
     ob_start();
+    $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total()));
+
     ?>
     <div class="modal-content modal-cart-content">
         <div class="modal-header">
@@ -169,137 +185,138 @@ function modal_add_to_cart_fragment($fragments)
                 <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
                 <?php //echo esc_url(wc_get_cart_url())
                 ?><!--" method="post">-->
-                <table class="
+                <?php if ($amount2 > 0): ?>
+                    <table class="
                         tablesaw tablesaw-stack
                         table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
-                    <thead>
-                    <th></th>
-                    <th>Sản phẩm</th>
-                    <th class="text-center">Đơn giá</th>
-                    <th class="text-center">Số lượng</th>
-                    <th class="text-center" colspan="2">Thành tiền</th>
-                    </th>
-                    </thead>
-                    <tbody>
-                    <?php
-                    $total_price = 0;
-                    $items = $woocommerce->cart->get_cart();
-                    $vt = 0;
-                    foreach ($items as $item => $values) :
-                        $_product = wc_get_product($values['data']->get_id());
-                        $getProductDetail = wc_get_product($values['product_id']);
-                        $price = get_post_meta($values['product_id'], '_price', true);
-                        ?>
-                        <tr>
-                            <td class="text-center modal-cart-image" style="vertical-align: middle;">
-                                <?php
-                                if ($_product->product_type != 'variation') : ?>
-                                    <?php echo $getProductDetail->get_image('thumbnail'); ?>
-                                <?php else: ?>
+                        <thead>
+                        <th></th>
+                        <th>Sản phẩm</th>
+                        <th class="text-center">Đơn giá</th>
+                        <th class="text-center">Số lượng</th>
+                        <th class="text-center" colspan="2">Thành tiền</th>
+                        </th>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $total_price = 0;
+                        $items = $woocommerce->cart->get_cart();
+                        $vt = 0;
+                        foreach ($items as $item => $values) :
+                            $_product = wc_get_product($values['data']->get_id());
+                            $getProductDetail = wc_get_product($values['product_id']);
+                            $price = get_post_meta($values['product_id'], '_price', true);
+                            ?>
+                            <tr>
+                                <td class="text-center modal-cart-image" style="vertical-align: middle;">
                                     <?php
-                                    $variation_id2 = $values['variation_id'];
+                                    if ($_product->product_type != 'variation') : ?>
+                                        <?php echo $getProductDetail->get_image('thumbnail'); ?>
+                                    <?php else: ?>
+                                        <?php
+                                        $variation_id2 = $values['variation_id'];
 
-                                    $variable_product2 = new WC_Product_Variation($variation_id2);
+                                        $variable_product2 = new WC_Product_Variation($variation_id2);
 
-                                    ?>
-                                    <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
-                                <?php endif; ?>
-                            </td>
-                            <td style="vertical-align: middle;">
-                                <h4 class="title-product-modal"><?php echo $_product->get_title(); ?></h4>
-                                <?php if ($_product->product_type == 'variation') :
-                                    ?>
-                                    <?php foreach ($values['variation'] as $key => $vari): ?>
-                                    <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
-                                        <p style="margin-bottom: 0">Color:
-                                            <?php echo $vari ?>
-                                        </p>
+                                        ?>
+                                        <img src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
                                     <?php endif; ?>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    <h4 class="title-product-modal"><?php echo $_product->get_title(); ?></h4>
+                                    <?php if ($_product->product_type == 'variation') :
+                                        ?>
+                                        <?php foreach ($values['variation'] as $key => $vari): ?>
+                                        <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
+                                            <p style="margin-bottom: 0">Color:
+                                                <?php echo $vari ?>
+                                            </p>
+                                        <?php endif; ?>
 
-                                <?php endforeach; ?>
-                                <?php endif; ?>
-                                <p>
-                                    Categories:
-                                    <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
-                                    ?></p>
-                            </td>
-                            <td class="text-center"
-                                style="vertical-align: middle;">
-                                <?php
-                                if ($_product->product_type != 'variation') :
-                                    if ($getProductDetail->get_sale_price() > 0) {
-                                        echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . 'đ';
-                                    } else {
-                                        echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . 'đ';
-                                    }
-                                    ?>
-                                <?php else: ?>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    <p>
+                                        Categories:
+                                        <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
+                                        ?></p>
+                                </td>
+                                <td class="text-center"
+                                    style="vertical-align: middle;">
                                     <?php
-                                    $variation_id = $values['variation_id'];
-                                    $variable_product1 = new WC_Product_Variation($variation_id);
-                                    $regular_price = $variable_product1->regular_price;
-                                    $sales_price = $variable_product1->sale_price;
-                                    if ($sales_price > 0) {
-                                        echo number_format(($sales_price), 0, ',', '.') . '<u>đ</u>';
-                                    } else {
-                                        echo number_format(($regular_price), 0, ',', '.') . '<u>đ</u>';
-                                    }
-                                    ?>
-                                <?php endif; ?>
-                            </td>
+                                    if ($_product->product_type != 'variation') :
+                                        if ($getProductDetail->get_sale_price() > 0) {
+                                            echo number_format($getProductDetail->get_sale_price(), 0, ',', '.') . 'đ';
+                                        } else {
+                                            echo number_format($getProductDetail->get_regular_price(), 0, ',', '.') . 'đ';
+                                        }
+                                        ?>
+                                    <?php else: ?>
+                                        <?php
+                                        $variation_id = $values['variation_id'];
+                                        $variable_product1 = new WC_Product_Variation($variation_id);
+                                        $regular_price = $variable_product1->regular_price;
+                                        $sales_price = $variable_product1->sale_price;
+                                        if ($sales_price > 0) {
+                                            echo number_format(($sales_price), 0, ',', '.') . '<u>đ</u>';
+                                        } else {
+                                            echo number_format(($regular_price), 0, ',', '.') . '<u>đ</u>';
+                                        }
+                                        ?>
+                                    <?php endif; ?>
+                                </td>
 
-                            <td class="qty-modal text-center" style="vertical-align: middle;">
-                                <div class="js-qty">
-                                    <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>');
-                                            var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
-                                            class="action-count reduced items-count2 <?php if ($values['quantity'] == '1') echo 'none-click' ?>"
-                                            type="button"
-                                            data-id="<?php echo $values['product_id'] ?>"
-                                            data-price="<?php
-                                            if ($getProductDetail->get_sale_price() > 0) {
-                                                echo $getProductDetail->get_sale_price();
-                                            } else {
-                                                echo $getProductDetail->get_regular_price();
-                                            }
-                                            ?>" data-product_id="<?php echo $values['product_id'] ?>"
-                                    ><i class="fa fa-minus"></i>
-                                    </button>
-                                    <input type="text" pattern="[0-9]*"
-                                           class="input-text qty text-center"
-                                           id="qty_<?php echo $values['product_id'] ?>_<?php echo $vt ?>" min="1"
-                                           value="<?php echo $values['quantity']; ?>"
-                                           title="SL" max="100"
-                                           data-quantity="<?php echo $values['quantity']; ?>"
-                                           max inputmode="numeric"
-                                           data-price="<?php
-                                           if ($getProductDetail->get_sale_price() > 0) {
-                                               echo $getProductDetail->get_sale_price();
-                                           } else {
-                                               echo $getProductDetail->get_regular_price();
-                                           }
-                                           ?>"
-                                           data-id="<?php echo $values['product_id'] ?>"
-                                           maxlength="3"
-                                           name="cart[<?php echo $item ?>][qty]"
-                                    >
-                                    <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
-                                            class=" action-count increase items-count2 "
-                                            data-id="<?php echo $values['product_id'] ?>"
-                                            type="button"
-                                            data-price="<?php
-                                            if ($getProductDetail->get_sale_price() > 0) {
-                                                echo $getProductDetail->get_sale_price();
-                                            } else {
-                                                echo $getProductDetail->get_regular_price();
-                                            }
-                                            ?>"
-                                    ><i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </td>
-                            <td colspan="2" class="" style="vertical-align: middle;">
-                                <?php if ($_product->product_type != 'variation') : ?>
-                                    <span class="total-price-<?php echo $values['product_id'] ?>">
+                                <td class="qty-modal text-center" style="vertical-align: middle;">
+                                    <div class="js-qty">
+                                        <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>');
+                                                var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
+                                                class="action-count reduced items-count2 <?php if ($values['quantity'] == '1') echo 'none-click' ?>"
+                                                type="button"
+                                                data-id="<?php echo $values['product_id'] ?>"
+                                                data-price="<?php
+                                                if ($getProductDetail->get_sale_price() > 0) {
+                                                    echo $getProductDetail->get_sale_price();
+                                                } else {
+                                                    echo $getProductDetail->get_regular_price();
+                                                }
+                                                ?>" data-product_id="<?php echo $values['product_id'] ?>"
+                                        ><i class="fa fa-minus"></i>
+                                        </button>
+                                        <input type="text" pattern="[0-9]*"
+                                               class="input-text qty text-center"
+                                               id="qty_<?php echo $values['product_id'] ?>_<?php echo $vt ?>" min="1"
+                                               value="<?php echo $values['quantity']; ?>"
+                                               title="SL" max="100"
+                                               data-quantity="<?php echo $values['quantity']; ?>"
+                                               max inputmode="numeric"
+                                               data-price="<?php
+                                               if ($getProductDetail->get_sale_price() > 0) {
+                                                   echo $getProductDetail->get_sale_price();
+                                               } else {
+                                                   echo $getProductDetail->get_regular_price();
+                                               }
+                                               ?>"
+                                               data-id="<?php echo $values['product_id'] ?>"
+                                               maxlength="3"
+                                               name="cart[<?php echo $item ?>][qty]"
+                                        >
+                                        <button onclick="var result = document.getElementById('qty_<?php echo $values['product_id']; ?>_<?php echo $vt ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                                class=" action-count increase items-count2 "
+                                                data-id="<?php echo $values['product_id'] ?>"
+                                                type="button"
+                                                data-price="<?php
+                                                if ($getProductDetail->get_sale_price() > 0) {
+                                                    echo $getProductDetail->get_sale_price();
+                                                } else {
+                                                    echo $getProductDetail->get_regular_price();
+                                                }
+                                                ?>"
+                                        ><i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td colspan="2" class="" style="vertical-align: middle;">
+                                    <?php if ($_product->product_type != 'variation') : ?>
+                                        <span class="total-price-<?php echo $values['product_id'] ?>">
                                             <?php if ($getProductDetail->get_sale_price() > 0) {
                                                 echo number_format(($getProductDetail->get_sale_price() * $values['quantity']), 0, ',', '.') . 'đ';
                                             } else {
@@ -307,43 +324,56 @@ function modal_add_to_cart_fragment($fragments)
                                             }
                                             ?>
                                         </span>
-                                <?php else: ?>
-                                    <?php
-                                    $variation_id = $values['variation_id'];
-                                    $variable_product1 = new WC_Product_Variation($variation_id);
-                                    $regular_price = $variable_product1->regular_price;
-                                    $sales_price = $variable_product1->sale_price;
-                                    if ($sales_price > 0) {
-                                        echo number_format(($sales_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
-                                    } else {
-                                        echo number_format(($regular_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
-                                    }
-                                    ?>
-                                <?php endif; ?>
-                                <?php if ($_product->product_type != 'variation') : ?>
-                                    <span
-                                            class=" remove-product float-right"
-                                            data-product_id="<?php echo $values['product_id'] ?>"
-                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
-                                                class="fa fa-trash"></i>
+                                    <?php else: ?>
+                                        <?php
+                                        $variation_id = $values['variation_id'];
+                                        $variable_product1 = new WC_Product_Variation($variation_id);
+                                        $regular_price = $variable_product1->regular_price;
+                                        $sales_price = $variable_product1->sale_price;
+                                        if ($sales_price > 0) {
+                                            echo number_format(($sales_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                        } else {
+                                            echo number_format(($regular_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                        }
+                                        ?>
+                                    <?php endif; ?>
+                                    <?php if ($_product->product_type != 'variation') : ?>
+                                        <span
+                                                class=" remove-product float-right"
+                                                data-product_id="<?php echo $values['product_id'] ?>"
+                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                    class="fa fa-trash"></i>
                                             </span>
-                                <?php else: ?>
-                                    <span
-                                            class=" remove-product-variable float-right"
-                                            data-key_items="<?php echo $item ?>"
-                                            data-product_id="<?php echo $values['product_id'] ?>"
-                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
-                                                class="fa fa-trash"></i>
+                                    <?php else: ?>
+                                        <span
+                                                class=" remove-product-variable float-right"
+                                                data-key_items="<?php echo $item ?>"
+                                                data-product_id="<?php echo $values['product_id'] ?>"
+                                                data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><i
+                                                    class="fa fa-trash"></i>
                                             </span>
-                                <?php endif; ?>
-                            </td>
-                            </td>
-                        </tr>
-                        <?php
-                        $vt++;
-                    endforeach; ?>
-                    </tbody>
-                </table>
+                                    <?php endif; ?>
+                                </td>
+                                </td>
+                            </tr>
+                            <?php
+                            $vt++;
+                        endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <div id="modal-empty-cart">
+                        <p class="text-center">Cart empty</p>
+                        <p class="text-center">
+                            <img width="100" class="img-fluid m-auto"
+                                 src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
+                        <div class="prefix"></div>
+                        <a class="text-center d-block " style="margin-top: 10px" href="<?php get_category_link( 66 ); ?> "><span
+                                    class="return-shop">Return shop</span></a>
+                        <br/>
+                        </p>
+                    </div>
+                <?php endif; ?>
             </div>
             <div id="modal-empty-cart" class="d-none">
                 <p class="text-center">Cart empty</p>
@@ -371,6 +401,7 @@ function modal_add_to_cart_fragment($fragments)
         </div>
     </div>
     <?php
+
     $fragments['.modal-cart-content'] = ob_get_clean();
 
     return $fragments;
@@ -554,7 +585,7 @@ function ajax_load_post_func()
             'ignore_sticky_posts' => 1,
             'post_status' => 'publish',
             'paged' => $paged,
-            'posts_per_page' => 4,
+            'posts_per_page' => 12,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -599,7 +630,7 @@ function ajax_load_post_func()
             'ignore_sticky_posts' => 1,
             'post_status' => 'publish',
             'paged' => $paged,
-            'posts_per_page' => 4,
+            'posts_per_page' =>12,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -628,8 +659,6 @@ function ajax_load_post_func()
                     'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
                     'operator' => 'NOT IN'
                 )
-
-
             ),
         );
 
@@ -706,8 +735,8 @@ function ajax_load_post_func()
                 </div>
             </div>
         </div>
-        <?php if($dem==$max_post_count): ?>
-        </div>
+        <?php if ($dem == $max_post_count): ?>
+            </div>
         <?php endif; ?>
         <?php
         $stt++;

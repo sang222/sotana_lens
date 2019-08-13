@@ -68,7 +68,6 @@ function clickItemVariableQuick() {
 
 $(document).ready(function () {
     //funciton
-    changeInputTextQty();
     clickItemVariableItem();
     clickItemVariableQuick();
     //all

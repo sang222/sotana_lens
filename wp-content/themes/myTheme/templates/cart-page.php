@@ -256,17 +256,17 @@ $items = $woocommerce->cart->get_cart();
                     <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
-                <a class="text-center d-block empty-shop" href="#">Cart Empty</a>
-                <a class="text-center d-block " href=""><span class="return-shop">Return shop</span></a>
+                <span class="text-center d-block empty-shop" >Cart Empty</span>
+                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop">Return shop</span></a>
                 </p>
             <?php endif; ?>
             <div id="empty-cart" class="d-none">
                 <p class="text-center">
-                    <img width="100" class="img-fluid"
+                    <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
-                <a class="text-center d-block empty-shop" href="#">Cart Empty</a>
-                <a class="text-center d-block " href=""><span class="return-shop">Return shop</span></a>
+                <span class="text-center d-block empty-shop" >Cart Empty</span>
+                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop">Return shop</span></a>
                 </p>
             </div>
             <div style="text-align: right; margin-top: 20px;">

@@ -3,6 +3,7 @@
 
 <head>
     <?php $baseURL = esc_url(get_template_directory_uri()); ?>
+    <meta name="google-site-verification" content="05Zf8Oosra7dclwPY4po12vxX3EkmCL8h6COpebOID4" />
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -19,10 +20,7 @@
     <link href="<?php echo $baseURL ?>/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $baseURL ?>/css/animate.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $baseURL ?>/css/css-plugin-collections.css" rel="stylesheet"/>
-    <!-- CSS | menuzord megamenu skins -->
-    <!--lato font-->
-    <!--    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">-->
-    <!-- CSS | Main style file -->
+
     <link href="<?php echo $baseURL ?>/css/style-main.css" rel="stylesheet" type="text/css">
     <!-- CSS | Preloader Styles -->
     <!-- CSS | Custom Margin Padding Collection -->
@@ -32,6 +30,15 @@
     <!-- CSS | For Dark Layout -->
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
     <!-- <link href="css/style.css" rel="stylesheet" type=#preloader"text/css"> -->
+    <?php if (is_product()): ?>
+        <?php global $wp; ?>
+        <meta property="og:title" content="<?php echo get_bloginfo('name') . ' - ' . get_bloginfo('description'); ?>"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="<?php echo home_url($wp->request) ?>"/>
+        <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
+        <meta property="og:image" content=""/>
+        <!--        <script type='text/javascript' src="--><?php //echo get_template_directory_uri() ?><!--/assets/js/loader.js"></script>-->
+    <?php endif; ?>
 
     <!-- Revolution Slider 5.x CSS settings -->
 

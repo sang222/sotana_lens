@@ -3,7 +3,7 @@
 <?php get_template_part('template_part/content', 'slider'); ?>
 <!-- Best sale-->
 
-<?php get_template_part('template_part/product/product', 'bestsale'); ?>
+<?php get_template_part('template_part/product', 'bestsale'); ?>
 <!-- shop now-->
 <?php get_template_part('template_part/content', 'shopnow') ?>
 <!-- Content category   -->

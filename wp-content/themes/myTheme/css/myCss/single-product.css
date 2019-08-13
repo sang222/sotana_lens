@@ -316,13 +316,44 @@ a.cart-product.add-cart.add-variable.loading:before {
     justify-content: center;
 
 }
-.add-cart.add-variable.added:after {
+.action-add .add-cart.loading{
+    opacity:  1 !important;
+}
+.action-add .add-cart.loading:after {
+    content: '\f110' !important;
+    width: 30px !important;
+    font-family: FontAwesome !important;
+    height: 30px !important;
+    animation: 2s linear infinite spinner !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    -moz-transform: translateX(-50%) !important;
+    display: flex !important ;
+    top: 50% !important;
+    z-index: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+}
+.acttion-carts .add-cart.add-variable.added:after {
     content: '\e017';
     /* position: absolute; */
     margin-left: 7px;
     /* font-size: 12px; */
     font-family: WooCommerce;
 }
+
+.action-add .content-action .add-cart.added:after {
+    display: none;
+!important;
+}
+
+.woocommerce #respond input#submit.loading::after, .woocommerce a.button.loading::after, .woocommerce button.button.loading::after, .woocommerce input.button.loading::after {
+    display: none ;
+}
+
 @keyframes spinner {
     0% {
         transform: translate3d(-50%, -50%, 0) rotate(0deg);
@@ -330,4 +361,8 @@ a.cart-product.add-cart.add-variable.loading:before {
     100% {
         transform: translate3d(-50%, -50%, 0) rotate(360deg);
     }
+}
+
+.row-product .product-item .content-action .cart-product {
+    padding: 0;
 }

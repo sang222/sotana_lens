@@ -30,8 +30,8 @@ get_header('shop');
 
 ?>
 <?php $cate = get_queried_object(); ?>
-<div class="container-fluid prefix">
-    <div class="fixed-width">
+<div class="breadcrumb-colect prefix">
+    <div class="fixed-width content-breadcrum">
         <div class="pro-title-breadcrumb text-center">
             <h4><?php $the_title = get_term_by('slug', $_GET['cat_name'], 'product_cat')->name;
                 echo $cate->name;
@@ -52,46 +52,100 @@ get_header('shop');
         $dem1 = 0;
         $price = (isset($_GET['price']) && !empty($_GET['price'])) ? esc_attr($_GET['price']) : '0:500000000';
         $price = explode(':', $price);
+        $vendor = (isset($_GET['vendor'])) ? trim(esc_attr($_GET['vendor'])) : '';
+        $vendor = explode(',', $vendor);
         $cateID = $cate->term_id;
-        $args = array(
-            'post_type' => 'product',
-            'post_status' => 'publish',
-            'ignore_sticky_posts' => 1,
-            'posts_per_page' => '4',
-            'meta_query' => array(
-                'relation' => 'AND',
-                array(
-                    'key' => '_price',
-                    'value' => $price[0],
-                    'compare' => '>=',
-                    'type' => 'NUMERIC'
+        if (sizeof($vendor) > 1) {
+            $args = array(
+                'post_type' => array('product', 'product_variation'),
+                'ignore_sticky_posts' => 1,
+                'post_status' => 'publish',
+                'paged' => $paged,
+                'posts_per_page' => 12,
+                'meta_query' => array(
+                    'relation' => 'AND',
+                    array(
+                        'key' => '_price',
+                        'value' => $price[0],
+                        'compare' => '>=',
+                        'type' => 'NUMERIC'
+                    ),
+                    array(
+                        'key' => '_price',
+                        'value' => $price[1],
+                        'compare' => '<=',
+                        'type' => 'NUMERIC'
+                    ),
                 ),
-                array(
-                    'key' => '_price',
-                    'value' => $price[1],
-                    'compare' => '<=',
-                    'type' => 'NUMERIC'
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field' => 'slug',
+                        'terms' => $vendor,
+                        'operator' => 'IN'
+                    ),
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                        'terms' => $cateID,
+                        'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                    ),
+                    array(
+                        'taxonomy' => 'product_visibility',
+                        'field' => 'slug',
+                        'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                        'operator' => 'NOT IN'
+                    )
+
+
                 ),
-            ),
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'product_cat',
-                    'field' => 'term_id', //This is optional, as it defaults to 'term_id'
-                    'terms' => $cateID,
-                    'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+            );
+        } else {
+            $args = array(
+                'post_type' => array('product', 'product_variation'),
+                'ignore_sticky_posts' => 1,
+                'post_status' => 'publish',
+                'paged' => $paged,
+                'posts_per_page' => 12,
+                'meta_query' => array(
+                    'relation' => 'AND',
+                    array(
+                        'key' => '_price',
+                        'value' => $price[0],
+                        'compare' => '>=',
+                        'type' => 'NUMERIC'
+                    ),
+                    array(
+                        'key' => '_price',
+                        'value' => $price[1],
+                        'compare' => '<=',
+                        'type' => 'NUMERIC'
+                    ),
                 ),
-                array(
-                    'taxonomy' => 'product_visibility',
-                    'field' => 'slug',
-                    'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
-                    'operator' => 'NOT IN'
-                )
-            )
-        );
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                        'terms' => $cateID,
+                        'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                    ),
+                    array(
+                        'taxonomy' => 'product_visibility',
+                        'field' => 'slug',
+                        'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                        'operator' => 'NOT IN'
+                    )
+
+
+                ),
+            );
+
+        }
         $loop = new WP_Query($args);
         ?>
         <input type="hidden" id="cate_id" value="<?php echo $cateID ?>"/>
-        <div class="collection-one float-left col-lg-9 px-0 ml-0 row colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
+        <div class="collection-one float-left col-lg-9 col-sm-8 col-xs-12 px-0 ml-0 colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
+            <h1 class="title-cate text-left"><?php echo $cate->name ?></h1>
             <div class="grid--product">
                 <?php
                 $stt = 1;
@@ -273,8 +327,6 @@ get_header('shop');
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                     <?php
@@ -283,12 +335,12 @@ get_header('shop');
                 wp_reset_query();
                 ?>
             </div>
-            <?php if($max_post_count==0) echo '<h3>Not found product</h3>'  ?>
+            <?php if ($max_post_count == 0) echo '<h3>Not found product</h3>' ?>
             <div class="prefix"></div>
             <?php devvn_corenavi_ajax($loop); ?>
         </div>
 
-        <div class="float-right col-lg-3 col-sm-3 col-xs-12">
+        <div class="float-right col-lg-3 col-sm-4 col-xs-12">
             <?php get_template_part('template_part/content', 'sidebar') ?>
         </div>
     </div>
@@ -345,7 +397,9 @@ get_footer('shop');
                 vendor: send_vendor,
             }, success: function (data) {
                 console.log(data);
-                $(window).scrollTop(0);
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 500);
                 $(".fixed-loading").addClass('d-none')
                 $('body').css({'overflow': 'auto'})
                 $(".collection-one").children().remove();
@@ -393,7 +447,9 @@ get_footer('shop');
                 console.log(data);
                 $('body').css({'overflow': 'auto'})
                 $(".fixed-loading").addClass('d-none')
-                $(window).scrollTop(0);
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 500);
                 $(".collection-one").children().remove();
                 if (data.data.trim() != '') {
                     $(".collection-one").append(data.data);
@@ -439,7 +495,9 @@ get_footer('shop');
             success: function (response) {
                 console.log(response)
                 if (response.success) {
-
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 500);
                     $(response.data).addClass('holder');
                     $(".collection-one").empty();
                     $(".collection-one").append($(response.data));
