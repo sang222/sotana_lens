@@ -25,7 +25,7 @@ var THEMEMASCOT = {};
 
     //custom video
     var video = document.querySelector('video'), container = document.querySelector('.videoWrapper');
-    console.log(video, container)
+    // console.log(video, container)
     if(video !== null || container !== null) {
         var setVideoDimensions = function () {
             // Video's intrinsic dimensions
@@ -54,22 +54,18 @@ var THEMEMASCOT = {};
 
         function setVideoJs() {
             var youtubeLink = $('.youtubeLink');
-            for (const element of youtubeLink) {
+            youtubeLink.each(function(i, element) {
                 var idDom = element.getAttribute('href'),
-                url = 'https://www.googleapis.com/youtube/v3/videos?key=AIzaSyDo8Qqd1lqR5KUnqQzR3gWYNPOB6_ZETSQ&part=snippet&id=';
+                data_index = element.getAttribute('data-index');
                 idDom = idDom.split('=').pop();
-                console.log($(element).parent().children('.owl-video-tn'))
-                fetch(url + idDom, {
-                    method: 'GET'
-                }).then(function(res) {
-                    res.json().then(e => {
-                        console.log(e.items[0].snippet.thumbnails.maxres.url);
-                        $(element).parent().find('.owl-video-tn').css({
-                            'background-image': "url("+ e.items[0].snippet.thumbnails.maxres.url +")"
+                if(parseInt(data_index) == i) {
+                    setTimeout(function() {
+                        $(element).parent('.owl-video-wrapper').find('.owl-video-tn').css({
+                            'background-image': "url(https://img.youtube.com/vi/"+ idDom +"/maxresdefault.jpg)"
                         })
                     })
-                })
-            }
+                }
+            })
         }
     }
 

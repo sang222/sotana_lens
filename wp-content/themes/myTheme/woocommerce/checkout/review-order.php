@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <table class="shop_table woocommerce-checkout-review-order-table">
-	<thead>
+	<thead style="display: none">
 		<tr>
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
 			<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
@@ -32,14 +32,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 				$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-
+				$getProductDetail = wc_get_product($cart_item['product_id']);
+				$imgpro = $getProductDetail->get_image(array(80, 80));
+				
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					?>
 					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 						<td class="product-name">
-							<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;'; ?>
-							<?php echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); ?>
-							<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
+							<?php
+                                if ($_product->product_type != 'variation') : ?>
+                                    <?php echo $imgpro; ?>
+                                <?php else: ?>
+                                    <?php
+                                    $variation_id2 = $cart_item['variation_id'];
+                                    $variable_product2 = new WC_Product_Variation($variation_id2);
+                                    ?>
+                                    <img style="width: 80px" src="<?php echo wp_get_attachment_image_src($variable_product2->image_id)[0] ?>"/>
+                            <?php endif; ?>
+							<span style="display: inline; margin-left: 7px">
+								<a href="<?php echo get_permalink($_product->get_id()) ?>">
+									<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;'; ?>
+								</a>
+								<?php echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); ?>
+								<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
+							</span>
 						</td>
 						<td class="product-total">
 							<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>

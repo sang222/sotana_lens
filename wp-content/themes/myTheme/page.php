@@ -15,7 +15,7 @@ get_header();
 global $post; 
 ?>
 
-<div class="container">
+<div class="fixed-width wow fadeInDown">
     <?php while (have_posts()) : the_post(); ?>
         <?php if($post->post_parent > 0) { ?>
             <div class="row" style="margin-top: 20px">

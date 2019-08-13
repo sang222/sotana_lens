@@ -33,11 +33,10 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="woocommerce-billing-fields__field-wrapper">
 		<?php
-		$fields = $checkout->get_checkout_fields( 'billing' );
-
-		foreach ( $fields as $key => $field ) {
-			woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
-		}
+			$fields = $checkout->get_checkout_fields( 'billing' );
+			foreach ( $fields as $key => $field ) {
+				woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+			}
 		?>
 	</div>
 
@@ -60,12 +59,12 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php if ( $checkout->get_checkout_fields( 'account' ) ) : ?>
 
-			<div class="create-account">
+			<!-- <div class="create-account">
 				<?php foreach ( $checkout->get_checkout_fields( 'account' ) as $key => $field ) : ?>
-					<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+					<?php //woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 				<?php endforeach; ?>
 				<div class="clear"></div>
-			</div>
+			</div> -->
 
 		<?php endif; ?>
 

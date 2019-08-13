@@ -334,7 +334,7 @@ function formatCurrency(number) {
 }
 
 function changeInputTextQty() {
-    $(".input-text").change(function () {
+    $(".qty-quick-view .input-text").change(function () {
         if ($(this).val() <= 0) {
             $(this).val(1);
         }
