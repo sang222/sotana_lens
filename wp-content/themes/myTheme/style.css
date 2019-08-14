@@ -15,7 +15,12 @@ Tags: shop, shopping cart, archive.
     padding: 0;
 }
 
-
+.color_general{
+    color: #789be6 !important;
+}
+.color-secondary{
+    color:#ed030e !important
+}
 .p-15 {
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -1795,7 +1800,7 @@ body .pagination {
     color: #ed030e;
 }
 
-#myModal .zoomContainer {
+.zoomContainer {
     z-index: 9999999999999999999999;
 }
 
@@ -1916,7 +1921,25 @@ body .pagination {
 .try_eyewear {
     margin-top: 10px;
 }
-
+@media (max-width: 985px) {
+    .content-try .left-try{
+        margin-top:15px !important;
+    }
+}
+.content-try .left-try{
+    margin-top:85px;
+}
+.content-try .title-try{
+    display: inline-block;
+}
+.content-try .title-try:after{
+    content: '';
+    display: block;
+    position: relative;
+    width: 40%;
+    border: 2px solid #0e0e0e;
+    margin-top: 0px;
+}
 .boxTry {
     display: table;
     border-radius: 50%;
@@ -1955,9 +1978,14 @@ body .pagination {
     height: 398px;
     margin: auto;
 }
-
+@media (max-width: 615px) {
+    #exportImage {
+        width: 100%;
+        height: 285px;
+    }
+}
 .pictureRender {
-    border: 1px dotted #000000;
+    border: 1px dashed  #000000;
     height: 100%;
     overflow: hidden;
 }
@@ -1979,6 +2007,9 @@ body .pagination {
    right: 0;
    margin: auto;
    bottom: 0;
+}
+.content-try{
+    margin-bottom: 60px;
 }
 
 .content-try .draggable > img {
@@ -2174,4 +2205,47 @@ body .pagination {
 }
 body .owl-carousel .owl-video-tn {
     background-size: cover;
+}
+/*bread crumb*/
+.breadcrumb-colect{
+    background: url('https://cdn.pixabay.com/photo/2014/10/03/17/39/glasses-472027__340.jpg');
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 20px;
+    position: relative;
+}
+.breadcrumb-colect:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    opacity: 0.7;
+}
+.breadcrumb-colect a{
+    color: #ffffff ;
+}
+.breadcrumb-colect .content-breadcrum{
+    position: relative;
+    z-index: 9;
+}
+.breadcrumb-colect .content-breadcrum h4{
+    color: #ffffff;
+}
+.woocommerce .woocommerce-breadcrumb a{
+    color: #ffffff;
+}
+.woocommerce .woocommerce-breadcrumb a:hover{
+    color: #789be6  !important;
+}
+#collection-container{
+    margin-top:30px !important;
+}
+.content-breadcrum a:hover {
+    color: #789be6 ;
+}
+.sidebar-filter .top-filter{
+    font-size: 18px;
 }

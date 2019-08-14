@@ -252,7 +252,7 @@ $currentURL = home_url($wp->request);
                     <?php endif; ?>
                 </div>
                 <div class="try_eyewear">
-                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử kính ngay</a>.</p>
+                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a class="color-secondary"  href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử kính ngay</a>.</p>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
@@ -306,7 +306,8 @@ $currentURL = home_url($wp->request);
             <?php the_content() ?>
         </div>
     </div>
-    <div class="pro-title wow fadeIn">
+    <div class="prefix"></div>
+    <div class="pro-title  wow fadeIn">
         <div class="fixed-width content-title title-slider">
             <span class="text-uppercase">RELATED PRODUCTS</span>
         </div>
