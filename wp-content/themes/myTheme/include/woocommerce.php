@@ -769,7 +769,7 @@ function filter_product()
         $params = array(
             'post_type' => array('product', 'product_variation'),
             'post_status' => 'publish',
-            'posts_per_page' => 4,
+            'posts_per_page' => 12,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -812,7 +812,7 @@ function filter_product()
         $params = array(
             'post_type' => array('product', 'product_variation'),
             'post_status' => 'publish',
-            'posts_per_page' => 4,
+            'posts_per_page' => 12,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(

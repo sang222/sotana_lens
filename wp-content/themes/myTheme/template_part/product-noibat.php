@@ -1,11 +1,13 @@
 <?php
 global $tp_option;
 $category_hot = $tp_option['product-hot'];
+$title_hot = $tp_option['product-title'];
+
 ?>
 <?php if (sizeof($category_hot) > 0): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
-            <span>HOT SALE</span>
+            <span><?php echo $title_hot; ?></span>
         </div>
 
     </div>

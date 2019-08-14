@@ -1,12 +1,12 @@
 <?php
 global $tp_option;
 $arr_contact_slides = $tp_option['home-slides'];
-
+$title_contact_slides=$tp_option['contact-title']
 ?>
 <?php if (sizeof($arr_contact_slides) > 0): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
-            <span class="text-uppercase">Contact  FOR US</span>
+            <span class="text-uppercase"><?php echo $title_contact_slides ?></span>
         </div>
     </div>
     <div class="containter-fluid wow fadeInDown" style="margin: 30px 0px; padding:30px 15px">

@@ -292,6 +292,14 @@ Redux::setSection($opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
+            'id' => 'product-title',
+            'type' => 'text',
+            'sortable' => true,
+            'title' => __('Title', 'shop-glass'),
+//            'subtitle' => __('Input banner title', 'shop-glass'),
+            'desc' => __('Input title banner', 'shop-glass'),
+        ),
+        array(
             'id' => 'product-hot',
             'type' => 'select',
             'data' => 'terms',
@@ -350,6 +358,14 @@ Redux::setSection($opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
+            'id' => 'contact-title',
+            'type' => 'text',
+            'sortable' => true,
+            'title' => __('Title', 'shop-glass'),
+//            'subtitle' => __('Input banner title', 'shop-glass'),
+            'desc' => __('Input title banner', 'shop-glass'),
+        ),
+        array(
             'id' => 'home-slides',
             'type' => 'slides',
             'title' => __('Slides Contact', 'shop-glass'),
@@ -403,6 +419,14 @@ Redux::setSection($opt_name, array(
     'desc' => __('Add on slide Customer ', 'shop-glass'),
     'subsection' => true,
     'fields' => array(
+        array(
+            'id' => 'customer-title',
+            'type' => 'text',
+            'sortable' => true,
+            'title' => __('Title', 'shop-glass'),
+//            'subtitle' => __('Input banner title', 'shop-glass'),
+            'desc' => __('Input title banner', 'shop-glass'),
+        ),
         array(
             'id' => 'home-customer',
             'type' => 'slides',
