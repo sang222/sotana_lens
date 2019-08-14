@@ -13,6 +13,7 @@ include 'include/woocommerce.php';
 include 'include/auth.php';
 add_theme_support('woocommerce');
 add_filter('woocommerce_breadcrumb_main_term', 'change_breadcrumb');
+
 function change_breadcrumb($main_term)
 {
     var_dump($main_term);
@@ -21,17 +22,17 @@ function change_breadcrumb($main_term)
 }
 
 //disble warning Yith checkout
-add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
-add_filter('woocommerce_enable_order_notes_field', '__return_false', 9999);
+// add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
+// add_filter('woocommerce_enable_order_notes_field', '__return_false', 9999);
 // Remove Order Notes Field
-add_filter('woocommerce_checkout_fields', 'remove_order_notes');
+// add_filter('woocommerce_checkout_fields', 'remove_order_notes');
 
 
-function remove_order_notes($fields)
-{
-    unset($fields['order']['order_comments']);
-    return $fields;
-}
+// function remove_order_notes($fields)
+// {
+//     unset($fields['order']['order_comments']);
+//     return $fields;
+// }
 
 function add_theme_scripts()
 {

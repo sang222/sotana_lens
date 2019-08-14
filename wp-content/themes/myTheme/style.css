@@ -16,7 +16,6 @@ Tags: shop, shopping cart, archive.
 }
 
 
-
 .p-15 {
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -493,7 +492,7 @@ body ul.list li {
 .row-product .product-item .sale-banner {
     position: absolute;
     border-radius: 50%;
-    z-index: 99;
+    z-index: 3;
     min-width: 46px;
     margin: 10px 0 0 10px;
     min-height: 46px;
@@ -565,7 +564,7 @@ body ul.list li {
 /*shop now*/
 .shop-now-container {
     position: relative;
-
+    z-index: 2;
     padding-bottom: 180px !important;
     background-attachment: fixed;
     background-image: url('https://cdn.pixabay.com/photo/2015/11/19/21/10/knowledge-1052010_960_720.jpg');
@@ -689,7 +688,7 @@ body ul.list li {
 #wave {
     position: absolute;
     top: -149px;
-    z-index: 99;
+    z-index: 4;
     left: 0;
     right: 0;
 }
@@ -1299,10 +1298,10 @@ input[type="checkbox"]:checked + label:after {
 /*Scroll top*/
 .scrollTop {
     position: fixed;
-    right: 25px;
+    right: 12px;
     cursor: pointer;
     z-index: 99;
-    bottom: 40px;
+    bottom: 75px;
     background-color: #BE3F48;
     padding: 12px 15px;
     opacity: 0;
@@ -1721,9 +1720,9 @@ body .pagination {
         background: transparent;
     }
 
-    .header .container-mini-cart {
+    /* .header .container-mini-cart {
         display: none;
-    }
+    } */
 }
 
 @media (min-width: 767px) and (max-width: 992px) {
@@ -2169,6 +2168,10 @@ body .pagination {
     border-color: #789be6 !important;
     background: transparent !important;
 }
+
 .woocommerce table.shop_table_responsive tr td::before, .woocommerce-page table.shop_table_responsive tr td::before {
     display: none;
+}
+body .owl-carousel .owl-video-tn {
+    background-size: cover;
 }

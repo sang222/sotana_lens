@@ -92,7 +92,27 @@ function header_add_to_cart_fragment($fragments)
                             <div class="item-content">
                                 <div class="item-content-sub">
                                     <a href="<?php echo $linkpro; ?>"><?php echo $titlepro ?></a>
-                                    <p><?php echo number_format($pricepro, 0, ',', '.') . 'đ'; ?>
+                                    <p>
+                                        <?php
+                                        if ($_product->product_type != 'variation') :
+                                            if ($getProductDetail->get_sale_price() > 0) {
+                                                echo number_format(($getProductDetail->get_sale_price()), 0, ',', '.') . '<u>đ</u>';
+                                            } else if ($getProductDetail->get_regular_price()) {
+                                                echo number_format(($getProductDetail->get_regular_price()), 0, ',', '.') . '<u>đ</u>';
+                                            }
+                                            ?>
+                                        <?php else:
+                                            $variation_id = $values['variation_id'];
+                                            $variable_product1 = new WC_Product_Variation($variation_id);
+                                            $regular_price = $variable_product1->regular_price;
+                                            $sales_price = $variable_product1->sale_price;
+                                            if ($sales_price > 0) {
+                                                echo number_format(($sales_price), 0, ',', '.') . '<u>đ</u>';
+                                            } else {
+                                                echo number_format(($regular_price), 0, ',', '.') . '<u>đ</u>';
+                                            }
+                                            ?>
+                                        <?php endif; ?>
                                         x <?php echo $quantitypro; ?></p>
                                     <?php if ($_product->product_type == 'variation') :
                                         ?>

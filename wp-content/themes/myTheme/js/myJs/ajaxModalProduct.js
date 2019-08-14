@@ -218,7 +218,8 @@ function submitProductQuick() {
             success: function (res) {
                 $this.removeClass('loading');
                 var mini = res.fragments['.container-mini-cart'];
-                $(".container-mini-cart").empty().append(mini);
+                $(".container-mini-cart").remove()
+                $('.header').append(mini);
                 var modal = res.fragments['.modal-cart-content'];
                 $(".modal-cart-add").empty().append(modal);
                 $("#modalCart").modal('show');
@@ -258,7 +259,8 @@ function submitProductVariable() {
             success: function (res) {
                 $this.removeClass('loading');
                 var mini = res.fragments['.container-mini-cart'];
-                $(".container-mini-cart").empty().append(mini);
+                $(".container-mini-cart").remove()
+                $('.header').append(mini);
                 var modal = res.fragments['.modal-cart-content'];
                 $(".modal-cart-add").empty().append(modal);
                 $("#modalCart").modal('show');
@@ -376,7 +378,8 @@ $(document).on('click', '.remove-product-variable', function (e) {
             key_items: key_items,
         }, success: function (data) {
             var mini = data.fragments['.container-mini-cart'];
-            $(".container-mini-cart").empty().append(mini);
+            $(".container-mini-cart").remove()
+            $('.header').append(mini);
             var modal = data.fragments['.modal-cart-content'];
             $(".modal-cart-add").empty().append(modal);
             $(".total-price").text($('.total-price-dropdown').attr('data-total'))
@@ -470,7 +473,8 @@ $(document).on('click', '.reduced', function () {
             success: function (res) {
                 if (res) {
                     var mini = res.fragments['.container-mini-cart'];
-                    $(".container-mini-cart").empty().append(mini);
+                    $(".container-mini-cart").remove()
+                    $('.header').append(mini);
                     var modal = res.fragments['.modal-cart-content'];
                     $(".modal-cart-add").empty().append(modal);
                     $('#cart-roll').animate({
@@ -508,7 +512,8 @@ $(document).on('click', '.increase', function () {
             success: function (res) {
                 if (res) {
                     var mini = res.fragments['.container-mini-cart'];
-                    $(".container-mini-cart").empty().append(mini);
+                    $(".container-mini-cart").remove()
+                    $('.header').append(mini);
                     var modal = res.fragments['.modal-cart-content'];
                     $(".modal-cart-add").empty().append(modal);
                     $('#cart-roll').animate({

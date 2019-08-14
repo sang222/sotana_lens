@@ -101,8 +101,8 @@
                 </ul>
                 <div class="search-box">
                     <h4>Search</h4>
-                    <form action="">
-                        <input type="text" class="form-control">
+                    <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>">
+                        <input type="text" name="s" class="form-control">
                         <button class="btn btn-default">Search</button>
                     </form>
                 </div>

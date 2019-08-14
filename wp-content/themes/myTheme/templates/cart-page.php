@@ -6,15 +6,17 @@ $items = $woocommerce->cart->get_cart();
 // var_dump($items);
 ?>
 <?php get_header() ?>
-    <div class="container-fluid prefix">
-        <div class="fixed-width">
+    <div class="breadcrumb-colect prefix">
+        <div class="fixed-width content-breadcrum">
             <div class="pro-title-breadcrumb text-center">
-                <h4><?php $the_title = get_term_by('slug', $_GET['cat_name'], 'product_cat')->name;
-                    echo $cate->name;
+                <h4><?php
+                    echo  ' Cart';
                     ?> </h4>
 
             </div>
             <div class="text-center"><?php woocommerce_breadcrumb(); ?></div>
+            <br/>
+            <br/>
         </div>
     </div>
     <div id="container-tbl">

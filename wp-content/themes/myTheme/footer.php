@@ -80,7 +80,26 @@
 </footer>
 </div>
 <!-- end wrapper -->
-
+<div 
+    class="zalo-chat-widget" 
+    data-oaid="1773525396975051959" 
+    data-welcome-message="Rất vui khi được hỗ trợ bạn!" 
+    data-autopopup="0" data-width="350" data-height="420"
+>
+</div>
+<!-- <div id='fb-root'></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class='fb-customerchat'
+    attribution="wordpress"
+    page_id='308257429794490'
+  >
+</div>    -->
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
 <!-- Footer Scripts -->
 <!-- JS | Calendar Event Data -->
 <?php wp_footer() ?>

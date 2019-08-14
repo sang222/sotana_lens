@@ -332,3 +332,14 @@ function formatCurrency(number) {
     return n2.split('').reverse().join('') + 'đ';
 }
 
+function changeInputTextQty() {
+    $(".qty-quick-view .input-text").change(function () {
+        if ($(this).val() <= 0) {
+            $(this).val(1);
+        }
+        if (!Number.isInteger($(this).val())) {
+            $(this).val(1);
+        }
+    })
+}
+

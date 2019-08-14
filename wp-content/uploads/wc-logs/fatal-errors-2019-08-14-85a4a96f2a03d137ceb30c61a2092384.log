@@ -1,0 +1,26 @@
+2019-08-14T13:12:41+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1025): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T13:12:42+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1025): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T13:19:21+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\core\options.php on line 407
+
+2019-08-14T13:19:54+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\core\options.php on line 407
+
+2019-08-14T13:49:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp1\htdocs\outsource\wp-includes\Requests\Transport\cURL.php on line 163
+

@@ -1,23 +1,23 @@
 <?php
+add_filter( 'woocommerce_cart_shipping_method_full_label', 'change_cart_shipping_method_full_label', 10, 2 );
+function change_cart_shipping_method_full_label( $method ) {
+    global  $woocommerce;
+    $label = '';
+    $has_cost  = 0 < $method->cost;
+    $hide_cost = ! $has_cost && in_array( $method->get_method_id(), array( 'free_shipping', 'local_pickup' ), true );
+    // var_dump($has_cost, $method->get_label());
+    if ( ! $has_cost) {
+        $label  = $method->get_label();
+    } else {
+        $label  = $method->cost.get_woocommerce_currency_symbol();
+    };
+    return $label;
+}
+
 add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 
-function custom_override_checkout_fields($fields)
-{
-//    unset($fields['billing']['billing_first_name']);
-//    unset($fields['billing']['billing_last_name']);
-//    unset($fields['billing']['billing_company']);
-////    unset($fields['billing']['billing_address_1']);
-//    unset($fields['billing']['billing_address_2']);
-//    unset($fields['billing']['billing_city']);
-//    unset($fields['billing']['billing_postcode']);
-//    unset($fields['billing']['billing_country']);
-//    unset($fields['billing']['billing_state']);
-//    unset($fields['billing']['billing_phone']);
-//    unset($fields['order']['order_comments']);
-//    unset($fields['billing']['billing_email']);
-//    unset($fields['account']['account_username']);
-//    unset($fields['account']['account_password']);
-//    unset($fields['account']['account_password-2']);
+function custom_override_checkout_fields($fields) {
+    $fields['order']['order_comments']['input_class'] = array('form-control');
     return $fields;
 }
 

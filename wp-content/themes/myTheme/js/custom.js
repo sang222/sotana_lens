@@ -25,30 +25,49 @@ var THEMEMASCOT = {};
 
     //custom video
     var video = document.querySelector('video'), container = document.querySelector('.videoWrapper');
-
-    var setVideoDimensions = function () {
-        // Video's intrinsic dimensions
-        var w = video.videoWidth, 
-            h = video.videoHeight;
-        var videoRatio = (w / h).toFixed(2);
-        var containerStyles = window.getComputedStyle(container), 
-            minW = parseInt( containerStyles.getPropertyValue('width') ), 
-            minH = parseInt( containerStyles.getPropertyValue('height') );
-        var widthRatio = minW / w, 
-            heightRatio = minH / h;
-        if (widthRatio > heightRatio) {
-            var newWidth = minW;
-            var newHeight = Math.ceil( newWidth / videoRatio );
-        } else {
-            var newHeight = minH;
-            var newWidth = Math.ceil( newHeight * videoRatio );
+    // console.log(video, container)
+    if(video !== null || container !== null) {
+        var setVideoDimensions = function () {
+            // Video's intrinsic dimensions
+            var w = video.videoWidth,
+                h = video.videoHeight;
+            var videoRatio = (w / h).toFixed(2);
+            var containerStyles = window.getComputedStyle(container), 
+                minW = parseInt( containerStyles.getPropertyValue('width') ), 
+                minH = parseInt( containerStyles.getPropertyValue('height') );
+            var widthRatio = minW / w, 
+                heightRatio = minH / h;
+            if (widthRatio > heightRatio) {
+                var newWidth = minW;
+                var newHeight = Math.ceil( newWidth / videoRatio );
+            } else {
+                var newHeight = minH;
+                var newWidth = Math.ceil( newHeight * videoRatio );
+            }
+            video.style.width = newWidth + 'px';
+            video.style.height = newHeight + 'px';
         }
-        video.style.width = newWidth + 'px';
-        video.style.height = newHeight + 'px';
-    };
+        // video.addEventListener('loadedmetadata', setVideoDimensions, false);
+        // window.addEventListener('resize', setVideoDimensions, false);
+        // setVideoDimensions()
+        setVideoJs()
 
-    // video.addEventListener('loadedmetadata', setVideoDimensions, false);
-    window.addEventListener('resize', setVideoDimensions, false);
+        function setVideoJs() {
+            var youtubeLink = $('.youtubeLink');
+            youtubeLink.each(function(i, element) {
+                var idDom = element.getAttribute('href'),
+                data_index = element.getAttribute('data-index');
+                idDom = idDom.split('=').pop();
+                if(parseInt(data_index) == i) {
+                    setTimeout(function() {
+                        $(element).parent('.owl-video-wrapper').find('.owl-video-tn').css({
+                            'background-image': "url(https://img.youtube.com/vi/"+ idDom +"/maxresdefault.jpg)"
+                        })
+                    })
+                }
+            })
+        }
+    }
 
     $('.sliderHome').owlCarousel({
         loop: true,
