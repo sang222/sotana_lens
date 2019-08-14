@@ -147,7 +147,7 @@ global $woocommerce;
                                     </td>
                                     <td colspan="2" class="" style="vertical-align: middle;">
                                         <?php if ($_product->product_type != 'variation') : ?>
-                                            <span class="total-price-<?php echo $values['product_id'] ?>">
+                                            <span class=" total-price-<?php echo $values['product_id'] ?>">
                                             <?php if ($getProductDetail->get_sale_price() > 0) {
                                                 echo number_format(($getProductDetail->get_sale_price() * $values['quantity']), 0, ',', '.') . 'đ';
                                             } else if($getProductDetail->get_regular_price()) {

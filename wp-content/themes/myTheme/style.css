@@ -2169,3 +2169,6 @@ body .pagination {
     border-color: #789be6 !important;
     background: transparent !important;
 }
+.woocommerce table.shop_table_responsive tr td::before, .woocommerce-page table.shop_table_responsive tr td::before {
+    display: none;
+}
