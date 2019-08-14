@@ -1969,23 +1969,23 @@ body .pagination {
     display: table;
 }
 
-/*.draggable {*/
-/*    position: absolute;*/
-/*    width: 200px;*/
-/*    height: 200px;*/
-/*    cursor: move;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    margin: auto;*/
-/*    bottom: 0;*/
-/*}*/
+.content-try .draggable {
+   position: absolute;
+   width: 200px;
+   height: 200px;
+   cursor: move;
+   top: 0;
+   left: 0;
+   right: 0;
+   margin: auto;
+   bottom: 0;
+}
 
-/*.draggable > img {*/
-/*    max-width: 100%;*/
-/*    width: 100%;*/
-/*    height: auto;*/
-/*}*/
+.content-try .draggable > img {
+   max-width: 100%;
+   width: 100%;
+   height: auto;
+}
 
 .resize-handle {
     position: relative;

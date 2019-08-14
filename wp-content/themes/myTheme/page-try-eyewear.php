@@ -1,7 +1,7 @@
 <?php
     get_header();
 ?>
-<div class="container" style="margin-bottom: 50px">
+<div class="container content-try" style="margin-bottom: 50px">
     <div class="row" style="margin-top: 20px">
         <div class="col-md-12">
             <div class="fixed-width">

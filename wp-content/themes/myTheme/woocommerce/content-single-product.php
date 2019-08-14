@@ -251,6 +251,9 @@ $currentURL = home_url($wp->request);
                     <?php endif; ?>
                     <?php endif; ?>
                 </div>
+                <div class="try_eyewear">
+                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử kính ngay</a>.</p>
+                </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
                         <div class="product-hotline d-flex justify-content-between align-items-center">
