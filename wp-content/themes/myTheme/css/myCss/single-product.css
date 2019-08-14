@@ -63,7 +63,7 @@
 }
 
 .list-picture {
-    margin-top: -30px;
+    margin-top: -26px;
 }
 
 /*write*/
@@ -365,4 +365,7 @@ a.cart-product.add-cart.add-variable.loading:before {
 
 .row-product .product-item .content-action .cart-product {
     padding: 0;
+}
+.pro-title .content-title{
+    width: 100%;
 }

@@ -277,11 +277,12 @@ function submitProductVariable() {
 function jaxButtonCart() {
 
     $(document).on('click', '.quick_add_to_cart_button', function (e) {
+
         e.preventDefault();
         // $("#modalCart").modal('show');
         var $thisbutton = $(this),
             $form = $thisbutton.closest('form.cart'),
-            id = $thisbutton.val(),
+            id = $thisbutton.attr('data-product_id'),
             product_qty = (document.getElementById('qty')) ? document.getElementById('qty').value : 1,
             product_id = $form.find('input[name=product_id]').val() || id,
             variation_id = $form.find('input[name=variation_id]').val() || 0;
@@ -402,14 +403,14 @@ $(document).on('click', '.remove-product-variable', function (e) {
 });
 
 //update cart
-$(document).on('keyup', 'input.qty', function () {
+$(document).on('keyup', '#modalCart input.qty', function () {
     // alert(1)
     var old_value=$(this).attr('data-quantity');
     var item_hash = $(this).attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).val();
     var currentVal = parseInt(item_quantity);
 
-    alert(item_quantity)
+
     if ($.isNumeric(item_quantity)) {
         if (document.getElementById("cart-roll")) {
             var scrollTop = document.getElementById("cart-roll").scrollTop
@@ -447,7 +448,7 @@ $(document).on('keyup', 'input.qty', function () {
 
 
 });
-$(document).on('click', '.reduced', function () {
+$(document).on('click', '#modalCart .reduced', function () {
     var item_hash = $(this).next('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).next('input').val();
     var currentVal = parseFloat(item_quantity);
@@ -488,7 +489,7 @@ $(document).on('click', '.reduced', function () {
 
     qty_cart();
 });
-$(document).on('click', '.increase', function () {
+$(document).on('click', '#modalCart .increase', function () {
     var item_hash = $(this).prev('input').attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).prev('input').val();
     var currentVal = parseFloat(item_quantity);

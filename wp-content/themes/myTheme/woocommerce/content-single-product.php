@@ -212,21 +212,21 @@ $currentURL = home_url($wp->request);
                     ?>
                     </p>
                 </div>
-                <div class="acttion-carts qty-quick-view">
+                <div class="acttion-carts qty-quick-views">
                     <?php $stock_st = $product->get_stock_status();
                     if ($stock_st == 'instock'):
                         ?>
-                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
+                        <button onclick="var result = document.getElementById(&#39;qty_1&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                                 class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i>
                         </button>
-                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty" min="1" title="SL" max="100"
+                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty_1" min="1" title="SL" max="100"
                                max inputmode="numeric" value="<?php if (isset($_POST['quantity'])) {
                             echo $_POST['quantity'];
                         } else {
                             echo '1';
                         } ?>" maxlength="3" name="quantity"
                                onkeyup="valid(this,&#39;numbers&#39;)" onblur="valid(this,&#39;numbers&#39;)">
-                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                        <button onclick="var result = document.getElementById(&#39;qty_1&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                 class="increase action-count items-count2"
                                 data-id="<?php echo $product->get_id(); ?>"
                                 type="button">
@@ -252,7 +252,7 @@ $currentURL = home_url($wp->request);
                     <?php endif; ?>
                 </div>
                 <div class="try_eyewear">
-                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử kính ngay</a>.</p>
+                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a class="color-secondary"  href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử kính ngay</a>.</p>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
@@ -306,7 +306,8 @@ $currentURL = home_url($wp->request);
             <?php the_content() ?>
         </div>
     </div>
-    <div class="pro-title wow fadeIn">
+    <div class="prefix"></div>
+    <div class="pro-title  wow fadeIn">
         <div class="fixed-width content-title title-slider">
             <span class="text-uppercase">RELATED PRODUCTS</span>
         </div>
@@ -429,7 +430,7 @@ $currentURL = home_url($wp->request);
                                         <?php if ($stock == 'instock'): ?>
                                             <?php if ($product->product_type != 'variable'): ?>
                                                 <a title="Add cart"
-                                                   class="cart-product add-cart  quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                   class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    href="?add-to-cart=<?php echo $product->get_id(); ?>"
                                                    data-quantity="<?php echo $product->qty ?>"
                                                    data-product_id="<?php echo $product->get_id(); ?>"
@@ -520,7 +521,7 @@ $currentURL = home_url($wp->request);
     <!--    Quick view-->
     <?php get_template_part('template_part/content', 'cartmodal') ?>
     <!-- content notice -->
-    <?php get_template_part('template_part/content', 'notice') ?>
+<!--    --><?php //get_template_part('template_part/content', 'notice') ?>
     <!-- content notice -->
     <?php get_template_part('template_part/content', 'quickview') ?>
 </div>

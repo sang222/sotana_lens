@@ -24,260 +24,993 @@ Stack trace:
 
 2019-08-14T13:49:27+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp1\htdocs\outsource\wp-includes\Requests\Transport\cURL.php on line 163
 
-2019-08-14T14:30:40+00:00 CRITICAL syntax error, unexpected ')', expecting ',' or ';' in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\content-single-product.php on line 255
-
-2019-08-14T16:19:00+00:00 CRITICAL syntax error, unexpected 'do_action' (T_STRING) in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 35
-
-2019-08-14T16:24:58+00:00 CRITICAL Uncaught Error: Using $this when not in object context in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\legacy\abstract-wc-legacy-product.php:465
+2019-08-14T16:26:13+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php(36): WC_Abstract_Legacy_Product::get_variation_id()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#5 D:\xampp\source\2018\f in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\legacy\abstract-wc-legacy-product.php on line 465
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T16:25:26+00:00 CRITICAL Uncaught Error: Call to undefined function WC_Product_Factory() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:36
+2019-08-14T16:26:13+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(280)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->a in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 36
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T16:51:13+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:53
+2019-08-14T16:26:13+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(280)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 53
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T16:56:17+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:52
+2019-08-14T16:27:56+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(280)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 52
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T16:56:59+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Order as array in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:52
+2019-08-14T16:27:56+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(280)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 52
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T16:57:10+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Product_Variation as array in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:52
+2019-08-14T16:29:31+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(280)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 52
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T16:58:56+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:53
+2019-08-14T16:29:31+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(280)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 53
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:00:18+00:00 CRITICAL Uncaught Exception: Invalid product. in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php:163
+2019-08-14T16:29:31+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product_Variable))
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(135): WC_Data_Store->read(Object(WC_Product_Variable))
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php(32): WC_Product->__construct(262)
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#5 D:\xam in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php on line 163
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:00:42+00:00 CRITICAL Uncaught Exception: Invalid product. in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php:163
+2019-08-14T16:31:23+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product_Variable))
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(135): WC_Data_Store->read(Object(WC_Product_Variable))
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php(32): WC_Product->__construct(262)
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#5 D:\xam in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php on line 163
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:00:48+00:00 CRITICAL Uncaught Exception: Invalid product. in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php:163
+2019-08-14T16:31:24+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product_Variable))
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(135): WC_Data_Store->read(Object(WC_Product_Variable))
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php(32): WC_Product->__construct(262)
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#5 D:\xam in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php on line 163
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:00:58+00:00 CRITICAL Uncaught Exception: Invalid product. in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php:163
+2019-08-14T16:31:24+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-data-store.php(159): WC_Product_Data_Store_CPT->read(Object(WC_Product_Variable))
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(135): WC_Data_Store->read(Object(WC_Product_Variable))
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php(32): WC_Product->__construct(262)
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#5 D:\xam in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\data-stores\class-wc-product-data-store-cpt.php on line 163
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:05:31+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order_Item_Product::get_available_variations() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:52
+2019-08-14T16:31:24+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(283)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-w in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 52
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:11:00+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order_Item_Product::get_price() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:60
+2019-08-14T16:32:04+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(283)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310) in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 60
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:16:50+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+2019-08-14T16:32:05+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-c in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:16:51+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+2019-08-14T16:32:06+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-c in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:16:51+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+2019-08-14T16:32:07+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-c in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:26:13+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order_Item_Product::get_currency() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:62
+2019-08-14T16:32:25+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(284)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(3 in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 62
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T17:26:40+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Order as array in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:62
+2019-08-14T16:32:58+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(284)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 62
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T18:10:20+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order::get_billing() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php:32
+2019-08-14T16:33:20+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(94): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(285)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Ho in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php on line 32
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T18:11:39+00:00 CRITICAL syntax error, unexpected 'var_dump' (T_STRING) in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php on line 33
-
-2019-08-14T18:11:46+00:00 CRITICAL Uncaught Error: Call to undefined function WC_Order() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php:32
+2019-08-14T16:33:21+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(94): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(285)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply_f in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php on line 32
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T18:11:54+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php:33
+2019-08-14T16:33:21+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(94): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(285)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->ap in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php on line 33
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T18:12:00+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php:33
+2019-08-14T16:33:22+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(94): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(285)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->ap in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php on line 33
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T18:12:35+00:00 CRITICAL Uncaught Error: Call to undefined function WC_Order() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php:32
+2019-08-14T16:34:24+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(94): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(285)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply_f in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-customer.php on line 32
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T18:47:51+00:00 CRITICAL syntax error, unexpected 'var_dump' (T_STRING) in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php on line 80
-
-2019-08-14T18:47:57+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on array in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php:79
+2019-08-14T16:34:24+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(286)
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\checkout\thankyou.php(24): do_action('woocommerce_tha...', 286)
-#6 D:\xampp\source\2018\freelancer\BE\so in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php on line 79
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T18:56:06+00:00 CRITICAL syntax error, unexpected end of file in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 105
-
-2019-08-14T19:00:22+00:00 CRITICAL syntax error, unexpected '$taxonomy' (T_VARIABLE) in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 71
-
-2019-08-14T19:02:05+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on array in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:54
+2019-08-14T16:34:25+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(288)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 54
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T19:03:21+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php:53
+2019-08-14T16:34:25+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php(70): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include('D:\\xampp\\source...')
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(288)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply_ in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details-item.php on line 53
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
-2019-08-14T19:07:44+00:00 CRITICAL Uncaught Error: Call to a member function get_customer_note() on null in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php:81
+2019-08-14T16:34:25+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
 Stack trace:
-#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
-#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2538): wc_get_template('order/order-det...', Array)
-#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(286): woocommerce_order_details_table(288)
-#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
-#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
-#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\checkout\thankyou.php(24): do_action('woocommerce_tha...', 288)
-#6 D:\xampp\source\2018\freela in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\woocommerce\order\order-details.php on line 81
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:26+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 7, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:26+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 8, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:43+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 9, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:43+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 10, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\c in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:43+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 11, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\c in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:43+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 12, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\c in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:47+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 13, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\c in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:47+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 14, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\c in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:58+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:34:59+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:36:54+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:36:54+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:36:54+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:36:55+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:36:56+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:36:56+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 7, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:37:36+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:37:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:37:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:37:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:37:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:37:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 7, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:38:52+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:38:53+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:39:02+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:39:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:39:03+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:39:20+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:39:20+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:39:20+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:39:20+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:14+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:14+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:15+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:15+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:15+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:29+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:29+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:30+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:30+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:30+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:30+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 7, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:40:31+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 8, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:11+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:11+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:11+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:12+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 6, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:12+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:12+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 7, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:12+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 8, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:13+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 9, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:41:13+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 10, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\c in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:43:13+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:13+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:35+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:36+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:36+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:36+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:37+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:41+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:41+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:42+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:42+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:42+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:42+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T16:57:42+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 1, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T17:01:30+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T17:01:47+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-14T17:01:54+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1045): WC_Cart->set_quantity('quantity', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-includes\cl in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
 
