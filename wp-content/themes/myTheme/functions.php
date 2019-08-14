@@ -96,6 +96,8 @@ function add_theme_scripts()
     wp_enqueue_style('cart-css', get_template_directory_uri() . '/css/myCss/cart.css', array(), '1.0');
     // collection css
     wp_enqueue_style('collection-css', get_template_directory_uri() . '/css/myCss/collection.css', array(), '1.0');
+    // order detail css
+    wp_enqueue_style('order-css', get_template_directory_uri() . '/css/order-detail.css', array(), '1.0');
     // time picker
     wp_enqueue_style('bootstrap-timepicker', get_template_directory_uri() . '/css/bootstrap-timepicker.min.css', array(), '1.0');
     // menuzord menu

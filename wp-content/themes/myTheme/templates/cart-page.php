@@ -78,7 +78,7 @@ $items = $woocommerce->cart->get_cart();
                                     <?php endforeach; ?>
                                     <?php endif; ?>
                                     <p>
-                                        Categories:
+                                        <b>Categories:</b>
                                         <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
                                         ?></p>
 
