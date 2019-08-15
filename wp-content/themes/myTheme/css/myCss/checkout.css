@@ -84,12 +84,13 @@ div#checkout_now {
 }
 
 .left-checkout h3, .right-checkout h3 {
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: normal;
+    font-size: 20px;
     color: #333333;
     position: relative;
     margin: 20px 0px 15px 0px;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #789be6
 }
 .woocommerce-form-login-toggle .woocommerce-info {
     display: none
@@ -183,4 +184,7 @@ div#checkout_now {
 }
 .woocommerce-page #payment #place_order {
     background-color: #789be6 !important;
+}
+.woocommerce-NoticeGroup-checkout {
+    display: none;
 }

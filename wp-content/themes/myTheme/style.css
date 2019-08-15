@@ -1823,6 +1823,7 @@ body .pagination {
     padding: 30px 8px;
     font-weight: normal;
     font-size: 16px;
+    color: #000;
 }
 
 .page-template-cart-page .woocommerce-cart-form__contents tbody tr:first-of-type th:first-of-type {

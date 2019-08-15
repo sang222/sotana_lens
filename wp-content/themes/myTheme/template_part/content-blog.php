@@ -5,7 +5,7 @@
     </div>
 
 </div>
-<section class="blog-posts wow fadeInDown">
+<section class="blog-posts wow fadeInDown" style="padding: 0 15px">
     <div class="d-flex flex-wrap fixed-width owl-carousel owl-theme" id="carousel-blog">
         <?php
             $args = array(

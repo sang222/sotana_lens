@@ -1,6 +1,5 @@
 #tbl-content .table-cart thead tr th, .table-cart tbody tr td {
     border: none;
-
 }
 
 #tbl-content {
@@ -49,13 +48,12 @@
 }
 
 .title-cart {
-    text-transform: uppercase;
     font-size: 24px;
-    font-weight: normal;
-    color: #333333;
+    font-weight: bold;
+    color: #789be6;
     border-bottom: 1px solid #dfdfdf;
-    padding: 0px 0px 15px 0px;
-    margin: 0px 0px 15px 0px
+    padding: 15px 0px 15px 0px;
+    margin: 0px 0px 15px 0px;
 }
 
 .return-shop {

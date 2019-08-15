@@ -18,7 +18,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
 
     </div>
 <?php endif; ?>
-<div class="row-product fixed-width wow fadeIn" style="margin: 0 auto;text-align: center">
+<div class="row-product fixed-width wow fadeIn" style="padding: 0 15px">
     <div class="owl-carousel  owl-theme " id="sale-carousel">
         <?php
         while ($feat_pro->have_posts()) :

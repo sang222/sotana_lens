@@ -20,8 +20,8 @@ var THEMEMASCOT = {};
     var $portfolio_filter_first_child = $(".portfolio-filter a:eq(0)");
     var $portfolio_flex_slider = $(".portfolio-slider");
     var menu_flag = false;
-    var tl = new TimelineMax({paused: true})
-    var tl1 = new TimelineMax({paused: true})
+    var tl = new TimelineMax({paused: true, onReverseComplete:reverseFunction})
+    var tl1 = new TimelineMax({paused: true, onReverseComplete:reverseFunction1})
 
     //custom video
     var video = document.querySelector('video'), container = document.querySelector('.videoWrapper');
@@ -95,12 +95,21 @@ var THEMEMASCOT = {};
         $('.popup-view-cart').toggleClass('d-none')
     })
 
+    function reverseFunction() {
+        $('.circle').attr('style', '')
+    }
+
+    function reverseFunction1() {
+        //$('.menu-pri li').attr('style', '')
+    }
+
     $('.icon-menu').click(function() {
         menuInit()
         $wrapper.addClass('menu-active');
         if(menu_flag) {
             tl.reverse()
             tl1.reverse()
+            // $('.circle').removeAttr('style')
             $wrapper.removeClass('menu-active')
             menu_flag = false;
         } else {

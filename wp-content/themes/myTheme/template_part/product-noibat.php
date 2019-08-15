@@ -11,7 +11,7 @@ $title_hot = $tp_option['product-title'];
         </div>
 
     </div>
-    <div class="row-product fixed-width wow fadeInDown" id="product-option" style="margin: 0 auto;text-align: center">
+    <div class="row-product fixed-width wow fadeInDown" id="product-option">
         <div class="tab clearfix text-center clearfix">
             <?php $dem = 0; ?>
             <?php foreach ($category_hot as $cate_id): ?>
@@ -23,7 +23,7 @@ $title_hot = $tp_option['product-title'];
                 <?php $dem++; endforeach; ?>
         </div>
     </div>
-    <div class="row-product fixed-width wow fadeInDown" style="margin: 0 auto;text-align: center">
+    <div class="row-product fixed-width wow fadeInDown">
         <?php
         $dem1 = 0;
 
@@ -33,7 +33,7 @@ $title_hot = $tp_option['product-title'];
             $dem2 = 1;
             ?>
             <div class="collection w-100  colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
-                <div class="grid--product">
+                <div class="grid--product" style="padding: 0 15px;">
                     <?php
                     while ($loop->have_posts()) : $loop->the_post();
                         global $product; ?>

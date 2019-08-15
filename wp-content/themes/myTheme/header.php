@@ -68,35 +68,39 @@
             <div class="logo">
                 <a href="<?php echo get_site_url() ?>"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png" alt=""></a>
             </div>
-            <div class="container-mini-cart">
-                <div style="position: relative">
-                    <div class="cart-icon"></div>
-                    <span class="hd-cart-count total-outer" id="count-mini-cart ">0</span>
-                </div>
-                <div class="popup-view-cart d-none">
-                    <div class="popup-cart-title">
-                        <h5>Shopping cart</h5>
-                    </div>
-                    <ul class="popup-cart-content"></ul>
-                    <div class="popup-cart-footer">
-                        <p>Tổng cộng: $99</p>
-                        <div class="group-btn">
-                            <a href="" class="btn btn-default">View cart</a>
-                            <a href="" class="btn btn-default">Checkout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="container-mini-cart"></div>
         </div>
         <div class="circle"></div>
         <ul class="menu-main">
             <div class="menu-main-sub">
                 <ul class="menu-pri">
-                    <li><a href="<?php echo get_site_url() ?>">Home</a></li>
-                    <li><a href="<?php echo get_site_url() ?>">sunglesses</a></li>
-                    <li><a href="<?php echo get_site_url() ?>">optical</a></li>
-                    <li><a href="<?php echo get_site_url() ?>">about</a></li>
-                    <li><a href="<?php echo get_site_url() ?>">Stores</a></li>
+                    <?php
+                        $menuLocations = get_nav_menu_locations();
+                        $menuID = $menuLocations['main-nav'];
+                        $primaryNav = wp_get_nav_menu_items($menuID);
+                        $id_parent = 0;
+                        foreach ($primaryNav as $navItem) {
+                            if ($navItem->menu_item_parent == $id_parent) {
+                                echo '<li class="menu-item' . $navItem->ID . '"> <a href="' . $navItem->url . '" title="' . $navItem->title . '">' . $navItem->title . '</a>';
+                                $sub = "";
+                                foreach ($primaryNav as $navItem2) {
+                                    if ($navItem2->menu_item_parent == $navItem->ID) {
+                                        $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" title="' . $navItem2->title . '">' . $navItem2->title . '</a>';
+                                        $sub2 = "";
+                                        foreach ($primaryNav as $navItem3) {
+                                            if ($navItem3->menu_item_parent == $navItem2->ID) {
+                                                $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" title="' . $navItem3->title . '">' . $navItem3->title . '</a></li>';
+                                            }
+                                        }
+                                        $sub .= '<ul class="dropdown">' . $sub2 . '</ul>';
+                                        $sub .= '</li>';
+                                    }
+                                }
+                                echo '<ul class="dropdown">' . $sub . '</ul>';
+                                echo '</li>';
+                            }
+                        }
+                        ?>
                     <li id="search"><a href=""><i class="fa fa-search" aria-hidden="true"></i></a></li>
                 </ul>
                 <div class="search-box">

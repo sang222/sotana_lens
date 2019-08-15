@@ -32,51 +32,52 @@ if ( $show_downloads ) {
 	wc_get_template( 'order/order-downloads.php', array( 'downloads' => $downloads, 'show_title' => true ) );
 }
 ?>
-<section class="woocommerce-order-details" style="margin-bottom: 50px;">
+<section class="woocommerce-order-details" style="margin-bottom: 50px; padding: 0 15px">
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
 
 	<h2 class="woocommerce-order-details__title">
 		<?php _e( 'Order details #'.$_GET['order-received'], 'woocommerce' ); ?></h2>
 	<div class="row">
 		<div class="col-md-8 col-xs-12">
-			<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
+			<div class="table-responsive">
+				<table class="woocommerce-table table woocommerce-table--order-details shop_table order_details">
+					<thead>
+						<tr>
+							<th class="woocommerce-table__product-name product-name"><?php _e( 'Product', 'woocommerce' ); ?>
+							</th>
+							<th style="padding-left: 30px" class="woocommerce-table__product-table product-total text-right"><?php _e( 'Price', 'woocommerce' ); ?>
+							</th>
+							<th style="padding-left: 30px" class="woocommerce-table__product-table product-total text-right"><?php _e( 'Quantity', 'woocommerce' ); ?>
+							</th>
+							<th style="padding-left: 30px" class="woocommerce-table__product-table product-total text-right"><?php _e( 'Subtotal', 'woocommerce' ); ?>
+							</th>
+						</tr>
+					</thead>
 
-				<thead>
-					<tr>
-						<th class="woocommerce-table__product-name product-name"><?php _e( 'Product', 'woocommerce' ); ?>
-						</th>
-						<th class="woocommerce-table__product-table product-total text-right"><?php _e( 'Price', 'woocommerce' ); ?>
-						</th>
-						<th class="woocommerce-table__product-table product-total text-right"><?php _e( 'Quantity', 'woocommerce' ); ?>
-						</th>
-						<th class="woocommerce-table__product-table product-total text-right"><?php _e( 'Subtotal', 'woocommerce' ); ?>
-						</th>
-					</tr>
-				</thead>
+					<tbody>
+						<?php
+							do_action( 'woocommerce_order_details_before_order_table_items', $order );
 
-				<tbody>
-					<?php
-			do_action( 'woocommerce_order_details_before_order_table_items', $order );
+							foreach ( $order_items as $item_id => $item ) {
+								$product = $item->get_product();
+								// var_dump($product);
+								wc_get_template( 'order/order-details-item.php', array(
+									'order'			     => $order,
+									'item_id'		     => $item_id,
+									'item'			     => $item,
+									'show_purchase_note' => $show_purchase_note,
+									'purchase_note'	     => $product ? $product->get_purchase_note() : '',
+									'product'	         => $product,
+								) );
+							}
 
-			foreach ( $order_items as $item_id => $item ) {
-				$product = $item->get_product();
-				// var_dump($product);
-				wc_get_template( 'order/order-details-item.php', array(
-					'order'			     => $order,
-					'item_id'		     => $item_id,
-					'item'			     => $item,
-					'show_purchase_note' => $show_purchase_note,
-					'purchase_note'	     => $product ? $product->get_purchase_note() : '',
-					'product'	         => $product,
-				) );
-			}
-
-			do_action( 'woocommerce_order_details_after_order_table_items', $order );
-			?>
-				</tbody>
-			</table>
+							do_action( 'woocommerce_order_details_after_order_table_items', $order );
+						?>
+					</tbody>
+				</table>
+			</div>
 			<div class="table_footer">
-				<h4 class="text-right">Totals</h4>
+				<h4 class="text-right" style="color: #789be6">Totals</h4>
 				<?php
 					foreach ( $order->get_order_item_totals() as $key => $total ) {
 				?>

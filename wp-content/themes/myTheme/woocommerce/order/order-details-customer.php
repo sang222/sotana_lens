@@ -36,16 +36,14 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 
 				<?php if ( $order->get_billing_phone() ) : ?>
 					<div>
-						<p class="glyphicon glyphicon-earphone">
-							<span><?php echo esc_html( $order->get_billing_phone() ); ?></span>
-						</p>
+						<span><?php echo esc_html( $order->get_billing_phone() ); ?></span>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( $order->get_billing_email() ) : ?>
-				<p class="glyphicon glyphicon-envelope d-block" style="text-transform: none;">
-					<span><?php echo esc_html( $order->get_billing_email() ); ?></span>
-				</p>
+					<div>
+						<span style="text-transform: none;"><?php echo esc_html( $order->get_billing_email() ); ?></span>
+					</div>
 				<?php endif; ?>
 			</address>
 
@@ -55,16 +53,18 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 		
 
 	</section><!-- /.col2-set -->
-	<section>
-		<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address" style="margin-bottom: 30px;">
-			<h2 class="woocommerce-column__title"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
-			<address style="text-transform: capitalize; line-height: 1.8;">
-				<?php //var_dump($order) ?>
-				<?php echo wp_kses_post( $order->get_formatted_shipping_address( __( 'N/A', 'woocommerce' ) ) ); ?>
-				<p style="margin: 5px 0"><?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?></p>
-			</address>
-		</div><!-- /.col-2 -->
-	</section>
+	<?php if($show_shipping) : ?>
+		<section>
+			<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address" style="margin-bottom: 30px;">
+				<h2 class="woocommerce-column__title"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
+				<address style="text-transform: capitalize; line-height: 1.8;">
+					<?php //var_dump($order) ?>
+					<?php echo wp_kses_post( $order->get_formatted_shipping_address( __( 'N/A', 'woocommerce' ) ) ); ?>
+					<p style="margin: 0"><?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?></p>
+				</address>
+			</div><!-- /.col-2 -->
+		</section>
+	<?php endif; ?>
 	<?php 
 		$note = new WC_Order($order->get_id());
 		if(!empty($note->get_customer_note())) :
