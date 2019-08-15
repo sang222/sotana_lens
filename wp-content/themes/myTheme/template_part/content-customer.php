@@ -4,7 +4,7 @@ global $tp_option;
 $arr_customer_slides = $tp_option['home-customer'];
 $title_customer = $tp_option['customer-title'];
 ?>
-<?php if (sizeof($arr_customer_slides) > 0): ?>
+<?php if (sizeof($arr_customer_slides) > 0 && $title_customer != null): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
             <span class="text-uppercase"><?php echo $title_customer ?></span>

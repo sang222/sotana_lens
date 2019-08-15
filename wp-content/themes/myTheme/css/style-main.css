@@ -4283,9 +4283,9 @@ blockquote p {
 .fb_iframe_widget > span,
 .fb-comments > span > iframe,
 .fb_iframe_widget > span > iframe {
-  display: block !important;
-  margin: 0;
-  width: 100% !important;
+  /*display: block !important;*/
+  /*margin: 0;*/
+  /*width: 100% !important;*/
 }
 /*
  * Shortcode: Faqs.less

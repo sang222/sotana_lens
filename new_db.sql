@@ -1,0 +1,4469 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th8 15, 2019 lúc 04:39 PM
+-- Phiên bản máy phục vụ: 10.3.16-MariaDB
+-- Phiên bản PHP: 7.1.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Cơ sở dữ liệu: `outsource`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_berocket_termmeta`
+--
+
+CREATE TABLE `wp_berocket_termmeta` (
+  `meta_id` bigint(20) NOT NULL,
+  `berocket_term_id` bigint(20) NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_commentmeta`
+--
+
+CREATE TABLE `wp_commentmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_comments`
+--
+
+CREATE TABLE `wp_comments` (
+  `comment_ID` bigint(20) UNSIGNED NOT NULL,
+  `comment_post_ID` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `comment_author` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment_karma` int(11) NOT NULL DEFAULT 0,
+  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `comment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `comment_parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_comments`
+--
+
+INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
+(1, 1, 'A WordPress Commenter', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2019-06-24 15:50:49', '2019-06-24 15:50:49', 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.', 0, '1', '', '', 0, 0),
+(17, 153, 'ActionScheduler', '', '', '', '2019-07-20 07:26:20', '2019-07-20 07:26:20', 'action created', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(18, 153, 'ActionScheduler', '', '', '', '2019-07-20 07:26:52', '2019-07-20 07:26:52', 'action started', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(19, 153, 'ActionScheduler', '', '', '', '2019-07-20 07:26:52', '2019-07-20 07:26:52', 'action complete', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(20, 182, 'ActionScheduler', '', '', '', '2019-07-27 09:13:29', '2019-07-27 09:13:29', 'action created', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(21, 182, 'ActionScheduler', '', '', '', '2019-07-27 09:13:39', '2019-07-27 09:13:39', 'action started', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(22, 182, 'ActionScheduler', '', '', '', '2019-07-27 09:13:39', '2019-07-27 09:13:39', 'action complete', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(24, 260, 'ActionScheduler', '', '', '', '2019-08-08 13:02:20', '2019-08-08 13:02:20', 'action created', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(25, 260, 'ActionScheduler', '', '', '', '2019-08-08 13:02:34', '2019-08-08 13:02:34', 'action started', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(26, 260, 'ActionScheduler', '', '', '', '2019-08-08 13:02:34', '2019-08-08 13:02:34', 'action complete', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
+(30, 273, 'WooCommerce', '', '', '', '2019-08-13 16:34:14', '2019-08-13 16:34:14', 'Awaiting check payment Order status changed from Pending payment to On hold.', 0, '1', 'WooCommerce', 'order_note', 0, 0),
+(31, 273, 'caohoang2911', 'caohoang2911@gmail.com', '', '', '2019-08-13 16:48:25', '2019-08-13 16:48:25', 'Order status changed from On hold to Completed.', 0, '1', 'WooCommerce', 'order_note', 0, 0),
+(32, 274, 'WooCommerce', '', '', '', '2019-08-13 17:02:55', '2019-08-13 17:02:55', 'Payment to be made upon delivery. Order status changed from Pending payment to Processing.', 0, '1', 'WooCommerce', 'order_note', 0, 0),
+(33, 275, 'WooCommerce', '', '', '', '2019-08-13 17:19:22', '2019-08-13 17:19:22', 'Payment to be made upon delivery. Order status changed from Pending payment to Processing.', 0, '1', 'WooCommerce', 'order_note', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_links`
+--
+
+CREATE TABLE `wp_links` (
+  `link_id` bigint(20) UNSIGNED NOT NULL,
+  `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link_target` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link_visible` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Y',
+  `link_owner` bigint(20) UNSIGNED NOT NULL DEFAULT 1,
+  `link_rating` int(11) NOT NULL DEFAULT 0,
+  `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_masterslider_options`
+--
+
+CREATE TABLE `wp_masterslider_options` (
+  `ID` smallint(5) UNSIGNED NOT NULL,
+  `option_name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option_value` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_masterslider_options`
+--
+
+INSERT INTO `wp_masterslider_options` (`ID`, `option_name`, `option_value`) VALUES
+(1, 'masterslider_custom_css_ver', '4.1'),
+(2, 'master-slider-notice-installtion-time', '1561564796');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_masterslider_sliders`
+--
+
+CREATE TABLE `wp_masterslider_sliders` (
+  `ID` mediumint(8) UNSIGNED NOT NULL,
+  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slides_num` smallint(5) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `params` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custom_styles` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custom_fonts` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'draft'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_masterslider_sliders`
+--
+
+INSERT INTO `wp_masterslider_sliders` (`ID`, `title`, `type`, `slides_num`, `date_created`, `date_modified`, `params`, `custom_styles`, `custom_fonts`, `status`) VALUES
+(1, 'Slider with Horizontal Thumbnails', 'custom', 2, '2019-06-26 16:00:38', '2019-07-03 17:00:42', 'eyJtZXRhIjp7IlNldHRpbmdzIWlkcyI6IjEiLCJTZXR0aW5ncyFuZXh0SWQiOjIsIlNsaWRlIWlkcyI6IjE1LDE2IiwiU2xpZGUhbmV4dElkIjoxNywiQ29udHJvbCFpZHMiOiIxLDQsNSw2IiwiQ29udHJvbCFuZXh0SWQiOjcsIkNhbGxiYWNrIWlkcyI6IiIsIkNhbGxiYWNrIW5leHRJZCI6Mn0sIk1TUGFuZWwuU2V0dGluZ3MiOnsiMSI6IntcImlkXCI6XCIxXCIsXCJzbmFwcGluZ1wiOnRydWUsXCJkaXNhYmxlQ29udHJvbHNcIjpmYWxzZSxcIm5hbWVcIjpcIlNsaWRlciB3aXRoIEhvcml6b250YWwgVGh1bWJuYWlsc1wiLFwid2lkdGhcIjoxNDAwLFwiaGVpZ2h0XCI6NDgwLFwid3JhcHBlcldpZHRoXCI6ODAwLFwibWluSGVpZ2h0XCI6MzAwLFwid3JhcHBlcldpZHRoVW5pdFwiOlwicHhcIixcImF1dG9Dcm9wXCI6dHJ1ZSxcInR5cGVcIjpcImN1c3RvbVwiLFwic2xpZGVySWRcIjpcIjFcIixcImVuYWJsZU92ZXJsYXlMYXllcnNcIjp0cnVlLFwibGF5b3V0XCI6XCJmdWxsd2lkdGhcIixcImF1dG9IZWlnaHRcIjpmYWxzZSxcInRyVmlld1wiOlwiZmFkZVwiLFwic3BlZWRcIjoyMCxcInNwYWNlXCI6MCxcInN0YXJ0XCI6MSxcImdyYWJDdXJzb3JcIjp0cnVlLFwic3dpcGVcIjp0cnVlLFwibW91c2VcIjp0cnVlLFwid2hlZWxcIjpmYWxzZSxcImF1dG9wbGF5XCI6dHJ1ZSxcImxvb3BcIjp0cnVlLFwic2h1ZmZsZVwiOmZhbHNlLFwicHJlbG9hZFwiOlwiMFwiLFwib3ZlclBhdXNlXCI6ZmFsc2UsXCJlbmRQYXVzZVwiOmZhbHNlLFwiaGlkZUxheWVyc1wiOmZhbHNlLFwiZGlyXCI6XCJoXCIsXCJwYXJhbGxheE1vZGVcIjpcInN3aXBlXCIsXCJ1c2VEZWVwTGlua1wiOmZhbHNlLFwiZGVlcExpbmtUeXBlXCI6XCJwYXRoXCIsXCJzY3JvbGxQYXJhbGxheE1vdmVcIjozMCxcInNjcm9sbFBhcmFsbGF4QkdNb3ZlXCI6NTAsXCJzY3JvbGxQYXJhbGxheEZhZGVcIjp0cnVlLFwiY2VudGVyQ29udHJvbHNcIjp0cnVlLFwiaW5zdGFudFNob3dMYXllcnNcIjpmYWxzZSxcImNsYXNzTmFtZVwiOlwiXCIsXCJiZ0NvbG9yXCI6XCIjMDAwMDAwXCIsXCJza2luXCI6XCJtcy1za2luLWxpZ2h0LTZcIixcIm1zVGVtcGxhdGVcIjpcImN1c3RvbVwiLFwibXNUZW1wbGF0ZUNsYXNzXCI6XCJcIixcInVzZWRGb250c1wiOlwiXCJ9In0sIk1TUGFuZWwuU2xpZGUiOnsiMTUiOiJ7XCJpZFwiOjE1LFwidGltZWxpbmVfaFwiOjIwMCxcImJnVGh1bWJcIjpcIi8yMDE5LzA2L21zX2Jhbm5lcl9pbWcxLTE1MHgxNTAuanBnXCIsXCJpc092ZXJsYXlMYXllcnNcIjpmYWxzZSxcIm9yZGVyXCI6MCxcImJnXCI6XCIvMjAxOS8wNi9tc19iYW5uZXJfaW1nMS5qcGdcIixcImR1cmF0aW9uXCI6XCIzXCIsXCJmaWxsTW9kZVwiOlwiZmlsbFwiLFwiaW5mb1wiOlwiYWN0aW9uXCIsXCJiZ3ZfZmlsbG1vZGVcIjpcImZpbGxcIixcImJndl9sb29wXCI6XCIxXCIsXCJiZ3ZfbXV0ZVwiOlwiMVwiLFwiYmd2X2F1dG9wYXVzZVwiOlwiXCIsXCJiZ0FsdFwiOlwiXCIsXCJiZ1RpdGxlXCI6XCJtc19iYW5uZXJfaW1nMVwiLFwibGF5ZXJfaWRzXCI6W119IiwiMTYiOiJ7XCJpZFwiOjE2LFwidGltZWxpbmVfaFwiOjIwMCxcImJnVGh1bWJcIjpcIi8yMDE5LzA2L21zX2Jhbm5lcl9pbWcyLTE1MHgxNTAuanBnXCIsXCJpc092ZXJsYXlMYXllcnNcIjpmYWxzZSxcIm9yZGVyXCI6MSxcImJnXCI6XCIvMjAxOS8wNi9tc19iYW5uZXJfaW1nMi5qcGdcIixcImR1cmF0aW9uXCI6XCIzXCIsXCJmaWxsTW9kZVwiOlwiZmlsbFwiLFwiaW5mb1wiOlwiQmVhdXRpZnVsXCIsXCJiZ3ZfZmlsbG1vZGVcIjpcImZpbGxcIixcImJndl9sb29wXCI6XCIxXCIsXCJiZ3ZfbXV0ZVwiOlwiMVwiLFwiYmd2X2F1dG9wYXVzZVwiOlwiXCIsXCJjc3NDbGFzc1wiOlwic2xpZGUtaXRlbVwiLFwiYmdBbHRcIjpcIlwiLFwiYmdUaXRsZVwiOlwibXNfYmFubmVyX2ltZzJcIixcImxheWVyX2lkc1wiOltdfSJ9LCJNU1BhbmVsLkNvbnRyb2wiOnsiMSI6IntcImlkXCI6XCIxXCIsXCJsYWJlbFwiOlwiQXJyb3dzXCIsXCJuYW1lXCI6XCJhcnJvd3NcIixcImF1dG9IaWRlXCI6ZmFsc2UsXCJvdmVyVmlkZW9cIjp0cnVlLFwiaW5zZXRcIjp0cnVlfSIsIjQiOiJ7XCJpZFwiOjQsXCJsYWJlbFwiOlwiTGluZSBUaW1lclwiLFwibmFtZVwiOlwidGltZWJhclwiLFwiYXV0b0hpZGVcIjpmYWxzZSxcIm92ZXJWaWRlb1wiOnRydWUsXCJjb2xvclwiOlwicmdiYSgyMDcsIDE3OSwgMTc5LCAwLjcpXCIsXCJ3aWR0aFwiOjQsXCJhbGlnblwiOlwiYm90dG9tXCIsXCJpbnNldFwiOnRydWV9IiwiNSI6IntcImlkXCI6NSxcImxhYmVsXCI6XCJDaXJjbGUgVGltZXJcIixcIm5hbWVcIjpcImNpcmNsZXRpbWVyXCIsXCJhdXRvSGlkZVwiOmZhbHNlLFwib3ZlclZpZGVvXCI6dHJ1ZSxcImNvbG9yXCI6XCIjQTJBMkEyXCIsXCJyYWRpdXNcIjo0LFwic3Ryb2tlXCI6MTAsXCJpbnNldFwiOnRydWV9IiwiNiI6IntcImlkXCI6NixcImxhYmVsXCI6XCJTY3JvbGxiYXJcIixcIm5hbWVcIjpcInNjcm9sbGJhclwiLFwiYXV0b0hpZGVcIjp0cnVlLFwib3ZlclZpZGVvXCI6dHJ1ZSxcIm1hcmdpblwiOjEwLFwiZGlyXCI6XCJoXCIsXCJjb2xvclwiOlwiIzNEM0QzRFwiLFwid2lkdGhcIjo0LFwiYWxpZ25cIjpcInRvcFwiLFwiaW5zZXRcIjp0cnVlfSJ9LCJNU1BhbmVsLkNhbGxiYWNrIjp7fX0=', '', '', 'published');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_options`
+--
+
+CREATE TABLE `wp_options` (
+  `option_id` bigint(20) UNSIGNED NOT NULL,
+  `option_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `option_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_options`
+--
+
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(1, 'siteurl', 'http://localhost:8080/outsource', 'yes'),
+(2, 'home', 'http://localhost:8080/outsource', 'yes'),
+(3, 'blogname', 'My Project', 'yes'),
+(4, 'blogdescription', 'Just another WordPress site', 'yes'),
+(5, 'users_can_register', '1', 'yes'),
+(6, 'admin_email', 'caohoang2911@gmail.com', 'yes'),
+(7, 'start_of_week', '1', 'yes'),
+(8, 'use_balanceTags', '0', 'yes'),
+(9, 'use_smilies', '1', 'yes'),
+(10, 'require_name_email', '1', 'yes'),
+(11, 'comments_notify', '1', 'yes'),
+(12, 'posts_per_rss', '10', 'yes'),
+(13, 'rss_use_excerpt', '0', 'yes'),
+(14, 'mailserver_url', 'mail.example.com', 'yes'),
+(15, 'mailserver_login', 'login@example.com', 'yes'),
+(16, 'mailserver_pass', 'password', 'yes'),
+(17, 'mailserver_port', '110', 'yes'),
+(18, 'default_category', '1', 'yes'),
+(19, 'default_comment_status', 'open', 'yes'),
+(20, 'default_ping_status', 'open', 'yes'),
+(21, 'default_pingback_flag', '', 'yes'),
+(22, 'posts_per_page', '10', 'yes'),
+(23, 'date_format', 'F j, Y', 'yes'),
+(24, 'time_format', 'g:i a', 'yes'),
+(25, 'links_updated_date_format', 'F j, Y g:i a', 'yes'),
+(26, 'comment_moderation', '', 'yes'),
+(27, 'moderation_notify', '1', 'yes'),
+(28, 'permalink_structure', '', 'yes'),
+(29, 'rewrite_rules', '', 'yes'),
+(30, 'hack_file', '0', 'yes'),
+(31, 'blog_charset', 'UTF-8', 'yes'),
+(32, 'moderation_keys', '', 'no'),
+(33, 'active_plugins', 'a:10:{i:0;s:35:\"redux-framework/redux-framework.php\";i:1;s:34:\"advanced-custom-fields-pro/acf.php\";i:2;s:36:\"contact-form-7/wp-contact-form-7.php\";i:3;s:43:\"custom-post-type-ui/custom-post-type-ui.php\";i:4;s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";i:6;s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";i:7;s:27:\"woocommerce/woocommerce.php\";i:8;s:41:\"wordpress-importer/wordpress-importer.php\";i:9;s:29:\"wp-mail-smtp/wp_mail_smtp.php\";i:10;s:27:\"wp-pagenavi/wp-pagenavi.php\";}', 'yes'),
+(34, 'category_base', '', 'yes'),
+(35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
+(36, 'comment_max_links', '2', 'yes'),
+(37, 'gmt_offset', '0', 'yes'),
+(38, 'default_email_category', '1', 'yes'),
+(39, 'recently_edited', 'a:2:{i:0;s:61:\"C:\\xampp\\htdocs\\outsource/wp-content/themes/myTheme/style.css\";i:1;s:0:\"\";}', 'no'),
+(40, 'template', 'myTheme', 'yes'),
+(41, 'stylesheet', 'myTheme', 'yes'),
+(42, 'comment_whitelist', '1', 'yes'),
+(43, 'blacklist_keys', '', 'no'),
+(44, 'comment_registration', '1', 'yes'),
+(45, 'html_type', 'text/html', 'yes'),
+(46, 'use_trackback', '0', 'yes'),
+(47, 'default_role', 'customer', 'yes'),
+(48, 'db_version', '38590', 'yes'),
+(49, 'uploads_use_yearmonth_folders', '1', 'yes'),
+(50, 'upload_path', '', 'yes'),
+(51, 'blog_public', '0', 'yes'),
+(52, 'default_link_category', '2', 'yes'),
+(53, 'show_on_front', 'page', 'yes'),
+(54, 'tag_base', '', 'yes'),
+(55, 'show_avatars', '1', 'yes'),
+(56, 'avatar_rating', 'G', 'yes'),
+(57, 'upload_url_path', '', 'yes'),
+(58, 'thumbnail_size_w', '300', 'yes'),
+(59, 'thumbnail_size_h', '150', 'yes'),
+(60, 'thumbnail_crop', '1', 'yes'),
+(61, 'medium_size_w', '300', 'yes'),
+(62, 'medium_size_h', '300', 'yes'),
+(63, 'avatar_default', 'mystery', 'yes'),
+(64, 'large_size_w', '1024', 'yes'),
+(65, 'large_size_h', '1024', 'yes'),
+(66, 'image_default_link_type', '', 'yes'),
+(67, 'image_default_size', '', 'yes'),
+(68, 'image_default_align', '', 'yes'),
+(69, 'close_comments_for_old_posts', '', 'yes'),
+(70, 'close_comments_days_old', '14', 'yes'),
+(71, 'thread_comments', '1', 'yes'),
+(72, 'thread_comments_depth', '5', 'yes'),
+(73, 'page_comments', '', 'yes'),
+(74, 'comments_per_page', '50', 'yes'),
+(75, 'default_comments_page', 'newest', 'yes'),
+(76, 'comment_order', 'asc', 'yes'),
+(77, 'sticky_posts', 'a:0:{}', 'yes'),
+(78, 'widget_categories', 'a:2:{i:2;a:4:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:12:\"hierarchical\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(79, 'widget_text', 'a:5:{i:2;a:4:{s:5:\"title\";s:7:\"Find Us\";s:4:\"text\";s:168:\"<strong>Address</strong>\n123 Main Street\nNew York, NY 10001\n\n<strong>Hours</strong>\nMonday&mdash;Friday: 9:00AM&ndash;5:00PM\nSaturday &amp; Sunday: 11:00AM&ndash;3:00PM\";s:6:\"filter\";b:1;s:6:\"visual\";b:1;}i:3;a:4:{s:5:\"title\";s:15:\"About This Site\";s:4:\"text\";s:85:\"This may be a good place to introduce yourself and your site or include some credits.\";s:6:\"filter\";b:1;s:6:\"visual\";b:1;}i:4;a:4:{s:5:\"title\";s:7:\"Find Us\";s:4:\"text\";s:168:\"<strong>Address</strong>\n123 Main Street\nNew York, NY 10001\n\n<strong>Hours</strong>\nMonday&mdash;Friday: 9:00AM&ndash;5:00PM\nSaturday &amp; Sunday: 11:00AM&ndash;3:00PM\";s:6:\"filter\";b:1;s:6:\"visual\";b:1;}i:5;a:4:{s:5:\"title\";s:15:\"About This Site\";s:4:\"text\";s:85:\"This may be a good place to introduce yourself and your site or include some credits.\";s:6:\"filter\";b:1;s:6:\"visual\";b:1;}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(80, 'widget_rss', 'a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(81, 'uninstall_plugins', 'a:4:{s:48:\"woocommerce-ajax-filters/woocommerce-filters.php\";a:2:{i:0;s:13:\"BeRocket_AAPF\";i:1;s:12:\"deactivation\";}s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";a:2:{i:0;s:32:\"DevVN_Woo_Vietnam_Checkout_Class\";i:1;s:12:\"on_uninstall\";}s:27:\"wp-pagenavi/wp-pagenavi.php\";s:14:\"__return_false\";s:23:\"premmerce/premmerce.php\";a:2:{i:0;s:35:\"Premmerce\\Premmerce\\PremmercePlugin\";i:1;s:9:\"uninstall\";}}', 'no'),
+(82, 'timezone_string', '', 'yes'),
+(83, 'page_for_posts', '0', 'yes'),
+(84, 'page_on_front', '201', 'yes'),
+(85, 'default_post_format', '0', 'yes'),
+(86, 'link_manager_enabled', '0', 'yes'),
+(87, 'finished_splitting_shared_terms', '1', 'yes'),
+(88, 'site_icon', '0', 'yes'),
+(89, 'medium_large_size_w', '768', 'yes'),
+(90, 'medium_large_size_h', '0', 'yes'),
+(91, 'wp_page_for_privacy_policy', '3', 'yes'),
+(92, 'show_comments_cookies_opt_in', '', 'yes'),
+(93, 'initial_db_version', '38590', 'yes'),
+(94, 'wp_user_roles', 'a:7:{s:13:\"administrator\";a:2:{s:4:\"name\";s:13:\"Administrator\";s:12:\"capabilities\";a:167:{s:13:\"switch_themes\";b:1;s:11:\"edit_themes\";b:1;s:16:\"activate_plugins\";b:1;s:12:\"edit_plugins\";b:1;s:10:\"edit_users\";b:1;s:10:\"edit_files\";b:1;s:14:\"manage_options\";b:1;s:17:\"moderate_comments\";b:1;s:17:\"manage_categories\";b:1;s:12:\"manage_links\";b:1;s:12:\"upload_files\";b:1;s:6:\"import\";b:1;s:15:\"unfiltered_html\";b:1;s:10:\"edit_posts\";b:1;s:17:\"edit_others_posts\";b:1;s:20:\"edit_published_posts\";b:1;s:13:\"publish_posts\";b:1;s:10:\"edit_pages\";b:1;s:4:\"read\";b:1;s:8:\"level_10\";b:1;s:7:\"level_9\";b:1;s:7:\"level_8\";b:1;s:7:\"level_7\";b:1;s:7:\"level_6\";b:1;s:7:\"level_5\";b:1;s:7:\"level_4\";b:1;s:7:\"level_3\";b:1;s:7:\"level_2\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:17:\"edit_others_pages\";b:1;s:20:\"edit_published_pages\";b:1;s:13:\"publish_pages\";b:1;s:12:\"delete_pages\";b:1;s:19:\"delete_others_pages\";b:1;s:22:\"delete_published_pages\";b:1;s:12:\"delete_posts\";b:1;s:19:\"delete_others_posts\";b:1;s:22:\"delete_published_posts\";b:1;s:20:\"delete_private_posts\";b:1;s:18:\"edit_private_posts\";b:1;s:18:\"read_private_posts\";b:1;s:20:\"delete_private_pages\";b:1;s:18:\"edit_private_pages\";b:1;s:18:\"read_private_pages\";b:1;s:12:\"delete_users\";b:1;s:12:\"create_users\";b:1;s:17:\"unfiltered_upload\";b:1;s:14:\"edit_dashboard\";b:1;s:14:\"update_plugins\";b:1;s:14:\"delete_plugins\";b:1;s:15:\"install_plugins\";b:1;s:13:\"update_themes\";b:1;s:14:\"install_themes\";b:1;s:11:\"update_core\";b:1;s:10:\"list_users\";b:1;s:12:\"remove_users\";b:1;s:13:\"promote_users\";b:1;s:18:\"edit_theme_options\";b:1;s:13:\"delete_themes\";b:1;s:6:\"export\";b:1;s:18:\"manage_woocommerce\";b:1;s:24:\"view_woocommerce_reports\";b:1;s:12:\"edit_product\";b:1;s:12:\"read_product\";b:1;s:14:\"delete_product\";b:1;s:13:\"edit_products\";b:1;s:20:\"edit_others_products\";b:1;s:16:\"publish_products\";b:1;s:21:\"read_private_products\";b:1;s:15:\"delete_products\";b:1;s:23:\"delete_private_products\";b:1;s:25:\"delete_published_products\";b:1;s:22:\"delete_others_products\";b:1;s:21:\"edit_private_products\";b:1;s:23:\"edit_published_products\";b:1;s:20:\"manage_product_terms\";b:1;s:18:\"edit_product_terms\";b:1;s:20:\"delete_product_terms\";b:1;s:20:\"assign_product_terms\";b:1;s:15:\"edit_shop_order\";b:1;s:15:\"read_shop_order\";b:1;s:17:\"delete_shop_order\";b:1;s:16:\"edit_shop_orders\";b:1;s:23:\"edit_others_shop_orders\";b:1;s:19:\"publish_shop_orders\";b:1;s:24:\"read_private_shop_orders\";b:1;s:18:\"delete_shop_orders\";b:1;s:26:\"delete_private_shop_orders\";b:1;s:28:\"delete_published_shop_orders\";b:1;s:25:\"delete_others_shop_orders\";b:1;s:24:\"edit_private_shop_orders\";b:1;s:26:\"edit_published_shop_orders\";b:1;s:23:\"manage_shop_order_terms\";b:1;s:21:\"edit_shop_order_terms\";b:1;s:23:\"delete_shop_order_terms\";b:1;s:23:\"assign_shop_order_terms\";b:1;s:16:\"edit_shop_coupon\";b:1;s:16:\"read_shop_coupon\";b:1;s:18:\"delete_shop_coupon\";b:1;s:17:\"edit_shop_coupons\";b:1;s:24:\"edit_others_shop_coupons\";b:1;s:20:\"publish_shop_coupons\";b:1;s:25:\"read_private_shop_coupons\";b:1;s:19:\"delete_shop_coupons\";b:1;s:27:\"delete_private_shop_coupons\";b:1;s:29:\"delete_published_shop_coupons\";b:1;s:26:\"delete_others_shop_coupons\";b:1;s:25:\"edit_private_shop_coupons\";b:1;s:27:\"edit_published_shop_coupons\";b:1;s:24:\"manage_shop_coupon_terms\";b:1;s:22:\"edit_shop_coupon_terms\";b:1;s:24:\"delete_shop_coupon_terms\";b:1;s:24:\"assign_shop_coupon_terms\";b:1;s:19:\"access_masterslider\";b:1;s:20:\"publish_masterslider\";b:1;s:19:\"delete_masterslider\";b:1;s:19:\"create_masterslider\";b:1;s:19:\"export_masterslider\";b:1;s:22:\"duplicate_masterslider\";b:1;s:15:\"manage_berocket\";b:1;s:23:\"manage_berocket_account\";b:1;s:18:\"edit_single_filter\";b:1;s:18:\"read_single_filter\";b:1;s:20:\"delete_single_filter\";b:1;s:19:\"edit_single_filters\";b:1;s:26:\"edit_others_single_filters\";b:1;s:22:\"publish_single_filters\";b:1;s:27:\"read_private_single_filters\";b:1;s:21:\"delete_single_filters\";b:1;s:29:\"delete_private_single_filters\";b:1;s:31:\"delete_published_single_filters\";b:1;s:28:\"delete_others_single_filters\";b:1;s:27:\"edit_private_single_filters\";b:1;s:29:\"edit_published_single_filters\";b:1;s:18:\"edit_group_filters\";b:1;s:18:\"read_group_filters\";b:1;s:20:\"delete_group_filters\";b:1;s:19:\"edit_group_filterss\";b:1;s:26:\"edit_others_group_filterss\";b:1;s:22:\"publish_group_filterss\";b:1;s:27:\"read_private_group_filterss\";b:1;s:21:\"delete_group_filterss\";b:1;s:29:\"delete_private_group_filterss\";b:1;s:31:\"delete_published_group_filterss\";b:1;s:28:\"delete_others_group_filterss\";b:1;s:27:\"edit_private_group_filterss\";b:1;s:29:\"edit_published_group_filterss\";b:1;s:20:\"manage_berocket_aapf\";b:1;s:24:\"manage_user_registration\";b:1;s:22:\"edit_user_registration\";b:1;s:22:\"read_user_registration\";b:1;s:24:\"delete_user_registration\";b:1;s:23:\"edit_user_registrations\";b:1;s:30:\"edit_others_user_registrations\";b:1;s:26:\"publish_user_registrations\";b:1;s:31:\"read_private_user_registrations\";b:1;s:25:\"delete_user_registrations\";b:1;s:33:\"delete_private_user_registrations\";b:1;s:35:\"delete_published_user_registrations\";b:1;s:32:\"delete_others_user_registrations\";b:1;s:31:\"edit_private_user_registrations\";b:1;s:33:\"edit_published_user_registrations\";b:1;s:30:\"manage_user_registration_terms\";b:1;s:28:\"edit_user_registration_terms\";b:1;s:30:\"delete_user_registration_terms\";b:1;s:30:\"assign_user_registration_terms\";b:1;}}s:6:\"editor\";a:2:{s:4:\"name\";s:6:\"Editor\";s:12:\"capabilities\";a:40:{s:17:\"moderate_comments\";b:1;s:17:\"manage_categories\";b:1;s:12:\"manage_links\";b:1;s:12:\"upload_files\";b:1;s:15:\"unfiltered_html\";b:1;s:10:\"edit_posts\";b:1;s:17:\"edit_others_posts\";b:1;s:20:\"edit_published_posts\";b:1;s:13:\"publish_posts\";b:1;s:10:\"edit_pages\";b:1;s:4:\"read\";b:1;s:7:\"level_7\";b:1;s:7:\"level_6\";b:1;s:7:\"level_5\";b:1;s:7:\"level_4\";b:1;s:7:\"level_3\";b:1;s:7:\"level_2\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:17:\"edit_others_pages\";b:1;s:20:\"edit_published_pages\";b:1;s:13:\"publish_pages\";b:1;s:12:\"delete_pages\";b:1;s:19:\"delete_others_pages\";b:1;s:22:\"delete_published_pages\";b:1;s:12:\"delete_posts\";b:1;s:19:\"delete_others_posts\";b:1;s:22:\"delete_published_posts\";b:1;s:20:\"delete_private_posts\";b:1;s:18:\"edit_private_posts\";b:1;s:18:\"read_private_posts\";b:1;s:20:\"delete_private_pages\";b:1;s:18:\"edit_private_pages\";b:1;s:18:\"read_private_pages\";b:1;s:19:\"access_masterslider\";b:1;s:20:\"publish_masterslider\";b:1;s:19:\"delete_masterslider\";b:1;s:19:\"create_masterslider\";b:1;s:19:\"export_masterslider\";b:1;s:22:\"duplicate_masterslider\";b:1;}}s:6:\"author\";a:2:{s:4:\"name\";s:6:\"Author\";s:12:\"capabilities\";a:10:{s:12:\"upload_files\";b:1;s:10:\"edit_posts\";b:1;s:20:\"edit_published_posts\";b:1;s:13:\"publish_posts\";b:1;s:4:\"read\";b:1;s:7:\"level_2\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:12:\"delete_posts\";b:1;s:22:\"delete_published_posts\";b:1;}}s:11:\"contributor\";a:2:{s:4:\"name\";s:11:\"Contributor\";s:12:\"capabilities\";a:5:{s:10:\"edit_posts\";b:1;s:4:\"read\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:12:\"delete_posts\";b:1;}}s:10:\"subscriber\";a:2:{s:4:\"name\";s:10:\"Subscriber\";s:12:\"capabilities\";a:2:{s:4:\"read\";b:1;s:7:\"level_0\";b:1;}}s:8:\"customer\";a:2:{s:4:\"name\";s:8:\"Customer\";s:12:\"capabilities\";a:1:{s:4:\"read\";b:1;}}s:12:\"shop_manager\";a:2:{s:4:\"name\";s:12:\"Shop manager\";s:12:\"capabilities\";a:92:{s:7:\"level_9\";b:1;s:7:\"level_8\";b:1;s:7:\"level_7\";b:1;s:7:\"level_6\";b:1;s:7:\"level_5\";b:1;s:7:\"level_4\";b:1;s:7:\"level_3\";b:1;s:7:\"level_2\";b:1;s:7:\"level_1\";b:1;s:7:\"level_0\";b:1;s:4:\"read\";b:1;s:18:\"read_private_pages\";b:1;s:18:\"read_private_posts\";b:1;s:10:\"edit_posts\";b:1;s:10:\"edit_pages\";b:1;s:20:\"edit_published_posts\";b:1;s:20:\"edit_published_pages\";b:1;s:18:\"edit_private_pages\";b:1;s:18:\"edit_private_posts\";b:1;s:17:\"edit_others_posts\";b:1;s:17:\"edit_others_pages\";b:1;s:13:\"publish_posts\";b:1;s:13:\"publish_pages\";b:1;s:12:\"delete_posts\";b:1;s:12:\"delete_pages\";b:1;s:20:\"delete_private_pages\";b:1;s:20:\"delete_private_posts\";b:1;s:22:\"delete_published_pages\";b:1;s:22:\"delete_published_posts\";b:1;s:19:\"delete_others_posts\";b:1;s:19:\"delete_others_pages\";b:1;s:17:\"manage_categories\";b:1;s:12:\"manage_links\";b:1;s:17:\"moderate_comments\";b:1;s:12:\"upload_files\";b:1;s:6:\"export\";b:1;s:6:\"import\";b:1;s:10:\"list_users\";b:1;s:18:\"edit_theme_options\";b:1;s:18:\"manage_woocommerce\";b:1;s:24:\"view_woocommerce_reports\";b:1;s:12:\"edit_product\";b:1;s:12:\"read_product\";b:1;s:14:\"delete_product\";b:1;s:13:\"edit_products\";b:1;s:20:\"edit_others_products\";b:1;s:16:\"publish_products\";b:1;s:21:\"read_private_products\";b:1;s:15:\"delete_products\";b:1;s:23:\"delete_private_products\";b:1;s:25:\"delete_published_products\";b:1;s:22:\"delete_others_products\";b:1;s:21:\"edit_private_products\";b:1;s:23:\"edit_published_products\";b:1;s:20:\"manage_product_terms\";b:1;s:18:\"edit_product_terms\";b:1;s:20:\"delete_product_terms\";b:1;s:20:\"assign_product_terms\";b:1;s:15:\"edit_shop_order\";b:1;s:15:\"read_shop_order\";b:1;s:17:\"delete_shop_order\";b:1;s:16:\"edit_shop_orders\";b:1;s:23:\"edit_others_shop_orders\";b:1;s:19:\"publish_shop_orders\";b:1;s:24:\"read_private_shop_orders\";b:1;s:18:\"delete_shop_orders\";b:1;s:26:\"delete_private_shop_orders\";b:1;s:28:\"delete_published_shop_orders\";b:1;s:25:\"delete_others_shop_orders\";b:1;s:24:\"edit_private_shop_orders\";b:1;s:26:\"edit_published_shop_orders\";b:1;s:23:\"manage_shop_order_terms\";b:1;s:21:\"edit_shop_order_terms\";b:1;s:23:\"delete_shop_order_terms\";b:1;s:23:\"assign_shop_order_terms\";b:1;s:16:\"edit_shop_coupon\";b:1;s:16:\"read_shop_coupon\";b:1;s:18:\"delete_shop_coupon\";b:1;s:17:\"edit_shop_coupons\";b:1;s:24:\"edit_others_shop_coupons\";b:1;s:20:\"publish_shop_coupons\";b:1;s:25:\"read_private_shop_coupons\";b:1;s:19:\"delete_shop_coupons\";b:1;s:27:\"delete_private_shop_coupons\";b:1;s:29:\"delete_published_shop_coupons\";b:1;s:26:\"delete_others_shop_coupons\";b:1;s:25:\"edit_private_shop_coupons\";b:1;s:27:\"edit_published_shop_coupons\";b:1;s:24:\"manage_shop_coupon_terms\";b:1;s:22:\"edit_shop_coupon_terms\";b:1;s:24:\"delete_shop_coupon_terms\";b:1;s:24:\"assign_shop_coupon_terms\";b:1;}}}', 'yes'),
+(95, 'fresh_site', '0', 'yes'),
+(96, 'widget_search', 'a:2:{i:2;a:1:{s:5:\"title\";s:0:\"\";}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(97, 'widget_recent-posts', 'a:2:{i:2;a:2:{s:5:\"title\";s:0:\"\";s:6:\"number\";i:5;}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(98, 'widget_recent-comments', 'a:2:{i:2;a:2:{s:5:\"title\";s:0:\"\";s:6:\"number\";i:5;}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(99, 'widget_archives', 'a:2:{i:2;a:3:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(100, 'widget_meta', 'a:2:{i:2;a:1:{s:5:\"title\";s:0:\"\";}s:12:\"_multiwidget\";i:1;}', 'yes'),
+(101, 'sidebars_widgets', 'a:2:{s:19:\"wp_inactive_widgets\";a:10:{i:0;s:6:\"text-2\";i:1;s:6:\"text-3\";i:2;s:6:\"text-4\";i:3;s:6:\"text-5\";i:4;s:8:\"search-2\";i:5;s:14:\"recent-posts-2\";i:6;s:17:\"recent-comments-2\";i:7;s:10:\"archives-2\";i:8;s:12:\"categories-2\";i:9;s:6:\"meta-2\";}s:13:\"array_version\";i:3;}', 'yes'),
+(102, 'widget_pages', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(103, 'widget_calendar', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(104, 'widget_media_audio', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(105, 'widget_media_image', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(106, 'widget_media_gallery', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(107, 'widget_media_video', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(108, 'widget_tag_cloud', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(109, 'widget_nav_menu', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(110, 'widget_custom_html', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(111, 'cron', 'a:13:{i:1565879972;a:1:{s:26:\"action_scheduler_run_queue\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:12:\"every_minute\";s:4:\"args\";a:0:{}s:8:\"interval\";i:60;}}}i:1565880341;a:1:{s:32:\"woocommerce_cancel_unpaid_orders\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1565880650;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1565881111;a:1:{s:24:\"woocommerce_cleanup_logs\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1565884250;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1565884260;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1565891911;a:1:{s:28:\"woocommerce_cleanup_sessions\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1565892563;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1565913600;a:1:{s:27:\"woocommerce_scheduled_sales\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1565956711;a:1:{s:33:\"woocommerce_cleanup_personal_data\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1565956721;a:1:{s:30:\"woocommerce_tracker_send_event\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1567684800;a:1:{s:25:\"woocommerce_geoip_updater\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:7:\"monthly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:2635200;}}}s:7:\"version\";i:2;}', 'yes'),
+(112, 'theme_mods_twentyseventeen', 'a:3:{s:18:\"custom_css_post_id\";i:-1;s:16:\"sidebars_widgets\";a:2:{s:4:\"time\";i:1563679025;s:4:\"data\";a:4:{s:19:\"wp_inactive_widgets\";a:4:{i:0;s:6:\"text-2\";i:1;s:6:\"text-3\";i:2;s:6:\"text-4\";i:3;s:6:\"text-5\";}s:9:\"sidebar-1\";a:6:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";i:3;s:10:\"archives-2\";i:4;s:12:\"categories-2\";i:5;s:6:\"meta-2\";}s:9:\"sidebar-2\";a:0:{}s:9:\"sidebar-3\";a:0:{}}}s:18:\"nav_menu_locations\";a:1:{s:3:\"top\";i:2;}}', 'yes'),
+(125, '_site_transient_update_core', 'O:8:\"stdClass\":4:{s:7:\"updates\";a:6:{i:0;O:8:\"stdClass\":10:{s:8:\"response\";s:7:\"upgrade\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.2.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.2.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.2.2-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.2.2-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.2.2\";s:7:\"version\";s:5:\"5.2.2\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";}i:1;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.2.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.2.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.2.2-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.2.2-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.2.2\";s:7:\"version\";s:5:\"5.2.2\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:2;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.1.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.1.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.2.1-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.2.1-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.2.1\";s:7:\"version\";s:5:\"5.2.1\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:3;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:57:\"https://downloads.wordpress.org/release/wordpress-5.2.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:57:\"https://downloads.wordpress.org/release/wordpress-5.2.zip\";s:10:\"no_content\";s:68:\"https://downloads.wordpress.org/release/wordpress-5.2-no-content.zip\";s:11:\"new_bundled\";s:69:\"https://downloads.wordpress.org/release/wordpress-5.2-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:3:\"5.2\";s:7:\"version\";s:3:\"5.2\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:4;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.1.1.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.1.1.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.1.1-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.1.1-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.1.1\";s:7:\"version\";s:5:\"5.1.1\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:5;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.0.4.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.0.4.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.0.4-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.0.4-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.0.4\";s:7:\"version\";s:5:\"5.0.4\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}}s:12:\"last_checked\";i:1565876746;s:15:\"version_checked\";s:6:\"4.9.10\";s:12:\"translations\";a:0:{}}', 'no'),
+(128, 'can_compress_scripts', '1', 'no'),
+(129, 'auto_core_update_notified', 'a:4:{s:4:\"type\";s:7:\"success\";s:5:\"email\";s:22:\"caohoang2911@gmail.com\";s:7:\"version\";s:6:\"4.9.10\";s:9:\"timestamp\";i:1561391467;}', 'no'),
+(149, 'recently_activated', 'a:5:{s:69:\"facebook-messenger-customer-chat/facebook-messenger-customer-chat.php\";i:1565707269;s:33:\"echbay-facebook-messenger/efm.php\";i:1565706428;s:31:\"master-slider/master-slider.php\";i:1565705409;s:21:\"woo-viet/woo-viet.php\";i:1565705392;s:23:\"premmerce/premmerce.php\";i:1565510860;}', 'yes'),
+(163, 'current_theme', 'HOANG SHOP', 'yes'),
+(164, 'theme_mods_myTheme', 'a:8:{i:0;b:0;s:18:\"nav_menu_locations\";a:2:{s:8:\"main-nav\";i:2;s:10:\"footer-nav\";i:63;}s:18:\"custom_css_post_id\";i:-1;s:8:\"Facebook\";s:10:\"0989633508\";s:4:\"logo\";s:69:\"http://localhost:8080/outsource/wp-content/uploads/2019/06/images.jpg\";s:5:\"Email\";s:22:\"caohoang2911@gmail.com\";s:5:\"Phone\";s:10:\"0989633508\";s:16:\"sidebars_widgets\";a:2:{s:4:\"time\";i:1563678927;s:4:\"data\";a:1:{s:19:\"wp_inactive_widgets\";a:10:{i:0;s:6:\"text-2\";i:1;s:6:\"text-3\";i:2;s:6:\"text-4\";i:3;s:6:\"text-5\";i:4;s:8:\"search-2\";i:5;s:14:\"recent-posts-2\";i:6;s:17:\"recent-comments-2\";i:7;s:10:\"archives-2\";i:8;s:12:\"categories-2\";i:9;s:6:\"meta-2\";}}}}', 'yes'),
+(165, 'theme_switched', '', 'yes'),
+(169, 'nav_menu_options', 'a:2:{i:0;b:0;s:8:\"auto_add\";a:0:{}}', 'yes'),
+(173, 'woocommerce_store_address', 'Tân Bình', 'yes'),
+(174, 'woocommerce_store_address_2', 'Âu cơ', 'yes'),
+(175, 'woocommerce_store_city', 'Hồ Chí Minh', 'yes'),
+(176, 'woocommerce_default_country', 'VN:01', 'yes'),
+(177, 'woocommerce_store_postcode', '72000', 'yes'),
+(178, 'woocommerce_allowed_countries', 'specific', 'yes'),
+(179, 'woocommerce_all_except_countries', 'a:0:{}', 'yes'),
+(180, 'woocommerce_specific_allowed_countries', 'a:1:{i:0;s:2:\"VN\";}', 'yes'),
+(181, 'woocommerce_ship_to_countries', '', 'yes'),
+(182, 'woocommerce_specific_ship_to_countries', 'a:1:{i:0;s:2:\"VN\";}', 'yes'),
+(183, 'woocommerce_default_customer_address', 'base', 'yes'),
+(184, 'woocommerce_calc_taxes', 'no', 'yes'),
+(185, 'woocommerce_enable_coupons', 'no', 'yes'),
+(186, 'woocommerce_calc_discounts_sequentially', 'no', 'no'),
+(187, 'woocommerce_currency', 'VND', 'yes'),
+(188, 'woocommerce_currency_pos', 'right', 'yes'),
+(189, 'woocommerce_price_thousand_sep', ',', 'yes'),
+(190, 'woocommerce_price_decimal_sep', '.', 'yes'),
+(191, 'woocommerce_price_num_decimals', '0', 'yes'),
+(192, 'woocommerce_shop_page_id', '25', 'yes'),
+(193, 'woocommerce_cart_redirect_after_add', 'no', 'yes'),
+(194, 'woocommerce_enable_ajax_add_to_cart', 'yes', 'yes'),
+(195, 'woocommerce_placeholder_image', '24', 'yes'),
+(196, 'woocommerce_weight_unit', 'kg', 'yes'),
+(197, 'woocommerce_dimension_unit', 'cm', 'yes'),
+(198, 'woocommerce_enable_reviews', 'yes', 'yes'),
+(199, 'woocommerce_review_rating_verification_label', 'yes', 'no'),
+(200, 'woocommerce_review_rating_verification_required', 'no', 'no'),
+(201, 'woocommerce_enable_review_rating', 'yes', 'yes'),
+(202, 'woocommerce_review_rating_required', 'yes', 'no'),
+(203, 'woocommerce_manage_stock', 'yes', 'yes'),
+(204, 'woocommerce_hold_stock_minutes', '60', 'no'),
+(205, 'woocommerce_notify_low_stock', 'yes', 'no'),
+(206, 'woocommerce_notify_no_stock', 'yes', 'no'),
+(207, 'woocommerce_stock_email_recipient', 'caohoang2911@gmail.com', 'no'),
+(208, 'woocommerce_notify_low_stock_amount', '2', 'no'),
+(209, 'woocommerce_notify_no_stock_amount', '0', 'yes'),
+(210, 'woocommerce_hide_out_of_stock_items', 'no', 'yes'),
+(211, 'woocommerce_stock_format', '', 'yes'),
+(212, 'woocommerce_file_download_method', 'force', 'no'),
+(213, 'woocommerce_downloads_require_login', 'no', 'no'),
+(214, 'woocommerce_downloads_grant_access_after_payment', 'yes', 'no'),
+(215, 'woocommerce_prices_include_tax', 'no', 'yes'),
+(216, 'woocommerce_tax_based_on', 'shipping', 'yes'),
+(217, 'woocommerce_shipping_tax_class', 'inherit', 'yes'),
+(218, 'woocommerce_tax_round_at_subtotal', 'no', 'yes'),
+(219, 'woocommerce_tax_classes', 'Reduced rate\r\nZero rate', 'yes'),
+(220, 'woocommerce_tax_display_shop', 'excl', 'yes'),
+(221, 'woocommerce_tax_display_cart', 'excl', 'yes'),
+(222, 'woocommerce_price_display_suffix', '', 'yes'),
+(223, 'woocommerce_tax_total_display', 'itemized', 'no'),
+(224, 'woocommerce_enable_shipping_calc', 'yes', 'no'),
+(225, 'woocommerce_shipping_cost_requires_address', 'no', 'yes'),
+(226, 'woocommerce_ship_to_destination', 'shipping', 'no'),
+(227, 'woocommerce_shipping_debug_mode', 'no', 'yes'),
+(228, 'woocommerce_enable_guest_checkout', 'yes', 'no'),
+(229, 'woocommerce_enable_checkout_login_reminder', 'yes', 'no'),
+(230, 'woocommerce_enable_signup_and_login_from_checkout', 'yes', 'no'),
+(231, 'woocommerce_enable_myaccount_registration', 'yes', 'no'),
+(232, 'woocommerce_registration_generate_username', 'yes', 'no'),
+(233, 'woocommerce_registration_generate_password', 'yes', 'no'),
+(234, 'woocommerce_erasure_request_removes_order_data', 'no', 'no'),
+(235, 'woocommerce_erasure_request_removes_download_data', 'no', 'no'),
+(236, 'woocommerce_allow_bulk_remove_personal_data', 'no', 'no'),
+(237, 'woocommerce_registration_privacy_policy_text', 'Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our [privacy_policy].', 'yes'),
+(238, 'woocommerce_checkout_privacy_policy_text', 'Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our [privacy_policy].', 'yes'),
+(239, 'woocommerce_delete_inactive_accounts', 'a:2:{s:6:\"number\";i:2;s:4:\"unit\";s:6:\"months\";}', 'no'),
+(240, 'woocommerce_trash_pending_orders', 'a:2:{s:6:\"number\";s:0:\"\";s:4:\"unit\";s:4:\"days\";}', 'no'),
+(241, 'woocommerce_trash_failed_orders', 'a:2:{s:6:\"number\";s:0:\"\";s:4:\"unit\";s:4:\"days\";}', 'no'),
+(242, 'woocommerce_trash_cancelled_orders', 'a:2:{s:6:\"number\";s:0:\"\";s:4:\"unit\";s:4:\"days\";}', 'no'),
+(243, 'woocommerce_anonymize_completed_orders', 'a:2:{s:6:\"number\";s:0:\"\";s:4:\"unit\";s:6:\"months\";}', 'no'),
+(244, 'woocommerce_email_from_name', 'My Project', 'no'),
+(245, 'woocommerce_email_from_address', 'caohoang2911@gmail.com', 'no'),
+(246, 'woocommerce_email_header_image', '', 'no'),
+(247, 'woocommerce_email_footer_text', '{site_title}<br/>Built with <a href=\"https://woocommerce.com/\">WooCommerce</a>', 'no'),
+(248, 'woocommerce_email_base_color', '#96588a', 'no'),
+(249, 'woocommerce_email_background_color', '#f7f7f7', 'no'),
+(250, 'woocommerce_email_body_background_color', '#ffffff', 'no'),
+(251, 'woocommerce_email_text_color', '#3c3c3c', 'no'),
+(252, 'woocommerce_cart_page_id', '26', 'yes'),
+(253, 'woocommerce_checkout_page_id', '27', 'yes'),
+(254, 'woocommerce_myaccount_page_id', '28', 'yes'),
+(255, 'woocommerce_terms_page_id', '141', 'no'),
+(256, 'woocommerce_force_ssl_checkout', 'no', 'yes'),
+(257, 'woocommerce_unforce_ssl_checkout', 'no', 'yes'),
+(258, 'woocommerce_checkout_pay_endpoint', 'order-pay', 'yes'),
+(259, 'woocommerce_checkout_order_received_endpoint', 'order-received', 'yes'),
+(260, 'woocommerce_myaccount_add_payment_method_endpoint', 'add-payment-method', 'yes'),
+(261, 'woocommerce_myaccount_delete_payment_method_endpoint', 'delete-payment-method', 'yes'),
+(262, 'woocommerce_myaccount_set_default_payment_method_endpoint', 'set-default-payment-method', 'yes'),
+(263, 'woocommerce_myaccount_orders_endpoint', 'orders', 'yes'),
+(264, 'woocommerce_myaccount_view_order_endpoint', 'view-order', 'yes'),
+(265, 'woocommerce_myaccount_downloads_endpoint', 'downloads', 'yes'),
+(266, 'woocommerce_myaccount_edit_account_endpoint', 'edit-account', 'yes'),
+(267, 'woocommerce_myaccount_edit_address_endpoint', 'edit-address', 'yes'),
+(268, 'woocommerce_myaccount_payment_methods_endpoint', 'payment-methods', 'yes'),
+(269, 'woocommerce_myaccount_lost_password_endpoint', 'lost-password', 'yes'),
+(270, 'woocommerce_logout_endpoint', 'customer-logout', 'yes'),
+(271, 'woocommerce_api_enabled', 'no', 'yes'),
+(272, 'woocommerce_allow_tracking', 'no', 'no'),
+(273, 'woocommerce_show_marketplace_suggestions', 'no', 'no'),
+(274, 'woocommerce_single_image_width', '600', 'yes'),
+(275, 'woocommerce_thumbnail_image_width', '300', 'yes'),
+(276, 'woocommerce_checkout_highlight_required_fields', 'yes', 'yes'),
+(277, 'woocommerce_demo_store', 'no', 'no'),
+(278, 'woocommerce_permalinks', 'a:5:{s:12:\"product_base\";s:7:\"product\";s:13:\"category_base\";s:16:\"product-category\";s:8:\"tag_base\";s:11:\"product-tag\";s:14:\"attribute_base\";s:0:\"\";s:22:\"use_verbose_page_rules\";b:0;}', 'yes'),
+(279, 'current_theme_supports_woocommerce', 'yes', 'yes'),
+(280, 'woocommerce_queue_flush_rewrite_rules', 'no', 'yes'),
+(283, 'default_product_cat', '66', 'yes'),
+(289, 'woocommerce_admin_notices', 'a:1:{i:0;s:20:\"no_secure_connection\";}', 'yes'),
+(290, '_transient_woocommerce_webhook_ids_status_active', 'a:0:{}', 'yes'),
+(291, 'widget_woocommerce_widget_cart', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(292, 'widget_woocommerce_layered_nav_filters', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(293, 'widget_woocommerce_layered_nav', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(294, 'widget_woocommerce_price_filter', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(295, 'widget_woocommerce_product_categories', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(296, 'widget_woocommerce_product_search', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(297, 'widget_woocommerce_product_tag_cloud', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(298, 'widget_woocommerce_products', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(299, 'widget_woocommerce_recently_viewed_products', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(300, 'widget_woocommerce_top_rated_products', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(301, 'widget_woocommerce_recent_reviews', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(302, 'widget_woocommerce_rating_filter', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(306, 'woocommerce_meta_box_errors', 'a:0:{}', 'yes'),
+(308, 'woocommerce_obw_last_completed_step', 'shipping', 'yes'),
+(311, 'woocommerce_product_type', 'both', 'yes'),
+(312, 'woocommerce_cheque_settings', 'a:4:{s:7:\"enabled\";s:3:\"yes\";s:5:\"title\";s:32:\"Chuyển khoản qua ngân hàng\";s:11:\"description\";s:324:\"Thông tin chuyển khoản: 1\r\n- Ngân hàng Vietcombank - Chi nhánh Bến Thành\r\n- Tên tài khoản: Hồng Hải Toàn\r\n- Số tài khoản: ‎0331000462086\r\n\r\nThông tin chuyển khoản :2 \r\n- Ngân hàng TMCP Á Châu - Chi Nhánh Sài Gòn.\r\n- Tên Tài khoản: Hồng Hải Toàn\r\n- Số tài khoản: 183858519\";s:12:\"instructions\";s:0:\"\";}', 'yes'),
+(313, 'woocommerce_bacs_settings', 'a:11:{s:7:\"enabled\";s:2:\"no\";s:5:\"title\";s:20:\"Direct bank transfer\";s:11:\"description\";s:324:\"Thông tin chuyển khoản: 1\r\n- Ngân hàng Vietcombank - Chi nhánh Bến Thành\r\n- Tên tài khoản: Hồng Hải Toàn\r\n- Số tài khoản: ‎0331000462086\r\n\r\nThông tin chuyển khoản :2 \r\n- Ngân hàng TMCP Á Châu - Chi Nhánh Sài Gòn.\r\n- Tên Tài khoản: Hồng Hải Toàn\r\n- Số tài khoản: 183858519\";s:12:\"instructions\";s:0:\"\";s:12:\"account_name\";s:0:\"\";s:14:\"account_number\";s:0:\"\";s:9:\"sort_code\";s:0:\"\";s:9:\"bank_name\";s:0:\"\";s:4:\"iban\";s:0:\"\";s:3:\"bic\";s:0:\"\";s:15:\"account_details\";s:0:\"\";}', 'yes'),
+(314, 'woocommerce_cod_settings', 'a:6:{s:7:\"enabled\";s:3:\"yes\";s:5:\"title\";s:32:\"Thanh toán khi giao hàng (COD)\";s:11:\"description\";s:0:\"\";s:12:\"instructions\";s:0:\"\";s:18:\"enable_for_methods\";s:0:\"\";s:18:\"enable_for_virtual\";s:3:\"yes\";}', 'yes'),
+(316, '_transient_shipping-transient-version', '1565715518', 'yes'),
+(317, '_transient_product_query-transient-version', '1565799104', 'yes');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(336, 'woocommerce_marketplace_suggestions', 'a:2:{s:11:\"suggestions\";a:26:{i:0;a:4:{s:4:\"slug\";s:28:\"product-edit-meta-tab-header\";s:7:\"context\";s:28:\"product-edit-meta-tab-header\";s:5:\"title\";s:22:\"Recommended extensions\";s:13:\"allow-dismiss\";b:0;}i:1;a:6:{s:4:\"slug\";s:39:\"product-edit-meta-tab-footer-browse-all\";s:7:\"context\";s:28:\"product-edit-meta-tab-footer\";s:9:\"link-text\";s:21:\"Browse all extensions\";s:3:\"url\";s:64:\"https://woocommerce.com/product-category/woocommerce-extensions/\";s:8:\"promoted\";s:31:\"category-woocommerce-extensions\";s:13:\"allow-dismiss\";b:0;}i:2;a:9:{s:4:\"slug\";s:46:\"product-edit-mailchimp-woocommerce-memberships\";s:7:\"product\";s:33:\"woocommerce-memberships-mailchimp\";s:14:\"show-if-active\";a:1:{i:0;s:23:\"woocommerce-memberships\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:117:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/mailchimp-for-memberships.svg\";s:5:\"title\";s:25:\"Mailchimp for Memberships\";s:4:\"copy\";s:79:\"Completely automate your email lists by syncing membership changes to Mailchimp\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:67:\"https://woocommerce.com/products/mailchimp-woocommerce-memberships/\";}i:3;a:9:{s:4:\"slug\";s:19:\"product-edit-addons\";s:7:\"product\";s:26:\"woocommerce-product-addons\";s:14:\"show-if-active\";a:2:{i:0;s:25:\"woocommerce-subscriptions\";i:1;s:20:\"woocommerce-bookings\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/product-add-ons.svg\";s:5:\"title\";s:15:\"Product Add-Ons\";s:4:\"copy\";s:93:\"Offer add-ons like gift wrapping, special messages or other special options for your products\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/product-add-ons/\";}i:4;a:9:{s:4:\"slug\";s:46:\"product-edit-woocommerce-subscriptions-gifting\";s:7:\"product\";s:33:\"woocommerce-subscriptions-gifting\";s:14:\"show-if-active\";a:1:{i:0;s:25:\"woocommerce-subscriptions\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:117:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/gifting-for-subscriptions.svg\";s:5:\"title\";s:25:\"Gifting for Subscriptions\";s:4:\"copy\";s:70:\"Let customers buy subscriptions for others - they\'re the ultimate gift\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:67:\"https://woocommerce.com/products/woocommerce-subscriptions-gifting/\";}i:5;a:9:{s:4:\"slug\";s:42:\"product-edit-teams-woocommerce-memberships\";s:7:\"product\";s:33:\"woocommerce-memberships-for-teams\";s:14:\"show-if-active\";a:1:{i:0;s:23:\"woocommerce-memberships\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:113:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/teams-for-memberships.svg\";s:5:\"title\";s:21:\"Teams for Memberships\";s:4:\"copy\";s:123:\"Adds B2B functionality to WooCommerce Memberships, allowing sites to sell team, group, corporate, or family member accounts\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:63:\"https://woocommerce.com/products/teams-woocommerce-memberships/\";}i:6;a:8:{s:4:\"slug\";s:29:\"product-edit-variation-images\";s:7:\"product\";s:39:\"woocommerce-additional-variation-images\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:119:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/additional-variation-images.svg\";s:5:\"title\";s:27:\"Additional Variation Images\";s:4:\"copy\";s:72:\"Showcase your products in the best light with a image for each variation\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:73:\"https://woocommerce.com/products/woocommerce-additional-variation-images/\";}i:7;a:9:{s:4:\"slug\";s:47:\"product-edit-woocommerce-subscription-downloads\";s:7:\"product\";s:34:\"woocommerce-subscription-downloads\";s:14:\"show-if-active\";a:1:{i:0;s:25:\"woocommerce-subscriptions\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:114:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/subscription-downloads.svg\";s:5:\"title\";s:22:\"Subscription Downloads\";s:4:\"copy\";s:57:\"Give customers special downloads with their subscriptions\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:68:\"https://woocommerce.com/products/woocommerce-subscription-downloads/\";}i:8;a:8:{s:4:\"slug\";s:31:\"product-edit-min-max-quantities\";s:7:\"product\";s:30:\"woocommerce-min-max-quantities\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:110:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/min-max-quantities.svg\";s:5:\"title\";s:18:\"Min/Max Quantities\";s:4:\"copy\";s:81:\"Specify minimum and maximum allowed product quantities for orders to be completed\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:52:\"https://woocommerce.com/products/min-max-quantities/\";}i:9;a:8:{s:4:\"slug\";s:28:\"product-edit-name-your-price\";s:7:\"product\";s:27:\"woocommerce-name-your-price\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/name-your-price.svg\";s:5:\"title\";s:15:\"Name Your Price\";s:4:\"copy\";s:70:\"Let customers pay what they want - useful for donations, tips and more\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/name-your-price/\";}i:10;a:8:{s:4:\"slug\";s:42:\"product-edit-woocommerce-one-page-checkout\";s:7:\"product\";s:29:\"woocommerce-one-page-checkout\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:109:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/one-page-checkout.svg\";s:5:\"title\";s:17:\"One Page Checkout\";s:4:\"copy\";s:92:\"Don\'t make customers click around - let them choose products, checkout & pay all on one page\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:63:\"https://woocommerce.com/products/woocommerce-one-page-checkout/\";}i:11;a:4:{s:4:\"slug\";s:19:\"orders-empty-header\";s:7:\"context\";s:24:\"orders-list-empty-header\";s:5:\"title\";s:20:\"Tools for your store\";s:13:\"allow-dismiss\";b:0;}i:12;a:6:{s:4:\"slug\";s:30:\"orders-empty-footer-browse-all\";s:7:\"context\";s:24:\"orders-list-empty-footer\";s:9:\"link-text\";s:21:\"Browse all extensions\";s:3:\"url\";s:64:\"https://woocommerce.com/product-category/woocommerce-extensions/\";s:8:\"promoted\";s:31:\"category-woocommerce-extensions\";s:13:\"allow-dismiss\";b:0;}i:13;a:8:{s:4:\"slug\";s:19:\"orders-empty-zapier\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:18:\"woocommerce-zapier\";s:4:\"icon\";s:98:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/zapier.svg\";s:5:\"title\";s:6:\"Zapier\";s:4:\"copy\";s:88:\"Save time and increase productivity by connecting your store to more than 1000+ services\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:52:\"https://woocommerce.com/products/woocommerce-zapier/\";}i:14;a:8:{s:4:\"slug\";s:30:\"orders-empty-shipment-tracking\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:29:\"woocommerce-shipment-tracking\";s:4:\"icon\";s:109:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/shipment-tracking.svg\";s:5:\"title\";s:17:\"Shipment Tracking\";s:4:\"copy\";s:86:\"Let customers know when their orders will arrive by adding shipment tracking to emails\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:51:\"https://woocommerce.com/products/shipment-tracking/\";}i:15;a:8:{s:4:\"slug\";s:32:\"orders-empty-table-rate-shipping\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:31:\"woocommerce-table-rate-shipping\";s:4:\"icon\";s:111:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/table-rate-shipping.svg\";s:5:\"title\";s:19:\"Table Rate Shipping\";s:4:\"copy\";s:122:\"Advanced, flexible shipping. Define multiple shipping rates based on location, price, weight, shipping class or item count\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:53:\"https://woocommerce.com/products/table-rate-shipping/\";}i:16;a:8:{s:4:\"slug\";s:40:\"orders-empty-shipping-carrier-extensions\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:4:\"icon\";s:119:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/shipping-carrier-extensions.svg\";s:5:\"title\";s:27:\"Shipping Carrier Extensions\";s:4:\"copy\";s:116:\"Show live rates from FedEx, UPS, USPS and more directly on your store - never under or overcharge for shipping again\";s:11:\"button-text\";s:13:\"Find Carriers\";s:8:\"promoted\";s:26:\"category-shipping-carriers\";s:3:\"url\";s:99:\"https://woocommerce.com/product-category/woocommerce-extensions/shipping-methods/shipping-carriers/\";}i:17;a:8:{s:4:\"slug\";s:32:\"orders-empty-google-product-feed\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:25:\"woocommerce-product-feeds\";s:4:\"icon\";s:111:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/google-product-feed.svg\";s:5:\"title\";s:19:\"Google Product Feed\";s:4:\"copy\";s:76:\"Increase sales by letting customers find you when they\'re shopping on Google\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:53:\"https://woocommerce.com/products/google-product-feed/\";}i:18;a:4:{s:4:\"slug\";s:35:\"products-empty-header-product-types\";s:7:\"context\";s:26:\"products-list-empty-header\";s:5:\"title\";s:23:\"Other types of products\";s:13:\"allow-dismiss\";b:0;}i:19;a:6:{s:4:\"slug\";s:32:\"products-empty-footer-browse-all\";s:7:\"context\";s:26:\"products-list-empty-footer\";s:9:\"link-text\";s:21:\"Browse all extensions\";s:3:\"url\";s:64:\"https://woocommerce.com/product-category/woocommerce-extensions/\";s:8:\"promoted\";s:31:\"category-woocommerce-extensions\";s:13:\"allow-dismiss\";b:0;}i:20;a:8:{s:4:\"slug\";s:30:\"products-empty-product-vendors\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:27:\"woocommerce-product-vendors\";s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/product-vendors.svg\";s:5:\"title\";s:15:\"Product Vendors\";s:4:\"copy\";s:47:\"Turn your store into a multi-vendor marketplace\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/product-vendors/\";}i:21;a:8:{s:4:\"slug\";s:26:\"products-empty-memberships\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:23:\"woocommerce-memberships\";s:4:\"icon\";s:103:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/memberships.svg\";s:5:\"title\";s:11:\"Memberships\";s:4:\"copy\";s:76:\"Give members access to restricted content or products, for a fee or for free\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:57:\"https://woocommerce.com/products/woocommerce-memberships/\";}i:22;a:9:{s:4:\"slug\";s:35:\"products-empty-woocommerce-deposits\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:20:\"woocommerce-deposits\";s:14:\"show-if-active\";a:1:{i:0;s:20:\"woocommerce-bookings\";}s:4:\"icon\";s:100:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/deposits.svg\";s:5:\"title\";s:8:\"Deposits\";s:4:\"copy\";s:75:\"Make it easier for customers to pay by offering a deposit or a payment plan\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:54:\"https://woocommerce.com/products/woocommerce-deposits/\";}i:23;a:8:{s:4:\"slug\";s:40:\"products-empty-woocommerce-subscriptions\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:25:\"woocommerce-subscriptions\";s:4:\"icon\";s:105:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/subscriptions.svg\";s:5:\"title\";s:13:\"Subscriptions\";s:4:\"copy\";s:97:\"Let customers subscribe to your products or services and pay on a weekly, monthly or annual basis\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:59:\"https://woocommerce.com/products/woocommerce-subscriptions/\";}i:24;a:8:{s:4:\"slug\";s:35:\"products-empty-woocommerce-bookings\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:20:\"woocommerce-bookings\";s:4:\"icon\";s:100:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/bookings.svg\";s:5:\"title\";s:8:\"Bookings\";s:4:\"copy\";s:99:\"Allow customers to book appointments, make reservations or rent equipment without leaving your site\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:54:\"https://woocommerce.com/products/woocommerce-bookings/\";}i:25;a:8:{s:4:\"slug\";s:30:\"products-empty-product-bundles\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:27:\"woocommerce-product-bundles\";s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/product-bundles.svg\";s:5:\"title\";s:15:\"Product Bundles\";s:4:\"copy\";s:49:\"Offer customizable bundles and assembled products\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/product-bundles/\";}}s:7:\"updated\";i:1565269354;}', 'no'),
+(342, 'category_children', 'a:0:{}', 'yes'),
+(344, 'pa_color_children', 'a:0:{}', 'yes'),
+(347, '_transient_product-transient-version', '1565799104', 'yes'),
+(400, 'woocommerce_tracker_ua', 'a:4:{i:0;s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36\";i:1;s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36\";i:2;s:135:\"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/80.0.180 Chrome/74.0.3729.180 Safari/537.36\";i:3;s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";}', 'yes'),
+(424, '_transient_timeout_wc_shipping_method_count_legacy', '1568307557', 'no'),
+(425, '_transient_wc_shipping_method_count_legacy', 'a:2:{s:7:\"version\";s:10:\"1565715518\";s:5:\"value\";i:2;}', 'no'),
+(631, 'woocommerce_tracker_last_send', '1565269253', 'yes'),
+(700, 'masterslider_db_version', '1.03', 'yes'),
+(701, 'masterslider_capabilities_added', '1', 'yes'),
+(702, 'master-slider_ab_pro_feature_panel_content_type', '2', 'yes'),
+(703, 'master-slider_ab_pro_feature_setting_content_type', '2', 'yes'),
+(704, 'widget_master-slider-main-widget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(707, 'msp_general_setting', '', 'yes'),
+(708, 'msp_advanced', '', 'yes'),
+(709, 'upgrade_to_pro', '', 'yes'),
+(710, 'masterslider_lite_plugin_version', '3.5.3', 'yes'),
+(1153, 'widget_metaslider_widget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(1154, 'ms_hide_all_ads_until', '1562947564', 'yes'),
+(1156, 'metaslider_systemcheck', 'a:2:{s:16:\"wordPressVersion\";b:0;s:12:\"imageLibrary\";b:0;}', 'no'),
+(1157, 'ml-slider_children', 'a:0:{}', 'yes'),
+(1158, 'metaslider_tour_cancelled_on', 'step_edit_settings', 'yes'),
+(1178, 'yit_recently_activated', 'a:1:{i:0;s:42:\"yith-woocommerce-checkout-manager/init.php\";}', 'yes'),
+(1179, 'yith_wcmg_slider_direction', 'left', 'yes'),
+(1180, 'yith_wcas_general_videobox', 'a:7:{s:11:\"plugin_name\";s:31:\"YITH WooCommerce Zoom Magnifier\";s:18:\"title_first_column\";s:30:\"Discover The Advanced Features\";s:24:\"description_first_column\";s:95:\"Upgrade to the PREMIUM VERSION of YITH WOOCOMMERCE ZOOM MAGNIFIER to benefit from all features!\";s:5:\"video\";a:3:{s:8:\"video_id\";s:9:\"122436840\";s:15:\"video_image_url\";s:138:\"http://localhost:8080/outsource/wp-content/plugins/yith-woocommerce-zoom-magnifier/assets/images/yith-woocommerce-zoom-magnifier-video.jpg\";s:17:\"video_description\";s:79:\"See YITH WooCommerce Zoom Magnifier plugin with full premium features in action\";}s:19:\"title_second_column\";s:28:\"Get Support and Pro Features\";s:25:\"description_second_column\";s:206:\"By purchasing the premium version of the plugin, you will take advantage of the advanced features of the product, and you will get one year of free updates and support through our platform available 24h/24.\";s:6:\"button\";a:2:{s:4:\"href\";s:67:\"http://yithemes.com/themes/plugins/yith-woocommerce-zoom-magnifier/\";s:5:\"title\";s:28:\"Get Support and Pro Features\";}}', 'yes'),
+(1181, 'yith_wcmg_enable_plugin', 'yes', 'yes'),
+(1182, 'yith_wcmg_enable_mobile', 'yes', 'yes'),
+(1183, 'yith_wcmg_force_sizes', 'yes', 'yes'),
+(1184, 'yith_wcmg_zoom_width', 'auto', 'yes'),
+(1185, 'yith_wcmg_zoom_height', 'auto', 'yes'),
+(1186, 'woocommerce_magnifier_image', 'a:3:{s:5:\"width\";i:600;s:6:\"height\";i:600;s:4:\"crop\";b:1;}', 'yes'),
+(1187, 'yith_wcmg_zoom_position', 'right', 'yes'),
+(1188, 'yith_wcmg_zoom_mobile_position', 'inside', 'yes'),
+(1189, 'yith_wcmg_loading_label', 'Loading...', 'yes'),
+(1190, 'yith_wcmg_lens_opacity', '0.5', 'yes'),
+(1191, 'yith_wcmg_softfocus', 'no', 'yes'),
+(1192, 'yith_wcmg_enableslider', 'yes', 'yes'),
+(1193, 'yith_wcmg_slider_responsive', 'yes', 'yes'),
+(1194, 'yith_wcmg_slider_items', '3', 'yes'),
+(1195, 'yith_wcmg_slider_circular', 'yes', 'yes'),
+(1196, 'yith_wcmg_slider_infinite', 'yes', 'yes'),
+(1197, 'yit_plugin_fw_panel_wc_default_options_set', 'a:3:{s:37:\"yith_woocommerce_zoom-magnifier_panel\";b:1;s:15:\"yith_wcms_panel\";b:1;s:11:\"ywccp_panel\";b:1;}', 'yes'),
+(1198, '_site_transient_timeout_yith_promo_message', '3137675342', 'no'),
+(1199, '_site_transient_yith_promo_message', '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!-- Default border color: #acc327 -->\n<!-- Default background color: #ecf7ed -->\n\n<promotions>\n    <expiry_date>2019-12-10</expiry_date>\n    <promo>\n        <promo_id>yithhalloween2019</promo_id>\n        <banner>halloween.jpg</banner>\n        <title><![CDATA[<strong>YITH Halloween</strong>]]></title>\n        <description><![CDATA[\n            Don\'t miss our <strong>30% discount</strong> on all our products! No coupon needed in cart. Valid only on <strong>31st October</strong>.\n        ]]></description>\n        <link>\n            <label>Get your deals now!</label>\n            <url><![CDATA[https://yithemes.com]]></url>\n        </link>\n        <style>\n            <image_bg_color>#005c7d</image_bg_color>\n            <border_color>#ea5105</border_color>\n            <background_color>#ffffff</background_color>\n        </style>\n        <start_date>2019-10-30 16:00:00</start_date>\n        <end_date>2019-11-01 08:00:00</end_date>\n    </promo>\n    <promo>\n        <promo_id>yithcybermonday2019</promo_id>\n        <banner>cyber.jpg</banner>\n        <title><![CDATA[<strong>YITH Cyber Monday</strong>]]></title>\n        <description><![CDATA[\n            Don\'t miss our <strong>30% discount</strong> on all our products! No coupon needed in cart. Valid from <strong>28th November</strong> to <strong>30th November</strong>.\n        ]]></description>\n        <link>\n            <label>Get your deals now!</label>\n            <url><![CDATA[https://yithemes.com]]></url>\n        </link>\n        <style>\n            <image_bg_color>#12fdd4</image_bg_color>\n            <border_color>#181d7b</border_color>\n            <background_color>#ffffff</background_color>\n        </style>\n        <start_date>2019-12-01 00:00:00</start_date>\n        <end_date>2019-12-03 08:00:00</end_date>\n    </promo>\n    <promo>\n        <promo_id>yithblackfriday2019</promo_id>\n        <banner>black.jpg</banner>\n        <title><![CDATA[<strong>YITH Black Friday</strong>]]></title>\n        <description><![CDATA[\n            Don\'t miss our <strong>30% discount</strong> on all our products! No coupon needed in cart. Valid from <strong>1st December</strong> to <strong>2nd December</strong>.\n        ]]></description>\n        <link>\n            <label>Get your deals now!</label>\n            <url><![CDATA[https://yithemes.com]]></url>\n        </link>\n        <style>\n            <image_bg_color>#272121</image_bg_color>\n            <border_color>#272121</border_color>\n            <background_color>#ffffff</background_color>\n        </style>\n        <start_date>2019-11-27 23:59:59</start_date>\n        <end_date>2019-11-30 23:59:59</end_date>\n    </promo>\n</promotions>', 'no'),
+(1288, 'woocommerce_thumbnail_cropping', '1:1', 'yes'),
+(1289, 'woocommerce_thumbnail_cropping_custom_width', '4', 'yes'),
+(1290, 'woocommerce_thumbnail_cropping_custom_height', '5', 'yes'),
+(1291, 'woocommerce_maybe_regenerate_images_hash', '991b1ca641921cf0f5baf7a2fe85861b', 'yes'),
+(1519, 'woocommerce_shop_page_display', '', 'yes'),
+(1520, 'woocommerce_category_archive_display', '', 'yes'),
+(1521, 'woocommerce_catalog_columns', '5', 'yes'),
+(1609, 'br_filters_version', '1.3.2.7', 'yes'),
+(1610, 'widget_berocket_aapf_widget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(1611, 'widget_berocket_aapf_group', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(1612, 'widget_berocket_aapf_single', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(1614, 'BeRocket_Framework_plugins_version_check', 'a:1:{s:12:\"ajax_filters\";s:7:\"1.3.2.7\";}', 'yes'),
+(1615, 'berocket_admin_notices', 'a:1:{i:20;a:1:{i:0;a:1:{i:0;a:1:{s:9:\"subscribe\";a:15:{s:5:\"start\";i:0;s:3:\"end\";i:0;s:4:\"name\";s:9:\"subscribe\";s:4:\"html\";s:136:\"Subscribe to get latest BeRocket news and updates, plugin recommendations and configuration help, promotional email with discount codes.\";s:9:\"righthtml\";s:43:\"<a class=\"berocket_no_thanks\">No thanks</a>\";s:10:\"rightwidth\";i:80;s:13:\"nothankswidth\";i:60;s:12:\"contentwidth\";i:400;s:9:\"subscribe\";b:1;s:6:\"closed\";s:1:\"0\";s:8:\"priority\";i:20;s:6:\"height\";i:50;s:6:\"repeat\";b:0;s:11:\"repeatcount\";i:1;s:5:\"image\";a:4:{s:5:\"local\";s:133:\"http://localhost:8080/outsource/wp-content/plugins/woocommerce-ajax-filters/berocket/includes/../assets/images/ad_white_on_orange.png\";s:5:\"width\";i:239;s:6:\"height\";i:118;s:5:\"scale\";d:0.423728813559322;}}}}}}', 'yes'),
+(1618, 'berocket_current_displayed_notice', '', 'yes'),
+(1619, 'berocket_admin_notices_rate_stars', 'a:1:{i:1;a:2:{s:4:\"time\";i:0;s:5:\"count\";i:0;}}', 'yes'),
+(1621, 'berocket_framework_option_global', 'a:2:{s:28:\"fontawesome_frontend_disable\";s:0:\"\";s:28:\"fontawesome_frontend_version\";s:0:\"\";}', 'yes'),
+(1638, 'berocket_key_activated_plugins', 'a:1:{i:1;b:0;}', 'yes'),
+(1734, 'berocket_email_subscribed', '1', 'yes'),
+(1877, 'br_get_taxonomy_hierarchy_product_cat', 'a:4:{s:5:\"terms\";a:3:{i:16;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:16;s:4:\"name\";s:13:\"Uncategorized\";s:4:\"slug\";s:13:\"uncategorized\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:16;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:0;s:5:\"count\";i:0;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}i:33;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:33;s:4:\"name\";s:10:\"Collection\";s:4:\"slug\";s:10:\"collection\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:33;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:10:\"Collection\";s:6:\"parent\";i:0;s:5:\"count\";i:0;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:6:{i:26;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:26;s:4:\"name\";s:11:\"Accessories\";s:4:\"slug\";s:11:\"accessories\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:26;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:33;s:5:\"count\";i:8;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}i:29;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:29;s:4:\"name\";s:8:\"Clothing\";s:4:\"slug\";s:8:\"clothing\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:29;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:33;s:5:\"count\";i:1;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}i:30;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:30;s:4:\"name\";s:5:\"Decor\";s:4:\"slug\";s:5:\"decor\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:30;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:33;s:5:\"count\";i:1;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}i:24;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:24;s:4:\"name\";s:7:\"Hoodies\";s:4:\"slug\";s:7:\"hoodies\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:24;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:33;s:5:\"count\";i:5;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}i:28;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:28;s:4:\"name\";s:5:\"Music\";s:4:\"slug\";s:5:\"music\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:28;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:33;s:5:\"count\";i:2;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}i:23;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:23;s:4:\"name\";s:7:\"Tshirts\";s:4:\"slug\";s:7:\"tshirts\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:23;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:33;s:5:\"count\";i:5;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}}s:10:\"child_list\";a:6:{i:26;a:1:{i:0;i:26;}i:29;a:1:{i:0;i:29;}i:30;a:1:{i:0;i:30;}i:24;a:1:{i:0;i:24;}i:28;a:1:{i:0;i:28;}i:23;a:1:{i:0;i:23;}}}i:34;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:34;s:4:\"name\";s:9:\"Trademark\";s:4:\"slug\";s:9:\"trademark\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:34;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:34:\"Thương hiệu của sản phẩm\";s:6:\"parent\";i:0;s:5:\"count\";i:0;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:2:{i:35;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:35;s:4:\"name\";s:6:\"Remark\";s:4:\"slug\";s:6:\"remark\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:35;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:34;s:5:\"count\";i:0;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}i:36;O:7:\"WP_Term\":12:{s:7:\"term_id\";i:36;s:4:\"name\";s:5:\"Romex\";s:4:\"slug\";s:5:\"romex\";s:10:\"term_group\";i:0;s:16:\"term_taxonomy_id\";i:36;s:8:\"taxonomy\";s:11:\"product_cat\";s:11:\"description\";s:0:\"\";s:6:\"parent\";i:34;s:5:\"count\";i:0;s:6:\"filter\";s:3:\"raw\";s:5:\"child\";a:0:{}s:10:\"child_list\";a:0:{}}}s:10:\"child_list\";a:2:{i:35;a:1:{i:0;i:35;}i:36;a:1:{i:0;i:36;}}}}s:9:\"hierarchy\";a:11:{i:16;a:1:{i:0;i:16;}i:33;a:1:{i:0;i:33;}i:26;a:2:{i:0;i:33;i:1;i:26;}i:29;a:2:{i:0;i:33;i:1;i:29;}i:30;a:2:{i:0;i:33;i:1;i:30;}i:24;a:2:{i:0;i:33;i:1;i:24;}i:28;a:2:{i:0;i:33;i:1;i:28;}i:23;a:2:{i:0;i:33;i:1;i:23;}i:34;a:1:{i:0;i:34;}i:35;a:2:{i:0;i:34;i:1;i:35;}i:36;a:2:{i:0;i:34;i:1;i:36;}}s:3:\"md5\";s:32:\"a4b2b985f80fd5edb1f9e277994556c2\";s:4:\"time\";i:1563709742;}', 'yes'),
+(3554, '_transient_timeout_wc_shipping_method_count', '1568307520', 'no'),
+(3555, '_transient_wc_shipping_method_count', 'a:2:{s:7:\"version\";s:10:\"1565715518\";s:5:\"value\";i:2;}', 'no'),
+(3563, 'woocommerce_gateway_order', 'a:4:{s:4:\"bacs\";i:0;s:6:\"cheque\";i:1;s:3:\"cod\";i:2;s:6:\"paypal\";i:3;}', 'yes'),
+(3565, '_transient_orders-transient-version', '1565718682', 'yes'),
+(3758, 'wpforms_version', '1.5.3.1', 'yes'),
+(3759, 'wpforms_activated', 'a:1:{s:4:\"lite\";i:1563027221;}', 'yes'),
+(3762, 'widget_wpforms-widget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(3763, '_amn_wpforms-lite_to_check', '1563414264', 'yes'),
+(3764, 'wpforms_review', 'a:2:{s:4:\"time\";i:1563027224;s:9:\"dismissed\";b:0;}', 'yes'),
+(3792, 'user_registration_general_setting_login_options', 'default', 'yes'),
+(3793, 'user_registration_general_setting_disabled_user_roles', 'a:1:{i:0;s:8:\"customer\";}', 'yes'),
+(3794, 'user_registration_general_setting_uninstall_option', 'no', 'yes'),
+(3795, 'user_registration_myaccount_page_id', '136', 'yes'),
+(3796, 'user_registration_my_account_layout', 'horizontal', 'yes'),
+(3797, 'user_registration_myaccount_edit_profile_endpoint', 'edit-profile', 'yes'),
+(3798, 'user_registration_myaccount_change_password_endpoint', 'edit-password', 'yes'),
+(3799, 'user_registration_myaccount_lost_password_endpoint', 'lost-password', 'yes'),
+(3800, 'user_registration_logout_endpoint', 'user-logout', 'yes'),
+(3801, 'user_registration_integration_setting_recaptcha_version', 'v2', 'yes'),
+(3802, 'user_registration_integration_setting_recaptcha_site_key', '', 'yes'),
+(3803, 'user_registration_integration_setting_recaptcha_site_secret', '', 'yes'),
+(3804, 'user_registration_integration_setting_recaptcha_site_key_v3', '', 'yes'),
+(3805, 'user_registration_integration_setting_recaptcha_site_secret_v3', '', 'yes'),
+(3806, 'user_registration_email_setting_disable_email', 'no', 'no'),
+(3807, 'user_registration_email_from_name', 'My Project', 'no'),
+(3808, 'user_registration_email_from_address', 'caohoang2911@gmail.com', 'no'),
+(3809, 'user_registration_default_form_page_id', '135', 'yes'),
+(3812, 'user_registration_version', '1.6.2', 'yes'),
+(3813, 'user_registration_db_version', '1.6.2', 'yes'),
+(3815, 'user_registration_admin_notices', 'a:0:{}', 'yes'),
+(3841, 'user_registration_registration_page_id', '136', 'yes'),
+(3845, 'WPLANG', '', 'yes'),
+(3846, 'new_admin_email', 'caohoang2911@gmail.com', 'yes'),
+(3954, 'widget_widget_wpmemwidget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(4034, 'lwa_version', '3.1.8.1', 'yes'),
+(4035, 'widget_loginwithajaxwidget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(4037, 'lwa_data', '', 'yes'),
+(4408, 'redux_version_upgraded_from', '3.6.15', 'yes'),
+(4421, 'r_notice_data', '{\"type\":\"redux-message\",\"title\":\"<strong>Redux v4 Beta:  We Need Your Help!<\\/strong><br\\/>\\r\\n\\r\\n\",\"message\":\"The long in-development Redux v4 Beta is nearing completion and we could really use your help!  To learn how to do so, please read our latest blog post: <a href=\\\"https:\\/\\/reduxframework.com\\/2018\\/11\\/redux-4-0-we-need-your-help\\/\\\">Redux 4.0 - We Need Your Help!<\\/a>\",\"color\":\"rgba(0,162,227,1)\"}\n', 'yes'),
+(4422, 'redux_blast', '1563290286', 'yes'),
+(4429, 'redux_demo-transients', 'a:2:{s:14:\"changed_values\";a:0:{}s:9:\"last_save\";i:1565790945;}', 'yes'),
+(4434, 'redux_demo', 'a:11:{s:8:\"last_tab\";s:1:\"1\";s:13:\"product-title\";s:8:\"Category\";s:11:\"product-hot\";a:5:{i:0;s:2:\"26\";i:1;s:2:\"29\";i:2;s:2:\"30\";i:3;s:2:\"24\";i:4;s:2:\"42\";}s:12:\"banner-title\";s:26:\"Glassing Spring Collection\";s:18:\"banner-description\";s:165:\"As the days get warmer, pick out some easy-going pieces that you can mix and match: from chino shorts to casual shirts that will work well with everything.\r\n\r\n&nbsp;\";s:15:\"banner-category\";s:2:\"26\";s:13:\"contact-title\";s:14:\"Contact for Us\";s:11:\"home-slides\";a:6:{i:0;a:8:{s:5:\"title\";s:7:\"Essilor\";s:3:\"url\";s:8:\"http://#\";s:4:\"sort\";s:1:\"0\";s:13:\"attachment_id\";s:3:\"189\";s:5:\"thumb\";s:75:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img1-1.png\";s:5:\"image\";s:75:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img1-1.png\";s:6:\"height\";s:2:\"95\";s:5:\"width\";s:3:\"125\";}i:1;a:8:{s:5:\"title\";s:9:\"Prestiges\";s:3:\"url\";s:8:\"http://#\";s:4:\"sort\";s:1:\"1\";s:13:\"attachment_id\";s:3:\"190\";s:5:\"thumb\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img5.png\";s:5:\"image\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img5.png\";s:6:\"height\";s:2:\"90\";s:5:\"width\";s:3:\"125\";}i:2;a:8:{s:5:\"title\";s:7:\"Molsion\";s:3:\"url\";s:8:\"http://#\";s:4:\"sort\";s:1:\"2\";s:13:\"attachment_id\";s:3:\"191\";s:5:\"thumb\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img2.png\";s:5:\"image\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img2.png\";s:6:\"height\";s:2:\"90\";s:5:\"width\";s:3:\"125\";}i:3;a:8:{s:5:\"title\";s:4:\"Hoya\";s:3:\"url\";s:8:\"http://#\";s:4:\"sort\";s:1:\"3\";s:13:\"attachment_id\";s:3:\"192\";s:5:\"thumb\";s:71:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/contact1.png\";s:5:\"image\";s:71:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/contact1.png\";s:6:\"height\";s:2:\"90\";s:5:\"width\";s:3:\"125\";}i:4;a:8:{s:5:\"title\";s:9:\"Bussiness\";s:3:\"url\";s:8:\"http://#\";s:4:\"sort\";s:1:\"4\";s:13:\"attachment_id\";s:3:\"193\";s:5:\"thumb\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img6.png\";s:5:\"image\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img6.png\";s:6:\"height\";s:2:\"90\";s:5:\"width\";s:3:\"125\";}i:5;a:8:{s:5:\"title\";s:8:\"Presiges\";s:3:\"url\";s:8:\"http://#\";s:4:\"sort\";s:1:\"5\";s:13:\"attachment_id\";s:3:\"190\";s:5:\"thumb\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img5.png\";s:5:\"image\";s:73:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img5.png\";s:6:\"height\";s:2:\"90\";s:5:\"width\";s:3:\"125\";}}s:10:\"top-slides\";a:3:{i:0;a:9:{s:5:\"title\";s:11:\"after party\";s:11:\"description\";s:23:\"The style of the season\";s:3:\"url\";s:0:\"\";s:4:\"sort\";s:1:\"6\";s:13:\"attachment_id\";s:3:\"270\";s:5:\"thumb\";s:103:\"http://localhost:8080/outsource/wp-content/uploads/2019/08/photo-1476908965434-f988d59d7abd-300x300.jpg\";s:5:\"image\";s:95:\"http://localhost:8080/outsource/wp-content/uploads/2019/08/photo-1476908965434-f988d59d7abd.jpg\";s:6:\"height\";s:4:\"1152\";s:5:\"width\";s:4:\"2048\";}i:1;a:9:{s:5:\"title\";s:15:\"Chu Duyên bún\";s:11:\"description\";s:86:\"THÁNG TƯ LÀ LỜI NÓI DỐI CỦA EM | HÀ ANH TUẤN | GUITAR COVER BY CHU DUYÊN\";s:3:\"url\";s:43:\"https://www.youtube.com/watch?v=xPzm2lPtqXo\";s:4:\"sort\";s:1:\"7\";s:13:\"attachment_id\";s:0:\"\";s:5:\"thumb\";s:0:\"\";s:5:\"image\";s:0:\"\";s:6:\"height\";s:0:\"\";s:5:\"width\";s:0:\"\";}i:2;a:9:{s:5:\"title\";s:16:\"HƯƠNG LY COVER\";s:11:\"description\";s:59:\"CÓ TẤT CẢ NHƯNG THIẾU ANH - ERIK | HƯƠNG LY COVER\";s:3:\"url\";s:43:\"https://www.youtube.com/watch?v=l38C4YQjkV0\";s:4:\"sort\";s:1:\"8\";s:13:\"attachment_id\";s:0:\"\";s:5:\"thumb\";s:0:\"\";s:5:\"image\";s:0:\"\";s:6:\"height\";s:0:\"\";s:5:\"width\";s:0:\"\";}}s:14:\"customer-title\";s:15:\"Customer for us\";s:13:\"home-customer\";a:5:{i:0;a:9:{s:5:\"title\";s:9:\"Cao Đàn\";s:11:\"description\";s:58:\" Lorem ipsum dolor sit amet, consectetur adipisicing elit.\";s:3:\"url\";s:8:\"Business\";s:4:\"sort\";s:2:\"10\";s:13:\"attachment_id\";s:3:\"194\";s:5:\"thumb\";s:80:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer1-300x300.png\";s:5:\"image\";s:72:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer1.png\";s:6:\"height\";s:4:\"1658\";s:5:\"width\";s:3:\"551\";}i:1;a:9:{s:5:\"title\";s:11:\"Miss. Trinh\";s:11:\"description\";s:58:\" Lorem ipsum dolor sit amet, consectetur adipisicing elit.\";s:3:\"url\";s:10:\"Accountant\";s:4:\"sort\";s:2:\"11\";s:13:\"attachment_id\";s:3:\"195\";s:5:\"thumb\";s:80:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer2-300x300.png\";s:5:\"image\";s:72:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer2.png\";s:6:\"height\";s:4:\"1613\";s:5:\"width\";s:4:\"1254\";}i:2;a:9:{s:5:\"title\";s:8:\"Mr. Minh\";s:11:\"description\";s:58:\" Lorem ipsum dolor sit amet, consectetur adipisicing elit.\";s:3:\"url\";s:7:\"Old man\";s:4:\"sort\";s:2:\"12\";s:13:\"attachment_id\";s:3:\"196\";s:5:\"thumb\";s:80:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer3-300x300.png\";s:5:\"image\";s:72:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer3.png\";s:6:\"height\";s:4:\"2027\";s:5:\"width\";s:4:\"1101\";}i:3;a:9:{s:5:\"title\";s:10:\"Mr. Hồng\";s:11:\"description\";s:58:\" Lorem ipsum dolor sit amet, consectetur adipisicing elit.\";s:3:\"url\";s:5:\"Model\";s:4:\"sort\";s:2:\"13\";s:13:\"attachment_id\";s:3:\"197\";s:5:\"thumb\";s:80:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer4-300x300.png\";s:5:\"image\";s:72:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer4.png\";s:6:\"height\";s:4:\"1650\";s:5:\"width\";s:4:\"1100\";}i:4;a:9:{s:5:\"title\";s:10:\"Mr. Đức\";s:11:\"description\";s:58:\" Lorem ipsum dolor sit amet, consectetur adipisicing elit.\";s:3:\"url\";s:10:\"Techniques\";s:4:\"sort\";s:2:\"14\";s:13:\"attachment_id\";s:3:\"199\";s:5:\"thumb\";s:82:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer2-2-300x300.png\";s:5:\"image\";s:74:\"http://localhost:8080/outsource/wp-content/uploads/2019/07/customer2-2.png\";s:6:\"height\";s:4:\"1613\";s:5:\"width\";s:4:\"1254\";}}}', 'yes'),
+(4808, 'theme_mods_twentyfifteen', 'a:4:{i:0;b:0;s:18:\"nav_menu_locations\";a:1:{s:7:\"primary\";i:2;}s:18:\"custom_css_post_id\";i:-1;s:16:\"sidebars_widgets\";a:2:{s:4:\"time\";i:1563616909;s:4:\"data\";a:2:{s:19:\"wp_inactive_widgets\";a:10:{i:0;s:6:\"text-2\";i:1;s:6:\"text-3\";i:2;s:6:\"text-4\";i:3;s:6:\"text-5\";i:4;s:8:\"search-2\";i:5;s:14:\"recent-posts-2\";i:6;s:17:\"recent-comments-2\";i:7;s:10:\"archives-2\";i:8;s:12:\"categories-2\";i:9;s:6:\"meta-2\";}s:9:\"sidebar-1\";a:0:{}}}}', 'yes'),
+(5612, 'woocommerce_version', '3.6.4', 'yes'),
+(5613, 'woocommerce_db_version', '3.6.4', 'yes'),
+(5632, 'dilaz_plugin_Futurio Extra_prefix', 'futurio_meta_', 'yes'),
+(5636, 'widget_futurio-extra-extended-recent-posts', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(5637, 'widget_futurio-extra-popular-posts', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(5638, 'widget_futurio_social', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(5639, 'widget_futurio_about_me', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(7781, 'yith_wcms_db_version', '1.0.1', 'yes'),
+(7782, 'yith_wcms_enable_multistep', 'yes', 'yes'),
+(7789, 'ywccp-enable-js-error-check', 'no', 'yes'),
+(7790, 'ywccp-enable-js-vat-check', 'no', 'yes'),
+(7791, 'ywccp-enable-tooltip-check', 'no', 'yes'),
+(7792, 'ywccp-date-format-datepicker', 'mm/dd/yy', 'yes'),
+(7793, 'ywccp-time-format-datepicker', '12', 'yes'),
+(7794, 'ywccp-override-formatted-addresses', 'no', 'yes'),
+(7795, 'ywccp-show-label-formatted-addresses', 'yes', 'yes'),
+(7796, 'ywccp-field-checkout-columns', 'no', 'yes'),
+(7797, 'ywccp-field-input-height', '40', 'yes'),
+(7798, 'ywccp-field-border-color', '#d1d1d1', 'yes'),
+(7799, 'ywccp-field-border-color-focus', '#d1d1d1', 'yes'),
+(7800, 'ywccp-field-border-color-success', '#69bf29', 'yes'),
+(7801, 'ywccp-field-border-color-error', '#a00a00', 'yes'),
+(7802, 'ywccp-field-error-color', '#a00a00', 'yes'),
+(7812, 'ywccp_fields_billing_options', 'a:11:{s:18:\"billing_first_name\";a:12:{s:4:\"type\";s:4:\"text\";s:5:\"label\";s:10:\"First name\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:1:{i:0;s:14:\"form-row-first\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";s:0:\"\";s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:17:\"billing_last_name\";a:12:{s:4:\"type\";s:4:\"text\";s:5:\"label\";s:9:\"Last name\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:1:{i:0;s:13:\"form-row-last\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";s:0:\"\";s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:15:\"billing_company\";a:12:{s:4:\"type\";s:4:\"text\";s:5:\"label\";s:12:\"Company name\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:1:{i:0;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";s:0:\"\";s:8:\"required\";b:0;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:15:\"billing_country\";a:12:{s:4:\"type\";s:7:\"country\";s:5:\"label\";s:7:\"Country\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:3:{i:0;s:13:\"address-field\";i:1;s:23:\"update_totals_on_change\";i:2;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";s:0:\"\";s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:17:\"billing_address_1\";a:12:{s:4:\"type\";s:4:\"text\";s:5:\"label\";s:14:\"Street address\";s:11:\"placeholder\";s:28:\"House number and street name\";s:7:\"options\";a:0:{}s:5:\"class\";a:2:{i:0;s:13:\"address-field\";i:1;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";s:0:\"\";s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:17:\"billing_address_2\";a:12:{s:4:\"type\";s:4:\"text\";s:5:\"label\";s:0:\"\";s:11:\"placeholder\";s:38:\"Apartment, suite, unit etc. (optional)\";s:7:\"options\";a:0:{}s:5:\"class\";a:2:{i:0;s:13:\"address-field\";i:1;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";s:0:\"\";s:8:\"required\";b:0;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:12:\"billing_city\";a:12:{s:4:\"type\";s:4:\"text\";s:5:\"label\";s:11:\"Town / City\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:2:{i:0;s:13:\"address-field\";i:1;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";s:0:\"\";s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:13:\"billing_state\";a:12:{s:4:\"type\";s:5:\"state\";s:5:\"label\";s:14:\"State / County\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:2:{i:0;s:13:\"address-field\";i:1;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";a:1:{i:0;s:5:\"state\";}s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:16:\"billing_postcode\";a:12:{s:4:\"type\";s:4:\"text\";s:5:\"label\";s:14:\"Postcode / ZIP\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:2:{i:0;s:13:\"address-field\";i:1;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";a:1:{i:0;s:8:\"postcode\";}s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:13:\"billing_phone\";a:12:{s:4:\"type\";s:3:\"tel\";s:5:\"label\";s:5:\"Phone\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:1:{i:0;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";a:1:{i:0;s:5:\"phone\";}s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}s:13:\"billing_email\";a:12:{s:4:\"type\";s:5:\"email\";s:5:\"label\";s:13:\"Email address\";s:11:\"placeholder\";s:0:\"\";s:7:\"options\";a:0:{}s:5:\"class\";a:1:{i:0;s:13:\"form-row-wide\";}s:11:\"label_class\";s:0:\"\";s:8:\"validate\";a:1:{i:0;s:5:\"email\";}s:8:\"required\";b:1;s:7:\"enabled\";b:1;s:13:\"show_in_email\";b:1;s:13:\"show_in_order\";b:1;s:17:\"custom_attributes\";a:1:{s:12:\"data-tooltip\";s:0:\"\";}}}', 'yes'),
+(8032, 'devvn_woo_district', 'a:5:{s:14:\"active_village\";s:1:\"1\";s:16:\"khoiluong_quydoi\";s:4:\"6000\";s:17:\"tinhthanh_default\";s:2:\"79\";s:16:\"vnd2usd_currency\";s:3:\"USD\";s:12:\"vnd_usd_rate\";s:5:\"22745\";}', 'yes'),
+(8327, 'acf_version', '5.6.1', 'yes'),
+(8331, 'cptui_new_install', 'false', 'yes'),
+(8332, 'cptui_post_types', 'a:1:{s:4:\"news\";a:29:{s:4:\"name\";s:4:\"news\";s:5:\"label\";s:4:\"Blog\";s:14:\"singular_label\";s:4:\"Blog\";s:11:\"description\";s:0:\"\";s:6:\"public\";s:4:\"true\";s:18:\"publicly_queryable\";s:4:\"true\";s:7:\"show_ui\";s:4:\"true\";s:17:\"show_in_nav_menus\";s:4:\"true\";s:12:\"show_in_rest\";s:4:\"true\";s:9:\"rest_base\";s:0:\"\";s:21:\"rest_controller_class\";s:0:\"\";s:11:\"has_archive\";s:5:\"false\";s:18:\"has_archive_string\";s:0:\"\";s:19:\"exclude_from_search\";s:5:\"false\";s:15:\"capability_type\";s:4:\"post\";s:12:\"hierarchical\";s:5:\"false\";s:7:\"rewrite\";s:4:\"true\";s:12:\"rewrite_slug\";s:0:\"\";s:17:\"rewrite_withfront\";s:4:\"true\";s:9:\"query_var\";s:4:\"true\";s:14:\"query_var_slug\";s:0:\"\";s:13:\"menu_position\";s:0:\"\";s:12:\"show_in_menu\";s:4:\"true\";s:19:\"show_in_menu_string\";s:0:\"\";s:9:\"menu_icon\";s:0:\"\";s:8:\"supports\";a:3:{i:0;s:5:\"title\";i:1;s:6:\"editor\";i:2;s:9:\"thumbnail\";}s:10:\"taxonomies\";a:0:{}s:6:\"labels\";a:24:{s:9:\"menu_name\";s:0:\"\";s:9:\"all_items\";s:0:\"\";s:7:\"add_new\";s:0:\"\";s:12:\"add_new_item\";s:0:\"\";s:9:\"edit_item\";s:0:\"\";s:8:\"new_item\";s:0:\"\";s:9:\"view_item\";s:0:\"\";s:10:\"view_items\";s:0:\"\";s:12:\"search_items\";s:0:\"\";s:9:\"not_found\";s:0:\"\";s:18:\"not_found_in_trash\";s:0:\"\";s:17:\"parent_item_colon\";s:0:\"\";s:14:\"featured_image\";s:0:\"\";s:18:\"set_featured_image\";s:0:\"\";s:21:\"remove_featured_image\";s:0:\"\";s:18:\"use_featured_image\";s:0:\"\";s:8:\"archives\";s:0:\"\";s:16:\"insert_into_item\";s:0:\"\";s:21:\"uploaded_to_this_item\";s:0:\"\";s:17:\"filter_items_list\";s:0:\"\";s:21:\"items_list_navigation\";s:0:\"\";s:10:\"items_list\";s:0:\"\";s:10:\"attributes\";s:0:\"\";s:14:\"name_admin_bar\";s:0:\"\";}s:15:\"custom_supports\";s:0:\"\";}}', 'yes'),
+(8335, 'cptui_taxonomies', 'a:1:{s:13:\"category_blog\";a:24:{s:4:\"name\";s:13:\"category_blog\";s:5:\"label\";s:10:\"Categories\";s:14:\"singular_label\";s:10:\"Categories\";s:11:\"description\";s:0:\"\";s:6:\"public\";s:4:\"true\";s:18:\"publicly_queryable\";s:4:\"true\";s:12:\"hierarchical\";s:4:\"true\";s:7:\"show_ui\";s:4:\"true\";s:12:\"show_in_menu\";s:4:\"true\";s:17:\"show_in_nav_menus\";s:4:\"true\";s:9:\"query_var\";s:4:\"true\";s:14:\"query_var_slug\";s:0:\"\";s:7:\"rewrite\";s:4:\"true\";s:12:\"rewrite_slug\";s:0:\"\";s:17:\"rewrite_withfront\";s:1:\"1\";s:20:\"rewrite_hierarchical\";s:1:\"1\";s:17:\"show_admin_column\";s:4:\"true\";s:12:\"show_in_rest\";s:4:\"true\";s:18:\"show_in_quick_edit\";s:0:\"\";s:9:\"rest_base\";s:0:\"\";s:21:\"rest_controller_class\";s:0:\"\";s:6:\"labels\";a:18:{s:9:\"menu_name\";s:0:\"\";s:9:\"all_items\";s:0:\"\";s:9:\"edit_item\";s:0:\"\";s:9:\"view_item\";s:0:\"\";s:11:\"update_item\";s:0:\"\";s:12:\"add_new_item\";s:0:\"\";s:13:\"new_item_name\";s:0:\"\";s:11:\"parent_item\";s:0:\"\";s:17:\"parent_item_colon\";s:0:\"\";s:12:\"search_items\";s:0:\"\";s:13:\"popular_items\";s:0:\"\";s:26:\"separate_items_with_commas\";s:0:\"\";s:19:\"add_or_remove_items\";s:0:\"\";s:21:\"choose_from_most_used\";s:0:\"\";s:9:\"not_found\";s:0:\"\";s:8:\"no_terms\";s:0:\"\";s:21:\"items_list_navigation\";s:0:\"\";s:10:\"items_list\";s:0:\"\";}s:11:\"meta_box_cb\";s:0:\"\";s:12:\"object_types\";a:1:{i:0;s:4:\"news\";}}}', 'yes'),
+(8400, 'pagenavi_options', 'a:15:{s:10:\"pages_text\";s:36:\"Page %CURRENT_PAGE% of %TOTAL_PAGES%\";s:12:\"current_text\";s:13:\"%PAGE_NUMBER%\";s:9:\"page_text\";s:13:\"%PAGE_NUMBER%\";s:10:\"first_text\";s:8:\"« First\";s:9:\"last_text\";s:7:\"Last »\";s:9:\"prev_text\";s:2:\"«\";s:9:\"next_text\";s:2:\"»\";s:12:\"dotleft_text\";s:3:\"...\";s:13:\"dotright_text\";s:3:\"...\";s:9:\"num_pages\";i:5;s:23:\"num_larger_page_numbers\";i:3;s:28:\"larger_page_numbers_multiple\";i:10;s:11:\"always_show\";i:1;s:16:\"use_pagenavi_css\";i:1;s:5:\"style\";i:1;}', 'yes'),
+(8609, 'wpcf7', 'a:2:{s:7:\"version\";s:5:\"5.1.3\";s:13:\"bulk_validate\";a:4:{s:9:\"timestamp\";i:1564680200;s:7:\"version\";s:5:\"5.1.3\";s:11:\"count_valid\";i:1;s:13:\"count_invalid\";i:0;}}', 'yes'),
+(8621, 'wp_mail_smtp_initial_version', '1.4.2', 'no'),
+(8622, 'wp_mail_smtp_version', '1.4.2', 'no'),
+(8623, 'wp_mail_smtp', 'a:5:{s:4:\"mail\";a:6:{s:10:\"from_email\";s:22:\"caohoang2911@gmail.com\";s:9:\"from_name\";s:13:\"Korean Sonata\";s:6:\"mailer\";s:4:\"smtp\";s:11:\"return_path\";b:0;s:16:\"from_email_force\";b:0;s:15:\"from_name_force\";b:0;}s:4:\"smtp\";a:7:{s:7:\"autotls\";b:1;s:4:\"host\";s:14:\"smtp.gmail.com\";s:10:\"encryption\";s:3:\"ssl\";s:4:\"port\";i:465;s:4:\"auth\";b:1;s:4:\"user\";s:24:\"sangbackup1921@gmail.com\";s:4:\"pass\";s:16:\"lxcyynqgyqzhsnrz\";}s:5:\"gmail\";a:2:{s:9:\"client_id\";s:0:\"\";s:13:\"client_secret\";s:0:\"\";}s:7:\"mailgun\";a:3:{s:7:\"api_key\";s:0:\"\";s:6:\"domain\";s:0:\"\";s:6:\"region\";s:2:\"US\";}s:8:\"sendgrid\";a:1:{s:7:\"api_key\";s:0:\"\";}}', 'no'),
+(8624, '_amn_smtp_last_checked', '1565740800', 'yes'),
+(8628, 'wp_mail_smtp_debug', 'a:0:{}', 'no'),
+(8694, '_transient_timeout_external_ip_address_::1', '1565873932', 'no'),
+(8695, '_transient_external_ip_address_::1', '116.108.152.184', 'no'),
+(8712, '_site_transient_timeout_browser_666332998c62658cc43216116351bf1f', '1565874124', 'no'),
+(8713, '_site_transient_browser_666332998c62658cc43216116351bf1f', 'a:10:{s:4:\"name\";s:6:\"Chrome\";s:7:\"version\";s:13:\"76.0.3809.100\";s:8:\"platform\";s:7:\"Windows\";s:10:\"update_url\";s:29:\"https://www.google.com/chrome\";s:7:\"img_src\";s:43:\"http://s.w.org/images/browsers/chrome.png?1\";s:11:\"img_src_ssl\";s:44:\"https://s.w.org/images/browsers/chrome.png?1\";s:15:\"current_version\";s:2:\"18\";s:7:\"upgrade\";b:0;s:8:\"insecure\";b:0;s:6:\"mobile\";b:0;}', 'no');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(8741, '_transient_wc_attribute_taxonomies', 'a:1:{i:0;O:8:\"stdClass\":6:{s:12:\"attribute_id\";s:1:\"1\";s:14:\"attribute_name\";s:5:\"color\";s:15:\"attribute_label\";s:5:\"color\";s:14:\"attribute_type\";s:6:\"select\";s:17:\"attribute_orderby\";s:10:\"menu_order\";s:16:\"attribute_public\";s:1:\"0\";}}', 'yes'),
+(9253, '_site_transient_timeout_browser_39513a7c8258c5d0eab5bae9a3ec484a', '1565979813', 'no'),
+(9254, '_site_transient_browser_39513a7c8258c5d0eab5bae9a3ec484a', 'a:10:{s:4:\"name\";s:6:\"Chrome\";s:7:\"version\";s:13:\"74.0.3729.180\";s:8:\"platform\";s:7:\"Windows\";s:10:\"update_url\";s:29:\"https://www.google.com/chrome\";s:7:\"img_src\";s:43:\"http://s.w.org/images/browsers/chrome.png?1\";s:11:\"img_src_ssl\";s:44:\"https://s.w.org/images/browsers/chrome.png?1\";s:15:\"current_version\";s:2:\"18\";s:7:\"upgrade\";b:0;s:8:\"insecure\";b:0;s:6:\"mobile\";b:0;}', 'no'),
+(9288, '_transient_timeout_plugin_slugs', '1565805766', 'no'),
+(9289, '_transient_plugin_slugs', 'a:10:{i:0;s:34:\"advanced-custom-fields-pro/acf.php\";i:1;s:36:\"contact-form-7/wp-contact-form-7.php\";i:2;s:43:\"custom-post-type-ui/custom-post-type-ui.php\";i:3;s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";i:4;s:35:\"redux-framework/redux-framework.php\";i:5;s:27:\"woocommerce/woocommerce.php\";i:6;s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";i:7;s:41:\"wordpress-importer/wordpress-importer.php\";i:8;s:27:\"wp-pagenavi/wp-pagenavi.php\";i:9;s:29:\"wp-mail-smtp/wp_mail_smtp.php\";}', 'no'),
+(9662, '_transient_timeout_wc_product_children_33', '1568098613', 'no'),
+(9663, '_transient_wc_product_children_33', 'a:2:{s:3:\"all\";a:4:{i:0;i:56;i:1;i:49;i:2;i:50;i:3;i:51;}s:7:\"visible\";a:4:{i:0;i:56;i:1;i:49;i:2;i:50;i:3;i:51;}}', 'no'),
+(9664, '_transient_timeout_wc_var_prices_33', '1568391108', 'no'),
+(9665, '_transient_wc_var_prices_33', '{\"version\":\"1565799104\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"56\":\"45\",\"49\":\"42\",\"50\":\"45\",\"51\":\"45\"},\"regular_price\":{\"56\":\"45\",\"49\":\"45\",\"50\":\"45\",\"51\":\"45\"},\"sale_price\":{\"56\":\"45\",\"49\":\"42\",\"50\":\"45\",\"51\":\"45\"}}}', 'no'),
+(9681, '_transient_timeout_wc_product_children_32', '1568098954', 'no'),
+(9682, '_transient_wc_product_children_32', 'a:2:{s:3:\"all\";a:3:{i:0;i:46;i:1;i:47;i:2;i:48;}s:7:\"visible\";a:3:{i:0;i:46;i:1;i:47;i:2;i:48;}}', 'no'),
+(9683, '_transient_timeout_wc_var_prices_32', '1568391091', 'no'),
+(9684, '_transient_wc_var_prices_32', '{\"version\":\"1565798131\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"46\":\"20\",\"47\":\"20\",\"48\":\"15\"},\"regular_price\":{\"46\":\"20\",\"47\":\"20\",\"48\":\"15\"},\"sale_price\":{\"46\":\"20\",\"47\":\"20\",\"48\":\"15\"}}}', 'no'),
+(9768, 'fs_active_plugins', 'O:8:\"stdClass\":3:{s:7:\"plugins\";a:1:{s:18:\"premmerce/freemius\";O:8:\"stdClass\":4:{s:7:\"version\";s:5:\"2.3.0\";s:4:\"type\";s:6:\"plugin\";s:9:\"timestamp\";i:1565719350;s:11:\"plugin_path\";s:23:\"premmerce/premmerce.php\";}}s:7:\"abspath\";s:47:\"D:\\xampp\\source\\2018\\freelancer\\BE\\sotana_lens/\";s:6:\"newest\";O:8:\"stdClass\":5:{s:11:\"plugin_path\";s:23:\"premmerce/premmerce.php\";s:8:\"sdk_path\";s:18:\"premmerce/freemius\";s:7:\"version\";s:5:\"2.3.0\";s:13:\"in_activation\";b:1;s:9:\"timestamp\";i:1565719350;}}', 'yes'),
+(9769, 'fs_debug_mode', '', 'yes'),
+(9770, 'fs_accounts', 'a:12:{s:21:\"id_slug_type_path_map\";a:1:{i:1527;a:3:{s:4:\"slug\";s:9:\"premmerce\";s:4:\"type\";s:6:\"plugin\";s:4:\"path\";s:23:\"premmerce/premmerce.php\";}}s:11:\"plugin_data\";a:1:{s:9:\"premmerce\";a:19:{s:16:\"plugin_main_file\";O:8:\"stdClass\":1:{s:4:\"path\";s:23:\"premmerce/premmerce.php\";}s:20:\"is_network_activated\";b:0;s:17:\"install_timestamp\";i:1565510815;s:16:\"sdk_last_version\";N;s:11:\"sdk_version\";s:5:\"2.3.0\";s:16:\"sdk_upgrade_mode\";b:1;s:18:\"sdk_downgrade_mode\";b:0;s:19:\"plugin_last_version\";N;s:14:\"plugin_version\";s:6:\"1.3.12\";s:19:\"plugin_upgrade_mode\";b:1;s:21:\"plugin_downgrade_mode\";b:0;s:21:\"is_plugin_new_install\";b:1;s:17:\"connectivity_test\";a:6:{s:12:\"is_connected\";b:1;s:4:\"host\";s:14:\"localhost:8080\";s:9:\"server_ip\";s:3:\"::1\";s:9:\"is_active\";b:1;s:9:\"timestamp\";i:1565510815;s:7:\"version\";s:6:\"1.3.12\";}s:17:\"was_plugin_loaded\";b:1;s:15:\"prev_is_premium\";b:0;s:14:\"has_trial_plan\";b:1;s:22:\"install_sync_timestamp\";i:1565719350;s:19:\"keepalive_timestamp\";i:1565719350;s:20:\"activation_timestamp\";i:1565510831;}}s:13:\"file_slug_map\";a:1:{s:23:\"premmerce/premmerce.php\";s:9:\"premmerce\";}s:7:\"plugins\";a:1:{s:9:\"premmerce\";O:9:\"FS_Plugin\":22:{s:16:\"parent_plugin_id\";N;s:5:\"title\";s:13:\"Premmerce Pro\";s:4:\"slug\";s:9:\"premmerce\";s:12:\"premium_slug\";s:17:\"premmerce-premium\";s:4:\"type\";s:6:\"plugin\";s:20:\"affiliate_moderation\";b:0;s:19:\"is_wp_org_compliant\";b:1;s:22:\"premium_releases_count\";N;s:4:\"file\";s:23:\"premmerce/premmerce.php\";s:7:\"version\";s:6:\"1.3.12\";s:11:\"auto_update\";N;s:4:\"info\";N;s:10:\"is_premium\";b:0;s:14:\"premium_suffix\";s:9:\"(Premium)\";s:7:\"is_live\";b:1;s:9:\"bundle_id\";N;s:10:\"public_key\";s:32:\"pk_75ce3208e2d74bfed236c81fe557e\";s:10:\"secret_key\";N;s:2:\"id\";s:4:\"1527\";s:7:\"updated\";N;s:7:\"created\";N;s:22:\"\0FS_Entity\0_is_updated\";b:0;}}s:9:\"unique_id\";s:32:\"306ad072f71762d7355fa17a8438086d\";s:5:\"plans\";a:1:{s:9:\"premmerce\";a:4:{i:0;O:14:\"FS_Plugin_Plan\":21:{s:9:\"plugin_id\";s:8:\"MTUyNw==\";s:4:\"name\";s:8:\"ZnJlZQ==\";s:5:\"title\";s:8:\"RnJlZQ==\";s:11:\"description\";N;s:17:\"is_free_localhost\";s:4:\"MQ==\";s:17:\"is_block_features\";s:4:\"MQ==\";s:12:\"license_type\";s:4:\"MA==\";s:16:\"is_https_support\";s:0:\"\";s:12:\"trial_period\";N;s:23:\"is_require_subscription\";s:0:\"\";s:10:\"support_kb\";N;s:13:\"support_forum\";N;s:13:\"support_email\";N;s:13:\"support_phone\";N;s:13:\"support_skype\";N;s:18:\"is_success_manager\";s:0:\"\";s:11:\"is_featured\";s:0:\"\";s:2:\"id\";s:8:\"MjIwNg==\";s:7:\"updated\";N;s:7:\"created\";s:28:\"MjAxNy0xMS0wNyAxNToyMjo1NA==\";s:22:\"\0FS_Entity\0_is_updated\";b:0;}i:1;O:14:\"FS_Plugin_Plan\":21:{s:9:\"plugin_id\";s:8:\"MTUyNw==\";s:4:\"name\";s:12:\"cHJlbWl1bQ==\";s:5:\"title\";s:12:\"UHJlbWl1bQ==\";s:11:\"description\";s:0:\"\";s:17:\"is_free_localhost\";s:4:\"MQ==\";s:17:\"is_block_features\";s:4:\"MQ==\";s:12:\"license_type\";s:4:\"MA==\";s:16:\"is_https_support\";s:0:\"\";s:12:\"trial_period\";s:4:\"Nw==\";s:23:\"is_require_subscription\";s:4:\"MQ==\";s:10:\"support_kb\";N;s:13:\"support_forum\";N;s:13:\"support_email\";s:24:\"aW5mb0BwcmVtbWVyY2UuY29t\";s:13:\"support_phone\";N;s:13:\"support_skype\";N;s:18:\"is_success_manager\";s:0:\"\";s:11:\"is_featured\";s:4:\"MQ==\";s:2:\"id\";s:8:\"MjQzOQ==\";s:7:\"updated\";s:28:\"MjAxOC0xMS0xNCAxNDowNDoyNg==\";s:7:\"created\";s:28:\"MjAxOC0wMS0yMCAxNDo1MDoyMw==\";s:22:\"\0FS_Entity\0_is_updated\";b:0;}i:2;O:14:\"FS_Plugin_Plan\":21:{s:9:\"plugin_id\";s:8:\"MTUyNw==\";s:4:\"name\";s:20:\"Y3VzdG9taXphdGlvbg==\";s:5:\"title\";s:40:\"UGludGVyZXN0IHBsdWdpbiBjdXN0b21pemF0aW9u\";s:11:\"description\";N;s:17:\"is_free_localhost\";s:4:\"MQ==\";s:17:\"is_block_features\";s:4:\"MQ==\";s:12:\"license_type\";s:4:\"MA==\";s:16:\"is_https_support\";s:0:\"\";s:12:\"trial_period\";N;s:23:\"is_require_subscription\";s:0:\"\";s:10:\"support_kb\";N;s:13:\"support_forum\";N;s:13:\"support_email\";N;s:13:\"support_phone\";N;s:13:\"support_skype\";N;s:18:\"is_success_manager\";s:0:\"\";s:11:\"is_featured\";s:0:\"\";s:2:\"id\";s:8:\"MzIzOA==\";s:7:\"updated\";s:28:\"MjAxOS0wNi0yNCAxMDozOToxMw==\";s:7:\"created\";s:28:\"MjAxOC0wNi0wNSAxMDo1NToyMg==\";s:22:\"\0FS_Entity\0_is_updated\";b:0;}i:3;O:14:\"FS_Plugin_Plan\":21:{s:9:\"plugin_id\";s:8:\"MTUyNw==\";s:4:\"name\";s:8:\"Y3VzdG9t\";s:5:\"title\";s:52:\"RG9tYWluIG5hbWUgY2hhbmdlIGFuZCBiYWNrdXAgaW5zdGFsbA==\";s:11:\"description\";N;s:17:\"is_free_localhost\";s:4:\"MQ==\";s:17:\"is_block_features\";s:4:\"MQ==\";s:12:\"license_type\";s:4:\"MA==\";s:16:\"is_https_support\";s:0:\"\";s:12:\"trial_period\";N;s:23:\"is_require_subscription\";s:0:\"\";s:10:\"support_kb\";N;s:13:\"support_forum\";N;s:13:\"support_email\";N;s:13:\"support_phone\";N;s:13:\"support_skype\";N;s:18:\"is_success_manager\";s:0:\"\";s:11:\"is_featured\";s:0:\"\";s:2:\"id\";s:8:\"NjUwMA==\";s:7:\"updated\";s:28:\"MjAxOS0wNy0wMSAwODo1NjoyMg==\";s:7:\"created\";s:28:\"MjAxOS0wNy0wMSAwODo1NjowNg==\";s:22:\"\0FS_Entity\0_is_updated\";b:0;}}}s:14:\"active_plugins\";O:8:\"stdClass\":3:{s:9:\"timestamp\";i:1565719350;s:3:\"md5\";s:32:\"a9d8cb3079dca3586d33d7c3a5357764\";s:7:\"plugins\";a:10:{s:34:\"advanced-custom-fields-pro/acf.php\";a:5:{s:4:\"slug\";s:26:\"advanced-custom-fields-pro\";s:7:\"version\";s:5:\"5.6.1\";s:5:\"title\";s:26:\"Advanced Custom Fields PRO\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:36:\"contact-form-7/wp-contact-form-7.php\";a:5:{s:4:\"slug\";s:14:\"contact-form-7\";s:7:\"version\";s:5:\"5.1.3\";s:5:\"title\";s:14:\"Contact Form 7\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:43:\"custom-post-type-ui/custom-post-type-ui.php\";a:5:{s:4:\"slug\";s:19:\"custom-post-type-ui\";s:7:\"version\";s:5:\"1.6.1\";s:5:\"title\";s:19:\"Custom Post Type UI\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";a:5:{s:4:\"slug\";s:24:\"facebook-for-woocommerce\";s:7:\"version\";s:6:\"1.9.15\";s:5:\"title\";s:24:\"Facebook for WooCommerce\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:35:\"redux-framework/redux-framework.php\";a:5:{s:4:\"slug\";s:15:\"redux-framework\";s:7:\"version\";s:6:\"3.6.15\";s:5:\"title\";s:15:\"Redux Framework\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:27:\"woocommerce/woocommerce.php\";a:5:{s:4:\"slug\";s:11:\"woocommerce\";s:7:\"version\";s:5:\"3.6.4\";s:5:\"title\";s:11:\"WooCommerce\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";a:5:{s:4:\"slug\";s:20:\"woo-vietnam-checkout\";s:7:\"version\";s:5:\"1.0.6\";s:5:\"title\";s:28:\"Woocommerce Vietnam Checkout\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:41:\"wordpress-importer/wordpress-importer.php\";a:5:{s:4:\"slug\";s:18:\"wordpress-importer\";s:7:\"version\";s:5:\"0.6.4\";s:5:\"title\";s:18:\"WordPress Importer\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:27:\"wp-pagenavi/wp-pagenavi.php\";a:5:{s:4:\"slug\";s:11:\"wp-pagenavi\";s:7:\"version\";s:4:\"2.93\";s:5:\"title\";s:11:\"WP-PageNavi\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:29:\"wp-mail-smtp/wp_mail_smtp.php\";a:5:{s:4:\"slug\";s:12:\"wp-mail-smtp\";s:7:\"version\";s:5:\"1.4.2\";s:5:\"title\";s:12:\"WP Mail SMTP\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}}}s:11:\"all_plugins\";O:8:\"stdClass\":3:{s:9:\"timestamp\";i:1565719350;s:3:\"md5\";s:32:\"03239d1f962fbffe91b1ea7e25e1b997\";s:7:\"plugins\";a:14:{s:34:\"advanced-custom-fields-pro/acf.php\";a:5:{s:4:\"slug\";s:26:\"advanced-custom-fields-pro\";s:7:\"version\";s:5:\"5.6.1\";s:5:\"title\";s:26:\"Advanced Custom Fields PRO\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:36:\"contact-form-7/wp-contact-form-7.php\";a:5:{s:4:\"slug\";s:14:\"contact-form-7\";s:7:\"version\";s:5:\"5.1.3\";s:5:\"title\";s:14:\"Contact Form 7\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:43:\"custom-post-type-ui/custom-post-type-ui.php\";a:5:{s:4:\"slug\";s:19:\"custom-post-type-ui\";s:7:\"version\";s:5:\"1.6.1\";s:5:\"title\";s:19:\"Custom Post Type UI\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";a:5:{s:4:\"slug\";s:24:\"facebook-for-woocommerce\";s:7:\"version\";s:6:\"1.9.15\";s:5:\"title\";s:24:\"Facebook for WooCommerce\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:23:\"premmerce/premmerce.php\";a:5:{s:4:\"slug\";s:9:\"premmerce\";s:7:\"version\";s:6:\"1.3.12\";s:5:\"title\";s:13:\"Premmerce Pro\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:49:\"premmerce-redirect-manager/premmerce-redirect.php\";a:5:{s:4:\"slug\";s:26:\"premmerce-redirect-manager\";s:7:\"version\";s:5:\"1.0.5\";s:5:\"title\";s:26:\"Premmerce Redirect Manager\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:35:\"redux-framework/redux-framework.php\";a:5:{s:4:\"slug\";s:15:\"redux-framework\";s:7:\"version\";s:6:\"3.6.15\";s:5:\"title\";s:15:\"Redux Framework\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:27:\"woocommerce/woocommerce.php\";a:5:{s:4:\"slug\";s:11:\"woocommerce\";s:7:\"version\";s:5:\"3.6.4\";s:5:\"title\";s:11:\"WooCommerce\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";a:5:{s:4:\"slug\";s:20:\"woo-vietnam-checkout\";s:7:\"version\";s:5:\"1.0.6\";s:5:\"title\";s:28:\"Woocommerce Vietnam Checkout\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:41:\"wordpress-importer/wordpress-importer.php\";a:5:{s:4:\"slug\";s:18:\"wordpress-importer\";s:7:\"version\";s:5:\"0.6.4\";s:5:\"title\";s:18:\"WordPress Importer\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:27:\"wp-pagenavi/wp-pagenavi.php\";a:5:{s:4:\"slug\";s:11:\"wp-pagenavi\";s:7:\"version\";s:4:\"2.93\";s:5:\"title\";s:11:\"WP-PageNavi\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:24:\"wpforms-lite/wpforms.php\";a:5:{s:4:\"slug\";s:12:\"wpforms-lite\";s:7:\"version\";s:7:\"1.5.3.1\";s:5:\"title\";s:12:\"WPForms Lite\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:29:\"wp-mail-smtp/wp_mail_smtp.php\";a:5:{s:4:\"slug\";s:12:\"wp-mail-smtp\";s:7:\"version\";s:5:\"1.4.2\";s:5:\"title\";s:12:\"WP Mail SMTP\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:42:\"yith-woocommerce-checkout-manager/init.php\";a:5:{s:4:\"slug\";s:33:\"yith-woocommerce-checkout-manager\";s:7:\"version\";s:5:\"1.2.7\";s:5:\"title\";s:33:\"YITH WooCommerce Checkout Manager\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}}}s:10:\"all_themes\";O:8:\"stdClass\":3:{s:9:\"timestamp\";i:1565719350;s:3:\"md5\";s:32:\"e0226fc00ab520dafeca049518a5a11a\";s:6:\"themes\";a:4:{s:7:\"myTheme\";a:5:{s:4:\"slug\";s:7:\"myTheme\";s:7:\"version\";s:3:\"1.1\";s:5:\"title\";s:10:\"HOANG SHOP\";s:9:\"is_active\";b:1;s:14:\"is_uninstalled\";b:0;}s:13:\"twentyfifteen\";a:5:{s:4:\"slug\";s:13:\"twentyfifteen\";s:7:\"version\";s:3:\"2.0\";s:5:\"title\";s:14:\"Twenty Fifteen\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:15:\"twentyseventeen\";a:5:{s:4:\"slug\";s:15:\"twentyseventeen\";s:7:\"version\";s:3:\"1.7\";s:5:\"title\";s:16:\"Twenty Seventeen\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}s:13:\"twentysixteen\";a:5:{s:4:\"slug\";s:13:\"twentysixteen\";s:7:\"version\";s:3:\"1.5\";s:5:\"title\";s:14:\"Twenty Sixteen\";s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;}}}s:5:\"sites\";a:1:{s:9:\"premmerce\";O:7:\"FS_Site\":25:{s:7:\"site_id\";s:8:\"11494451\";s:9:\"plugin_id\";s:4:\"1527\";s:7:\"user_id\";s:7:\"2072695\";s:5:\"title\";s:10:\"My Project\";s:3:\"url\";s:31:\"http://localhost:8080/outsource\";s:7:\"version\";s:6:\"1.3.12\";s:8:\"language\";s:5:\"en-US\";s:7:\"charset\";s:5:\"UTF-8\";s:16:\"platform_version\";s:6:\"4.9.10\";s:11:\"sdk_version\";s:5:\"2.3.0\";s:28:\"programming_language_version\";s:6:\"7.1.30\";s:7:\"plan_id\";s:4:\"2206\";s:10:\"license_id\";N;s:13:\"trial_plan_id\";N;s:10:\"trial_ends\";N;s:10:\"is_premium\";b:0;s:15:\"is_disconnected\";b:0;s:9:\"is_active\";b:0;s:14:\"is_uninstalled\";b:0;s:10:\"public_key\";s:32:\"pk_a2b32ededf437186e9a71fc425547\";s:10:\"secret_key\";s:32:\"sk_p!WI8S-TjynR[~^GX_uirYEFq{0u6\";s:2:\"id\";s:7:\"2903580\";s:7:\"updated\";s:19:\"2019-08-11 08:08:33\";s:7:\"created\";s:19:\"2019-08-11 08:08:04\";s:22:\"\0FS_Entity\0_is_updated\";b:0;}}s:5:\"users\";a:1:{i:2072695;O:7:\"FS_User\":13:{s:5:\"email\";s:22:\"caohoang2911@gmail.com\";s:5:\"first\";s:3:\"cao\";s:4:\"last\";s:5:\"hoang\";s:11:\"is_verified\";b:0;s:7:\"is_beta\";N;s:11:\"customer_id\";N;s:5:\"gross\";i:0;s:10:\"public_key\";s:32:\"pk_c17637c918e736f925df8d31d312a\";s:10:\"secret_key\";s:32:\"sk_1?P#}$f0>y.b2^<}P}DbfZiH%BtKH\";s:2:\"id\";s:7:\"2072695\";s:7:\"updated\";N;s:7:\"created\";s:19:\"2019-08-11 08:08:03\";s:22:\"\0FS_Entity\0_is_updated\";b:0;}}s:13:\"admin_notices\";a:1:{s:9:\"premmerce\";a:0:{}}}', 'yes'),
+(9771, 'fs_api_cache', 'a:0:{}', 'yes'),
+(9772, 'fs_gdpr', 'a:1:{s:2:\"u1\";a:2:{s:8:\"required\";b:0;s:18:\"show_opt_in_notice\";b:0;}}', 'yes'),
+(9775, 'premmerce_version', '1.3.8', 'yes'),
+(9776, 'premmerce_additional_settings', 'a:1:{s:19:\"transliterate_slugs\";s:2:\"on\";}', 'yes'),
+(9777, '_site_transient_timeout_locked_1', '1880870833', 'no'),
+(9778, '_site_transient_locked_1', '1', 'no'),
+(9855, '_transient_timeout_wc_product_children_34', '1568108812', 'no'),
+(9856, '_transient_wc_product_children_34', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(9881, '_site_transient_timeout_community-events-d41d8cd98f00b204e9800998ecf8427e', '1565836234', 'no'),
+(9882, '_site_transient_community-events-d41d8cd98f00b204e9800998ecf8427e', 'a:2:{s:8:\"location\";a:1:{s:2:\"ip\";b:0;}s:6:\"events\";a:0:{}}', 'no'),
+(9929, '_transient_timeout_wc_product_children_55', '1568170166', 'no'),
+(9930, '_transient_wc_product_children_55', 'a:2:{s:3:\"all\";a:4:{i:0;i:261;i:1;i:263;i:2;i:262;i:3;i:264;}s:7:\"visible\";a:4:{i:0;i:261;i:1;i:263;i:2;i:262;i:3;i:264;}}', 'no'),
+(9931, '_transient_timeout_wc_var_prices_55', '1568391108', 'no'),
+(9932, '_transient_wc_var_prices_55', '{\"version\":\"1565799104\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"261\":\"230000\",\"263\":\"300000\",\"262\":\"180000\",\"264\":\"70000\"},\"regular_price\":{\"261\":\"240000\",\"263\":\"400000\",\"262\":\"200000\",\"264\":\"100000\"},\"sale_price\":{\"261\":\"230000\",\"263\":\"300000\",\"262\":\"180000\",\"264\":\"70000\"}}}', 'no'),
+(10196, 'woo-viet_notices', 'a:2:{s:17:\"installation_time\";i:1565628481;s:31:\"displaying_survey_after_4_weeks\";s:7:\"not_yet\";}', 'yes'),
+(10197, 'woocommerce_wooviet_onepay_domestic_settings', 'a:12:{s:7:\"enabled\";s:3:\"yes\";s:8:\"testmode\";s:2:\"no\";s:5:\"title\";s:23:\"OnePay Domestic Gateway\";s:11:\"description\";s:70:\"With OnePay, you can make payment by using any local Vietnam ATM card.\";s:11:\"api_details\";s:0:\"\";s:11:\"merchant_id\";s:0:\"\";s:11:\"access_code\";s:0:\"\";s:13:\"secure_secret\";s:0:\"\";s:4:\"user\";s:0:\"\";s:8:\"password\";s:0:\"\";s:9:\"more_info\";s:0:\"\";s:5:\"debug\";s:3:\"yes\";}', 'yes'),
+(10200, 'woocommerce_paypal_settings', 'a:23:{s:7:\"enabled\";s:2:\"no\";s:5:\"title\";s:6:\"PayPal\";s:11:\"description\";s:85:\"Pay via PayPal; you can pay with your credit card if you don\'t have a PayPal account.\";s:5:\"email\";s:22:\"caohoang2911@gmail.com\";s:8:\"advanced\";s:0:\"\";s:8:\"testmode\";s:2:\"no\";s:5:\"debug\";s:2:\"no\";s:16:\"ipn_notification\";s:3:\"yes\";s:14:\"receiver_email\";s:22:\"caohoang2911@gmail.com\";s:14:\"identity_token\";s:0:\"\";s:14:\"invoice_prefix\";s:3:\"WC-\";s:13:\"send_shipping\";s:3:\"yes\";s:16:\"address_override\";s:2:\"no\";s:13:\"paymentaction\";s:4:\"sale\";s:10:\"page_style\";s:0:\"\";s:9:\"image_url\";s:0:\"\";s:11:\"api_details\";s:0:\"\";s:12:\"api_username\";s:0:\"\";s:12:\"api_password\";s:0:\"\";s:13:\"api_signature\";s:0:\"\";s:20:\"sandbox_api_username\";s:0:\"\";s:20:\"sandbox_api_password\";s:0:\"\";s:21:\"sandbox_api_signature\";s:0:\"\";}', 'yes'),
+(10207, 'woo-viet', 'a:7:{s:19:\"add_onepay_domestic\";a:1:{s:7:\"enabled\";s:3:\"yes\";}s:12:\"add_province\";a:1:{s:7:\"enabled\";s:2:\"no\";}s:8:\"add_city\";a:1:{s:7:\"enabled\";s:2:\"no\";}s:22:\"change_currency_symbol\";a:2:{s:7:\"enabled\";s:2:\"no\";s:4:\"text\";s:3:\"VND\";}s:13:\"convert_price\";a:2:{s:7:\"enabled\";s:2:\"no\";s:4:\"text\";s:1:\"K\";}s:19:\"vnd_paypal_standard\";a:3:{s:7:\"enabled\";s:2:\"no\";s:8:\"currency\";s:3:\"USD\";s:4:\"rate\";s:5:\"22770\";}s:27:\"vnd_paypal_express_checkout\";a:3:{s:7:\"enabled\";s:2:\"no\";s:8:\"currency\";s:3:\"USD\";s:4:\"rate\";s:5:\"22770\";}}', 'yes'),
+(10306, 'woocommerce_flat_rate_5_settings', 'a:7:{s:5:\"title\";s:9:\"Flat rate\";s:10:\"tax_status\";s:7:\"taxable\";s:4:\"cost\";s:5:\"30000\";s:11:\"class_costs\";s:0:\"\";s:13:\"class_cost_67\";s:0:\"\";s:13:\"no_class_cost\";s:0:\"\";s:4:\"type\";s:5:\"class\";}', 'yes'),
+(10367, 'fbmcc_enabled', '', 'yes'),
+(10368, 'fbmcc_generatedCode', '<div id=\'fb-root\'></div>\r\n  <script>(function(d, s, id) {\r\n    var js, fjs = d.getElementsByTagName(s)[0];\r\n    js = d.createElement(s); js.id = id;\r\n    js.src = \'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1\';\r\n    fjs.parentNode.insertBefore(js, fjs);\r\n  }(document, \'script\', \'facebook-jssdk\'));</script>\r\n  <div class=\'fb-customerchat\'\r\n    attribution=\"wordpress\"\r\n    page_id=\'308257429794490\'\r\n  >\r\n</div>', 'yes'),
+(10413, 'facebook_messenger_user', 'https://www.facebook.com/sonataeyewear/', 'yes'),
+(10414, 'facebook_messenger_backgroud', '#0075FF', 'yes'),
+(10415, 'facebook_messenger_lang', 'vi_VN', 'yes'),
+(10416, 'facebook_messenger_woo_position', '1', 'yes'),
+(10417, 'facebook_messenger_display', '1', 'yes'),
+(10418, 'facebook_messenger_text_botton', 'Support', 'yes'),
+(10419, 'facebook_messenger_app', '1', 'yes'),
+(10420, 'facebook_messenger_app_text', 'Send message via your Messenger App', 'yes'),
+(10421, 'facebook_messenger_text_img', 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/plugins/facebook-messenger/frontend/images/facebook-messenger.svg', 'yes'),
+(10422, 'widget_facebook_messenger_widget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(10424, 'facebook_messenger_type', '0', 'yes'),
+(10425, 'facebook_messenger_postion', '0', 'yes'),
+(10426, 'facebook_messenger_hide_display', '0', 'yes'),
+(10427, 'facebook_messenger_hide_page', '', 'yes'),
+(10428, 'facebook_messenger_show_page', '', 'yes'),
+(10475, 'woocommerce_bacs_accounts', 'a:1:{i:0;a:6:{s:12:\"account_name\";s:0:\"\";s:14:\"account_number\";s:0:\"\";s:9:\"bank_name\";s:0:\"\";s:9:\"sort_code\";s:0:\"\";s:4:\"iban\";s:0:\"\";s:3:\"bic\";s:0:\"\";}}', 'yes'),
+(10538, '_transient_timeout_wc_order_273_needs_processing', '1565800446', 'no'),
+(10539, '_transient_wc_order_273_needs_processing', '1', 'no'),
+(10572, 'woocommerce_free_shipping_2_settings', 'a:3:{s:5:\"title\";s:13:\"Free shipping\";s:8:\"requires\";s:0:\"\";s:10:\"min_amount\";s:5:\"30000\";}', 'yes'),
+(10578, '_transient_timeout_wc_order_274_needs_processing', '1565802168', 'no'),
+(10579, '_transient_wc_order_274_needs_processing', '1', 'no'),
+(10595, '_transient_timeout_wc_order_275_needs_processing', '1565803155', 'no'),
+(10596, '_transient_wc_order_275_needs_processing', '1', 'no'),
+(10597, '_transient_wc_count_comments', 'O:8:\"stdClass\":7:{s:14:\"total_comments\";i:10;s:3:\"all\";i:10;s:8:\"approved\";s:2:\"10\";s:9:\"moderated\";i:0;s:4:\"spam\";i:0;s:5:\"trash\";i:0;s:12:\"post-trashed\";i:0;}', 'yes'),
+(10598, '_transient_as_comment_count', 'O:8:\"stdClass\":7:{s:8:\"approved\";s:1:\"1\";s:14:\"total_comments\";i:1;s:3:\"all\";i:1;s:9:\"moderated\";i:0;s:4:\"spam\";i:0;s:5:\"trash\";i:0;s:12:\"post-trashed\";i:0;}', 'yes'),
+(10613, '_transient_timeout_wc_report_sales_by_date', '1565879429', 'no'),
+(10614, '_transient_wc_report_sales_by_date', 'a:16:{s:32:\"6867528b846ff279ab9eb237acede63c\";a:1:{i:0;O:8:\"stdClass\":2:{s:5:\"count\";s:1:\"3\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"362c76142a8808340df4ff1a8fe8aeca\";a:0:{}s:32:\"b270cd0560b5442819029ed5b3d801d5\";a:1:{i:0;O:8:\"stdClass\":2:{s:16:\"order_item_count\";s:1:\"5\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"90abb1d34ca65884b0d506bcc328fd16\";N;s:32:\"797abeb31beac573219295fd3cf9d99d\";a:1:{i:0;O:8:\"stdClass\":5:{s:11:\"total_sales\";s:6:\"470054\";s:14:\"total_shipping\";s:5:\"60000\";s:9:\"total_tax\";s:1:\"0\";s:18:\"total_shipping_tax\";s:1:\"0\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"83e95ebc9ce91d3bfedb8c3a0b6ba5cd\";a:0:{}s:32:\"81344c111028f490aa1f6039b80113e8\";a:0:{}s:32:\"effe649c54a1f98c3987f4f9ac293f44\";a:0:{}s:32:\"649d1b45a0757ab19eab391d3bff7398\";a:1:{i:0;O:8:\"stdClass\":2:{s:5:\"count\";s:1:\"3\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"c5ead9f0286c8c2c03c2db80e48270e3\";a:0:{}s:32:\"9a9986edb488707af69b9773c6eb2787\";a:1:{i:0;O:8:\"stdClass\":2:{s:16:\"order_item_count\";s:1:\"5\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"c8df48727b86cc013b4607119aa3a005\";N;s:32:\"9a6850f604756b24a7156d3a95887f44\";a:1:{i:0;O:8:\"stdClass\":5:{s:11:\"total_sales\";s:6:\"470054\";s:14:\"total_shipping\";s:5:\"60000\";s:9:\"total_tax\";s:1:\"0\";s:18:\"total_shipping_tax\";s:1:\"0\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"0c6debd4a579dbbc3ed3341d0fd31e2c\";a:0:{}s:32:\"3bc7148ffcd2f004935aa9766323c2cf\";a:0:{}s:32:\"a641517fae5b6f2e71984c96753329c1\";a:0:{}}', 'no'),
+(10615, '_transient_timeout_wc_admin_report', '1565877023', 'no'),
+(10616, '_transient_wc_admin_report', 'a:4:{s:32:\"2ade1c60a5fafe5fc30d03040c4c48bc\";a:1:{i:0;O:8:\"stdClass\":2:{s:15:\"sparkline_value\";s:6:\"470054\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"90ba4da79a6f16fcd8cdbc2409ec33c2\";a:1:{i:0;O:8:\"stdClass\":3:{s:10:\"product_id\";s:2:\"53\";s:15:\"sparkline_value\";s:1:\"3\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"fd7810f0e63a9142313983b94385c9cd\";a:1:{i:0;O:8:\"stdClass\":2:{s:15:\"sparkline_value\";s:6:\"470054\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}s:32:\"bd94b6baea8bdeb355609a4de6c4c725\";a:1:{i:0;O:8:\"stdClass\":3:{s:10:\"product_id\";s:2:\"53\";s:15:\"sparkline_value\";s:1:\"3\";s:9:\"post_date\";s:19:\"2019-08-13 16:34:06\";}}}', 'no'),
+(10621, '_transient_timeout_wc_upgrade_notice_3.7.0', '1565805717', 'no'),
+(10622, '_transient_wc_upgrade_notice_3.7.0', '', 'no'),
+(10634, '_transient_timeout_feed_7fa907073bddbc2fc2b2bb18c9dfef16', '1565833830', 'no');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(10635, '_transient_feed_7fa907073bddbc2fc2b2bb18c9dfef16', 'a:4:{s:5:\"child\";a:1:{s:0:\"\";a:1:{s:3:\"rss\";a:1:{i:0;a:6:{s:4:\"data\";s:3:\"\n\n\n\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:7:\"version\";s:3:\"2.0\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:1:{s:0:\"\";a:1:{s:7:\"channel\";a:1:{i:0;a:6:{s:4:\"data\";s:49:\"\n	\n	\n	\n	\n	\n	\n	\n	\n	\n	\n		\n		\n		\n		\n		\n		\n		\n		\n		\n	\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:3:{s:0:\"\";a:6:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:15:\"Redux Framework\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:16:\"https://redux.io\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:44:\"The most powerful WordPress input framework.\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:13:\"lastBuildDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Sat, 16 Mar 2019 22:16:04 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"language\";a:1:{i:0;a:5:{s:4:\"data\";s:5:\"en-US\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"item\";a:10:{i:0;a:6:{s:4:\"data\";s:73:\"\n		\n		\n				\n				\n		\n				\n		\n		\n		\n		\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:29:\"Redux v4 Beta Official Launch\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:58:\"https://redux.io/2019/02/18/redux-v4-beta-official-launch/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:66:\"https://redux.io/2019/02/18/redux-v4-beta-official-launch/#respond\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Mon, 18 Feb 2019 23:00:12 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:5:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:1;a:5:{s:4:\"data\";s:9:\"beta test\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:2;a:5:{s:4:\"data\";s:7:\"redux 4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:3;a:5:{s:4:\"data\";s:17:\"redux framework 4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:4;a:5:{s:4:\"data\";s:9:\"version 4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:25:\"https://redux.io/?p=11094\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:293:\"Buckle up, devs! The launch of the long anticipated Redux v4 Beta is finally here! I&#8217;ll skip my usual long-winded posts and get right to the things you need to know now! This is a &#8216;soft launch&#8217;. It means we&#8217;re putting it out there and giving a general notice without...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:5:\"Kevin\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:12408:\"<p>Buckle up, devs! The launch of the long anticipated Redux v4 Beta is finally here! I&#8217;ll skip my usual long-winded posts and get right to the things you need to know now!</p>\n<p>This is a &#8216;soft launch&#8217;. It means we&#8217;re putting it out there and giving a general notice without a full-on grand opening just yet. That&#8217;s going to come when we launch our new site very soon! In Las Vegas, they call it a &#8216;soft open&#8217;. 🙂</p>\n<p>We&#8217;ve housed the code for Redux v4 in our public GitHub repository. You can find it here: <a href=\"https://github.com/reduxframework/redux-framework-4\" target=\"_blank\" rel=\"noopener noreferrer\">https://github.com/reduxframework/redux-framework-4</a>. Now, before you go clicking that link and getting to the good stuff, which I know you want to do, please review the following first. It&#8217;s important stuff you need to know before beginning.</p>\n<p>Have fun, folks!</p>\n<p>&nbsp;</p>\n<h3><strong>Welcome to the Redux 4.0 Beta</strong></h3>\n<p>Here are several guidelines to consider when testing:</p>\n<p>1. While we feel this version of Redux is fast approaching stable, we must caution you about using this code in production. At this time &#8211; should you chose to do so &#8211; it&#8217;s with no guarantees from us for any given feature or function.</p>\n<p>2. Unlike the current v3 of Redux, the plugin slug for v4 is not yet &#8216;redux-framework&#8217;. It is HIGHLY recommended you do not install this version into the current v3 folder. The slug for this private build is &#8216;redux-framework-4&#8217; and is what the plugin folder is titled. When testing, please disable the v3 plugin. Remember, the active plugin of Redux will supersede any embedded version. You are also free to use embedding.</p>\n<p>3. As far as known issues go, there are potentially two we are aware of that will require my further investigating. The first is a possible &#8216;run in&#8217; with an embedded v3 when running v4 as a plugin. The other is custom styling for the v4 option panel. Some folks have restyled Redux to their own liking. Because Redux v4 is now theme aware, current custom CSS may not render properly. If that should happen, it is possible to turn off the &#8216;theme aware&#8217; feature and return to the v3 styling which will not interfere with any custom styling. To do this, all the following argument to your global arguments array: <code>\'admin_theme\' =&gt; \'classic\'</code></p>\n<p>4. For the time being, please report any issues to the <a href=\"https://github.com/reduxframework/redux-framework-4/issues\" target=\"_blank\" rel=\"noopener noreferrer\">redux-framework-4 issue tracker</a>. Please do not use the current redux-framework issue tracker for v3. If filing as issue, please be aware the the usual instructions for sending reports. Specifically, the support hash/URL and the specific steps and circumstances in which the issue occured. Basically, we&#8217;ll need instructions to guide us through what you did to recreate the issue. If need be, we may ask you for a copy of your project in the event we&#8217;re unable to recreate the issue on our own.</p>\n<p>5. Translations. Due to the undertaking of rewriting the Redux core, more than a few translation strings were changed, removed, or added. When Redux v4 goes &#8216;gold&#8217; and is added to wp.org, we will be using their online translation services. It will allow the community to add their own translations for the many languages out there. Redux would then automatically download the one it needs on demand, versus packing them all in one project. For now, a current .POT file is included in the ReduxCore/languages folder in the event you&#8217;d like to do some local translation. If so, please feel free to submit them via pull request. We will add them to wp.org when Redux v4 is released. Eventually, language submissions will be made here: <a href=\"https://translate.wordpress.org/projects/wp-plugins/redux-framework\" target=\"_blank\" rel=\"noopener noreferrer\">https://translate.wordpress.org/projects/wp-plugins/redux-framework</a> (No need to do so right now, as any work done will apply to v3 and NOT v4).</p>\n<p>6. Lastly, we are not accepting pull requests at this time. The reason for this is because this code is extremely complicated, especially in terms of backward compatibility with v3. Please propose changes via the issue tracker so they may be evaluated for backward compatibility.</p>\n<p>If you would like to interact with us directly, you can join our Slack workspace at <a href=\"http://slack.redux.io\" target=\"_blank\" rel=\"noopener noreferrer\">http://slack.redux.io</a>. Join us in the <a href=\"https://redux.slack.com/messages/CG9F75Y7L\" target=\"_blank\" rel=\"noopener noreferrer\">#redux-beta</a> channel. Our handles are @Kev and @dovy. Don&#8217;t be afraid to say hi!</p>\n<p>Please check back nightly for new code pushes.</p>\n<p>&nbsp;</p>\n<h3><strong>We still need your support!</strong></h3>\n<p>It is difficult and time consuming to continue development and support for this free plugin without contributions from users like yourself. If you enjoy using Redux Framework, find it useful, and if it&#8217;s saved you hours upon hours of development time, please consider <a href=\"https://www.gofundme.com/development-of-redux-framework-v4\" target=\"_blank\" rel=\"noopener noreferrer\">donating and helping us hit our fundraising goal</a>. Your donations will help encourage and support the plugin&#8217;s continued development and better user support.</p>\n<p>&nbsp;</p>\n<h3><strong>Changelog</strong></h3>\n<p>See the <a href=\"https://github.com/reduxframework/redux-framework-4/blob/master/CHANGELOG.md\" target=\"_blank\" rel=\"noopener noreferrer\">Redux v4 Changelog.</a></p>\n<p>&nbsp;</p>\n<h3><strong>What&#8217;s new?</strong></h3>\n<p><strong>Core Rewrite</strong></p>\n<p>Our code base has been rebuilt from the ground up. With compartmentalized code, autoloading, and class inheritance, Redux is now faster and more efficient than it&#8217;s ever been!</p>\n<p><strong>Top of the Line Security!</strong></p>\n<p>Redux meets security standards laid out by WordPress Coding Standards, WordPress VIP Standards, and ThemeForest Guidelines. Focus includes escaping, sanitizing, and nonces verification, and database query prep/caching.</p>\n<p><strong>Automatic Google Font Updates.</strong></p>\n<p>This is one of the crown jewels of Redux v4! Your users will have the ability to update Google Fonts as updates are available or automatic &#8216;behind the scenes&#8217; updates. No more waiting for updates and no API key required!</p>\n<p><strong>Basic Metaboxes</strong></p>\n<p>Redux now contain a &#8216;lite&#8217; version of Metaboxes to support basic fields such as <code>Checkbox, Radio Button, Text, Textarea, Media</code>, and <code>Color</code>. It&#8217;s part of our expanse into the interface builder realm.</p>\n<p>Post Format and Page Template features are also not available. These features plus support for all fields will be available in the Advanced Metaboxes portion of Redux Pro.</p>\n<p>Due to the complex nature in which the Metaboxes feature integrates with Redux and existing option panels, it is important that a strict load order be maintained. The metabox config must be loaded in your option config via a specific action hook, otherwise the metaboxes config will not load properly. The see <code>BEGIN METABOX CONFIG</code> section of the <a href=\"https://github.com/reduxframework/redux-framework-4/blob/master/sample/sample-config.php\" target=\"_blank\" rel=\"noopener noreferrer\">sample-config.php</a> file.</p>\n<p>The current Metabox extension *is* supported and will override the lite version.</p>\n<p><strong>Field Sanitizing</strong></p>\n<p>Field sanitizing allows one to pass an array of function names as an argument to a field in which the return value will be the sanitizing string. This feature will only work with text based fields including text, textarea, and multi_text (ACE Editor and WP Editor not included).</p>\n<p>One may use any existing function including PHP functions, WordPress functions and custom written functions. The return value of any used function must be that of a string. Any other return value will be disregarded.</p>\n<p>Please view the <a href=\"https://github.com/reduxframework/redux-framework-4/blob/master/sample/sample-config.php\" target=\"_blank\" rel=\"noopener noreferrer\">sample-config.php</a> file for specific examples.</p>\n<p><strong>Select2 AJAX Loading</strong></p>\n<p>The AJAX loading routines for the select2 fields have been fixed/finished. See the &#8216;capabilities&#8217; field in the demo panel for an example.</p>\n<p>For the interim, this feature will only work when used in conjunction with the <code>data</code> argument (that is, the one that fetches WordPress data).</p>\n<p>To set AJAX loading, add the <code>\'ajax\' =&gt; true</code> argument to your select field. The <code>min_input_length</code> argument may also be added to specify how many characters should be typed before results are shown. Default is <code>1</code>.</p>\n<p><strong>Field/Section Disabling</strong></p>\n<p>This feature has been request quite a few times over the years. Fields and sections can now be disabled by adding the <code>\'disabled\' =&gt; true</code> argument to either a section or a field. The section or field will then appear &#8216;grayed out&#8217; and not respond to input. This comes in handy in the event one may want to offer teasers for premium versions of their products.</p>\n<p>Since those with a little CSS know-how could easily reactive disabled fields with a little CSS, we took the added precaution of having Redux remove any <code>name</code> attributes on disabled fields/sections. This way, even if a clever user reactivates the field, it will never save.</p>\n<p><strong>Updated Panel Interface</strong></p>\n<p>The option panel interface has been brought up to date with the current WordPress admin design. It is also now &#8216;theme aware&#8217;. Panel colors will now follow suit with the selected admin theme.</p>\n<p><strong>Improved Field Validation</strong></p>\n<p>Due to the need for multiple field validations, Redux now supports an array of validations versus the previously limiting single argument. Validation results now appear in real time after a save without the need for page refresh.</p>\n<p><strong>Full v3 Backward Compatibility</strong></p>\n<p>We take backward compatibility very seriously here and strive to maintain it. Redux v4 has been designed to act as a drop in replacement to offer new functionality without breaking existing functionality.</p>\n<p>&nbsp;</p>\n<h3>A Note About Current Redux Extensions</h3>\n<p>Redux v4 has been tested with our current extension library. Nothing serious has come up thus far. However, if you are using extensions and find an issue, please report it on the redux-framework-4 issue tracker. If warranted. updates to extensions will be released for compatibility purposes only. In order to receive updates to extensions, your subscription <strong>MUST</strong> be current and active. There are no exceptions.</p>\n<p>Future development of our extension library for new features and updates for Redux v4 will come in the form of Redux Pro. Announcements about this product will be made as they become available.</p>\n<p>&nbsp;</p>\n<h3>Frequently Asked Questions</h3>\n<p><strong>What happens to Redux v3 when v4 is finished?</strong></p>\n<p>Upon completion, Redux v4 will completely replace v3 in our primary repository and at wp.org. At that time, we will no longer be offering v3 in any form nor will we be maintaining any code v3. Any copies or forks out there will be considered deprecated and should be considered &#8216;as is&#8217;.</p>\n<p><strong>Is Redux v4 free?</strong></p>\n<p>Yes. This is the &#8216;core&#8217; and it remains free to use, fork, embed, etc. However, what you see is what you get. All new features, extensions, add-ons, etc will come in the form of Redux Pro, which will require a maintained subscription for licensed usage. We do not yet have details to offer about availability or pricing at this time. Please join our mailing list for updates on this and other Redux related news as it becomes available: <a href=\"https://redux.io/subscribe-to-redux-framework\" target=\"_blank\" rel=\"noopener noreferrer\">https://redux.io/subscribe-to-redux-framework</a>.</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:63:\"https://redux.io/2019/02/18/redux-v4-beta-official-launch/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"0\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:1;a:6:{s:4:\"data\";s:73:\"\n		\n		\n				\n				\n		\n				\n		\n		\n		\n		\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:32:\"Redux 4.0 – We Need Your Help!\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:56:\"https://redux.io/2018/11/18/redux-4-0-we-need-your-help/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:65:\"https://redux.io/2018/11/18/redux-4-0-we-need-your-help/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Sun, 18 Nov 2018 07:50:12 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:5:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:1;a:5:{s:4:\"data\";s:9:\"beta test\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:2;a:5:{s:4:\"data\";s:8:\"gofundme\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:3;a:5:{s:4:\"data\";s:17:\"redux framework 4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:4;a:5:{s:4:\"data\";s:9:\"version 4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"https://reduxframework.com/?p=9139\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:297:\"Greetings from the cone of silence, Reduxians (Reduxers?  Not sure on the nomenclature here 😉 )! Yeah, I know, it&#8217;s been a while.  A little over a year, in fact.  There was the whole announcement about a beta for Redux 4 last October and then&#8230;poof!  Well, not really, it just...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:5:\"Kevin\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:15852:\"<p>Greetings from the cone of silence, Reduxians (Reduxers?  Not sure on the nomenclature here 😉 )!</p>\n<p>Yeah, I know, it&#8217;s been a while.  A little over a year, in fact.  There was the whole announcement about a beta for Redux 4 last October and then&#8230;poof!  Well, not really, it just looked that way.  Lots of work continued, albeit more slowly than we would have liked.  The time we used to have to devote to the current upkeep of v3 and work on v4 became&#8230;limited.  Life happens.  Jobs, family, the occasional day off.  Those types of things.  Then there is the funding issue and that&#8217;s why we are here today.  We need your help.</p>\n<p>To put it bluntly, the entire project is barely self sustaining.  We tried many ways to keep going through the years.  We&#8217;ve asked for donations, we&#8217;ve offered premium products.  It&#8217;s been enough to keep the basic bills paid.  Things like this website, the cost of domain registration, and related administration costs.  Otherwise, the time committed to this has been mostly volunteer.  It&#8217;s one of the reasons Redux v4 has been in limbo as long as it has been.  It&#8217;s frustrating for us and for those waiting as well.  We understand that frustration and we&#8217;re sorry it&#8217;s taken so long to get to this point.  A <a href=\"https://www.gofundme.com/development-of-redux-framework-v4\" target=\"_blank\" rel=\"noopener\">GoFundMe</a> campaign has been set up to raise the funds needed to drive this thing home.  We&#8217;d like your help to hit our goal.</p>\n<p>Here is the link if you&#8217;d prefer to skip my pitch and chip in directly!  😉  <a href=\"https://www.gofundme.com/development-of-redux-framework-v4\" target=\"_blank\" rel=\"noopener\">https://www.gofundme.com/development-of-redux-framework-v4</a></p>\n<p>Still with me?  Awesome!  Allow me explain in more detail what&#8217;s going on, what to expect, and more importantly what Redux v4 has to offer.</p>\n<p>As I am sure most of you know, Redux Framework for WordPress &#8211; since its beginning in late 2013 &#8211; has become the most popular and most used WordPress option framework for developers of WordPress themes and plugins. With over 700,000 active installations and usage on over 4 million sites, we&#8217;re number one for a reason. Our software has saved thousands upon thousands of developers like yourself dozens of development hours by creating a beautiful option panel for you. Currently, Redux is also free, with free basic support. This type of work takes an a huge amount of time and effort.  In order to keep Redux v4 free, a <a href=\"https://www.gofundme.com/development-of-redux-framework-v4\" target=\"_blank\" rel=\"noopener\">GoFundMe</a> campaign has been setup. The funds raised will go toward the completion of the beta and ultimately the final product.  Backers who contribute $20.00 or more to this campaign are guaranteed full and free access regardless the results.  All backers will be recognized on our website with a link to their website or product (you are free to opt out and remain anonymous if you so choose).   If we reach our goal, we&#8217;ll take the beta public.  Your help will not only help us achieve our goal, but will also help keep the project alive for everyone.  This is why we feel it&#8217;s important for everyone to chip in and give a little back.  We&#8217;re a community.  We need to look out for one another</p>\n<p>Now, let&#8217;s talk about what to expect in Redux v4.  This is the beginning of a new phase for the company, Redux.io.  We are moving away from a traditional options panel into a full fledged interface builder.  The ability to easily create powerful option panels for your projects will always be at the core of Redux.  But we are planning to go much further as Redux v4 develops.  There are plans for a full interface builder which, in essence, would allow one to build an entire option panel without writing a single line of code.  A little teaser there.  There are plans to move Redux fields into the <a href=\"https://developer.wordpress.org/rest-api/\" target=\"_blank\" rel=\"noopener\">REST API</a>.  There may even be plans to adapt Redux fields to the most popular page builders available.  And <a href=\"https://wordpress.org/plugins/gutenberg/\" target=\"_blank\" rel=\"noopener\">Gutenberg</a>?  Yes, we&#8217;ll be adapting to that as well.  For now, this is what you can expect straight away with Redux v4:</p>\n<ul class=\"bullet_star imglist\">\n<li><strong>Major core rewrite.<br />\n</strong>If you&#8217;ve ever taken an actual look at the Redux v3 code base, you&#8217;d see it&#8217;s a bit of a mess.  Most everything is crammed into one file.  Much of it is spaghetti code.  It&#8217;s what happened in the beginning when several frameworks came together to make one ( I wrote about this in depth <a href=\"https://reduxframework.com/2017/10/redux-4-0-beta-test/\" target=\"_blank\" rel=\"noopener\">here</a>, if you&#8217;re interested).  As the years went by, we because to separate bits out of the whole into classes.  Doing this for production code in it&#8217;s current state became too messy and introduced some problems along the way.  A full rewrite was needed, and that&#8217;s what happened.  Now the core is split into smaller, readable bits.  We now <a href=\"http://php.net/manual/en/language.oop5.autoload.php\" target=\"_blank\" rel=\"noopener\">autoload</a> our classes and use inheritance.  It&#8217;s sped up things quit e a bit.  Along the way I delved into the concepts of security, especially as it applies to WordPress, themes, and plugins.  Which leads me to&#8230;</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Top of the line security.</strong><br />\nRedux v4 will meet or exceed code standard laid out by <a href=\"https://codex.wordpress.org/WordPress_Coding_Standards\" target=\"_blank\" rel=\"noopener\">WordPress Coding Standards</a>. an additional set of standards used by <a href=\"https://vip.wordpress.com/documentation/vip-go/vip-code-review/\" target=\"_blank\" rel=\"noopener\">WordPress VIP</a> (we remain unaffiliated), and <a href=\"https://help.author.envato.com/hc/en-us/sections/360000091586-WordPress-Requirements-for-Envato-Market\" target=\"_blank\" rel=\"noopener\">ThemeForest</a> (using their <a href=\"https://github.com/envato/envato-theme-check\" target=\"_blank\" rel=\"noopener\">proprietary theme check plugin</a>, which I gotta say is very strict).  These resources focus highly on security.  These including proper escaping and sanitizing techniques, <a href=\"https://codex.wordpress.org/WordPress_Nonces\" target=\"_blank\" rel=\"noopener\">nonces</a> for AJAX and form submissions, and other <a href=\"https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf\" target=\"_blank\" rel=\"noopener\">OWASP concerns</a>.  I used the same <a href=\"https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards\" target=\"_blank\" rel=\"noopener\">CodeSniffer rulesets</a> to audit the entire framework.  These are also the same standards <a href=\"https://automattic.com/\" target=\"_blank\" rel=\"noopener\">Automattic</a> applies to their product line, including WooCommerce and Jetpack.  The work to keep Redux v4 as secure as possible will always be a top concern and priority.  Speaking as a developer, these standards are something I would highly recommend you run your products through.  One can never be too careful or too secure.  I learned quite a bit during these code sweeps and you too!  Our extensions library will also soon be undergoing the same audits.</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Manual &amp; automatic Google Font updates</strong><br />\nThis is one of the crown jewels of Redux v4.  The updating of Google font resources was always a major issue for v3 users, and rightly so.  Redux users basically had to wait for us to update them.  We attempted to incorporate a self updating feature, but it required a Google API key.  Any successful project could blow the limit on such a key very quickly.  Plus, I believe ThemeForest stopped allow developers to include such a key in their projects.  Web server permission issues also cropped up frequently.  The auto update feature failed for many of our users and their clients.  This new method Dovy introduced in v4 solved all of that.  We handle the updating of the Google fonts on our end, via <a href=\"https://travis-ci.org/\" target=\"_blank\" rel=\"noopener\">Travis CI</a>. (You can see it <a href=\"https://github.com/reduxframework/google-fonts\" target=\"_blank\" rel=\"noopener\">here</a> if this interests you). Since we run the check only once a day, our API key never reaches it&#8217;s limit.  Pretty ingenious, eh?  Redux then pings our server every week to check for an updated JSON file.  If it finds one, you are notified and given the option to update.  Two options actually.  Your users will have the ability to update as updates are available or use automatic updates behind the scenes (see the screen shot above).  Now there will be no need to wait on us to update the Google fonts array in our core package.</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Basic Metaboxes with standard fields</strong><br />\nRedux v4 will now contain is lite version of Metaboxes to support basic fields.  It&#8217;s part of our expanse into the interface builder realm.  Advanced fields will still require an active subscription to the what will be renamed as the Advanced Metaboxes extension.</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Updated panel interface</strong><br />\nThe Redux v3 option panel interface was based on the WordPress admin interface as WordPress appeared many years ago before the advent of admin themes.  It&#8217;s time we caught up as well.  Redux v4 now matches the current admin style, and is &#8216;theme aware&#8217; (see the screen shot above).  If you should change the color of your admin theme, Redux will follow suit!</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Full backward compatibility with v3</strong><br />\nThis standard has been so important to Dovy and I since we began working together.  Personally &#8211; as a developer in the industry for some twenty-something years now &#8211; nothing frustrates me more that backward compatibility issues with software.  We don&#8217;t want to do that to you, and we&#8217;ve gone to greats lengths to keep it that way.  Redux v4 will be no different.  Updated code and classes are &#8216;shimmed&#8217; so that older public function calls and hooks/filters remain in place.  This is why we are conducting our beta tests.  We would like to eliminate as many of those scenarios as possible before going &#8216;gold&#8217; (that&#8217;s an old industry term for production release  😉 ) .</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Improved field validation</strong><br />\nField validation is important in our quest for better security.  It allows one to filter out input at the panel level, specifically in real-world instances that cannot be compensated for inside our core.  Redux v3 only allowed for one validation argument per field.  We&#8217;ve had many requests for the ability to add more than one validation to any given field or to create new validations to combine existing validations.  It became so we could not accommodate everyone by constantly adding new validation classes to the core.  Now with Redux v4, the validation argument supports arrays.  Specify as many validations as you like!  Also, validation error and warning notices appear in real time after an AJAX save of the panel.  With v3, notices and warnings &#8211; in some cases &#8211; would not appear until after a page refresh.  We are also planning to add a &#8216;sanitize&#8217; argument with callback capability to fields as well.  Just one of the many requested improvements over the years!</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Significant code improvements</strong><br />\nThis may get a bit technical, so if you are a designer by trade and don&#8217;t understand the complex nature of JavaScript level code, then don&#8217;t worry.  You can skip this item.  Just know it&#8217;s a major improvement that&#8217;s good.  The opt_name argument of Redux is what makes each panel unique to each project, so if multiple authors were using Redux in different projects, they would not &#8216;run into each other.&#8217;  While this worked out well for the most part, we discovered instances were run ins still occurred.  Specifically, with our &#8216;required&#8217; feature as it pertains to Metaboxes, the Repeater field and the Customizer fields.  We&#8217;ve adapted out core JavaScript to be opt_name based, which will fix those lingering issues.  Those extensions will also require updates which are also nearly completed and forthcoming.  We&#8217;ve also fixed many small bugs and issues along the way!</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Vendor updates</strong><br />\nUsers of our Metaboxes extension reported a conflict with WooCommerce where select field rendering was an issue in either WooCommerce or Redux.  This occurred because of the <a href=\"https://select2.org/\" target=\"_blank\" rel=\"noopener\">Select2 vendor library</a>.  Woocommerce updated theirs to a new major version.  Incompatibilities with the older version we used cropped up. (Remember that backward compatibility frustration?  Well&#8230;).  Unfortunately, it was not as simple as updating our Select2 library as well since there were significant changes from Select2 v3 to v4.  It meant significant rewrites to fields that used Select2.  Redux v4 will no longer contain these conflict issues.  We&#8217;ve also updated the <a href=\"https://ace.c9.io/\" target=\"_blank\" rel=\"noopener\">ACE Editor library</a> and a few other internal ones as well.</li>\n</ul>\n<ul class=\"bullet_star imglist\">\n<li><strong>Redux Pro<br />\n</strong>Still slated as something we are working on is the premium Redux Pro effort as part of our expanse into the full interface builder world..  Redux v4 is designed specifically to interface with that project.  Redux Pro will not be compatible with v3.  As much as I would love to further spoil this product, it&#8217;s still a ways off and I cannot make any promises of release dates or betas at this time.  Announcements will be made via our <a href=\"https://reduxframework.com/subscribe-to-redux-framework/\" target=\"_blank\" rel=\"noopener\">email list</a> and<a href=\"https://www.facebook.com/ReduxFramework\" target=\"_blank\" rel=\"noopener\"> social media</a> as that time draws closer.</li>\n</ul>\n<p>As you can see, we&#8217;ve accomplish quite a bit over the last year, plus we have many fabulous new things in the works.  We are asking for the much needed financial support to push Redux v4 to the finish line. We would like to achieve this goal by the beginning of the new year. If you feel Redux and our effort behind it has saved you days or even weeks of development time, we are asking you donate to this project. Something from everyone who uses Redux will go a long way toward moving Redux into the future. We&#8217;ve come to a point where we truly do need the support of our users to keep Redux v4 free.  Please, consider our request and help us as we&#8217;ve helped you.</p>\n<p>When the beta is ready for testing and review, an announcement will be made via our blog, mailing list, and social media.  We&#8217;ll also have a Github repository set up for it to take feedback and issues that arise.</p>\n<p>Oh, one last thing; look for a redesign of our website in the coming months.  We think you&#8217;ll dig the updated design as much as we do.</p>\n<p>Thank you, and Happy Holidays to everyone.  🙂</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:61:\"https://redux.io/2018/11/18/redux-4-0-we-need-your-help/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"5\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:2;a:6:{s:4:\"data\";s:70:\"\n		\n		\n				\n				\n		\n				\n		\n		\n		\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:25:\"Redux 4.0 – A Beta Test\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:48:\"https://redux.io/2017/10/03/redux-4-0-beta-test/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:57:\"https://redux.io/2017/10/03/redux-4-0-beta-test/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Tue, 03 Oct 2017 00:39:32 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:4:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:1;a:5:{s:4:\"data\";s:9:\"beta test\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:2;a:5:{s:4:\"data\";s:17:\"redux framework 4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:3;a:5:{s:4:\"data\";s:9:\"version 4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=8613\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:332:\"So&#8230;it&#8217;s been, what?  A few years since we&#8217;ve posted something on our blog?  Yeah, we&#8217;re sorry about that.  Reports of our demise have been greatly exaggerated.  We&#8217;re still very much here, alive, and working on some things that we&#8217;ve been keeping under wraps for a better part of the year....\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:5:\"Kevin\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:11605:\"<p>So&#8230;it&#8217;s been, what?  A few years since we&#8217;ve posted something on our blog?  Yeah, we&#8217;re sorry about that.  Reports of our demise have been greatly exaggerated.  We&#8217;re still very much here, alive, and working on some things that we&#8217;ve been keeping under wraps for a better part of the year.</p>\n<p>&nbsp;</p>\n<p>Understand, in the beginning, after Simple Options,  Options Framework,  NHP,  SMOF and Redux 2.0 all came together to make Redux 3.0, it rocked the developer community.  All these fine frameworks and their authors coming together for one super project that eventually became the #1 options framework for WordPress theme and plugin developers.  As time marched on, many of our core developers moved onto other projects, or away from WordPress completely.  Many other option frameworks still available have either been abandoned or &#8211; not to put too fine a point on it &#8211; don&#8217;t do nearly half of what Redux in is current incarnation does.  Today, The Redux Framework project is just <a href=\"https://github.com/dovy\" target=\"_blank\" rel=\"noopener\">Dovy</a>, and myself (<a href=\"https://github.com/kprovance\" target=\"_blank\" rel=\"noopener\">Kev</a>).  We&#8217;ve not given up or walked away from this amazing project.  The issue is, WordPress tools designed specifically for developers, versus WordPress users/consumers are not exactly the income providers that tools such as <a href=\"https://woocommerce.com/\" target=\"_blank\" rel=\"noopener\">WooCommerce</a>, <a href=\"http://bbpress.org/\" target=\"_blank\" rel=\"noopener\">bbPress</a>, <a href=\"http://jetpack.com/\" target=\"_blank\" rel=\"noopener\">JetPack</a> are.  Dovy and I were unable to work on Redux full time for the last few years, which meant divided time between the Redux project we love so much &#8211; the one in which we still give our blood, sweat, and tears &#8211; and those <a href=\"https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=4&amp;ved=0ahUKEwiO1bXjttPWAhVn9IMKHcnxC18QFgg5MAM&amp;url=http%3A%2F%2Fthestir.cafemom.com%2Fhome_garden%2F182312%2F10_pesky_jobs_women_love&amp;usg=AOvVaw0CPB0z1_qQGms7nWSBS1yq\" target=\"_blank\" rel=\"noopener\">pesky real jobs</a>.  Oh, and sometimes our families enjoy seeing us as well, from time to time.  🙂</p>\n<p>&nbsp;</p>\n<p>This is the big reason why we&#8217;ve not made our presence abundantly front and center for a few years now.  We&#8217;re still fixing issues that come up in the Redux core.  We&#8217;re still answering the issue tracker in what we believe is still a timely fashion.  We&#8217;re still doing everything we need to do to keep Redux alive and healthy.  Dovy and I had a conversation last year about what the future of Redux should be, and where we should go with it.  Much of the code base that is the Redux 3.x core is still a mish-mash of all those previously aforementioned combined frameworks.  Over the years, I&#8217;ve rewritten sections of it here and there, either through bug reports, or by discovering outdated code to keep up with WordPress updates, or in some cases code that simply was not optimized.  Plus, when security issues come up from our community, we address those immediately.  It&#8217;s the commitment we still make to be the the most trusted and secure options framework available.  The discussion we had revolved around breaking up that main framework.php &#8211; which was close to 4000 lines &#8211; into separate components and rewriting our main JavaScript file to support the opt_name argument, which would improve upon many features and provide for new ones we could not implement without those improvements.  The problem was&#8230;time.  Specifically, lack thereof.  Neither one of us had it to give.</p>\n<p>&nbsp;</p>\n<p>That changed for me earlier this year (2017, for when this post becomes dated).  I found myself without various commitments that occupied most of my time.  All of a sudden, I had more time than I knew what to do with.  So I sat down and began to implement all the ideas Dovy and I discussed.  That huge framework.php now contains a mere 314 lines, with everything else broken up and put into classes, which an <a href=\"http://php.net/manual/en/function.spl-autoload-register.php\" target=\"_blank\" rel=\"noopener\">autoloader</a> now handles.  Additionally, the classes (core and fields) now use <a href=\"http://php.net/manual/en/language.oop5.inheritance.php\" target=\"_blank\" rel=\"noopener\">Object Inheritance</a> which seems to have sped thing up a bit.  Somewhere in there I rewrote the main JavaScript file as well to support the opt_name argument.  This will provide a number of benefits.  The biggest will be the forthcoming Advanced Customizer feature of Redux Pro.</p>\n<p>&nbsp;</p>\n<p>Oops, Redux&#8230;what?  Pro&#8230;what?  Did I just spoil something?  Hmmm&#8230;maybe I did.  Keep reading&#8230;</p>\n<p>&nbsp;</p>\n<p>Anyways, a few other benefits of the opt_name implementation of our core JavaScript will also be seen by Metabox users, specifically where there are multiple metaboxes on the same page with different Redux instances (which means, two different projects using Redux appearing on the same page).  The Redux &#8216;required&#8217; feature would only work for one, and not the other.  There are also some benefits for validation.  For example, when using validation on certain fields where information needed to be changed or corrected, those changes would not be seen until after the page was refreshed and not directly after an AJAX based save.  Little things such as this, that folks have been wanting for years will now be possible.</p>\n<p>&nbsp;</p>\n<p>Oh, and just you wait and see what Dovy did for the typography field.  Automatic Google Font updates WITHOUT the need for a Google API key.  Yeah, you heard that right.  Redux now handles it all for you, minus all the annoying permissions issues that used to plague the weekly update feature, to the point where we had to shut it down.  It&#8217;s crazy amazing how it works.  It&#8217;s something you just gotta see for yourself.  Dovy did a kick ass job on it.  Personally, I think it should be the sole reason to upgrade.</p>\n<p>&nbsp;</p>\n<p>So, after all this work, it was clear that bumping Redux 3 a minor version number would not cut it.  This project was now Redux 4.0, and work for it has gone on all summer long.  See?  We&#8217;ve been busy!  Looks (or lack thereof) can be deceiving!  I also made the command decision to update the look of the option panel interface to better match WordPress itself, so the option panel inherits the selected WordPress theme color (using a system close to the one WordPress uses).  Plus, we&#8217;ve been laying the groundwork for Redux Pro compatibility, which version 3 will not have.</p>\n<p>&nbsp;</p>\n<p>Oh, rats&#8230;did I tease that Pro thing again?  Ah, well.  Once again, keep reading.  I want to get the importanct stuff out first, which brings me to backward compatibility.  That is, when version 4 rolls out, it can (and will) replace 3 with no breakage.</p>\n<p>&nbsp;</p>\n<p>Dovy and I come from a school of developers who believe backward compatibility should always be maintained, or that every possible and conceivable effort should be given to the subject (pay attention WooCommerce).  So far, I think we&#8217;ve been pretty good about, being as obsessive about it as we are.  Great lengths have gone into Redux 4.0 to maintain this compatibility, even with all the code changes made.  More than a few <a href=\"https://en.wikipedia.org/wiki/Shim_(computing)\" target=\"_blank\" rel=\"noopener\">shims</a> were used to keep our promise to do everything possible to maintain backward compatibility.  This bring me to point of this entire post.  We don&#8217;t want to simply roll out Redux 4.0 without giving it a good shakedown.  We need some other &#8211; and preferably hardcore &#8211; Redux users to load up version 4.0 and verify exactly how seamless the upgrade is.  If there are things we missed, we want to catch them now (you know, instead of potentially breaking over a million sites).  We would prefer to begin with a private beta, a small group of Redux users who are familiar with the project.  We have a private Github repo set up for this.  After a short interval, the Redux 4.0 core will be added via a development/beta branch to the public Github repo for anyone to download and test.  It won&#8217;t replace the 3.x version until we are reasonably sure everything is where it should be.  And then, when we&#8217;re ready, we&#8217;ll push Redux 4.0 for public consumption.  The skies will light up!  Angels will sing!  World peace will fall into place!  Okay, well, maybe not all those things, especially that last one.  It&#8217;ll be a good thing, is my point in chief!  it allows us to move forward with the Redux Framework Project in ways we&#8217;ve only dreamed of doing for years now, which always mean more benefits for our users, and in turn, their users.  Win/win/win.</p>\n<p>&nbsp;</p>\n<p>If you are interested in participating in our limited, private beta, fill out the form below.  You will need a Github account to receive an invitation to our private repo.  We&#8217;d also appreciate it if you&#8217;d let us know the project in which Redux is used.  If accepted, additional details will be provided in the email we&#8217;ll be sending out.  Alternatively, If you&#8217;d rather wait for the public beta, we can respect that too.  We&#8217;ll be making another blog post when that happens, detailing all the new features, and things we&#8217;d like checked, areas of focus, etc.</p>\n<p>&nbsp;</p>\n<form accept-charset=\"utf-8\" action=\"http://news.redux.io/subscribe\" method=\"POST\"><label for=\"name\">Name</label></p>\n<p><label for=\"email\">Email</label></p>\n<div><label for=\"hp\">HP</label></div>\n<p><label for=\"GithubName\">Github Name</label></p>\n<p><label for=\"ProjectName\">Project Name</label></p>\n<p>&nbsp;</p>\n<p>Oh wait&#8230;I did say I&#8217;d say something about Redux Pro.  Well, maybe I&#8217;ll just tease you a little it, like a high school junior prom date at the midnight hour.  It&#8217;s a premium project that will further enhance the Redux Core, similar to what our extensions library does.  After several at-length discussions we&#8217;ve had about the project, we&#8217;ve decided the Advanced Customizer will be part of it, as well as a reworking version of Custom Fonts.  Pro will also include Ad Remover.  it also won&#8217;t be targeted specifically to developers, but also users as well as the project progresses.  There will be some new fields, some major enhancements to existing fields.  We&#8217;ve basically decided all new features and efforts for Redux Framework will be dedicated to the Pro version.  We did promise a long time ago the Redux core would be free, and remain that way and we don&#8217;t want to break that promise while me continue to make efforts to further fund the Redux Framework Project into the future.</p>\n<p>&nbsp;</p>\n<p>That&#8217;s all I&#8217;m giving away right now.  🙂</p>\n<p>&nbsp;</p>\n<p>In the meantime, here are a few teaser screen caps.  Enjoy!</p>\n<p><img class=\"img-frame \" src=\"https://redux.io/wp-content/uploads/2017/10/box-shadow.png\" /></p>\n<p><img class=\"img-frame \" /><img class=\"img-frame \" src=\"https://redux.io/wp-content/uploads/2017/10/media-filter-1.png\" /></p>\n<p><img class=\"img-frame \" src=\"https://redux.io/wp-content/uploads/2017/10/text-shadow.png\" /></p>\n</form>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:53:\"https://redux.io/2017/10/03/redux-4-0-beta-test/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:2:\"10\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:3;a:6:{s:4:\"data\";s:61:\"\n		\n		\n				\n				\n		\n				\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:35:\"Theme-Check Compliant, at Long Last\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:50:\"https://redux.io/2015/07/04/theme-check-compliant/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:59:\"https://redux.io/2015/07/04/theme-check-compliant/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Sat, 04 Jul 2015 15:00:37 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:1:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=3403\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:327:\"For a long time now, we&#8217;ve wanted Redux Framework to be Theme-Check compliant. The two factors preventing this were mainly WP FileSystem API failure (we included some hardcoded fallbacks in place), and vendor files (other projects we utilize). Today, we are proud to announce that the most recent development build of...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Dovy\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:2562:\"<p>For a long time now, we&#8217;ve wanted Redux Framework to be Theme-Check compliant. The two factors preventing this were mainly WP FileSystem API failure (we included some hardcoded fallbacks in place), and vendor files (other projects we utilize). Today, we are proud to announce that the most recent <a href=\"http://github.com/ReduxFramework/redux-framework\" target=\"_blank\" rel=\"noopener\">development build</a> of Redux will pass Theme-Check with flying colors!</p>\n<div class=\"tip-box\"><span class=\"box-icon\"> </span>And on that note, may freedom ring! Happy Independence Day America! 😉</div>\n<p>We took a hard look at all things within Redux that made Theme-Check bark like a schizophrenic dog. Honestly, we didn&#8217;t do anything horrible, we simply used direct functions rather than letting WordPress run the same functions. So, we decided to make the plunge. We shifted all file input/output to the WP Filesystem and made the changes to our Redux_Filesystem proxy class to handle our problem cases. We also removed a few URLs here, and some function names there.</p>\n<p>We also embedded some really useful custom Theme-Check checks to further assist developers in submitting their themes to marketplaces. We want you &#8211; as developers &#8211; to know exactly what you need to do to comply. We also added a custom WP.org check, to further help WP.org theme developers.</p>\n<p>Our next step is to add proper escaping to our field HTML output. Though Redux already escapes properly &#8211; since we use the WordPress settings API &#8211; we wanted to ensure you don&#8217;t have to tell your reviewers anything. We don&#8217;t want our code to be the cause of your work being flagged by marketplace reviewers. If we already escape something, we&#8217;ll add an inline comment so reviewers know what we are doing.</p>\n<p>In the end, we seek to comply. We want to ensure Redux is for for the masses and ready for any marketplace (no matter how specific the rules may be).</p>\n<h3>We Need Your Help!</h3>\n<p>Please test the <a href=\"http://github.com/ReduxFramework/redux-framework\" target=\"_blank\" rel=\"noopener\">development build</a> of Redux Framework in your own theme. Try out Theme-Check, and make sure we didn’t break anything. The sooner we have more eyes on these improvements, the sooner we’ll be able to make an official release, and the sooner we can push down some of our customizer fixes.   😉</p>\n<p>As always, a special thank you our developers. We hope you like Redux and that it makes your life easier.</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:55:\"https://redux.io/2015/07/04/theme-check-compliant/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"6\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:4;a:6:{s:4:\"data\";s:61:\"\n		\n		\n				\n				\n		\n				\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:40:\"Updated WordPress.org Theme Requirements\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:69:\"https://redux.io/2015/04/22/updated-wordpress-org-theme-requirements/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:78:\"https://redux.io/2015/04/22/updated-wordpress-org-theme-requirements/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Wed, 22 Apr 2015 16:27:46 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:1:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=2792\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:415:\"To all devs who develop themes on WordPress.org. There is a new requirement that will go into effect within the next 6 months. You can read all the details here: https://make.wordpress.org/themes/2015/04/21/this-weeks-meeting-important-information-regarding-theme-options &#160; Essentially, the WordPress.org themes submission teams is mandating that theme developers ONLY use the Customizer for options. &#160;...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Dovy\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:2181:\"<p>To all devs who develop <strong>themes</strong> on WordPress.org. There is a new requirement that will go into effect within the next 6 months. You can read all the details here: <a href=\"https://make.wordpress.org/themes/2015/04/21/this-weeks-meeting-important-information-regarding-theme-options/\" target=\"_blank\" rel=\"noopener\">https://make.wordpress.org/themes/2015/04/21/this-weeks-meeting-important-information-regarding-theme-options</a></p>\n<p>&nbsp;</p>\n<p>Essentially, the WordPress.org themes submission teams is mandating that theme developers ONLY use the Customizer for options.</p>\n<p>&nbsp;</p>\n<p>What does this mean for Redux users? Here are the terms:</p>\n<p>&nbsp;</p>\n<p>In 6 months time, all options MUST be customizer based for themes submitted to WP.org. Redux may be used, but only under these conditions.</p>\n<ul>\n<li>TGM to recommend Redux installed as a plugin OR follow the (instructions to embed Redux in a way that is approved by WP.org)[http://docs.stg.redux.io/core/wordpress-org-submissions/].</li>\n<li>Redux panel must be disabled, and only the `customizer_only` argument used.</li>\n<li>Only Customizer field types may be used. Any field that isn&#8217;t supported by the customizer must be coded by the developer or not used.</li>\n</ul>\n<p>&nbsp;</p>\n<p>These are the following field types that can be used in the customizer, but most cannot have advanced options.</p>\n<ul>\n<li>text</li>\n<li>checkbox</li>\n<li>radio</li>\n<li>select</li>\n<li>textarea</li>\n<li>color</li>\n<li>media</li>\n</ul>\n<p>&nbsp;</p>\n<p>Unfortunately this is beyond our control. You are welcome to voice your opinion if you feel motivated to do so here: <a href=\"https://make.wordpress.org/themes/2015/04/21/this-weeks-meeting-important-information-regarding-theme-options/\" target=\"_blank\" rel=\"noopener\">https://make.wordpress.org/themes/2015/04/21/this-weeks-meeting-important-information-regarding-theme-options</a></p>\n<p>&nbsp;</p>\n<p>It seems that any framework, aside from <a href=\"http://kirki.org\" target=\"_blank\" rel=\"noopener\">http://kirki.org</a>, should not be used in WordPress.org themes. Please voice your opinion if you have one to the WP.org team.</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:74:\"https://redux.io/2015/04/22/updated-wordpress-org-theme-requirements/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"3\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:5;a:6:{s:4:\"data\";s:61:\"\n		\n		\n				\n				\n		\n				\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:14:\"Happy Holidays\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:43:\"https://redux.io/2014/12/25/happy-holidays/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:52:\"https://redux.io/2014/12/25/happy-holidays/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 25 Dec 2014 03:26:20 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:1:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=2093\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:308:\"Holy cow, it&#8217;s already the end of the year! With no small amount of help from our incredible community, we&#8217;ve managed to make Redux the definitive options framework for 2014, and we&#8217;re still just getting started! In fact, we&#8217;ve got some big changes coming in 2015 that are going to...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Dovy\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:504:\"<p><span class=\"drop-caps\">H</span>oly cow, it&#8217;s already the end of the year! With no small amount of help from our incredible community, we&#8217;ve managed to make Redux the definitive options framework for 2014, and we&#8217;re still just getting started! In fact, we&#8217;ve got some big changes coming in 2015 that are going to blow your mind! So buckle up and stay tuned&#8230; 2015 is going to be the Year of Redux!</p>\n<p>Happy Holidays from Team Redux, and have a fantastic new year!</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:48:\"https://redux.io/2014/12/25/happy-holidays/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"1\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:6;a:6:{s:4:\"data\";s:61:\"\n		\n		\n				\n				\n		\n				\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:63:\"Sometimes Standards Don’t Always Work – Redux 3.3.4 Release\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:65:\"https://redux.io/2014/07/10/sometimes-standards-dont-always-work/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:74:\"https://redux.io/2014/07/10/sometimes-standards-dont-always-work/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Thu, 10 Jul 2014 19:35:48 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:1:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=1546\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:290:\"When we released Redux 3.3.0 on June 8th, 2014, we decided to follow a standard as per the suggestion of Otto. He wrote, “If you need to write files to be included in the page, like stylesheets, then you should make your own folder under /wp-content, not under /wp-content/uploads. The...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Dovy\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:1783:\"<p>When we released Redux 3.3.0 on June 8th, 2014, we decided to follow a standard as per the suggestion of Otto.</p>\n<p>He wrote, “If you need to write files to be included in the page, like stylesheets, then you should make your own folder under <code>/wp-content</code>, not under <code>/wp-content/uploads</code>. The uploads directory should be used strictly for media files and downloads and other things uploaded through the various wp_upload functions.” <a href=\"http://wordpress.stackexchange.com/questions/124900/using-wp-filesystem-in-plugins\" target=\"_blank\" rel=\"noopener\">http://wordpress.stackexchange.com/questions/124900/using-wp-filesystem-in-plugins</a></p>\n<p>Believing his advice to be sound, we followed his suggestion. It caused more misery to devs than not. The lingering issue is simple, too many users install WordPress incorrectly. Often the ONLY directory that is writable is <code>/uploads/</code>. Combined that with the file owner of WordPress and the theme/plugin directories often being different, and the 3.3.0 changes have been a disaster in the making.</p>\n<p>As the Redux 3.3.0 code base spread out to our devs, and consequently their users, we received TONS of issues. We’ve worked to resolve each of them, but the fact remains that Otto&#8217;s advice is flawed, and users don’t know how to fix the problems is causes.</p>\n<p>We implemented this great new filesystem code believing it was the correct way to handle local storage, but it will never be used again. We’re writing to our proprietary directory the uploads directory from here on out.</p>\n<p>If anyone wishes to contribute code that works with Otto&#8217;s model, that actually works we would consider switching back. But for now, we choose function over opinion. 😛</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:70:\"https://redux.io/2014/07/10/sometimes-standards-dont-always-work/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:7;a:6:{s:4:\"data\";s:61:\"\n		\n		\n				\n				\n		\n				\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:34:\"Reduce Your Panel Load Time by 80%\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:52:\"https://redux.io/2014/06/11/load-time-reduced-by-80/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:61:\"https://redux.io/2014/06/11/load-time-reduced-by-80/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Wed, 11 Jun 2014 20:08:22 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:1:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=1261\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:297:\"Okay, so it&#8217;s only been a few days since our last release, and already we have another. We couldn&#8217;t wait, because, this is big! We&#8217;ve shaved off the panel load time by up to 80%. Yeah, you read that correctly. 80 PERCENT! This means &#8211; for example &#8211; a large option...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Dovy\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:3954:\"<h3>Okay, so it&#8217;s only been a few days since our last release, and already we have another. We couldn&#8217;t wait, because, this is <strong><em>big</em></strong>! <span style=\"text-decoration: underline;\">We&#8217;ve shaved off the panel load time by up to 80%</span>.</h3>\n<h4>Yeah, you read that correctly. <strong>80 PERCENT!</strong></h4>\n<h6>This means &#8211; for example &#8211; a large option panel of a popular theme that used to take <span class=\"highlight1\">6.8 seconds</span> to load has been reduced to <span class=\"highlight2\">1.47 seconds</span>. We reduced load time for this theme&#8217;s option panel by <strong><span class=\"highlight2\">5.33 seconds</span> </strong> alone!</h6>\n<p>We realized speed was an issue and we went through every field in a concerted effort to determine which ones slowed the panel down the most, we found out that:</p>\n<ul>\n<li>It wasn&#8217;t in the PHP, we optimized all of that with the last release.</li>\n<li>The WordPress color picker in and of itself slows a panel down by up to <span style=\"text-decoration: underline;\">2 seconds</span>!</li>\n<li>The Editor, Ace Editor, and Slider fields slowed the panel down by <span style=\"text-decoration: underline;\">.8 &#8211; 1.2 seconds each</span>.</li>\n</ul>\n<h4>So how did we fix it? By initializing fields on &#8220;demand&#8221;.</h4>\n<p>The problem centered around too much JavaScript begin run on load. Now, with these latest improvements &#8211; the only time a field&#8217;s javascript loads is when it&#8217;s visible. Put another way, what you see on screen is all that&#8217;s affecting the DOM resources. Redux is literally now among &#8211; if not &#8211; one of the fastest frameworks out there.</p>\n<h5>Give it a try. You need only upgrade to see a noticeable difference. Everyone who has tried it, <strong>everyone</strong>, has noticed a difference.</h5>\n<h4>If you like what you see, please do <a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=MMFMHWUPKHKPW\" target=\"_blank\" rel=\"noopener\">donate</a>. These improvements required a substantial amount of effort, with no pay or compensation. <a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=MMFMHWUPKHKPW\" target=\"_blank\" rel=\"noopener\">A recurring (monthly) subscription of only $10</a> is all it takes for us to keep these improvements coming. Help support the thousands of developer hours that have gone into Redux. You help us, and we&#8217;ll keep making your project development that much easier.</h4>\n<div class=\"req-animated-button left\"><a class=\"btn_a  coloured large_btn req-animated-button-1 \"\n                               target=\"_blank\"\n                               href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=MMFMHWUPKHKPW\"\n                               style=\"border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;-ms-border-radius:3px;    -o-border-radius:3px;\">\n                                <span style=\"background-color:#00a2e3;\">\n                                    <i class=\"fa fa-angle-right in_left\"></i>\n                                        <span style=\"\">Donate</span>\n                                    <i class=\"fa fa-angle-right in_right\"></i>\n                                </span>\n                            </a></div><style data-type=\"req-core-shortcodes-css\">.req-animated-button-1.btn_a:not(.coloured) i.in_left,.req-animated-button-1.btn_a:not(.coloured) i.in_right{color:rgba(68,116,157,1)!important;}.req-animated-button-1.btn_a:not(.coloured):hover{color:rgba(68,116,157,1)!important;}.req-animated-button-1{background-color:#00a2e3!important;}.req-animated-button-1{border-color:#00a2e3!important;}.req-animated-button-1{color:#ffffff;}.req-animated-button-1:hover{background-color:#ffffff !important;}.req-animated-button-1:hover{border-color:#e4e4e4!important;}.req-animated-button-1:hover{color:#666666;}</style>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:57:\"https://redux.io/2014/06/11/load-time-reduced-by-80/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"2\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:8;a:6:{s:4:\"data\";s:61:\"\n		\n		\n				\n				\n		\n				\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:55:\"Redux Framework 3.3.0 Released – “Need for Speed”\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:70:\"https://redux.io/2014/06/08/redux-framework-3-3-0-released-need-speed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:79:\"https://redux.io/2014/06/08/redux-framework-3-3-0-released-need-speed/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Sun, 08 Jun 2014 18:20:20 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:1:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=1232\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:314:\"It&#8217;s with great pleasure that we introduce the release of Redux 3.3.0 A.K.A. &#8220;Need for Speed.&#8221; We began with a rewrite of our typography field, specifically the way in which Google Fonts are loaded. There are dozens upon dozens of them! When devs add multiple Typography fields in their panel,...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Dovy\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:1708:\"<p>It&#8217;s with great pleasure that we introduce the release of Redux 3.3.0 A.K.A. &#8220;Need for Speed.&#8221;</p>\n<p>We began with a rewrite of our typography field, specifically the way in which Google Fonts are loaded. There are dozens upon dozens of them! When devs add multiple Typography fields in their panel, the user experience (load time) becomes quite poor. We&#8217;re pleased to say this issue has been solved with this release. Thanks to the efforts of our main man Kevin, the typography field has be reworked to be much more efficient.</p>\n<p>In addition, we&#8217;ve found a many bugs, fixed some core design issues, added feature requested, and taken Redux to yet another level of stability, all while improving the overall feature set.</p>\n<p>To tie into all these improvements &#8211; and if you didn&#8217;t already know &#8211; the Redux Builder now gives you the option of creating custom builds of Redux with only the fields you specify! The building process has become much more modular, allowing us to providing these great new tools to you so you may lower the footprint of your embedded Redux. 😉</p>\n<p>As it currently stands, Redux 3.3.0 is the MOST STABLE version of Redux ever. The issues reported to us have become very, very basic. More often than not, we see more feature requests than bugs.</p>\n<p>Now is the time to upgrade Redux Framework your themes. Your users will thank you. We thank you.</p>\n<p>It&#8217;s been a great year thus far, and we look forward to more.</p>\n<p>Finally, in case you&#8217;ve not heard or seen it, you REALLY need to check out http://wpdemo.io, especially if you&#8217;re a developer and want to show-off what your product can do.</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:75:\"https://redux.io/2014/06/08/redux-framework-3-3-0-released-need-speed/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:1:\"4\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}i:9;a:6:{s:4:\"data\";s:67:\"\n		\n		\n				\n				\n		\n				\n		\n		\n\n		\n				\n								\n							\n		\n							\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";s:5:\"child\";a:5:{s:0:\"\";a:7:{s:5:\"title\";a:1:{i:0;a:5:{s:4:\"data\";s:32:\"A Home Run – The Redux Builder\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:42:\"https://redux.io/2014/05/27/redux-builder/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:51:\"https://redux.io/2014/05/27/redux-builder/#comments\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:7:\"pubDate\";a:1:{i:0;a:5:{s:4:\"data\";s:31:\"Tue, 27 May 2014 16:22:33 +0000\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:8:\"category\";a:3:{i:0;a:5:{s:4:\"data\";s:8:\"Newswire\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:1;a:5:{s:4:\"data\";s:13:\"redux builder\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}i:2;a:5:{s:4:\"data\";s:15:\"redux framework\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:4:\"guid\";a:1:{i:0;a:5:{s:4:\"data\";s:24:\"https://redux.io/?p=1134\";s:7:\"attribs\";a:1:{s:0:\"\";a:1:{s:11:\"isPermaLink\";s:5:\"false\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:11:\"description\";a:1:{i:0;a:5:{s:4:\"data\";s:300:\"You know you’ve hit a home run when your business&#8217;s activity doubles within two months and support issues are reduce by nearly 1/3.  That’s what has happened with Redux since we launched the Redux Builder. In early March, I conceived the idea to design a site that would auto-generate a...\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:32:\"http://purl.org/dc/elements/1.1/\";a:1:{s:7:\"creator\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"Dovy\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:40:\"http://purl.org/rss/1.0/modules/content/\";a:1:{s:7:\"encoded\";a:1:{i:0;a:5:{s:4:\"data\";s:2567:\"<p class=\"p1\"><span class=\"s1\">You know you’ve hit a home run when your business&#8217;s activity doubles within two months and support issues are reduce by nearly 1/3.  That’s what has happened with Redux since we launched the <a title=\"Redux Generator\" href=\"http://build.stg.redux.io\" target=\"_blank\" rel=\"noopener\">Redux Builder</a>.</span></p>\n<p class=\"p1\">In early March, I conceived the idea to design a site that would auto-generate a Redux<br />\nbuild.  Actually, I wanted to build a fully-fledged panel builder like Option Tree, but with the sheer amount of options available with Redux, the time required would be intense&#8230;and then some.  Instead, I considered building a boilerplate generator for themes.  And what better theme than the ever powerful <a title=\"_s\" href=\"http://underscores.me\" target=\"_blank\" rel=\"noopener\">_s</a> by <a title=\"Automattic\" href=\"http://automattic.com/\" target=\"_blank\" rel=\"noopener\">Automattic</a>?  I found their generator code and went to town, including a TGM integration, and a slew of Redux arguments.</p>\n<p class=\"p1\">Today, I am extremely pleased to announce we took the project it a step further.  We organized the arguments, gave descriptions, and links for each to our docs site.  We also made it so one could easily export to an admin folder instead of a theme.  This comes in handy for use in existing products and/or plugins.  Lastly, we&#8217;ve now made every Redux field completely independent.  As a result, you can generate a custom build of Redux Framework with your export!</p>\n<p class=\"p1\"> Yes, you read that correctly!  You can make a custom Redux Framework build!  Since one of the biggest complaints about Redux has been its size, weighing in at 6mb for all (34+) fields, the Framework tends to be quite heavy.  Now, that&#8217;s a thing of the past.</p>\n<p class=\"p1\">We’re really excited about the new version of the Redux Builder.  Major props to team member @kprovance for making Redux fields completely modular.</p>\n<p>If you haven’t tried the builder, you SHOULD.  It’s free.  It will save you time.  Oh, and it’s so very choice.</p>\n<h3 class=\"p1\" style=\"text-align: center;\"><a title=\"Redux Generator\" href=\"http://build.stg.redux.io\" target=\"_blank\" rel=\"noopener\">http://build.stg.redux.io</a></h3>\n<p>&nbsp;</p>\n<p class=\"p1\">Just a gentle reminder, Redux lives by donations and our extensions.  So if you like the generator, please consider donating a small amount to the project.  You support us, and we&#8217;ll keep making cool things.</p>\n\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:36:\"http://wellformedweb.org/CommentAPI/\";a:1:{s:10:\"commentRss\";a:1:{i:0;a:5:{s:4:\"data\";s:47:\"https://redux.io/2014/05/27/redux-builder/feed/\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:38:\"http://purl.org/rss/1.0/modules/slash/\";a:1:{s:8:\"comments\";a:1:{i:0;a:5:{s:4:\"data\";s:2:\"22\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}}}s:27:\"http://www.w3.org/2005/Atom\";a:1:{s:4:\"link\";a:1:{i:0;a:5:{s:4:\"data\";s:0:\"\";s:7:\"attribs\";a:1:{s:0:\"\";a:3:{s:4:\"href\";s:22:\"https://redux.io/feed/\";s:3:\"rel\";s:4:\"self\";s:4:\"type\";s:19:\"application/rss+xml\";}}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}s:44:\"http://purl.org/rss/1.0/modules/syndication/\";a:2:{s:12:\"updatePeriod\";a:1:{i:0;a:5:{s:4:\"data\";s:9:\"\n	hourly	\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}s:15:\"updateFrequency\";a:1:{i:0;a:5:{s:4:\"data\";s:4:\"\n	1	\";s:7:\"attribs\";a:0:{}s:8:\"xml_base\";s:0:\"\";s:17:\"xml_base_explicit\";b:0;s:8:\"xml_lang\";s:0:\"\";}}}}}}}}}}}}s:4:\"type\";i:128;s:7:\"headers\";O:42:\"Requests_Utility_CaseInsensitiveDictionary\":1:{s:7:\"\0*\0data\";a:16:{s:6:\"server\";s:12:\"nginx/1.10.3\";s:4:\"date\";s:29:\"Wed, 14 Aug 2019 13:51:26 GMT\";s:12:\"content-type\";s:34:\"application/rss+xml; charset=UTF-8\";s:10:\"set-cookie\";s:44:\"PHPSESSID=rph7unm64cnqh44sl2gvcgj09g; path=/\";s:7:\"expires\";s:29:\"Thu, 19 Nov 1981 08:52:00 GMT\";s:13:\"cache-control\";s:35:\"no-store, no-cache, must-revalidate\";s:6:\"pragma\";s:8:\"no-cache\";s:13:\"last-modified\";s:29:\"Sat, 03 Aug 2019 15:39:41 GMT\";s:4:\"etag\";s:34:\"\"0223f89f67ee09db20fac4c0c503b014\"\";s:4:\"link\";s:53:\"<https://redux.io/wp-json/>; rel=\"https://api.w.org/\"\";s:16:\"content-encoding\";s:4:\"gzip\";s:4:\"vary\";s:15:\"Accept-Encoding\";s:29:\"x-rocket-nginx-serving-static\";s:2:\"No\";s:25:\"strict-transport-security\";s:35:\"max-age=31536000; includeSubDomains\";s:15:\"x-frame-options\";s:10:\"SAMEORIGIN\";s:22:\"x-content-type-options\";s:7:\"nosniff\";}}s:5:\"build\";s:14:\"20190624164056\";}', 'no');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(10636, '_transient_timeout_feed_mod_7fa907073bddbc2fc2b2bb18c9dfef16', '1565833830', 'no'),
+(10637, '_transient_feed_mod_7fa907073bddbc2fc2b2bb18c9dfef16', '1565790630', 'no'),
+(10638, '_transient_timeout_select2-css_style_cdn_is_up', '1565877051', 'no'),
+(10639, '_transient_select2-css_style_cdn_is_up', '1', 'no'),
+(10640, '_transient_timeout_dash_v2_88ae138922fe95674369b1cb3d215a2b', '1565833858', 'no'),
+(10641, '_transient_dash_v2_88ae138922fe95674369b1cb3d215a2b', '<div class=\"rss-widget\"><p><strong>RSS Error:</strong> WP HTTP Error: cURL error 28: Operation timed out after 10000 milliseconds with 0 bytes received</p></div><div class=\"rss-widget\"><p><strong>RSS Error:</strong> WP HTTP Error: cURL error 28: Operation timed out after 10000 milliseconds with 0 out of 0 bytes received</p></div>', 'no'),
+(10642, '_transient_timeout_select2-js_script_cdn_is_up', '1565877070', 'no'),
+(10643, '_transient_select2-js_script_cdn_is_up', '1', 'no'),
+(10670, '_transient_timeout_wc_product_children_39', '1568384339', 'no'),
+(10671, '_transient_wc_product_children_39', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10675, '_transient_timeout_wc_product_children_52', '1568384539', 'no'),
+(10676, '_transient_wc_product_children_52', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10684, 'product_cat_children', 'a:3:{i:66;a:9:{i:0;i:24;i:1;i:26;i:2;i:28;i:3;i:29;i:4;i:30;i:5;i:37;i:6;i:38;i:7;i:39;i:8;i:41;}i:38;a:7:{i:0;i:42;i:1;i:43;i:2;i:44;i:3;i:45;i:4;i:46;i:5;i:47;i:6;i:48;}i:49;a:13:{i:0;i:50;i:1;i:51;i:2;i:52;i:3;i:53;i:4;i:54;i:5;i:55;i:6;i:56;i:7;i:57;i:8;i:58;i:9;i:59;i:10;i:60;i:11;i:61;i:12;i:62;}}', 'yes'),
+(10789, '_transient_timeout_wc_term_counts', '1568395549', 'no'),
+(10790, '_transient_wc_term_counts', 'a:10:{i:26;s:2:\"10\";i:29;s:1:\"1\";i:30;s:1:\"2\";i:24;s:1:\"4\";i:38;s:1:\"2\";i:28;s:1:\"2\";i:53;s:1:\"2\";i:23;s:1:\"5\";i:66;s:2:\"16\";i:42;s:1:\"1\";}', 'no'),
+(10797, '_transient_timeout_wc_product_children_54', '1568391466', 'no'),
+(10798, '_transient_wc_product_children_54', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10799, '_transient_timeout_wc_product_children_38', '1568391496', 'no'),
+(10800, '_transient_wc_product_children_38', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10804, '_transient_timeout_wc_product_children_45', '1568391746', 'no'),
+(10805, '_transient_wc_product_children_45', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10823, '_transient_timeout_wc_product_children_36', '1568392811', 'no'),
+(10824, '_transient_wc_product_children_36', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10826, '_transient_timeout_wc_product_children_53', '1568392867', 'no'),
+(10827, '_transient_wc_product_children_53', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10829, '_transient_timeout_wc_product_children_35', '1568392914', 'no'),
+(10830, '_transient_wc_product_children_35', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10834, '_transient_timeout_wc_product_children_43', '1568393078', 'no'),
+(10835, '_transient_wc_product_children_43', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10852, '_transient_timeout_wc_product_children_42', '1568393954', 'no'),
+(10853, '_transient_wc_product_children_42', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
+(10890, '_site_transient_timeout_theme_roots', '1565878549', 'no'),
+(10891, '_site_transient_theme_roots', 'a:4:{s:7:\"myTheme\";s:7:\"/themes\";s:13:\"twentyfifteen\";s:7:\"/themes\";s:15:\"twentyseventeen\";s:7:\"/themes\";s:13:\"twentysixteen\";s:7:\"/themes\";}', 'no'),
+(10892, '_site_transient_update_themes', 'O:8:\"stdClass\":4:{s:12:\"last_checked\";i:1565876753;s:7:\"checked\";a:4:{s:7:\"myTheme\";s:3:\"1.1\";s:13:\"twentyfifteen\";s:3:\"2.0\";s:15:\"twentyseventeen\";s:3:\"1.7\";s:13:\"twentysixteen\";s:3:\"1.5\";}s:8:\"response\";a:3:{s:13:\"twentyfifteen\";a:6:{s:5:\"theme\";s:13:\"twentyfifteen\";s:11:\"new_version\";s:3:\"2.5\";s:3:\"url\";s:43:\"https://wordpress.org/themes/twentyfifteen/\";s:7:\"package\";s:59:\"https://downloads.wordpress.org/theme/twentyfifteen.2.5.zip\";s:8:\"requires\";s:3:\"4.1\";s:12:\"requires_php\";s:5:\"5.2.4\";}s:15:\"twentyseventeen\";a:6:{s:5:\"theme\";s:15:\"twentyseventeen\";s:11:\"new_version\";s:3:\"2.2\";s:3:\"url\";s:45:\"https://wordpress.org/themes/twentyseventeen/\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/theme/twentyseventeen.2.2.zip\";s:8:\"requires\";s:3:\"4.7\";s:12:\"requires_php\";s:5:\"5.2.4\";}s:13:\"twentysixteen\";a:6:{s:5:\"theme\";s:13:\"twentysixteen\";s:11:\"new_version\";s:3:\"2.0\";s:3:\"url\";s:43:\"https://wordpress.org/themes/twentysixteen/\";s:7:\"package\";s:59:\"https://downloads.wordpress.org/theme/twentysixteen.2.0.zip\";s:8:\"requires\";s:3:\"4.4\";s:12:\"requires_php\";s:5:\"5.2.4\";}}s:12:\"translations\";a:0:{}}', 'no'),
+(10893, '_site_transient_update_plugins', 'O:8:\"stdClass\":5:{s:12:\"last_checked\";i:1565876754;s:7:\"checked\";a:10:{s:34:\"advanced-custom-fields-pro/acf.php\";s:5:\"5.6.1\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:5:\"5.1.3\";s:43:\"custom-post-type-ui/custom-post-type-ui.php\";s:5:\"1.6.1\";s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";s:6:\"1.9.15\";s:35:\"redux-framework/redux-framework.php\";s:6:\"3.6.15\";s:27:\"woocommerce/woocommerce.php\";s:5:\"3.6.4\";s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";s:5:\"1.0.6\";s:41:\"wordpress-importer/wordpress-importer.php\";s:5:\"0.6.4\";s:27:\"wp-pagenavi/wp-pagenavi.php\";s:4:\"2.93\";s:29:\"wp-mail-smtp/wp_mail_smtp.php\";s:5:\"1.4.2\";}s:8:\"response\";a:6:{s:36:\"contact-form-7/wp-contact-form-7.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:28:\"w.org/plugins/contact-form-7\";s:4:\"slug\";s:14:\"contact-form-7\";s:6:\"plugin\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:11:\"new_version\";s:5:\"5.1.4\";s:3:\"url\";s:45:\"https://wordpress.org/plugins/contact-form-7/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/contact-form-7.5.1.4.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-256x256.png?rev=984007\";s:2:\"1x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-128x128.png?rev=984007\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:69:\"https://ps.w.org/contact-form-7/assets/banner-1544x500.png?rev=860901\";s:2:\"1x\";s:68:\"https://ps.w.org/contact-form-7/assets/banner-772x250.png?rev=880427\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.2\";s:12:\"requires_php\";b:0;s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:43:\"custom-post-type-ui/custom-post-type-ui.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:33:\"w.org/plugins/custom-post-type-ui\";s:4:\"slug\";s:19:\"custom-post-type-ui\";s:6:\"plugin\";s:43:\"custom-post-type-ui/custom-post-type-ui.php\";s:11:\"new_version\";s:5:\"1.6.2\";s:3:\"url\";s:50:\"https://wordpress.org/plugins/custom-post-type-ui/\";s:7:\"package\";s:68:\"https://downloads.wordpress.org/plugin/custom-post-type-ui.1.6.2.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:72:\"https://ps.w.org/custom-post-type-ui/assets/icon-256x256.png?rev=1069557\";s:2:\"1x\";s:72:\"https://ps.w.org/custom-post-type-ui/assets/icon-128x128.png?rev=1069557\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:75:\"https://ps.w.org/custom-post-type-ui/assets/banner-1544x500.png?rev=1069557\";s:2:\"1x\";s:74:\"https://ps.w.org/custom-post-type-ui/assets/banner-772x250.png?rev=1069557\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.2\";s:12:\"requires_php\";s:3:\"5.2\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:27:\"woocommerce/woocommerce.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:25:\"w.org/plugins/woocommerce\";s:4:\"slug\";s:11:\"woocommerce\";s:6:\"plugin\";s:27:\"woocommerce/woocommerce.php\";s:11:\"new_version\";s:5:\"3.7.0\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/woocommerce/\";s:7:\"package\";s:60:\"https://downloads.wordpress.org/plugin/woocommerce.3.7.0.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:64:\"https://ps.w.org/woocommerce/assets/icon-256x256.png?rev=2075035\";s:2:\"1x\";s:64:\"https://ps.w.org/woocommerce/assets/icon-128x128.png?rev=2075035\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:67:\"https://ps.w.org/woocommerce/assets/banner-1544x500.png?rev=2075035\";s:2:\"1x\";s:66:\"https://ps.w.org/woocommerce/assets/banner-772x250.png?rev=2075035\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.2\";s:12:\"requires_php\";s:3:\"5.6\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:34:\"w.org/plugins/woo-vietnam-checkout\";s:4:\"slug\";s:20:\"woo-vietnam-checkout\";s:6:\"plugin\";s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";s:11:\"new_version\";s:5:\"1.0.7\";s:3:\"url\";s:51:\"https://wordpress.org/plugins/woo-vietnam-checkout/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/woo-vietnam-checkout.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:73:\"https://ps.w.org/woo-vietnam-checkout/assets/icon-256x256.png?rev=1795326\";s:2:\"1x\";s:73:\"https://ps.w.org/woo-vietnam-checkout/assets/icon-128x128.png?rev=1795326\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:76:\"https://ps.w.org/woo-vietnam-checkout/assets/banner-1544x500.png?rev=1795326\";s:2:\"1x\";s:75:\"https://ps.w.org/woo-vietnam-checkout/assets/banner-772x250.png?rev=1795326\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:6:\"4.9.10\";s:12:\"requires_php\";b:0;s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:29:\"wp-mail-smtp/wp_mail_smtp.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:26:\"w.org/plugins/wp-mail-smtp\";s:4:\"slug\";s:12:\"wp-mail-smtp\";s:6:\"plugin\";s:29:\"wp-mail-smtp/wp_mail_smtp.php\";s:11:\"new_version\";s:5:\"1.5.2\";s:3:\"url\";s:43:\"https://wordpress.org/plugins/wp-mail-smtp/\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/plugin/wp-mail-smtp.1.5.2.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:65:\"https://ps.w.org/wp-mail-smtp/assets/icon-256x256.png?rev=1755440\";s:2:\"1x\";s:65:\"https://ps.w.org/wp-mail-smtp/assets/icon-128x128.png?rev=1755440\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:68:\"https://ps.w.org/wp-mail-smtp/assets/banner-1544x500.png?rev=2120094\";s:2:\"1x\";s:67:\"https://ps.w.org/wp-mail-smtp/assets/banner-772x250.png?rev=2120094\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.2\";s:12:\"requires_php\";s:3:\"5.3\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:34:\"advanced-custom-fields-pro/acf.php\";O:8:\"stdClass\":8:{s:4:\"slug\";s:26:\"advanced-custom-fields-pro\";s:6:\"plugin\";s:34:\"advanced-custom-fields-pro/acf.php\";s:11:\"new_version\";s:5:\"5.8.3\";s:3:\"url\";s:36:\"https://www.advancedcustomfields.com\";s:6:\"tested\";s:3:\"5.2\";s:7:\"package\";s:0:\"\";s:5:\"icons\";a:1:{s:7:\"default\";s:63:\"https://ps.w.org/advanced-custom-fields/assets/icon-256x256.png\";}s:7:\"banners\";a:1:{s:7:\"default\";s:66:\"https://ps.w.org/advanced-custom-fields/assets/banner-1544x500.jpg\";}}}s:12:\"translations\";a:0:{}s:9:\"no_update\";a:4:{s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:38:\"w.org/plugins/facebook-for-woocommerce\";s:4:\"slug\";s:24:\"facebook-for-woocommerce\";s:6:\"plugin\";s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";s:11:\"new_version\";s:6:\"1.9.15\";s:3:\"url\";s:55:\"https://wordpress.org/plugins/facebook-for-woocommerce/\";s:7:\"package\";s:74:\"https://downloads.wordpress.org/plugin/facebook-for-woocommerce.1.9.15.zip\";s:5:\"icons\";a:3:{s:2:\"2x\";s:77:\"https://ps.w.org/facebook-for-woocommerce/assets/icon-256x256.png?rev=2040223\";s:2:\"1x\";s:69:\"https://ps.w.org/facebook-for-woocommerce/assets/icon.svg?rev=2040223\";s:3:\"svg\";s:69:\"https://ps.w.org/facebook-for-woocommerce/assets/icon.svg?rev=2040223\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:35:\"redux-framework/redux-framework.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:29:\"w.org/plugins/redux-framework\";s:4:\"slug\";s:15:\"redux-framework\";s:6:\"plugin\";s:35:\"redux-framework/redux-framework.php\";s:11:\"new_version\";s:6:\"3.6.15\";s:3:\"url\";s:46:\"https://wordpress.org/plugins/redux-framework/\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/plugin/redux-framework.3.6.15.zip\";s:5:\"icons\";a:3:{s:2:\"2x\";s:67:\"https://ps.w.org/redux-framework/assets/icon-256x256.png?rev=995554\";s:2:\"1x\";s:59:\"https://ps.w.org/redux-framework/assets/icon.svg?rev=995554\";s:3:\"svg\";s:59:\"https://ps.w.org/redux-framework/assets/icon.svg?rev=995554\";}s:7:\"banners\";a:1:{s:2:\"1x\";s:69:\"https://ps.w.org/redux-framework/assets/banner-772x250.png?rev=793165\";}s:11:\"banners_rtl\";a:0:{}}s:41:\"wordpress-importer/wordpress-importer.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:32:\"w.org/plugins/wordpress-importer\";s:4:\"slug\";s:18:\"wordpress-importer\";s:6:\"plugin\";s:41:\"wordpress-importer/wordpress-importer.php\";s:11:\"new_version\";s:5:\"0.6.4\";s:3:\"url\";s:49:\"https://wordpress.org/plugins/wordpress-importer/\";s:7:\"package\";s:67:\"https://downloads.wordpress.org/plugin/wordpress-importer.0.6.4.zip\";s:5:\"icons\";a:3:{s:2:\"2x\";s:71:\"https://ps.w.org/wordpress-importer/assets/icon-256x256.png?rev=1908375\";s:2:\"1x\";s:63:\"https://ps.w.org/wordpress-importer/assets/icon.svg?rev=1908375\";s:3:\"svg\";s:63:\"https://ps.w.org/wordpress-importer/assets/icon.svg?rev=1908375\";}s:7:\"banners\";a:1:{s:2:\"1x\";s:72:\"https://ps.w.org/wordpress-importer/assets/banner-772x250.png?rev=547654\";}s:11:\"banners_rtl\";a:0:{}}s:27:\"wp-pagenavi/wp-pagenavi.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:25:\"w.org/plugins/wp-pagenavi\";s:4:\"slug\";s:11:\"wp-pagenavi\";s:6:\"plugin\";s:27:\"wp-pagenavi/wp-pagenavi.php\";s:11:\"new_version\";s:4:\"2.93\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/wp-pagenavi/\";s:7:\"package\";s:59:\"https://downloads.wordpress.org/plugin/wp-pagenavi.2.93.zip\";s:5:\"icons\";a:2:{s:2:\"1x\";s:55:\"https://ps.w.org/wp-pagenavi/assets/icon.svg?rev=977997\";s:3:\"svg\";s:55:\"https://ps.w.org/wp-pagenavi/assets/icon.svg?rev=977997\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:67:\"https://ps.w.org/wp-pagenavi/assets/banner-1544x500.jpg?rev=1206758\";s:2:\"1x\";s:66:\"https://ps.w.org/wp-pagenavi/assets/banner-772x250.jpg?rev=1206758\";}s:11:\"banners_rtl\";a:0:{}}}}', 'no');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_postmeta`
+--
+
+CREATE TABLE `wp_postmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_postmeta`
+--
+
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(1, 2, '_wp_page_template', 'default'),
+(2, 3, '_wp_page_template', 'default'),
+(3, 1, '_edit_lock', '1561391605:1'),
+(33, 15, '_wp_attached_file', '2019/06/images.jpg'),
+(34, 15, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:194;s:6:\"height\";i:259;s:4:\"file\";s:18:\"2019/06/images.jpg\";s:5:\"sizes\";a:3:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:18:\"images-194x250.jpg\";s:5:\"width\";i:194;s:6:\"height\";i:250;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:18:\"images-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:18:\"images-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(93, 24, '_wp_attached_file', 'woocommerce-placeholder.png'),
+(94, 24, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1200;s:6:\"height\";i:1200;s:4:\"file\";s:27:\"woocommerce-placeholder.png\";s:5:\"sizes\";a:7:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:35:\"woocommerce-placeholder-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:35:\"woocommerce-placeholder-600x600.png\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:9:\"image/png\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:35:\"woocommerce-placeholder-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:35:\"woocommerce-placeholder-150x150.png\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:35:\"woocommerce-placeholder-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:35:\"woocommerce-placeholder-768x768.png\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:37:\"woocommerce-placeholder-1024x1024.png\";s:5:\"width\";i:1024;s:6:\"height\";i:1024;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(98, 32, '_sku', 'woo-vneck-tee'),
+(99, 32, '_sale_price_dates_from', ''),
+(100, 32, '_sale_price_dates_to', ''),
+(101, 32, 'total_sales', '0'),
+(102, 32, '_tax_status', 'taxable'),
+(103, 32, '_tax_class', ''),
+(104, 32, '_manage_stock', 'no'),
+(105, 32, '_backorders', 'no'),
+(106, 32, '_low_stock_amount', ''),
+(107, 32, '_sold_individually', 'no'),
+(108, 32, '_weight', ''),
+(109, 32, '_length', ''),
+(110, 32, '_width', ''),
+(111, 32, '_height', ''),
+(112, 32, '_upsell_ids', 'a:0:{}'),
+(113, 32, '_crosssell_ids', 'a:0:{}'),
+(114, 32, '_purchase_note', ''),
+(115, 32, '_default_attributes', 'a:0:{}'),
+(116, 32, '_virtual', 'no'),
+(117, 32, '_downloadable', 'no'),
+(118, 32, '_product_image_gallery', '187,186,185,184,122,183'),
+(119, 32, '_download_limit', '0'),
+(120, 32, '_download_expiry', '0'),
+(121, 32, '_stock', NULL),
+(122, 32, '_stock_status', 'outofstock'),
+(123, 32, '_wc_average_rating', '0'),
+(124, 32, '_wc_rating_count', 'a:0:{}'),
+(125, 32, '_wc_review_count', '0'),
+(126, 32, '_downloadable_files', 'a:0:{}'),
+(127, 32, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"1\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(128, 32, '_product_version', '3.6.4'),
+(129, 32, '_thumbnail_id', '186'),
+(130, 32, '_price', '15'),
+(131, 32, '_price', '20'),
+(132, 32, '_regular_price', ''),
+(133, 32, '_sale_price', ''),
+(134, 33, '_sku', 'woo-hoodie'),
+(135, 33, '_sale_price_dates_from', ''),
+(136, 33, '_sale_price_dates_to', ''),
+(137, 33, 'total_sales', '0'),
+(138, 33, '_tax_status', 'taxable'),
+(139, 33, '_tax_class', ''),
+(140, 33, '_manage_stock', 'no'),
+(141, 33, '_backorders', 'no'),
+(142, 33, '_low_stock_amount', ''),
+(143, 33, '_sold_individually', 'no'),
+(144, 33, '_weight', ''),
+(145, 33, '_length', ''),
+(146, 33, '_width', ''),
+(147, 33, '_height', ''),
+(148, 33, '_upsell_ids', 'a:0:{}'),
+(149, 33, '_crosssell_ids', 'a:0:{}'),
+(150, 33, '_purchase_note', ''),
+(151, 33, '_default_attributes', 'a:0:{}'),
+(152, 33, '_virtual', 'no'),
+(153, 33, '_downloadable', 'no'),
+(154, 33, '_product_image_gallery', '187,186,185,184,122,183'),
+(155, 33, '_download_limit', '0'),
+(156, 33, '_download_expiry', '0'),
+(157, 33, '_stock', NULL),
+(158, 33, '_stock_status', 'outofstock'),
+(159, 33, '_wc_average_rating', '0'),
+(160, 33, '_wc_rating_count', 'a:0:{}'),
+(161, 33, '_wc_review_count', '0'),
+(162, 33, '_downloadable_files', 'a:0:{}'),
+(163, 33, '_product_attributes', 'a:2:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"1\";s:11:\"is_taxonomy\";s:1:\"1\";}s:4:\"logo\";a:6:{s:4:\"name\";s:4:\"Logo\";s:5:\"value\";s:8:\"Yes | No\";s:8:\"position\";s:1:\"1\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"1\";s:11:\"is_taxonomy\";s:1:\"0\";}}'),
+(164, 33, '_product_version', '3.6.4'),
+(165, 33, '_thumbnail_id', '186'),
+(166, 33, '_price', '42'),
+(167, 33, '_price', '45'),
+(168, 33, '_regular_price', ''),
+(169, 33, '_sale_price', ''),
+(170, 34, '_sku', 'woo-hoodie-with-logo'),
+(171, 34, '_regular_price', '45'),
+(172, 34, '_sale_price', ''),
+(173, 34, '_sale_price_dates_from', ''),
+(174, 34, '_sale_price_dates_to', ''),
+(175, 34, 'total_sales', '0'),
+(176, 34, '_tax_status', 'taxable'),
+(177, 34, '_tax_class', ''),
+(178, 34, '_manage_stock', 'no'),
+(179, 34, '_backorders', 'no'),
+(180, 34, '_low_stock_amount', ''),
+(181, 34, '_sold_individually', 'no'),
+(182, 34, '_weight', ''),
+(183, 34, '_length', ''),
+(184, 34, '_width', ''),
+(185, 34, '_height', ''),
+(186, 34, '_upsell_ids', 'a:0:{}'),
+(187, 34, '_crosssell_ids', 'a:0:{}'),
+(188, 34, '_purchase_note', ''),
+(189, 34, '_default_attributes', 'a:0:{}'),
+(190, 34, '_virtual', 'no'),
+(191, 34, '_downloadable', 'no'),
+(192, 34, '_product_image_gallery', '187,186,185,184,183,122'),
+(193, 34, '_download_limit', '0'),
+(194, 34, '_download_expiry', '0'),
+(195, 34, '_stock', NULL),
+(196, 34, '_stock_status', 'instock'),
+(197, 34, '_wc_average_rating', '0'),
+(198, 34, '_wc_rating_count', 'a:0:{}'),
+(199, 34, '_wc_review_count', '0'),
+(200, 34, '_downloadable_files', 'a:0:{}'),
+(201, 34, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(202, 34, '_product_version', '3.6.4'),
+(203, 34, '_price', '45'),
+(204, 34, '_thumbnail_id', '184'),
+(205, 35, '_sku', 'woo-tshirt'),
+(206, 35, '_regular_price', '18'),
+(207, 35, '_sale_price', ''),
+(208, 35, '_sale_price_dates_from', ''),
+(209, 35, '_sale_price_dates_to', ''),
+(210, 35, 'total_sales', '0'),
+(211, 35, '_tax_status', 'taxable'),
+(212, 35, '_tax_class', ''),
+(213, 35, '_manage_stock', 'no'),
+(214, 35, '_backorders', 'no'),
+(215, 35, '_low_stock_amount', ''),
+(216, 35, '_sold_individually', 'no'),
+(217, 35, '_weight', ''),
+(218, 35, '_length', ''),
+(219, 35, '_width', ''),
+(220, 35, '_height', ''),
+(221, 35, '_upsell_ids', 'a:0:{}'),
+(222, 35, '_crosssell_ids', 'a:0:{}'),
+(223, 35, '_purchase_note', ''),
+(224, 35, '_default_attributes', 'a:0:{}'),
+(225, 35, '_virtual', 'no'),
+(226, 35, '_downloadable', 'no'),
+(227, 35, '_product_image_gallery', '187,186,185,184,183,122'),
+(228, 35, '_download_limit', '0'),
+(229, 35, '_download_expiry', '0'),
+(230, 35, '_stock', NULL),
+(231, 35, '_stock_status', 'instock'),
+(232, 35, '_wc_average_rating', '0'),
+(233, 35, '_wc_rating_count', 'a:0:{}'),
+(234, 35, '_wc_review_count', '0'),
+(235, 35, '_downloadable_files', 'a:0:{}'),
+(236, 35, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(237, 35, '_product_version', '3.6.4'),
+(238, 35, '_price', '18'),
+(239, 35, '_thumbnail_id', '185'),
+(240, 36, '_sku', 'woo-beanie'),
+(241, 36, '_regular_price', '20'),
+(242, 36, '_sale_price', '18'),
+(243, 36, '_sale_price_dates_from', ''),
+(244, 36, '_sale_price_dates_to', ''),
+(245, 36, 'total_sales', '2'),
+(246, 36, '_tax_status', 'taxable'),
+(247, 36, '_tax_class', ''),
+(248, 36, '_manage_stock', 'no'),
+(249, 36, '_backorders', 'no'),
+(250, 36, '_low_stock_amount', ''),
+(251, 36, '_sold_individually', 'no'),
+(252, 36, '_weight', ''),
+(253, 36, '_length', ''),
+(254, 36, '_width', ''),
+(255, 36, '_height', ''),
+(256, 36, '_upsell_ids', 'a:0:{}'),
+(257, 36, '_crosssell_ids', 'a:0:{}'),
+(258, 36, '_purchase_note', ''),
+(259, 36, '_default_attributes', 'a:0:{}'),
+(260, 36, '_virtual', 'no'),
+(261, 36, '_downloadable', 'no'),
+(262, 36, '_product_image_gallery', '187,186,185,184,183,122'),
+(263, 36, '_download_limit', '0'),
+(264, 36, '_download_expiry', '0'),
+(265, 36, '_stock', NULL),
+(266, 36, '_stock_status', 'instock'),
+(267, 36, '_wc_average_rating', '0'),
+(268, 36, '_wc_rating_count', 'a:0:{}'),
+(269, 36, '_wc_review_count', '0'),
+(270, 36, '_downloadable_files', 'a:0:{}'),
+(271, 36, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(272, 36, '_product_version', '3.6.4'),
+(273, 36, '_price', '18'),
+(274, 36, '_thumbnail_id', '186'),
+(275, 37, '_sku', 'woo-belt'),
+(276, 37, '_regular_price', '65'),
+(277, 37, '_sale_price', '55'),
+(278, 37, '_sale_price_dates_from', ''),
+(279, 37, '_sale_price_dates_to', ''),
+(280, 37, 'total_sales', '1'),
+(281, 37, '_tax_status', 'taxable'),
+(282, 37, '_tax_class', ''),
+(283, 37, '_manage_stock', 'no'),
+(284, 37, '_backorders', 'no'),
+(285, 37, '_low_stock_amount', ''),
+(286, 37, '_sold_individually', 'no'),
+(287, 37, '_weight', ''),
+(288, 37, '_length', ''),
+(289, 37, '_width', ''),
+(290, 37, '_height', ''),
+(291, 37, '_upsell_ids', 'a:0:{}'),
+(292, 37, '_crosssell_ids', 'a:0:{}'),
+(293, 37, '_purchase_note', ''),
+(294, 37, '_default_attributes', 'a:0:{}'),
+(295, 37, '_virtual', 'no'),
+(296, 37, '_downloadable', 'no'),
+(297, 37, '_product_image_gallery', '187,186,185,184,183,122'),
+(298, 37, '_download_limit', '0'),
+(299, 37, '_download_expiry', '0'),
+(300, 37, '_stock', NULL),
+(301, 37, '_stock_status', 'instock'),
+(302, 37, '_wc_average_rating', '0'),
+(303, 37, '_wc_rating_count', 'a:0:{}'),
+(304, 37, '_wc_review_count', '0'),
+(305, 37, '_downloadable_files', 'a:0:{}'),
+(306, 37, '_product_attributes', 'a:0:{}'),
+(307, 37, '_product_version', '3.6.4'),
+(308, 37, '_price', '55'),
+(309, 37, '_thumbnail_id', '184'),
+(310, 38, '_sku', 'woo-cap'),
+(311, 38, '_regular_price', '18'),
+(312, 38, '_sale_price', '16'),
+(313, 38, '_sale_price_dates_from', ''),
+(314, 38, '_sale_price_dates_to', ''),
+(315, 38, 'total_sales', '0'),
+(316, 38, '_tax_status', 'taxable'),
+(317, 38, '_tax_class', ''),
+(318, 38, '_manage_stock', 'no'),
+(319, 38, '_backorders', 'no'),
+(320, 38, '_low_stock_amount', ''),
+(321, 38, '_sold_individually', 'no'),
+(322, 38, '_weight', ''),
+(323, 38, '_length', ''),
+(324, 38, '_width', ''),
+(325, 38, '_height', ''),
+(326, 38, '_upsell_ids', 'a:0:{}'),
+(327, 38, '_crosssell_ids', 'a:0:{}'),
+(328, 38, '_purchase_note', ''),
+(329, 38, '_default_attributes', 'a:0:{}'),
+(330, 38, '_virtual', 'no'),
+(331, 38, '_downloadable', 'no'),
+(332, 38, '_product_image_gallery', '187,186,185,184,183,122'),
+(333, 38, '_download_limit', '0'),
+(334, 38, '_download_expiry', '0'),
+(335, 38, '_stock', NULL),
+(336, 38, '_stock_status', 'instock'),
+(337, 38, '_wc_average_rating', '0'),
+(338, 38, '_wc_rating_count', 'a:0:{}'),
+(339, 38, '_wc_review_count', '0'),
+(340, 38, '_downloadable_files', 'a:0:{}'),
+(341, 38, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(342, 38, '_product_version', '3.6.4'),
+(343, 38, '_price', '16'),
+(344, 38, '_thumbnail_id', '183'),
+(345, 39, '_sku', 'woo-sunglasses'),
+(346, 39, '_regular_price', '90'),
+(347, 39, '_sale_price', ''),
+(348, 39, '_sale_price_dates_from', ''),
+(349, 39, '_sale_price_dates_to', ''),
+(350, 39, 'total_sales', '1'),
+(351, 39, '_tax_status', 'taxable'),
+(352, 39, '_tax_class', ''),
+(353, 39, '_manage_stock', 'no'),
+(354, 39, '_backorders', 'no'),
+(355, 39, '_low_stock_amount', ''),
+(356, 39, '_sold_individually', 'no'),
+(357, 39, '_weight', ''),
+(358, 39, '_length', ''),
+(359, 39, '_width', ''),
+(360, 39, '_height', ''),
+(361, 39, '_upsell_ids', 'a:0:{}'),
+(362, 39, '_crosssell_ids', 'a:0:{}'),
+(363, 39, '_purchase_note', ''),
+(364, 39, '_default_attributes', 'a:0:{}'),
+(365, 39, '_virtual', 'no'),
+(366, 39, '_downloadable', 'no'),
+(367, 39, '_product_image_gallery', '122,183,184,185,186,187'),
+(368, 39, '_download_limit', '0'),
+(369, 39, '_download_expiry', '0'),
+(370, 39, '_stock', NULL),
+(371, 39, '_stock_status', 'instock'),
+(372, 39, '_wc_average_rating', '0'),
+(373, 39, '_wc_rating_count', 'a:0:{}'),
+(374, 39, '_wc_review_count', '0'),
+(375, 39, '_downloadable_files', 'a:0:{}'),
+(376, 39, '_product_attributes', 'a:0:{}'),
+(377, 39, '_product_version', '3.6.4'),
+(378, 39, '_price', '90'),
+(379, 39, '_thumbnail_id', '183'),
+(380, 40, '_sku', 'woo-hoodie-with-pocket'),
+(381, 40, '_regular_price', '45'),
+(382, 40, '_sale_price', '35'),
+(383, 40, '_sale_price_dates_from', ''),
+(384, 40, '_sale_price_dates_to', ''),
+(385, 40, 'total_sales', '0'),
+(386, 40, '_tax_status', 'taxable'),
+(387, 40, '_tax_class', ''),
+(388, 40, '_manage_stock', 'no'),
+(389, 40, '_backorders', 'no'),
+(390, 40, '_low_stock_amount', ''),
+(391, 40, '_sold_individually', 'no'),
+(392, 40, '_weight', ''),
+(393, 40, '_length', ''),
+(394, 40, '_width', ''),
+(395, 40, '_height', ''),
+(396, 40, '_upsell_ids', 'a:0:{}'),
+(397, 40, '_crosssell_ids', 'a:0:{}'),
+(398, 40, '_purchase_note', ''),
+(399, 40, '_default_attributes', 'a:0:{}'),
+(400, 40, '_virtual', 'no'),
+(401, 40, '_downloadable', 'no'),
+(402, 40, '_product_image_gallery', '187,186,185,184,183,122'),
+(403, 40, '_download_limit', '0'),
+(404, 40, '_download_expiry', '0'),
+(405, 40, '_stock', NULL),
+(406, 40, '_stock_status', 'instock'),
+(407, 40, '_wc_average_rating', '0'),
+(408, 40, '_wc_rating_count', 'a:0:{}'),
+(409, 40, '_wc_review_count', '0'),
+(410, 40, '_downloadable_files', 'a:0:{}'),
+(411, 40, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(412, 40, '_product_version', '3.6.4'),
+(413, 40, '_price', '35'),
+(414, 40, '_thumbnail_id', '187'),
+(415, 41, '_sku', 'woo-hoodie-with-zipper'),
+(416, 41, '_regular_price', '45'),
+(417, 41, '_sale_price', ''),
+(418, 41, '_sale_price_dates_from', ''),
+(419, 41, '_sale_price_dates_to', ''),
+(420, 41, 'total_sales', '0'),
+(421, 41, '_tax_status', 'taxable'),
+(422, 41, '_tax_class', ''),
+(423, 41, '_manage_stock', 'no'),
+(424, 41, '_backorders', 'no'),
+(425, 41, '_low_stock_amount', ''),
+(426, 41, '_sold_individually', 'no'),
+(427, 41, '_weight', ''),
+(428, 41, '_length', ''),
+(429, 41, '_width', ''),
+(430, 41, '_height', ''),
+(431, 41, '_upsell_ids', 'a:0:{}'),
+(432, 41, '_crosssell_ids', 'a:0:{}'),
+(433, 41, '_purchase_note', ''),
+(434, 41, '_default_attributes', 'a:0:{}'),
+(435, 41, '_virtual', 'no'),
+(436, 41, '_downloadable', 'no'),
+(437, 41, '_product_image_gallery', '187,186,185,184,183,122'),
+(438, 41, '_download_limit', '0'),
+(439, 41, '_download_expiry', '0'),
+(440, 41, '_stock', NULL),
+(441, 41, '_stock_status', 'instock'),
+(442, 41, '_wc_average_rating', '0'),
+(443, 41, '_wc_rating_count', 'a:0:{}'),
+(444, 41, '_wc_review_count', '0'),
+(445, 41, '_downloadable_files', 'a:0:{}'),
+(446, 41, '_product_attributes', 'a:0:{}'),
+(447, 41, '_product_version', '3.6.4'),
+(448, 41, '_price', '45'),
+(449, 41, '_thumbnail_id', '183'),
+(450, 42, '_sku', 'woo-long-sleeve-tee'),
+(451, 42, '_regular_price', '25'),
+(452, 42, '_sale_price', ''),
+(453, 42, '_sale_price_dates_from', ''),
+(454, 42, '_sale_price_dates_to', ''),
+(455, 42, 'total_sales', '0'),
+(456, 42, '_tax_status', 'taxable'),
+(457, 42, '_tax_class', ''),
+(458, 42, '_manage_stock', 'no'),
+(459, 42, '_backorders', 'no'),
+(460, 42, '_low_stock_amount', ''),
+(461, 42, '_sold_individually', 'no'),
+(462, 42, '_weight', ''),
+(463, 42, '_length', ''),
+(464, 42, '_width', ''),
+(465, 42, '_height', ''),
+(466, 42, '_upsell_ids', 'a:0:{}'),
+(467, 42, '_crosssell_ids', 'a:0:{}'),
+(468, 42, '_purchase_note', ''),
+(469, 42, '_default_attributes', 'a:0:{}'),
+(470, 42, '_virtual', 'no'),
+(471, 42, '_downloadable', 'no'),
+(472, 42, '_product_image_gallery', ''),
+(473, 42, '_download_limit', '0'),
+(474, 42, '_download_expiry', '0'),
+(475, 42, '_stock', NULL),
+(476, 42, '_stock_status', 'instock'),
+(477, 42, '_wc_average_rating', '0'),
+(478, 42, '_wc_rating_count', 'a:0:{}'),
+(479, 42, '_wc_review_count', '0'),
+(480, 42, '_downloadable_files', 'a:0:{}'),
+(481, 42, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(482, 42, '_product_version', '3.6.4'),
+(483, 42, '_price', '25'),
+(484, 42, '_thumbnail_id', '186'),
+(485, 43, '_sku', 'woo-polo'),
+(486, 43, '_regular_price', '20'),
+(487, 43, '_sale_price', ''),
+(488, 43, '_sale_price_dates_from', ''),
+(489, 43, '_sale_price_dates_to', ''),
+(490, 43, 'total_sales', '0'),
+(491, 43, '_tax_status', 'taxable'),
+(492, 43, '_tax_class', ''),
+(493, 43, '_manage_stock', 'no'),
+(494, 43, '_backorders', 'no'),
+(495, 43, '_low_stock_amount', ''),
+(496, 43, '_sold_individually', 'no'),
+(497, 43, '_weight', ''),
+(498, 43, '_length', ''),
+(499, 43, '_width', ''),
+(500, 43, '_height', ''),
+(501, 43, '_upsell_ids', 'a:0:{}'),
+(502, 43, '_crosssell_ids', 'a:0:{}'),
+(503, 43, '_purchase_note', ''),
+(504, 43, '_default_attributes', 'a:0:{}'),
+(505, 43, '_virtual', 'no'),
+(506, 43, '_downloadable', 'no'),
+(507, 43, '_product_image_gallery', '185,186,187,184,122,183'),
+(508, 43, '_download_limit', '0'),
+(509, 43, '_download_expiry', '0'),
+(510, 43, '_stock', NULL),
+(511, 43, '_stock_status', 'instock'),
+(512, 43, '_wc_average_rating', '0'),
+(513, 43, '_wc_rating_count', 'a:0:{}'),
+(514, 43, '_wc_review_count', '0'),
+(515, 43, '_downloadable_files', 'a:0:{}'),
+(516, 43, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(517, 43, '_product_version', '3.6.4'),
+(518, 43, '_price', '20'),
+(519, 43, '_thumbnail_id', '187'),
+(520, 44, '_sku', 'woo-album'),
+(521, 44, '_regular_price', '15'),
+(522, 44, '_sale_price', ''),
+(523, 44, '_sale_price_dates_from', ''),
+(524, 44, '_sale_price_dates_to', ''),
+(525, 44, 'total_sales', '1'),
+(526, 44, '_tax_status', 'taxable'),
+(527, 44, '_tax_class', ''),
+(528, 44, '_manage_stock', 'no'),
+(529, 44, '_backorders', 'no'),
+(530, 44, '_low_stock_amount', ''),
+(531, 44, '_sold_individually', 'no'),
+(532, 44, '_weight', ''),
+(533, 44, '_length', ''),
+(534, 44, '_width', ''),
+(535, 44, '_height', ''),
+(536, 44, '_upsell_ids', 'a:0:{}'),
+(537, 44, '_crosssell_ids', 'a:0:{}'),
+(538, 44, '_purchase_note', ''),
+(539, 44, '_default_attributes', 'a:0:{}'),
+(540, 44, '_virtual', 'yes'),
+(541, 44, '_downloadable', 'yes'),
+(542, 44, '_product_image_gallery', '187,186,185,184,183,122'),
+(543, 44, '_download_limit', '1'),
+(544, 44, '_download_expiry', '1'),
+(545, 44, '_stock', NULL),
+(546, 44, '_stock_status', 'instock'),
+(547, 44, '_wc_average_rating', '0'),
+(548, 44, '_wc_rating_count', 'a:0:{}'),
+(549, 44, '_wc_review_count', '0'),
+(550, 44, '_downloadable_files', 'a:2:{s:36:\"356506a5-cc15-41b9-801b-9104dda1702c\";a:3:{s:2:\"id\";s:36:\"356506a5-cc15-41b9-801b-9104dda1702c\";s:4:\"name\";s:8:\"Single 1\";s:4:\"file\";s:85:\"https://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2017/08/single.jpg\";}s:36:\"18e70c59-59f3-43a3-8525-ce1ea0c12943\";a:3:{s:2:\"id\";s:36:\"18e70c59-59f3-43a3-8525-ce1ea0c12943\";s:4:\"name\";s:8:\"Single 2\";s:4:\"file\";s:84:\"https://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2017/08/album.jpg\";}}'),
+(551, 44, '_product_attributes', 'a:0:{}'),
+(552, 44, '_product_version', '3.6.4'),
+(553, 44, '_price', '15'),
+(554, 44, '_thumbnail_id', '186'),
+(555, 45, '_sku', 'woo-single'),
+(556, 45, '_regular_price', '3'),
+(557, 45, '_sale_price', '2'),
+(558, 45, '_sale_price_dates_from', ''),
+(559, 45, '_sale_price_dates_to', ''),
+(560, 45, 'total_sales', '1'),
+(561, 45, '_tax_status', 'taxable'),
+(562, 45, '_tax_class', ''),
+(563, 45, '_manage_stock', 'no'),
+(564, 45, '_backorders', 'no'),
+(565, 45, '_low_stock_amount', ''),
+(566, 45, '_sold_individually', 'no'),
+(567, 45, '_weight', ''),
+(568, 45, '_length', ''),
+(569, 45, '_width', ''),
+(570, 45, '_height', ''),
+(571, 45, '_upsell_ids', 'a:0:{}'),
+(572, 45, '_crosssell_ids', 'a:0:{}'),
+(573, 45, '_purchase_note', ''),
+(574, 45, '_default_attributes', 'a:0:{}'),
+(575, 45, '_virtual', 'yes'),
+(576, 45, '_downloadable', 'yes'),
+(577, 45, '_product_image_gallery', '187,186,185,184,183,122'),
+(578, 45, '_download_limit', '1'),
+(579, 45, '_download_expiry', '1'),
+(580, 45, '_stock', NULL),
+(581, 45, '_stock_status', 'instock'),
+(582, 45, '_wc_average_rating', '0'),
+(583, 45, '_wc_rating_count', 'a:0:{}'),
+(584, 45, '_wc_review_count', '0'),
+(585, 45, '_downloadable_files', 'a:1:{s:36:\"a0fdda89-5f0e-440d-93f5-188e12c910d1\";a:3:{s:2:\"id\";s:36:\"a0fdda89-5f0e-440d-93f5-188e12c910d1\";s:4:\"name\";s:6:\"Single\";s:4:\"file\";s:85:\"https://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2017/08/single.jpg\";}}'),
+(586, 45, '_product_attributes', 'a:0:{}'),
+(587, 45, '_product_version', '3.6.4'),
+(588, 45, '_price', '2'),
+(589, 45, '_thumbnail_id', '186'),
+(590, 46, '_sku', 'woo-vneck-tee-red'),
+(591, 46, '_regular_price', '20'),
+(592, 46, '_sale_price', ''),
+(593, 46, '_sale_price_dates_from', ''),
+(594, 46, '_sale_price_dates_to', ''),
+(595, 46, 'total_sales', '0'),
+(596, 46, '_tax_status', 'taxable'),
+(597, 46, '_tax_class', ''),
+(598, 46, '_manage_stock', 'no'),
+(599, 46, '_backorders', 'no'),
+(600, 46, '_low_stock_amount', ''),
+(601, 46, '_sold_individually', 'no'),
+(602, 46, '_weight', ''),
+(603, 46, '_length', ''),
+(604, 46, '_width', ''),
+(605, 46, '_height', ''),
+(606, 46, '_upsell_ids', 'a:0:{}'),
+(607, 46, '_crosssell_ids', 'a:0:{}'),
+(608, 46, '_purchase_note', ''),
+(609, 46, '_default_attributes', 'a:0:{}'),
+(610, 46, '_virtual', 'no'),
+(611, 46, '_downloadable', 'no'),
+(612, 46, '_product_image_gallery', ''),
+(613, 46, '_download_limit', '0'),
+(614, 46, '_download_expiry', '0'),
+(615, 46, '_stock', ''),
+(616, 46, '_stock_status', 'instock'),
+(617, 46, '_wc_average_rating', '0'),
+(618, 46, '_wc_rating_count', 'a:0:{}'),
+(619, 46, '_wc_review_count', '0'),
+(620, 46, '_downloadable_files', 'a:0:{}'),
+(621, 46, '_product_attributes', 'a:0:{}'),
+(622, 46, '_product_version', '3.5.3'),
+(623, 46, '_price', '20'),
+(624, 46, '_variation_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.'),
+(625, 46, '_thumbnail_id', '57'),
+(626, 46, 'attribute_pa_color', 'red'),
+(627, 46, 'attribute_pa_size', ''),
+(628, 47, '_sku', 'woo-vneck-tee-green'),
+(629, 47, '_regular_price', '20'),
+(630, 47, '_sale_price', ''),
+(631, 47, '_sale_price_dates_from', ''),
+(632, 47, '_sale_price_dates_to', ''),
+(633, 47, 'total_sales', '0'),
+(634, 47, '_tax_status', 'taxable'),
+(635, 47, '_tax_class', ''),
+(636, 47, '_manage_stock', 'no'),
+(637, 47, '_backorders', 'no'),
+(638, 47, '_low_stock_amount', ''),
+(639, 47, '_sold_individually', 'no'),
+(640, 47, '_weight', ''),
+(641, 47, '_length', ''),
+(642, 47, '_width', ''),
+(643, 47, '_height', ''),
+(644, 47, '_upsell_ids', 'a:0:{}'),
+(645, 47, '_crosssell_ids', 'a:0:{}'),
+(646, 47, '_purchase_note', ''),
+(647, 47, '_default_attributes', 'a:0:{}'),
+(648, 47, '_virtual', 'no'),
+(649, 47, '_downloadable', 'no'),
+(650, 47, '_product_image_gallery', ''),
+(651, 47, '_download_limit', '0'),
+(652, 47, '_download_expiry', '0'),
+(653, 47, '_stock', ''),
+(654, 47, '_stock_status', 'instock'),
+(655, 47, '_wc_average_rating', '0'),
+(656, 47, '_wc_rating_count', 'a:0:{}'),
+(657, 47, '_wc_review_count', '0'),
+(658, 47, '_downloadable_files', 'a:0:{}'),
+(659, 47, '_product_attributes', 'a:0:{}'),
+(660, 47, '_product_version', '3.5.3'),
+(661, 47, '_price', '20'),
+(662, 47, '_variation_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.'),
+(663, 47, '_thumbnail_id', '58'),
+(664, 47, 'attribute_pa_color', 'green'),
+(665, 47, 'attribute_pa_size', ''),
+(666, 48, '_sku', 'woo-vneck-tee-blue'),
+(667, 48, '_regular_price', '15'),
+(668, 48, '_sale_price', ''),
+(669, 48, '_sale_price_dates_from', ''),
+(670, 48, '_sale_price_dates_to', ''),
+(671, 48, 'total_sales', '0'),
+(672, 48, '_tax_status', 'taxable'),
+(673, 48, '_tax_class', ''),
+(674, 48, '_manage_stock', 'no'),
+(675, 48, '_backorders', 'no'),
+(676, 48, '_low_stock_amount', ''),
+(677, 48, '_sold_individually', 'no'),
+(678, 48, '_weight', ''),
+(679, 48, '_length', ''),
+(680, 48, '_width', ''),
+(681, 48, '_height', ''),
+(682, 48, '_upsell_ids', 'a:0:{}'),
+(683, 48, '_crosssell_ids', 'a:0:{}'),
+(684, 48, '_purchase_note', ''),
+(685, 48, '_default_attributes', 'a:0:{}'),
+(686, 48, '_virtual', 'no'),
+(687, 48, '_downloadable', 'no'),
+(688, 48, '_product_image_gallery', ''),
+(689, 48, '_download_limit', '0'),
+(690, 48, '_download_expiry', '0'),
+(691, 48, '_stock', ''),
+(692, 48, '_stock_status', 'instock'),
+(693, 48, '_wc_average_rating', '0'),
+(694, 48, '_wc_rating_count', 'a:0:{}'),
+(695, 48, '_wc_review_count', '0'),
+(696, 48, '_downloadable_files', 'a:0:{}'),
+(697, 48, '_product_attributes', 'a:0:{}'),
+(698, 48, '_product_version', '3.5.3'),
+(699, 48, '_price', '15'),
+(700, 48, '_wpcom_is_markdown', ''),
+(701, 48, '_wp_old_slug', 'import-placeholder-for-78'),
+(702, 48, '_variation_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.'),
+(703, 48, '_thumbnail_id', '59'),
+(704, 48, 'attribute_pa_color', 'blue'),
+(705, 48, 'attribute_pa_size', ''),
+(706, 49, '_sku', 'woo-hoodie-red'),
+(707, 49, '_regular_price', '45'),
+(708, 49, '_sale_price', '42'),
+(709, 49, '_sale_price_dates_from', ''),
+(710, 49, '_sale_price_dates_to', ''),
+(711, 49, 'total_sales', '0'),
+(712, 49, '_tax_status', 'taxable'),
+(713, 49, '_tax_class', ''),
+(714, 49, '_manage_stock', 'no'),
+(715, 49, '_backorders', 'no'),
+(716, 49, '_low_stock_amount', ''),
+(717, 49, '_sold_individually', 'no'),
+(718, 49, '_weight', ''),
+(719, 49, '_length', ''),
+(720, 49, '_width', ''),
+(721, 49, '_height', ''),
+(722, 49, '_upsell_ids', 'a:0:{}'),
+(723, 49, '_crosssell_ids', 'a:0:{}'),
+(724, 49, '_purchase_note', ''),
+(725, 49, '_default_attributes', 'a:0:{}'),
+(726, 49, '_virtual', 'no'),
+(727, 49, '_downloadable', 'no'),
+(728, 49, '_product_image_gallery', ''),
+(729, 49, '_download_limit', '0'),
+(730, 49, '_download_expiry', '0'),
+(731, 49, '_stock', ''),
+(732, 49, '_stock_status', 'instock'),
+(733, 49, '_wc_average_rating', '0'),
+(734, 49, '_wc_rating_count', 'a:0:{}'),
+(735, 49, '_wc_review_count', '0'),
+(736, 49, '_downloadable_files', 'a:0:{}'),
+(737, 49, '_product_attributes', 'a:0:{}'),
+(738, 49, '_product_version', '3.5.3'),
+(739, 49, '_price', '42'),
+(740, 49, '_variation_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.'),
+(741, 49, '_thumbnail_id', '60'),
+(742, 49, 'attribute_pa_color', 'red'),
+(743, 49, 'attribute_logo', 'No'),
+(744, 50, '_sku', 'woo-hoodie-green'),
+(745, 50, '_regular_price', '45'),
+(746, 50, '_sale_price', ''),
+(747, 50, '_sale_price_dates_from', ''),
+(748, 50, '_sale_price_dates_to', ''),
+(749, 50, 'total_sales', '0'),
+(750, 50, '_tax_status', 'taxable'),
+(751, 50, '_tax_class', ''),
+(752, 50, '_manage_stock', 'no'),
+(753, 50, '_backorders', 'no'),
+(754, 50, '_low_stock_amount', ''),
+(755, 50, '_sold_individually', 'no'),
+(756, 50, '_weight', ''),
+(757, 50, '_length', ''),
+(758, 50, '_width', ''),
+(759, 50, '_height', ''),
+(760, 50, '_upsell_ids', 'a:0:{}'),
+(761, 50, '_crosssell_ids', 'a:0:{}'),
+(762, 50, '_purchase_note', ''),
+(763, 50, '_default_attributes', 'a:0:{}'),
+(764, 50, '_virtual', 'no'),
+(765, 50, '_downloadable', 'no'),
+(766, 50, '_product_image_gallery', ''),
+(767, 50, '_download_limit', '0'),
+(768, 50, '_download_expiry', '0'),
+(769, 50, '_stock', ''),
+(770, 50, '_stock_status', 'instock'),
+(771, 50, '_wc_average_rating', '0'),
+(772, 50, '_wc_rating_count', 'a:0:{}'),
+(773, 50, '_wc_review_count', '0'),
+(774, 50, '_downloadable_files', 'a:0:{}'),
+(775, 50, '_product_attributes', 'a:0:{}'),
+(776, 50, '_product_version', '3.5.3'),
+(777, 50, '_price', '45'),
+(778, 50, '_variation_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.'),
+(779, 50, '_thumbnail_id', '62'),
+(780, 50, 'attribute_pa_color', 'green'),
+(781, 50, 'attribute_logo', 'No'),
+(782, 51, '_sku', 'woo-hoodie-blue'),
+(783, 51, '_regular_price', '45'),
+(784, 51, '_sale_price', ''),
+(785, 51, '_sale_price_dates_from', ''),
+(786, 51, '_sale_price_dates_to', ''),
+(787, 51, 'total_sales', '0'),
+(788, 51, '_tax_status', 'taxable'),
+(789, 51, '_tax_class', ''),
+(790, 51, '_manage_stock', 'no'),
+(791, 51, '_backorders', 'no'),
+(792, 51, '_low_stock_amount', ''),
+(793, 51, '_sold_individually', 'no'),
+(794, 51, '_weight', ''),
+(795, 51, '_length', ''),
+(796, 51, '_width', ''),
+(797, 51, '_height', ''),
+(798, 51, '_upsell_ids', 'a:0:{}'),
+(799, 51, '_crosssell_ids', 'a:0:{}'),
+(800, 51, '_purchase_note', ''),
+(801, 51, '_default_attributes', 'a:0:{}'),
+(802, 51, '_virtual', 'no'),
+(803, 51, '_downloadable', 'no'),
+(804, 51, '_product_image_gallery', ''),
+(805, 51, '_download_limit', '0'),
+(806, 51, '_download_expiry', '0'),
+(807, 51, '_stock', ''),
+(808, 51, '_stock_status', 'instock'),
+(809, 51, '_wc_average_rating', '0'),
+(810, 51, '_wc_rating_count', 'a:0:{}'),
+(811, 51, '_wc_review_count', '0'),
+(812, 51, '_downloadable_files', 'a:0:{}'),
+(813, 51, '_product_attributes', 'a:0:{}'),
+(814, 51, '_product_version', '3.5.3'),
+(815, 51, '_price', '45'),
+(816, 51, '_variation_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.'),
+(817, 51, '_thumbnail_id', '61'),
+(818, 51, 'attribute_pa_color', 'blue'),
+(819, 51, 'attribute_logo', 'No'),
+(820, 52, '_sku', 'Woo-tshirt-logo'),
+(821, 52, '_regular_price', '18'),
+(822, 52, '_sale_price', ''),
+(823, 52, '_sale_price_dates_from', ''),
+(824, 52, '_sale_price_dates_to', ''),
+(825, 52, 'total_sales', '51'),
+(826, 52, '_tax_status', 'taxable'),
+(827, 52, '_tax_class', ''),
+(828, 52, '_manage_stock', 'no'),
+(829, 52, '_backorders', 'no'),
+(830, 52, '_low_stock_amount', ''),
+(831, 52, '_sold_individually', 'no'),
+(832, 52, '_weight', ''),
+(833, 52, '_length', ''),
+(834, 52, '_width', ''),
+(835, 52, '_height', ''),
+(836, 52, '_upsell_ids', 'a:0:{}'),
+(837, 52, '_crosssell_ids', 'a:0:{}'),
+(838, 52, '_purchase_note', ''),
+(839, 52, '_default_attributes', 'a:0:{}'),
+(840, 52, '_virtual', 'no'),
+(841, 52, '_downloadable', 'no'),
+(842, 52, '_product_image_gallery', '187,186,185,184,183,122'),
+(843, 52, '_download_limit', '0'),
+(844, 52, '_download_expiry', '0'),
+(845, 52, '_stock', NULL),
+(846, 52, '_stock_status', 'instock'),
+(847, 52, '_wc_average_rating', '0'),
+(848, 52, '_wc_rating_count', 'a:0:{}'),
+(849, 52, '_wc_review_count', '0'),
+(850, 52, '_downloadable_files', 'a:0:{}'),
+(851, 52, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(852, 52, '_product_version', '3.6.4'),
+(853, 52, '_price', '18'),
+(854, 52, '_thumbnail_id', '184'),
+(855, 53, '_sku', 'Woo-beanie-logo'),
+(856, 53, '_regular_price', '20'),
+(857, 53, '_sale_price', '18'),
+(858, 53, '_sale_price_dates_from', ''),
+(859, 53, '_sale_price_dates_to', ''),
+(860, 53, 'total_sales', '9'),
+(861, 53, '_tax_status', 'taxable'),
+(862, 53, '_tax_class', ''),
+(863, 53, '_manage_stock', 'no'),
+(864, 53, '_backorders', 'no'),
+(865, 53, '_low_stock_amount', ''),
+(866, 53, '_sold_individually', 'no'),
+(867, 53, '_weight', ''),
+(868, 53, '_length', ''),
+(869, 53, '_width', ''),
+(870, 53, '_height', ''),
+(871, 53, '_upsell_ids', 'a:0:{}'),
+(872, 53, '_crosssell_ids', 'a:0:{}'),
+(873, 53, '_purchase_note', ''),
+(874, 53, '_default_attributes', 'a:0:{}'),
+(875, 53, '_virtual', 'no'),
+(876, 53, '_downloadable', 'no'),
+(877, 53, '_product_image_gallery', '187,186,185,184,183,122'),
+(878, 53, '_download_limit', '0'),
+(879, 53, '_download_expiry', '0'),
+(880, 53, '_stock', NULL),
+(881, 53, '_stock_status', 'instock'),
+(882, 53, '_wc_average_rating', '0'),
+(883, 53, '_wc_rating_count', 'a:0:{}'),
+(884, 53, '_wc_review_count', '0'),
+(885, 53, '_downloadable_files', 'a:0:{}'),
+(886, 53, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"0\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(887, 53, '_product_version', '3.6.4'),
+(888, 53, '_price', '18'),
+(889, 53, '_thumbnail_id', '186'),
+(890, 54, '_sku', 'logo-collection'),
+(891, 54, '_sale_price_dates_from', ''),
+(892, 54, '_sale_price_dates_to', ''),
+(893, 54, 'total_sales', '0'),
+(894, 54, '_tax_status', 'taxable'),
+(895, 54, '_tax_class', ''),
+(896, 54, '_manage_stock', 'no'),
+(897, 54, '_backorders', 'no'),
+(898, 54, '_low_stock_amount', ''),
+(899, 54, '_sold_individually', 'no'),
+(900, 54, '_weight', ''),
+(901, 54, '_length', ''),
+(902, 54, '_width', ''),
+(903, 54, '_height', ''),
+(904, 54, '_upsell_ids', 'a:0:{}'),
+(905, 54, '_crosssell_ids', 'a:0:{}'),
+(906, 54, '_purchase_note', ''),
+(907, 54, '_default_attributes', 'a:0:{}'),
+(908, 54, '_virtual', 'no'),
+(909, 54, '_downloadable', 'no'),
+(910, 54, '_product_image_gallery', '187,186,185,184,183,122'),
+(911, 54, '_download_limit', '0'),
+(912, 54, '_download_expiry', '0'),
+(913, 54, '_stock', NULL),
+(914, 54, '_stock_status', 'outofstock'),
+(915, 54, '_wc_average_rating', '0'),
+(916, 54, '_wc_rating_count', 'a:0:{}'),
+(917, 54, '_wc_review_count', '0'),
+(918, 54, '_downloadable_files', 'a:0:{}'),
+(919, 54, '_product_attributes', 'a:0:{}'),
+(920, 54, '_product_version', '3.6.4'),
+(921, 54, '_children', 'a:3:{i:0;i:8;i:1;i:9;i:2;i:10;}'),
+(922, 54, '_thumbnail_id', '186'),
+(923, 54, '_price', '70000'),
+(924, 54, '_price', '70000'),
+(925, 55, '_sku', 'wp-pennant'),
+(928, 55, '_sale_price_dates_from', ''),
+(929, 55, '_sale_price_dates_to', ''),
+(930, 55, 'total_sales', '20'),
+(931, 55, '_tax_status', 'taxable'),
+(932, 55, '_tax_class', ''),
+(933, 55, '_manage_stock', 'no'),
+(934, 55, '_backorders', 'no'),
+(935, 55, '_low_stock_amount', ''),
+(936, 55, '_sold_individually', 'no'),
+(937, 55, '_weight', ''),
+(938, 55, '_length', ''),
+(939, 55, '_width', ''),
+(940, 55, '_height', ''),
+(941, 55, '_upsell_ids', 'a:0:{}'),
+(942, 55, '_crosssell_ids', 'a:0:{}'),
+(943, 55, '_purchase_note', ''),
+(944, 55, '_default_attributes', 'a:1:{s:8:\"pa_color\";s:4:\"gray\";}'),
+(945, 55, '_virtual', 'no'),
+(946, 55, '_downloadable', 'no'),
+(947, 55, '_product_image_gallery', '184,185,186,187,183,122'),
+(948, 55, '_download_limit', '0'),
+(949, 55, '_download_expiry', '0'),
+(950, 55, '_stock', NULL),
+(951, 55, '_stock_status', 'instock'),
+(952, 55, '_wc_average_rating', '0'),
+(953, 55, '_wc_rating_count', 'a:0:{}'),
+(954, 55, '_wc_review_count', '0'),
+(955, 55, '_downloadable_files', 'a:0:{}'),
+(956, 55, '_product_attributes', 'a:1:{s:8:\"pa_color\";a:6:{s:4:\"name\";s:8:\"pa_color\";s:5:\"value\";s:0:\"\";s:8:\"position\";s:1:\"0\";s:10:\"is_visible\";s:1:\"1\";s:12:\"is_variation\";s:1:\"1\";s:11:\"is_taxonomy\";s:1:\"1\";}}'),
+(957, 55, '_product_version', '3.6.4'),
+(959, 55, '_thumbnail_id', '183'),
+(962, 56, '_sku', 'woo-hoodie-blue-logo'),
+(963, 56, '_regular_price', '45'),
+(964, 56, '_sale_price', ''),
+(965, 56, '_sale_price_dates_from', ''),
+(966, 56, '_sale_price_dates_to', ''),
+(967, 56, 'total_sales', '0'),
+(968, 56, '_tax_status', 'taxable'),
+(969, 56, '_tax_class', ''),
+(970, 56, '_manage_stock', 'no'),
+(971, 56, '_backorders', 'no'),
+(972, 56, '_low_stock_amount', ''),
+(973, 56, '_sold_individually', 'no'),
+(974, 56, '_weight', ''),
+(975, 56, '_length', ''),
+(976, 56, '_width', ''),
+(977, 56, '_height', ''),
+(978, 56, '_upsell_ids', 'a:0:{}'),
+(979, 56, '_crosssell_ids', 'a:0:{}'),
+(980, 56, '_purchase_note', ''),
+(981, 56, '_default_attributes', 'a:0:{}'),
+(982, 56, '_virtual', 'no'),
+(983, 56, '_downloadable', 'no'),
+(984, 56, '_product_image_gallery', ''),
+(985, 56, '_download_limit', '0'),
+(986, 56, '_download_expiry', '0'),
+(987, 56, '_stock', ''),
+(988, 56, '_stock_status', 'instock'),
+(989, 56, '_wc_average_rating', '0'),
+(990, 56, '_wc_rating_count', 'a:0:{}'),
+(991, 56, '_wc_review_count', '0'),
+(992, 56, '_downloadable_files', 'a:0:{}'),
+(993, 56, '_product_attributes', 'a:0:{}'),
+(994, 56, '_product_version', '3.5.3'),
+(995, 56, '_price', '45'),
+(996, 56, '_variation_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.'),
+(997, 56, '_thumbnail_id', '63'),
+(998, 56, 'attribute_pa_color', 'blue'),
+(999, 56, 'attribute_logo', 'Yes'),
+(1000, 57, '_wp_attached_file', '2019/01/vneck-tee-2.jpg'),
+(1001, 57, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:800;s:4:\"file\";s:23:\"2019/01/vneck-tee-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:23:\"vneck-tee-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-600x599.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:599;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-768x767.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:767;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:23:\"vneck-tee-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-600x599.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:599;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:23:\"vneck-tee-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1002, 57, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/vneck-tee-2.jpg'),
+(1003, 58, '_wp_attached_file', '2019/01/vnech-tee-green-1.jpg'),
+(1004, 58, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:29:\"2019/01/vnech-tee-green-1.jpg\";s:5:\"sizes\";a:9:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:29:\"vnech-tee-green-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:29:\"vnech-tee-green-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:29:\"vnech-tee-green-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:29:\"vnech-tee-green-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:29:\"vnech-tee-green-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:29:\"vnech-tee-green-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:29:\"vnech-tee-green-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:29:\"vnech-tee-green-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:29:\"vnech-tee-green-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1005, 58, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/vnech-tee-green-1.jpg'),
+(1006, 59, '_wp_attached_file', '2019/01/vnech-tee-blue-1.jpg'),
+(1007, 59, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:28:\"2019/01/vnech-tee-blue-1.jpg\";s:5:\"sizes\";a:9:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:28:\"vnech-tee-blue-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:28:\"vnech-tee-blue-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:28:\"vnech-tee-blue-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:28:\"vnech-tee-blue-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:28:\"vnech-tee-blue-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:28:\"vnech-tee-blue-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:28:\"vnech-tee-blue-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:28:\"vnech-tee-blue-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:28:\"vnech-tee-blue-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1008, 59, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/vnech-tee-blue-1.jpg'),
+(1009, 60, '_wp_attached_file', '2019/01/hoodie-2.jpg'),
+(1010, 60, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:20:\"2019/01/hoodie-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:20:\"hoodie-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:20:\"hoodie-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:20:\"hoodie-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:20:\"hoodie-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:20:\"hoodie-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:20:\"hoodie-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:20:\"hoodie-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:20:\"hoodie-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:20:\"hoodie-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:20:\"hoodie-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1011, 60, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/hoodie-2.jpg'),
+(1012, 61, '_wp_attached_file', '2019/01/hoodie-blue-1.jpg');
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(1013, 61, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:25:\"2019/01/hoodie-blue-1.jpg\";s:5:\"sizes\";a:9:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:25:\"hoodie-blue-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:25:\"hoodie-blue-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:25:\"hoodie-blue-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:25:\"hoodie-blue-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:25:\"hoodie-blue-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:25:\"hoodie-blue-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:25:\"hoodie-blue-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:25:\"hoodie-blue-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:25:\"hoodie-blue-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1014, 61, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/hoodie-blue-1.jpg'),
+(1015, 62, '_wp_attached_file', '2019/01/hoodie-green-1.jpg'),
+(1016, 62, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:26:\"2019/01/hoodie-green-1.jpg\";s:5:\"sizes\";a:9:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:26:\"hoodie-green-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:26:\"hoodie-green-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:26:\"hoodie-green-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:26:\"hoodie-green-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:26:\"hoodie-green-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:26:\"hoodie-green-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:26:\"hoodie-green-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:26:\"hoodie-green-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:26:\"hoodie-green-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1017, 62, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/hoodie-green-1.jpg'),
+(1018, 63, '_wp_attached_file', '2019/01/hoodie-with-logo-2.jpg'),
+(1019, 63, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:30:\"2019/01/hoodie-with-logo-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:30:\"hoodie-with-logo-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:30:\"hoodie-with-logo-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:30:\"hoodie-with-logo-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1020, 63, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/hoodie-with-logo-2.jpg'),
+(1021, 64, '_wp_attached_file', '2019/01/tshirt-2.jpg'),
+(1022, 64, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:20:\"2019/01/tshirt-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:20:\"tshirt-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:20:\"tshirt-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:20:\"tshirt-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:20:\"tshirt-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:20:\"tshirt-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:20:\"tshirt-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:20:\"tshirt-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:20:\"tshirt-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:20:\"tshirt-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:20:\"tshirt-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1023, 64, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/tshirt-2.jpg'),
+(1024, 65, '_wp_attached_file', '2019/01/beanie-2.jpg'),
+(1025, 65, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:20:\"2019/01/beanie-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:20:\"beanie-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:20:\"beanie-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:20:\"beanie-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:20:\"beanie-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:20:\"beanie-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:20:\"beanie-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:20:\"beanie-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:20:\"beanie-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:20:\"beanie-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:20:\"beanie-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1026, 65, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/beanie-2.jpg'),
+(1027, 66, '_wp_attached_file', '2019/01/belt-2.jpg'),
+(1028, 66, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:18:\"2019/01/belt-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:18:\"belt-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:18:\"belt-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:18:\"belt-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:18:\"belt-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:18:\"belt-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:18:\"belt-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:18:\"belt-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:18:\"belt-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:18:\"belt-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:18:\"belt-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1029, 66, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/belt-2.jpg'),
+(1030, 67, '_wp_attached_file', '2019/01/cap-2.jpg'),
+(1031, 67, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:17:\"2019/01/cap-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:17:\"cap-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:17:\"cap-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:17:\"cap-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:17:\"cap-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:17:\"cap-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:17:\"cap-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:17:\"cap-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:17:\"cap-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:17:\"cap-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:17:\"cap-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1032, 67, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/cap-2.jpg'),
+(1033, 68, '_wp_attached_file', '2019/01/sunglasses-2.jpg'),
+(1034, 68, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:24:\"2019/01/sunglasses-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:24:\"sunglasses-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:24:\"sunglasses-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:24:\"sunglasses-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1035, 68, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/sunglasses-2.jpg'),
+(1036, 69, '_wp_attached_file', '2019/01/hoodie-with-pocket-2.jpg'),
+(1037, 69, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:32:\"2019/01/hoodie-with-pocket-2.jpg\";s:5:\"sizes\";a:9:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:32:\"hoodie-with-pocket-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1038, 69, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/hoodie-with-pocket-2.jpg'),
+(1039, 70, '_wp_attached_file', '2019/01/hoodie-with-zipper-2.jpg'),
+(1040, 70, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:32:\"2019/01/hoodie-with-zipper-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:32:\"hoodie-with-zipper-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1041, 70, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/hoodie-with-zipper-2.jpg'),
+(1042, 71, '_wp_attached_file', '2019/01/long-sleeve-tee-2.jpg'),
+(1043, 71, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:801;s:4:\"file\";s:29:\"2019/01/long-sleeve-tee-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:29:\"long-sleeve-tee-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:29:\"long-sleeve-tee-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:29:\"long-sleeve-tee-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1044, 71, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/long-sleeve-tee-2.jpg'),
+(1045, 72, '_wp_attached_file', '2019/01/polo-2.jpg'),
+(1046, 72, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:801;s:6:\"height\";i:800;s:4:\"file\";s:18:\"2019/01/polo-2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:18:\"polo-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:18:\"polo-2-600x599.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:599;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:18:\"polo-2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:18:\"polo-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:18:\"polo-2-768x767.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:767;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:18:\"polo-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:18:\"polo-2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:18:\"polo-2-600x599.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:599;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:18:\"polo-2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:18:\"polo-2-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1047, 72, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/polo-2.jpg'),
+(1048, 73, '_wp_attached_file', '2019/01/album-1.jpg'),
+(1049, 73, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:19:\"2019/01/album-1.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:19:\"album-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:19:\"album-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:19:\"album-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:19:\"album-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:19:\"album-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:19:\"album-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:19:\"album-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:19:\"album-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:19:\"album-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:19:\"album-1-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1050, 73, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/album-1.jpg'),
+(1051, 74, '_wp_attached_file', '2019/01/single-1.jpg'),
+(1052, 74, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:20:\"2019/01/single-1.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:20:\"single-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:20:\"single-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:20:\"single-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:20:\"single-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:20:\"single-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:20:\"single-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:20:\"single-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:20:\"single-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:20:\"single-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:20:\"single-1-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1053, 74, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/single-1.jpg'),
+(1054, 75, '_wp_attached_file', '2019/01/t-shirt-with-logo-1.jpg'),
+(1055, 75, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:31:\"2019/01/t-shirt-with-logo-1.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:31:\"t-shirt-with-logo-1-300x400.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1056, 75, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/t-shirt-with-logo-1.jpg'),
+(1057, 76, '_wp_attached_file', '2019/01/beanie-with-logo-1.jpg'),
+(1058, 76, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:30:\"2019/01/beanie-with-logo-1.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:30:\"beanie-with-logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:30:\"beanie-with-logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:30:\"beanie-with-logo-1-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1059, 76, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/beanie-with-logo-1.jpg'),
+(1060, 77, '_wp_attached_file', '2019/01/logo-1.jpg'),
+(1061, 77, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:799;s:4:\"file\";s:18:\"2019/01/logo-1.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:18:\"logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:18:\"logo-1-600x599.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:599;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:18:\"logo-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:18:\"logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:18:\"logo-1-768x767.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:767;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:18:\"logo-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:18:\"logo-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:18:\"logo-1-600x599.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:599;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:18:\"logo-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:18:\"logo-1-300x375.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:375;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1062, 77, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/logo-1.jpg'),
+(1063, 78, '_wp_attached_file', '2019/01/pennant-1.jpg'),
+(1064, 78, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:800;s:6:\"height\";i:800;s:4:\"file\";s:21:\"2019/01/pennant-1.jpg\";s:5:\"sizes\";a:9:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:21:\"pennant-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:21:\"pennant-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:21:\"pennant-1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:21:\"pennant-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:21:\"pennant-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"pennant-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:21:\"pennant-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:21:\"pennant-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"pennant-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1065, 78, '_wc_attachment_source', 'https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/pennant-1.jpg'),
+(1074, 53, '_edit_lock', '1565506312:1'),
+(1075, 55, '_edit_lock', '1565797146:1'),
+(1076, 55, '_edit_last', '1'),
+(1077, 55, '_text1_slide', ''),
+(1078, 55, '_text2_slide', ''),
+(1079, 55, '_text3_slide', ''),
+(1080, 55, '_text4_slide', ''),
+(1081, 26, '_edit_lock', '1563589541:1'),
+(1082, 26, '_edit_last', '1'),
+(1083, 26, '_text1_slide', ''),
+(1084, 26, '_text2_slide', ''),
+(1085, 26, '_text3_slide', ''),
+(1086, 26, '_text4_slide', ''),
+(1087, 27, '_edit_lock', '1564709897:1'),
+(1088, 28, '_edit_lock', '1563033764:1'),
+(1089, 83, '_wp_attached_file', '2012/10/121.jpg'),
+(1090, 83, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:15:\"2012/10/121.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:15:\"121-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:15:\"121-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:15:\"121-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:15:\"121-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:15:\"121-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:16:\"121-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:15:\"121-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:15:\"121-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:15:\"121-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:15:\"121-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1091, 84, '_wp_attached_file', '2012/10/2.jpg'),
+(1092, 84, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:13:\"2012/10/2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:13:\"2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:13:\"2-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:13:\"2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:13:\"2-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:13:\"2-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:14:\"2-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:13:\"2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:13:\"2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:13:\"2-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:13:\"2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1093, 85, '_wp_attached_file', '2012/10/11.jpg'),
+(1094, 85, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:14:\"2012/10/11.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:14:\"11-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:14:\"11-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:14:\"11-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:14:\"11-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:14:\"11-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:15:\"11-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:14:\"11-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:14:\"11-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:14:\"11-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:14:\"11-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1095, 86, '_wp_attached_file', '2012/10/3.jpg'),
+(1096, 86, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:13:\"2012/10/3.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:13:\"3-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:13:\"3-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:13:\"3-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:13:\"3-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:13:\"3-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:14:\"3-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:13:\"3-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:13:\"3-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:13:\"3-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:13:\"3-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1097, 87, '_wp_attached_file', '2012/10/9.jpg');
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(1098, 87, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:13:\"2012/10/9.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:13:\"9-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:13:\"9-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:13:\"9-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:13:\"9-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:13:\"9-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:14:\"9-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:13:\"9-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:13:\"9-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:13:\"9-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:13:\"9-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1099, 88, '_wp_attached_file', '2012/10/8.jpg'),
+(1100, 88, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:13:\"2012/10/8.jpg\";s:5:\"sizes\";a:13:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:13:\"8-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:13:\"8-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:13:\"8-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:13:\"8-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:13:\"8-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:14:\"8-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:13:\"8-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:13:\"8-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:13:\"8-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:13:\"8-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-700x300\";a:4:{s:4:\"file\";s:13:\"8-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-620x266\";a:4:{s:4:\"file\";s:13:\"8-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-400x171\";a:4:{s:4:\"file\";s:13:\"8-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1101, 89, '_wp_attached_file', '2012/10/4.jpg'),
+(1102, 89, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:13:\"2012/10/4.jpg\";s:5:\"sizes\";a:13:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:13:\"4-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:13:\"4-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:13:\"4-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:13:\"4-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:13:\"4-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:14:\"4-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:13:\"4-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:13:\"4-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:13:\"4-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:13:\"4-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-700x300\";a:4:{s:4:\"file\";s:13:\"4-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-620x266\";a:4:{s:4:\"file\";s:13:\"4-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-400x171\";a:4:{s:4:\"file\";s:13:\"4-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1103, 90, '_wp_attached_file', '2012/10/13.jpg'),
+(1104, 90, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:14:\"2012/10/13.jpg\";s:5:\"sizes\";a:13:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:14:\"13-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:14:\"13-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:14:\"13-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:14:\"13-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:14:\"13-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:15:\"13-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:14:\"13-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:14:\"13-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:14:\"13-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:14:\"13-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-700x300\";a:4:{s:4:\"file\";s:14:\"13-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-620x266\";a:4:{s:4:\"file\";s:14:\"13-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-400x171\";a:4:{s:4:\"file\";s:14:\"13-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1105, 91, '_wp_attached_file', '2012/10/16.jpg'),
+(1106, 91, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:14:\"2012/10/16.jpg\";s:5:\"sizes\";a:13:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:14:\"16-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:14:\"16-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:14:\"16-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:14:\"16-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:14:\"16-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:15:\"16-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:14:\"16-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:14:\"16-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:14:\"16-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:14:\"16-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-700x300\";a:4:{s:4:\"file\";s:14:\"16-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-620x266\";a:4:{s:4:\"file\";s:14:\"16-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-400x171\";a:4:{s:4:\"file\";s:14:\"16-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1107, 92, '_wp_attached_file', '2012/10/151.jpg'),
+(1108, 92, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1280;s:6:\"height\";i:853;s:4:\"file\";s:15:\"2012/10/151.jpg\";s:5:\"sizes\";a:14:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:15:\"151-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:15:\"151-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:15:\"151-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:15:\"151-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:15:\"151-768x512.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:512;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:16:\"151-1024x682.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:682;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:15:\"151-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:15:\"151-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:15:\"151-600x400.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:15:\"151-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-700x300\";a:4:{s:4:\"file\";s:15:\"151-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-620x266\";a:4:{s:4:\"file\";s:15:\"151-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:27:\"meta-slider-resized-400x171\";a:4:{s:4:\"file\";s:15:\"151-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_thumbnail_preview\";a:4:{s:4:\"file\";s:15:\"151-400x400.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:400;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1109, 93, '_wp_attached_file', '2019/06/ms_banner_img1.jpg'),
+(1110, 93, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1860;s:6:\"height\";i:562;s:4:\"file\";s:26:\"2019/06/ms_banner_img1.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:26:\"ms_banner_img1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:26:\"ms_banner_img1-600x181.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:181;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:26:\"ms_banner_img1-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:25:\"ms_banner_img1-300x91.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:91;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:26:\"ms_banner_img1-768x232.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:232;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:27:\"ms_banner_img1-1024x309.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:309;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:26:\"ms_banner_img1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:26:\"ms_banner_img1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:26:\"ms_banner_img1-600x181.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:181;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:26:\"ms_banner_img1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1111, 94, '_wp_attached_file', '2019/06/ms_banner_img2.jpg'),
+(1112, 94, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1860;s:6:\"height\";i:562;s:4:\"file\";s:26:\"2019/06/ms_banner_img2.jpg\";s:5:\"sizes\";a:10:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:26:\"ms_banner_img2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:26:\"ms_banner_img2-600x181.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:181;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:26:\"ms_banner_img2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:25:\"ms_banner_img2-300x91.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:91;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:26:\"ms_banner_img2-768x232.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:232;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:27:\"ms_banner_img2-1024x309.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:309;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:26:\"ms_banner_img2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:26:\"ms_banner_img2-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:26:\"ms_banner_img2-600x181.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:181;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:26:\"ms_banner_img2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1117, 96, '_text1_slide', ''),
+(1118, 96, '_text2_slide', ''),
+(1119, 96, '_text3_slide', ''),
+(1120, 96, '_text4_slide', ''),
+(1121, 96, 'metaslider_slideshow_theme', 'a:8:{s:6:\"folder\";s:5:\"jenga\";s:5:\"title\";s:5:\"Jenga\";s:4:\"type\";s:4:\"free\";s:8:\"supports\";a:4:{i:0;s:4:\"flex\";i:1;s:10:\"responsive\";i:2;s:4:\"nivo\";i:3;s:4:\"coin\";}s:4:\"tags\";a:2:{i:0;s:5:\"light\";i:1;s:10:\"minimalist\";}s:11:\"description\";s:60:\"This theme places the controls vertically for a unique look.\";s:6:\"images\";a:5:{i:0;s:29:\"michael-discenza-unsplash.jpg\";i:1;s:45:\"etienne-beauregard-riverin-48305-unsplash.jpg\";i:2;s:30:\"wabi-jayme-578762-unsplash.jpg\";i:3;s:28:\"dorigo-wu-14676-unsplash.jpg\";i:4;s:31:\"nick-cooper-731773-unsplash.jpg\";}s:7:\"version\";s:6:\"v1.0.0\";}'),
+(1122, 96, 'ml-slider_settings', 'a:38:{s:4:\"type\";s:4:\"flex\";s:6:\"random\";s:5:\"false\";s:8:\"cssClass\";s:0:\"\";s:8:\"printCss\";s:4:\"true\";s:7:\"printJs\";s:4:\"true\";s:5:\"width\";s:3:\"700\";s:6:\"height\";s:3:\"300\";s:3:\"spw\";i:7;s:3:\"sph\";i:5;s:5:\"delay\";s:4:\"3000\";s:6:\"sDelay\";i:30;s:7:\"opacity\";d:0.7;s:10:\"titleSpeed\";i:500;s:6:\"effect\";s:4:\"fade\";s:10:\"navigation\";s:4:\"true\";s:5:\"links\";s:4:\"true\";s:10:\"hoverPause\";s:4:\"true\";s:5:\"theme\";s:7:\"default\";s:9:\"direction\";s:10:\"horizontal\";s:7:\"reverse\";s:5:\"false\";s:14:\"animationSpeed\";s:3:\"600\";s:8:\"prevText\";s:8:\"Previous\";s:8:\"nextText\";s:4:\"Next\";s:6:\"slices\";i:15;s:6:\"center\";s:5:\"false\";s:9:\"smartCrop\";s:4:\"true\";s:12:\"carouselMode\";s:5:\"false\";s:14:\"carouselMargin\";s:1:\"5\";s:16:\"firstSlideFadeIn\";s:4:\"true\";s:6:\"easing\";s:6:\"linear\";s:8:\"autoPlay\";s:4:\"true\";s:11:\"thumb_width\";i:150;s:12:\"thumb_height\";i:100;s:17:\"responsive_thumbs\";s:5:\"false\";s:15:\"thumb_min_width\";i:100;s:9:\"fullWidth\";s:4:\"true\";s:10:\"noConflict\";s:4:\"true\";s:12:\"smoothHeight\";s:5:\"false\";}'),
+(1123, 97, '_text1_slide', ''),
+(1124, 97, '_text2_slide', ''),
+(1125, 97, '_text3_slide', ''),
+(1126, 97, '_text4_slide', ''),
+(1127, 97, '_thumbnail_id', '92'),
+(1128, 97, 'ml-slider_type', 'image'),
+(1129, 97, 'ml-slider_inherit_image_title', '1'),
+(1130, 97, 'ml-slider_inherit_image_alt', '1'),
+(1131, 98, '_text1_slide', ''),
+(1132, 98, '_text2_slide', ''),
+(1133, 98, '_text3_slide', ''),
+(1134, 98, '_text4_slide', ''),
+(1135, 98, '_thumbnail_id', '91'),
+(1136, 98, 'ml-slider_type', 'image'),
+(1137, 98, 'ml-slider_inherit_image_title', '1'),
+(1138, 98, 'ml-slider_inherit_image_alt', '1'),
+(1139, 99, '_text1_slide', ''),
+(1140, 99, '_text2_slide', ''),
+(1141, 99, '_text3_slide', ''),
+(1142, 99, '_text4_slide', ''),
+(1143, 99, '_thumbnail_id', '90'),
+(1144, 99, 'ml-slider_type', 'image'),
+(1145, 99, 'ml-slider_inherit_image_title', '1'),
+(1146, 99, 'ml-slider_inherit_image_alt', '1'),
+(1147, 100, '_text1_slide', ''),
+(1148, 100, '_text2_slide', ''),
+(1149, 100, '_text3_slide', ''),
+(1150, 100, '_text4_slide', ''),
+(1151, 100, '_thumbnail_id', '89'),
+(1152, 100, 'ml-slider_type', 'image'),
+(1153, 100, 'ml-slider_inherit_image_title', '1'),
+(1154, 100, 'ml-slider_inherit_image_alt', '1'),
+(1155, 101, '_text1_slide', ''),
+(1156, 101, '_text2_slide', ''),
+(1157, 101, '_text3_slide', ''),
+(1158, 101, '_text4_slide', ''),
+(1159, 101, '_thumbnail_id', '88'),
+(1160, 101, 'ml-slider_type', 'image'),
+(1161, 101, 'ml-slider_inherit_image_title', '1'),
+(1162, 101, 'ml-slider_inherit_image_alt', '1'),
+(1163, 92, '_wp_attachment_backup_sizes', 'a:3:{s:15:\"resized-700x300\";a:5:{s:4:\"path\";s:65:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/151-700x300.jpg\";s:4:\"file\";s:15:\"151-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-620x266\";a:5:{s:4:\"path\";s:65:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/151-620x266.jpg\";s:4:\"file\";s:15:\"151-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-400x171\";a:5:{s:4:\"path\";s:65:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/151-400x171.jpg\";s:4:\"file\";s:15:\"151-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}'),
+(1164, 91, '_wp_attachment_backup_sizes', 'a:3:{s:15:\"resized-700x300\";a:5:{s:4:\"path\";s:64:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/16-700x300.jpg\";s:4:\"file\";s:14:\"16-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-620x266\";a:5:{s:4:\"path\";s:64:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/16-620x266.jpg\";s:4:\"file\";s:14:\"16-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-400x171\";a:5:{s:4:\"path\";s:64:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/16-400x171.jpg\";s:4:\"file\";s:14:\"16-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}'),
+(1165, 90, '_wp_attachment_backup_sizes', 'a:3:{s:15:\"resized-700x300\";a:5:{s:4:\"path\";s:64:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/13-700x300.jpg\";s:4:\"file\";s:14:\"13-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-620x266\";a:5:{s:4:\"path\";s:64:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/13-620x266.jpg\";s:4:\"file\";s:14:\"13-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-400x171\";a:5:{s:4:\"path\";s:64:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/13-400x171.jpg\";s:4:\"file\";s:14:\"13-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}'),
+(1166, 89, '_wp_attachment_backup_sizes', 'a:3:{s:15:\"resized-700x300\";a:5:{s:4:\"path\";s:63:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/4-700x300.jpg\";s:4:\"file\";s:13:\"4-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-620x266\";a:5:{s:4:\"path\";s:63:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/4-620x266.jpg\";s:4:\"file\";s:13:\"4-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-400x171\";a:5:{s:4:\"path\";s:63:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/4-400x171.jpg\";s:4:\"file\";s:13:\"4-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}'),
+(1167, 88, '_wp_attachment_backup_sizes', 'a:3:{s:15:\"resized-700x300\";a:5:{s:4:\"path\";s:63:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/8-700x300.jpg\";s:4:\"file\";s:13:\"8-700x300.jpg\";s:5:\"width\";i:700;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-620x266\";a:5:{s:4:\"path\";s:63:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/8-620x266.jpg\";s:4:\"file\";s:13:\"8-620x266.jpg\";s:5:\"width\";i:620;s:6:\"height\";i:266;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"resized-400x171\";a:5:{s:4:\"path\";s:63:\"C:xampphtdocsoutsource/wp-content/uploads/2012/10/8-400x171.jpg\";s:4:\"file\";s:13:\"8-400x171.jpg\";s:5:\"width\";i:400;s:6:\"height\";i:171;s:9:\"mime-type\";s:10:\"image/jpeg\";}}'),
+(1168, 97, 'ml-slider_crop_position', 'center-center'),
+(1169, 97, 'ml-slider_caption_source', 'image-caption'),
+(1170, 97, '_wp_attachment_image_alt', ''),
+(1171, 98, 'ml-slider_crop_position', 'center-center'),
+(1172, 98, 'ml-slider_caption_source', 'image-caption'),
+(1173, 98, '_wp_attachment_image_alt', ''),
+(1174, 99, 'ml-slider_crop_position', 'center-center'),
+(1175, 99, 'ml-slider_caption_source', 'image-caption'),
+(1176, 99, '_wp_attachment_image_alt', ''),
+(1177, 100, 'ml-slider_crop_position', 'center-center'),
+(1178, 100, 'ml-slider_caption_source', 'image-caption'),
+(1179, 100, '_wp_attachment_image_alt', ''),
+(1180, 101, 'ml-slider_crop_position', 'center-center'),
+(1181, 101, 'ml-slider_caption_source', 'image-caption'),
+(1182, 101, '_wp_attachment_image_alt', ''),
+(1183, 2, '_edit_lock', '1561737928:1'),
+(1184, 2, '_edit_last', '1'),
+(1185, 2, '_text1_slide', ''),
+(1186, 2, '_text2_slide', ''),
+(1187, 2, '_text3_slide', ''),
+(1188, 2, '_text4_slide', ''),
+(1220, 25, '_edit_lock', '1561745657:1'),
+(1221, 25, '_text1_slide', ''),
+(1222, 25, '_text2_slide', ''),
+(1223, 25, '_text3_slide', ''),
+(1224, 25, '_text4_slide', ''),
+(1235, 52, '_edit_lock', '1565506326:1'),
+(1236, 54, '_edit_lock', '1565803328:1'),
+(1237, 54, '_edit_last', '1'),
+(1238, 54, '_text1_slide', ''),
+(1239, 54, '_text2_slide', ''),
+(1240, 54, '_text3_slide', ''),
+(1241, 54, '_text4_slide', ''),
+(1242, 33, '_edit_lock', '1565506445:1'),
+(1243, 33, '_edit_last', '1'),
+(1244, 33, '_text1_slide', ''),
+(1245, 33, '_text2_slide', ''),
+(1246, 33, '_text3_slide', ''),
+(1247, 33, '_text4_slide', ''),
+(1248, 53, '_edit_last', '1'),
+(1249, 53, '_text1_slide', ''),
+(1250, 53, '_text2_slide', ''),
+(1251, 53, '_text3_slide', ''),
+(1252, 53, '_text4_slide', ''),
+(1253, 111, '_wp_attached_file', '2019/01/cat2.jpg'),
+(1254, 111, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:370;s:6:\"height\";i:260;s:4:\"file\";s:16:\"2019/01/cat2.jpg\";s:5:\"sizes\";a:7:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:16:\"cat2-300x260.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:260;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:16:\"cat2-350x246.jpg\";s:5:\"width\";i:350;s:6:\"height\";i:246;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:16:\"cat2-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:16:\"cat2-300x211.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:211;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:16:\"cat2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:16:\"cat2-300x260.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:260;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:16:\"cat2-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1271, 52, '_edit_last', '1'),
+(1272, 52, '_text1_slide', ''),
+(1273, 52, '_text2_slide', ''),
+(1274, 52, '_text3_slide', ''),
+(1275, 52, '_text4_slide', ''),
+(1281, 116, '_wp_attached_file', '2019/01/t8100685-decor-c-optical-glasses-front1.png'),
+(1282, 116, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:398;s:6:\"height\";i:300;s:4:\"file\";s:51:\"2019/01/t8100685-decor-c-optical-glasses-front1.png\";s:5:\"sizes\";a:7:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:51:\"t8100685-decor-c-optical-glasses-front1-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:51:\"t8100685-decor-c-optical-glasses-front1-350x264.png\";s:5:\"width\";i:350;s:6:\"height\";i:264;s:9:\"mime-type\";s:9:\"image/png\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:51:\"t8100685-decor-c-optical-glasses-front1-150x150.png\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:51:\"t8100685-decor-c-optical-glasses-front1-300x226.png\";s:5:\"width\";i:300;s:6:\"height\";i:226;s:9:\"mime-type\";s:9:\"image/png\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:51:\"t8100685-decor-c-optical-glasses-front1-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:51:\"t8100685-decor-c-optical-glasses-front1-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:51:\"t8100685-decor-c-optical-glasses-front1-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(1314, 122, '_wp_attached_file', '2019/01/image00009_6021d0303de64f35ab4079990e4e29b2_grande.jpg'),
+(1315, 122, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:600;s:6:\"height\";i:600;s:4:\"file\";s:62:\"2019/01/image00009_6021d0303de64f35ab4079990e4e29b2_grande.jpg\";s:5:\"sizes\";a:8:{s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:9:\"thumbnail\";a:4:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:5:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:11:\"shop_single\";a:4:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00009_6021d0303de64f35ab4079990e4e29b2_grande-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"13\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1561912257\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"20\";s:3:\"iso\";s:3:\"100\";s:13:\"shutter_speed\";s:5:\"0.008\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}'),
+(1551, 131, '_text1_slide', ''),
+(1552, 131, '_text2_slide', ''),
+(1553, 131, '_text3_slide', ''),
+(1554, 131, '_text4_slide', ''),
+(1555, 132, '_text1_slide', ''),
+(1556, 132, '_text2_slide', ''),
+(1557, 132, '_text3_slide', ''),
+(1558, 132, '_text4_slide', ''),
+(1568, 135, '_text1_slide', ''),
+(1569, 135, '_text2_slide', ''),
+(1570, 135, '_text3_slide', ''),
+(1571, 135, '_text4_slide', ''),
+(1572, 135, 'user_registration_form_setting_default_user_role', 'customer'),
+(1573, 135, 'user_registration_form_setting_enable_strong_password', 'yes'),
+(1574, 135, 'user_registration_form_setting_minimum_password_strength', '3'),
+(1575, 135, 'user_registration_form_setting_redirect_options', '/my-account'),
+(1576, 135, 'user_registration_form_setting_form_submit_label', 'Đăng ký'),
+(1577, 135, 'user_registration_form_setting_enable_recaptcha_support', 'no'),
+(1578, 135, 'user_registration_form_template', 'Flat'),
+(1579, 135, 'user_registration_form_custom_class', 'woocommerce-form woocommerce-form-register register'),
+(1580, 136, '_text1_slide', ''),
+(1581, 136, '_text2_slide', ''),
+(1582, 136, '_text3_slide', ''),
+(1583, 136, '_text4_slide', ''),
+(1584, 136, '_edit_last', '1'),
+(1585, 136, '_edit_lock', '1563030523:1'),
+(1586, 138, '_text1_slide', ''),
+(1587, 138, '_text2_slide', ''),
+(1588, 138, '_text3_slide', ''),
+(1589, 138, '_text4_slide', ''),
+(1590, 138, '_edit_lock', '1563036644:1'),
+(1591, 138, '_edit_last', '1'),
+(1592, 141, '_text1_slide', ''),
+(1593, 141, '_text2_slide', ''),
+(1594, 141, '_text3_slide', ''),
+(1595, 141, '_text4_slide', ''),
+(1596, 141, '_edit_lock', '1563034415:1'),
+(1597, 141, '_edit_last', '1'),
+(1598, 141, '_wp_page_template', 'templates/dang-ky.php'),
+(1646, 145, '_text1_slide', ''),
+(1647, 145, '_text2_slide', ''),
+(1648, 145, '_text3_slide', ''),
+(1649, 145, '_text4_slide', ''),
+(1650, 145, '_edit_lock', '1563075573:1'),
+(1651, 145, '_edit_last', '1'),
+(1652, 145, '_wp_page_template', 'templates/sign-in.php'),
+(1653, 147, '_text1_slide', ''),
+(1654, 147, '_text2_slide', ''),
+(1655, 147, '_text3_slide', ''),
+(1656, 147, '_text4_slide', ''),
+(1657, 147, '_edit_lock', '1563082364:1'),
+(1658, 147, '_edit_last', '1'),
+(1659, 147, '_wp_page_template', 'templates/history-order.php'),
+(1660, 45, '_edit_lock', '1565506329:1'),
+(1661, 45, '_edit_last', '1'),
+(1662, 45, '_text1_slide', ''),
+(1663, 45, '_text2_slide', ''),
+(1664, 45, '_text3_slide', ''),
+(1665, 45, '_text4_slide', ''),
+(1666, 43, '_edit_lock', '1565506356:1'),
+(1667, 43, '_edit_last', '1'),
+(1668, 43, '_text1_slide', ''),
+(1669, 43, '_text2_slide', ''),
+(1670, 43, '_text3_slide', ''),
+(1671, 43, '_text4_slide', ''),
+(1672, 26, '_wp_page_template', 'templates/cart-page.php'),
+(1673, 153, '_text1_slide', ''),
+(1674, 153, '_text2_slide', ''),
+(1675, 153, '_text3_slide', ''),
+(1676, 153, '_text4_slide', ''),
+(1677, 153, '_action_manager_schedule', 'O:30:\"ActionScheduler_SimpleSchedule\":1:{s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1563607580;}'),
+(1682, 155, '_text1_slide', ''),
+(1683, 155, '_text2_slide', ''),
+(1684, 155, '_text3_slide', ''),
+(1685, 155, '_text4_slide', ''),
+(1686, 155, '_edit_lock', '1563620388:1'),
+(1687, 155, '_edit_last', '1'),
+(1688, 156, '_text1_slide', ''),
+(1689, 156, '_text2_slide', ''),
+(1690, 156, '_text3_slide', ''),
+(1691, 156, '_text4_slide', ''),
+(1692, 156, '_edit_last', '1'),
+(1693, 156, '_wp_page_template', 'templates/collection-page.php'),
+(1694, 156, '_edit_lock', '1563618688:1'),
+(1695, 155, '_wp_page_template', 'templates/collection-page.php'),
+(1696, 156, '_wp_trash_meta_status', 'publish'),
+(1697, 156, '_wp_trash_meta_time', '1563619332'),
+(1698, 156, '_wp_desired_post_slug', 'collection'),
+(1704, 36, '_edit_lock', '1565506412:1'),
+(1705, 36, '_edit_last', '1'),
+(1706, 36, '_text1_slide', ''),
+(1707, 36, '_text2_slide', ''),
+(1708, 36, '_text3_slide', ''),
+(1709, 36, '_text4_slide', ''),
+(1759, 167, '_text1_slide', ''),
+(1760, 167, '_text2_slide', ''),
+(1761, 167, '_text3_slide', ''),
+(1762, 167, '_text4_slide', ''),
+(1763, 167, '_menu_item_type', 'taxonomy'),
+(1764, 167, '_menu_item_menu_item_parent', '0'),
+(1765, 167, '_menu_item_object_id', '37'),
+(1766, 167, '_menu_item_object', 'product_cat'),
+(1767, 167, '_menu_item_target', ''),
+(1768, 167, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1769, 167, '_menu_item_xfn', ''),
+(1770, 167, '_menu_item_url', ''),
+(1772, 168, '_text1_slide', ''),
+(1773, 168, '_text2_slide', ''),
+(1774, 168, '_text3_slide', ''),
+(1775, 168, '_text4_slide', ''),
+(1776, 168, '_menu_item_type', 'taxonomy'),
+(1777, 168, '_menu_item_menu_item_parent', '0'),
+(1778, 168, '_menu_item_object_id', '41'),
+(1779, 168, '_menu_item_object', 'product_cat'),
+(1780, 168, '_menu_item_target', ''),
+(1781, 168, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1782, 168, '_menu_item_xfn', ''),
+(1783, 168, '_menu_item_url', ''),
+(1798, 170, '_text1_slide', ''),
+(1799, 170, '_text2_slide', ''),
+(1800, 170, '_text3_slide', ''),
+(1801, 170, '_text4_slide', ''),
+(1802, 170, '_menu_item_type', 'taxonomy'),
+(1803, 170, '_menu_item_menu_item_parent', '0'),
+(1804, 170, '_menu_item_object_id', '39'),
+(1805, 170, '_menu_item_object', 'product_cat'),
+(1806, 170, '_menu_item_target', ''),
+(1807, 170, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1808, 170, '_menu_item_xfn', ''),
+(1809, 170, '_menu_item_url', ''),
+(1811, 171, '_text1_slide', ''),
+(1812, 171, '_text2_slide', ''),
+(1813, 171, '_text3_slide', ''),
+(1814, 171, '_text4_slide', ''),
+(1815, 171, '_menu_item_type', 'taxonomy'),
+(1816, 171, '_menu_item_menu_item_parent', '0'),
+(1817, 171, '_menu_item_object_id', '40'),
+(1818, 171, '_menu_item_object', 'product_cat'),
+(1819, 171, '_menu_item_target', ''),
+(1820, 171, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1821, 171, '_menu_item_xfn', ''),
+(1822, 171, '_menu_item_url', ''),
+(1824, 54, '_regular_price', '70000'),
+(1825, 172, '_text1_slide', ''),
+(1826, 172, '_text2_slide', ''),
+(1827, 172, '_text3_slide', ''),
+(1828, 172, '_text4_slide', ''),
+(1829, 172, '_menu_item_type', 'taxonomy'),
+(1830, 172, '_menu_item_menu_item_parent', '0'),
+(1831, 172, '_menu_item_object_id', '38'),
+(1832, 172, '_menu_item_object', 'product_cat'),
+(1833, 172, '_menu_item_target', ''),
+(1834, 172, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1835, 172, '_menu_item_xfn', ''),
+(1836, 172, '_menu_item_url', ''),
+(1838, 173, '_text1_slide', ''),
+(1839, 173, '_text2_slide', ''),
+(1840, 173, '_text3_slide', ''),
+(1841, 173, '_text4_slide', ''),
+(1842, 173, '_menu_item_type', 'taxonomy'),
+(1843, 173, '_menu_item_menu_item_parent', '172'),
+(1844, 173, '_menu_item_object_id', '42'),
+(1845, 173, '_menu_item_object', 'product_cat'),
+(1846, 173, '_menu_item_target', ''),
+(1847, 173, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1848, 173, '_menu_item_xfn', ''),
+(1849, 173, '_menu_item_url', ''),
+(1851, 174, '_text1_slide', ''),
+(1852, 174, '_text2_slide', ''),
+(1853, 174, '_text3_slide', ''),
+(1854, 174, '_text4_slide', ''),
+(1855, 174, '_menu_item_type', 'taxonomy'),
+(1856, 174, '_menu_item_menu_item_parent', '172'),
+(1857, 174, '_menu_item_object_id', '48'),
+(1858, 174, '_menu_item_object', 'product_cat'),
+(1859, 174, '_menu_item_target', ''),
+(1860, 174, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1861, 174, '_menu_item_xfn', ''),
+(1862, 174, '_menu_item_url', ''),
+(1864, 175, '_text1_slide', ''),
+(1865, 175, '_text2_slide', ''),
+(1866, 175, '_text3_slide', ''),
+(1867, 175, '_text4_slide', ''),
+(1868, 175, '_menu_item_type', 'taxonomy'),
+(1869, 175, '_menu_item_menu_item_parent', '174'),
+(1870, 175, '_menu_item_object_id', '47'),
+(1871, 175, '_menu_item_object', 'product_cat'),
+(1872, 175, '_menu_item_target', ''),
+(1873, 175, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1874, 175, '_menu_item_xfn', ''),
+(1875, 175, '_menu_item_url', ''),
+(1877, 176, '_text1_slide', ''),
+(1878, 176, '_text2_slide', ''),
+(1879, 176, '_text3_slide', ''),
+(1880, 176, '_text4_slide', ''),
+(1881, 176, '_menu_item_type', 'taxonomy'),
+(1882, 176, '_menu_item_menu_item_parent', '174'),
+(1883, 176, '_menu_item_object_id', '46'),
+(1884, 176, '_menu_item_object', 'product_cat'),
+(1885, 176, '_menu_item_target', ''),
+(1886, 176, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1887, 176, '_menu_item_xfn', ''),
+(1888, 176, '_menu_item_url', ''),
+(1890, 177, '_text1_slide', ''),
+(1891, 177, '_text2_slide', ''),
+(1892, 177, '_text3_slide', ''),
+(1893, 177, '_text4_slide', ''),
+(1894, 177, '_menu_item_type', 'taxonomy'),
+(1895, 177, '_menu_item_menu_item_parent', '174'),
+(1896, 177, '_menu_item_object_id', '44'),
+(1897, 177, '_menu_item_object', 'product_cat'),
+(1898, 177, '_menu_item_target', ''),
+(1899, 177, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1900, 177, '_menu_item_xfn', ''),
+(1901, 177, '_menu_item_url', ''),
+(1903, 178, '_text1_slide', ''),
+(1904, 178, '_text2_slide', ''),
+(1905, 178, '_text3_slide', ''),
+(1906, 178, '_text4_slide', ''),
+(1907, 178, '_menu_item_type', 'taxonomy'),
+(1908, 178, '_menu_item_menu_item_parent', '174'),
+(1909, 178, '_menu_item_object_id', '45'),
+(1910, 178, '_menu_item_object', 'product_cat'),
+(1911, 178, '_menu_item_target', ''),
+(1912, 178, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1913, 178, '_menu_item_xfn', ''),
+(1914, 178, '_menu_item_url', ''),
+(1916, 179, '_text1_slide', ''),
+(1917, 179, '_text2_slide', ''),
+(1918, 179, '_text3_slide', ''),
+(1919, 179, '_text4_slide', ''),
+(1920, 179, '_menu_item_type', 'taxonomy'),
+(1921, 179, '_menu_item_menu_item_parent', '172'),
+(1922, 179, '_menu_item_object_id', '43'),
+(1923, 179, '_menu_item_object', 'product_cat'),
+(1924, 179, '_menu_item_target', ''),
+(1925, 179, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(1926, 179, '_menu_item_xfn', ''),
+(1927, 179, '_menu_item_url', ''),
+(1937, 182, '_text1_slide', ''),
+(1938, 182, '_text2_slide', ''),
+(1939, 182, '_text3_slide', ''),
+(1940, 182, '_text4_slide', ''),
+(1941, 182, '_action_manager_schedule', 'O:30:\"ActionScheduler_SimpleSchedule\":1:{s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1564218809;}'),
+(1942, 183, '_wp_attached_file', '2019/01/image00001_c010f714ccde4744bda3d64691981cbb_master.jpg'),
+(1943, 183, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1000;s:6:\"height\";i:1000;s:4:\"file\";s:62:\"2019/01/image00001_c010f714ccde4744bda3d64691981cbb_master.jpg\";s:5:\"sizes\";a:9:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00001_c010f714ccde4744bda3d64691981cbb_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"16\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1564074368\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"18\";s:3:\"iso\";s:3:\"100\";s:13:\"shutter_speed\";s:17:\"0.066666666666667\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}'),
+(1944, 184, '_wp_attached_file', '2019/01/image00001_c010f714ccde4744bda3d64691981cbb_master-1.jpg'),
+(1945, 184, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1000;s:6:\"height\";i:1000;s:4:\"file\";s:64:\"2019/01/image00001_c010f714ccde4744bda3d64691981cbb_master-1.jpg\";s:5:\"sizes\";a:9:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:64:\"image00001_c010f714ccde4744bda3d64691981cbb_master-1-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"16\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1564074368\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"18\";s:3:\"iso\";s:3:\"100\";s:13:\"shutter_speed\";s:17:\"0.066666666666667\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}'),
+(1946, 185, '_wp_attached_file', '2019/01/image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master.jpg');
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(1947, 185, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1000;s:6:\"height\";i:1000;s:4:\"file\";s:62:\"2019/01/image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master.jpg\";s:5:\"sizes\";a:9:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"16\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1564074700\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"18\";s:3:\"iso\";s:3:\"100\";s:13:\"shutter_speed\";s:17:\"0.066666666666667\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}'),
+(1948, 186, '_wp_attached_file', '2019/01/image00013_1bca332ec4644cbcb806359b173bd255_master.jpg'),
+(1949, 186, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1000;s:6:\"height\";i:1000;s:4:\"file\";s:62:\"2019/01/image00013_1bca332ec4644cbcb806359b173bd255_master.jpg\";s:5:\"sizes\";a:9:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00013_1bca332ec4644cbcb806359b173bd255_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"16\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1564074712\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"18\";s:3:\"iso\";s:3:\"100\";s:13:\"shutter_speed\";s:17:\"0.066666666666667\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}'),
+(1950, 187, '_wp_attached_file', '2019/01/image00033_de1af570829b401a9e3e5d55e309159b_master.jpg'),
+(1951, 187, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1000;s:6:\"height\";i:1000;s:4:\"file\";s:62:\"2019/01/image00033_de1af570829b401a9e3e5d55e309159b_master.jpg\";s:5:\"sizes\";a:9:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:62:\"image00033_de1af570829b401a9e3e5d55e309159b_master-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"16\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1564075053\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"18\";s:3:\"iso\";s:3:\"100\";s:13:\"shutter_speed\";s:17:\"0.066666666666667\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}'),
+(1952, 44, '_edit_lock', '1565506341:1'),
+(1953, 44, '_edit_last', '1'),
+(1954, 44, '_text1_slide', ''),
+(1955, 44, '_text2_slide', ''),
+(1956, 44, '_text3_slide', ''),
+(1957, 44, '_text4_slide', ''),
+(1958, 42, '_edit_lock', '1565803328:1'),
+(1959, 42, '_edit_last', '1'),
+(1960, 42, '_text1_slide', ''),
+(1961, 42, '_text2_slide', ''),
+(1962, 42, '_text3_slide', ''),
+(1963, 42, '_text4_slide', ''),
+(1964, 41, '_edit_lock', '1565506370:1'),
+(1965, 41, '_edit_last', '1'),
+(1966, 41, '_text1_slide', ''),
+(1967, 41, '_text2_slide', ''),
+(1968, 41, '_text3_slide', ''),
+(1969, 41, '_text4_slide', ''),
+(1970, 40, '_edit_lock', '1565506374:1'),
+(1971, 40, '_edit_last', '1'),
+(1972, 40, '_text1_slide', ''),
+(1973, 40, '_text2_slide', ''),
+(1974, 40, '_text3_slide', ''),
+(1975, 40, '_text4_slide', ''),
+(1976, 38, '_edit_lock', '1565506390:1'),
+(1977, 38, '_edit_last', '1'),
+(1978, 38, '_text1_slide', ''),
+(1979, 38, '_text2_slide', ''),
+(1980, 38, '_text3_slide', ''),
+(1981, 38, '_text4_slide', ''),
+(1982, 37, '_edit_lock', '1565506402:1'),
+(1983, 37, '_edit_last', '1'),
+(1984, 37, '_text1_slide', ''),
+(1985, 37, '_text2_slide', ''),
+(1986, 37, '_text3_slide', ''),
+(1987, 37, '_text4_slide', ''),
+(1988, 35, '_edit_lock', '1565506426:1'),
+(1989, 35, '_edit_last', '1'),
+(1990, 35, '_text1_slide', ''),
+(1991, 35, '_text2_slide', ''),
+(1992, 35, '_text3_slide', ''),
+(1993, 35, '_text4_slide', ''),
+(1994, 39, '_edit_lock', '1565506380:1'),
+(1995, 39, '_edit_last', '1'),
+(1996, 39, '_text1_slide', ''),
+(1997, 39, '_text2_slide', ''),
+(1998, 39, '_text3_slide', ''),
+(1999, 39, '_text4_slide', ''),
+(2000, 34, '_edit_lock', '1565506438:1'),
+(2001, 34, '_edit_last', '1'),
+(2002, 34, '_text1_slide', ''),
+(2003, 34, '_text2_slide', ''),
+(2004, 34, '_text3_slide', ''),
+(2005, 34, '_text4_slide', ''),
+(2006, 32, '_edit_lock', '1565506473:1'),
+(2007, 32, '_edit_last', '1'),
+(2008, 32, '_text1_slide', ''),
+(2009, 32, '_text2_slide', ''),
+(2010, 32, '_text3_slide', ''),
+(2011, 32, '_text4_slide', ''),
+(2012, 189, '_wp_attached_file', '2019/07/brand_img1-1.png'),
+(2013, 189, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:125;s:6:\"height\";i:95;s:4:\"file\";s:24:\"2019/07/brand_img1-1.png\";s:5:\"sizes\";a:2:{s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:23:\"brand_img1-1-100x95.png\";s:5:\"width\";i:100;s:6:\"height\";i:95;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:23:\"brand_img1-1-100x95.png\";s:5:\"width\";i:100;s:6:\"height\";i:95;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2014, 190, '_wp_attached_file', '2019/07/brand_img5.png'),
+(2015, 190, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:125;s:6:\"height\";i:90;s:4:\"file\";s:22:\"2019/07/brand_img5.png\";s:5:\"sizes\";a:2:{s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"brand_img5-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"brand_img5-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2016, 191, '_wp_attached_file', '2019/07/brand_img2.png'),
+(2017, 191, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:125;s:6:\"height\";i:90;s:4:\"file\";s:22:\"2019/07/brand_img2.png\";s:5:\"sizes\";a:2:{s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"brand_img2-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"brand_img2-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2018, 192, '_wp_attached_file', '2019/07/contact1.png'),
+(2019, 192, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:125;s:6:\"height\";i:90;s:4:\"file\";s:20:\"2019/07/contact1.png\";s:5:\"sizes\";a:2:{s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:19:\"contact1-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:19:\"contact1-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2020, 193, '_wp_attached_file', '2019/07/brand_img6.png'),
+(2021, 193, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:125;s:6:\"height\";i:90;s:4:\"file\";s:22:\"2019/07/brand_img6.png\";s:5:\"sizes\";a:2:{s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"brand_img6-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"brand_img6-100x90.png\";s:5:\"width\";i:100;s:6:\"height\";i:90;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2022, 194, '_wp_attached_file', '2019/07/customer1.png'),
+(2023, 194, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:551;s:6:\"height\";i:1658;s:4:\"file\";s:21:\"2019/07/customer1.png\";s:5:\"sizes\";a:7:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:21:\"customer1-300x150.png\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:21:\"customer1-100x300.png\";s:5:\"width\";i:100;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:22:\"customer1-340x1024.png\";s:5:\"width\";i:340;s:6:\"height\";i:1024;s:9:\"mime-type\";s:9:\"image/png\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:21:\"customer1-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer1-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:21:\"customer1-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer1-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2024, 195, '_wp_attached_file', '2019/07/customer2.png'),
+(2025, 195, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1254;s:6:\"height\";i:1613;s:4:\"file\";s:21:\"2019/07/customer2.png\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:21:\"customer2-300x150.png\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:21:\"customer2-233x300.png\";s:5:\"width\";i:233;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:21:\"customer2-768x988.png\";s:5:\"width\";i:768;s:6:\"height\";i:988;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:22:\"customer2-796x1024.png\";s:5:\"width\";i:796;s:6:\"height\";i:1024;s:9:\"mime-type\";s:9:\"image/png\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:21:\"customer2-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:21:\"customer2-600x772.png\";s:5:\"width\";i:600;s:6:\"height\";i:772;s:9:\"mime-type\";s:9:\"image/png\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer2-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:21:\"customer2-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:21:\"customer2-600x772.png\";s:5:\"width\";i:600;s:6:\"height\";i:772;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer2-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2026, 196, '_wp_attached_file', '2019/07/customer3.png'),
+(2027, 196, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1101;s:6:\"height\";i:2027;s:4:\"file\";s:21:\"2019/07/customer3.png\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:21:\"customer3-300x150.png\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:21:\"customer3-163x300.png\";s:5:\"width\";i:163;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:22:\"customer3-768x1414.png\";s:5:\"width\";i:768;s:6:\"height\";i:1414;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:22:\"customer3-556x1024.png\";s:5:\"width\";i:556;s:6:\"height\";i:1024;s:9:\"mime-type\";s:9:\"image/png\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:21:\"customer3-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:22:\"customer3-600x1105.png\";s:5:\"width\";i:600;s:6:\"height\";i:1105;s:9:\"mime-type\";s:9:\"image/png\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer3-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:21:\"customer3-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:22:\"customer3-600x1105.png\";s:5:\"width\";i:600;s:6:\"height\";i:1105;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer3-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2028, 197, '_wp_attached_file', '2019/07/customer4.png'),
+(2029, 197, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1100;s:6:\"height\";i:1650;s:4:\"file\";s:21:\"2019/07/customer4.png\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:21:\"customer4-300x150.png\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:21:\"customer4-200x300.png\";s:5:\"width\";i:200;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:22:\"customer4-768x1152.png\";s:5:\"width\";i:768;s:6:\"height\";i:1152;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:22:\"customer4-683x1024.png\";s:5:\"width\";i:683;s:6:\"height\";i:1024;s:9:\"mime-type\";s:9:\"image/png\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:21:\"customer4-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:21:\"customer4-600x900.png\";s:5:\"width\";i:600;s:6:\"height\";i:900;s:9:\"mime-type\";s:9:\"image/png\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer4-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:21:\"customer4-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:21:\"customer4-600x900.png\";s:5:\"width\";i:600;s:6:\"height\";i:900;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:21:\"customer4-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2030, 198, '_wp_attached_file', '2019/07/customer2-1.png'),
+(2031, 198, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1254;s:6:\"height\";i:1613;s:4:\"file\";s:23:\"2019/07/customer2-1.png\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:23:\"customer2-1-300x150.png\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:23:\"customer2-1-233x300.png\";s:5:\"width\";i:233;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:23:\"customer2-1-768x988.png\";s:5:\"width\";i:768;s:6:\"height\";i:988;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:24:\"customer2-1-796x1024.png\";s:5:\"width\";i:796;s:6:\"height\";i:1024;s:9:\"mime-type\";s:9:\"image/png\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:23:\"customer2-1-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:23:\"customer2-1-600x772.png\";s:5:\"width\";i:600;s:6:\"height\";i:772;s:9:\"mime-type\";s:9:\"image/png\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:23:\"customer2-1-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:23:\"customer2-1-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:23:\"customer2-1-600x772.png\";s:5:\"width\";i:600;s:6:\"height\";i:772;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:23:\"customer2-1-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2032, 199, '_wp_attached_file', '2019/07/customer2-2.png'),
+(2033, 199, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1254;s:6:\"height\";i:1613;s:4:\"file\";s:23:\"2019/07/customer2-2.png\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:23:\"customer2-2-300x150.png\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:9:\"image/png\";}s:6:\"medium\";a:4:{s:4:\"file\";s:23:\"customer2-2-233x300.png\";s:5:\"width\";i:233;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:23:\"customer2-2-768x988.png\";s:5:\"width\";i:768;s:6:\"height\";i:988;s:9:\"mime-type\";s:9:\"image/png\";}s:5:\"large\";a:4:{s:4:\"file\";s:24:\"customer2-2-796x1024.png\";s:5:\"width\";i:796;s:6:\"height\";i:1024;s:9:\"mime-type\";s:9:\"image/png\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:23:\"customer2-2-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:23:\"customer2-2-600x772.png\";s:5:\"width\";i:600;s:6:\"height\";i:772;s:9:\"mime-type\";s:9:\"image/png\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:23:\"customer2-2-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:23:\"customer2-2-300x300.png\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:9:\"image/png\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:23:\"customer2-2-600x772.png\";s:5:\"width\";i:600;s:6:\"height\";i:772;s:9:\"mime-type\";s:9:\"image/png\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:23:\"customer2-2-100x100.png\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:9:\"image/png\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2065, 201, '_text1_slide', ''),
+(2066, 201, '_text2_slide', ''),
+(2067, 201, '_text3_slide', ''),
+(2068, 201, '_text4_slide', ''),
+(2069, 201, '_edit_lock', '1564495980:1'),
+(2070, 201, '_edit_last', '1'),
+(2071, 201, '_wp_page_template', 'default'),
+(2072, 203, '_text1_slide', ''),
+(2073, 203, '_text2_slide', ''),
+(2074, 203, '_text3_slide', ''),
+(2075, 203, '_text4_slide', ''),
+(2076, 203, '_menu_item_type', 'post_type'),
+(2077, 203, '_menu_item_menu_item_parent', '0'),
+(2078, 203, '_menu_item_object_id', '201'),
+(2079, 203, '_menu_item_object', 'page'),
+(2080, 203, '_menu_item_target', ''),
+(2081, 203, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2082, 203, '_menu_item_xfn', ''),
+(2083, 203, '_menu_item_url', ''),
+(2085, 204, '_text1_slide', ''),
+(2086, 204, '_text2_slide', ''),
+(2087, 204, '_text3_slide', ''),
+(2088, 204, '_text4_slide', ''),
+(2089, 204, '_edit_last', '1'),
+(2090, 204, '_wp_page_template', 'default'),
+(2091, 204, '_edit_lock', '1564496905:1'),
+(2092, 204, '_wp_trash_meta_status', 'publish'),
+(2093, 204, '_wp_trash_meta_time', '1564497054'),
+(2094, 204, '_wp_desired_post_slug', 'test'),
+(2095, 206, '_text1_slide', ''),
+(2096, 206, '_text2_slide', ''),
+(2097, 206, '_text3_slide', ''),
+(2098, 206, '_text4_slide', ''),
+(2099, 206, '_edit_last', '1'),
+(2100, 206, '_wp_page_template', 'default'),
+(2101, 206, '_edit_lock', '1564580684:1'),
+(2102, 208, '_text1_slide', ''),
+(2103, 208, '_text2_slide', ''),
+(2104, 208, '_text3_slide', ''),
+(2105, 208, '_text4_slide', ''),
+(2106, 208, '_menu_item_type', 'post_type'),
+(2107, 208, '_menu_item_menu_item_parent', '0'),
+(2108, 208, '_menu_item_object_id', '206'),
+(2109, 208, '_menu_item_object', 'page'),
+(2110, 208, '_menu_item_target', ''),
+(2111, 208, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2112, 208, '_menu_item_xfn', ''),
+(2113, 208, '_menu_item_url', ''),
+(2114, 209, '_text1_slide', ''),
+(2115, 209, '_text2_slide', ''),
+(2116, 209, '_text3_slide', ''),
+(2117, 209, '_text4_slide', ''),
+(2118, 209, '_edit_lock', '1564578964:1'),
+(2119, 209, '_edit_last', '1'),
+(2120, 210, '_text1_slide', ''),
+(2121, 210, '_text2_slide', ''),
+(2122, 210, '_text3_slide', ''),
+(2123, 210, '_text4_slide', ''),
+(2124, 211, '_text1_slide', ''),
+(2125, 211, '_text2_slide', ''),
+(2126, 211, '_text3_slide', ''),
+(2127, 211, '_text4_slide', ''),
+(2128, 211, '_edit_lock', '1564579081:1'),
+(2129, 211, '_edit_last', '1'),
+(2130, 211, 'short_description', 'Kính áp tròng bị rách có nên sử dụng? là câu hỏi mà luôn được nhiều người đặt ra. Câu trả lời là không nên vì khi bạn sử dụng kính áp tròng bị rách sẽ gây ra rất nhiều nguy hại cho mắt.Kính áp tròng sẽ giúp cho mắt bạn thêm to tròn,long lanh hơn, bạn sẽ trông xinh đẹp hơn. Tuy nhiên, nếu một chiếc'),
+(2131, 211, '_short_description', 'field_5d419280a37b5'),
+(2132, 212, '_wp_attached_file', '2019/07/kinh-ap-trong__2__large.jpg'),
+(2133, 212, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:480;s:6:\"height\";i:320;s:4:\"file\";s:35:\"2019/07/kinh-ap-trong__2__large.jpg\";s:5:\"sizes\";a:6:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:35:\"kinh-ap-trong__2__large-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:35:\"kinh-ap-trong__2__large-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:35:\"kinh-ap-trong__2__large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:35:\"kinh-ap-trong__2__large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:35:\"kinh-ap-trong__2__large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:35:\"kinh-ap-trong__2__large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2134, 211, '_thumbnail_id', '212'),
+(2135, 213, '_text1_slide', ''),
+(2136, 213, '_text2_slide', ''),
+(2137, 213, '_text3_slide', ''),
+(2138, 213, '_text4_slide', ''),
+(2139, 213, '_edit_lock', '1564580954:1'),
+(2140, 213, '_edit_last', '1'),
+(2141, 214, '_wp_attached_file', '2019/07/kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large.jpg'),
+(2142, 214, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:385;s:6:\"height\";i:480;s:4:\"file\";s:64:\"2019/07/kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large.jpg\";s:5:\"sizes\";a:6:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:64:\"kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:64:\"kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large-241x300.jpg\";s:5:\"width\";i:241;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:64:\"kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:64:\"kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:64:\"kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:64:\"kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2143, 213, '_thumbnail_id', '214'),
+(2144, 213, 'short_description', 'Kính mát gọng tròn có gì hot để trở thành trendy cho giới trẻ toàn thế giới như vậy? Bạn có phù hợp với mẫu kính gọng tròn không? Hãy cùng bài viết tìm hiểu nhé!Sự đòi hỏi tính thẩm mỹ cao của người tiêu dùng khiến cho ngày càng nhiều thiết kế mới lạ, độc đáo của kính thời trang ra đời. Kính mát\r\n'),
+(2145, 213, '_short_description', 'field_5d419280a37b5'),
+(2146, 215, '_text1_slide', ''),
+(2147, 215, '_text2_slide', ''),
+(2148, 215, '_text3_slide', ''),
+(2149, 215, '_text4_slide', ''),
+(2150, 215, '_edit_lock', '1564581102:1'),
+(2151, 215, '_edit_last', '1'),
+(2152, 216, '_wp_attached_file', '2019/07/kinh-gong__1__large.jpg'),
+(2153, 216, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:320;s:6:\"height\";i:480;s:4:\"file\";s:31:\"2019/07/kinh-gong__1__large.jpg\";s:5:\"sizes\";a:6:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:31:\"kinh-gong__1__large-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:31:\"kinh-gong__1__large-200x300.jpg\";s:5:\"width\";i:200;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:31:\"kinh-gong__1__large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:31:\"kinh-gong__1__large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:31:\"kinh-gong__1__large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:31:\"kinh-gong__1__large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2154, 215, '_thumbnail_id', '216'),
+(2155, 215, 'short_description', 'Gọng kính cận dáng mắt mèo từ lâu không chỉ là kính thuốc mà còn là phụ kiện thời trang tạo nên vẻ đẹp sang chảnh, quý phái cho người sử dụng, đặc biệt là phái nữ. Nó có kén người dùng không? Câu trả lời sẽ có trong bài viết sau đây.Gọng kính cận dáng mắt mèo có đặc điểm nổi bật là hai góc trên'),
+(2156, 215, '_short_description', 'field_5d419280a37b5'),
+(2157, 217, '_text1_slide', ''),
+(2158, 217, '_text2_slide', ''),
+(2159, 217, '_text3_slide', ''),
+(2160, 217, '_text4_slide', ''),
+(2161, 217, '_edit_lock', '1565598568:1'),
+(2162, 217, '_edit_last', '1'),
+(2163, 218, '_wp_attached_file', '2019/07/tu-tao-kinh-nhin-xuyen-dem-02_large.jpg'),
+(2164, 218, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:480;s:6:\"height\";i:320;s:4:\"file\";s:47:\"2019/07/tu-tao-kinh-nhin-xuyen-dem-02_large.jpg\";s:5:\"sizes\";a:6:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:47:\"tu-tao-kinh-nhin-xuyen-dem-02_large-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:47:\"tu-tao-kinh-nhin-xuyen-dem-02_large-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:47:\"tu-tao-kinh-nhin-xuyen-dem-02_large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:47:\"tu-tao-kinh-nhin-xuyen-dem-02_large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:47:\"tu-tao-kinh-nhin-xuyen-dem-02_large-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:47:\"tu-tao-kinh-nhin-xuyen-dem-02_large-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2165, 217, '_thumbnail_id', '218'),
+(2166, 217, 'short_description', 'Kính nhìn xuyên đêm là gì? Tự tạo kính nhìn xuyên đêm như thế nào? Đó là những băn khoăn mà hầu hết mọi người đặt ra khi tìm hiểu về vấn đề này.Kính nhìn xuyên đêm tưởng như rất hiện đại, cấu trúc tinh vy. Tuy nhiên, để tự tạo kính nhìn xuyên đêm lại cực kỳ đơn giản và dễ dàng. Chỉ với một số vật'),
+(2167, 217, '_short_description', 'field_5d419280a37b5'),
+(2168, 219, '_text1_slide', ''),
+(2169, 219, '_text2_slide', ''),
+(2170, 219, '_text3_slide', ''),
+(2171, 219, '_text4_slide', ''),
+(2172, 219, '_edit_lock', '1564669670:1'),
+(2173, 219, '_edit_last', '1'),
+(2174, 219, '_wp_page_template', 'default'),
+(2175, 222, '_text1_slide', ''),
+(2176, 222, '_text2_slide', ''),
+(2177, 222, '_text3_slide', ''),
+(2178, 222, '_text4_slide', ''),
+(2179, 222, '_edit_lock', '1564668772:1'),
+(2180, 222, '_edit_last', '1'),
+(2181, 222, '_wp_page_template', 'default'),
+(2182, 224, '_text1_slide', ''),
+(2183, 224, '_text2_slide', ''),
+(2184, 224, '_text3_slide', ''),
+(2185, 224, '_text4_slide', ''),
+(2186, 224, '_edit_lock', '1564683442:1'),
+(2187, 224, '_edit_last', '1'),
+(2188, 224, '_wp_page_template', 'default'),
+(2189, 226, '_text1_slide', ''),
+(2190, 226, '_text2_slide', ''),
+(2191, 226, '_text3_slide', ''),
+(2192, 226, '_text4_slide', ''),
+(2193, 226, '_edit_lock', '1564683050:1'),
+(2194, 226, '_edit_last', '1'),
+(2195, 226, '_wp_page_template', 'default'),
+(2196, 228, '_text1_slide', ''),
+(2197, 228, '_text2_slide', ''),
+(2198, 228, '_text3_slide', ''),
+(2199, 228, '_text4_slide', ''),
+(2200, 228, '_edit_lock', '1564683595:1'),
+(2201, 228, '_edit_last', '1'),
+(2202, 228, '_wp_page_template', 'default'),
+(2203, 230, '_text1_slide', ''),
+(2204, 230, '_text2_slide', ''),
+(2205, 230, '_text3_slide', ''),
+(2206, 230, '_text4_slide', ''),
+(2207, 230, '_edit_lock', '1565455612:1'),
+(2208, 230, '_edit_last', '1'),
+(2209, 230, '_wp_page_template', 'default'),
+(2210, 232, '_text1_slide', ''),
+(2211, 232, '_text2_slide', ''),
+(2212, 232, '_text3_slide', ''),
+(2213, 232, '_text4_slide', ''),
+(2214, 232, '_menu_item_type', 'taxonomy'),
+(2215, 232, '_menu_item_menu_item_parent', '0'),
+(2216, 232, '_menu_item_object_id', '26'),
+(2217, 232, '_menu_item_object', 'product_cat'),
+(2218, 232, '_menu_item_target', ''),
+(2219, 232, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2220, 232, '_menu_item_xfn', ''),
+(2221, 232, '_menu_item_url', ''),
+(2223, 233, '_text1_slide', ''),
+(2224, 233, '_text2_slide', ''),
+(2225, 233, '_text3_slide', ''),
+(2226, 233, '_text4_slide', ''),
+(2227, 233, '_menu_item_type', 'taxonomy'),
+(2228, 233, '_menu_item_menu_item_parent', '0'),
+(2229, 233, '_menu_item_object_id', '23'),
+(2230, 233, '_menu_item_object', 'product_cat'),
+(2231, 233, '_menu_item_target', ''),
+(2232, 233, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2233, 233, '_menu_item_xfn', ''),
+(2234, 233, '_menu_item_url', ''),
+(2236, 234, '_text1_slide', ''),
+(2237, 234, '_text2_slide', ''),
+(2238, 234, '_text3_slide', ''),
+(2239, 234, '_text4_slide', ''),
+(2240, 234, '_menu_item_type', 'taxonomy'),
+(2241, 234, '_menu_item_menu_item_parent', '0'),
+(2242, 234, '_menu_item_object_id', '24'),
+(2243, 234, '_menu_item_object', 'product_cat'),
+(2244, 234, '_menu_item_target', ''),
+(2245, 234, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2246, 234, '_menu_item_xfn', ''),
+(2247, 234, '_menu_item_url', ''),
+(2249, 235, '_text1_slide', ''),
+(2250, 235, '_text2_slide', ''),
+(2251, 235, '_text3_slide', ''),
+(2252, 235, '_text4_slide', ''),
+(2253, 235, '_menu_item_type', 'taxonomy'),
+(2254, 235, '_menu_item_menu_item_parent', '0'),
+(2255, 235, '_menu_item_object_id', '28'),
+(2256, 235, '_menu_item_object', 'product_cat'),
+(2257, 235, '_menu_item_target', ''),
+(2258, 235, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2259, 235, '_menu_item_xfn', ''),
+(2260, 235, '_menu_item_url', ''),
+(2262, 236, '_text1_slide', ''),
+(2263, 236, '_text2_slide', ''),
+(2264, 236, '_text3_slide', ''),
+(2265, 236, '_text4_slide', ''),
+(2266, 236, '_menu_item_type', 'taxonomy'),
+(2267, 236, '_menu_item_menu_item_parent', '0'),
+(2268, 236, '_menu_item_object_id', '30'),
+(2269, 236, '_menu_item_object', 'product_cat'),
+(2270, 236, '_menu_item_target', ''),
+(2271, 236, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2272, 236, '_menu_item_xfn', ''),
+(2273, 236, '_menu_item_url', ''),
+(2275, 237, '_text1_slide', ''),
+(2276, 237, '_text2_slide', ''),
+(2277, 237, '_text3_slide', ''),
+(2278, 237, '_text4_slide', ''),
+(2279, 237, '_menu_item_type', 'taxonomy'),
+(2280, 237, '_menu_item_menu_item_parent', '0'),
+(2281, 237, '_menu_item_object_id', '38'),
+(2282, 237, '_menu_item_object', 'product_cat'),
+(2283, 237, '_menu_item_target', ''),
+(2284, 237, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2285, 237, '_menu_item_xfn', ''),
+(2286, 237, '_menu_item_url', ''),
+(2288, 238, '_text1_slide', ''),
+(2289, 238, '_text2_slide', ''),
+(2290, 238, '_text3_slide', ''),
+(2291, 238, '_text4_slide', ''),
+(2292, 238, '_menu_item_type', 'taxonomy'),
+(2293, 238, '_menu_item_menu_item_parent', '0'),
+(2294, 238, '_menu_item_object_id', '29'),
+(2295, 238, '_menu_item_object', 'product_cat'),
+(2296, 238, '_menu_item_target', ''),
+(2297, 238, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2298, 238, '_menu_item_xfn', ''),
+(2299, 238, '_menu_item_url', ''),
+(2301, 239, '_text1_slide', ''),
+(2302, 239, '_text2_slide', ''),
+(2303, 239, '_text3_slide', ''),
+(2304, 239, '_text4_slide', ''),
+(2305, 239, '_menu_item_type', 'taxonomy'),
+(2306, 239, '_menu_item_menu_item_parent', '0'),
+(2307, 239, '_menu_item_object_id', '53'),
+(2308, 239, '_menu_item_object', 'product_cat'),
+(2309, 239, '_menu_item_target', ''),
+(2310, 239, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2311, 239, '_menu_item_xfn', ''),
+(2312, 239, '_menu_item_url', ''),
+(2314, 240, '_text1_slide', ''),
+(2315, 240, '_text2_slide', ''),
+(2316, 240, '_text3_slide', ''),
+(2317, 240, '_text4_slide', ''),
+(2318, 240, '_edit_last', '1'),
+(2319, 240, '_wp_page_template', 'page-lien-he.php'),
+(2320, 240, '_edit_lock', '1564676498:1'),
+(2321, 242, '_text1_slide', ''),
+(2322, 242, '_text2_slide', ''),
+(2323, 242, '_text3_slide', ''),
+(2324, 242, '_text4_slide', ''),
+(2325, 242, '_menu_item_type', 'post_type'),
+(2326, 242, '_menu_item_menu_item_parent', '0'),
+(2327, 242, '_menu_item_object_id', '240'),
+(2328, 242, '_menu_item_object', 'page'),
+(2329, 242, '_menu_item_target', ''),
+(2330, 242, '_menu_item_classes', 'a:1:{i:0;s:0:\"\";}'),
+(2331, 242, '_menu_item_xfn', ''),
+(2332, 242, '_menu_item_url', ''),
+(2334, 243, '_text1_slide', ''),
+(2335, 243, '_text2_slide', ''),
+(2336, 243, '_text3_slide', ''),
+(2337, 243, '_text4_slide', ''),
+(2338, 243, '_form', '[text* text-382 class:form-control placeholder \"Họ tên của bạn\"]\n\n[email* email-594 class:form-control placeholder \"Địa chỉ email\"]\n\n[text* text-384 class:form-control placeholder \"Số điện thoại\"]\n\n[textarea* textarea-152 class:form-control placeholder \"Nội dung\"]\n\n[submit class:btn class:btn-default \"Send\"]'),
+(2339, 243, '_mail', 'a:9:{s:6:\"active\";b:1;s:7:\"subject\";s:20:\"Korea Sonata Contact\";s:6:\"sender\";s:37:\"Korea Sonata <caohoang2911@gmail.com>\";s:9:\"recipient\";s:11:\"[email-594]\";s:4:\"body\";s:190:\"Name: [text-382]\n\nEmail: [email-594]\n\nPhone: [text-384]\n\nMessage: [textarea-152]\n\n-- \nThis e-mail was sent from a contact form on My Project (http://localhost/2018/freelancer/BE/sotana_lens)\";s:18:\"additional_headers\";s:0:\"\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";b:0;s:13:\"exclude_blank\";b:0;}'),
+(2340, 243, '_mail_2', 'a:9:{s:6:\"active\";b:0;s:7:\"subject\";s:27:\"My Project \"[your-subject]\"\";s:6:\"sender\";s:35:\"My Project <caohoang2911@gmail.com>\";s:9:\"recipient\";s:12:\"[your-email]\";s:4:\"body\";s:138:\"Message Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on My Project (http://localhost/2018/freelancer/BE/sotana_lens)\";s:18:\"additional_headers\";s:32:\"Reply-To: caohoang2911@gmail.com\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";b:0;s:13:\"exclude_blank\";b:0;}'),
+(2341, 243, '_messages', 'a:23:{s:12:\"mail_sent_ok\";s:45:\"Thank you for your message. It has been sent.\";s:12:\"mail_sent_ng\";s:71:\"There was an error trying to send your message. Please try again later.\";s:16:\"validation_error\";s:61:\"One or more fields have an error. Please check and try again.\";s:4:\"spam\";s:71:\"There was an error trying to send your message. Please try again later.\";s:12:\"accept_terms\";s:69:\"You must accept the terms and conditions before sending your message.\";s:16:\"invalid_required\";s:22:\"The field is required.\";s:16:\"invalid_too_long\";s:22:\"The field is too long.\";s:17:\"invalid_too_short\";s:23:\"The field is too short.\";s:12:\"invalid_date\";s:29:\"The date format is incorrect.\";s:14:\"date_too_early\";s:44:\"The date is before the earliest one allowed.\";s:13:\"date_too_late\";s:41:\"The date is after the latest one allowed.\";s:13:\"upload_failed\";s:46:\"There was an unknown error uploading the file.\";s:24:\"upload_file_type_invalid\";s:49:\"You are not allowed to upload files of this type.\";s:21:\"upload_file_too_large\";s:20:\"The file is too big.\";s:23:\"upload_failed_php_error\";s:38:\"There was an error uploading the file.\";s:14:\"invalid_number\";s:29:\"The number format is invalid.\";s:16:\"number_too_small\";s:47:\"The number is smaller than the minimum allowed.\";s:16:\"number_too_large\";s:46:\"The number is larger than the maximum allowed.\";s:23:\"quiz_answer_not_correct\";s:36:\"The answer to the quiz is incorrect.\";s:17:\"captcha_not_match\";s:31:\"Your entered code is incorrect.\";s:13:\"invalid_email\";s:38:\"The e-mail address entered is invalid.\";s:11:\"invalid_url\";s:19:\"The URL is invalid.\";s:11:\"invalid_tel\";s:32:\"The telephone number is invalid.\";}'),
+(2342, 243, '_additional_settings', ''),
+(2343, 243, '_locale', 'en_US'),
+(2344, 257, '_text1_slide', ''),
+(2345, 257, '_text2_slide', ''),
+(2346, 257, '_text3_slide', ''),
+(2347, 257, '_text4_slide', ''),
+(2348, 257, '_edit_lock', '1564712258:1'),
+(2349, 257, '_edit_last', '1'),
+(2350, 257, '_wp_page_template', 'search.php'),
+(2355, 260, '_text1_slide', ''),
+(2356, 260, '_text2_slide', ''),
+(2357, 260, '_text3_slide', ''),
+(2358, 260, '_text4_slide', ''),
+(2359, 260, '_action_manager_schedule', 'O:30:\"ActionScheduler_SimpleSchedule\":1:{s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1565269340;}'),
+(2360, 261, '_text1_slide', ''),
+(2361, 261, '_text2_slide', ''),
+(2362, 261, '_text3_slide', ''),
+(2363, 261, '_text4_slide', ''),
+(2364, 261, '_variation_description', ''),
+(2365, 261, 'total_sales', '0'),
+(2366, 261, '_tax_status', 'taxable'),
+(2367, 261, '_tax_class', 'parent'),
+(2368, 261, '_manage_stock', 'no'),
+(2369, 261, '_backorders', 'no'),
+(2370, 261, '_sold_individually', 'no'),
+(2371, 261, '_virtual', 'no'),
+(2372, 261, '_downloadable', 'no'),
+(2373, 261, '_download_limit', '-1'),
+(2374, 261, '_download_expiry', '-1'),
+(2375, 261, '_stock', NULL),
+(2376, 261, '_stock_status', 'instock'),
+(2377, 261, '_wc_average_rating', '0'),
+(2378, 261, '_wc_review_count', '0'),
+(2379, 261, 'attribute_pa_color', 'red'),
+(2380, 261, '_product_version', '3.6.4'),
+(2381, 262, '_text1_slide', ''),
+(2382, 262, '_text2_slide', ''),
+(2383, 262, '_text3_slide', ''),
+(2384, 262, '_text4_slide', ''),
+(2385, 262, '_variation_description', ''),
+(2386, 262, 'total_sales', '0'),
+(2387, 262, '_tax_status', 'taxable'),
+(2388, 262, '_tax_class', 'parent'),
+(2389, 262, '_manage_stock', 'no'),
+(2390, 262, '_backorders', 'no'),
+(2391, 262, '_sold_individually', 'no'),
+(2392, 262, '_virtual', 'no'),
+(2393, 262, '_downloadable', 'no'),
+(2394, 262, '_download_limit', '-1'),
+(2395, 262, '_download_expiry', '-1'),
+(2396, 262, '_stock', NULL),
+(2397, 262, '_stock_status', 'instock'),
+(2398, 262, '_wc_average_rating', '0'),
+(2399, 262, '_wc_review_count', '0'),
+(2400, 262, 'attribute_pa_color', 'green'),
+(2401, 262, '_product_version', '3.6.4'),
+(2402, 263, '_text1_slide', ''),
+(2403, 263, '_text2_slide', ''),
+(2404, 263, '_text3_slide', ''),
+(2405, 263, '_text4_slide', ''),
+(2406, 263, '_variation_description', ''),
+(2407, 263, 'total_sales', '0'),
+(2408, 263, '_tax_status', 'taxable'),
+(2409, 263, '_tax_class', 'parent'),
+(2410, 263, '_manage_stock', 'no'),
+(2411, 263, '_backorders', 'no'),
+(2412, 263, '_sold_individually', 'no'),
+(2413, 263, '_virtual', 'no'),
+(2414, 263, '_downloadable', 'no'),
+(2415, 263, '_download_limit', '-1'),
+(2416, 263, '_download_expiry', '-1'),
+(2417, 263, '_stock', NULL),
+(2418, 263, '_stock_status', 'instock'),
+(2419, 263, '_wc_average_rating', '0'),
+(2420, 263, '_wc_review_count', '0'),
+(2421, 263, 'attribute_pa_color', 'gray'),
+(2422, 263, '_product_version', '3.6.4'),
+(2423, 264, '_text1_slide', ''),
+(2424, 264, '_text2_slide', ''),
+(2425, 264, '_text3_slide', ''),
+(2426, 264, '_text4_slide', ''),
+(2427, 264, '_variation_description', ''),
+(2428, 264, 'total_sales', '0'),
+(2429, 264, '_tax_status', 'taxable'),
+(2430, 264, '_tax_class', 'parent'),
+(2431, 264, '_manage_stock', 'no'),
+(2432, 264, '_backorders', 'no'),
+(2433, 264, '_sold_individually', 'no'),
+(2434, 264, '_virtual', 'no'),
+(2435, 264, '_downloadable', 'no'),
+(2436, 264, '_download_limit', '-1'),
+(2437, 264, '_download_expiry', '-1'),
+(2438, 264, '_stock', NULL),
+(2439, 264, '_stock_status', 'instock'),
+(2440, 264, '_wc_average_rating', '0'),
+(2441, 264, '_wc_review_count', '0'),
+(2442, 264, 'attribute_pa_color', 'blue'),
+(2443, 264, '_product_version', '3.6.4'),
+(2444, 264, '_regular_price', '100000'),
+(2445, 264, '_sale_price', '70000'),
+(2446, 264, '_thumbnail_id', '186'),
+(2447, 264, '_price', '70000'),
+(2448, 263, '_regular_price', '400000');
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(2449, 263, '_sale_price', '300000'),
+(2450, 263, '_thumbnail_id', '185'),
+(2451, 263, '_price', '300000'),
+(2454, 261, '_regular_price', '240000'),
+(2455, 261, '_sale_price', '230000'),
+(2456, 261, '_thumbnail_id', '122'),
+(2457, 261, '_price', '230000'),
+(2458, 262, '_regular_price', '200000'),
+(2459, 262, '_sale_price', '180000'),
+(2460, 262, '_thumbnail_id', '187'),
+(2461, 262, '_price', '180000'),
+(2466, 265, '_text1_slide', ''),
+(2467, 265, '_text2_slide', ''),
+(2468, 265, '_text3_slide', ''),
+(2469, 265, '_text4_slide', ''),
+(2470, 265, '_edit_lock', '1565460499:1'),
+(2471, 265, '_edit_last', '1'),
+(2472, 265, '_wp_page_template', 'templates/all-product.php'),
+(2506, 55, '_price', '70000'),
+(2507, 55, '_price', '180000'),
+(2508, 55, '_price', '230000'),
+(2509, 55, '_price', '300000'),
+(2510, 270, '_wp_attached_file', '2019/08/photo-1476908965434-f988d59d7abd.jpg'),
+(2511, 270, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:2048;s:6:\"height\";i:1152;s:4:\"file\";s:44:\"2019/08/photo-1476908965434-f988d59d7abd.jpg\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-300x169.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:169;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-768x432.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:432;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:45:\"photo-1476908965434-f988d59d7abd-1024x576.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:576;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-600x338.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:338;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-600x338.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:338;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:44:\"photo-1476908965434-f988d59d7abd-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(2616, 273, '_text1_slide', ''),
+(2617, 273, '_text2_slide', ''),
+(2618, 273, '_text3_slide', ''),
+(2619, 273, '_text4_slide', ''),
+(2620, 273, '_order_key', 'wc_order_0qSW6Q9oohH68'),
+(2621, 273, '_customer_user', '1'),
+(2622, 273, '_payment_method', 'cheque'),
+(2623, 273, '_payment_method_title', 'Chuyển khoản qua ngân hàng'),
+(2624, 273, '_customer_ip_address', '::1'),
+(2625, 273, '_customer_user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'),
+(2626, 273, '_created_via', 'checkout'),
+(2627, 273, '_cart_hash', '02fe17fc43aa1c1b8718c85728333199'),
+(2628, 273, '_billing_last_name', 'hoang'),
+(2629, 273, '_billing_address_1', '86/33 Âu cơ'),
+(2630, 273, '_billing_city', '748'),
+(2632, 273, '_billing_email', 'caohoang2911@gmail.com'),
+(2633, 273, '_billing_phone', '09035345212'),
+(2634, 273, '_order_currency', 'VND'),
+(2635, 273, '_cart_discount', '0'),
+(2636, 273, '_cart_discount_tax', '0'),
+(2637, 273, '_order_shipping', '0'),
+(2638, 273, '_order_shipping_tax', '0'),
+(2639, 273, '_order_tax', '0'),
+(2640, 273, '_order_total', '410018'),
+(2641, 273, '_order_version', '3.6.4'),
+(2642, 273, '_prices_include_tax', 'no'),
+(2643, 273, '_billing_address_index', ' hoang  86/33 Âu cơ  748    caohoang2911@gmail.com 09035345212'),
+(2644, 273, '_shipping_address_index', '        '),
+(2645, 273, 'is_vat_exempt', 'no'),
+(2646, 273, '_recorded_sales', 'yes'),
+(2647, 273, '_recorded_coupon_usage_counts', 'yes'),
+(2648, 273, '_order_stock_reduced', 'yes'),
+(2649, 273, '_edit_lock', '1565714764:1'),
+(2650, 273, '_edit_last', '1'),
+(2651, 273, '_date_completed', '1565714901'),
+(2652, 273, '_date_paid', '1565714901'),
+(2653, 273, '_paid_date', '2019-08-13 16:48:21'),
+(2654, 273, '_completed_date', '2019-08-13 16:48:21'),
+(2655, 273, '_download_permissions_granted', 'yes'),
+(2656, 274, '_text1_slide', ''),
+(2657, 274, '_text2_slide', ''),
+(2658, 274, '_text3_slide', ''),
+(2659, 274, '_text4_slide', ''),
+(2660, 274, '_order_key', 'wc_order_dTA17pWuBKPzL'),
+(2661, 274, '_customer_user', '1'),
+(2662, 274, '_payment_method', 'cod'),
+(2663, 274, '_payment_method_title', 'Thanh toán khi giao hàng (COD)'),
+(2664, 274, '_customer_ip_address', '::1'),
+(2665, 274, '_customer_user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'),
+(2666, 274, '_created_via', 'checkout'),
+(2667, 274, '_cart_hash', '599aae73ad2a8963ba76d3d0180daba4'),
+(2668, 274, '_billing_last_name', 'hoang'),
+(2669, 274, '_billing_address_1', '86/33 Âu cơ'),
+(2670, 274, '_billing_city', '761'),
+(2671, 274, '_billing_state', '79'),
+(2672, 274, '_billing_email', 'caohoang2911@gmail.com'),
+(2673, 274, '_billing_phone', '09035345212'),
+(2674, 274, '_order_currency', 'VND'),
+(2675, 274, '_cart_discount', '0'),
+(2676, 274, '_cart_discount_tax', '0'),
+(2677, 274, '_order_shipping', '30000'),
+(2678, 274, '_order_shipping_tax', '0'),
+(2679, 274, '_order_tax', '0'),
+(2680, 274, '_order_total', '30018'),
+(2681, 274, '_order_version', '3.6.4'),
+(2682, 274, '_prices_include_tax', 'no'),
+(2683, 274, '_billing_address_index', ' hoang  86/33 Âu cơ  761 79   caohoang2911@gmail.com 09035345212'),
+(2684, 274, '_shipping_address_index', '        '),
+(2685, 274, 'is_vat_exempt', 'no'),
+(2686, 274, '_download_permissions_granted', 'yes'),
+(2687, 274, '_recorded_sales', 'yes'),
+(2688, 274, '_recorded_coupon_usage_counts', 'yes'),
+(2689, 274, '_order_stock_reduced', 'yes'),
+(2690, 274, '_edit_lock', '1565716957:1'),
+(2691, 275, '_text1_slide', ''),
+(2692, 275, '_text2_slide', ''),
+(2693, 275, '_text3_slide', ''),
+(2694, 275, '_text4_slide', ''),
+(2695, 275, '_order_key', 'wc_order_9OTSz3RyiNK7T'),
+(2696, 275, '_customer_user', '1'),
+(2697, 275, '_payment_method', 'cod'),
+(2698, 275, '_payment_method_title', 'Thanh toán khi giao hàng (COD)'),
+(2699, 275, '_customer_ip_address', '::1'),
+(2700, 275, '_customer_user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'),
+(2701, 275, '_created_via', 'checkout'),
+(2702, 275, '_cart_hash', '599aae73ad2a8963ba76d3d0180daba4'),
+(2703, 275, '_billing_last_name', 'hoang'),
+(2704, 275, '_billing_address_1', '86/33 Âu cơ'),
+(2705, 275, '_billing_city', '761'),
+(2706, 275, '_billing_state', '79'),
+(2707, 275, '_billing_email', 'caohoang2911@gmail.com'),
+(2708, 275, '_billing_phone', '09035345212'),
+(2709, 275, '_order_currency', 'VND'),
+(2710, 275, '_cart_discount', '0'),
+(2711, 275, '_cart_discount_tax', '0'),
+(2712, 275, '_order_shipping', '30000'),
+(2713, 275, '_order_shipping_tax', '0'),
+(2714, 275, '_order_tax', '0'),
+(2715, 275, '_order_total', '30018'),
+(2716, 275, '_order_version', '3.6.4'),
+(2717, 275, '_prices_include_tax', 'no'),
+(2718, 275, '_billing_address_index', ' hoang  86/33 Âu cơ  761 79   caohoang2911@gmail.com 09035345212'),
+(2719, 275, '_shipping_address_index', '        '),
+(2720, 275, 'is_vat_exempt', 'no'),
+(2721, 275, '_download_permissions_granted', 'yes'),
+(2722, 275, '_recorded_sales', 'yes'),
+(2723, 275, '_recorded_coupon_usage_counts', 'yes'),
+(2724, 275, '_order_stock_reduced', 'yes'),
+(2725, 276, '_text1_slide', ''),
+(2726, 276, '_text2_slide', ''),
+(2727, 276, '_text3_slide', ''),
+(2728, 276, '_text4_slide', ''),
+(2729, 276, '_edit_lock', '1565793593:1'),
+(2730, 276, '_edit_last', '1'),
+(2731, 276, '_wp_page_template', 'default'),
+(2732, 276, '_wp_trash_meta_status', 'publish'),
+(2733, 276, '_wp_trash_meta_time', '1565793736'),
+(2734, 276, '_wp_desired_post_slug', 'eyewear'),
+(2735, 280, '_text1_slide', ''),
+(2736, 280, '_text2_slide', ''),
+(2737, 280, '_text3_slide', ''),
+(2738, 280, '_text4_slide', ''),
+(2739, 280, '_edit_lock', '1565796381:1'),
+(2740, 280, '_edit_last', '1'),
+(2741, 280, '_wp_page_template', 'default'),
+(2742, 282, '_text1_slide', ''),
+(2743, 282, '_text2_slide', ''),
+(2744, 282, '_text3_slide', ''),
+(2745, 282, '_text4_slide', ''),
+(2746, 282, '_edit_lock', '1565798947:1'),
+(2747, 282, '_edit_last', '1'),
+(2748, 283, '_text1_slide', ''),
+(2749, 283, '_text2_slide', ''),
+(2750, 283, '_text3_slide', ''),
+(2751, 283, '_text4_slide', ''),
+(2752, 54, 'try-eye', '185'),
+(2753, 54, '_try-eye', 'field_5d542974c4619'),
+(2754, 42, 'try-eye', ''),
+(2755, 42, '_try-eye', 'field_5d542974c4619');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_posts`
+--
+
+CREATE TABLE `wp_posts` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
+  `post_author` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
+  `post_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `post_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `to_ping` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinged` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content_filtered` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `guid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `menu_order` int(11) NOT NULL DEFAULT 0,
+  `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `comment_count` bigint(20) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_posts`
+--
+
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
+(1, 1, '2019-06-24 15:50:49', '2019-06-24 15:50:49', 'Welcome to WordPress. This is your first post. Edit or delete it, then start writing!', 'Hello world!', '', 'publish', 'open', 'open', '', 'hello-world', '', '', '2019-06-24 15:50:49', '2019-06-24 15:50:49', '', 0, 'http://localhost:8080/outsource/?p=1', 0, 'post', '', 1),
+(2, 1, '2019-06-24 15:50:49', '2019-06-24 15:50:49', 'This is an example page. It\'s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:\r\n<blockquote>Hi there! I\'m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like piña coladas. (And gettin\' caught in the rain.)</blockquote>\r\n...or something like this:\r\n\r\n[metaslider id=\"96\"]\r\n<blockquote>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</blockquote>\r\nAs a new WordPress user, you should go to <a href=\"http://localhost:8080/outsource/wp-admin/\">your dashboard</a> to delete this page and create new pages for your content. Have fun!', 'Sample Page', '', 'publish', 'closed', 'open', '', 'sample-page', '', '', '2019-06-28 16:07:34', '2019-06-28 16:07:34', '', 0, 'http://localhost:8080/outsource/?page_id=2', 0, 'page', '', 0),
+(3, 1, '2019-06-24 15:50:49', '2019-06-24 15:50:49', '<h2>Who we are</h2><p>Our website address is: http://localhost:8080/outsource.</p><h2>What personal data we collect and why we collect it</h2><h3>Comments</h3><p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&#8217;s IP address and browser user agent string to help spam detection.</p><p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p><h3>Media</h3><p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p><h3>Contact forms</h3><h3>Cookies</h3><p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p><p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p><p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p><p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p><h3>Embedded content from other websites</h3><p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p><p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p><h3>Analytics</h3><h2>Who we share your data with</h2><h2>How long we retain your data</h2><p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p><p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p><h2>What rights you have over your data</h2><p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p><h2>Where we send your data</h2><p>Visitor comments may be checked through an automated spam detection service.</p><h2>Your contact information</h2><h2>Additional information</h2><h3>How we protect your data</h3><h3>What data breach procedures we have in place</h3><h3>What third parties we receive data from</h3><h3>What automated decision making and/or profiling we do with user data</h3><h3>Industry regulatory disclosure requirements</h3>', 'Privacy Policy', '', 'draft', 'closed', 'open', '', 'privacy-policy', '', '', '2019-06-24 15:50:49', '2019-06-24 15:50:49', '', 0, 'http://localhost:8080/outsource/?page_id=3', 0, 'page', '', 0),
+(15, 1, '2019-06-24 16:50:24', '2019-06-24 16:50:24', '', 'images', '', 'inherit', 'open', 'closed', '', 'images', '', '', '2019-06-24 16:50:24', '2019-06-24 16:50:24', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/06/images.jpg', 0, 'attachment', 'image/jpeg', 0),
+(24, 1, '2019-06-24 18:06:41', '2019-06-24 18:06:41', '', 'woocommerce-placeholder', '', 'inherit', 'open', 'closed', '', 'woocommerce-placeholder', '', '', '2019-06-24 18:06:41', '2019-06-24 18:06:41', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/06/woocommerce-placeholder.png', 0, 'attachment', 'image/png', 0),
+(25, 1, '2019-06-24 18:08:20', '2019-06-24 18:08:20', '', 'Shop', '', 'publish', 'closed', 'closed', '', 'shop', '', '', '2019-06-24 18:08:20', '2019-06-24 18:08:20', '', 0, 'http://localhost:8080/outsource/shop/', 0, 'page', '', 0),
+(26, 1, '2019-06-24 18:08:20', '2019-06-24 18:08:20', '', 'Cart', '', 'publish', 'closed', 'closed', '', 'cart', '', '', '2019-07-20 02:07:40', '2019-07-20 02:07:40', '', 0, 'http://localhost:8080/outsource/cart/', 0, 'page', '', 0),
+(27, 1, '2019-06-24 18:08:20', '2019-06-24 18:08:20', '<!-- wp:shortcode -->[woocommerce_checkout]<!-- /wp:shortcode -->', 'Checkout', '', 'publish', 'closed', 'closed', '', 'checkout', '', '', '2019-06-24 18:08:20', '2019-06-24 18:08:20', '', 0, 'http://localhost:8080/outsource/checkout/', 0, 'page', '', 0),
+(28, 1, '2019-06-24 18:08:20', '2019-06-24 18:08:20', '<!-- wp:shortcode -->[woocommerce_my_account]<!-- /wp:shortcode -->', 'My account', '', 'publish', 'closed', 'closed', '', 'my-account', '', '', '2019-06-24 18:08:20', '2019-06-24 18:08:20', '', 0, 'http://localhost:8080/outsource/my-account/', 0, 'page', '', 0),
+(32, 1, '2019-01-16 13:01:52', '2019-01-16 13:01:52', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'V-Neck T-Shirt', 'This is a variable product.', 'publish', 'open', 'closed', '', 'v-neck-t-shirt', '', '', '2019-08-11 06:56:35', '2019-08-11 06:56:35', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/v-neck-t-shirt/', 0, 'product', '', 0),
+(33, 1, '2019-01-16 13:01:52', '2019-01-16 13:01:52', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Hoodie', 'This is a variable product.', 'publish', 'closed', 'closed', '', 'hoodie', '', '', '2019-08-11 06:56:26', '2019-08-11 06:56:26', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/hoodie/', 0, 'product', '', 0),
+(34, 1, '2019-01-16 13:01:52', '2019-01-16 13:01:52', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Hoodie with Logo', 'This is a simple product.', 'publish', 'open', 'closed', '', 'hoodie-with-logo', '', '', '2019-08-11 06:56:18', '2019-08-11 06:56:18', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/hoodie-with-logo/', 0, 'product', '', 0),
+(35, 1, '2019-01-16 13:01:52', '2019-01-16 13:01:52', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'T-Shirt', 'This is a simple product.', 'publish', 'open', 'closed', '', 't-shirt', '', '', '2019-08-11 06:56:06', '2019-08-11 06:56:06', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/t-shirt/', 0, 'product', '', 0),
+(36, 1, '2019-01-16 13:01:52', '2019-01-16 13:01:52', '<p style=\"text-align: left;\">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\r\n&nbsp;\r\n\r\n<img class=\"wp-image-88 aligncenter\" src=\"http://localhost:8080/outsource/wp-content/uploads/2012/10/8-300x200.jpg\" alt=\"\" width=\"842\" height=\"562\" />\r\n<ul>\r\n 	<li><strong>GIỚI THIỆU GELFLEX</strong><strong>Gelflex</strong> là nhà sản xuất <strong>đứng đầu ở Úc</strong>, là đơn vị uy tín trên thế giới chuyên cung cấp kính áp tròng cho các thương hiệu nổi tiếng và Gelflex là thương hiệu sản phẩm của nhà sản xuất. Kính áp tròng Gelflex bao gồm các loại sử dụng thông thường, kính áp tròng màu thời trang và các loại kính áp tròng đặc biệt dành cho trẻ em (Baby Lens), dành cho người loạn thị (Toric Lens), kính áp tròng cứng (Rigid Gas Permeable Lens) và kính áp tròng điều trị tật khúc xạ (Orthokeratology Lens).\r\nLà đơn vị chuyên nghiệp, sở hữu đội ngũ bác sĩ và các chuyên gia có chuyên môn giỏi, dày dạn kinh nghiệm, Gelflex luôn nghiên cứu những sản phẩm đi sâu vào yêu cầu, mục đích sử dụng của từng cá nhân đáp ứng và làm thỏa mãn nhu cầu khách hàng. Cùng với qui trình sản xuất dựa trên máy móc công nghệ kỹ thuật số (Digital) và phần mềm làm nên sự chính xác của từng sản phẩm tối ưu hóa thị lực và giúp người dùng cảm thấy dễ chịu.\r\nVới hệ thống khuôn đúc tự động dành cho kính áp tròng thường Sofclear Comfort và Sofclear Colours, dây chuyền sản xuất được thực hiện theo một qui trình khép kín cùng <strong>công nghệ Radial Edge <em>làm kính có đường cong ngoại vi mỏng tạo sự thoải mái</em></strong> cho người sử dụng. Gelflex được làm bằng vật liệu cao cấp nên có độ tinh khiết cao và khả năng duy trì độ ẩm cao giúp bảo vệ mắt chống các tia cực tím. Màu sắc phong phú đáp ứng nhu cầu sử dụng của người Phương Đông và Phương Tây.<img src=\"https://file.hstatic.net/1000269337/file/conteact-lens-khong-mau-gelflex-sofclear-603.jpg\" /></li>\r\n</ul>\r\n<h2>Kính áp tròng Sofclear Comfort.</h2>\r\n<strong>Sofclear Comfort</strong> là kính áp tròng mềm dùng hằng ngày, hàng tháng, thay đổi thường xuyên, giúp mắt điều tiết thoải mái, duy trì độ ẩm, bảo vệ tia cực tím, <em><strong>ngăn chặn mắt khỏi tia có hại của mặt trời</strong></em>, có màu nhẹ giúp mắt đẹp tự nhiên và mang tính thẩm mỹ cao.\r\n<h2>CÔNG NGHỆ THOẢI MÁI</h2>\r\nĐEO NHƯ KHÔNG ĐEO\r\n\r\nNhẹ nhàng pha màu để dễ dàng xử lý, kính áp tròng Sofclear Comfort rất nhẹ và cân bằng hoàn hảo cho phép bạn tận hưởng cảm giác như không đeo lens với lợi ích bổ sung của việc bảo vệ tia cực tím.\r\nBí mật của kính áp tròng <strong>Sofclear Comfort</strong> là cách chúng tôi thiết kế và tạo ra chúng. Kính áp tròng rõ ràng được làm từ chất liệu tinh khiết nhất và công nghệ <strong><em>Radial Edge</em></strong> độc đáo của Gelflex cung cấp độ dày cạnh đồng nhất, có nghĩa là sự thoải mái được tối đa hóa khi tương tác với mắt là tối thiểu.', 'Beanie', 'This is a simple product.', 'publish', 'open', 'closed', '', 'beanie', '', '', '2019-08-11 06:55:51', '2019-08-11 06:55:51', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/beanie/', 0, 'product', '', 0),
+(37, 1, '2019-01-16 13:01:52', '2019-01-16 13:01:52', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Belt', 'This is a simple product.', 'publish', 'open', 'closed', '', 'belt', '', '', '2019-08-11 06:55:42', '2019-08-11 06:55:42', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/belt/', 0, 'product', '', 0),
+(38, 1, '2019-01-16 13:01:53', '2019-01-16 13:01:53', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Cap', 'This is a simple product.', 'publish', 'open', 'closed', '', 'cap', '', '', '2019-08-11 06:55:31', '2019-08-11 06:55:31', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/cap/', 0, 'product', '', 0),
+(39, 1, '2019-01-16 13:01:53', '2019-01-16 13:01:53', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Sunglasses', 'This is a simple product.', 'publish', 'open', 'closed', '', 'sunglasses', '', '', '2019-08-11 06:55:22', '2019-08-11 06:55:22', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/sunglasses/', 0, 'product', '', 0),
+(40, 1, '2019-01-16 13:01:53', '2019-01-16 13:01:53', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Hoodie with Pocket', 'This is a simple product.', 'publish', 'open', 'closed', '', 'hoodie-with-pocket', '', '', '2019-08-11 06:55:14', '2019-08-11 06:55:14', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/hoodie-with-pocket/', 0, 'product', '', 0),
+(41, 1, '2019-01-16 13:01:53', '2019-01-16 13:01:53', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Hoodie with Zipper', 'This is a simple product.', 'publish', 'open', 'closed', '', 'hoodie-with-zipper', '', '', '2019-08-11 06:55:07', '2019-08-11 06:55:07', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/hoodie-with-zipper/', 0, 'product', '', 0),
+(42, 1, '2019-01-16 13:01:53', '2019-01-16 13:01:53', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Long Sleeve Tee', 'This is a simple product.', 'publish', 'open', 'closed', '', 'long-sleeve-tee', '', '', '2019-08-14 16:11:44', '2019-08-14 16:11:44', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/long-sleeve-tee/', 0, 'product', '', 0),
+(43, 1, '2019-01-16 13:01:53', '2019-01-16 13:01:53', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Polo', 'This is a simple product.', 'publish', 'open', 'closed', '', 'polo', '', '', '2019-08-11 06:54:49', '2019-08-11 06:54:49', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/polo/', 0, 'product', '', 0),
+(44, 1, '2019-01-16 13:01:54', '2019-01-16 13:01:54', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.', 'Album', 'This is a simple, virtual product.', 'publish', 'open', 'closed', '', 'album', '', '', '2019-08-11 06:54:41', '2019-08-11 06:54:41', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/album/', 0, 'product', '', 0),
+(45, 1, '2019-01-16 13:01:54', '2019-01-16 13:01:54', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.', 'Single', 'This is a simple, virtual product.', 'publish', 'open', 'closed', '', 'single', '', '', '2019-08-11 06:54:30', '2019-08-11 06:54:30', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/single/', 0, 'product', '', 0),
+(46, 1, '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 'V-Neck T-Shirt - Red', 'color: Red', 'publish', 'closed', 'closed', '', 'v-neck-t-shirt-red', '', '', '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 32, 'https://woocommercecore.mystagingwebsite.com/product/v-neck-t-shirt-red/', 0, 'product_variation', '', 0),
+(47, 1, '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 'V-Neck T-Shirt - Green', 'color: Green', 'publish', 'closed', 'closed', '', 'v-neck-t-shirt-green', '', '', '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 32, 'https://woocommercecore.mystagingwebsite.com/product/v-neck-t-shirt-green/', 0, 'product_variation', '', 0),
+(48, 1, '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 'V-Neck T-Shirt - Blue', 'color: Blue', 'publish', 'closed', 'closed', '', 'v-neck-t-shirt-blue', '', '', '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 32, 'https://woocommercecore.mystagingwebsite.com/product/v-neck-t-shirt-blue/', 0, 'product_variation', '', 0),
+(49, 1, '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 'Hoodie - Red, No', 'color: Red, Logo: No', 'publish', 'closed', 'closed', '', 'hoodie-red-no', '', '', '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 33, 'https://woocommercecore.mystagingwebsite.com/product/hoodie-red-no', 1, 'product_variation', '', 0),
+(50, 1, '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 'Hoodie - Green, No', 'color: Green, Logo: No', 'publish', 'closed', 'closed', '', 'hoodie-green-no', '', '', '2019-01-16 13:01:54', '2019-01-16 13:01:54', '', 33, 'https://woocommercecore.mystagingwebsite.com/product/hoodie-green-no/', 2, 'product_variation', '', 0),
+(51, 1, '2019-01-16 13:01:55', '2019-01-16 13:01:55', '', 'Hoodie - Blue, No', 'color: Blue, Logo: No', 'publish', 'closed', 'closed', '', 'hoodie-blue-no', '', '', '2019-01-16 13:01:55', '2019-01-16 13:01:55', '', 33, 'https://woocommercecore.mystagingwebsite.com/product/hoodie-blue-no', 3, 'product_variation', '', 0),
+(52, 1, '2019-01-16 13:01:55', '2019-01-16 13:01:55', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'T-Shirt with Logo', 'This is a simple product.', 'publish', 'open', 'closed', '', 't-shirt-with-logo', '', '', '2019-08-11 06:54:22', '2019-08-11 06:54:22', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/t-shirt-with-logo/', 0, 'product', '', 0),
+(53, 1, '2019-01-16 13:01:55', '2019-01-16 13:01:55', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Beanie with Logo', 'This is a simple product.', 'publish', 'open', 'closed', '', 'beanie-with-logo', '', '', '2019-08-11 06:54:12', '2019-08-11 06:54:12', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/beanie-with-logo/', 0, 'product', '', 0),
+(54, 1, '2019-01-16 13:01:55', '2019-01-16 13:01:55', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Logo Collection', 'This is a grouped product.', 'publish', 'closed', 'closed', '', 'logo-collection', '', '', '2019-08-14 15:55:31', '2019-08-14 15:55:31', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/logo-collection/', 0, 'product', '', 0),
+(55, 1, '2019-01-16 13:01:55', '2019-01-16 13:01:55', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'WordPress Pennant', 'This is an external product.', 'publish', 'open', 'closed', '', 'wordpress-pennant', '', '', '2019-08-12 02:29:08', '2019-08-12 02:29:08', '', 0, 'https://woocommercecore.mystagingwebsite.com/product/wordpress-pennant/', 0, 'product', '', 0),
+(56, 1, '2019-01-16 13:01:55', '2019-01-16 13:01:55', '', 'Hoodie - Blue, Yes', 'color: Blue, Logo: Yes', 'publish', 'closed', 'closed', '', 'hoodie-blue-yes', '', '', '2019-01-16 13:01:55', '2019-01-16 13:01:55', '', 33, 'https://woocommercecore.mystagingwebsite.com/product/hoodie-blue-yes/', 0, 'product_variation', '', 0),
+(57, 1, '2019-01-16 13:01:56', '2019-01-16 13:01:56', '', 'vneck-tee-2.jpg', '', 'inherit', 'open', 'closed', '', 'vneck-tee-2-jpg', '', '', '2019-01-16 13:01:56', '2019-01-16 13:01:56', '', 32, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/vneck-tee-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(58, 1, '2019-01-16 13:01:57', '2019-01-16 13:01:57', '', 'vnech-tee-green-1.jpg', '', 'inherit', 'open', 'closed', '', 'vnech-tee-green-1-jpg', '', '', '2019-01-16 13:01:57', '2019-01-16 13:01:57', '', 32, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/vnech-tee-green-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(59, 1, '2019-01-16 13:01:58', '2019-01-16 13:01:58', '', 'vnech-tee-blue-1.jpg', '', 'inherit', 'open', 'closed', '', 'vnech-tee-blue-1-jpg', '', '', '2019-01-16 13:01:58', '2019-01-16 13:01:58', '', 32, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/vnech-tee-blue-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(60, 1, '2019-01-16 13:01:58', '2019-01-16 13:01:58', '', 'hoodie-2.jpg', '', 'inherit', 'open', 'closed', '', 'hoodie-2-jpg', '', '', '2019-01-16 13:01:58', '2019-01-16 13:01:58', '', 33, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/hoodie-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(61, 1, '2019-01-16 13:01:59', '2019-01-16 13:01:59', '', 'hoodie-blue-1.jpg', '', 'inherit', 'open', 'closed', '', 'hoodie-blue-1-jpg', '', '', '2019-01-16 13:01:59', '2019-01-16 13:01:59', '', 33, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/hoodie-blue-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(62, 1, '2019-01-16 13:02:00', '2019-01-16 13:02:00', '', 'hoodie-green-1.jpg', '', 'inherit', 'open', 'closed', '', 'hoodie-green-1-jpg', '', '', '2019-01-16 13:02:00', '2019-01-16 13:02:00', '', 33, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/hoodie-green-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(63, 1, '2019-01-16 13:02:01', '2019-01-16 13:02:01', '', 'hoodie-with-logo-2.jpg', '', 'inherit', 'open', 'closed', '', 'hoodie-with-logo-2-jpg', '', '', '2019-01-16 13:02:01', '2019-01-16 13:02:01', '', 33, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/hoodie-with-logo-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(64, 1, '2019-01-16 13:02:02', '2019-01-16 13:02:02', '', 'tshirt-2.jpg', '', 'inherit', 'open', 'closed', '', 'tshirt-2-jpg', '', '', '2019-01-16 13:02:02', '2019-01-16 13:02:02', '', 35, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/tshirt-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(65, 1, '2019-01-16 13:02:02', '2019-01-16 13:02:02', '', 'beanie-2.jpg', '', 'inherit', 'open', 'closed', '', 'beanie-2-jpg', '', '', '2019-01-16 13:02:02', '2019-01-16 13:02:02', '', 36, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/beanie-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(66, 1, '2019-01-16 13:02:03', '2019-01-16 13:02:03', '', 'belt-2.jpg', '', 'inherit', 'open', 'closed', '', 'belt-2-jpg', '', '', '2019-01-16 13:02:03', '2019-01-16 13:02:03', '', 37, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/belt-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(67, 1, '2019-01-16 13:02:04', '2019-01-16 13:02:04', '', 'cap-2.jpg', '', 'inherit', 'open', 'closed', '', 'cap-2-jpg', '', '', '2019-01-16 13:02:04', '2019-01-16 13:02:04', '', 38, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/cap-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(68, 1, '2019-01-16 13:02:05', '2019-01-16 13:02:05', '', 'sunglasses-2.jpg', '', 'inherit', 'open', 'closed', '', 'sunglasses-2-jpg', '', '', '2019-01-16 13:02:05', '2019-01-16 13:02:05', '', 39, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/sunglasses-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(69, 1, '2019-01-16 13:02:06', '2019-01-16 13:02:06', '', 'hoodie-with-pocket-2.jpg', '', 'inherit', 'open', 'closed', '', 'hoodie-with-pocket-2-jpg', '', '', '2019-01-16 13:02:06', '2019-01-16 13:02:06', '', 40, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/hoodie-with-pocket-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(70, 1, '2019-01-16 13:02:06', '2019-01-16 13:02:06', '', 'hoodie-with-zipper-2.jpg', '', 'inherit', 'open', 'closed', '', 'hoodie-with-zipper-2-jpg', '', '', '2019-01-16 13:02:06', '2019-01-16 13:02:06', '', 41, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/hoodie-with-zipper-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(71, 1, '2019-01-16 13:02:07', '2019-01-16 13:02:07', '', 'long-sleeve-tee-2.jpg', '', 'inherit', 'open', 'closed', '', 'long-sleeve-tee-2-jpg', '', '', '2019-01-16 13:02:07', '2019-01-16 13:02:07', '', 42, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/long-sleeve-tee-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(72, 1, '2019-01-16 13:02:08', '2019-01-16 13:02:08', '', 'polo-2.jpg', '', 'inherit', 'open', 'closed', '', 'polo-2-jpg', '', '', '2019-01-16 13:02:08', '2019-01-16 13:02:08', '', 43, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/polo-2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(73, 1, '2019-01-16 13:02:09', '2019-01-16 13:02:09', '', 'album-1.jpg', '', 'inherit', 'open', 'closed', '', 'album-1-jpg', '', '', '2019-01-16 13:02:09', '2019-01-16 13:02:09', '', 44, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/album-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(74, 1, '2019-01-16 13:02:10', '2019-01-16 13:02:10', '', 'single-1.jpg', '', 'inherit', 'open', 'closed', '', 'single-1-jpg', '', '', '2019-01-16 13:02:10', '2019-01-16 13:02:10', '', 45, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/single-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(75, 1, '2019-01-16 13:02:11', '2019-01-16 13:02:11', '', 't-shirt-with-logo-1.jpg', '', 'inherit', 'open', 'closed', '', 't-shirt-with-logo-1-jpg', '', '', '2019-01-16 13:02:11', '2019-01-16 13:02:11', '', 52, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/t-shirt-with-logo-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(76, 1, '2019-01-16 13:02:12', '2019-01-16 13:02:12', '', 'beanie-with-logo-1.jpg', '', 'inherit', 'open', 'closed', '', 'beanie-with-logo-1-jpg', '', '', '2019-01-16 13:02:12', '2019-01-16 13:02:12', '', 53, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/beanie-with-logo-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(77, 1, '2019-01-16 13:02:13', '2019-01-16 13:02:13', '', 'logo-1.jpg', '', 'inherit', 'open', 'closed', '', 'logo-1-jpg', '', '', '2019-01-16 13:02:13', '2019-01-16 13:02:13', '', 54, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/logo-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(78, 1, '2019-01-16 13:02:13', '2019-01-16 13:02:13', '', 'pennant-1.jpg', '', 'inherit', 'open', 'closed', '', 'pennant-1-jpg', '', '', '2019-01-16 13:02:13', '2019-01-16 13:02:13', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/pennant-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(82, 1, '2019-06-25 16:39:00', '2019-06-25 16:39:00', '<!-- wp:shortcode -->[woocommerce_cart]<!-- /wp:shortcode -->', 'Cart', '', 'inherit', 'closed', 'closed', '', '26-revision-v1', '', '', '2019-06-25 16:39:00', '2019-06-25 16:39:00', '', 26, 'http://localhost:8080/outsource/2019/06/25/26-revision-v1/', 0, 'revision', '', 0),
+(83, 1, '2019-06-26 16:00:40', '2019-06-26 16:00:40', '', '121', '', 'inherit', 'open', 'closed', '', '121', '', '', '2019-06-26 16:00:40', '2019-06-26 16:00:40', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/121.jpg', 0, 'attachment', 'image/jpeg', 0),
+(84, 1, '2019-06-26 16:00:46', '2019-06-26 16:00:46', '', '2', '', 'inherit', 'open', 'closed', '', '2', '', '', '2019-06-26 16:00:46', '2019-06-26 16:00:46', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(85, 1, '2019-06-26 16:00:50', '2019-06-26 16:00:50', '', '11', '', 'inherit', 'open', 'closed', '', '11', '', '', '2019-06-26 16:00:50', '2019-06-26 16:00:50', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/11.jpg', 0, 'attachment', 'image/jpeg', 0),
+(86, 1, '2019-06-26 16:00:53', '2019-06-26 16:00:53', '', '3', '', 'inherit', 'open', 'closed', '', '3', '', '', '2019-06-26 16:00:53', '2019-06-26 16:00:53', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/3.jpg', 0, 'attachment', 'image/jpeg', 0),
+(87, 1, '2019-06-26 16:00:56', '2019-06-26 16:00:56', '', '9', '', 'inherit', 'open', 'closed', '', '9', '', '', '2019-07-23 16:18:06', '2019-07-23 16:18:06', '', 36, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/9.jpg', 0, 'attachment', 'image/jpeg', 0),
+(88, 1, '2019-06-26 16:01:00', '2019-06-26 16:01:00', '', '8', '', 'inherit', 'open', 'closed', '', '8', '', '', '2019-07-23 16:18:06', '2019-07-23 16:18:06', '', 36, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/8.jpg', 0, 'attachment', 'image/jpeg', 0),
+(89, 1, '2019-06-26 16:01:03', '2019-06-26 16:01:03', '', '4', '', 'inherit', 'open', 'closed', '', '4', '', '', '2019-07-23 16:18:06', '2019-07-23 16:18:06', '', 36, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/4.jpg', 0, 'attachment', 'image/jpeg', 0),
+(90, 1, '2019-06-26 16:01:06', '2019-06-26 16:01:06', '', '13', '', 'inherit', 'open', 'closed', '', '13', '', '', '2019-06-26 16:01:06', '2019-06-26 16:01:06', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/13.jpg', 0, 'attachment', 'image/jpeg', 0),
+(91, 1, '2019-06-26 16:01:10', '2019-06-26 16:01:10', '', '16', '', 'inherit', 'open', 'closed', '', '16', '', '', '2019-06-26 16:01:10', '2019-06-26 16:01:10', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/16.jpg', 0, 'attachment', 'image/jpeg', 0),
+(92, 1, '2019-06-26 16:01:13', '2019-06-26 16:01:13', '', '151', '', 'inherit', 'open', 'closed', '', '151', '', '', '2019-06-26 16:01:13', '2019-06-26 16:01:13', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2012/10/151.jpg', 0, 'attachment', 'image/jpeg', 0),
+(93, 1, '2019-06-26 16:02:14', '2019-06-26 16:02:14', '', 'ms_banner_img1', '', 'inherit', 'open', 'closed', '', 'ms_banner_img1', '', '', '2019-06-26 16:02:14', '2019-06-26 16:02:14', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/06/ms_banner_img1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(94, 1, '2019-06-26 16:02:15', '2019-06-26 16:02:15', '', 'ms_banner_img2', '', 'inherit', 'open', 'closed', '', 'ms_banner_img2', '', '', '2019-06-26 16:02:15', '2019-06-26 16:02:15', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/06/ms_banner_img2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(96, 1, '2019-06-28 16:06:08', '2019-06-28 16:06:08', '', 'New Slideshow', '', 'publish', 'closed', 'closed', '', 'new-slideshow', '', '', '2019-06-28 16:07:10', '2019-06-28 16:07:10', '', 0, 'http://localhost:8080/outsource/?post_type=ml-slider&#038;p=96', 0, 'ml-slider', '', 0),
+(97, 1, '2019-06-28 16:06:17', '2019-06-28 16:06:17', '', 'Slider 96 - image', '', 'publish', 'closed', 'closed', '', 'slider-96-image', '', '', '2019-06-28 16:07:10', '2019-06-28 16:07:10', '', 0, 'http://localhost:8080/outsource/?post_type=ml-slide&#038;p=97', 0, 'ml-slide', '', 0),
+(98, 1, '2019-06-28 16:06:18', '2019-06-28 16:06:18', '', 'Slider 96 - image', '', 'publish', 'closed', 'closed', '', 'slider-96-image-2', '', '', '2019-06-28 16:07:11', '2019-06-28 16:07:11', '', 0, 'http://localhost:8080/outsource/?post_type=ml-slide&#038;p=98', 1, 'ml-slide', '', 0),
+(99, 1, '2019-06-28 16:06:18', '2019-06-28 16:06:18', '', 'Slider 96 - image', '', 'publish', 'closed', 'closed', '', 'slider-96-image-3', '', '', '2019-06-28 16:07:11', '2019-06-28 16:07:11', '', 0, 'http://localhost:8080/outsource/?post_type=ml-slide&#038;p=99', 2, 'ml-slide', '', 0),
+(100, 1, '2019-06-28 16:06:19', '2019-06-28 16:06:19', '', 'Slider 96 - image', '', 'publish', 'closed', 'closed', '', 'slider-96-image-4', '', '', '2019-06-28 16:07:11', '2019-06-28 16:07:11', '', 0, 'http://localhost:8080/outsource/?post_type=ml-slide&#038;p=100', 3, 'ml-slide', '', 0),
+(101, 1, '2019-06-28 16:06:19', '2019-06-28 16:06:19', '', 'Slider 96 - image', '', 'publish', 'closed', 'closed', '', 'slider-96-image-5', '', '', '2019-06-28 16:07:11', '2019-06-28 16:07:11', '', 0, 'http://localhost:8080/outsource/?post_type=ml-slide&#038;p=101', 4, 'ml-slide', '', 0),
+(102, 1, '2019-06-28 16:07:34', '2019-06-28 16:07:34', 'This is an example page. It\'s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:\r\n<blockquote>Hi there! I\'m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like piña coladas. (And gettin\' caught in the rain.)</blockquote>\r\n...or something like this:\r\n\r\n[metaslider id=\"96\"]\r\n<blockquote>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</blockquote>\r\nAs a new WordPress user, you should go to <a href=\"http://localhost:8080/outsource/wp-admin/\">your dashboard</a> to delete this page and create new pages for your content. Have fun!', 'Sample Page', '', 'inherit', 'closed', 'closed', '', '2-revision-v1', '', '', '2019-06-28 16:07:34', '2019-06-28 16:07:34', '', 2, 'http://localhost:8080/outsource/2019/06/28/2-revision-v1/', 0, 'revision', '', 0),
+(108, 1, '2019-06-28 18:14:19', '2019-06-28 18:14:19', '', 'Shop', '', 'inherit', 'closed', 'closed', '', '25-autosave-v1', '', '', '2019-06-28 18:14:19', '2019-06-28 18:14:19', '', 25, 'http://localhost:8080/outsource/2019/06/28/25-autosave-v1/', 0, 'revision', '', 0),
+(111, 1, '2019-06-29 18:52:30', '2019-06-29 18:52:30', '', 'cat2', '', 'inherit', 'open', 'closed', '', 'cat2', '', '', '2019-06-29 18:52:30', '2019-06-29 18:52:30', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/cat2.jpg', 0, 'attachment', 'image/jpeg', 0),
+(116, 1, '2019-07-02 18:17:09', '2019-07-02 18:17:09', '', 't8100685-decor-c-optical-glasses-front1', '', 'inherit', 'open', 'closed', '', 't8100685-decor-c-optical-glasses-front1', '', '', '2019-07-02 18:17:09', '2019-07-02 18:17:09', '', 52, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/t8100685-decor-c-optical-glasses-front1.png', 0, 'attachment', 'image/png', 0),
+(122, 1, '2019-07-08 14:59:28', '2019-07-08 14:59:28', '', 'image00009_6021d0303de64f35ab4079990e4e29b2_grande', '', 'inherit', 'open', 'closed', '', 'image00009_6021d0303de64f35ab4079990e4e29b2_grande', '', '', '2019-07-08 14:59:28', '2019-07-08 14:59:28', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/image00009_6021d0303de64f35ab4079990e4e29b2_grande.jpg', 0, 'attachment', 'image/jpeg', 0),
+(131, 1, '2019-07-13 14:15:43', '2019-07-13 14:15:43', '{\"id\":\"131\",\"field_id\":6,\"fields\":{\"1\":{\"id\":\"1\",\"type\":\"email\",\"label\":\"T\\u00ean\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"placeholder\":\"\",\"confirmation_placeholder\":\"\",\"default_value\":\"\",\"css\":\"\"},\"3\":{\"id\":\"3\",\"type\":\"email\",\"label\":\"H\\u1ecd\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"placeholder\":\"\",\"confirmation_placeholder\":\"\",\"default_value\":\"\",\"css\":\"\"},\"4\":{\"id\":\"4\",\"type\":\"email\",\"label\":\"Email\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"placeholder\":\"\",\"confirmation_placeholder\":\"\",\"default_value\":\"\",\"css\":\"\"},\"5\":{\"id\":\"5\",\"type\":\"email\",\"label\":\"M\\u1eadt kh\\u1ea9u\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"placeholder\":\"\",\"confirmation_placeholder\":\"\",\"default_value\":\"\",\"css\":\"\"}},\"settings\":{\"form_title\":\"T\\u1ea1o t\\u00e0i kho\\u1ea3n\",\"form_desc\":\"\",\"form_class\":\"\",\"submit_text\":\"\\u0110\\u0103ng k\\u00fd\",\"submit_text_processing\":\"Sending...\",\"submit_class\":\"\",\"honeypot\":\"1\",\"ajax_submit\":\"1\",\"notification_enable\":\"1\",\"notifications\":{\"1\":{\"email\":\"{admin_email}\",\"subject\":\"New Newsletter Signup Form Entry\",\"sender_name\":\"My Project\",\"sender_address\":\"{admin_email}\",\"replyto\":\"\",\"message\":\"{all_fields}\"}},\"confirmations\":{\"1\":{\"type\":\"message\",\"message\":\"<p>Thanks for contacting us! We will be in touch with you shortly.<\\/p>\",\"message_scroll\":\"1\",\"page\":\"26\",\"redirect\":\"\"}}},\"meta\":{\"template\":\"subscribe\"}}', 'Tạo tài khoản', '', 'publish', 'closed', 'closed', '', 'newsletter-signup-form', '', '', '2019-07-13 14:20:54', '2019-07-13 14:20:54', '', 0, 'http://localhost:8080/outsource/?post_type=wpforms&#038;p=131', 0, 'wpforms', '', 0),
+(132, 1, '2019-07-13 14:17:02', '2019-07-13 14:17:02', '{\"id\":\"132\",\"field_id\":2,\"fields\":{\"1\":{\"id\":\"1\",\"type\":\"text\",\"label\":\"T\\u00ean\",\"description\":\"\",\"required\":\"1\",\"size\":\"medium\",\"placeholder\":\"\",\"default_value\":\"\",\"css\":\"\",\"input_mask\":\"\"}},\"settings\":{\"form_title\":\"Blank Form\",\"form_desc\":\"\",\"form_class\":\"\",\"submit_text\":\"Submit\",\"submit_text_processing\":\"Sending...\",\"submit_class\":\"\",\"honeypot\":\"1\",\"notification_enable\":\"1\",\"notifications\":{\"1\":{\"email\":\"{admin_email}\",\"subject\":\"New Blank Form Entry\",\"sender_name\":\"My Project\",\"sender_address\":\"{admin_email}\",\"replyto\":\"\",\"message\":\"{all_fields}\"}},\"confirmations\":{\"1\":{\"type\":\"message\",\"message\":\"<p>Thanks for contacting us! We will be in touch with you shortly.<\\/p>\",\"message_scroll\":\"1\",\"page\":\"26\",\"redirect\":\"\"}}},\"meta\":{\"template\":\"blank\"}}', 'Blank Form', '', 'publish', 'closed', 'closed', '', 'blank-form', '', '', '2019-07-13 14:21:29', '2019-07-13 14:21:29', '', 0, 'http://localhost:8080/outsource/?post_type=wpforms&#038;p=132', 0, 'wpforms', '', 0),
+(135, 1, '2019-07-13 15:59:25', '2019-07-13 15:59:25', '[[[{\"field_key\":\"first_name\",\"general_setting\":{\"label\":\"Họ\",\"description\":\"\",\"field_name\":\"first_name\",\"placeholder\":\"\",\"required\":\"yes\",\"hide_label\":\"no\"},\"advance_setting\":{\"custom_class\":\"\"}}]],[[{\"field_key\":\"last_name\",\"general_setting\":{\"label\":\"Tên\",\"description\":\"\",\"field_name\":\"last_name\",\"placeholder\":\"\",\"required\":\"yes\",\"hide_label\":\"no\"},\"advance_setting\":{\"custom_class\":\"\"}}]],[[{\"field_key\":\"user_email\",\"general_setting\":{\"label\":\"Email\",\"description\":\"\",\"field_name\":\"user_email\",\"placeholder\":\"\",\"required\":\"yes\",\"hide_label\":\"no\"},\"advance_setting\":{\"custom_class\":\"\"}}]],[[{\"field_key\":\"user_pass\",\"general_setting\":{\"label\":\"Mật khẩu\",\"description\":\"\",\"field_name\":\"user_pass\",\"placeholder\":\"\",\"required\":\"yes\",\"hide_label\":\"no\"},\"advance_setting\":{\"custom_class\":\"\"}},{\"field_key\":\"text\",\"general_setting\":{\"label\":\"Input Field\",\"description\":\"\",\"field_name\":\"input_box_1563033541\",\"placeholder\":\"\",\"required\":\"no\",\"hide_label\":\"yes\"},\"advance_setting\":{\"size\":\"20\",\"default_value\":\"\",\"custom_class\":\"\"}}]],[[{\"field_key\":\"user_confirm_password\",\"general_setting\":{\"label\":\"Nhập lại mật khẩu\",\"description\":\"\",\"field_name\":\"user_confirm_password\",\"placeholder\":\"\",\"required\":\"no\",\"hide_label\":\"no\"},\"advance_setting\":{\"custom_class\":\"\"}}]]]', 'Register', '', 'publish', 'closed', 'closed', '', 'default-form', '', '', '2019-07-13 15:59:25', '2019-07-13 15:59:25', '', 0, 'http://localhost:8080/outsource/?post_type=user_registration&#038;p=135', 0, 'user_registration', '', 0),
+(136, 1, '2019-07-13 14:44:51', '2019-07-13 14:44:51', '[user_registration_form id=\"135\"]', 'Register', '', 'publish', 'closed', 'closed', '', 'register', '', '', '2019-07-13 15:10:51', '2019-07-13 15:10:51', '', 0, 'http://localhost:8080/outsource/?page_id=136', 0, 'page', '', 0),
+(137, 1, '2019-07-13 14:44:51', '2019-07-13 14:44:51', '[user_registration_form id=\"135\"]', 'Register', '', 'inherit', 'closed', 'closed', '', '136-revision-v1', '', '', '2019-07-13 14:44:51', '2019-07-13 14:44:51', '', 136, 'http://localhost:8080/outsource/2019/07/13/136-revision-v1/', 0, 'revision', '', 0),
+(138, 1, '2019-07-13 14:51:57', '2019-07-13 14:51:57', '[user_registration_my_account]', 'My Account', '', 'publish', 'closed', 'closed', '', 'my-account-2', '', '', '2019-07-13 15:24:59', '2019-07-13 15:24:59', '', 0, 'http://localhost:8080/outsource/my-account-2/', 0, 'page', '', 0),
+(139, 1, '2019-07-13 15:23:01', '2019-07-13 15:23:01', '[user_registration_form id=\"135\"]', 'My Account', '', 'inherit', 'closed', 'closed', '', '138-revision-v1', '', '', '2019-07-13 15:23:01', '2019-07-13 15:23:01', '', 138, 'http://localhost:8080/outsource/2019/07/13/138-revision-v1/', 0, 'revision', '', 0),
+(140, 1, '2019-07-13 15:24:59', '2019-07-13 15:24:59', '[user_registration_my_account]', 'My Account', '', 'inherit', 'closed', 'closed', '', '138-revision-v1', '', '', '2019-07-13 15:24:59', '2019-07-13 15:24:59', '', 138, 'http://localhost:8080/outsource/2019/07/13/138-revision-v1/', 0, 'revision', '', 0),
+(141, 1, '2019-07-13 16:13:34', '2019-07-13 16:13:34', '', 'Đăng Ký', '', 'publish', 'closed', 'closed', '', 'dang-ky', '', '', '2019-07-13 16:13:34', '2019-07-13 16:13:34', '', 0, 'http://localhost:8080/outsource/?page_id=141', 0, 'page', '', 0),
+(142, 1, '2019-07-13 16:13:34', '2019-07-13 16:13:34', '', 'Đăng Ký', '', 'inherit', 'closed', 'closed', '', '141-revision-v1', '', '', '2019-07-13 16:13:34', '2019-07-13 16:13:34', '', 141, 'http://localhost:8080/outsource/2019/07/13/141-revision-v1/', 0, 'revision', '', 0),
+(145, 1, '2019-07-13 17:44:48', '2019-07-13 17:44:48', '', 'Đăng nhập', '', 'publish', 'closed', 'closed', '', 'dang-nhap', '', '', '2019-07-13 17:44:48', '2019-07-13 17:44:48', '', 0, 'http://localhost:8080/outsource/?page_id=145', 0, 'page', '', 0),
+(146, 1, '2019-07-13 17:44:48', '2019-07-13 17:44:48', '', 'Đăng nhập', '', 'inherit', 'closed', 'closed', '', '145-revision-v1', '', '', '2019-07-13 17:44:48', '2019-07-13 17:44:48', '', 145, 'http://localhost:8080/outsource/2019/07/13/145-revision-v1/', 0, 'revision', '', 0),
+(147, 1, '2019-07-14 04:22:49', '2019-07-14 04:22:49', '', 'Order History', '', 'publish', 'closed', 'closed', '', 'order-history', '', '', '2019-07-14 04:55:43', '2019-07-14 04:55:43', '', 0, 'http://localhost:8080/outsource/?page_id=147', 0, 'page', '', 0),
+(148, 1, '2019-07-14 04:22:49', '2019-07-14 04:22:49', '[bbloomer_products_bought_by_curr_user]', 'Order History', '', 'inherit', 'closed', 'closed', '', '147-revision-v1', '', '', '2019-07-14 04:22:49', '2019-07-14 04:22:49', '', 147, 'http://localhost:8080/outsource/2019/07/14/147-revision-v1/', 0, 'revision', '', 0),
+(149, 1, '2019-07-14 04:23:16', '2019-07-14 04:23:16', '<strong>[my_purchased_products]</strong>', 'Order History', '', 'inherit', 'closed', 'closed', '', '147-revision-v1', '', '', '2019-07-14 04:23:16', '2019-07-14 04:23:16', '', 147, 'http://localhost:8080/outsource/2019/07/14/147-revision-v1/', 0, 'revision', '', 0),
+(150, 1, '2019-07-14 04:55:38', '2019-07-14 04:55:38', '', 'Order History', '', 'inherit', 'closed', 'closed', '', '147-autosave-v1', '', '', '2019-07-14 04:55:38', '2019-07-14 04:55:38', '', 147, 'http://localhost:8080/outsource/2019/07/14/147-autosave-v1/', 0, 'revision', '', 0),
+(151, 1, '2019-07-14 04:55:43', '2019-07-14 04:55:43', '', 'Order History', '', 'inherit', 'closed', 'closed', '', '147-revision-v1', '', '', '2019-07-14 04:55:43', '2019-07-14 04:55:43', '', 147, 'http://localhost:8080/outsource/2019/07/14/147-revision-v1/', 0, 'revision', '', 0),
+(152, 1, '2019-07-20 02:07:40', '2019-07-20 02:07:40', '', 'Cart', '', 'inherit', 'closed', 'closed', '', '26-revision-v1', '', '', '2019-07-20 02:07:40', '2019-07-20 02:07:40', '', 26, 'http://localhost:8080/outsource/2019/07/20/26-revision-v1/', 0, 'revision', '', 0),
+(153, 0, '2019-07-20 07:26:20', '2019-07-20 07:26:20', '[]', 'woocommerce_update_marketplace_suggestions', '', 'publish', 'open', 'closed', '', 'woocommerce_update_marketplace_suggestions-4', '', '', '2019-07-20 07:26:52', '2019-07-20 07:26:52', '', 0, 'http://localhost:8080/outsource/?post_type=scheduled-action&#038;p=153', 0, 'scheduled-action', '', 3),
+(155, 1, '2019-07-20 10:41:55', '2019-07-20 10:41:55', '', 'Collection', '', 'publish', 'closed', 'closed', '', 'collection', '', '', '2019-07-20 10:42:25', '2019-07-20 10:42:25', '', 0, 'http://localhost:8080/outsource/?page_id=155', 0, 'page', '', 0),
+(156, 1, '2019-07-20 10:11:52', '2019-07-20 10:11:52', '', 'Collection', '', 'trash', 'closed', 'closed', '', 'collection__trashed', '', '', '2019-07-20 10:42:12', '2019-07-20 10:42:12', '', 0, 'http://localhost:8080/outsource/?page_id=156', 0, 'page', '', 0),
+(157, 1, '2019-07-20 10:11:52', '2019-07-20 10:11:52', '', '', '', 'inherit', 'closed', 'closed', '', '156-revision-v1', '', '', '2019-07-20 10:11:52', '2019-07-20 10:11:52', '', 156, 'http://localhost:8080/outsource/2019/07/20/156-revision-v1/', 0, 'revision', '', 0),
+(158, 1, '2019-07-20 10:12:11', '2019-07-20 10:12:11', '', 'Collection', '', 'inherit', 'closed', 'closed', '', '156-revision-v1', '', '', '2019-07-20 10:12:11', '2019-07-20 10:12:11', '', 156, 'http://localhost:8080/outsource/2019/07/20/156-revision-v1/', 0, 'revision', '', 0),
+(159, 1, '2019-07-20 10:41:55', '2019-07-20 10:41:55', '', 'Collection', '', 'inherit', 'closed', 'closed', '', '155-revision-v1', '', '', '2019-07-20 10:41:55', '2019-07-20 10:41:55', '', 155, 'http://localhost:8080/outsource/2019/07/20/155-revision-v1/', 0, 'revision', '', 0);
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
+(165, 1, '2019-07-23 16:31:26', '2019-07-23 16:31:26', '<p style=\"text-align: left;\">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n&nbsp;\n\n<img class=\"wp-image-88 aligncenter\" src=\"http://localhost:8080/outsource/wp-content/uploads/2012/10/8-300x200.jpg\" alt=\"\" width=\"842\" height=\"562\" />\n<ul>\n 	<li><strong>GIỚI THIỆU GELFLEX</strong>\n\n<strong>Gelflex</strong> là nhà sản xuất <strong>đứng đầu ở Úc</strong>, là đơn vị uy tín trên thế giới chuyên cung cấp kính áp tròng cho các thương hiệu nổi tiếng và Gelflex là thương hiệu sản phẩm của nhà sản xuất. Kính áp tròng Gelflex bao gồm các loại sử dụng thông thường, kính áp tròng màu thời trang và các loại kính áp tròng đặc biệt dành cho trẻ em (Baby Lens), dành cho người loạn thị (Toric Lens), kính áp tròng cứng (Rigid Gas Permeable Lens) và kính áp tròng điều trị tật khúc xạ (Orthokeratology Lens).\nLà đơn vị chuyên nghiệp, sở hữu đội ngũ bác sĩ và các chuyên gia có chuyên môn giỏi, dày dạn kinh nghiệm, Gelflex luôn nghiên cứu những sản phẩm đi sâu vào yêu cầu, mục đích sử dụng của từng cá nhân đáp ứng và làm thỏa mãn nhu cầu khách hàng. Cùng với qui trình sản xuất dựa trên máy móc công nghệ kỹ thuật số (Digital) và phần mềm làm nên sự chính xác của từng sản phẩm tối ưu hóa thị lực và giúp người dùng cảm thấy dễ chịu.\nVới hệ thống khuôn đúc tự động dành cho kính áp tròng thường Sofclear Comfort và Sofclear Colours, dây chuyền sản xuất được thực hiện theo một qui trình khép kín cùng <strong>công nghệ Radial Edge <em>làm kính có đường cong ngoại vi mỏng tạo sự thoải mái</em></strong> cho người sử dụng. Gelflex được làm bằng vật liệu cao cấp nên có độ tinh khiết cao và khả năng duy trì độ ẩm cao giúp bảo vệ mắt chống các tia cực tím. Màu sắc phong phú đáp ứng nhu cầu sử dụng của người Phương Đông và Phương Tây.</li>\n 	<li></li>\n</ul>', 'Beanie', 'This is a simple product.', 'inherit', 'closed', 'closed', '', '36-autosave-v1', '', '', '2019-07-23 16:31:26', '2019-07-23 16:31:26', '', 36, 'http://localhost:8080/outsource/2019/07/23/36-autosave-v1/', 0, 'revision', '', 0),
+(167, 1, '2019-07-24 14:36:08', '2019-07-24 14:36:08', ' ', '', '', 'publish', 'closed', 'closed', '', '167', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost:8080/outsource/?p=167', 10, 'nav_menu_item', '', 0),
+(168, 1, '2019-07-24 14:36:08', '2019-07-24 14:36:08', ' ', '', '', 'publish', 'closed', 'closed', '', '168', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost:8080/outsource/?p=168', 11, 'nav_menu_item', '', 0),
+(170, 1, '2019-07-24 14:36:08', '2019-07-24 14:36:08', ' ', '', '', 'publish', 'closed', 'closed', '', '170', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost:8080/outsource/?p=170', 12, 'nav_menu_item', '', 0),
+(171, 1, '2019-07-24 14:36:09', '2019-07-24 14:36:09', ' ', '', '', 'publish', 'closed', 'closed', '', '171', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost:8080/outsource/?p=171', 13, 'nav_menu_item', '', 0),
+(172, 1, '2019-07-25 15:01:03', '2019-07-25 15:01:03', ' ', '', '', 'publish', 'closed', 'closed', '', '172', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost:8080/outsource/?p=172', 2, 'nav_menu_item', '', 0),
+(173, 1, '2019-07-25 15:01:03', '2019-07-25 15:01:03', ' ', '', '', 'publish', 'closed', 'closed', '', '173', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 38, 'http://localhost:8080/outsource/?p=173', 3, 'nav_menu_item', '', 0),
+(174, 1, '2019-07-25 15:01:03', '2019-07-25 15:01:03', ' ', '', '', 'publish', 'closed', 'closed', '', '174', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 38, 'http://localhost:8080/outsource/?p=174', 4, 'nav_menu_item', '', 0),
+(175, 1, '2019-07-25 15:01:03', '2019-07-25 15:01:03', ' ', '', '', 'publish', 'closed', 'closed', '', '175', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 38, 'http://localhost:8080/outsource/?p=175', 5, 'nav_menu_item', '', 0),
+(176, 1, '2019-07-25 15:01:04', '2019-07-25 15:01:04', ' ', '', '', 'publish', 'closed', 'closed', '', '176', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 38, 'http://localhost:8080/outsource/?p=176', 6, 'nav_menu_item', '', 0),
+(177, 1, '2019-07-25 15:01:04', '2019-07-25 15:01:04', ' ', '', '', 'publish', 'closed', 'closed', '', '177', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 38, 'http://localhost:8080/outsource/?p=177', 7, 'nav_menu_item', '', 0),
+(178, 1, '2019-07-25 15:01:04', '2019-07-25 15:01:04', ' ', '', '', 'publish', 'closed', 'closed', '', '178', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 38, 'http://localhost:8080/outsource/?p=178', 8, 'nav_menu_item', '', 0),
+(179, 1, '2019-07-25 15:01:04', '2019-07-25 15:01:04', ' ', '', '', 'publish', 'closed', 'closed', '', '179', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 38, 'http://localhost:8080/outsource/?p=179', 9, 'nav_menu_item', '', 0),
+(182, 0, '2019-07-27 09:13:29', '2019-07-27 09:13:29', '[]', 'woocommerce_update_marketplace_suggestions', '', 'publish', 'open', 'closed', '', 'woocommerce_update_marketplace_suggestions', '', '', '2019-07-27 09:13:39', '2019-07-27 09:13:39', '', 0, 'http://localhost:8080/outsource/?post_type=scheduled-action&#038;p=182', 0, 'scheduled-action', '', 3),
+(183, 1, '2019-07-27 09:14:00', '2019-07-27 09:14:00', '', 'image00001_c010f714ccde4744bda3d64691981cbb_master', '', 'inherit', 'open', 'closed', '', 'image00001_c010f714ccde4744bda3d64691981cbb_master', '', '', '2019-07-27 09:14:00', '2019-07-27 09:14:00', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/image00001_c010f714ccde4744bda3d64691981cbb_master.jpg', 0, 'attachment', 'image/jpeg', 0),
+(184, 1, '2019-07-27 09:14:21', '2019-07-27 09:14:21', '', 'image00001_c010f714ccde4744bda3d64691981cbb_master', '', 'inherit', 'open', 'closed', '', 'image00001_c010f714ccde4744bda3d64691981cbb_master-2', '', '', '2019-08-14 15:36:14', '2019-08-14 15:36:14', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/image00001_c010f714ccde4744bda3d64691981cbb_master-1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(185, 1, '2019-07-27 09:14:23', '2019-07-27 09:14:23', '', 'image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master', '', 'inherit', 'open', 'closed', '', 'image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master', '', '', '2019-08-14 15:55:26', '2019-08-14 15:55:26', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/image00012_39dc9d4c5b164bb6b09723c1fc03ac74_master.jpg', 0, 'attachment', 'image/jpeg', 0),
+(186, 1, '2019-07-27 09:14:24', '2019-07-27 09:14:24', '', 'image00013_1bca332ec4644cbcb806359b173bd255_master', '', 'inherit', 'open', 'closed', '', 'image00013_1bca332ec4644cbcb806359b173bd255_master', '', '', '2019-08-14 15:47:58', '2019-08-14 15:47:58', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/image00013_1bca332ec4644cbcb806359b173bd255_master.jpg', 0, 'attachment', 'image/jpeg', 0),
+(187, 1, '2019-07-27 09:14:26', '2019-07-27 09:14:26', '', 'image00033_de1af570829b401a9e3e5d55e309159b_master', '', 'inherit', 'open', 'closed', '', 'image00033_de1af570829b401a9e3e5d55e309159b_master', '', '', '2019-07-27 09:14:26', '2019-07-27 09:14:26', '', 55, 'http://localhost:8080/outsource/wp-content/uploads/2019/01/image00033_de1af570829b401a9e3e5d55e309159b_master.jpg', 0, 'attachment', 'image/jpeg', 0),
+(188, 1, '2019-07-27 10:31:00', '2019-07-27 10:31:00', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Logo Collection', '<p>This is a grouped product.</p>', 'inherit', 'closed', 'closed', '', '54-autosave-v1', '', '', '2019-07-27 10:31:00', '2019-07-27 10:31:00', '', 54, 'http://localhost:8080/outsource/2019/07/27/54-autosave-v1/', 0, 'revision', '', 0),
+(189, 1, '2019-07-29 11:15:39', '2019-07-29 11:15:39', '', 'brand_img1 (1)', '', 'inherit', 'open', 'closed', '', 'brand_img1-1', '', '', '2019-07-29 11:15:39', '2019-07-29 11:15:39', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img1-1.png', 0, 'attachment', 'image/png', 0),
+(190, 1, '2019-07-29 11:20:17', '2019-07-29 11:20:17', '', 'brand_img5', '', 'inherit', 'open', 'closed', '', 'brand_img5', '', '', '2019-07-29 11:20:17', '2019-07-29 11:20:17', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img5.png', 0, 'attachment', 'image/png', 0),
+(191, 1, '2019-07-29 11:20:54', '2019-07-29 11:20:54', '', 'brand_img2', '', 'inherit', 'open', 'closed', '', 'brand_img2', '', '', '2019-07-29 11:20:54', '2019-07-29 11:20:54', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img2.png', 0, 'attachment', 'image/png', 0),
+(192, 1, '2019-07-29 11:21:16', '2019-07-29 11:21:16', '', 'contact1', '', 'inherit', 'open', 'closed', '', 'contact1', '', '', '2019-07-29 11:21:16', '2019-07-29 11:21:16', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/contact1.png', 0, 'attachment', 'image/png', 0),
+(193, 1, '2019-07-29 11:21:36', '2019-07-29 11:21:36', '', 'brand_img6', '', 'inherit', 'open', 'closed', '', 'brand_img6', '', '', '2019-07-29 11:21:36', '2019-07-29 11:21:36', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/brand_img6.png', 0, 'attachment', 'image/png', 0),
+(194, 1, '2019-07-29 11:38:11', '2019-07-29 11:38:11', '', 'customer1', '', 'inherit', 'open', 'closed', '', 'customer1', '', '', '2019-07-29 11:38:11', '2019-07-29 11:38:11', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/customer1.png', 0, 'attachment', 'image/png', 0),
+(195, 1, '2019-07-29 11:39:34', '2019-07-29 11:39:34', '', 'customer2', '', 'inherit', 'open', 'closed', '', 'customer2', '', '', '2019-07-29 11:39:34', '2019-07-29 11:39:34', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/customer2.png', 0, 'attachment', 'image/png', 0),
+(196, 1, '2019-07-29 11:40:24', '2019-07-29 11:40:24', '', 'customer3', '', 'inherit', 'open', 'closed', '', 'customer3', '', '', '2019-07-29 11:40:24', '2019-07-29 11:40:24', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/customer3.png', 0, 'attachment', 'image/png', 0),
+(197, 1, '2019-07-29 11:41:18', '2019-07-29 11:41:18', '', 'customer4', '', 'inherit', 'open', 'closed', '', 'customer4', '', '', '2019-07-29 11:41:18', '2019-07-29 11:41:18', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/customer4.png', 0, 'attachment', 'image/png', 0),
+(198, 1, '2019-07-29 11:42:02', '2019-07-29 11:42:02', '', 'customer2', '', 'inherit', 'open', 'closed', '', 'customer2-2', '', '', '2019-07-29 11:42:02', '2019-07-29 11:42:02', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/customer2-1.png', 0, 'attachment', 'image/png', 0),
+(199, 1, '2019-07-29 11:42:13', '2019-07-29 11:42:13', '', 'customer2', '', 'inherit', 'open', 'closed', '', 'customer2-3', '', '', '2019-07-29 11:42:13', '2019-07-29 11:42:13', '', 0, 'http://localhost:8080/outsource/wp-content/uploads/2019/07/customer2-2.png', 0, 'attachment', 'image/png', 0),
+(201, 1, '2019-07-30 14:15:17', '2019-07-30 14:15:17', '', 'Home', '', 'publish', 'closed', 'closed', '', 'home', '', '', '2019-07-30 14:15:17', '2019-07-30 14:15:17', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=201', 0, 'page', '', 0),
+(202, 1, '2019-07-30 14:15:17', '2019-07-30 14:15:17', '', 'Home', '', 'inherit', 'closed', 'closed', '', '201-revision-v1', '', '', '2019-07-30 14:15:17', '2019-07-30 14:15:17', '', 201, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=202', 0, 'revision', '', 0),
+(203, 1, '2019-07-30 14:15:43', '2019-07-30 14:15:43', ' ', '', '', 'publish', 'closed', 'closed', '', '203', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=203', 1, 'nav_menu_item', '', 0),
+(204, 1, '2019-07-30 14:18:13', '2019-07-30 14:18:13', '', 'test', '', 'trash', 'closed', 'closed', '', 'test__trashed', '', '', '2019-07-30 14:30:54', '2019-07-30 14:30:54', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=204', 0, 'page', '', 0),
+(205, 1, '2019-07-30 14:18:13', '2019-07-30 14:18:13', '', 'test', '', 'inherit', 'closed', 'closed', '', '204-revision-v1', '', '', '2019-07-30 14:18:13', '2019-07-30 14:18:13', '', 204, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=205', 0, 'revision', '', 0),
+(206, 1, '2019-07-30 15:54:55', '2019-07-30 15:54:55', '', 'Blog', '', 'publish', 'closed', 'closed', '', 'blog', '', '', '2019-07-30 15:54:55', '2019-07-30 15:54:55', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=206', 0, 'page', '', 0),
+(207, 1, '2019-07-30 15:54:55', '2019-07-30 15:54:55', '', 'Blog', '', 'inherit', 'closed', 'closed', '', '206-revision-v1', '', '', '2019-07-30 15:54:55', '2019-07-30 15:54:55', '', 206, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=207', 0, 'revision', '', 0),
+(208, 1, '2019-07-30 16:00:54', '2019-07-30 16:00:54', ' ', '', '', 'publish', 'closed', 'closed', '', '208', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=208', 14, 'nav_menu_item', '', 0),
+(209, 1, '2019-07-31 13:07:33', '2019-07-31 13:07:33', 'a:7:{s:8:\"location\";a:1:{i:0;a:1:{i:0;a:3:{s:5:\"param\";s:9:\"post_type\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:4:\"news\";}}}s:8:\"position\";s:6:\"normal\";s:5:\"style\";s:7:\"default\";s:15:\"label_placement\";s:3:\"top\";s:21:\"instruction_placement\";s:5:\"label\";s:14:\"hide_on_screen\";s:0:\"\";s:11:\"description\";s:0:\"\";}', 'Short description', 'short-description', 'publish', 'closed', 'closed', '', 'group_5d419277cbd3e', '', '', '2019-07-31 13:07:33', '2019-07-31 13:07:33', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=acf-field-group&#038;p=209', 0, 'acf-field-group', '', 0),
+(210, 1, '2019-07-31 13:07:33', '2019-07-31 13:07:33', 'a:10:{s:4:\"type\";s:8:\"textarea\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";i:0;s:17:\"conditional_logic\";i:0;s:7:\"wrapper\";a:3:{s:5:\"width\";s:0:\"\";s:5:\"class\";s:0:\"\";s:2:\"id\";s:0:\"\";}s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:9:\"maxlength\";s:0:\"\";s:4:\"rows\";s:0:\"\";s:9:\"new_lines\";s:0:\"\";}', 'Short description', 'short_description', 'publish', 'closed', 'closed', '', 'field_5d419280a37b5', '', '', '2019-07-31 13:07:33', '2019-07-31 13:07:33', '', 209, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=acf-field&p=210', 0, 'acf-field', '', 0),
+(211, 1, '2019-07-31 13:09:07', '2019-07-31 13:09:07', '<p style=\"text-align: justify;\"><b>Kính áp tròng bị rách</b><span style=\"font-weight: 400;\"> có nên sử dụng? là câu hỏi mà luôn được nhiều người đặt ra. Câu trả lời là không nên vì khi bạn sử dụng </span><b>kính áp tròng bị rách</b><span style=\"font-weight: 400;\"> sẽ gây ra rất nhiều nguy hại cho mắt.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Kính áp tròng sẽ giúp cho mắt bạn thêm to tròn,long lanh hơn, bạn sẽ trông xinh đẹp hơn. Tuy nhiên, nếu một chiếc </span><b>kính áp tròng bị rách </b><span style=\"font-weight: 400;\">thì bạn phải bỏ ngay, không nên sử dụng, chúng ta hãy cùng tìm hiểu nhé!</span></p>\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-ap-trong__1__grande.jpg\" />\r\n<h2 style=\"text-align: justify;\"><b>Những tác hại gây ra cho mắt khi đeo</b> <b>kính áp tròng bị rách</b></h2>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">_ Khi </span><b>kính áp tròng bị rách, </b><span style=\"font-weight: 400;\">kính sẽ bị nhiễm khuẩn và khi bạn sử dụng những vi khuẩn này sẽ xâm nhập vào mắt của bạn gây ra các bệnh về mắt rất nguy hiểm, thậm chí bạn có nguy cơ bị mù lòa do việc sử dụng </span><b>kính áp tròng bị rách </b><span style=\"font-weight: 400;\">này.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">_ Khi </span><b>kính áp tròng bị rách </b><span style=\"font-weight: 400;\">sẽ làm cho tầm nhìn của bạn bị hạn chế, hình ảnh nhìn thấy sẽ bị nhòe, không rõ ràng sẽ gây ra rất nhiều bất tiện cho bạn trong  quá trình sinh hoạt hàng ngày.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">_ Khi </span><b>kính áp tròng bị rách </b><span style=\"font-weight: 400;\">trong quá trình bạn sử dụng tháo kính ra hoặc lắp kính vào mắt thì chỗ bị rách sẽ làm tổn thương đến mắt của bạn, có thể gây rách giác mạc, trầy xước đồng tử mắt… sẽ rất nguy hại cho mắt.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">_ Khi </span><b>kính áp tròng bị rách </b><span style=\"font-weight: 400;\">thì việc bảo vệ mắt trước tác nhân gây hại từ môi trường như bụi bẩn sẽ theo đường rách của kính chui vào mắt gây ra những tổn thương nhất thời cho mắt như gây ngứa rát, gây ra bệnh đau mắt đỏ… và khi bị thường xuyên như vậy sẽ rất tổn hại cho mắt gây ra những căn bệnh nguy hiểm cho mắt.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">_ Khi </span><b>kính áp tròng bị rách</b><span style=\"font-weight: 400;\"> khi sử dụng có thể kính sẽ bị mắc kẹt trong mắt bạn sẽ rất khó khăn trong việc tháo kính ra khỏi mắt làm tổn thương nghiêm trọng cho mắt.</span></p>\r\n<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"//file.hstatic.net/1000269337/file/kinh-ap-trong__2__grande.jpg\" />\r\n<h2 style=\"text-align: justify;\"><b>Cách bảo quản kính áp tròng để tránh làm</b> <b>kính áp tròng bị rách</b></h2>\r\n<p style=\"text-align: justify;\"><b>- </b><span style=\"font-weight: 400;\">Khi</span> <span style=\"font-weight: 400;\">đi bơi bạn không nên sử dụng kính áp tròng vì rất dễ làm </span><b>kính áp tròng bị rách</b><span style=\"font-weight: 400;\"> gây viêm nhiễm cho mắt.</span><b>  </b></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">_ Khi ngủ, bạn cần phải tháo kính áp tròng ra khỏi mắt nếu không sự oxy hóa sẽ làm đục kính áp tròng, kính sẽ trở nên kém dẻo dai rất dễ làm </span><b>kính áp tròng bị rách.</b></p>\r\n<p style=\"text-align: justify;\"><b>_</b><span style=\"font-weight: 400;\"> Khi không sử dụng kính áp tròng thì bạn phải cất kính áp tròng vào hộp hoặc dụng cụ bảo vệ kính áp tròng, để tránh các tác động bên ngoài làm </span><b>kính áp tròng bị rách </b><span style=\"font-weight: 400;\">như vô tình làm rơi kính xuống đất, hoặc vô tình để những vật dụng khác đụng phải kính.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">_ Khi rửa kính phải sử dụng nước rửa chuyên dụng để tránh làm tổn hại đến kính áp tròng hoặc có thể làm </span><b>kính áp tròng bị rách.</b></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Trên đây là một số chia sẻ về việc có nên sử dụng </span><b>kính áp tròng bị rách</b><span style=\"font-weight: 400;\"> hay không và cách bảo quản kính áp tròng để tránh làm rách chúng. Hy vọng qua một số  chia sẻ của bài viết sẽ giúp cho bạn có thêm một số kiến thức về việc sử dụng kính áp tròng.</span></p>', 'Kính áp tròng bị rách có nên sử dụng', '', 'publish', 'closed', 'closed', '', 'kinh-ap-trong-bi-rach-co-nen-su-dung', '', '', '2019-07-31 13:15:16', '2019-07-31 13:15:16', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=news&#038;p=211', 0, 'news', '', 0),
+(212, 1, '2019-07-31 13:09:31', '2019-07-31 13:09:31', '', 'kinh-ap-trong__2__large', '', 'inherit', 'open', 'closed', '', 'kinh-ap-trong__2__large', '', '', '2019-07-31 13:09:31', '2019-07-31 13:09:31', '', 211, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/07/kinh-ap-trong__2__large.jpg', 0, 'attachment', 'image/jpeg', 0),
+(213, 1, '2019-07-31 13:48:30', '2019-07-31 13:48:30', '<strong><i>Kính mát gọng tròn</i><i> có gì hot để trở thành trendy cho giới trẻ toàn thế giới như vậy? Bạn có phù hợp với mẫu kính gọng tròn không? Hãy cùng bài viết tìm hiểu nhé!</i></strong>\r\n\r\n<span style=\"font-weight: 400;\">Sự đòi hỏi tính thẩm mỹ cao của người tiêu dùng khiến cho ngày càng nhiều thiết kế mới lạ, độc đáo của kính thời trang ra đời. </span><b>Kính mát gọng tròn </b><span style=\"font-weight: 400;\">là một trong số đó. Lúc đầu nhìn nó có vẻ hơi ngố, nhưng chính sự lạ lẫm đó lại khiến nó được yêu thích và săn lùng bởi giới trẻ!</span>\r\n<h2><b>Kính mát gọng tròn có gì hot?</b></h2>\r\n<b>Kính mát gọng tròn</b><span style=\"font-weight: 400;\"> là loại kính có thiết kế phần gọng kính hình tròn hoặc bầu dục cùng với tròng kính là kính mát với nhiều màu sắc đa dạng.</span>\r\n\r\n<span style=\"font-weight: 400;\">Kính gọng tròn mang hơi hướng của mọt sách điển hình, tưởng như không có gì trendy hay bắt mắt nhưng nó lại được yêu thích bởi sự dễ thương, lạ lẫm mà nó mang đến cho người sử dụng. Bất kể bạn có chút già dặn hay sắc sảo, chiếc </span><b>kính mát gọng tròn</b><span style=\"font-weight: 400;\"> thần kỳ đều có thể hô biến bạn trẻ ra vài tuổi, đầy vẻ ngây thơ và đáng yêu khó cưỡng.</span>\r\n\r\n<span style=\"font-weight: 400;\">Thiết kế gọng tròn là điểm nhấn tạo nên sự cuốn hút và độc đáo của kính mát gọng tròn. Chiếc kính được trau chuốt tỉ mỉ từng chi tiết, thêm thắt những đường nét tinh tế, sáng tạo, khiến cho chúng dù đơn giản vẫn không hề cũ hay nhàm chán, trở thành phụ kiện thời trang hoàn hảo cho người sử dụng.</span>\r\n\r\n<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"//file.hstatic.net/1000269337/file/kinh-gong__1__653412629b9343d791c3a33b3dc7345f_grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Vẻ ngây thơ khó cưỡng của kính mát gọng tròn</span></i></p>\r\n<span style=\"font-weight: 400;\">Dù không phải xu hướng mới nhưng có vẻ </span><b>kính mát gọng tròn</b><span style=\"font-weight: 400;\"> vẫn chưa hề hạ nhiệt, thậm chí lan tỏa mạnh mẽ hơn, đặc biệt với chị em Á Đông yêu thích vẻ đẹp mong manh, cute lạc lối!</span>\r\n\r\n<span style=\"font-weight: 400;\">Điều đặc biệt là nó còn phù hợp với cả những anh chàng yêu thích phong cách trẻ trung, năng động nữa đó!</span>\r\n\r\n<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"//file.hstatic.net/1000269337/file/kinh-gong__2__df89dc6406e8462d9477d2b698a8ee72_grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Kính mát gọng tròn cho nam</span></i></p>\r\n\r\n<h2><b>Ai nên đeo kính gọng tròn</b></h2>\r\n<span style=\"font-weight: 400;\">Người có khuôn mặt trái xoan đẹp với mọi loại kính, và </span><b>kính mát gọng tròn</b><span style=\"font-weight: 400;\"> cũng không ngoại lệ.</span>\r\n\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__1__grande.png\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Kính mát gọng tròn cho khuôn mặt trái xoan</span></i></p>\r\n<span style=\"font-weight: 400;\">Bên cạnh khuôn mặt trái xoan</span><b>, kính mát gọng tròn</b><span style=\"font-weight: 400;\"> đặc biệt phù hợp với người có khuôn mặt vuông hoặc góc cạnh. Những đường nét tròn mềm mại sẽ trở thành bàn tay photoshop thần kỳ làm nhẹ đi những đường nét thô cứng, mang vẻ ngoài hài hòa, nhẹ nhàng cho chủ nhân của nó.</span>\r\n\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__4__a156f7e0c8cc47b5be00b034e82903d2_grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Kính mát gọng tròn cho mặt vuông</span></i></p>\r\n<b>Kính mát gọng tròn</b><span style=\"font-weight: 400;\"> có nhiều thiết kế khác nhau phù hợp với nhiều gu thời trang, thẩm mỹ và sở thích để bạn thỏa thích lựa chọn.</span>\r\n\r\n<span style=\"font-weight: 400;\">Kính gọng tròn trắng không độ đậm chất mọt sách phù hợp cho những bạn đang đi học, mặc cùng đồng phục nhà trường là hợp nhất, biến bạn thành một học sinh ngoan hiền số 1!</span>\r\n\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__3__20b7617906a442e18406963b1e6f4383_grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Kính mát gọng tròn cho teen</span></i></p>\r\n<span style=\"font-weight: 400;\">Kính gọng tròn có màu phù hợp cho tất cả lứa tuổi, tất cả gu thời trang từ nữ tính đến bụi bặm, dùng cho các dịp đi chơi, tụ tập bạn bè, vô cùng cá tính và thu hút.</span>\r\n\r\n<span style=\"font-weight: 400;\">Bạn có hợp với </span><b>kính mát gọng tròn</b><span style=\"font-weight: 400;\"> không? Đừng bỏ lỡ cơ hội làm mới mình với những chiếc kính gọng tròn đáng yêu tại Mắt kính Hato nha!</span>', 'Kính mát gọng tròn – trendy giới trẻ', '', 'publish', 'closed', 'closed', '', 'kinh-mat-gong-tron-trendy-gioi-tre', '', '', '2019-07-31 13:48:30', '2019-07-31 13:48:30', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=news&#038;p=213', 0, 'news', '', 0),
+(214, 1, '2019-07-31 13:48:26', '2019-07-31 13:48:26', '', 'kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large', '', 'inherit', 'open', 'closed', '', 'kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large', '', '', '2019-07-31 13:48:26', '2019-07-31 13:48:26', '', 213, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/07/kinh-gong__1__8396dfc02fd84e28a10f1a0f3496c125_large.jpg', 0, 'attachment', 'image/jpeg', 0),
+(215, 1, '2019-07-31 13:52:57', '2019-07-31 13:52:57', '<div class=\"article-loop-desc\">\r\n<p style=\"text-align: justify;\"><strong><i>Gọng kính cận dáng mắt mèo</i><i> từ lâu không chỉ là kính thuốc mà còn là phụ kiện thời trang tạo nên vẻ đẹp sang chảnh, quý phái cho người sử dụng, đặc biệt là phái nữ. Nó có kén người dùng không? Câu trả lời sẽ có trong bài viết sau đây.</i></strong></p>\r\n<p style=\"text-align: justify;\"><b>Gọng kính cận dáng mắt mèo</b><span style=\"font-weight: 400;\"> có đặc điểm nổi bật là hai góc trên của góc nhếch lên và nối liền với cán gọng theo đường cong mềm mại. Ban đầu,</span> <span style=\"font-weight: 400;\">nó được tạo ra để đeo kính thiên văn. Nhưng sau đó nó đã trở thành xu hướng thời trang, được yêu thích bởi nhiều nữ diễn viên Hollywood như </span><span style=\"font-weight: 400;\">Audrey Hepburn,</span><span style=\"font-weight: 400;\"> Marilyn Monroe, Grace Kelly và Elizabeth Taylor, …</span></p>\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__3__grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Kính mắt mèo thời kỳ đầu có gọng lớn và mắt kính nhỏ</span></i></p>\r\n\r\n<h2 style=\"text-align: justify;\"><b>Gọng kính cận dáng mắt mèo phù hợp với khuôn mặt nào?</b></h2>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Thiết kế cổ điển của </span><b>gọng kính cận dáng</b> <b>mắt mèo</b><span style=\"font-weight: 400;\"> hầu như chỉ phù hợp với khuôn mặt gầy và trái xoan. Tuy nhiên, ngày nay, nhờ những biến tấu dung hòa giữa nét retro cổ điển và xu hướng hiện đại, kính mắt mèo trở nên đa dạng với nhiều kiểu dáng, kích thước, hoa văn khác nhau, phù hợp cho hầu hết khuôn mặt và phong cách thời trang.</span></p>\r\n<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"//file.hstatic.net/1000269337/file/kinh-gong__1__grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Gọng kính cận dáng mắt mèo mềm mại, nhẹ nhàng hơn</span></i></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Mẫu gọng này sẽ đẹp nhất với những khuôn mặt hình tam giác, hình tròn, trái xoan và hình vuông và tuân thủ nguyên tắc đối lập giữa gọng kính và khuôn mặt.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Sở hữu gương mặt tròn trịa, để tao cảm giác thon dài, cân đối, bạn nên chọn kính bản lớn với phần kính bằng hoặc rộng hơn phần rộng nhất trên khuôn mặt, gọng kính chéo lên phần thái dương là tuyệt vời nhất.</span></p>\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__4__grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Gọng kính mắt mèo cho người mặt tròn</span></i></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Với khuôn mặt vuông, chữ điền, tam giác, kim cương, bạn nên chọn gọng có nhiều đường cong tròn, to bản để xoa dịu các góc cạnh trên khuôn mặt, giúp khuôn mặt mềm mại và nhỏ gọn hơn. Tránh xa kính gọng vuông và kính ôm sát làm lộ đường nét thô kệch.</span></p>\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__6__grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Gọng kính mắt mèo cho khuôn mặt vuông</span></i></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Mặt trái xoan là dễ chọn kính nhất, tuy nhiên nên tránh chọn kính đen với gọng quá nhỏ và mảnh, làm khuôn mặt bị mất cân đối.</span></p>\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__5__grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Gọng kính mắt mèo cho khuôn mặt trái xoan</span></i></p>\r\n\r\n<h2 style=\"text-align: justify;\"><b>Gọng kính cận dáng mắt mèo phù hợp với thời trang nào?</b></h2>\r\n<p style=\"text-align: justify;\"><b>Gọng kính cận dáng mắt mèo</b><span style=\"font-weight: 400;\"> dễ kết hợp với mọi loại trang phục và phong cách.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Nếu bạn là một cô nàng cá tính, chiếc kính mắt mèo là phụ kiện hoàn hảo giúp bộ đồ bụi bặm hay menswear mạnh mẽ của bạn thêm phần hầm hố, táo bạo.</span></p>\r\n<img src=\"//file.hstatic.net/1000269337/file/kinh-gong__2__grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">Kính mắt mèo cân cả phong cách bụi bặm …</span></i></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Và ngược lại, nó sẽ trở nên thanh lịch, ngọt ngào nếu bạn kết hợp chúng cùng với chiếc váy dài với phông đậm màu sắc vintage lãng mạn, nhẹ nhàng.</span></p>\r\n<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"//file.hstatic.net/1000269337/file/kinh-gong__1__grande.jpg\" />\r\n<p style=\"text-align: center;\"><i><span style=\"font-weight: 400;\">… lẫn dịu dàng nữ tính</span></i></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Một chiếc kính với phong cách biến hóa linh hoạt trong vai trò phụ kiện!</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Về màu sắc, bạn cũng nên chọn </span><b>gọng kính cận dáng mắt mèo</b><span style=\"font-weight: 400;\"> phù hợp cho từng dịp. Trong các dịp cần sự nghiêm túc, bạn nên sử dụng gọng kính gam màu trầm. Còn trong các dịp tụ tập, du lịch, gọng kính to bản màu sắc sặc sỡ là phụ kiện thời trang không thể thiếu cho bạn vẻ ngoài nổi bật và ấn tượng.</span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Nếu yêu thích vẻ sang chảnh của </span><b>gọng kính cận dáng mắt mèo,</b><span style=\"font-weight: 400;\"> đừng chần chừ chọn ngay cho mình một chiếc phù hợp với mình tại Mắt kính Hato với nhiều kiểu dáng và mức giá ưu đãi nhé!</span></p>\r\n\r\n</div>', 'Gọng kính cận dáng mắt mèo – kính thuốc thời trang', '', 'publish', 'closed', 'closed', '', 'gong-kinh-can-dang-mat-meo-kinh-thuoc-thoi-trang', '', '', '2019-07-31 13:52:57', '2019-07-31 13:52:57', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=news&#038;p=215', 0, 'news', '', 0),
+(216, 1, '2019-07-31 13:52:54', '2019-07-31 13:52:54', '', 'kinh-gong__1__large', '', 'inherit', 'open', 'closed', '', 'kinh-gong__1__large', '', '', '2019-07-31 13:52:54', '2019-07-31 13:52:54', '', 215, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/07/kinh-gong__1__large.jpg', 0, 'attachment', 'image/jpeg', 0),
+(217, 1, '2019-07-31 13:55:03', '2019-07-31 13:55:03', '<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><b><i>Kính nhìn xuyên đêm</i></b><i><span style=\"font-weight: 400;\"> là gì? </span></i><b><i>Tự tạo kính nhìn xuyên đêm</i></b><i><span style=\"font-weight: 400;\"> như thế nào? Đó là những băn khoăn mà hầu hết mọi người đặt ra khi tìm hiểu về vấn đề này.</span></i></span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><b>Kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> tưởng như rất hiện đại, cấu trúc tinh vy. Tuy nhiên, để tự tạo kính nhìn xuyên đêm lại cực kỳ đơn giản và dễ dàng. Chỉ với một số vật dụng đơn giản, chúng ta đã có thể </span><b>tự tạo kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> cho riêng mình.</span></span></p>\r\n\r\n<h2 style=\"text-align: justify;\"><span style=\"font-size: 15pt;\"><b>Kính nhìn xuyên đêm là gì?</b></span></h2>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><span style=\"font-weight: 400;\">-</span><b>Kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> còn có tên gọi khác là kính hồng ngoại. Nếu như trong quân sự thì đây là loại kính được trang bị đặc biệt giúp người đeo có thể nhận diện hay quan sát một cách dễ dàng các sự vật trong đêm tối, thiếu ánh sáng.</span></span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><span style=\"font-weight: 400;\">-Tuy nhiên, </span><b>kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> được bán trên thị trường lại khác. Đó là loại kính chống lại các ánh sáng từ đèn pha xe máy, ôtô, giúp bảo vệ mắt trong quá trình điều khiển phương tiện. Không chỉ vậy, loại kính này giúp bạn có tầm nhìn tốt hơn khi lưu thông trên đường.</span></span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><span style=\"font-weight: 400;\">-</span><b>Kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> còn được gọi là kính đi đêm. Chỉ với những nguyên liệu đơn giản, chúng ta đã có thể </span><b>tự tạo kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\">.</span></span></p>\r\n<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"//file.hstatic.net/1000269337/file/tu-tao-kinh-nhin-xuyen-dem-02_grande.jpg\" alt=\"Kính nhìn xuyên đêm\" />\r\n<p style=\"text-align: center;\"><span style=\"font-size: 11pt;\"><i><span style=\"font-weight: 400;\">                              Kính nhìn xuyên đêm vô cùng tiện dụng</span></i></span></p>\r\n\r\n<h2 style=\"text-align: justify;\"><span style=\"font-size: 15pt;\"><b>Nên hay không việc tự tạo kính nhìn xuyên đêm?</b></span></h2>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><span style=\"font-weight: 400;\">-Mặc dù nguyên liệu tạo </span><b>kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> khá là đơn giản. Tuy nhiên các công đoạn để hoàn thành sản phẩm thì khá là phức tạp và cầu kỳ, mẫu mã cũng không được đẹp mắt. Vì vậy, </span><b>tự tạo kính nhìn xuyên đêm </b><span style=\"font-weight: 400;\">là giản đơn, song lời khuyên chúng tôi dành cho bạn là nên mua một chiếc </span><b>kính nhìn xuyên đêm.</b></span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><span style=\"font-weight: 400;\">-</span><b>Kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> đáp ứng được tất cả những nhu cầu mà người tự tạo đặt ra. Không chỉ vậy, giá thành của kính nhìn xuyên đêm lại không hề đắt. Mua ngay một chiếc </span><b>kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> vừa đẹp vừa không tốn công sức.</span></span></p>\r\n\r\n<h2 style=\"text-align: justify;\"><span style=\"font-size: 15pt;\"><b>Mua kính nhìn xuyên đêm ở đâu chất lượng và uy tín?</b></span></h2>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><span style=\"font-weight: 400;\">Mắt Kính Hàn Quốc Hato chắc chắn sẽ là sự lựa chọn hoàn hảo cho những ai đang lên kế hoạch sở hữu một chiếc </span><b>kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\">. Không chỉ riêng </span><b>kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\">, các sản phẩm mắt kính khác ở đây cũng rất đa dạng.</span></span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-weight: 400; font-size: 11pt;\">-Mắt Kính Hàn Quốc Hato sở hữu những mặt hàng mắt kính chất lượng nhất với mẫu mã đa dạng. Không chỉ vậy giá thành ở đây tương đối phải chăng với những chính sách giảm giá phù hợp, đặc biệt là ưu đãi miễn phí vận chuyển đối với những đơn hàng trên 500.000 đồng.</span></p>\r\n<img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"//file.hstatic.net/1000269337/file/tu-tao-kinh-nhin-xuyen-dem-01_grande.jpg\" alt=\"Kính nhìn xuyên đêm\" />\r\n<p style=\"text-align: center;\"><span style=\"font-size: 11pt;\"><i><span style=\"font-weight: 400;\">                                      Kính nhìn xuyên đêm Hato</span></i></span></p>\r\n<p style=\"text-align: justify;\"><span style=\"font-size: 11pt;\"><span style=\"font-weight: 400;\">Nếu các bạn còn băn khoăn về cách </span><b>tự tạo kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> thì đừng ngần ngại đến ngay cơ sở của Mắt Kính Hàn Quốc hoặc truy cập trực tiếp vào website </span><strong><a href=\"https://matkinhhanquoc.com/\">https://matkinhhanquoc.com/</a></strong><span style=\"font-weight: 400;\"> để sở hữu cho mình một chiếc </span><b>kính nhìn xuyên đêm</b><span style=\"font-weight: 400;\"> chất lượng.</span></span></p>', 'Nên hay không việc tự tạo kính nhìn xuyên đêm?', '', 'publish', 'closed', 'closed', '', 'nen-hay-khong-viec-tu-tao-kinh-nhin-xuyen-dem', '', '', '2019-07-31 13:55:11', '2019-07-31 13:55:11', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=news&#038;p=217', 0, 'news', '', 0),
+(218, 1, '2019-07-31 13:54:58', '2019-07-31 13:54:58', '', 'tu-tao-kinh-nhin-xuyen-dem-02_large', '', 'inherit', 'open', 'closed', '', 'tu-tao-kinh-nhin-xuyen-dem-02_large', '', '', '2019-07-31 13:54:58', '2019-07-31 13:54:58', '', 217, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/07/tu-tao-kinh-nhin-xuyen-dem-02_large.jpg', 0, 'attachment', 'image/jpeg', 0),
+(219, 1, '2019-08-01 14:13:49', '2019-08-01 14:13:49', '', 'Chính sách', '', 'publish', 'closed', 'closed', '', 'policy', '', '', '2019-08-01 14:14:27', '2019-08-01 14:14:27', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=219', 0, 'page', '', 0),
+(220, 1, '2019-08-01 14:13:49', '2019-08-01 14:13:49', '', 'Policy', '', 'inherit', 'closed', 'closed', '', '219-revision-v1', '', '', '2019-08-01 14:13:49', '2019-08-01 14:13:49', '', 219, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=220', 0, 'revision', '', 0),
+(221, 1, '2019-08-01 14:14:27', '2019-08-01 14:14:27', '', 'Chính sách', '', 'inherit', 'closed', 'closed', '', '219-revision-v1', '', '', '2019-08-01 14:14:27', '2019-08-01 14:14:27', '', 219, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=221', 0, 'revision', '', 0),
+(222, 1, '2019-08-01 14:15:14', '2019-08-01 14:15:14', '', 'Hướng dẫn mua hàng online', '', 'publish', 'closed', 'closed', '', 'huong-dan-mua-hang-online', '', '', '2019-08-01 14:15:14', '2019-08-01 14:15:14', '', 219, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=222', 0, 'page', '', 0),
+(223, 1, '2019-08-01 14:15:14', '2019-08-01 14:15:14', '', 'Hướng dẫn mua hàng online', '', 'inherit', 'closed', 'closed', '', '222-revision-v1', '', '', '2019-08-01 14:15:14', '2019-08-01 14:15:14', '', 222, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=223', 0, 'revision', '', 0),
+(224, 1, '2019-08-01 14:15:27', '2019-08-01 14:15:27', '<h4><em><strong>Giới thiệu</strong></em></h4>\r\n&nbsp;\r\n\r\nChào mừng quý khách hàng đến với website chúng tôi.\r\n\r\nKhi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.\r\n\r\nQuý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.\r\n<h4><strong>Hướng dẫn sử dụng website</strong></h4>\r\n&nbsp;\r\n\r\nTrong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.\r\n<h4><strong>Thanh toán an toàn và tiện lợi</strong></h4>\r\n&nbsp;\r\n\r\n<strong>Chỉ áp dụng cho các đơn hàng từ 10 sản phẩm trở lên.</strong>\r\n\r\nNgười mua có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương thức phù hợp:<br/>\r\n\r\n<strong><u>Cách 1</u></strong>: Thanh toán trực tiếp (người mua nhận hàng tại địa chỉ người bán)<br/>\r\n\r\n<strong><u>Cách 2</u>:</strong> Thanh toán sau (COD – giao hàng và thu tiền tận nơi)<br/>\r\n\r\n<strong><u>Cách 3</u>:</strong> Thanh toán qua chuyển khoản<br/><br/>\r\n\r\n&nbsp;\r\n\r\n<strong>Số tài khoản: 700 011 369099, </strong><strong>S</strong><strong>HINHAN</strong> <strong>Bank- CN Phú Mỹ Hưng, Q7, Hồ Chí Minh</strong>', 'Chính sách thanh toán, giao nhận', '', 'publish', 'closed', 'closed', '', 'chinh-sach-thanh-toan-giao-nhan', '', '', '2019-08-01 18:15:14', '2019-08-01 18:15:14', '', 219, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=224', 0, 'page', '', 0),
+(225, 1, '2019-08-01 14:15:27', '2019-08-01 14:15:27', '', 'Chính sách thanh toán, giao nhận', '', 'inherit', 'closed', 'closed', '', '224-revision-v1', '', '', '2019-08-01 14:15:27', '2019-08-01 14:15:27', '', 224, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=225', 0, 'revision', '', 0),
+(226, 1, '2019-08-01 14:15:36', '2019-08-01 14:15:36', 'Chính sách bảo mật này nhằm giúp Quý khách hiểu về cách website thu thập và sử dụng thông tin cá nhân của mình thông qua việc sử dụng trang web, bao gồm mọi thông tin có thể cung cấp thông qua trang web khi Quý khách đăng ký tài khoản, đăng ký nhận thông tin liên lạc từ chúng tôi, hoặc khi Quý khách mua sản phẩm, dịch vụ, yêu cầu thêm thông tin dịch vụ từ chúng tôi.\r\n\r\nChúng tôi sử dụng thông tin cá nhân của Quý khách để liên lạc khi cần thiết liên quan đến việc Quý khách sử dụng website của chúng tôi, để trả lời các câu hỏi hoặc gửi tài liệu và thông tin Quý khách yêu cầu.\r\n\r\nTrang web của chúng tôi coi trọng việc bảo mật thông tin và sử dụng các biện pháp tốt nhất để bảo vệ thông tin cũng như việc thanh toán của khách hàng.\r\n\r\nMọi thông tin giao dịch sẽ được bảo mật ngoại trừ trong trường hợp cơ quan pháp luật yêu cầu.', 'Chính sách bảo mật', '', 'publish', 'closed', 'closed', '', 'chinh-sach-bao-mat', '', '', '2019-08-01 18:12:39', '2019-08-01 18:12:39', '', 219, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=226', 0, 'page', '', 0),
+(227, 1, '2019-08-01 14:15:36', '2019-08-01 14:15:36', '', 'Chính sách bảo mật', '', 'inherit', 'closed', 'closed', '', '226-revision-v1', '', '', '2019-08-01 14:15:36', '2019-08-01 14:15:36', '', 226, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=227', 0, 'revision', '', 0),
+(228, 1, '2019-08-01 14:15:46', '2019-08-01 14:15:46', 'fdsfsdfsdfs', 'Chính sách bảo hành', '', 'publish', 'closed', 'closed', '', 'chinh-sach-bao-hang', '', '', '2019-08-01 18:19:55', '2019-08-01 18:19:55', '', 219, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=228', 0, 'page', '', 0),
+(229, 1, '2019-08-01 14:15:46', '2019-08-01 14:15:46', '', 'Chính sách bảo hàng', '', 'inherit', 'closed', 'closed', '', '228-revision-v1', '', '', '2019-08-01 14:15:46', '2019-08-01 14:15:46', '', 228, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=229', 0, 'revision', '', 0),
+(230, 1, '2019-08-01 14:15:57', '2019-08-01 14:15:57', '<h4><em><strong>Điều kiện đổi trả</strong></em></h4>\r\n&nbsp;\r\n\r\nQuý Khách hàng cần kiểm tra tình trạng hàng hóa và có thể đổi hàng/ trả lại hàng ngay tại thời điểm giao/nhận hàng trong những trường hợp sau:\r\n<ul>\r\n 	<li>Hàng không đúng chủng loại, mẫu mã trong đơn hàng đã đặt hoặc như trên website tại thời điểm đặt hàng.</li>\r\n 	<li>Không đủ số lượng, không đủ bộ như trong đơn hàng.</li>\r\n 	<li>Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, bể vỡ…</li>\r\n</ul>\r\nKhách hàng có trách nhiệm trình giấy tờ liên quan chứng minh sự thiếu sót trên để hoàn thành việc hoàn trả/đổi trả hàng hóa.\r\n\r\n&nbsp;\r\n<h4><em><strong>Quy định về thời gian thông báo và gửi sản phẩm đổi trả</strong></em></h4>\r\n&nbsp;\r\n<ul>\r\n 	<li><strong>Thời gian thông báo đổi trả</strong>: trong vòng 48h kể từ khi nhận sản phẩm đối với trường hợp sản phẩm thiếu phụ kiện, quà tặng hoặc bể vỡ.</li>\r\n 	<li><strong>Thời gian gửi chuyển trả sản phẩm</strong>: trong vòng 14 ngày kể từ khi nhận sản phẩm.</li>\r\n 	<li><strong>Địa điểm đổi trả sản phẩm</strong>: Khách hàng có thể mang hàng trực tiếp đến văn phòng/ cửa hàng của chúng tôi hoặc chuyển qua đường bưu điện.</li>\r\n</ul>\r\nTrong trường hợp Quý Khách hàng có ý kiến đóng góp/khiếu nại liên quan đến chất lượng sản phẩm, Quý Khách hàng vui lòng liên hệ đường dây chăm sóc khách hàng của chúng tôi.', 'Chính sách đổi trả và hoàn tiền', '', 'publish', 'closed', 'closed', '', 'chinh-sach-doi-tra-va-hoan-tien', '', '', '2019-08-01 18:11:35', '2019-08-01 18:11:35', '', 219, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=230', 0, 'page', '', 0),
+(231, 1, '2019-08-01 14:15:57', '2019-08-01 14:15:57', '', 'Chính sách đổi trả và hoàn tiền', '', 'inherit', 'closed', 'closed', '', '230-revision-v1', '', '', '2019-08-01 14:15:57', '2019-08-01 14:15:57', '', 230, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=231', 0, 'revision', '', 0),
+(232, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '232', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=232', 1, 'nav_menu_item', '', 0),
+(233, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '233', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=233', 2, 'nav_menu_item', '', 0),
+(234, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '234', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=234', 3, 'nav_menu_item', '', 0),
+(235, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '235', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=235', 4, 'nav_menu_item', '', 0),
+(236, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '236', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=236', 5, 'nav_menu_item', '', 0),
+(237, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '237', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=237', 6, 'nav_menu_item', '', 0),
+(238, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '238', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=238', 7, 'nav_menu_item', '', 0),
+(239, 1, '2019-08-01 14:57:18', '2019-08-01 14:57:18', ' ', '', '', 'publish', 'closed', 'closed', '', '239', '', '', '2019-08-01 14:57:18', '2019-08-01 14:57:18', '', 49, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=239', 8, 'nav_menu_item', '', 0),
+(240, 1, '2019-08-01 15:32:08', '2019-08-01 15:32:08', '', 'Liên hệ', '', 'publish', 'closed', 'closed', '', 'lien-he%cc%a3', '', '', '2019-08-01 16:24:02', '2019-08-01 16:24:02', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=240', 0, 'page', '', 0),
+(241, 1, '2019-08-01 15:32:08', '2019-08-01 15:32:08', '', 'Liên hệ', '', 'inherit', 'closed', 'closed', '', '240-revision-v1', '', '', '2019-08-01 15:32:08', '2019-08-01 15:32:08', '', 240, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=241', 0, 'revision', '', 0),
+(242, 1, '2019-08-01 15:32:22', '2019-08-01 15:32:22', ' ', '', '', 'publish', 'closed', 'closed', '', '242', '', '', '2019-08-01 15:32:22', '2019-08-01 15:32:22', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=242', 15, 'nav_menu_item', '', 0);
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
+(243, 1, '2019-08-01 17:23:20', '2019-08-01 17:23:20', '[text* text-382 class:form-control placeholder \"Họ tên của bạn\"]\r\n\r\n[email* email-594 class:form-control placeholder \"Địa chỉ email\"]\r\n\r\n[text* text-384 class:form-control placeholder \"Số điện thoại\"]\r\n\r\n[textarea* textarea-152 class:form-control placeholder \"Nội dung\"]\r\n\r\n[submit class:btn class:btn-default \"Send\"]\n1\nKorea Sonata Contact\nKorea Sonata <caohoang2911@gmail.com>\n[email-594]\nName: [text-382]\r\n\r\nEmail: [email-594]\r\n\r\nPhone: [text-384]\r\n\r\nMessage: [textarea-152]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on My Project (http://localhost/2018/freelancer/BE/sotana_lens)\n\n\n\n\n\nMy Project \"[your-subject]\"\nMy Project <caohoang2911@gmail.com>\n[your-email]\nMessage Body:\r\n[your-message]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on My Project (http://localhost/2018/freelancer/BE/sotana_lens)\nReply-To: caohoang2911@gmail.com\n\n\n\nThank you for your message. It has been sent.\nThere was an error trying to send your message. Please try again later.\nOne or more fields have an error. Please check and try again.\nThere was an error trying to send your message. Please try again later.\nYou must accept the terms and conditions before sending your message.\nThe field is required.\nThe field is too long.\nThe field is too short.\nThe date format is incorrect.\nThe date is before the earliest one allowed.\nThe date is after the latest one allowed.\nThere was an unknown error uploading the file.\nYou are not allowed to upload files of this type.\nThe file is too big.\nThere was an error uploading the file.\nThe number format is invalid.\nThe number is smaller than the minimum allowed.\nThe number is larger than the maximum allowed.\nThe answer to the quiz is incorrect.\nYour entered code is incorrect.\nThe e-mail address entered is invalid.\nThe URL is invalid.\nThe telephone number is invalid.', 'Contact form', '', 'publish', 'closed', 'closed', '', 'contact-form-1', '', '', '2019-08-01 17:47:10', '2019-08-01 17:47:10', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=wpcf7_contact_form&#038;p=243', 0, 'wpcf7_contact_form', '', 0),
+(244, 1, '2019-08-01 18:05:34', '2019-08-01 18:05:34', 'fdsfsdfsdfs', 'Chính sách bảo hàng', '', 'inherit', 'closed', 'closed', '', '228-revision-v1', '', '', '2019-08-01 18:05:34', '2019-08-01 18:05:34', '', 228, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=244', 0, 'revision', '', 0),
+(245, 1, '2019-08-01 18:09:52', '2019-08-01 18:09:52', '<ol>\r\n 	<li><strong>Điều kiện đổi trả</strong></li>\r\n</ol>\r\nQuý Khách hàng cần kiểm tra tình trạng hàng hóa và có thể đổi hàng/ trả lại hàng ngay tại thời điểm giao/nhận hàng trong những trường hợp sau:\r\n<ul>\r\n 	<li>Hàng không đúng chủng loại, mẫu mã trong đơn hàng đã đặt hoặc như trên website tại thời điểm đặt hàng.</li>\r\n 	<li>Không đủ số lượng, không đủ bộ như trong đơn hàng.</li>\r\n 	<li>Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, bể vỡ…</li>\r\n</ul>\r\nKhách hàng có trách nhiệm trình giấy tờ liên quan chứng minh sự thiếu sót trên để hoàn thành việc hoàn trả/đổi trả hàng hóa.\r\n\r\n&nbsp;\r\n<ol start=\"2\">\r\n 	<li><strong>Quy định về thời gian thông báo và gửi sản phẩm đổi trả</strong></li>\r\n</ol>\r\n<ul>\r\n 	<li><strong>Thời gian thông báo đổi trả</strong>: trong vòng 48h kể từ khi nhận sản phẩm đối với trường hợp sản phẩm thiếu phụ kiện, quà tặng hoặc bể vỡ.</li>\r\n 	<li><strong>Thời gian gửi chuyển trả sản phẩm</strong>: trong vòng 14 ngày kể từ khi nhận sản phẩm.</li>\r\n 	<li><strong>Địa điểm đổi trả sản phẩm</strong>: Khách hàng có thể mang hàng trực tiếp đến văn phòng/ cửa hàng của chúng tôi hoặc chuyển qua đường bưu điện.</li>\r\n</ul>\r\nTrong trường hợp Quý Khách hàng có ý kiến đóng góp/khiếu nại liên quan đến chất lượng sản phẩm, Quý Khách hàng vui lòng liên hệ đường dây chăm sóc khách hàng của chúng tôi.', 'Chính sách đổi trả và hoàn tiền', '', 'inherit', 'closed', 'closed', '', '230-revision-v1', '', '', '2019-08-01 18:09:52', '2019-08-01 18:09:52', '', 230, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=245', 0, 'revision', '', 0),
+(246, 1, '2019-08-01 18:11:17', '2019-08-01 18:11:17', '<h4><em><strong>Điều kiện đổi trả</strong></em></h4>\nQuý Khách hàng cần kiểm tra tình trạng hàng hóa và có thể đổi hàng/ trả lại hàng ngay tại thời điểm giao/nhận hàng trong những trường hợp sau:\n<ul>\n 	<li>Hàng không đúng chủng loại, mẫu mã trong đơn hàng đã đặt hoặc như trên website tại thời điểm đặt hàng.</li>\n 	<li>Không đủ số lượng, không đủ bộ như trong đơn hàng.</li>\n 	<li>Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, bể vỡ…</li>\n</ul>\nKhách hàng có trách nhiệm trình giấy tờ liên quan chứng minh sự thiếu sót trên để hoàn thành việc hoàn trả/đổi trả hàng hóa.\n\n&nbsp;\n<ol start=\"2\">\n 	<li><strong>Quy định về thời gian thông báo và gửi sản phẩm đổi trả</strong></li>\n</ol>\n<ul>\n 	<li><strong>Thời gian thông báo đổi trả</strong>: trong vòng 48h kể từ khi nhận sản phẩm đối với trường hợp sản phẩm thiếu phụ kiện, quà tặng hoặc bể vỡ.</li>\n 	<li><strong>Thời gian gửi chuyển trả sản phẩm</strong>: trong vòng 14 ngày kể từ khi nhận sản phẩm.</li>\n 	<li><strong>Địa điểm đổi trả sản phẩm</strong>: Khách hàng có thể mang hàng trực tiếp đến văn phòng/ cửa hàng của chúng tôi hoặc chuyển qua đường bưu điện.</li>\n</ul>\nTrong trường hợp Quý Khách hàng có ý kiến đóng góp/khiếu nại liên quan đến chất lượng sản phẩm, Quý Khách hàng vui lòng liên hệ đường dây chăm sóc khách hàng của chúng tôi.', 'Chính sách đổi trả và hoàn tiền', '', 'inherit', 'closed', 'closed', '', '230-autosave-v1', '', '', '2019-08-01 18:11:17', '2019-08-01 18:11:17', '', 230, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=246', 0, 'revision', '', 0),
+(247, 1, '2019-08-01 18:11:30', '2019-08-01 18:11:30', '<h4><em><strong>Điều kiện đổi trả</strong></em></h4>\r\n&nbsp;\r\n\r\nQuý Khách hàng cần kiểm tra tình trạng hàng hóa và có thể đổi hàng/ trả lại hàng ngay tại thời điểm giao/nhận hàng trong những trường hợp sau:\r\n<ul>\r\n 	<li>Hàng không đúng chủng loại, mẫu mã trong đơn hàng đã đặt hoặc như trên website tại thời điểm đặt hàng.</li>\r\n 	<li>Không đủ số lượng, không đủ bộ như trong đơn hàng.</li>\r\n 	<li>Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, bể vỡ…</li>\r\n</ul>\r\nKhách hàng có trách nhiệm trình giấy tờ liên quan chứng minh sự thiếu sót trên để hoàn thành việc hoàn trả/đổi trả hàng hóa.\r\n\r\n&nbsp;\r\n<h4><em><strong>Quy định về thời gian thông báo và gửi sản phẩm đổi trả</strong></em></h4>\r\n<ul>\r\n 	<li><strong>Thời gian thông báo đổi trả</strong>: trong vòng 48h kể từ khi nhận sản phẩm đối với trường hợp sản phẩm thiếu phụ kiện, quà tặng hoặc bể vỡ.</li>\r\n 	<li><strong>Thời gian gửi chuyển trả sản phẩm</strong>: trong vòng 14 ngày kể từ khi nhận sản phẩm.</li>\r\n 	<li><strong>Địa điểm đổi trả sản phẩm</strong>: Khách hàng có thể mang hàng trực tiếp đến văn phòng/ cửa hàng của chúng tôi hoặc chuyển qua đường bưu điện.</li>\r\n</ul>\r\nTrong trường hợp Quý Khách hàng có ý kiến đóng góp/khiếu nại liên quan đến chất lượng sản phẩm, Quý Khách hàng vui lòng liên hệ đường dây chăm sóc khách hàng của chúng tôi.', 'Chính sách đổi trả và hoàn tiền', '', 'inherit', 'closed', 'closed', '', '230-revision-v1', '', '', '2019-08-01 18:11:30', '2019-08-01 18:11:30', '', 230, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=247', 0, 'revision', '', 0),
+(248, 1, '2019-08-01 18:11:35', '2019-08-01 18:11:35', '<h4><em><strong>Điều kiện đổi trả</strong></em></h4>\r\n&nbsp;\r\n\r\nQuý Khách hàng cần kiểm tra tình trạng hàng hóa và có thể đổi hàng/ trả lại hàng ngay tại thời điểm giao/nhận hàng trong những trường hợp sau:\r\n<ul>\r\n 	<li>Hàng không đúng chủng loại, mẫu mã trong đơn hàng đã đặt hoặc như trên website tại thời điểm đặt hàng.</li>\r\n 	<li>Không đủ số lượng, không đủ bộ như trong đơn hàng.</li>\r\n 	<li>Tình trạng bên ngoài bị ảnh hưởng như rách bao bì, bong tróc, bể vỡ…</li>\r\n</ul>\r\nKhách hàng có trách nhiệm trình giấy tờ liên quan chứng minh sự thiếu sót trên để hoàn thành việc hoàn trả/đổi trả hàng hóa.\r\n\r\n&nbsp;\r\n<h4><em><strong>Quy định về thời gian thông báo và gửi sản phẩm đổi trả</strong></em></h4>\r\n&nbsp;\r\n<ul>\r\n 	<li><strong>Thời gian thông báo đổi trả</strong>: trong vòng 48h kể từ khi nhận sản phẩm đối với trường hợp sản phẩm thiếu phụ kiện, quà tặng hoặc bể vỡ.</li>\r\n 	<li><strong>Thời gian gửi chuyển trả sản phẩm</strong>: trong vòng 14 ngày kể từ khi nhận sản phẩm.</li>\r\n 	<li><strong>Địa điểm đổi trả sản phẩm</strong>: Khách hàng có thể mang hàng trực tiếp đến văn phòng/ cửa hàng của chúng tôi hoặc chuyển qua đường bưu điện.</li>\r\n</ul>\r\nTrong trường hợp Quý Khách hàng có ý kiến đóng góp/khiếu nại liên quan đến chất lượng sản phẩm, Quý Khách hàng vui lòng liên hệ đường dây chăm sóc khách hàng của chúng tôi.', 'Chính sách đổi trả và hoàn tiền', '', 'inherit', 'closed', 'closed', '', '230-revision-v1', '', '', '2019-08-01 18:11:35', '2019-08-01 18:11:35', '', 230, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=248', 0, 'revision', '', 0),
+(249, 1, '2019-08-01 18:12:39', '2019-08-01 18:12:39', 'Chính sách bảo mật này nhằm giúp Quý khách hiểu về cách website thu thập và sử dụng thông tin cá nhân của mình thông qua việc sử dụng trang web, bao gồm mọi thông tin có thể cung cấp thông qua trang web khi Quý khách đăng ký tài khoản, đăng ký nhận thông tin liên lạc từ chúng tôi, hoặc khi Quý khách mua sản phẩm, dịch vụ, yêu cầu thêm thông tin dịch vụ từ chúng tôi.\r\n\r\nChúng tôi sử dụng thông tin cá nhân của Quý khách để liên lạc khi cần thiết liên quan đến việc Quý khách sử dụng website của chúng tôi, để trả lời các câu hỏi hoặc gửi tài liệu và thông tin Quý khách yêu cầu.\r\n\r\nTrang web của chúng tôi coi trọng việc bảo mật thông tin và sử dụng các biện pháp tốt nhất để bảo vệ thông tin cũng như việc thanh toán của khách hàng.\r\n\r\nMọi thông tin giao dịch sẽ được bảo mật ngoại trừ trong trường hợp cơ quan pháp luật yêu cầu.', 'Chính sách bảo mật', '', 'inherit', 'closed', 'closed', '', '226-revision-v1', '', '', '2019-08-01 18:12:39', '2019-08-01 18:12:39', '', 226, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=249', 0, 'revision', '', 0),
+(250, 1, '2019-08-01 18:13:26', '2019-08-01 18:13:26', '<ol>\r\n 	<li><strong>Giới thiệu</strong></li>\r\n</ol>\r\nChào mừng quý khách hàng đến với website chúng tôi.\r\n\r\nKhi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.\r\n\r\nQuý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.\r\n<ol start=\"2\">\r\n 	<li><strong>Hướng dẫn sử dụng website</strong></li>\r\n</ol>\r\nTrong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.\r\n<ol start=\"3\">\r\n 	<li><strong>Thanh toán an toàn và tiện lợi</strong></li>\r\n</ol>\r\n<strong>Chỉ áp dụng cho các đơn hàng từ 10 sản phẩm trở lên.</strong>\r\n\r\nNgười mua có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương thức phù hợp:\r\n\r\n<strong><u>Cách 1</u></strong>: Thanh toán trực tiếp (người mua nhận hàng tại địa chỉ người bán)\r\n<strong><u>Cách 2</u>:</strong> Thanh toán sau (COD – giao hàng và thu tiền tận nơi)\r\n<strong><u>Cách 3</u>:</strong> Thanh toán qua chuyển khoản\r\n\r\n<strong>Số tài khoản: 700 011 369099, </strong><strong>S</strong><strong>HINHAN</strong> <strong>Bank- CN Phú Mỹ Hưng, Q7, Hồ Chí Minh</strong>', 'Chính sách thanh toán, giao nhận', '', 'inherit', 'closed', 'closed', '', '224-revision-v1', '', '', '2019-08-01 18:13:26', '2019-08-01 18:13:26', '', 224, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=250', 0, 'revision', '', 0),
+(251, 1, '2019-08-01 18:14:07', '2019-08-01 18:14:07', '<h4><em><strong>Giới thiệu</strong></em></h4>\r\n&nbsp;\r\n\r\nChào mừng quý khách hàng đến với website chúng tôi.\r\n\r\nKhi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.\r\n\r\nQuý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.\r\n<h4><strong>Hướng dẫn sử dụng website</strong></h4>\r\n&nbsp;\r\n\r\nTrong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.\r\n<h4><strong>Thanh toán an toàn và tiện lợi</strong></h4>\r\n&nbsp;\r\n\r\n<strong>Chỉ áp dụng cho các đơn hàng từ 10 sản phẩm trở lên.</strong>\r\n\r\nNgười mua có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương thức phù hợp:\r\n\r\n<strong><u>Cách 1</u></strong>: Thanh toán trực tiếp (người mua nhận hàng tại địa chỉ người bán)\r\n<strong><u>Cách 2</u>:</strong> Thanh toán sau (COD – giao hàng và thu tiền tận nơi)\r\n<strong><u>Cách 3</u>:</strong> Thanh toán qua chuyển khoản\r\n\r\n<strong>Số tài khoản: 700 011 369099, </strong><strong>S</strong><strong>HINHAN</strong> <strong>Bank- CN Phú Mỹ Hưng, Q7, Hồ Chí Minh</strong>', 'Chính sách thanh toán, giao nhận', '', 'inherit', 'closed', 'closed', '', '224-revision-v1', '', '', '2019-08-01 18:14:07', '2019-08-01 18:14:07', '', 224, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=251', 0, 'revision', '', 0),
+(252, 1, '2019-08-01 18:14:28', '2019-08-01 18:14:28', '<h4><em><strong>Giới thiệu</strong></em></h4>\r\n&nbsp;\r\n\r\nChào mừng quý khách hàng đến với website chúng tôi.\r\n\r\nKhi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.\r\n\r\nQuý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.\r\n<h4><strong>Hướng dẫn sử dụng website</strong></h4>\r\n&nbsp;\r\n\r\nTrong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.\r\n<h4><strong>Thanh toán an toàn và tiện lợi</strong></h4>\r\n&nbsp;\r\n\r\n<strong>Chỉ áp dụng cho các đơn hàng từ 10 sản phẩm trở lên.</strong>\r\n\r\nNgười mua có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương thức phù hợp:\r\n\r\n&nbsp;\r\n\r\n<strong><u>Cách 1</u></strong>: Thanh toán trực tiếp (người mua nhận hàng tại địa chỉ người bán)\r\n\r\n<strong><u>Cách 2</u>:</strong> Thanh toán sau (COD – giao hàng và thu tiền tận nơi)\r\n\r\n<strong><u>Cách 3</u>:</strong> Thanh toán qua chuyển khoản\r\n\r\n&nbsp;\r\n\r\n<strong>Số tài khoản: 700 011 369099, </strong><strong>S</strong><strong>HINHAN</strong> <strong>Bank- CN Phú Mỹ Hưng, Q7, Hồ Chí Minh</strong>', 'Chính sách thanh toán, giao nhận', '', 'inherit', 'closed', 'closed', '', '224-revision-v1', '', '', '2019-08-01 18:14:28', '2019-08-01 18:14:28', '', 224, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=252', 0, 'revision', '', 0),
+(253, 1, '2019-08-01 18:14:57', '2019-08-01 18:14:57', '<h4><em><strong>Giới thiệu</strong></em></h4>\r\n&nbsp;\r\n\r\nChào mừng quý khách hàng đến với website chúng tôi.\r\n\r\nKhi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.\r\n\r\nQuý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.\r\n<h4><strong>Hướng dẫn sử dụng website</strong></h4>\r\n&nbsp;\r\n\r\nTrong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.\r\n<h4><strong>Thanh toán an toàn và tiện lợi</strong></h4>\r\n&nbsp;\r\n\r\n<strong>Chỉ áp dụng cho các đơn hàng từ 10 sản phẩm trở lên.</strong>\r\n\r\nNgười mua có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương thức phù hợp:<br/>\r\n\r\n<strong><u>Cách 1</u></strong>: Thanh toán trực tiếp (người mua nhận hàng tại địa chỉ người bán)<br/>\r\n\r\n<strong><u>Cách 2</u>:</strong> Thanh toán sau (COD – giao hàng và thu tiền tận nơi)<br/>\r\n\r\n<strong><u>Cách 3</u>:</strong> Thanh toán qua chuyển khoản<br/>\r\n\r\n&nbsp;\r\n\r\n<strong>Số tài khoản: 700 011 369099, </strong><strong>S</strong><strong>HINHAN</strong> <strong>Bank- CN Phú Mỹ Hưng, Q7, Hồ Chí Minh</strong>', 'Chính sách thanh toán, giao nhận', '', 'inherit', 'closed', 'closed', '', '224-revision-v1', '', '', '2019-08-01 18:14:57', '2019-08-01 18:14:57', '', 224, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=253', 0, 'revision', '', 0),
+(254, 1, '2019-08-01 18:15:14', '2019-08-01 18:15:14', '<h4><em><strong>Giới thiệu</strong></em></h4>\r\n&nbsp;\r\n\r\nChào mừng quý khách hàng đến với website chúng tôi.\r\n\r\nKhi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.\r\n\r\nQuý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.\r\n<h4><strong>Hướng dẫn sử dụng website</strong></h4>\r\n&nbsp;\r\n\r\nTrong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.\r\n<h4><strong>Thanh toán an toàn và tiện lợi</strong></h4>\r\n&nbsp;\r\n\r\n<strong>Chỉ áp dụng cho các đơn hàng từ 10 sản phẩm trở lên.</strong>\r\n\r\nNgười mua có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương thức phù hợp:<br/>\r\n\r\n<strong><u>Cách 1</u></strong>: Thanh toán trực tiếp (người mua nhận hàng tại địa chỉ người bán)<br/>\r\n\r\n<strong><u>Cách 2</u>:</strong> Thanh toán sau (COD – giao hàng và thu tiền tận nơi)<br/>\r\n\r\n<strong><u>Cách 3</u>:</strong> Thanh toán qua chuyển khoản<br/><br/>\r\n\r\n&nbsp;\r\n\r\n<strong>Số tài khoản: 700 011 369099, </strong><strong>S</strong><strong>HINHAN</strong> <strong>Bank- CN Phú Mỹ Hưng, Q7, Hồ Chí Minh</strong>', 'Chính sách thanh toán, giao nhận', '', 'inherit', 'closed', 'closed', '', '224-revision-v1', '', '', '2019-08-01 18:15:14', '2019-08-01 18:15:14', '', 224, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=254', 0, 'revision', '', 0),
+(255, 1, '2019-08-01 18:19:27', '2019-08-01 18:19:27', '<h4><em><strong>Giới thiệu</strong></em></h4>\n&nbsp;\n\nChào mừng quý khách hàng đến với website chúng tôi.\n\nKhi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.\n\nQuý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.\n<h4><strong>Hướng dẫn sử dụng website</strong></h4>\n&nbsp;\n\nTrong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.\n<h4><strong>Thanh toán an toàn và tiện lợi</strong></h4>\n&nbsp;\n\n<strong>Chỉ áp dụng cho các đơn hàng từ 10 sản phẩm trở lên.</strong>\n\nNgười mua có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương thức phù hợp:\n\n<strong><u>Cách 1</u></strong>: Thanh toán trực tiếp (người mua nhận hàng tại địa chỉ người bán)\n\n<strong><u>Cách 2</u>:</strong> Thanh toán sau (COD – giao hàng và thu tiền tận nơi)\n\n<strong><u>Cách 3</u>:</strong> Thanh toán qua chuyển khoản\n\n&nbsp;\n\n<strong>Số tài khoản: 700 011 369099, </strong><strong>S</strong><strong>HINHAN</strong> <strong>Bank- CN Phú Mỹ Hưng, Q7, Hồ Chí Minh</strong>', 'Chính sách thanh toán, giao nhận', '', 'inherit', 'closed', 'closed', '', '224-autosave-v1', '', '', '2019-08-01 18:19:27', '2019-08-01 18:19:27', '', 224, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=255', 0, 'revision', '', 0),
+(256, 1, '2019-08-01 18:19:55', '2019-08-01 18:19:55', 'fdsfsdfsdfs', 'Chính sách bảo hành', '', 'inherit', 'closed', 'closed', '', '228-revision-v1', '', '', '2019-08-01 18:19:55', '2019-08-01 18:19:55', '', 228, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=256', 0, 'revision', '', 0),
+(257, 1, '2019-08-02 01:51:38', '2019-08-02 01:51:38', '', 'Search', '', 'publish', 'closed', 'closed', '', 'search', '', '', '2019-08-02 01:56:35', '2019-08-02 01:56:35', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=257', 0, 'page', '', 0),
+(258, 1, '2019-08-02 01:51:38', '2019-08-02 01:51:38', '', 'Search', '', 'inherit', 'closed', 'closed', '', '257-revision-v1', '', '', '2019-08-02 01:51:38', '2019-08-02 01:51:38', '', 257, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=258', 0, 'revision', '', 0),
+(260, 0, '2019-08-08 13:02:20', '2019-08-08 13:02:20', '[]', 'woocommerce_update_marketplace_suggestions', '', 'publish', 'open', 'closed', '', 'woocommerce_update_marketplace_suggestions-2', '', '', '2019-08-08 13:02:34', '2019-08-08 13:02:34', '', 0, 'http://localhost:8080/outsource/?post_type=scheduled-action&#038;p=260', 0, 'scheduled-action', '', 3),
+(261, 1, '2019-08-08 13:03:11', '2019-08-08 13:03:11', '', 'WordPress Pennant - Red', 'color: Red', 'publish', 'closed', 'closed', '', 'wordpress-pennant', '', '', '2019-08-08 13:04:47', '2019-08-08 13:04:47', '', 55, 'http://localhost:8080/outsource/?post_type=product_variation&#038;p=261', 1, 'product_variation', '', 0),
+(262, 1, '2019-08-08 13:03:15', '2019-08-08 13:03:15', '', 'WordPress Pennant - Green', 'color: Green', 'publish', 'closed', 'closed', '', 'wordpress-pennant-2', '', '', '2019-08-08 13:04:48', '2019-08-08 13:04:48', '', 55, 'http://localhost:8080/outsource/?post_type=product_variation&#038;p=262', 3, 'product_variation', '', 0),
+(263, 1, '2019-08-08 13:03:18', '2019-08-08 13:03:18', '', 'WordPress Pennant - Gray', 'color: Gray', 'publish', 'closed', 'closed', '', 'wordpress-pennant-3', '', '', '2019-08-12 02:29:08', '2019-08-12 02:29:08', '', 55, 'http://localhost:8080/outsource/?post_type=product_variation&#038;p=263', 1, 'product_variation', '', 0),
+(264, 1, '2019-08-08 13:03:20', '2019-08-08 13:03:20', '', 'WordPress Pennant - Blue', 'color: Blue', 'publish', 'closed', 'closed', '', 'wordpress-pennant-4', '', '', '2019-08-08 13:04:06', '2019-08-08 13:04:06', '', 55, 'http://localhost:8080/outsource/?post_type=product_variation&#038;p=264', 4, 'product_variation', '', 0),
+(265, 1, '2019-08-10 16:49:32', '2019-08-10 16:49:32', '', 'All Product', '', 'publish', 'closed', 'closed', '', 'all-product', '', '', '2019-08-10 16:49:32', '2019-08-10 16:49:32', '', 0, 'http://localhost:8080/outsource/?page_id=265', 0, 'page', '', 0),
+(266, 1, '2019-08-10 16:49:32', '2019-08-10 16:49:32', '', 'All Product', '', 'inherit', 'closed', 'closed', '', '265-revision-v1', '', '', '2019-08-10 16:49:32', '2019-08-10 16:49:32', '', 265, 'http://localhost:8080/outsource/265-revision-v1/', 0, 'revision', '', 0),
+(267, 1, '2019-08-11 06:56:22', '2019-08-11 06:56:22', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'Hoodie', 'This is a variable product.', 'inherit', 'closed', 'closed', '', '33-autosave-v1', '', '', '2019-08-11 06:56:22', '2019-08-11 06:56:22', '', 33, 'http://localhost:8080/outsource/33-autosave-v1/', 0, 'revision', '', 0),
+(268, 1, '2019-08-11 06:56:30', '2019-08-11 06:56:30', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.', 'V-Neck T-Shirt', 'This is a variable product.', 'inherit', 'closed', 'closed', '', '32-autosave-v1', '', '', '2019-08-11 06:56:30', '2019-08-11 06:56:30', '', 32, 'http://localhost:8080/outsource/32-autosave-v1/', 0, 'revision', '', 0),
+(270, 1, '2019-08-12 09:30:01', '2019-08-12 09:30:01', '', 'photo-1476908965434-f988d59d7abd', '', 'inherit', 'open', 'closed', '', 'photo-1476908965434-f988d59d7abd', '', '', '2019-08-12 09:30:01', '2019-08-12 09:30:01', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/08/photo-1476908965434-f988d59d7abd.jpg', 0, 'attachment', 'image/jpeg', 0),
+(273, 1, '2019-08-13 16:34:06', '2019-08-13 16:34:06', '', 'Order &ndash; August 13, 2019 @ 04:34 PM', '', 'wc-completed', 'closed', 'closed', 'wc_order_qmfLEFRvcofUP', 'order-aug-13-2019-0434-pm', '', '', '2019-08-13 16:48:21', '2019-08-13 16:48:21', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=shop_order&#038;p=273', 0, 'shop_order', '', 2),
+(274, 1, '2019-08-13 17:02:48', '2019-08-13 17:02:48', '', 'Order &ndash; August 13, 2019 @ 05:02 PM', '', 'wc-processing', 'open', 'closed', 'wc_order_fKBkVjOSEtwUh', 'order-aug-13-2019-0502-pm', '', '', '2019-08-13 17:02:48', '2019-08-13 17:02:48', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=shop_order&#038;p=274', 0, 'shop_order', '', 1),
+(275, 1, '2019-08-13 17:19:14', '2019-08-13 17:19:14', '', 'Order &ndash; August 13, 2019 @ 05:19 PM', '', 'wc-processing', 'open', 'closed', 'wc_order_xMNnVotbC3oat', 'order-aug-13-2019-0519-pm', '', '', '2019-08-13 17:19:15', '2019-08-13 17:19:15', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=shop_order&#038;p=275', 0, 'shop_order', '', 1),
+(276, 1, '2019-08-14 14:32:57', '2019-08-14 14:32:57', '', 'Try eyewear', '', 'trash', 'closed', 'closed', '', 'eyewear__trashed', '', '', '2019-08-14 14:42:16', '2019-08-14 14:42:16', '', 0, 'http://localhost:8080/outsource/?page_id=276', 0, 'page', '', 0),
+(277, 1, '2019-08-14 14:32:57', '2019-08-14 14:32:57', '', 'Eyewear', '', 'inherit', 'closed', 'closed', '', '276-revision-v1', '', '', '2019-08-14 14:32:57', '2019-08-14 14:32:57', '', 276, 'http://localhost:8080/outsource/?p=277', 0, 'revision', '', 0),
+(278, 1, '2019-08-14 14:40:35', '2019-08-14 14:40:35', '', 'Try Eyewear', '', 'inherit', 'closed', 'closed', '', '276-revision-v1', '', '', '2019-08-14 14:40:35', '2019-08-14 14:40:35', '', 276, 'http://localhost:8080/outsource/?p=278', 0, 'revision', '', 0),
+(279, 1, '2019-08-14 14:41:39', '2019-08-14 14:41:39', '', 'Try eyewear', '', 'inherit', 'closed', 'closed', '', '276-revision-v1', '', '', '2019-08-14 14:41:39', '2019-08-14 14:41:39', '', 276, 'http://localhost:8080/outsource/?p=279', 0, 'revision', '', 0),
+(280, 1, '2019-08-14 14:42:49', '2019-08-14 14:42:49', '', 'Try eyewear', '', 'publish', 'closed', 'closed', '', 'try-eyewear', '', '', '2019-08-14 14:42:49', '2019-08-14 14:42:49', '', 0, 'http://localhost:8080/outsource/?page_id=280', 0, 'page', '', 0),
+(281, 1, '2019-08-14 14:42:49', '2019-08-14 14:42:49', '', 'Try eyewear', '', 'inherit', 'closed', 'closed', '', '280-revision-v1', '', '', '2019-08-14 14:42:49', '2019-08-14 14:42:49', '', 280, 'http://localhost:8080/outsource/?p=281', 0, 'revision', '', 0),
+(282, 1, '2019-08-14 15:33:04', '2019-08-14 15:33:04', 'a:7:{s:8:\"location\";a:1:{i:0;a:1:{i:0;a:3:{s:5:\"param\";s:9:\"post_type\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:7:\"product\";}}}s:8:\"position\";s:6:\"normal\";s:5:\"style\";s:7:\"default\";s:15:\"label_placement\";s:3:\"top\";s:21:\"instruction_placement\";s:5:\"label\";s:14:\"hide_on_screen\";s:0:\"\";s:11:\"description\";s:0:\"\";}', 'Try eye', 'try-eye', 'publish', 'closed', 'closed', '', 'group_5d54292bc33a8', '', '', '2019-08-14 15:47:40', '2019-08-14 15:47:40', '', 0, 'http://localhost:8080/outsource/?post_type=acf-field-group&#038;p=282', 0, 'acf-field-group', '', 0),
+(283, 1, '2019-08-14 15:33:04', '2019-08-14 15:33:04', 'a:15:{s:4:\"type\";s:5:\"image\";s:12:\"instructions\";s:27:\"Upload list try image here!\";s:8:\"required\";i:0;s:17:\"conditional_logic\";i:0;s:7:\"wrapper\";a:3:{s:5:\"width\";s:0:\"\";s:5:\"class\";s:0:\"\";s:2:\"id\";s:0:\"\";}s:13:\"return_format\";s:5:\"array\";s:12:\"preview_size\";s:9:\"thumbnail\";s:7:\"library\";s:3:\"all\";s:9:\"min_width\";s:0:\"\";s:10:\"min_height\";s:0:\"\";s:8:\"min_size\";s:0:\"\";s:9:\"max_width\";s:0:\"\";s:10:\"max_height\";s:0:\"\";s:8:\"max_size\";s:0:\"\";s:10:\"mime_types\";s:0:\"\";}', 'Upload try eye', 'try-eye', 'publish', 'closed', 'closed', '', 'field_5d542974c4619', '', '', '2019-08-14 15:47:40', '2019-08-14 15:47:40', '', 282, 'http://localhost:8080/outsource/?post_type=acf-field&#038;p=283', 0, 'acf-field', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_termmeta`
+--
+
+CREATE TABLE `wp_termmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_termmeta`
+--
+
+INSERT INTO `wp_termmeta` (`meta_id`, `term_id`, `meta_key`, `meta_value`) VALUES
+(1, 23, 'order', '34'),
+(2, 24, 'order', '7'),
+(3, 26, 'order', '3'),
+(4, 28, 'order', '18'),
+(5, 29, 'order', '4'),
+(6, 30, 'order', '5'),
+(7, 23, 'product_count_product_cat', '5'),
+(8, 24, 'product_count_product_cat', '4'),
+(9, 26, 'product_count_product_cat', '10'),
+(10, 28, 'product_count_product_cat', '2'),
+(11, 29, 'product_count_product_cat', '1'),
+(12, 30, 'product_count_product_cat', '2'),
+(13, 26, 'display_type', ''),
+(14, 26, 'thumbnail_id', '0'),
+(21, 30, 'display_type', ''),
+(22, 30, 'thumbnail_id', '0'),
+(23, 24, 'display_type', ''),
+(24, 24, 'thumbnail_id', '0'),
+(25, 29, 'display_type', ''),
+(26, 29, 'thumbnail_id', '0'),
+(27, 28, 'display_type', ''),
+(28, 28, 'thumbnail_id', '0'),
+(29, 23, 'display_type', ''),
+(30, 23, 'thumbnail_id', '0'),
+(43, 37, 'order', '6'),
+(44, 37, 'display_type', ''),
+(45, 37, 'thumbnail_id', '0'),
+(46, 38, 'order', '9'),
+(47, 38, 'display_type', ''),
+(48, 38, 'thumbnail_id', '0'),
+(49, 39, 'order', '17'),
+(50, 39, 'display_type', ''),
+(51, 39, 'thumbnail_id', '0'),
+(52, 40, 'order', '33'),
+(53, 40, 'display_type', ''),
+(54, 40, 'thumbnail_id', '0'),
+(55, 41, 'order', '8'),
+(56, 41, 'display_type', ''),
+(57, 41, 'thumbnail_id', '0'),
+(58, 38, 'product_count_product_cat', '2'),
+(59, 42, 'order', '10'),
+(60, 42, 'display_type', ''),
+(61, 42, 'thumbnail_id', '0'),
+(62, 43, 'order', '16'),
+(63, 43, 'display_type', ''),
+(64, 43, 'thumbnail_id', '0'),
+(65, 44, 'order', '14'),
+(66, 44, 'display_type', ''),
+(67, 44, 'thumbnail_id', '0'),
+(68, 45, 'order', '15'),
+(69, 45, 'display_type', ''),
+(70, 45, 'thumbnail_id', '0'),
+(71, 46, 'order', '13'),
+(72, 46, 'display_type', ''),
+(73, 46, 'thumbnail_id', '0'),
+(74, 47, 'order', '12'),
+(75, 47, 'display_type', ''),
+(76, 47, 'thumbnail_id', '0'),
+(77, 48, 'order', '11'),
+(78, 48, 'display_type', ''),
+(79, 48, 'thumbnail_id', '0'),
+(80, 42, 'product_count_product_cat', '1'),
+(81, 49, 'order', '19'),
+(82, 49, 'display_type', ''),
+(83, 49, 'thumbnail_id', '0'),
+(84, 50, 'order', '28'),
+(85, 50, 'display_type', ''),
+(86, 50, 'thumbnail_id', '0'),
+(87, 51, 'order', '27'),
+(88, 51, 'display_type', ''),
+(89, 51, 'thumbnail_id', '0'),
+(90, 52, 'order', '29'),
+(91, 52, 'display_type', ''),
+(92, 52, 'thumbnail_id', '0'),
+(93, 53, 'order', '20'),
+(94, 53, 'display_type', ''),
+(95, 53, 'thumbnail_id', '0'),
+(96, 54, 'order', '21'),
+(97, 54, 'display_type', ''),
+(98, 54, 'thumbnail_id', '0'),
+(99, 55, 'order', '26'),
+(100, 55, 'display_type', ''),
+(101, 55, 'thumbnail_id', '0'),
+(102, 56, 'order', '32'),
+(103, 56, 'display_type', ''),
+(104, 56, 'thumbnail_id', '0'),
+(105, 57, 'order', '25'),
+(106, 57, 'display_type', ''),
+(107, 57, 'thumbnail_id', '0'),
+(108, 58, 'order', '24'),
+(109, 58, 'display_type', ''),
+(110, 58, 'thumbnail_id', '0'),
+(111, 59, 'order', '23'),
+(112, 59, 'display_type', ''),
+(113, 59, 'thumbnail_id', '0'),
+(114, 60, 'order', '30'),
+(115, 60, 'display_type', ''),
+(116, 60, 'thumbnail_id', '0'),
+(117, 61, 'order', '22'),
+(118, 61, 'display_type', ''),
+(119, 61, 'thumbnail_id', '0'),
+(120, 62, 'order', '31'),
+(121, 62, 'display_type', ''),
+(122, 62, 'thumbnail_id', '0'),
+(123, 53, 'product_count_product_cat', '2'),
+(124, 49, 'product_count_product_cat', '2'),
+(125, 64, 'order', '1'),
+(126, 64, 'display_type', ''),
+(127, 64, 'thumbnail_id', '0'),
+(128, 16, 'order', '2'),
+(133, 66, 'order', '0'),
+(134, 66, 'display_type', ''),
+(135, 66, 'thumbnail_id', '0'),
+(136, 66, 'product_count_product_cat', '16');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_terms`
+--
+
+CREATE TABLE `wp_terms` (
+  `term_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `term_group` bigint(10) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_terms`
+--
+
+INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
+(1, 'Uncategorized', 'uncategorized', 0),
+(2, 'Primary Menu', 'primary-menu', 0),
+(3, 'simple', 'simple', 0),
+(4, 'grouped', 'grouped', 0),
+(5, 'variable', 'variable', 0),
+(6, 'external', 'external', 0),
+(7, 'exclude-from-search', 'exclude-from-search', 0),
+(8, 'exclude-from-catalog', 'exclude-from-catalog', 0),
+(9, 'featured', 'featured', 0),
+(10, 'outofstock', 'outofstock', 0),
+(11, 'rated-1', 'rated-1', 0),
+(12, 'rated-2', 'rated-2', 0),
+(13, 'rated-3', 'rated-3', 0),
+(14, 'rated-4', 'rated-4', 0),
+(15, 'rated-5', 'rated-5', 0),
+(16, 'Uncategorized', 'uncategorized', 0),
+(17, 'Blue', 'blue', 0),
+(18, 'Green', 'green', 0),
+(21, 'Red', 'red', 0),
+(23, 'Tshirts', 'tshirts', 0),
+(24, 'Hoodies', 'hoodies', 0),
+(25, 'Gray', 'gray', 0),
+(26, 'Accessories', 'accessories', 0),
+(27, 'Yellow', 'yellow', 0),
+(28, 'Music', 'music', 0),
+(29, 'Clothing', 'clothing', 0),
+(30, 'Decor', 'decor', 0),
+(31, '96', '96', 0),
+(37, 'Gọng kính', 'gong-kinh', 0),
+(38, 'Kính mát', 'kinh-mat', 0),
+(39, 'Mắt kính trẻ em', 'mat-kinh-tre-em', 0),
+(40, 'Tròng kính', 'trong-kinh', 0),
+(41, 'Kính áp tròng', 'kinh-ap-trong', 0),
+(42, 'Bolon', 'bolon', 0),
+(43, 'Molsion', 'molsion', 0),
+(44, 'Kính mát nam', 'kinh-mat-nam', 0),
+(45, 'Kính mát nữ', 'kinh-mat-nu', 0),
+(46, 'Kính mắt Flip on 2 lớp', 'kinh-mat-flip-on-2-lop', 0),
+(47, 'Kính mát chuồn chuồi', 'kinh-mat-chuon-chuoi', 0),
+(48, 'Kính đổi màu', 'kinh-doi-mau', 0),
+(49, 'Trademark', 'trademark', 0),
+(50, 'OEM', 'oem', 0),
+(51, 'OCULOSYS', 'oculosys', 0),
+(52, 'S7 ILUVU', 's7-iluvu', 0),
+(53, 'Baili', 'baili', 0),
+(54, 'BALANCE', 'balance', 0),
+(55, 'NATE', 'nate', 0),
+(56, 'Vigcom', 'vigcom', 0),
+(57, 'Molsion', 'molsion-trademark', 0),
+(58, 'LAOKAIKE', 'laokaike', 0),
+(59, 'FANGSHI', 'fangshi', 0),
+(60, 'STEPPER', 'stepper', 0),
+(61, 'Eyelucy', 'eyelucy', 0),
+(62, 'TOLIGHT', 'tolight', 0),
+(63, 'Footer', 'footer', 0),
+(64, 'All Product', 'all-product', 0),
+(66, 'Collection', 'collection', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_term_relationships`
+--
+
+CREATE TABLE `wp_term_relationships` (
+  `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `term_order` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_term_relationships`
+--
+
+INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
+(1, 1, 0),
+(32, 5, 0),
+(32, 9, 0),
+(32, 10, 0),
+(32, 17, 0),
+(32, 18, 0),
+(32, 21, 0),
+(32, 23, 0),
+(33, 5, 0),
+(33, 10, 0),
+(33, 17, 0),
+(33, 18, 0),
+(33, 21, 0),
+(33, 24, 0),
+(34, 3, 0),
+(34, 17, 0),
+(34, 24, 0),
+(35, 3, 0),
+(35, 23, 0),
+(35, 25, 0),
+(35, 26, 0),
+(36, 3, 0),
+(36, 21, 0),
+(36, 26, 0),
+(37, 3, 0),
+(37, 26, 0),
+(38, 3, 0),
+(38, 9, 0),
+(38, 26, 0),
+(38, 27, 0),
+(39, 3, 0),
+(39, 9, 0),
+(39, 26, 0),
+(40, 3, 0),
+(40, 7, 0),
+(40, 8, 0),
+(40, 9, 0),
+(40, 24, 0),
+(40, 25, 0),
+(41, 3, 0),
+(41, 9, 0),
+(41, 24, 0),
+(42, 3, 0),
+(42, 18, 0),
+(42, 23, 0),
+(42, 26, 0),
+(42, 66, 0),
+(43, 3, 0),
+(43, 17, 0),
+(43, 23, 0),
+(43, 26, 0),
+(44, 3, 0),
+(44, 28, 0),
+(45, 3, 0),
+(45, 9, 0),
+(45, 26, 0),
+(45, 28, 0),
+(52, 3, 0),
+(52, 9, 0),
+(52, 23, 0),
+(52, 24, 0),
+(52, 25, 0),
+(52, 38, 0),
+(53, 3, 0),
+(53, 9, 0),
+(53, 17, 0),
+(53, 18, 0),
+(53, 21, 0),
+(53, 25, 0),
+(53, 26, 0),
+(53, 27, 0),
+(53, 53, 0),
+(54, 3, 0),
+(54, 9, 0),
+(54, 10, 0),
+(54, 26, 0),
+(54, 29, 0),
+(54, 30, 0),
+(54, 38, 0),
+(54, 42, 0),
+(54, 53, 0),
+(55, 5, 0),
+(55, 9, 0),
+(55, 17, 0),
+(55, 18, 0),
+(55, 21, 0),
+(55, 25, 0),
+(55, 27, 0),
+(55, 30, 0),
+(97, 31, 0),
+(98, 31, 0),
+(99, 31, 0),
+(100, 31, 0),
+(101, 31, 0),
+(167, 2, 0),
+(168, 2, 0),
+(170, 2, 0),
+(171, 2, 0),
+(172, 2, 0),
+(173, 2, 0),
+(174, 2, 0),
+(175, 2, 0),
+(176, 2, 0),
+(177, 2, 0),
+(178, 2, 0),
+(179, 2, 0),
+(203, 2, 0),
+(208, 2, 0),
+(232, 63, 0),
+(233, 63, 0),
+(234, 63, 0),
+(235, 63, 0),
+(236, 63, 0),
+(237, 63, 0),
+(238, 63, 0),
+(239, 63, 0),
+(242, 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_term_taxonomy`
+--
+
+CREATE TABLE `wp_term_taxonomy` (
+  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL,
+  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `taxonomy` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `count` bigint(20) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_term_taxonomy`
+--
+
+INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
+(1, 1, 'category', '', 0, 1),
+(2, 2, 'nav_menu', '', 0, 15),
+(3, 3, 'product_type', '', 0, 15),
+(4, 4, 'product_type', '', 0, 0),
+(5, 5, 'product_type', '', 0, 3),
+(6, 6, 'product_type', '', 0, 0),
+(7, 7, 'product_visibility', '', 0, 1),
+(8, 8, 'product_visibility', '', 0, 1),
+(9, 9, 'product_visibility', '', 0, 10),
+(10, 10, 'product_visibility', '', 0, 3),
+(11, 11, 'product_visibility', '', 0, 0),
+(12, 12, 'product_visibility', '', 0, 0),
+(13, 13, 'product_visibility', '', 0, 0),
+(14, 14, 'product_visibility', '', 0, 0),
+(15, 15, 'product_visibility', '', 0, 0),
+(16, 16, 'product_cat', '', 0, 0),
+(17, 17, 'pa_color', '', 0, 6),
+(18, 18, 'pa_color', '', 0, 5),
+(21, 21, 'pa_color', '', 0, 5),
+(23, 23, 'product_cat', '', 0, 5),
+(24, 24, 'product_cat', '', 66, 5),
+(25, 25, 'pa_color', '', 0, 5),
+(26, 26, 'product_cat', '', 66, 10),
+(27, 27, 'pa_color', '', 0, 3),
+(28, 28, 'product_cat', '', 66, 2),
+(29, 29, 'product_cat', '', 66, 1),
+(30, 30, 'product_cat', '', 66, 2),
+(31, 31, 'ml-slider', '', 0, 5),
+(37, 37, 'product_cat', '', 66, 0),
+(38, 38, 'product_cat', '', 66, 2),
+(39, 39, 'product_cat', '', 66, 0),
+(40, 40, 'product_cat', '', 0, 0),
+(41, 41, 'product_cat', '', 66, 0),
+(42, 42, 'product_cat', '', 38, 1),
+(43, 43, 'product_cat', '', 38, 0),
+(44, 44, 'product_cat', '', 38, 0),
+(45, 45, 'product_cat', '', 38, 0),
+(46, 46, 'product_cat', '', 38, 0),
+(47, 47, 'product_cat', '', 38, 0),
+(48, 48, 'product_cat', '', 38, 0),
+(49, 49, 'product_cat', '', 0, 0),
+(50, 50, 'product_cat', '', 49, 0),
+(51, 51, 'product_cat', '', 49, 0),
+(52, 52, 'product_cat', '', 49, 0),
+(53, 53, 'product_cat', '', 49, 2),
+(54, 54, 'product_cat', '', 49, 0),
+(55, 55, 'product_cat', '', 49, 0),
+(56, 56, 'product_cat', '', 49, 0),
+(57, 57, 'product_cat', '', 49, 0),
+(58, 58, 'product_cat', '', 49, 0),
+(59, 59, 'product_cat', '', 49, 0),
+(60, 60, 'product_cat', '', 49, 0),
+(61, 61, 'product_cat', '', 49, 0),
+(62, 62, 'product_cat', '', 49, 0),
+(63, 63, 'nav_menu', '', 0, 8),
+(64, 64, 'product_cat', '', 0, 0),
+(66, 66, 'product_cat', '', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_usermeta`
+--
+
+CREATE TABLE `wp_usermeta` (
+  `umeta_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_usermeta`
+--
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
+(1, 1, 'nickname', 'caohoang2911'),
+(2, 1, 'first_name', 'cao'),
+(3, 1, 'last_name', 'hoang'),
+(4, 1, 'description', ''),
+(5, 1, 'rich_editing', 'true'),
+(6, 1, 'syntax_highlighting', 'true'),
+(7, 1, 'comment_shortcuts', 'false'),
+(8, 1, 'admin_color', 'fresh'),
+(9, 1, 'use_ssl', '0'),
+(10, 1, 'show_admin_bar_front', 'true'),
+(11, 1, 'locale', ''),
+(12, 1, 'wp_capabilities', 'a:1:{s:13:\"administrator\";b:1;}'),
+(13, 1, 'wp_user_level', '10'),
+(14, 1, 'dismissed_wp_pointers', 'wp496_privacy,theme_editor_notice'),
+(15, 1, 'show_welcome_panel', '1'),
+(17, 1, 'wp_dashboard_quick_press_last_post_id', '259'),
+(18, 1, 'wp_user-settings', 'libraryContent=browse&editor=tinymce'),
+(19, 1, 'wp_user-settings-time', '1564683582'),
+(20, 1, 'managenav-menuscolumnshidden', 'a:5:{i:0;s:11:\"link-target\";i:1;s:11:\"css-classes\";i:2;s:3:\"xfn\";i:3;s:11:\"description\";i:4;s:15:\"title-attribute\";}'),
+(21, 1, 'metaboxhidden_nav-menus', 'a:1:{i:0;s:12:\"add-post_tag\";}'),
+(22, 1, 'nav_menu_recently_edited', '2'),
+(23, 1, '_woocommerce_tracks_anon_id', 'woo:G+Nlh53Va+iBCEmn3l63a5UJ'),
+(25, 1, 'wc_last_active', '1565740800'),
+(26, 1, 'meta-box-order_show-slide', 'a:3:{s:4:\"side\";s:22:\"submitdiv,postimagediv\";s:6:\"normal\";s:40:\"postexcerpt,postcustom,slugdiv,authordiv\";s:8:\"advanced\";s:6:\"slides\";}'),
+(27, 1, 'screen_layout_show-slide', '2'),
+(28, 1, 'closedpostboxes_show-slide', 'a:1:{i:0;s:9:\"authordiv\";}'),
+(29, 1, 'metaboxhidden_show-slide', 'a:1:{i:0;s:7:\"slugdiv\";}'),
+(31, 1, 'meta-box-order_product', 'a:3:{s:4:\"side\";s:84:\"submitdiv,product_catdiv,tagsdiv-product_tag,postimagediv,woocommerce-product-images\";s:6:\"normal\";s:67:\"postcustom,woocommerce-product-data,slugdiv,postexcerpt,commentsdiv\";s:8:\"advanced\";s:0:\"\";}'),
+(32, 1, 'screen_layout_product', '2'),
+(33, 1, 'dismissed_no_secure_connection_notice', '1'),
+(36, 1, 'wp_metaslider_user_saw_callout_unsplash', '1'),
+(43, 1, 'last_update', '1565716754'),
+(44, 1, 'billing_first_name', 'Cao Hoàng'),
+(45, 1, 'billing_last_name', 'hoang'),
+(46, 1, 'billing_company', 'altamedia'),
+(47, 1, 'billing_address_1', '86/33 Âu cơ'),
+(48, 1, 'billing_city', '761'),
+(49, 1, 'billing_postcode', '72000'),
+(50, 1, 'billing_country', 'VN'),
+(51, 1, 'billing_email', 'caohoang2911@gmail.com'),
+(52, 1, 'billing_phone', '09035345212'),
+(53, 1, 'shipping_first_name', 'cao'),
+(54, 1, 'shipping_last_name', 'hoang'),
+(55, 1, 'shipping_company', 'altamedia'),
+(56, 1, 'shipping_address_1', '86/33 Âu cơ'),
+(57, 1, 'shipping_city', 'Hồ Chí Minh'),
+(58, 1, 'shipping_postcode', '72000'),
+(59, 1, 'shipping_country', 'VN'),
+(60, 1, 'shipping_method', 'a:1:{i:0;s:11:\"flat_rate:5\";}'),
+(70, 1, 'closedpostboxes_shop_order', 'a:0:{}'),
+(71, 1, 'metaboxhidden_shop_order', 'a:0:{}'),
+(72, 1, 'shipping_field_value', ''),
+(78, 2, 'nickname', 'danxunghe'),
+(79, 2, 'first_name', ''),
+(80, 2, 'last_name', ''),
+(81, 2, 'description', ''),
+(82, 2, 'rich_editing', 'true'),
+(83, 2, 'syntax_highlighting', 'true'),
+(84, 2, 'comment_shortcuts', 'false'),
+(85, 2, 'admin_color', 'fresh'),
+(86, 2, 'use_ssl', '0'),
+(87, 2, 'show_admin_bar_front', 'true'),
+(88, 2, 'locale', ''),
+(89, 2, 'wp_capabilities', 'a:1:{s:8:\"customer\";b:1;}'),
+(90, 2, 'wp_user_level', '0'),
+(92, 2, '_woocommerce_persistent_cart_1', 'a:1:{s:4:\"cart\";a:1:{s:32:\"9a1158154dfa42caddbd0694a4e9bdc8\";a:11:{s:3:\"key\";s:32:\"9a1158154dfa42caddbd0694a4e9bdc8\";s:10:\"product_id\";i:52;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:18;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:18;s:8:\"line_tax\";i:0;}}}'),
+(93, 2, 'wc_last_active', '1562976000'),
+(94, 3, 'nickname', 'altamedia'),
+(95, 3, 'first_name', ''),
+(96, 3, 'last_name', ''),
+(97, 3, 'description', ''),
+(98, 3, 'rich_editing', 'true'),
+(99, 3, 'syntax_highlighting', 'true'),
+(100, 3, 'comment_shortcuts', 'false'),
+(101, 3, 'admin_color', 'fresh'),
+(102, 3, 'use_ssl', '0'),
+(103, 3, 'show_admin_bar_front', 'true'),
+(104, 3, 'locale', ''),
+(105, 3, 'wp_capabilities', 'a:1:{s:8:\"customer\";b:1;}'),
+(106, 3, 'wp_user_level', '0'),
+(108, 3, '_woocommerce_persistent_cart_1', 'a:1:{s:4:\"cart\";a:1:{s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";a:11:{s:3:\"key\";s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";s:10:\"product_id\";i:38;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:16;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:16;s:8:\"line_tax\";i:0;}}}'),
+(109, 3, 'wc_last_active', '1562976000'),
+(112, 1, 'session_tokens', 'a:8:{s:64:\"2e17ffdf492f3db977ef021403f60289738458bae9f3e756a09a2a89d71c2e92\";a:4:{s:10:\"expiration\";i:1565800781;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";s:5:\"login\";i:1565627981;}s:64:\"85be3d4bdcd4a725316fa9beb302d2be2c69ec8302089c219ab597fe64224485\";a:4:{s:10:\"expiration\";i:1565840829;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";s:5:\"login\";i:1565668029;}s:64:\"1f84fe0121544a06e5490633a868adab4db0714c6b38a1e185b6e0438f97b131\";a:4:{s:10:\"expiration\";i:1565874809;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";s:5:\"login\";i:1565702009;}s:64:\"415ffe8a522a6a50d2794f541a1454972f9002a6a362225b3dc441f621a58731\";a:4:{s:10:\"expiration\";i:1565881432;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";s:5:\"login\";i:1565708632;}s:64:\"f6d4c04812faa5107a4a39f9669ca7f23ab44605e564f08f690df7f86879beb0\";a:4:{s:10:\"expiration\";i:1565886454;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";s:5:\"login\";i:1565713654;}s:64:\"89c6de15d4580322048a61540c6ceecee8cefbf91c8fc9a428e5a4326c84b1fc\";a:4:{s:10:\"expiration\";i:1565963416;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:135:\"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/80.0.180 Chrome/74.0.3729.180 Safari/537.36\";s:5:\"login\";i:1565790616;}s:64:\"4d06bb2ee6be0054643ee25ebedc301c23e00341d3a11f0cb9f4d474e51644a1\";a:4:{s:10:\"expiration\";i:1565963429;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:135:\"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/80.0.180 Chrome/74.0.3729.180 Safari/537.36\";s:5:\"login\";i:1565790629;}s:64:\"2a6288ded790fc7a5077a4aa1a533741192744a1145a3583332da9b2807c6575\";a:4:{s:10:\"expiration\";i:1565965828;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";s:5:\"login\";i:1565793028;}}'),
+(118, 4, 'nickname', 'altamedia-6105'),
+(119, 4, 'first_name', 'alta'),
+(120, 4, 'last_name', 'alta'),
+(121, 4, 'description', ''),
+(122, 4, 'rich_editing', 'true'),
+(123, 4, 'syntax_highlighting', 'true'),
+(124, 4, 'comment_shortcuts', 'false'),
+(125, 4, 'admin_color', 'fresh'),
+(126, 4, 'use_ssl', '0'),
+(127, 4, 'show_admin_bar_front', 'true'),
+(128, 4, 'locale', ''),
+(129, 4, 'wp_capabilities', 'a:1:{s:8:\"customer\";b:1;}'),
+(130, 4, 'wp_user_level', '0'),
+(131, 4, 'last_update', '1563036427'),
+(132, 4, 'billing_address_1', 'Tân Bình'),
+(133, 4, 'billing_address_2', 'Âu cơ'),
+(135, 4, '_woocommerce_persistent_cart_1', 'a:1:{s:4:\"cart\";a:0:{}}'),
+(136, 4, 'wc_last_active', '1562976000'),
+(138, 5, 'nickname', 'hoang'),
+(139, 5, 'first_name', 'cao'),
+(140, 5, 'last_name', 'hoang'),
+(141, 5, 'description', ''),
+(142, 5, 'rich_editing', 'true'),
+(143, 5, 'syntax_highlighting', 'true'),
+(144, 5, 'comment_shortcuts', 'false'),
+(145, 5, 'admin_color', 'fresh'),
+(146, 5, 'use_ssl', '0'),
+(147, 5, 'show_admin_bar_front', 'true'),
+(148, 5, 'locale', ''),
+(149, 5, 'wp_capabilities', 'a:1:{s:10:\"subscriber\";b:1;}'),
+(150, 5, 'wp_user_level', '0'),
+(151, 5, 'dismissed_wp_pointers', 'wp496_privacy'),
+(153, 5, 'wc_last_active', '1563062400'),
+(156, 5, 'last_update', '1563038543'),
+(157, 5, 'billing_first_name', 'cao'),
+(158, 5, 'billing_last_name', 'hoang'),
+(159, 5, 'billing_company', '1993'),
+(160, 5, 'billing_address_1', 'Tìm bạn tâm sự'),
+(161, 5, 'billing_city', 'Tân Bình'),
+(162, 5, 'billing_country', 'VN'),
+(163, 5, 'billing_email', 'alta.dev@gmail.com'),
+(164, 5, 'billing_phone', '0989633508'),
+(165, 5, 'shipping_first_name', 'cao'),
+(166, 5, 'shipping_last_name', 'hoang'),
+(167, 5, 'shipping_company', '1993'),
+(168, 5, 'shipping_address_1', 'Tìm bạn tâm sự'),
+(169, 5, 'shipping_city', 'Tân Bình'),
+(170, 5, 'shipping_country', 'VN'),
+(171, 5, 'shipping_method', 'a:1:{i:0;s:15:\"free_shipping:1\";}'),
+(172, 5, 'shipping_field_value', ''),
+(174, 5, '_woocommerce_persistent_cart_1', 'a:1:{s:4:\"cart\";a:2:{s:32:\"b53b3a3d6ab90ce0268229151c9bde11\";a:11:{s:3:\"key\";s:32:\"b53b3a3d6ab90ce0268229151c9bde11\";s:10:\"product_id\";i:55;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:9;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:9;s:8:\"line_tax\";i:0;}s:32:\"d645920e395fedad7bbbed0eca3fe2e0\";a:11:{s:3:\"key\";s:32:\"d645920e395fedad7bbbed0eca3fe2e0\";s:10:\"product_id\";i:40;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:35;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:35;s:8:\"line_tax\";i:0;}}}'),
+(176, 5, 'session_tokens', 'a:5:{s:64:\"d92e0b90ae6982b2b171f63cc6250afaa8c6357c704d70d8c22ffc1c6bbbaf02\";a:4:{s:10:\"expiration\";i:1563212023;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36\";s:5:\"login\";i:1563039223;}s:64:\"da98dabc25dc20a92ed630d5c93bfd5c81c6bb33c36d94f83c20dc0cb96e5117\";a:4:{s:10:\"expiration\";i:1563212343;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36\";s:5:\"login\";i:1563039543;}s:64:\"0e0086fcee3674857dad005356539908f7ce89043443b54c441e2747603026ae\";a:4:{s:10:\"expiration\";i:1564250860;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36\";s:5:\"login\";i:1563041260;}s:64:\"eb71c2255204435ecbd02f9e3933a5d10d3e51c754c2d4f098867eedc2829be4\";a:4:{s:10:\"expiration\";i:1564286144;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36\";s:5:\"login\";i:1563076544;}s:64:\"371cb1b68e95bcefba42a00292b379cd2c54b132aac94e3e366d16b8d5698930\";a:4:{s:10:\"expiration\";i:1564289829;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36\";s:5:\"login\";i:1563080229;}}'),
+(195, 1, 'meta-box-order_dashboard', 'a:4:{s:6:\"normal\";s:139:\"dashboard_right_now,dashboard_activity,user_registration_dashboard_status,woocommerce_dashboard_recent_reviews,woocommerce_dashboard_status\";s:4:\"side\";s:39:\"dashboard_quick_press,dashboard_primary\";s:7:\"column3\";s:0:\"\";s:7:\"column4\";s:0:\"\";}'),
+(196, 1, 'wp_r_tru_u_x', 'a:2:{s:2:\"id\";s:0:\"\";s:7:\"expires\";i:86400;}'),
+(197, 1, 'ignore_share_config_redux_demo', '1'),
+(198, 1, 'ignore_admin_config_redux_demo', '1'),
+(199, 1, 'ignore_redux_blast_1563290286_redux_demo', '1'),
+(217, 1, 'billing_state', '79'),
+(237, 1, 'paying_customer', '1'),
+(261, 1, '_woocommerce_persistent_cart_1', 'a:1:{s:4:\"cart\";a:4:{s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:15;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:270;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:270;s:8:\"line_tax\";i:0;}s:32:\"a1d0c6e83f027327d8461063f4ac58a6\";a:11:{s:3:\"key\";s:32:\"a1d0c6e83f027327d8461063f4ac58a6\";s:10:\"product_id\";i:42;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:25;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:25;s:8:\"line_tax\";i:0;}s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";a:11:{s:3:\"key\";s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";s:10:\"product_id\";i:38;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:64;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:64;s:8:\"line_tax\";i:0;}s:32:\"6c8349cc7260ae62e3b1396831a8398f\";a:11:{s:3:\"key\";s:32:\"6c8349cc7260ae62e3b1396831a8398f\";s:10:\"product_id\";i:45;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:8;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:8;s:8:\"line_tax\";i:0;}}}'),
+(265, 1, 'closedpostboxes_acf-field-group', 'a:0:{}'),
+(266, 1, 'metaboxhidden_acf-field-group', 'a:1:{i:0;s:7:\"slugdiv\";}');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_users`
+--
+
+CREATE TABLE `wp_users` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
+  `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_url` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `user_status` int(11) NOT NULL DEFAULT 0,
+  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_users`
+--
+
+INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
+(1, 'caohoang2911', '$P$B8Rm3VEOYKcSz0KmPs0UiSMG5H0qw1.', 'caohoang2911', 'caohoang2911@gmail.com', '', '2019-06-24 15:50:48', '', 0, 'caohoang2911'),
+(2, 'danxunghe', '$P$BdOidgkWatiXsN94/WTF.XxJ.gEIM..', 'danxunghe', 'danxunghe@yahoo.com', '', '2019-07-13 15:13:30', '', 0, 'danxunghe'),
+(3, 'altamedia', '$P$BbHW56v4/KvRcjbemWzWXvWhjJ0MaX/', 'altamedia', 'altamedia@gmail.com', '', '2019-07-13 15:14:55', '', 0, 'altamedia'),
+(4, 'altamedia-6105', '$P$BpGmIcHmHWpZx8IzGt1xTToX0p.QhV.', 'altamedia-6105', 'altamedia@yahoo.com', '', '2019-07-13 16:47:06', '', 0, 'altamedia-6105'),
+(5, 'hoang', '$P$BCgymZo5pDNvahqfFUJTf5YJiEvVrL1', 'alta-devgmail-com', 'alta.dev@gmail.com', '', '2019-07-13 17:20:20', '', 0, 'hoang');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_user_registration_sessions`
+--
+
+CREATE TABLE `wp_user_registration_sessions` (
+  `session_id` bigint(20) UNSIGNED NOT NULL,
+  `session_key` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_expiry` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_wc_download_log`
+--
+
+CREATE TABLE `wp_wc_download_log` (
+  `download_log_id` bigint(20) UNSIGNED NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_ip_address` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_wc_product_meta_lookup`
+--
+
+CREATE TABLE `wp_wc_product_meta_lookup` (
+  `product_id` bigint(20) NOT NULL,
+  `sku` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `virtual` tinyint(1) DEFAULT 0,
+  `downloadable` tinyint(1) DEFAULT 0,
+  `min_price` decimal(10,2) DEFAULT NULL,
+  `max_price` decimal(10,2) DEFAULT NULL,
+  `onsale` tinyint(1) DEFAULT 0,
+  `stock_quantity` double DEFAULT NULL,
+  `stock_status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT 'instock',
+  `rating_count` bigint(20) DEFAULT 0,
+  `average_rating` decimal(3,2) DEFAULT 0.00,
+  `total_sales` bigint(20) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_wc_product_meta_lookup`
+--
+
+INSERT INTO `wp_wc_product_meta_lookup` (`product_id`, `sku`, `virtual`, `downloadable`, `min_price`, `max_price`, `onsale`, `stock_quantity`, `stock_status`, `rating_count`, `average_rating`, `total_sales`) VALUES
+(32, 'woo-vneck-tee', 0, 0, '15.00', '20.00', 0, NULL, 'outofstock', 0, '0.00', 0),
+(33, 'woo-hoodie', 0, 0, '42.00', '45.00', 0, NULL, 'outofstock', 0, '0.00', 0),
+(34, 'woo-hoodie-with-logo', 0, 0, '45.00', '45.00', 0, NULL, 'instock', 0, '0.00', 0),
+(35, 'woo-tshirt', 0, 0, '18.00', '18.00', 0, NULL, 'instock', 0, '0.00', 0),
+(36, 'woo-beanie', 0, 0, '18.00', '18.00', 1, NULL, 'instock', 0, '0.00', 2),
+(37, 'woo-belt', 0, 0, '55.00', '55.00', 1, NULL, 'instock', 0, '0.00', 1),
+(38, 'woo-cap', 0, 0, '16.00', '16.00', 1, NULL, 'instock', 0, '0.00', 0),
+(39, 'woo-sunglasses', 0, 0, '90.00', '90.00', 0, NULL, 'instock', 0, '0.00', 1),
+(40, 'woo-hoodie-with-pocket', 0, 0, '35.00', '35.00', 1, NULL, 'instock', 0, '0.00', 0),
+(41, 'woo-hoodie-with-zipper', 0, 0, '45.00', '45.00', 0, NULL, 'instock', 0, '0.00', 0),
+(42, 'woo-long-sleeve-tee', 0, 0, '25.00', '25.00', 0, NULL, 'instock', 0, '0.00', 0),
+(43, 'woo-polo', 0, 0, '20.00', '20.00', 0, NULL, 'instock', 0, '0.00', 0),
+(44, 'woo-album', 1, 1, '15.00', '15.00', 0, NULL, 'instock', 0, '0.00', 1),
+(45, 'woo-single', 1, 1, '2.00', '2.00', 1, NULL, 'instock', 0, '0.00', 1),
+(52, 'Woo-tshirt-logo', 0, 0, '18.00', '18.00', 0, NULL, 'instock', 0, '0.00', 51),
+(53, 'Woo-beanie-logo', 0, 0, '18.00', '18.00', 1, NULL, 'instock', 0, '0.00', 9),
+(54, 'logo-collection', 0, 0, '70000.00', '70000.00', 0, NULL, 'outofstock', 0, '0.00', 0),
+(55, 'wp-pennant', 0, 0, '70000.00', '300000.00', 0, NULL, 'instock', 0, '0.00', 20),
+(261, '', 0, 0, '230000.00', '230000.00', 1, NULL, 'instock', 0, '0.00', 0),
+(262, '', 0, 0, '180000.00', '180000.00', 1, NULL, 'instock', 0, '0.00', 0),
+(263, '', 0, 0, '300000.00', '300000.00', 1, NULL, 'instock', 0, '0.00', 0),
+(264, '', 0, 0, '70000.00', '70000.00', 1, NULL, 'instock', 0, '0.00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_wc_webhooks`
+--
+
+CREATE TABLE `wp_wc_webhooks` (
+  `webhook_id` bigint(20) UNSIGNED NOT NULL,
+  `status` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `delivery_url` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_created_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `api_version` smallint(4) NOT NULL,
+  `failure_count` smallint(10) NOT NULL DEFAULT 0,
+  `pending_delivery` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_api_keys`
+--
+
+CREATE TABLE `wp_woocommerce_api_keys` (
+  `key_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `permissions` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `consumer_key` char(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `consumer_secret` char(43) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nonces` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `truncated_key` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_access` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_attribute_taxonomies`
+--
+
+CREATE TABLE `wp_woocommerce_attribute_taxonomies` (
+  `attribute_id` bigint(20) UNSIGNED NOT NULL,
+  `attribute_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attribute_label` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attribute_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attribute_orderby` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attribute_public` int(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_attribute_taxonomies`
+--
+
+INSERT INTO `wp_woocommerce_attribute_taxonomies` (`attribute_id`, `attribute_name`, `attribute_label`, `attribute_type`, `attribute_orderby`, `attribute_public`) VALUES
+(1, 'color', 'color', 'select', 'menu_order', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_downloadable_product_permissions`
+--
+
+CREATE TABLE `wp_woocommerce_downloadable_product_permissions` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `download_id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `order_key` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `downloads_remaining` varchar(9) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `access_granted` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `access_expires` datetime DEFAULT NULL,
+  `download_count` bigint(20) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_log`
+--
+
+CREATE TABLE `wp_woocommerce_log` (
+  `log_id` bigint(20) UNSIGNED NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `level` smallint(4) NOT NULL,
+  `source` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `context` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_order_itemmeta`
+--
+
+CREATE TABLE `wp_woocommerce_order_itemmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `order_item_id` bigint(20) UNSIGNED NOT NULL,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_order_itemmeta`
+--
+
+INSERT INTO `wp_woocommerce_order_itemmeta` (`meta_id`, `order_item_id`, `meta_key`, `meta_value`) VALUES
+(296, 37, '_product_id', '53'),
+(297, 37, '_variation_id', '0'),
+(298, 37, '_qty', '1'),
+(299, 37, '_tax_class', ''),
+(300, 37, '_line_subtotal', '18'),
+(301, 37, '_line_subtotal_tax', '0'),
+(302, 37, '_line_total', '18'),
+(303, 37, '_line_tax', '0'),
+(304, 37, '_line_tax_data', 'a:2:{s:5:\"total\";a:0:{}s:8:\"subtotal\";a:0:{}}'),
+(305, 38, '_product_id', '55'),
+(306, 38, '_variation_id', '261'),
+(307, 38, '_qty', '1'),
+(308, 38, '_tax_class', ''),
+(309, 38, '_line_subtotal', '230000'),
+(310, 38, '_line_subtotal_tax', '0'),
+(311, 38, '_line_total', '230000'),
+(312, 38, '_line_tax', '0'),
+(313, 38, '_line_tax_data', 'a:2:{s:5:\"total\";a:0:{}s:8:\"subtotal\";a:0:{}}'),
+(314, 38, 'pa_color', 'red'),
+(315, 39, '_product_id', '55'),
+(316, 39, '_variation_id', '262'),
+(317, 39, '_qty', '1'),
+(318, 39, '_tax_class', ''),
+(319, 39, '_line_subtotal', '180000'),
+(320, 39, '_line_subtotal_tax', '0'),
+(321, 39, '_line_total', '180000'),
+(322, 39, '_line_tax', '0'),
+(323, 39, '_line_tax_data', 'a:2:{s:5:\"total\";a:0:{}s:8:\"subtotal\";a:0:{}}'),
+(324, 39, 'pa_color', 'green'),
+(325, 40, 'method_id', 'free_shipping'),
+(326, 40, 'instance_id', '2'),
+(327, 40, 'cost', '0'),
+(328, 40, 'total_tax', '0'),
+(329, 40, 'taxes', 'a:1:{s:5:\"total\";a:0:{}}'),
+(330, 40, 'Items', 'Beanie with Logo &times; 1, WordPress Pennant - Red &times; 1, WordPress Pennant - Green &times; 1'),
+(331, 41, '_product_id', '53'),
+(332, 41, '_variation_id', '0'),
+(333, 41, '_qty', '1'),
+(334, 41, '_tax_class', ''),
+(335, 41, '_line_subtotal', '18'),
+(336, 41, '_line_subtotal_tax', '0'),
+(337, 41, '_line_total', '18'),
+(338, 41, '_line_tax', '0'),
+(339, 41, '_line_tax_data', 'a:2:{s:5:\"total\";a:0:{}s:8:\"subtotal\";a:0:{}}'),
+(340, 42, 'method_id', 'flat_rate'),
+(341, 42, 'instance_id', '5'),
+(342, 42, 'cost', '30000'),
+(343, 42, 'total_tax', '0'),
+(344, 42, 'taxes', 'a:1:{s:5:\"total\";a:0:{}}'),
+(345, 42, 'Items', 'Beanie with Logo &times; 1'),
+(346, 43, '_product_id', '53'),
+(347, 43, '_variation_id', '0'),
+(348, 43, '_qty', '1'),
+(349, 43, '_tax_class', ''),
+(350, 43, '_line_subtotal', '18'),
+(351, 43, '_line_subtotal_tax', '0'),
+(352, 43, '_line_total', '18'),
+(353, 43, '_line_tax', '0'),
+(354, 43, '_line_tax_data', 'a:2:{s:5:\"total\";a:0:{}s:8:\"subtotal\";a:0:{}}'),
+(355, 44, 'method_id', 'flat_rate'),
+(356, 44, 'instance_id', '5'),
+(357, 44, 'cost', '30000'),
+(358, 44, 'total_tax', '0'),
+(359, 44, 'taxes', 'a:1:{s:5:\"total\";a:0:{}}'),
+(360, 44, 'Items', 'Beanie with Logo &times; 1');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_order_items`
+--
+
+CREATE TABLE `wp_woocommerce_order_items` (
+  `order_item_id` bigint(20) UNSIGNED NOT NULL,
+  `order_item_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_item_type` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `order_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_order_items`
+--
+
+INSERT INTO `wp_woocommerce_order_items` (`order_item_id`, `order_item_name`, `order_item_type`, `order_id`) VALUES
+(37, 'Beanie with Logo', 'line_item', 273),
+(38, 'WordPress Pennant - Red', 'line_item', 273),
+(39, 'WordPress Pennant - Green', 'line_item', 273),
+(40, 'Free shipping', 'shipping', 273),
+(41, 'Beanie with Logo', 'line_item', 274),
+(42, 'Flat rate', 'shipping', 274),
+(43, 'Beanie with Logo', 'line_item', 275),
+(44, 'Flat rate', 'shipping', 275);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_payment_tokenmeta`
+--
+
+CREATE TABLE `wp_woocommerce_payment_tokenmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `payment_token_id` bigint(20) UNSIGNED NOT NULL,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_payment_tokens`
+--
+
+CREATE TABLE `wp_woocommerce_payment_tokens` (
+  `token_id` bigint(20) UNSIGNED NOT NULL,
+  `gateway_id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `type` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_default` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_sessions`
+--
+
+CREATE TABLE `wp_woocommerce_sessions` (
+  `session_id` bigint(20) UNSIGNED NOT NULL,
+  `session_key` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_expiry` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_sessions`
+--
+
+INSERT INTO `wp_woocommerce_sessions` (`session_id`, `session_key`, `session_value`, `session_expiry`) VALUES
+(46476, '1de8bc3cb9dd05f8e7f554c1c9b8ab11', 'a:12:{s:4:\"cart\";s:410:\"a:1:{s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:18;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:18;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:391:\"a:15:{s:8:\"subtotal\";s:2:\"18\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:2:\"12\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:2:\"18\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:2:\"30\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:685:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_796853c1b16778cac2c4c8be72b6dbc4\";s:5:\"rates\";a:2:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:2:\"12\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:26:\"Beanie with Logo &times; 1\";}}s:15:\"free_shipping:4\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:15:\"free_shipping:4\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:4;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";s:1:\"0\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:26:\"Beanie with Logo &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:66:\"a:1:{i:0;a:2:{i:0;s:11:\"flat_rate:5\";i:1;s:15:\"free_shipping:4\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:2;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";s:21:\"chosen_payment_method\";s:4:\"bacs\";}', 1565881138),
+(46479, '6d9ce45dbf4aedcb900e1cd46b261764', 'a:12:{s:4:\"cart\";s:410:\"a:1:{s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:18;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:18;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:391:\"a:15:{s:8:\"subtotal\";s:2:\"18\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:2:\"12\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:2:\"18\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:2:\"30\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:685:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_796853c1b16778cac2c4c8be72b6dbc4\";s:5:\"rates\";a:2:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:2:\"12\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:26:\"Beanie with Logo &times; 1\";}}s:15:\"free_shipping:4\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:15:\"free_shipping:4\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:4;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";s:1:\"0\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:26:\"Beanie with Logo &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:66:\"a:1:{i:0;a:2:{i:0;s:11:\"flat_rate:5\";i:1;s:15:\"free_shipping:4\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:2;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";s:21:\"chosen_payment_method\";s:4:\"bacs\";}', 1565881172),
+(46482, 'c7757355e16f55b987c82613f0188a23', 'a:12:{s:4:\"cart\";s:410:\"a:1:{s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:2;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:36;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:36;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:391:\"a:15:{s:8:\"subtotal\";s:2:\"36\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:2:\"12\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:2:\"36\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:2:\"48\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:685:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_0c25efc885ac05625def54a1ae63c0f1\";s:5:\"rates\";a:2:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:2:\"12\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:26:\"Beanie with Logo &times; 2\";}}s:15:\"free_shipping:4\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:15:\"free_shipping:4\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:4;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";s:1:\"0\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:26:\"Beanie with Logo &times; 2\";}}}}\";s:25:\"previous_shipping_methods\";s:66:\"a:1:{i:0;a:2:{i:0;s:11:\"flat_rate:5\";i:1;s:15:\"free_shipping:4\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:2;}\";s:8:\"customer\";s:695:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:1:\"1\";s:7:\"address\";s:1:\"1\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:1:\"1\";s:16:\"shipping_address\";s:1:\"1\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";s:21:\"chosen_payment_method\";s:4:\"bacs\";}', 1565881290),
+(46909, '1', 'a:11:{s:4:\"cart\";s:1623:\"a:4:{s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:15;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:270;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:270;s:8:\"line_tax\";i:0;}s:32:\"a1d0c6e83f027327d8461063f4ac58a6\";a:11:{s:3:\"key\";s:32:\"a1d0c6e83f027327d8461063f4ac58a6\";s:10:\"product_id\";i:42;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:25;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:25;s:8:\"line_tax\";i:0;}s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";a:11:{s:3:\"key\";s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";s:10:\"product_id\";i:38;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:64;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:64;s:8:\"line_tax\";i:0;}s:32:\"6c8349cc7260ae62e3b1396831a8398f\";a:11:{s:3:\"key\";s:32:\"6c8349cc7260ae62e3b1396831a8398f\";s:10:\"product_id\";i:45;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:8;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:8;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:399:\"a:15:{s:8:\"subtotal\";s:3:\"367\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:5:\"30000\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:3:\"367\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:5:\"30367\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:3297:\"a:8:{s:32:\"19ca14e7ea6328a42e0eb13d585e4c22\";a:11:{s:3:\"key\";s:32:\"19ca14e7ea6328a42e0eb13d585e4c22\";s:10:\"product_id\";i:36;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:23;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:414;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:414;s:8:\"line_tax\";i:0;}s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:24;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:432;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:432;s:8:\"line_tax\";i:0;}s:32:\"a5bfc9e07964f8dddeb95fc584cd965d\";a:11:{s:3:\"key\";s:32:\"a5bfc9e07964f8dddeb95fc584cd965d\";s:10:\"product_id\";i:37;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:220;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:220;s:8:\"line_tax\";i:0;}s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";a:11:{s:3:\"key\";s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";s:10:\"product_id\";i:55;s:12:\"variation_id\";i:261;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:3:\"red\";}s:8:\"quantity\";i:2;s:9:\"data_hash\";s:32:\"094e0085ff8f0ccc5d88576abcb068f2\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:460000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:460000;s:8:\"line_tax\";i:0;}s:32:\"17e62166fc8586dfa4d1bc0e1742c08b\";a:11:{s:3:\"key\";s:32:\"17e62166fc8586dfa4d1bc0e1742c08b\";s:10:\"product_id\";i:43;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:80;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:80;s:8:\"line_tax\";i:0;}s:32:\"d67d8ab4f4c10bf22aa353e27879133c\";a:11:{s:3:\"key\";s:32:\"d67d8ab4f4c10bf22aa353e27879133c\";s:10:\"product_id\";i:39;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:5;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:450;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:450;s:8:\"line_tax\";i:0;}s:32:\"6c8349cc7260ae62e3b1396831a8398f\";a:11:{s:3:\"key\";s:32:\"6c8349cc7260ae62e3b1396831a8398f\";s:10:\"product_id\";i:45;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:19;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:38;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:38;s:8:\"line_tax\";i:0;}s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";a:11:{s:3:\"key\";s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";s:10:\"product_id\";i:38;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:9;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:144;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:144;s:8:\"line_tax\";i:0;}}\";s:22:\"shipping_for_package_0\";s:426:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_e6ae8047807493f559f2d15f70aa8418\";s:5:\"rates\";a:1:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:5:\"30000\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:69:\"Beanie with Logo &times; 15, Long Sleeve Tee &times; 1, Cap &times; 4\";}}}}\";s:25:\"previous_shipping_methods\";s:39:\"a:1:{i:0;a:1:{i:0;s:11:\"flat_rate:5\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:878:\"a:26:{s:2:\"id\";s:1:\"1\";s:13:\"date_modified\";s:25:\"2019-08-13T17:19:14+00:00\";s:8:\"postcode\";s:5:\"72000\";s:4:\"city\";s:3:\"761\";s:9:\"address_1\";s:13:\"86/33 Âu cơ\";s:7:\"address\";s:13:\"86/33 Âu cơ\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:5:\"72000\";s:13:\"shipping_city\";s:14:\"Hồ Chí Minh\";s:18:\"shipping_address_1\";s:13:\"86/33 Âu cơ\";s:16:\"shipping_address\";s:13:\"86/33 Âu cơ\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:10:\"Cao Hoàng\";s:9:\"last_name\";s:5:\"hoang\";s:7:\"company\";s:9:\"altamedia\";s:5:\"phone\";s:11:\"09035345212\";s:5:\"email\";s:22:\"caohoang2911@gmail.com\";s:19:\"shipping_first_name\";s:3:\"cao\";s:18:\"shipping_last_name\";s:5:\"hoang\";s:16:\"shipping_company\";s:9:\"altamedia\";}\";}', 1565964784),
+(46910, '0e49c84198894aa0fb154dec83c27afc', 'a:13:{s:4:\"cart\";s:456:\"a:1:{s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";a:11:{s:3:\"key\";s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";s:10:\"product_id\";i:55;s:12:\"variation_id\";i:261;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:3:\"red\";}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"094e0085ff8f0ccc5d88576abcb068f2\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:230000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:230000;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:403:\"a:15:{s:8:\"subtotal\";s:6:\"230000\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:2:\"12\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:6:\"230000\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:6:\"230012\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:387:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_1790546ca3454a67dca9bbc4cdf59949\";s:5:\"rates\";a:1:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:2:\"12\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:33:\"WordPress Pennant - Red &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:39:\"a:1:{i:0;a:1:{i:0;s:11:\"flat_rate:5\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:693:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:1:\"1\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:1:\"1\";s:16:\"shipping_company\";s:0:\"\";}\";s:21:\"chosen_payment_method\";s:6:\"cheque\";s:10:\"wc_notices\";N;}', 1565885620),
+(47411, '9ecf0833a8f1bb822e925bacb8ee991e', 'a:11:{s:4:\"cart\";s:410:\"a:1:{s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:18;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:18;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:397:\"a:15:{s:8:\"subtotal\";s:2:\"18\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:5:\"30000\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:2:\"18\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:5:\"30018\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:383:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_56acade4a677d08f263fade199b494cf\";s:5:\"rates\";a:1:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:5:\"30000\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:26:\"Beanie with Logo &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:39:\"a:1:{i:0;a:1:{i:0;s:11:\"flat_rate:5\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1565964784),
+(48971, '42ad89dc65da2fac675fbb5978b303a8', 'a:12:{s:4:\"cart\";s:1620:\"a:4:{s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";a:11:{s:3:\"key\";s:32:\"a5771bce93e200c36f7cd9dfd0e5deaa\";s:10:\"product_id\";i:38;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:16;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:16;s:8:\"line_tax\";i:0;}s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";a:11:{s:3:\"key\";s:32:\"d82c8d1619ad8176d665453cfb2e55f0\";s:10:\"product_id\";i:53;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:5;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:90;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:90;s:8:\"line_tax\";i:0;}s:32:\"6c8349cc7260ae62e3b1396831a8398f\";a:11:{s:3:\"key\";s:32:\"6c8349cc7260ae62e3b1396831a8398f\";s:10:\"product_id\";i:45;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:8;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:8;s:8:\"line_tax\";i:0;}s:32:\"a1d0c6e83f027327d8461063f4ac58a6\";a:11:{s:3:\"key\";s:32:\"a1d0c6e83f027327d8461063f4ac58a6\";s:10:\"product_id\";i:42;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:25;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:25;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:399:\"a:15:{s:8:\"subtotal\";s:3:\"139\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:5:\"30000\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:3:\"139\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:5:\"30139\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:425:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_2525f81fcae90cd0e80f235e4ed76413\";s:5:\"rates\";a:1:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:5:\"30000\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:68:\"Cap &times; 1, Beanie with Logo &times; 5, Long Sleeve Tee &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:39:\"a:1:{i:0;a:1:{i:0;s:11:\"flat_rate:5\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:10:\"wc_notices\";s:192:\"a:1:{s:7:\"success\";a:1:{i:0;s:153:\"<a href=\"http://localhost:8080/outsource/?page_id=26\" tabindex=\"1\" class=\"button wc-forward\">View cart</a> &ldquo;Cap&rdquo; has been added to your cart.\";}}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1565976685),
+(48978, '35a10632489d2a3dd0d22ec6c4aad7cf', 'a:11:{s:4:\"cart\";s:912:\"a:2:{s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";a:11:{s:3:\"key\";s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";s:10:\"product_id\";i:55;s:12:\"variation_id\";i:261;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:3:\"red\";}s:8:\"quantity\";i:6;s:9:\"data_hash\";s:32:\"094e0085ff8f0ccc5d88576abcb068f2\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:1380000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:1380000;s:8:\"line_tax\";i:0;}s:32:\"6b8895130406ec0d904c1f503475677c\";a:11:{s:3:\"key\";s:32:\"6b8895130406ec0d904c1f503475677c\";s:10:\"product_id\";i:55;s:12:\"variation_id\";i:262;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:5:\"green\";}s:8:\"quantity\";i:8;s:9:\"data_hash\";s:32:\"9d5a1e37109e53bd5611b6b4439c7d2f\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:1440000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:1440000;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:409:\"a:15:{s:8:\"subtotal\";s:7:\"2820000\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:5:\"30000\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:7:\"2820000\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:7:\"2850000\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:410:\"a:1:{s:32:\"1c383cd30b7c298ab50293adfecb7b18\";a:11:{s:3:\"key\";s:32:\"1c383cd30b7c298ab50293adfecb7b18\";s:10:\"product_id\";i:35;s:12:\"variation_id\";i:0;s:9:\"variation\";a:0:{}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"b5c1d5ca8bae6d4896cf1807cdf763f0\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:18;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:18;s:8:\"line_tax\";i:0;}}\";s:22:\"shipping_for_package_0\";s:427:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_23c82e502faf1f5d60e385c0887438f2\";s:5:\"rates\";a:1:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:5:\"30000\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:70:\"WordPress Pennant - Red &times; 6, WordPress Pennant - Green &times; 8\";}}}}\";s:25:\"previous_shipping_methods\";s:39:\"a:1:{i:0;a:1:{i:0;s:11:\"flat_rate:5\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1566050603),
+(48979, 'e8caaed6778b6d8811aade46cd0f2697', 'a:11:{s:4:\"cart\";s:456:\"a:1:{s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";a:11:{s:3:\"key\";s:32:\"dc15f8726dfdc2752827f55a2bf3ef9b\";s:10:\"product_id\";i:55;s:12:\"variation_id\";i:261;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:3:\"red\";}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"094e0085ff8f0ccc5d88576abcb068f2\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:230000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:230000;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:406:\"a:15:{s:8:\"subtotal\";s:6:\"230000\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:5:\"30000\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:6:\"230000\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:6:\"260000\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:390:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_1dfdf3a59367ab6b3d17a0bf0ae6774a\";s:5:\"rates\";a:1:{s:11:\"flat_rate:5\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:11:\"flat_rate:5\";s:9:\"method_id\";s:9:\"flat_rate\";s:11:\"instance_id\";i:5;s:5:\"label\";s:9:\"Flat rate\";s:4:\"cost\";s:5:\"30000\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:33:\"WordPress Pennant - Red &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:39:\"a:1:{i:0;a:1:{i:0;s:11:\"flat_rate:5\";}}\";s:23:\"chosen_shipping_methods\";s:29:\"a:1:{i:0;s:11:\"flat_rate:5\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1566050603);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_shipping_zones`
+--
+
+CREATE TABLE `wp_woocommerce_shipping_zones` (
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `zone_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `zone_order` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_shipping_zones`
+--
+
+INSERT INTO `wp_woocommerce_shipping_zones` (`zone_id`, `zone_name`, `zone_order`) VALUES
+(1, 'Vietnam', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_shipping_zone_locations`
+--
+
+CREATE TABLE `wp_woocommerce_shipping_zone_locations` (
+  `location_id` bigint(20) UNSIGNED NOT NULL,
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `location_code` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location_type` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_shipping_zone_locations`
+--
+
+INSERT INTO `wp_woocommerce_shipping_zone_locations` (`location_id`, `zone_id`, `location_code`, `location_type`) VALUES
+(2, 1, 'VN:01', 'state'),
+(3, 1, 'VN:74', 'state'),
+(4, 1, 'VN:79', 'state');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_shipping_zone_methods`
+--
+
+CREATE TABLE `wp_woocommerce_shipping_zone_methods` (
+  `zone_id` bigint(20) UNSIGNED NOT NULL,
+  `instance_id` bigint(20) UNSIGNED NOT NULL,
+  `method_id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `method_order` bigint(20) UNSIGNED NOT NULL,
+  `is_enabled` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_shipping_zone_methods`
+--
+
+INSERT INTO `wp_woocommerce_shipping_zone_methods` (`zone_id`, `instance_id`, `method_id`, `method_order`, `is_enabled`) VALUES
+(0, 2, 'free_shipping', 1, 1),
+(1, 5, 'flat_rate', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_tax_rates`
+--
+
+CREATE TABLE `wp_woocommerce_tax_rates` (
+  `tax_rate_id` bigint(20) UNSIGNED NOT NULL,
+  `tax_rate_country` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `tax_rate_state` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `tax_rate` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `tax_rate_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `tax_rate_priority` bigint(20) UNSIGNED NOT NULL,
+  `tax_rate_compound` int(1) NOT NULL DEFAULT 0,
+  `tax_rate_shipping` int(1) NOT NULL DEFAULT 1,
+  `tax_rate_order` bigint(20) UNSIGNED NOT NULL,
+  `tax_rate_class` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wp_woocommerce_tax_rate_locations`
+--
+
+CREATE TABLE `wp_woocommerce_tax_rate_locations` (
+  `location_id` bigint(20) UNSIGNED NOT NULL,
+  `location_code` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tax_rate_id` bigint(20) UNSIGNED NOT NULL,
+  `location_type` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `wp_berocket_termmeta`
+--
+ALTER TABLE `wp_berocket_termmeta`
+  ADD UNIQUE KEY `meta_id` (`meta_id`);
+
+--
+-- Chỉ mục cho bảng `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `comment_id` (`comment_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Chỉ mục cho bảng `wp_comments`
+--
+ALTER TABLE `wp_comments`
+  ADD PRIMARY KEY (`comment_ID`),
+  ADD KEY `comment_post_ID` (`comment_post_ID`),
+  ADD KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
+  ADD KEY `comment_date_gmt` (`comment_date_gmt`),
+  ADD KEY `comment_parent` (`comment_parent`),
+  ADD KEY `comment_author_email` (`comment_author_email`(10)),
+  ADD KEY `woo_idx_comment_type` (`comment_type`);
+
+--
+-- Chỉ mục cho bảng `wp_links`
+--
+ALTER TABLE `wp_links`
+  ADD PRIMARY KEY (`link_id`),
+  ADD KEY `link_visible` (`link_visible`);
+
+--
+-- Chỉ mục cho bảng `wp_masterslider_options`
+--
+ALTER TABLE `wp_masterslider_options`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Chỉ mục cho bảng `wp_masterslider_sliders`
+--
+ALTER TABLE `wp_masterslider_sliders`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `date_created` (`date_created`);
+
+--
+-- Chỉ mục cho bảng `wp_options`
+--
+ALTER TABLE `wp_options`
+  ADD PRIMARY KEY (`option_id`),
+  ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Chỉ mục cho bảng `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Chỉ mục cho bảng `wp_posts`
+--
+ALTER TABLE `wp_posts`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `post_name` (`post_name`(191)),
+  ADD KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
+  ADD KEY `post_parent` (`post_parent`),
+  ADD KEY `post_author` (`post_author`);
+
+--
+-- Chỉ mục cho bảng `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `term_id` (`term_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Chỉ mục cho bảng `wp_terms`
+--
+ALTER TABLE `wp_terms`
+  ADD PRIMARY KEY (`term_id`),
+  ADD KEY `slug` (`slug`(191)),
+  ADD KEY `name` (`name`(191));
+
+--
+-- Chỉ mục cho bảng `wp_term_relationships`
+--
+ALTER TABLE `wp_term_relationships`
+  ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`),
+  ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
+
+--
+-- Chỉ mục cho bảng `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+  ADD PRIMARY KEY (`term_taxonomy_id`),
+  ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
+  ADD KEY `taxonomy` (`taxonomy`);
+
+--
+-- Chỉ mục cho bảng `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+  ADD PRIMARY KEY (`umeta_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Chỉ mục cho bảng `wp_users`
+--
+ALTER TABLE `wp_users`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `user_login_key` (`user_login`),
+  ADD KEY `user_nicename` (`user_nicename`),
+  ADD KEY `user_email` (`user_email`);
+
+--
+-- Chỉ mục cho bảng `wp_user_registration_sessions`
+--
+ALTER TABLE `wp_user_registration_sessions`
+  ADD PRIMARY KEY (`session_key`),
+  ADD UNIQUE KEY `session_id` (`session_id`);
+
+--
+-- Chỉ mục cho bảng `wp_wc_download_log`
+--
+ALTER TABLE `wp_wc_download_log`
+  ADD PRIMARY KEY (`download_log_id`),
+  ADD KEY `permission_id` (`permission_id`),
+  ADD KEY `timestamp` (`timestamp`);
+
+--
+-- Chỉ mục cho bảng `wp_wc_product_meta_lookup`
+--
+ALTER TABLE `wp_wc_product_meta_lookup`
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `virtual` (`virtual`),
+  ADD KEY `downloadable` (`downloadable`),
+  ADD KEY `stock_status` (`stock_status`),
+  ADD KEY `stock_quantity` (`stock_quantity`),
+  ADD KEY `onsale` (`onsale`),
+  ADD KEY `min_max_price` (`min_price`,`max_price`);
+
+--
+-- Chỉ mục cho bảng `wp_wc_webhooks`
+--
+ALTER TABLE `wp_wc_webhooks`
+  ADD PRIMARY KEY (`webhook_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_api_keys`
+--
+ALTER TABLE `wp_woocommerce_api_keys`
+  ADD PRIMARY KEY (`key_id`),
+  ADD KEY `consumer_key` (`consumer_key`),
+  ADD KEY `consumer_secret` (`consumer_secret`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_attribute_taxonomies`
+--
+ALTER TABLE `wp_woocommerce_attribute_taxonomies`
+  ADD PRIMARY KEY (`attribute_id`),
+  ADD KEY `attribute_name` (`attribute_name`(20));
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_downloadable_product_permissions`
+--
+ALTER TABLE `wp_woocommerce_downloadable_product_permissions`
+  ADD PRIMARY KEY (`permission_id`),
+  ADD KEY `download_order_key_product` (`product_id`,`order_id`,`order_key`(16),`download_id`),
+  ADD KEY `download_order_product` (`download_id`,`order_id`,`product_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `user_order_remaining_expires` (`user_id`,`order_id`,`downloads_remaining`,`access_expires`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_log`
+--
+ALTER TABLE `wp_woocommerce_log`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `level` (`level`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_order_itemmeta`
+--
+ALTER TABLE `wp_woocommerce_order_itemmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `order_item_id` (`order_item_id`),
+  ADD KEY `meta_key` (`meta_key`(32));
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_order_items`
+--
+ALTER TABLE `wp_woocommerce_order_items`
+  ADD PRIMARY KEY (`order_item_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_payment_tokenmeta`
+--
+ALTER TABLE `wp_woocommerce_payment_tokenmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `payment_token_id` (`payment_token_id`),
+  ADD KEY `meta_key` (`meta_key`(32));
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_payment_tokens`
+--
+ALTER TABLE `wp_woocommerce_payment_tokens`
+  ADD PRIMARY KEY (`token_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_sessions`
+--
+ALTER TABLE `wp_woocommerce_sessions`
+  ADD PRIMARY KEY (`session_id`),
+  ADD UNIQUE KEY `session_key` (`session_key`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_shipping_zones`
+--
+ALTER TABLE `wp_woocommerce_shipping_zones`
+  ADD PRIMARY KEY (`zone_id`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_shipping_zone_locations`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_locations`
+  ADD PRIMARY KEY (`location_id`),
+  ADD KEY `location_id` (`location_id`),
+  ADD KEY `location_type_code` (`location_type`(10),`location_code`(20));
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_shipping_zone_methods`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_methods`
+  ADD PRIMARY KEY (`instance_id`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_tax_rates`
+--
+ALTER TABLE `wp_woocommerce_tax_rates`
+  ADD PRIMARY KEY (`tax_rate_id`),
+  ADD KEY `tax_rate_country` (`tax_rate_country`),
+  ADD KEY `tax_rate_state` (`tax_rate_state`(2)),
+  ADD KEY `tax_rate_class` (`tax_rate_class`(10)),
+  ADD KEY `tax_rate_priority` (`tax_rate_priority`);
+
+--
+-- Chỉ mục cho bảng `wp_woocommerce_tax_rate_locations`
+--
+ALTER TABLE `wp_woocommerce_tax_rate_locations`
+  ADD PRIMARY KEY (`location_id`),
+  ADD KEY `tax_rate_id` (`tax_rate_id`),
+  ADD KEY `location_type_code` (`location_type`(10),`location_code`(20));
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `wp_berocket_termmeta`
+--
+ALTER TABLE `wp_berocket_termmeta`
+  MODIFY `meta_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_commentmeta`
+--
+ALTER TABLE `wp_commentmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_comments`
+--
+ALTER TABLE `wp_comments`
+  MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_links`
+--
+ALTER TABLE `wp_links`
+  MODIFY `link_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_masterslider_options`
+--
+ALTER TABLE `wp_masterslider_options`
+  MODIFY `ID` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_masterslider_sliders`
+--
+ALTER TABLE `wp_masterslider_sliders`
+  MODIFY `ID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_options`
+--
+ALTER TABLE `wp_options`
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10918;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_postmeta`
+--
+ALTER TABLE `wp_postmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2756;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_posts`
+--
+ALTER TABLE `wp_posts`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_termmeta`
+--
+ALTER TABLE `wp_termmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_terms`
+--
+ALTER TABLE `wp_terms`
+  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=267;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_users`
+--
+ALTER TABLE `wp_users`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_user_registration_sessions`
+--
+ALTER TABLE `wp_user_registration_sessions`
+  MODIFY `session_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_wc_download_log`
+--
+ALTER TABLE `wp_wc_download_log`
+  MODIFY `download_log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_wc_webhooks`
+--
+ALTER TABLE `wp_wc_webhooks`
+  MODIFY `webhook_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_api_keys`
+--
+ALTER TABLE `wp_woocommerce_api_keys`
+  MODIFY `key_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_attribute_taxonomies`
+--
+ALTER TABLE `wp_woocommerce_attribute_taxonomies`
+  MODIFY `attribute_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_downloadable_product_permissions`
+--
+ALTER TABLE `wp_woocommerce_downloadable_product_permissions`
+  MODIFY `permission_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_log`
+--
+ALTER TABLE `wp_woocommerce_log`
+  MODIFY `log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_order_itemmeta`
+--
+ALTER TABLE `wp_woocommerce_order_itemmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=361;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_order_items`
+--
+ALTER TABLE `wp_woocommerce_order_items`
+  MODIFY `order_item_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_payment_tokenmeta`
+--
+ALTER TABLE `wp_woocommerce_payment_tokenmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_payment_tokens`
+--
+ALTER TABLE `wp_woocommerce_payment_tokens`
+  MODIFY `token_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_sessions`
+--
+ALTER TABLE `wp_woocommerce_sessions`
+  MODIFY `session_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48991;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_shipping_zones`
+--
+ALTER TABLE `wp_woocommerce_shipping_zones`
+  MODIFY `zone_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_shipping_zone_locations`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_locations`
+  MODIFY `location_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_shipping_zone_methods`
+--
+ALTER TABLE `wp_woocommerce_shipping_zone_methods`
+  MODIFY `instance_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_tax_rates`
+--
+ALTER TABLE `wp_woocommerce_tax_rates`
+  MODIFY `tax_rate_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_tax_rate_locations`
+--
+ALTER TABLE `wp_woocommerce_tax_rate_locations`
+  MODIFY `location_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `wp_wc_download_log`
+--
+ALTER TABLE `wp_wc_download_log`
+  ADD CONSTRAINT `fk_wp_wc_download_log_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `wp_woocommerce_downloadable_product_permissions` (`permission_id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

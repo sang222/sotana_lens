@@ -10,7 +10,7 @@ function submitProductVariable() {
         var product_id = $(this).attr('data-product_id');
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
-        var quantity=$("#qty").val();
+        var quantity=$("#qty_1").val();
         $(this).addClass('loading').removeClass('added');
         $this = $(this);
         $.ajax({
@@ -58,8 +58,8 @@ function viewVariable() {
         var display_price = $(this).attr('data-display_price');
         var display_regular_price = $(this).attr('data-display_regular_price');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
-        $("#add-variable").attr('data-attribute_pa_color', attribute_pa_color);
-        $("#add-variable").attr('data-variation_id', variation_id);
+        $(".add-variable").attr('data-attribute_pa_color', attribute_pa_color);
+        $(".add-variable").attr('data-variation_id', variation_id);
         //add on
         $(".current-price").text(formatCurrency(display_regular_price));
         $(".sale-price").text(formatCurrency(display_price));

@@ -2249,3 +2249,8 @@ body .owl-carousel .owl-video-tn {
 .sidebar-filter .top-filter{
     font-size: 18px;
 }
+/*social*/
+.fb_dialog{
+    right: 150pt !important;
+    bottom: 5pt !important;
+}
