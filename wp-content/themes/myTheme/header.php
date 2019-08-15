@@ -20,7 +20,7 @@
     <link href="<?php echo $baseURL ?>/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $baseURL ?>/css/animate.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $baseURL ?>/css/css-plugin-collections.css" rel="stylesheet"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap&subset=vietnamese" rel="stylesheet">
     <link href="<?php echo $baseURL ?>/css/style-main.css" rel="stylesheet" type="text/css">
     <!-- CSS | Preloader Styles -->
     <!-- CSS | Custom Margin Padding Collection -->
