@@ -17,7 +17,7 @@ global $post;
     <div class="breadcrumb-colect prefix">
         <div class="fixed-width content-breadcrum">
             <div class="pro-title-breadcrumb text-center">
-                <h4>Checkout</h4>
+                <h4><?php echo get_the_title() ?></h4>
 
             </div>
             <div class="text-center"><?php woocommerce_breadcrumb(); ?></div>

@@ -24,7 +24,16 @@ global $wp;
 $currentURL = home_url($wp->request);
 
 ?>
-
+<div class="breadcrumb-colect prefix">
+        <div class="fixed-width content-breadcrum">
+            <div class="pro-title-breadcrumb text-center">
+                <h4><?php the_title() ?></h4>
+            </div>
+            <div class="text-center"><?php echo woocommerce_breadcrumb(); ?></div>
+            <br/>
+            <br/>
+        </div>
+    </div>
 <div class="content-cart container">
     <div class="clearfix"></div>
     <div class="view-product">

@@ -16,7 +16,7 @@ add_filter('woocommerce_breadcrumb_main_term', 'change_breadcrumb');
 
 function change_breadcrumb($main_term)
 {
-    var_dump($main_term);
+    // var_dump($main_term);
 
     return $main_term;
 }
