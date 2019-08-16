@@ -80,14 +80,14 @@
 </footer>
 </div>
 <!-- end wrapper -->
-<div 
+<!-- <div 
     class="zalo-chat-widget" 
     data-oaid="1773525396975051959" 
     data-welcome-message="Rất vui khi được hỗ trợ bạn!" 
-    data-autopopup="0" data-width="350" data-height="420"
+    data-autopopup="0" data-width="70" data-height="70"
 >
 </div>
-<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+<script src="https://sp.zalo.me/plugins/sdk.js"></script> -->
 <!-- Footer Scripts -->
 <!-- JS | Calendar Event Data -->
 <?php wp_footer() ?>

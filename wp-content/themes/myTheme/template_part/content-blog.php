@@ -21,7 +21,9 @@
         ?>
             <div class="content-post">
                 <div class="img-post">
-                    <a class="hover-animated" href="<?php echo get_the_permalink() ?>"><img src="<?php echo $feature_image_meta[0] ?>"></a>
+                    <a class="hover-animated" href="<?php echo get_the_permalink() ?>">
+                        <div class="bgBlog" style="background: url(<?php echo $feature_image_meta[0] ?>) center center no-repeat; background-size: cover"></div>
+                    </a>
                 </div>
                 <div class="detail-post">
                     <h4><a href="<?php echo get_the_permalink() ?>"><?php echo the_title() ?></a></h4>

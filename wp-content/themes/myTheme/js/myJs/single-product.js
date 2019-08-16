@@ -122,7 +122,7 @@ function settingSlider() {
     }, function () {
         $("#zoom").attr('src', src_tem);
     })
-    console.log($("#mark-fixed").offset().top);
+    // console.log($("#mark-fixed").offset().top);
     //Slider product mobile
 
     $(".slick-carousel-mobile img").click(function () {

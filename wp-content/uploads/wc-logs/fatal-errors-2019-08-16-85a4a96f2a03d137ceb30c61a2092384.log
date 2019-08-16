@@ -1,0 +1,2 @@
+2019-08-16T16:32:58+00:00 CRITICAL Cannot redeclare ot_zalo_get_option() (previously declared in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\ot-zalo\includes\functions.php:3) in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\ot-zalo\includes\functions.php on line 8
+

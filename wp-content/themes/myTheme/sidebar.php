@@ -14,10 +14,13 @@
         $feature_image_id = get_post_thumbnail_id(get_the_ID());
         $feature_image_meta = wp_get_attachment_image_src($feature_image_id, 'full');
     ?>
+        <!-- <img src="<?php //echo $feature_image_meta[0] ?>"> -->
         <article class="blog-posts clearfix">
-            <a href="<?php echo get_the_permalink() ?>" style="display: table;margin-right: 15px;"><img src="<?php echo $feature_image_meta[0] ?>"></a>
+            <a href="<?php echo get_the_permalink() ?>" style="display: table;margin-right: 15px;">
+                <div class="sidebarBg" style="background: url(<?php echo $feature_image_meta[0] ?>) center center no-repeat; background-size: cover;"></div>
+            </a>
             <div class="blog-content pull-left">
-                <a class="title" href="<?php echo get_the_permalink() ?>"><?php echo the_title() ?></a>
+                <a class="title" href="<?php echo get_the_permalink() ?>" style="color: #000"><?php echo the_title() ?></a>
                 <div class="date-post"><i class="fa fa-calendar"></i> 
                     <?php echo get_the_date('M') ?> <?php echo get_the_date('d') ?>, <?php echo get_the_date('Y') ?>
                 </div>
