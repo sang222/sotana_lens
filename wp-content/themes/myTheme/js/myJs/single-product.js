@@ -10,7 +10,7 @@ function submitProductVariable() {
         var product_id = $(this).attr('data-product_id');
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
-        var quantity=$("#qty_1").val();
+        var quantity = $("#qty_1").val();
         $(this).addClass('loading').removeClass('added');
         $this = $(this);
         $.ajax({
@@ -51,15 +51,25 @@ function submitProductVariable() {
 function viewVariable() {
 
     $(".product-variable .box-variable").click(function () {
+        var variation_id = $(this).attr('data-variation_id');
+        var attribute_pa_color = $(this).attr('data-attribute_pa_color');
+        if ($(this).hasClass('box-out-variable')) {
+            $(".status-product").removeClass('has').addClass('not-has').text('Hết hàng');
+            $(".acttion-carts .add-cart").addClass('d-none');
+        } else {
+            $(".status-product").removeClass('not-has').addClass('has').text('Còn hàng');
+            $(".acttion-carts .add-cart").removeClass('d-none');
+            $(".add-variable").attr('data-attribute_pa_color', attribute_pa_color);
+            $(".add-variable").attr('data-variation_id', variation_id);
+        }
         $('.product-variable .box-variable').removeClass('active');
         $(this).addClass('active');
         $('#verticle-slick img').removeClass('active');
-        var variation_id = $(this).attr('data-variation_id');
+
         var display_price = $(this).attr('data-display_price');
         var display_regular_price = $(this).attr('data-display_regular_price');
-        var attribute_pa_color = $(this).attr('data-attribute_pa_color');
-        $(".add-variable").attr('data-attribute_pa_color', attribute_pa_color);
-        $(".add-variable").attr('data-variation_id', variation_id);
+
+
         //add on
         $(".current-price").text(formatCurrency(display_regular_price));
         $(".sale-price").text(formatCurrency(display_price));

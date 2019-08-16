@@ -91,7 +91,7 @@ $currentURL = home_url($wp->request);
 
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12 product-detail">
-                <div class="d-flex w-100 justify-content-between align-items-center">
+                <div class="d-flex  w-100 justify-content-between align-items-center">
                     <div>
                         <h2 class="my-0 title-product"><?php the_title() ?></h2>
                     </div>
@@ -100,11 +100,9 @@ $currentURL = home_url($wp->request);
                     $stock_st = $product->get_stock_status();
                     $stock = str_replace(array('instock', 'outofstock'), array('Còn hàng', 'Hết hàng'), $stock_st);
                     ?>
-                    <?php if ($stock_st == 'instock'): ?>
-                        <div class="status-product has"><?php echo $stock; ?></div>
-                    <?php else: ?>
-                        <div class="status-product  not-has"><?php echo $stock; ?></div>
-                    <?php endif; ?>
+
+                    <div class="status-product <?php if ($stock_st == 'instock') echo 'has'; else echo 'not-has'; ?> "><?php echo $stock; ?></div>
+
                 </div>
                 <div class="meta-product">
                     <?php
@@ -179,7 +177,7 @@ $currentURL = home_url($wp->request);
                             $variable_product1 = new WC_Product_Variation($variation_id);
 //                            var_dump($variable_product1->stock_status);
                             ?>
-                            <div class="d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
+                            <div class="d-inline-block ">
 
                                 <?php if ($variable_product1->stock_status == 'instock'):
                                     $vt++;
@@ -200,13 +198,23 @@ $currentURL = home_url($wp->request);
                                         <img width="30" height="30" src="<?php echo $variations['image']['src'] ?>"/>
                                     </div>
                                 <?php
-
+                                else:
+                                    ?>
+                                    <div class="d-inline-block box-variable box-out-variable border "
+                                         data-variation_id="<?php echo $variation_id ?>"
+                                         data-display_price="<?php echo $variations['display_price'] ?>"
+                                         data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
+                                         data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
+                                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                         style="padding: 5px">
+                                        <span><?php echo $variations['attributes']['attribute_pa_color'] ?></span>
+                                        <img width="30" height="30" src="<?php echo $variations['image']['src'] ?>"/>
+                                    </div>
+                                <?php
                                 endif; ?>
 
                             </div>
                             <?php
-
-
                         }
                     }
                     ?>
@@ -219,7 +227,8 @@ $currentURL = home_url($wp->request);
                         <button onclick="var result = document.getElementById(&#39;qty_1&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                                 class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i>
                         </button>
-                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty_1" min="1" title="SL" max="100"
+                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty_1" min="1" title="SL"
+                               max="100"
                                max inputmode="numeric" value="<?php if (isset($_POST['quantity'])) {
                             echo $_POST['quantity'];
                         } else {
@@ -252,7 +261,9 @@ $currentURL = home_url($wp->request);
                     <?php endif; ?>
                 </div>
                 <div class="try_eyewear">
-                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a class="color-secondary"  href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử kính ngay</a>.</p>
+                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a class="color-secondary"
+                                                                          href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử
+                            kính ngay</a>.</p>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
@@ -387,14 +398,13 @@ $currentURL = home_url($wp->request);
                                         $variation_id = $available_variations[$key]['variation_id'];
                                         $variable_product1 = new WC_Product_Variation($variation_id);
                                         ?>
-                                        <div class="d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
-
+                                        <div class="d-inline-block ">
+                                            <!--                                    --><?php //var_dump($variable_product1->stock_status) ?>
                                             <?php if ($variable_product1->stock_status == 'instock'):
                                                 $vt++;
                                                 if ($vt == 1) {
                                                     $variation_id_first = $variation_id;
                                                     $first_color = $variations['attributes']['attribute_pa_color'];
-                                                    $first_size = $variations['attributes']['attribute_pa_size'];
                                                 }
                                                 ?>
                                                 <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
@@ -409,7 +419,14 @@ $currentURL = home_url($wp->request);
                                                          src="<?php echo $variations['image']['src'] ?>"/>
                                                 </div>
                                             <?php
-
+                                            else:
+                                                ?>
+                                                <div class="d-inline-block box-variable-pr out-variable-pr border"
+                                                     data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
+                                                    <img style="width:32px" height="32px"
+                                                         src="<?php echo $variations['image']['src'] ?>"/>
+                                                </div>
+                                            <?php
                                             endif; ?>
 
                                         </div>
@@ -444,7 +461,6 @@ $currentURL = home_url($wp->request);
                                                    data-variation_id="<?php echo $variation_id_first; ?>"
                                                    data-attribute_pa_color="<?php echo $first_color; ?>"
                                                    data-product_id="<?php echo $product->get_id() ?>"
-                                                   data-attribute_pa_size="<?php echo $first_size ?>"
                                                 ><i class="fa fa-cart-plus"></i> </a>
                                                 </a>
 
@@ -455,20 +471,32 @@ $currentURL = home_url($wp->request);
                                                href="<?php the_permalink() ?>"
                                             ><i class="fa fa-eye"></i></a>
                                         <?php endif; ?>
+                                        <?php if ($product->product_type == 'variable') {
+                                            $available_variations = $product->get_available_variations();
+                                            $ds = 0;
+                                            foreach ($available_variations as $available) {
+                                                $variable_product1 = new WC_Product_Variation($available['variation_id']);
+                                                if ($variable_product1->stock_status == 'instock' && $ds == 0) {
+                                                    $stock_first = $available;
+                                                    $ds++;
+                                                }
+
+                                            }
+                                        }
+                                        ?>
                                         <span class="cart-product view-product"
                                               onclick="viewProduct(
                                               <?php echo $product->get_id() ?>,this)"
                                               data-quantity="<?php echo $product->qty ?>"
                                               data-variable_id="<?php
                                               if ($product->product_type == 'variable') {
-                                                  $available_variations = $product->get_available_variations();
-                                                  echo $available_variations[0]['variation_id'];
+                                                  echo $stock_first['variation_id'];
                                               }
                                               ?>"
                                               data-attribute_pa_color="<?php
                                               if ($product->product_type == 'variable') {
-                                                  $available_variations = $product->get_available_variations();
-                                                  echo $available_variations[0]['attributes']['attribute_pa_color'];
+
+                                                  echo $stock_first['attributes']['attribute_pa_color'];
                                               }
                                               ?>"
                                               data-product_id="<?php echo $product->get_id(); ?>"
@@ -480,8 +508,7 @@ $currentURL = home_url($wp->request);
                                                   echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
                                               } ?>
                                           <?php else:
-                                                  $available_variations = $product->get_available_variations();
-                                                  if ($available_variations[0]['display_regular_price']) {
+                                                  if ($stock_first['display_regular_price']) {
                                                       echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
                                                   }
                                                   ?>
@@ -491,8 +518,7 @@ $currentURL = home_url($wp->request);
                                                   echo number_format($product->get_price(), 0, ',', '.') . 'đ';
                                               } ?>
                                           <?php else:
-                                                  $available_variations = $product->get_available_variations();
-                                                  if ($available_variations[0]['display_price']) {
+                                                  if ($stock_first['display_price']) {
                                                       echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
                                                   }
                                                   ?>
@@ -504,8 +530,6 @@ $currentURL = home_url($wp->request);
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
 
                     </div>
@@ -518,10 +542,11 @@ $currentURL = home_url($wp->request);
             ?>
         </div>
     </div>
+    <div class="alert-box error-box">Hết hàng</div>
     <!--    Quick view-->
     <?php get_template_part('template_part/content', 'cartmodal') ?>
     <!-- content notice -->
-<!--    --><?php //get_template_part('template_part/content', 'notice') ?>
+    <!--    --><?php //get_template_part('template_part/content', 'notice') ?>
     <!-- content notice -->
     <?php get_template_part('template_part/content', 'quickview') ?>
 </div>

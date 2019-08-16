@@ -1,0 +1,368 @@
+2019-08-16T14:36:07+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp1\htdocs\outsource\wp-includes\Requests\Transport\cURL.php on line 163
+
+2019-08-16T15:41:35+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:41:37+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:41:37+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:41:43+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:41:44+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:41:44+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:42:00+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:42:02+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:42:02+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:53:04+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:53:06+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:53:06+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:182
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 182
+
+2019-08-16T15:59:50+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T15:59:51+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T15:59:51+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:00:13+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:00:14+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:00:14+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:00:37+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:00:38+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:00:38+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:01:01+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:01:02+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:01:02+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:01:39+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:01:41+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:01:41+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:155
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 155
+
+2019-08-16T16:02:12+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 199
+
+2019-08-16T16:02:13+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 199
+
+2019-08-16T16:02:13+00:00 CRITICAL syntax error, unexpected ';', expecting ',' or ')' in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 199
+
+2019-08-16T16:02:20+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:199
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 199
+
+2019-08-16T16:02:22+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:199
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 199
+
+2019-08-16T16:02:22+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php:199
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require()
+#1 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#2 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 C:\xampp1\htdocs\outsource\wp-includes\template.php(690): require('C:\\xampp1\\htdoc...')
+#5 C:\xampp1\htdocs\outsource\wp-includes\template.php(647): load_template('C:\\xampp1\\htdoc...', false)
+#6 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#7 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\front-page.php(4): get_template_part('content', '')
+#8 C:\xampp in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\product-bestsale.php on line 199
+

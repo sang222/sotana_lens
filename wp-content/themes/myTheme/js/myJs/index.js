@@ -6,29 +6,39 @@ function openProTabs(index, $this) {
 }
 
 function clickItemVariableItem() {
-    $('.box-variable-pr img').click(function () {
-
+    $(document).on('click', '.box-variable-pr img', function () {
         $(this).parents('.product-item').find('.box-variable-pr').removeClass('active');
         $(this).parents('.box-variable-pr').addClass('active');
         var src = $(this).attr('src');
         $(this).parents('.product-item').find('.img-thumb img').attr('src', src);
         $(this).parents('.product-item').find('.img-thumb img').attr('srcset', src);
-        var product_id = $(this).parents('.box-variable-pr').attr('data-product_id');
-        var variation_id = $(this).parents('.box-variable-pr').attr('data-variation_id');
-        var attribute_pa_color = $(this).parents('.box-variable-pr').attr('data-attribute_pa_color');
-        var display_price = $(this).parents('.box-variable-pr').attr('data-display_price');
-        var display_regular_price = $(this).parents('.box-variable-pr').attr('data-display_regular_price');
-        if (display_price != '') {
-            $(this).parents('.action-detail').find('.sale-price').text(formatCurrency(display_regular_price))
-        }
-        if (display_regular_price != '') {
-            $(this).parents('.action-detail').find('.regular-price').text(formatCurrency(display_price))
+        if (!$(this).parents('.box-variable-pr').hasClass('out-variable-pr')) {
+
+            $(this).parents('.product-item').find('.add-cart').removeClass('d-none')
+            var variation_id = $(this).parents('.box-variable-pr').attr('data-variation_id');
+            var attribute_pa_color = $(this).parents('.box-variable-pr').attr('data-attribute_pa_color');
+            var display_price = $(this).parents('.box-variable-pr').attr('data-display_price');
+            var display_regular_price = $(this).parents('.box-variable-pr').attr('data-display_regular_price');
+            if (display_price != '') {
+                $(this).parents('.action-detail').find('.sale-price').text(formatCurrency(display_regular_price))
+            }
+            if (display_regular_price != '') {
+                $(this).parents('.action-detail').find('.regular-price').text(formatCurrency(display_price))
+            }
+            if ($(this).parents('.product-item').find('.add-variable').addClass('d-none')) {
+                $(this).parents('.product-item').find('.add-variable').removeClass('d-none');
+            }
+
+            var addCartbtn = $(this).parents('.product-item').find('.add-variable');
+            addCartbtn.attr('data-variation_id', variation_id);
+            addCartbtn.attr('data-attribute_pa_color', attribute_pa_color);
+        } else {
+            $(this).parents('.product-item').find('.add-cart').addClass('d-none')
+            var color = $(this).parents('.out-variable-pr').attr('data-attribute_pa_color')
+            $("div.error-box").text('Màu ' + color + ' đã hết hàng').fadeIn(300).delay(1500).fadeOut(400);
         }
 
 
-        var addCartbtn = $(this).parents('.product-item').find('.add-variable');
-        addCartbtn.attr('data-variation_id', variation_id);
-        addCartbtn.attr('data-attribute_pa_color', attribute_pa_color);
     })
 }
 
@@ -41,17 +51,23 @@ function clickItemVariableQuick() {
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
         var display_price = $(this).attr('data-display_price');
         var display_regular_price = $(this).attr('data-display_regular_price')
-
-        $("#add-variable").attr('data-variation_id', variation_id);
-        $("#add-variable").attr('data-attribute_pa_color', attribute_pa_color);
         if (display_regular_price != '') {
             $(this).parents('.content-quick').find('.price-regular').text(formatCurrency(display_price));
+            $("#add-variable").attr('data-variation_id', variation_id);
+            $("#add-variable").attr('data-attribute_pa_color', attribute_pa_color);
         }
         if (display_price != '') {
             $(this).parents('.content-quick').find('.price-sale').text(formatCurrency(display_regular_price));
         }
+        if (!$(this).hasClass('out-variable-pr')) {
+            $(".status-product").addClass('status-instock').removeClass('out-instock').text('Còn hàng');
 
+            $("#myModal .add-cart").removeClass('d-none');
 
+        } else {
+            $(".status-product").removeClass('status-instock').addClass('out-instock').text('Hết hàng');
+            $("#myModal .add-cart").addClass('d-none');
+        }
         $('.zoomContainer').remove();
         $("#picture-quickview").removeData('elevateZoom');
         $("#picture-quickview").attr('src', src_tem);
@@ -100,7 +116,7 @@ $(document).ready(function () {
         lazyLoad: true,
         loop: true,
         margin: 15,
-        autoplay: true,
+        autoplay: false,
         responsiveClass: true,
         autoplayHoverPause: true,
         touchDrag: false,

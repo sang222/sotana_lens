@@ -1,23 +1,28 @@
 (function ($) {
     "use strict";
+    var templateUrl = object_name.templateUrl;
     var w = $('.pictureRender').width(),
         h = $('.pictureRender').height();
-
-    $('#download').click(function() {{
-        $('.resize-handle').addClass('hiddenResize')
-        html2canvas($('#exportImage')[0], {
-            onrendered: function(canvas) {
-                console.log(canvas)
-                var url = canvas.toDataURL();
-                  $("<a>", {
-                    href: url,
-                    download: "sonata"
-                  })
-                  .on("click", function() {$(this).remove()})
-                  .appendTo("body")[0].click()
-            }
-          })
-    }})
+    $('.pictureRender').append('<img src="' + templateUrl + '/images/myimage/other/modal.jpg" />')
+    $('#download').click(function () {
+        {
+            $('.resize-handle').addClass('hiddenResize')
+            html2canvas($('#exportImage')[0], {
+                onrendered: function (canvas) {
+                    console.log(canvas)
+                    var url = canvas.toDataURL();
+                    $("<a>", {
+                        href: url,
+                        download: "sonata"
+                    })
+                        .on("click", function () {
+                            $(this).remove()
+                        })
+                        .appendTo("body")[0].click()
+                }
+            })
+        }
+    })
 
     $('#webcam').click(function () {
         $('.resize-handle').removeClass('hiddenResize')
