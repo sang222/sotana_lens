@@ -27,8 +27,9 @@
 #tbl-content .table-cart tbody tr td .input-text {
     padding: 8px 0px;
     border: 1px solid #dfdfdf;
-    margin-top: -4px;
+    margin-top: -2px;
     width: 50px;
+    border-top: 1px solid #dfdfdf !important;
 }
 #tbl-content .remove-product
 {

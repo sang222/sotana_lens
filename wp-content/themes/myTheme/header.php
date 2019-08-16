@@ -104,9 +104,8 @@
                     <li id="search"><a href=""><i class="fa fa-search" aria-hidden="true"></i></a></li>
                 </ul>
                 <div class="search-box">
-                    <h4>Search</h4>
-                    <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>">
-                        <input type="text" name="s" class="form-control">
+                    <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>" class="form-search-menu">
+                        <input type="text" name="s" class="form-control" placeholder="Search product">
                         <button class="btn btn-default">Search</button>
                     </form>
                 </div>
