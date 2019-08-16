@@ -10,7 +10,7 @@ function submitProductVariable() {
         var product_id = $(this).attr('data-product_id');
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
-        var quantity = $("#qty_1").val();
+        var quantity = $(this).parents('.qty-quick-views').find(".qty").val();
         $(this).addClass('loading').removeClass('added');
         $this = $(this);
         $.ajax({
