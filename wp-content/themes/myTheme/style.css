@@ -2375,9 +2375,11 @@ body .owl-carousel .owl-video-tn {
 .breadcrumb-colect-blog .content-breadcrum .woocommerce-breadcrumb a {
     color: #ffffff;
 }
-.breadcrumb-colect-blog .content-breadcrum .woocommerce-breadcrumb a:hover{
+
+.breadcrumb-colect-blog .content-breadcrum .woocommerce-breadcrumb a:hover {
     color: #789be6;
 }
+
 .breadcrumb-colect-blog:after {
     content: '';
     position: absolute;
@@ -2387,4 +2389,9 @@ body .owl-carousel .owl-video-tn {
     height: 100%;
     background: #111;
     opacity: 0.7;
+}
+
+.center-view {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }

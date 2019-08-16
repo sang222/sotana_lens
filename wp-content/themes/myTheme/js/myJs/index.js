@@ -13,7 +13,7 @@ function clickItemVariableItem() {
         $(this).parents('.product-item').find('.img-thumb img').attr('src', src);
         $(this).parents('.product-item').find('.img-thumb img').attr('srcset', src);
         if (!$(this).parents('.box-variable-pr').hasClass('out-variable-pr')) {
-
+            $(this).parents('.product-item').find('.view-product').removeClass('center-view')
             $(this).parents('.product-item').find('.add-cart').removeClass('d-none')
             var variation_id = $(this).parents('.box-variable-pr').attr('data-variation_id');
             var attribute_pa_color = $(this).parents('.box-variable-pr').attr('data-attribute_pa_color');
@@ -34,6 +34,7 @@ function clickItemVariableItem() {
             addCartbtn.attr('data-attribute_pa_color', attribute_pa_color);
         } else {
             $(this).parents('.product-item').find('.add-cart').addClass('d-none')
+            $(this).parents('.product-item').find('.view-product').addClass('center-view')
             var color = $(this).parents('.out-variable-pr').attr('data-attribute_pa_color')
             $("div.error-box").text('Màu ' + color + ' đã hết hàng').fadeIn(300).delay(1500).fadeOut(400);
         }
