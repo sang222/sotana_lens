@@ -1,5 +1,5 @@
 <?php
-$feat_pro = new WP_Query(array('posts_per_page' => 8,
+$feat_pro = new WP_Query(array('posts_per_page' => 10,
     'tax_query' => array(
         array(
             'taxonomy' => 'product_visibility',
@@ -80,14 +80,13 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
                                 $variation_id = $available_variations[$key]['variation_id'];
                                 $variable_product1 = new WC_Product_Variation($variation_id);
                                 ?>
-                                <div class="d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
-
+                                <div class="d-inline-block ">
+                                    <!--                                    --><?php //var_dump($variable_product1->stock_status) ?>
                                     <?php if ($variable_product1->stock_status == 'instock'):
                                         $vt++;
                                         if ($vt == 1) {
                                             $variation_id_first = $variation_id;
                                             $first_color = $variations['attributes']['attribute_pa_color'];
-                                            $first_size = $variations['attributes']['attribute_pa_size'];
                                         }
                                         ?>
                                         <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
@@ -102,7 +101,14 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
                                                  src="<?php echo $variations['image']['src'] ?>"/>
                                         </div>
                                     <?php
-
+                                    else:
+                                        ?>
+                                        <div class="d-inline-block box-variable-pr out-variable-pr border"
+                                             data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
+                                            <img style="width:32px" height="32px"
+                                                 src="<?php echo $variations['image']['src'] ?>"/>
+                                        </div>
+                                    <?php
                                     endif; ?>
 
                                 </div>
@@ -137,7 +143,6 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
                                            data-variation_id="<?php echo $variation_id_first; ?>"
                                            data-attribute_pa_color="<?php echo $first_color; ?>"
                                            data-product_id="<?php echo $product->get_id() ?>"
-                                           data-attribute_pa_size="<?php echo $first_size ?>"
                                         ><i class="fa fa-cart-plus"></i> </a>
                                         </a>
 
@@ -148,20 +153,32 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
                                        href="<?php the_permalink() ?>"
                                     ><i class="fa fa-eye"></i></a>
                                 <?php endif; ?>
+                                <?php if ($product->product_type == 'variable') {
+                                    $available_variations = $product->get_available_variations();
+                                    $ds = 0;
+                                    foreach ($available_variations as $available) {
+                                        $variable_product1 = new WC_Product_Variation($available['variation_id']);
+                                        if ($variable_product1->stock_status == 'instock' && $ds == 0) {
+                                            $stock_first = $available;
+                                            $ds++;
+                                        }
+
+                                    }
+                                }
+                                ?>
                                 <span class="cart-product view-product"
                                       onclick="viewProduct(
                                       <?php echo $product->get_id() ?>,this)"
                                       data-quantity="<?php echo $product->qty ?>"
                                       data-variable_id="<?php
                                       if ($product->product_type == 'variable') {
-                                          $available_variations = $product->get_available_variations();
-                                          echo $available_variations[0]['variation_id'];
+                                          echo $stock_first['variation_id'];
                                       }
                                       ?>"
                                       data-attribute_pa_color="<?php
                                       if ($product->product_type == 'variable') {
-                                          $available_variations = $product->get_available_variations();
-                                          echo $available_variations[0]['attributes']['attribute_pa_color'];
+
+                                          echo $stock_first['attributes']['attribute_pa_color'];
                                       }
                                       ?>"
                                       data-product_id="<?php echo $product->get_id(); ?>"
@@ -173,8 +190,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
                                           echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
                                       } ?>
                                           <?php else:
-                                          $available_variations = $product->get_available_variations();
-                                          if ($available_variations[0]['display_regular_price']) {
+                                          if ($stock_first['display_regular_price']) {
                                               echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
                                           }
                                           ?>
@@ -184,8 +200,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
                                           echo number_format($product->get_price(), 0, ',', '.') . 'đ';
                                       } ?>
                                           <?php else:
-                                          $available_variations = $product->get_available_variations();
-                                          if ($available_variations[0]['display_price']) {
+                                          if ($stock_first['display_price']) {
                                               echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
                                           }
                                           ?>
@@ -206,8 +221,10 @@ $feat_pro = new WP_Query(array('posts_per_page' => 8,
         <?php endwhile;
         wp_reset_query()
         ?>
+
     </div>
     <!--    Quick view-->
+    <div class="alert-box error-box">Hết hàng</div>
     <?php get_template_part('template_part/content', 'quickview') ?>
     <!--    End Quick view-->
 

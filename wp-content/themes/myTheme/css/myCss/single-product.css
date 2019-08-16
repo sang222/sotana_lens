@@ -369,3 +369,6 @@ a.cart-product.add-cart.add-variable.loading:before {
 .pro-title .content-title{
     width: 100%;
 }
+.box-out-variable{
+    background: #dfdfdf;
+}

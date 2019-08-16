@@ -3,7 +3,7 @@ get_header();
 $list_try = get_field('try-eye', $_GET['id_lens']);
 $img_try = $list_try['url'];
 ?>
-    <div class=" breadcrumb-colect" style="padding: 5px 0px 35px 0px">
+    <div class=" breadcrumb-colect" style="padding: 5px 0px 65px 0px">
         <div class="fixed-width content-breadcrum">
             <div class="pro-title-breadcrumb text-center">
                 <h4><?php echo the_title() ?></h4>
@@ -15,9 +15,9 @@ $img_try = $list_try['url'];
         </div>
     </div>
     <div class="container content-try">
-        <div class="row">
-            <div class="col-md-12 text-center" style="margin-top:20px">
-                <h5 class="title-try" style="margin-bottom: 30px">Bạn đang thử <span
+        <div class="row content-try-in">
+            <div class="col-md-12 text-center header-try">
+                <h5 class="title-try" style="margin-bottom: 30px">Bạn đang thử &nbsp;&nbsp;<span
                             class="text-uppercase "><a class="color-secondary" href="<?php echo get_permalink($_GET['id_lens']) ?>"> <?php echo get_the_title($_GET['id_lens']) ?></a>
                 </h5></span>
             </div>

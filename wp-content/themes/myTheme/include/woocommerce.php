@@ -368,7 +368,8 @@ function modal_add_to_cart_fragment($fragments)
                             <img width="100" class="img-fluid m-auto"
                                  src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                         <div class="prefix"></div>
-                        <a class="text-center d-block " style="margin-top: 10px" href="<?php get_category_link( 66 ); ?> "><span
+                        <a class="text-center d-block " style="margin-top: 10px"
+                           href="<?php get_category_link(66); ?> "><span
                                     class="return-shop">Return shop</span></a>
                         <br/>
                         </p>
@@ -449,10 +450,11 @@ function viewProduct_init()
             $variation_id = $available_variations[$key]['variation_id'];
             $variable_product1 = new WC_Product_Variation($variation_id);
             ?>
-            <div class="<?php if ($vt == 0) echo 'active' ?> item-variable  d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
-                <?php if ($variable_product1->stock_status == 'instock'):
-                    ?>
-                    <div class="d-inline-block box-variable-quick border <?php if ($vt == 1) echo 'active' ?>"
+
+            <?php if ($variable_product1->stock_status == 'instock'):
+                ?>
+                <div class="<?php if ($vt == 0) echo 'active' ?> item-variable  d-inline-block">
+                    <div class="d-inline-block box-variable-quick border "
                          data-variation_id="<?php echo $variation_id ?>"
                          data-display_price="<?php echo $variations['display_price'] ?>"
                          data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
@@ -461,9 +463,26 @@ function viewProduct_init()
                         <span><?php echo $variations['attributes']['attribute_pa_color'] ?></span>
                         <img width="30" height="30" src="<?php echo $variations['image']['src'] ?>"/>
                     </div>
-                    <?php
-                    $vt++;
-                endif; ?>
+                </div>
+                <?php
+                $vt++;
+            else:
+                ?>
+                <div class=" item-variable  d-inline-block">
+                    <div class="d-inline-block box-variable-quick out-variable-pr border"
+                         data-variation_id="<?php echo $variation_id ?>"
+                         data-display_price="<?php echo $variations['display_price'] ?>"
+                         data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
+                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                         style="padding: 4px"
+                    >
+                        <span><?php echo $variations['attributes']['attribute_pa_color'] ?></span>
+                        <img width="30" height="30"
+                             src="<?php echo $variations['image']['src'] ?>"/>
+                    </div>
+                </div>
+            <?php
+            endif; ?>
             </div>
             <?php
 
@@ -630,7 +649,7 @@ function ajax_load_post_func()
             'ignore_sticky_posts' => 1,
             'post_status' => 'publish',
             'paged' => $paged,
-            'posts_per_page' =>12,
+            'posts_per_page' => 12,
             'meta_query' => array(
                 'relation' => 'AND',
                 array(
@@ -686,53 +705,185 @@ function ajax_load_post_func()
                     <?php if (!empty($sale)): ?>
                         <p class="sale-banner">Sale!</p>
                     <?php endif; ?>
-                    <?php the_post_thumbnail('shop_catalog', array("title" => get_the_title(), 'alt' => get_the_title())) ?>
+                    <div class="img-thumb">
 
-                    <div class="action-detail">
-                        <p class="title-product"><?php echo get_the_title() ?></p>
-                        <p class="price-product"><?php echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                            <span style="text-decoration: line-through"><?php if ($product->sale_price) {
-                                    echo number_format($product->sale_price, 0, ',', '.') . 'đ';
-                                } ?></span>
-                        </p>
+                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+
                     </div>
                 </a>
-                <div class="content-action d-flex flex-column justify-content-end">
-                    <?php if ($stock == 'instock'): ?>
-                        <a title="Add cart"
-                           class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
-                           href="?add-to-cart=<?php echo $product->get_id(); ?>"
-                           data-quantity="<?php echo $product->qty ?>"
-                           data-product_id="<?php echo $product->get_id(); ?>"
-                           data-product_sku="<?php echo $product->sku ?>"
-                        ><i class="fa fa-cart-plus"></i></a>
-                    <?php else: ?>
-                        <a title="View"
-                           class="cart-product add-cart "
-                           href="<?php the_permalink() ?>"
-                        ><i class="fa fa-eye"></i></a>
-                    <?php endif; ?>
-                    <span class="cart-product view-product"
-                          class="tooltip-left" data-tooltip="Quick view"
-                          onclick="viewProduct(
-                          <?php echo $product->get_id() ?>,this)"
-                          data-quantity="<?php echo $product->qty ?>"
-                          data-product_id="<?php echo $product->get_id(); ?>"
-                          data-product_sku="<?php echo $product->sku ?>"
-                          data-product_price="<?php if ($product->get_price()) {
-                              echo number_format($product->get_price(), 0, ',', '.') . 'đ';
-                          } ?>"
-                          data-product_price_regular="<?php if ($product->get_regular_price()) {
-                              echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
-                          } ?>"
-                          data-product_price_sale="<?php if ($product->get_sale_price()) {
-                              echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
-                          } ?>"
-                          data-product_price_stock="<?php $product->get_stock_status(); ?>"
-                          data-product_link="<?php the_permalink() ?>"
-                    ><i
-                                class="fa fa-search"></i></span>
+                <div class="action-detail">
+
+                    <p class="title-product"><?php echo get_the_title() ?></p>
+                    <p class="price-product">
+                        <?php if ($product->product_type != 'variable') : ?>
+                            <span class="sale-price" style="text-decoration: line-through">
+                                <?php if ($product->sale_price) {
+                                    echo number_format($product->sale_price, 0, ',', '.') . 'đ';
+                                } ?>
+                                </span>
+                            <span class="regular-price">
+                                    <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                                </span>
+                        <?php else: ?>
+                            <?php $available_variations = $product->get_available_variations(); ?>
+                            <span class="sale-price" style="text-decoration: line-through">
+                                <?php if ($available_variations[0]['display_price']) {
+                                    echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                } ?>
+                                </span>
+                            <span class="regular-price">
+                                    <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                </span>
+                        <?php endif; ?>
+
+                    </p>
+                    <?php
+                    if ($product->product_type == 'variable') {
+                        $available_variations = $product->get_available_variations();
+                        $attributes = $product->get_attributes();
+                        $variation_id_first = '';
+                        $first_instock = null;
+                        $vt = 0;
+                        ?>
+                        <?php
+                        foreach ($available_variations as $key => $variations) {
+                            $variation_id = $available_variations[$key]['variation_id'];
+                            $variable_product1 = new WC_Product_Variation($variation_id);
+                            ?>
+                            <div class="d-inline-block ">
+                                <!--                                    --><?php //var_dump($variable_product1->stock_status) ?>
+                                <?php if ($variable_product1->stock_status == 'instock'):
+                                    $vt++;
+                                    if ($vt == 1) {
+                                        $variation_id_first = $variation_id;
+                                        $first_color = $variations['attributes']['attribute_pa_color'];
+                                    }
+                                    ?>
+                                    <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
+                                         data-variation_id="<?php echo $variation_id ?>"
+                                         data-product_id="<?php echo $product->get_id() ?>"
+                                         data-display_price="<?php echo $variations['display_price'] ?>"
+                                         data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
+                                         data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
+                                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                    >
+                                        <img style="width:32px" height="32px"
+                                             src="<?php echo $variations['image']['src'] ?>"/>
+                                    </div>
+                                <?php
+                                else:
+                                    ?>
+                                    <div class="d-inline-block box-variable-pr out-variable-pr border"
+                                         data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
+                                        <img style="width:32px" height="32px"
+                                             src="<?php echo $variations['image']['src'] ?>"/>
+                                    </div>
+                                <?php
+                                endif; ?>
+
+                            </div>
+                            <?php
+
+
+                        }
+                    } else {
+                        ?>
+                        <div class="d-inline-block box-variable-pr border active ">
+                            <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <div class="action-add">
+                        <div class="content-action d-flex flex-column justify-content-end">
+                            <?php if ($stock == 'instock'): ?>
+                                <?php if ($product->product_type != 'variable'): ?>
+                                    <a title="Add cart"
+                                       class="cart-product add-cart quick_add_to_cart_button button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                       href="?add-to-cart=<?php echo $product->get_id(); ?>"
+                                       data-quantity="<?php echo $product->qty ?>"
+                                       data-product_id="<?php echo $product->get_id(); ?>"
+                                       data-product_sku="<?php echo $product->sku ?>"
+                                       tooltip="Add to cart" flow="left"
+                                    ><i class="fa fa-cart-plus"></i></a>
+                                <?php else: ?>
+                                    <a title="Add cart"
+                                       class="cart-product add-cart add-variable"
+                                       href="?add-to-cart=<?php echo $product->get_id() ?>"
+                                       data-variation_id="<?php echo $variation_id_first; ?>"
+                                       data-attribute_pa_color="<?php echo $first_color; ?>"
+                                       data-product_id="<?php echo $product->get_id() ?>"
+                                    ><i class="fa fa-cart-plus"></i> </a>
+                                    </a>
+
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <a title="View"
+                                   class="cart-product add-cart "
+                                   href="<?php the_permalink() ?>"
+                                ><i class="fa fa-eye"></i></a>
+                            <?php endif; ?>
+                            <?php if ($product->product_type == 'variable') {
+                                $available_variations = $product->get_available_variations();
+                                $ds = 0;
+                                foreach ($available_variations as $available) {
+                                    $variable_product1 = new WC_Product_Variation($available['variation_id']);
+                                    if ($variable_product1->stock_status == 'instock' && $ds == 0) {
+                                        $stock_first = $available;
+                                        $ds++;
+                                    }
+
+                                }
+                            }
+                            ?>
+                            <span class="cart-product view-product"
+                                  onclick="viewProduct(
+                                  <?php echo $product->get_id() ?>,this)"
+                                  data-quantity="<?php echo $product->qty ?>"
+                                  data-variable_id="<?php
+                                  if ($product->product_type == 'variable') {
+                                      echo $stock_first['variation_id'];
+                                  }
+                                  ?>"
+                                  data-attribute_pa_color="<?php
+                                  if ($product->product_type == 'variable') {
+
+                                      echo $stock_first['attributes']['attribute_pa_color'];
+                                  }
+                                  ?>"
+                                  data-product_id="<?php echo $product->get_id(); ?>"
+                                  data-product_sku="<?php echo $product->sku ?>"
+
+                                  data-product_price_regular="
+                                      <?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_regular_price()) {
+                                      echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
+                                  } ?>
+                                          <?php else:
+                                      if ($stock_first['display_regular_price']) {
+                                          echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
+                                      }
+                                      ?>
+                                       <?php endif; ?>"
+                                  data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_price()) {
+                                      echo number_format($product->get_price(), 0, ',', '.') . 'đ';
+                                  } ?>
+                                          <?php else:
+                                      if ($stock_first['display_price']) {
+                                          echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                      }
+                                      ?>
+                                       <?php endif; ?>"
+                                  data-product_price_stock="<?php $product->get_stock_status(); ?>"
+                                  data-product_link="<?php the_permalink() ?>"
+                            ><i class="fa fa-search"></i></span>
+
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
         <?php if ($dem == $max_post_count): ?>
@@ -879,14 +1030,26 @@ function filter_product()
 
                     <p class="title-product"><?php echo get_the_title() ?></p>
                     <p class="price-product">
-                             <span class="sale-price" style="text-decoration: line-through">
+                        <?php if ($product->product_type != 'variable') : ?>
+                            <span class="sale-price" style="text-decoration: line-through">
                                 <?php if ($product->sale_price) {
                                     echo number_format($product->sale_price, 0, ',', '.') . 'đ';
                                 } ?>
-                            </span>
-                        <span class="regular-price">
-                                <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                            </span>
+                                </span>
+                            <span class="regular-price">
+                                    <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                                </span>
+                        <?php else: ?>
+                            <?php $available_variations = $product->get_available_variations(); ?>
+                            <span class="sale-price" style="text-decoration: line-through">
+                                <?php if ($available_variations[0]['display_price']) {
+                                    echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                } ?>
+                                </span>
+                            <span class="regular-price">
+                                    <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                </span>
+                        <?php endif; ?>
 
                     </p>
                     <?php
@@ -902,14 +1065,13 @@ function filter_product()
                             $variation_id = $available_variations[$key]['variation_id'];
                             $variable_product1 = new WC_Product_Variation($variation_id);
                             ?>
-                            <div class="d-inline-block <?php if ($variable_product1->stock_status == 'outofstock') echo 'none-click' ?>">
-
+                            <div class="d-inline-block ">
+                                <!--                                    --><?php //var_dump($variable_product1->stock_status) ?>
                                 <?php if ($variable_product1->stock_status == 'instock'):
                                     $vt++;
                                     if ($vt == 1) {
                                         $variation_id_first = $variation_id;
                                         $first_color = $variations['attributes']['attribute_pa_color'];
-                                        $first_size = $variations['attributes']['attribute_pa_size'];
                                     }
                                     ?>
                                     <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
@@ -924,7 +1086,14 @@ function filter_product()
                                              src="<?php echo $variations['image']['src'] ?>"/>
                                     </div>
                                 <?php
-
+                                else:
+                                    ?>
+                                    <div class="d-inline-block box-variable-pr out-variable-pr border"
+                                         data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
+                                        <img style="width:32px" height="32px"
+                                             src="<?php echo $variations['image']['src'] ?>"/>
+                                    </div>
+                                <?php
                                 endif; ?>
 
                             </div>
@@ -959,7 +1128,6 @@ function filter_product()
                                        data-variation_id="<?php echo $variation_id_first; ?>"
                                        data-attribute_pa_color="<?php echo $first_color; ?>"
                                        data-product_id="<?php echo $product->get_id() ?>"
-                                       data-attribute_pa_size="<?php echo $first_size ?>"
                                     ><i class="fa fa-cart-plus"></i> </a>
                                     </a>
 
@@ -970,33 +1138,58 @@ function filter_product()
                                    href="<?php the_permalink() ?>"
                                 ><i class="fa fa-eye"></i></a>
                             <?php endif; ?>
+                            <?php if ($product->product_type == 'variable') {
+                                $available_variations = $product->get_available_variations();
+                                $ds = 0;
+                                foreach ($available_variations as $available) {
+                                    $variable_product1 = new WC_Product_Variation($available['variation_id']);
+                                    if ($variable_product1->stock_status == 'instock' && $ds == 0) {
+                                        $stock_first = $available;
+                                        $ds++;
+                                    }
+
+                                }
+                            }
+                            ?>
                             <span class="cart-product view-product"
                                   onclick="viewProduct(
                                   <?php echo $product->get_id() ?>,this)"
                                   data-quantity="<?php echo $product->qty ?>"
                                   data-variable_id="<?php
                                   if ($product->product_type == 'variable') {
-                                      $available_variations = $product->get_available_variations();
-                                      echo $available_variations[0]['variation_id'];
+                                      echo $stock_first['variation_id'];
                                   }
                                   ?>"
                                   data-attribute_pa_color="<?php
                                   if ($product->product_type == 'variable') {
-                                      $available_variations = $product->get_available_variations();
-                                      echo $available_variations[0]['attributes']['attribute_pa_color'];
+
+                                      echo $stock_first['attributes']['attribute_pa_color'];
                                   }
                                   ?>"
                                   data-product_id="<?php echo $product->get_id(); ?>"
                                   data-product_sku="<?php echo $product->sku ?>"
-                                  data-product_price="<?php if ($product->get_price()) {
-                                      echo number_format($product->get_price(), 0, ',', '.') . 'đ';
-                                  } ?>"
-                                  data-product_price_regular="<?php if ($product->get_regular_price()) {
+
+                                  data-product_price_regular="
+                                      <?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_regular_price()) {
                                       echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
-                                  } ?>"
-                                  data-product_price_sale="<?php if ($product->get_sale_price()) {
-                                      echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
-                                  } ?>"
+                                  } ?>
+                                          <?php else:
+                                      if ($stock_first['display_regular_price']) {
+                                          echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
+                                      }
+                                      ?>
+                                       <?php endif; ?>"
+                                  data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_price()) {
+                                      echo number_format($product->get_price(), 0, ',', '.') . 'đ';
+                                  } ?>
+                                          <?php else:
+                                      if ($stock_first['display_price']) {
+                                          echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                      }
+                                      ?>
+                                       <?php endif; ?>"
                                   data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                   data-product_link="<?php the_permalink() ?>"
                             ><i class="fa fa-search"></i></span>
