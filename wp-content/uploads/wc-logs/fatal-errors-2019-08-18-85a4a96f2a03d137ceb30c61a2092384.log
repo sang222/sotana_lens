@@ -1,0 +1,50 @@
+2019-08-18T05:41:58+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1238): WC_Cart->set_quantity('3416a75f4cea910...', 444, true)
+#6 C:\xampp1\htdocs\outsource\wp in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-18T05:42:02+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1238): WC_Cart->set_quantity('3416a75f4cea910...', 2, true)
+#6 C:\xampp1\htdocs\outsource\wp-i in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-18T05:42:09+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1238): WC_Cart->set_quantity('3416a75f4cea910...', 3, true)
+#6 C:\xampp1\htdocs\outsource\wp-i in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-18T05:42:17+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1238): WC_Cart->set_quantity('3416a75f4cea910...', 4, true)
+#6 C:\xampp1\htdocs\outsource\wp-i in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
+2019-08-18T05:42:17+00:00 CRITICAL Uncaught Error: Call to a member function get_tax_class() on null in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php:231
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(648): WC_Cart_Totals->get_items_from_cart()
+#1 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(140): WC_Cart_Totals->calculate_item_totals()
+#2 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php(131): WC_Cart_Totals->calculate()
+#3 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1215): WC_Cart_Totals->__construct(Object(WC_Cart))
+#4 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart.php(1184): WC_Cart->calculate_totals()
+#5 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\include\woocommerce.php(1238): WC_Cart->set_quantity('3416a75f4cea910...', 5, true)
+#6 C:\xampp1\htdocs\outsource\wp-i in C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\class-wc-cart-totals.php on line 231
+
