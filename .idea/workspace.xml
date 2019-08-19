@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d8077f6-367b-4cfb-934c-27853a78bd18" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/images/logo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/images/logo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/images/logo3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/ajaxModalProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/ajaxModalProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/archive-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/archive-product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/fatal-errors-2019-07-20-85a4a96f2a03d137ceb30c61a2092384.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/wc-image-regeneration-2019-07-20-d4dfc222f83677fe954644c954968ff9.log" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,15 +35,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="78" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/page-blog.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -90,8 +74,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="254" column="66" selection-start-line="254" selection-start-column="66" selection-end-line="254" selection-end-column="66" />
+            <state relative-caret-position="45">
+              <caret line="539" column="38" lean-forward="true" selection-start-line="539" selection-start-column="38" selection-end-line="539" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="564">
+              <caret line="251" column="78" selection-start-line="251" selection-start-column="78" selection-end-line="251" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -114,10 +107,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/ajaxModalProduct.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="-1712">
               <caret line="343" column="93" selection-start-line="343" selection-start-column="93" selection-end-line="343" selection-end-column="93" />
             </state>
           </provider>
@@ -216,7 +209,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/product.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/single-product.css" />
-        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/include/woocommerce.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/archive-product.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/single-product-reviews.php" />
@@ -232,8 +224,9 @@
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-bestsale.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/ajaxModalProduct.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php" />
       </list>
     </option>
   </component>
@@ -280,24 +273,7 @@
               <item name="wp-content" type="462c0819:PsiDirectoryNode" />
               <item name="themes" type="462c0819:PsiDirectoryNode" />
               <item name="myTheme" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="outsource" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outsource" type="462c0819:PsiDirectoryNode" />
-              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="myTheme" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="myJs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="outsource" type="b2602c69:ProjectViewProjectNode" />
-              <item name="outsource" type="462c0819:PsiDirectoryNode" />
-              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="myTheme" type="462c0819:PsiDirectoryNode" />
-              <item name="woocommerce" type="462c0819:PsiDirectoryNode" />
+              <item name="template_part" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -431,12 +407,12 @@
       <workItem from="1565966011249" duration="16581000" />
       <workItem from="1566219313755" duration="363000" />
       <workItem from="1566223143591" duration="4000" />
-      <workItem from="1566224463339" duration="4199000" />
+      <workItem from="1566224463339" duration="5467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="802397000" />
+    <option name="totallyTimeSpent" value="803665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -554,13 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="372" column="23" selection-start-line="372" selection-start-column="23" selection-end-line="372" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2904">
-          <caret line="227" column="38" selection-start-line="227" selection-start-column="38" selection-end-line="227" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -781,17 +750,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/ajaxModalProduct.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="254" column="66" selection-start-line="254" selection-start-column="66" selection-end-line="254" selection-end-column="66" />
+        <state relative-caret-position="-1712">
+          <caret line="343" column="93" selection-start-line="343" selection-start-column="93" selection-end-line="343" selection-end-column="93" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/ajaxModalProduct.js">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="343" column="93" selection-start-line="343" selection-start-column="93" selection-end-line="343" selection-end-column="93" />
+        <state relative-caret-position="45">
+          <caret line="539" column="38" lean-forward="true" selection-start-line="539" selection-start-column="38" selection-end-line="539" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="251" column="78" selection-start-line="251" selection-start-column="78" selection-end-line="251" selection-end-column="78" />
         </state>
       </provider>
     </entry>

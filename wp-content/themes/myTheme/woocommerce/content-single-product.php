@@ -547,6 +547,8 @@ $currentURL = home_url($wp->request);
                 <?php
                 // Reset the global $the_post as this query will have stomped on it
                 wp_reset_query();
+            }else{
+                echo '<h4 class="text-center">Không có sản phẩm liên quan</h4>';
             }
             ?>
         </div>

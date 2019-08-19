@@ -234,14 +234,25 @@ $title_hot = $tp_option['product-title'];
                         <?php
                         $dem2++;
                     endwhile;
+
                     wp_reset_query();
 
                     ?>
                 </div>
-                <div class="text-center prefix"><span>View all product </span><a class="color-general weight-600"
-                                                                                 href="<?php echo get_category_link($cate_id) ?>"
-                                                                                 title="<?php echo get_the_category_by_ID($cate_id) ?>"> <?php echo get_the_category_by_ID($cate_id) ?>
-                        <i class="fa fa-angle-double-right"></i></a></div>
+                <?php if ($dem2 == 1) {
+                    ?>
+                    <h4 class="text-center">Không tìm thấy sản phẩm</h4>
+
+                    <?php
+                } else {
+                    ?>
+                    <div class="text-center prefix"><span>View all product </span><a class="color-general weight-600"
+                                                                                     href="<?php echo get_category_link($cate_id) ?>"
+                                                                                     title="<?php echo get_the_category_by_ID($cate_id) ?>"> <?php echo get_the_category_by_ID($cate_id) ?>
+                            <i class="fa fa-angle-double-right"></i></a></div>
+                    <?php
+                } ?>
+
             </div>
             <?php
             $dem1++;
