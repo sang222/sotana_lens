@@ -167,11 +167,7 @@
                                     <?php endif; ?>
                                     <div class="img-thumb">
 
-                                        <img
-                                                class="lazyload"
-                                                src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
-                                                data-src="<?php the_post_thumbnail_url(); ?>"
-                                        />
+                                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
     
                                     </div>
                                 </a>
