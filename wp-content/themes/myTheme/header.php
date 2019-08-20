@@ -54,7 +54,7 @@
 <div id="status">
 </div>
 <input type="hidden" id="url_admin" value="<?php echo admin_url('admin-ajax.php') ?>">
-<div id="wrapper" class="clearfix">
+<div id="wrapper" class="clearfix  <?php if(is_front_page()){ echo 'home-header';} ?> " >
     <div style="position: relative;">
         <!-- Header -->
         <div class="header fixed-width">
@@ -66,7 +66,7 @@
                 </span>
             </div>
             <div class="logo">
-                <a href="<?php echo get_site_url() ?>"><img style="max-width: 150px" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png" alt=""></a>
+                <a href="<?php echo get_site_url() ?>"><img style="max-width: 150px" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo3.png" alt=""></a>
             </div>
             <div class="container-mini-cart"></div>
         </div>
@@ -102,11 +102,11 @@
                         }
                         ?>
                     <li id="search" style="flex-direction: row; display: flex; justify-content: center;">
-                        <?php  qtranxf_generateLanguageSelectCode(
-                            array(
-                                'type'   => 'image'
-                            ));
-                        ?>
+<!--                        --><?php // qtranxf_generateLanguageSelectCode(
+//                            array(
+//                                'type'   => 'image'
+//                            ));
+//                        ?>
                         <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
                     </li>
                 </ul>

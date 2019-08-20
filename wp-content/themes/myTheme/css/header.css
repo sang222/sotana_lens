@@ -5,10 +5,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 0;
+    padding: 25px;
     left: 0;
     right: 0;
     z-index: 1000;
+}
+#wrapper.home-header .header{
+    padding: 8px 0 5px 6px;
 }
 .header div[aria-controls="page-menu"] {
     color: #fff;
@@ -304,18 +307,26 @@ body .cart-icon {
     background: url('../images/hd_mainmenu_icon_cart-black.png') top left no-repeat;
 }
 body.home #wrapper {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
+    background: #ffffff;
     z-index: 99;
 }
 body .header {
     position: relative;
 }
-#wrapper {
-    background: #fff;
-    height: 98px;
-    -webkit-box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.66);
--moz-box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.66);
-box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.66);
+.home-header{
+    background: transparent;
+    height: 70px;
 }
+#wrapper ul{
+    padding-left:0px !important;
+}
+/*#wrapper {*/
+/*    background: transparent;*/
+/*    height: 70px;*/
+/*!*    -webkit-box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.66);*!*/
+/*!*-moz-box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.66);*!*/
+/*!*box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.66);*!*/
+/*}*/
