@@ -5,8 +5,8 @@
     </div>
 
 </div>
-<section class="blog-posts wow fadeInDown" style="padding: 0 15px">
-    <div class="d-flex flex-wrap fixed-width owl-carousel owl-theme" id="carousel-blog">
+<section class="blog-posts wow fadeInDown">
+    <div class="d-flex flex-wrap fixed-width owl-carousel owl-theme" id="carousel-blog" style="padding: 0 15px">
         <?php
             $args = array(
                 'post_type'	 => 'news',

@@ -9,7 +9,7 @@ $title_contact_slides = $tp_option['contact-title']
             <span class="text-uppercase"><?php echo $title_contact_slides ?></span>
         </div>
     </div>
-    <div class="containter-fluid wow fadeInDown" style="margin: 30px 0px; padding:30px 15px">
+    <div class="fixed-width wow fadeInDown" style="padding:30px 15px">
         <div style="max-width: 1500px" class="m-auto">
             <div class="owl-carousel owl-theme " id="contact-carousel">
                 <?php

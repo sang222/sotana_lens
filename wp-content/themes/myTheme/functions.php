@@ -137,9 +137,10 @@ function push_to_cat($arrs)
     return implode($arrTmp);
 }
 //add url user js
-wp_register_script( 'my-script', 'myscript_url' );
-wp_enqueue_script( 'my-script' );
-$translation_array = array( 'templateUrl' => get_stylesheet_directory_uri() );
-//after wp_enqueue_script
-wp_localize_script( 'my-script', 'object_name', $translation_array );
+// wp_register_script( 'my-script', 'myscript_url' );
+// wp_enqueue_script( 'my-script' );
+// $translation_array = array( 'templateUrl' => get_stylesheet_directory_uri() );
+// //after wp_enqueue_script
+// wp_localize_script( 'my-script', 'object_name', $translation_array );
+
 ?>

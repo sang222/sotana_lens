@@ -2421,3 +2421,9 @@ body .owl-carousel .owl-video-tn {
     left: 50% !important;
     transform: translateX(-50%) !important;
 }
+.qtranxs_language_chooser {
+    display: flex;
+}
+.qtranxs_language_chooser li { 
+    margin-right: 15px;
+}

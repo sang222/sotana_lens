@@ -1,19 +1,18 @@
 (function ($) {
     "use strict";
-    var templateUrl = object_name.templateUrl;
     var w = $('.pictureRender').width(),
         h = $('.pictureRender').height();
-    $('.pictureRender').append('<img src="' + templateUrl + '/images/myimage/other/modal.jpg" />')
+    var genName = new Date().getTime();
     $('#download').click(function () {
         {
             $('.resize-handle').addClass('hiddenResize')
             html2canvas($('#exportImage')[0], {
                 onrendered: function (canvas) {
-                    console.log(canvas)
                     var url = canvas.toDataURL();
+                    console.log(url)
                     $("<a>", {
                         href: url,
-                        download: "sonata"
+                        download: "sonata_" + genName + "_try"
                     })
                         .on("click", function () {
                             $(this).remove()

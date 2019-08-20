@@ -66,7 +66,7 @@
                 </span>
             </div>
             <div class="logo">
-                <a href="<?php echo get_site_url() ?>"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png" alt=""></a>
+                <a href="<?php echo get_site_url() ?>"><img style="max-width: 150px" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo.png" alt=""></a>
             </div>
             <div class="container-mini-cart"></div>
         </div>
@@ -101,7 +101,14 @@
                             }
                         }
                         ?>
-                    <li id="search"><a href=""><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    <li id="search" style="flex-direction: row; display: flex; justify-content: center;">
+                        <?php  qtranxf_generateLanguageSelectCode(
+                            array(
+                                'type'   => 'image'
+                            ));
+                        ?>
+                        <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </li>
                 </ul>
                 <div class="search-box">
                     <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>" class="form-search-menu">

@@ -2,7 +2,7 @@
 <?php $baseURL = esc_url(get_template_directory_uri()); ?>
 <footer id="footer" class="footer divider bg-theme-colored">
     <div class="container pt-70 pb-40">
-        <div class="row border-bottom">
+        <div class="row">
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
                 <h4 class="widget-title line-bottom-theme-colored-2">Thông tin</h4>
@@ -36,7 +36,7 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2">Danh Mục</h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Danh Mục', 'woocommerce') ?></h4>
                     <ul class="list list-border">
                         <?php
                             $menuLocations = get_nav_menu_locations();
@@ -58,21 +58,6 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-30">
-            <div class="col-md-12">
-                <div class="widget dark">
-                    <h5 class="widget-title mb-10">Connect With Us</h5>
-                    <ul class="styled-icons icon-bordered icon-sm">
-                        <li><a href="#" class="border-yellow"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="border-yellow"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="border-yellow"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#" class="border-yellow"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="border-yellow"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#" class="border-yellow"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>

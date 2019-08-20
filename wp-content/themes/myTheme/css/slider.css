@@ -1,15 +1,16 @@
 .sliderHome {
     background: #789be6;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 98px);
     display: table;
+    margin-top: 98px;
 }
 .sliderHome .owl-stage-outer, .sliderHome .owl-stage-outer .owl-stage {
     height: 100%
 }
 .sliderHome-item {
     width: 100vw !important;
-    height: 100vh;
+    height: calc(100vh - 98px);
     padding: 0 30px 50px;
     display: table-cell;
     vertical-align: bottom;

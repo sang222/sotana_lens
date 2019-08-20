@@ -38,7 +38,9 @@ $img_try = $list_try['url'];
             </div>
             <div class="col-md-10 col-right">
                 <div id="exportImage">
-                    <div class="pictureRender"></div>
+                    <div class="pictureRender">
+                        <img src="http://localhost/2018/freelancer/BE/sotana_lens/wp-content/themes/myTheme/images/myimage/other/modal.jpg">
+                    </div>
                     <div id="imageProduct" class="draggable">
                         <img src="<?php echo $img_try ?>" style=alt="">
                         <div class="resize-handle"></div>
