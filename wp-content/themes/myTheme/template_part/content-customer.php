@@ -19,8 +19,9 @@ $title_customer = $tp_option['customer-title'];
             <article class="c-card">
                 <header class="c-card__header">
                     <img style="object-fit: contain" width="320" height="200"
-                         src="<?php echo $item_customer['image'] ?>"
-                         class="c-card__image" alt="Card Image"/>
+                         src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                         data-src="<?php echo $item_customer['image'] ?>"
+                         class="c-card__image lazyload " alt="Card Image"/>
                 </header>
                 <div class="c-card__body">
                     <h2 class="c-card__title">
