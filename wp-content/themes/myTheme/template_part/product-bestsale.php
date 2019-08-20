@@ -15,8 +15,8 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
         <div class="fixed-width content-title title-slider">
             <span class="text-uppercase">BEST SALE</span>
         </div>
-
     </div>
+    <?php //echo get_user_locale(get_the_ID()) ?>
 <?php endif; ?>
 <div class="row-product fixed-width wow fadeIn" style="padding: 0 15px">
     <div class="owl-carousel  owl-theme " id="sale-carousel">

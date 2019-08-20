@@ -11,7 +11,7 @@
     <meta name="keywords" content="car,auto,moto,repair,wash,cleaning,transport,workshop"/>
     <meta name="author" content="ThemeMascot"/>
     <!-- Page Title -->
-    <title>Glasses shop | GlassesShop.com</title>
+    <title><?php echo the_title() ?></title>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <!-- Favicon and Touch Icons -->
     <link href="<?php echo $baseURL ?>/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -102,7 +102,7 @@
                         }
                         ?>
                     <li id="search" style="flex-direction: row; display: flex; justify-content: center;">
-                        <?php  qtranxf_generateLanguageSelectCode(
+                        <?php qtranxf_generateLanguageSelectCode(
                             array(
                                 'type'   => 'image'
                             ));
@@ -113,7 +113,7 @@
                 <div class="search-box">
                     <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>" class="form-search-menu">
                         <input type="text" name="s" class="form-control" placeholder="Search product">
-                        <button class="btn btn-default">Search</button>
+                        <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
                     </form>
                 </div>
             </div>

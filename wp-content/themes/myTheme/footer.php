@@ -36,7 +36,7 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Danh Mục', 'woocommerce') ?></h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Danh Mục', 'localFile') ?></h4>
                     <ul class="list list-border">
                         <?php
                             $menuLocations = get_nav_menu_locations();

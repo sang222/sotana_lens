@@ -8,3 +8,37 @@ Stack trace:
 #5 {main}
   thrown in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\woocommerce\archive-product.php on line 173
 
+2019-08-20T14:23:57+00:00 CRITICAL Uncaught Error: Call to undefined function pll_current_language() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\template_part\product-bestsale.php:22
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template.php(690): require()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template.php(647): load_template('D:\\xampp\\source...', false)
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\general-template.php(155): locate_template(Array, true, false)
+#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\content.php(6): get_template_part('template_part/p...', 'bestsale')
+#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template.php(690): require('D:\\xampp\\source...')
+#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template.php(647): load_template('D:\\xampp\\source...', false)
+#6 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\general-template.php(155): locate_template(A in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\template_part\product-bestsale.php on line 22
+
+2019-08-20T14:33:53+00:00 CRITICAL Uncaught Error: Call to undefined function qtranxf_generateLanguageSelectCode() in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\header.php:105
+Stack trace:
+#0 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template.php(688): require_once()
+#1 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template.php(647): load_template('D:\\xampp\\source...', true)
+#2 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\general-template.php(41): locate_template(Array, true)
+#3 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\front-page.php(1): get_header()
+#4 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-includes\template-loader.php(74): include('D:\\xampp\\source...')
+#5 D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-blog-header.php(19): require_once('D:\\xampp\\source...')
+#6 D:\xampp\source\2018\freelancer\BE\sotana_lens\index.php(17): require('D:\\xampp\\source...')
+#7 {main}
+  thrown in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\header.php on line 105
+
+2019-08-20T14:49:37+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\polylang-pro\include\class.plugin-modules.php on line 66
+
+2019-08-20T14:50:09+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\polylang-pro\include\class.plugin-modules.php on line 57
+
+2019-08-20T14:50:09+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\polylang-pro\include\class.plugin-modules.php on line 57
+
+2019-08-20T15:02:57+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\polylang-pro\include\class.plugin-modules.php on line 66
+
+2019-08-20T15:03:29+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\polylang-pro\include\class.plugin-modules.php on line 66
+
+2019-08-20T15:03:29+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\plugins\polylang-pro\include\class.plugin-modules.php on line 57
+
