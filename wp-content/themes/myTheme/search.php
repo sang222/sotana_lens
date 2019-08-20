@@ -8,11 +8,11 @@
         <div class="col-md-12">
             <div class="fixed-width">
                 <div class="pro-title-breadcrumb text-center">
-                    <h4>Search</h4>
+                    <h4><?php echo __('Search', 'localFile') ?></h4>
                 </div>
                 <div class="text-center">
                     <nav class="woocommerce-breadcrumb">
-                        <a href="<?php echo get_site_url() ?>">Home</a>&nbsp;&#47;&nbsp;Search</nav>
+                        <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo __('Search', 'localFile') ?></nav>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                                 $stock = $product->get_stock_status();
                                 ?>
                                 <?php if (!empty($sale)): ?>
-                                    <p class="sale-banner">Sale!</p>
+                                    <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                                 <?php endif; ?>
                                 <?php the_post_thumbnail('shop_catalog', array("title" => get_the_title(), 'alt' => get_the_title())) ?>
 
@@ -130,7 +130,7 @@
                 
                 <?php else : ?>
                     <div class="col-md-12">
-                       <p>Không tìm thấy sản phẩm nào</p>
+                       <p><?php echo __('Không tìm thấy sản phẩm nào', 'localFile') ?></p>
                     </div>
                 <?php endif; ?>
             </div>

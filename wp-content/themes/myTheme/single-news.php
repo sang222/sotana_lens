@@ -9,8 +9,8 @@ global $post;
             </div>
             <div class="text-center">
                 <nav class="woocommerce-breadcrumb">
-                    <a href="<?php echo get_site_url() ?>">Home</a>&nbsp;&#47;&nbsp;<a
-                            href="<?php echo get_permalink(206) ?>">Blog</a>&nbsp;&#47;&nbsp;<?php echo the_title() ?>
+                    <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<a
+                            href="<?php echo get_permalink(206) ?>"><?php echo __('Blog', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?>
                 </nav>
             </div>
         </div>
@@ -34,7 +34,7 @@ global $post;
         </div>
         <div class="row" style="margin-bottom: 30px">
             <div class="col-md-12">
-                <h4>Bài viết liên quan</h4>
+                <h4><?php echo __('Bài viết liên quan', 'localFile') ?></h4>
                 <div class="d-flex flex-wrap fixed-width owl-carousel owl-theme" id="carousel-blog">
                     <?php
                     $args = array(
@@ -78,7 +78,7 @@ global $post;
                                     </p>
                                 </div>
                                 <div class="reading-next">
-                                    <a href="<?php echo get_the_permalink() ?>" style="color: #ed030e">Continue Reading
+                                    <a href="<?php echo get_the_permalink() ?>" style="color: #ed030e"><?php echo __('Continue Reading', 'localFile') ?>
                                         <i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>

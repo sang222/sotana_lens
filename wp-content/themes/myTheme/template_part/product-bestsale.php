@@ -13,7 +13,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
 <?php if ($feat_pro->have_posts()): ?>
     <div class="pro-title wow fadeIn">
         <div class="fixed-width content-title title-slider">
-            <span class="text-uppercase">BEST SALE</span>
+            <span class="text-uppercase"><?php echo __('BEST SALE', 'localFile') ?></span>
         </div>
     </div>
     <?php //echo get_user_locale(get_the_ID()) ?>
@@ -33,7 +33,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
                         $stock = $product->get_stock_status();
                         ?>
                         <?php if (!empty($sale)): ?>
-                            <p class="sale-banner">Sale!</p>
+                            <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                         <?php endif; ?>
                         <div class="img-thumb">
                             <!--                            --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyload','src'=>get_theme_file_uri().'/images/myimage/lazyload.jpg','data-src'=>''))
@@ -228,7 +228,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
 
     </div>
     <!--    Quick view-->
-    <div class="alert-box error-box">Hết hàng</div>
+    <div class="alert-box error-box"><?php echo __('Hết hàng', 'localFile') ?></div>
     <?php get_template_part('template_part/content', 'quickview') ?>
     <!--    End Quick view-->
 

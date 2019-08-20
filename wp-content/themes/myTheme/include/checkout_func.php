@@ -53,10 +53,10 @@ function wc_billing_field_strings($translated_text, $text, $domain)
 {
     switch ($translated_text) {
         case 'Billing details' :
-            $translated_text = __('Proceed to payment', 'shop-glass');
+            $translated_text = __('Proceed to payment', 'localFile');
             break;
         case 'Your order' :
-            $translated_text = __('', 'shop-glass');
+            $translated_text = __('', 'localFile');
             break;
     }
     return $translated_text;

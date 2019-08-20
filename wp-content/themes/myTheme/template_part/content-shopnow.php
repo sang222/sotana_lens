@@ -16,9 +16,8 @@
             <p class="description-shopnow w-75 m-auto"><?php echo $banner_description ?></p>
             <a class="text-white color-general weight-600"
                href="<?php echo get_category_link($cate_id) ?>"
-               title="<?php echo get_the_category_by_ID($cate_id) ?>"
-            >
-                <div class="btn-shopnow text-uppercase">Shop Now</div>
+               title="<?php echo get_the_category_by_ID($cate_id) ?>">
+                <div class="btn-shopnow text-uppercase"><?php echo __('Shop Now', 'localFile') ?></div>
             </a>
         </div>
     </div>

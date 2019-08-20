@@ -29,7 +29,7 @@ function pagination()
 
     /** Hiển thị link về trang trước */
     if (get_previous_posts_link())
-        printf('<li>%s</li>' . "\n", get_previous_posts_link('Trước'));
+        printf('<li>%s</li>' . "\n", get_previous_posts_link(__('Trước', 'localFile')));
 
     /** Nếu đang ở trang 1 thì nó sẽ hiển thị đoạn này */
     if (!in_array(1, $links)) {
@@ -56,7 +56,7 @@ function pagination()
 
     /** Hiển thị link về trang sau */
     if (get_next_posts_link())
-        printf('<li>%s</li>' . "\n", get_next_posts_link('Sau'));
+        printf('<li>%s</li>' . "\n", get_next_posts_link(__('Sau', 'localFile')));
     echo '</ul>' . "\n";
 }
 

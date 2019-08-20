@@ -11,7 +11,7 @@
                 </div>
                 <div class="text-center">
                     <nav class="woocommerce-breadcrumb">
-                        <a href="<?php echo get_site_url() ?>">Home</a>&nbsp;&#47;&nbsp;<?php echo the_title() ?></nav>
+                        <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?></nav>
                 </div>
             </div>
         </div>
@@ -19,15 +19,15 @@
     <div class="row" style="margin: 20px 0">
         <div class="col-md-4 col-infomation">
             <div class="box box-addr">
-                <p>Địa chỉ công ty</p>
+                <p><?php echo __('Địa chỉ công ty', 'localFile') ?></p>
                 <span>R4-64 Mỹ Toàn 2, Phường Tân Phong, Quận 7, TP. HCM, Vietnam</span>
             </div>
             <div class="box box-phone">
-                <p>Điện thoại</p>
+                <p><?php echo __('Điện thoại', 'localFile') ?></p>
                 <a href="tel: 02854125427">(028) 5412.5427</a>
             </div>
             <div class="box box-email">
-                <p>Email</p>
+                <p><?php echo __('Email', 'localFile') ?></p>
                 <a href="mailto: gentleromeos@gmail.com">gentleromeos@gmail.com</a>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         <div class="col-md-4 colum-form">
-            <h4>Liên hệ với chúng tôi</h4>
+            <h4><?php echo __('Liên hệ với chúng tôi', 'localFile') ?></h4>
             <?php echo do_shortcode('[contact-form-7 id="243" title="Contact form"]') ?>
         </div>
     </div>

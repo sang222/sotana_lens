@@ -9,7 +9,7 @@ global $woocommerce;
             <div class="modal-content modal-cart-content">
                 <div class="modal-header">
                    <button type="button" class="close close-custom" data-dismiss="modal"></button>
-                    <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
+                    <h4 class="modal-title "><i class="fa fa-cart-plus"></i> <?php echo __('My cart', 'localFile') ?></h4>
                 </div>
                 <div class="modal-body frm-cart " id="cart-roll">
                     <div class="  ">
@@ -21,10 +21,10 @@ global $woocommerce;
                         table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                             <thead>
                             <th></th>
-                            <th>Sản phẩm</th>
-                            <th class="text-center">Đơn giá</th>
-                            <th class="text-center">Số lượng</th>
-                            <th class="text-center" colspan="2">Thành tiền</th>
+                            <th><?php echo __('Sản phẩm', 'localFile') ?></th>
+                            <th class="text-center"><?php echo __('Đơn giá', 'localFile') ?></th>
+                            <th class="text-center"><?php echo __('Số lượng', 'localFile') ?></th>
+                            <th class="text-center" colspan="2"><?php echo __('Thành tiền', 'localFile') ?></th>
                             </th>
                             </thead>
                             <tbody>
@@ -58,7 +58,7 @@ global $woocommerce;
                                             ?>
                                             <?php foreach ($values['variation'] as $key => $vari): ?>
                                             <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
-                                                <p style="margin-bottom: 0">Color:
+                                                <p style="margin-bottom: 0"><?php echo __('Color:', 'localFile') ?>
                                                     <?php echo $vari ?>
                                                 </p>
                                             <?php endif; ?>
@@ -66,7 +66,7 @@ global $woocommerce;
                                         <?php endforeach; ?>
                                         <?php endif; ?>
                                         <p>
-                                            Categories:
+                                            <?php echo __('Categories:', 'localFile') ?>
                                             <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
                                             ?></p>
                                     </td>
@@ -199,12 +199,12 @@ global $woocommerce;
                     <div class="cart-btn modal-action text-right ">
                         <div>
                             <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
-                            <span>Order Total</span>
+                            <span><?php echo __('Order Total', 'localFile') ?></span>
                             <span class="total-price"><?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></span>
                         </div>
                         <br/>
                         </button>
-                        <a href="<?php wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
+                        <a href="<?php wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs"><?php echo __('Checkout', 'localFile') ?></a>
                     </div>
                 </div>
             </div>

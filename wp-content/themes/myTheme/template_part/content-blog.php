@@ -1,7 +1,7 @@
 <?php $baseURL = esc_url(get_template_directory_uri()); ?>
 <div class="pro-title wow fadeInDown">
     <div class="fixed-width content-title">
-        <span>BLOG US</span>
+        <span><?php echo __('BLOG US', 'localFile') ?></span>
     </div>
 
 </div>
@@ -36,7 +36,7 @@
                         </p>
                     </div>
                     <div class="reading-next">
-                        <a href="<?php echo get_the_permalink() ?>" style="color: #ed030e">Continue Reading <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                        <a href="<?php echo get_the_permalink() ?>" style="color: #ed030e"><?php echo __('Continue Reading', 'localFile') ?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>

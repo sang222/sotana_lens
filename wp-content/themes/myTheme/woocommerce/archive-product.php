@@ -163,7 +163,7 @@ get_header('shop');
                                 $stock = $product->get_stock_status();
                                 ?>
                                 <?php if (!empty($sale)): ?>
-                                    <p class="sale-banner">Sale!</p>
+                                    <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                                 <?php endif; ?>
                                 <div class="img-thumb">
                                     <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
@@ -357,7 +357,7 @@ get_header('shop');
         </div>
     </div>
 </div>
-<div class="alert-box error-box">Hết hàng</div>
+<div class="alert-box error-box"><?php echo __('Hết hàng', 'localFile') ?></div>
 <?php
 
 //quickview

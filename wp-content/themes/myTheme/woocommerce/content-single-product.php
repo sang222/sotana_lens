@@ -78,7 +78,7 @@ $currentURL = home_url($wp->request);
                     <br/>
                     <br/>
                     <p class="text-center w-100">
-                        <small class="weight-600">Zoom in and Zoom out to view product</small>
+                        <small class="weight-600"><?php echo __('Zoom in and Zoom out to view product', 'localFile') ?></small>
                     </p>
                 </div>
                 <div class="slick-carousel-mobile owl-carousel owl-theme w-100">
@@ -121,11 +121,11 @@ $currentURL = home_url($wp->request);
                         array_push($trademark, $category);
                     }
                     ?>
-                    <span>Trademark: <b><a
+                    <span><?php echo __('Trademark:', 'localFile') ?> <b><a
                                     href="<?php echo home_url() ?>/collection/?cat_name=<?php echo $trademark[1]->slug ?>"><?php echo $trademark[1]->name . '' ?></a></b> </span>
                 </div>
                 <div class="social-product">
-                    <span class="share-in">Chia sẻ trên </span>
+                    <span class="share-in"><?php echo __('Chia sẻ trên', 'localFile') ?> </span>
                     <a class="fb-share" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentURL; ?>">
                         <span class="icon-share facebook-icon">
                                 <i class="fa fa-facebook"></i>
@@ -256,7 +256,7 @@ $currentURL = home_url($wp->request);
                            href="?add-to-cart=<?php echo $product->get_id() ?>"
                            data-quantity="1"
                            data-product_id="<?php echo $product->get_id() ?>"
-                        ><i class="fa fa-cart-plus"></i> Add to cart</a>
+                        ><i class="fa fa-cart-plus"></i> <?php echo __('Add to cart', 'localFile') ?></a>
                     <?php else: ?>
                         <a title="Add cart"
                            class="cart-product add-cart add-variable"
@@ -265,14 +265,14 @@ $currentURL = home_url($wp->request);
                            data-attribute_pa_color="<?php echo $first_color; ?>"
                            data-product_id="<?php echo $product->get_id() ?>"
                            data-attribute_pa_size="<?php echo $first_size ?>"
-                        ><i class="fa fa-cart-plus"></i> Add to cart</a>
+                        ><i class="fa fa-cart-plus"></i> <?php echo __('Add to cart', 'localFile') ?></a>
                     <?php endif; ?>
                     <?php endif; ?>
                 </div>
                 <div class="try_eyewear">
-                    <p>Bạn có muốn xem thử kính có hợp với mình không? <a class="color-secondary"
-                                                                          href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">Thử
-                            kính ngay</a>.</p>
+                    <p><?php echo __('Bạn có muốn xem thử kính có hợp với mình không?', 'localFile') ?> <a class="color-secondary"
+                                                                          href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">
+                                                                          <?php echo __('Thử kính ngay', 'localFile') ?></a>.</p>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
@@ -282,7 +282,7 @@ $currentURL = home_url($wp->request);
                                         src="//theme.hstatic.net/1000269337/1000458651/14/phone-receiver.png?v=78"><span> 0989633508</span>
                             </a>
                             <span>
-                                <img src="//theme.hstatic.net/1000269337/1000458651/14/open.png?v=78"> 9h00 : 20h00
+                                <img src="//theme.hstatic.net/1000269337/1000458651/14/open.png?v=78"> <?php echo __('9h00 : 20h00', 'localFile') ?>
                             </span>
                         </div>
                         <div class="product-policy">
@@ -292,24 +292,24 @@ $currentURL = home_url($wp->request);
                                         <img src="//theme.hstatic.net/1000269337/1000458651/14/pro_policy_icon1.png?v=78"
                                              alt="Giao hàng miễn phí">
                                     </div>
-                                    <span>Giao hàng miễn phí</span>
-                                    <span class="small">(Sản phẩm trên 500k)</span>
+                                    <span><?php echo __('Giao hàng miễn phí', 'localFile') ?></span>
+                                    <span class="small"><?php echo __('(Sản phẩm trên 500k)', 'localFile') ?></span>
                                 </li>
                                 <li>
                                     <div class="icon">
                                         <img src="//theme.hstatic.net/1000269337/1000458651/14/pro_policy_icon2.png?v=78"
                                              alt="Đổi trả miễn phí">
                                     </div>
-                                    <span>Đổi trả miễn phí</span>
-                                    <span class="small">(30 ngày)</span>
+                                    <span><?php echo __('Đổi trả miễn phí', 'localFile') ?></span>
+                                    <span class="small"><?php echo __('(30 ngày)', 'localFile') ?></span>
                                 </li>
                                 <li>
                                     <div class="icon">
                                         <img src="//theme.hstatic.net/1000269337/1000458651/14/pro_policy_icon3.png?v=78"
                                              alt="Thanh toán COD">
                                     </div>
-                                    <span>Thanh toán COD</span>
-                                    <span class="small">(Thanh toán khi nhận hàng)</span>
+                                    <span><?php echo __('Thanh toán COD', 'localFile') ?></span>
+                                    <span class="small"><?php echo __('(Thanh toán khi nhận hàng)', 'localFile') ?></span>
                                 </li>
                             </ul>
 
@@ -329,7 +329,7 @@ $currentURL = home_url($wp->request);
     <div class="prefix"></div>
     <div class="pro-title  wow fadeIn">
         <div class="fixed-width content-title title-slider">
-            <span class="text-uppercase">RELATED PRODUCTS</span>
+            <span class="text-uppercase"><?php echo __('RELATED PRODUCTS', 'localFile') ?></span>
         </div>
 
     </div>
@@ -360,7 +360,7 @@ $currentURL = home_url($wp->request);
                                 $stock = $product->get_stock_status();
                                 ?>
                                 <?php if (!empty($sale)): ?>
-                                    <p class="sale-banner">Sale!</p>
+                                    <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                                 <?php endif; ?>
                                 <div class="img-thumb">
 
@@ -557,7 +557,7 @@ $currentURL = home_url($wp->request);
             ?>
         </div>
     </div>
-    <div class="alert-box error-box">Hết hàng</div>
+    <div class="alert-box error-box"><?php echo __('Hết hàng', 'localFile') ?></div>
     <!--    Quick view-->
     <?php get_template_part('template_part/content', 'cartmodal') ?>
     <!-- content notice -->

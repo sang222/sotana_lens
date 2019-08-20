@@ -49,7 +49,7 @@ function header_add_to_cart_fragment($fragments)
         </div>
         <div class="popup-view-cart d-none">
             <div class="popup-cart-title">
-                <h5>Shopping cart</h5>
+                <h5><?php echo __('Shopping cart', 'localFile') ?></h5>
             </div>
             <ul class="popup-cart-content">
                 <?php
@@ -118,7 +118,7 @@ function header_add_to_cart_fragment($fragments)
                                         ?>
                                         <?php foreach ($values['variation'] as $key => $vari): ?>
                                         <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
-                                            <p style="margin-bottom: 0">Color:
+                                            <p style="margin-bottom: 0"><?php echo __('Color:', 'localFile') ?>
                                                 <?php echo $vari ?>
                                             </p>
                                         <?php endif; ?>
@@ -130,14 +130,14 @@ function header_add_to_cart_fragment($fragments)
                                     <span
                                             class=" remove-product float-right"
                                             data-product_id="<?php echo $values['product_id'] ?>"
-                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>">Xóa
+                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><?php echo __('Xóa', 'localFile') ?>
                                             </span>
                                 <?php else: ?>
                                     <span
                                             class=" remove-product-variable float-right"
                                             data-key_items="<?php echo $item ?>"
                                             data-product_id="<?php echo $values['product_id'] ?>"
-                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>">Xóa
+                                            data-product_sku="<?php echo $getProductDetail->get_sku() ?>"><?php echo __('Xóa', 'localFile') ?>
                                             </span>
                                 <?php endif; ?>
                             </div>
@@ -148,15 +148,16 @@ function header_add_to_cart_fragment($fragments)
             </ul>
             <div class="popup-cart-footer">
                 <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
-                <p data-total="<?php echo $amount2 ?>">Tổng
-                    cộng: <?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></p>
+                <p data-total="<?php echo $amount2 ?>"><?php echo __('Tổng cộng: ', 'localFile') ?>
+                    <?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?>
+                </p>
                 <div class="group-btn">
-                    <a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-default">View cart</a>
-                    <a href="<?php echo wc_get_checkout_url() ?>" class="btn btn-default">Checkout</a>
+                    <a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-default"><?php echo __('View cart', 'localFile') ?></a>
+                    <a href="<?php echo wc_get_checkout_url() ?>" class="btn btn-default"><?php echo __('Checkout', 'localFile') ?></a>
                 </div>
             </div>
             <?php else : ?>
-                <p>Hiện không có sản phẩm nào</p>
+                <p><?php echo __('Hiện không có sản phẩm nào', 'localFile') ?></p>
             <?php endif; ?>
         </div>
     </div>
@@ -178,23 +179,20 @@ function modal_add_to_cart_fragment($fragments)
     <div class="modal-content modal-cart-content">
         <div class="modal-header">
             <button type="button" class="close close-custom" data-dismiss="modal"></button>
-            <h4 class="modal-title "><i class="fa fa-cart-plus"></i> My cart</h4>
+            <h4 class="modal-title "><i class="fa fa-cart-plus"></i> <?php echo __('My cart', 'localFile') ?></h4>
         </div>
         <div class="modal-body frm-cart " id="cart-roll">
             <div class="  ">
-                <!--                    <form class="woocommerce-cart-form frm-cart" action="-->
-                <?php //echo esc_url(wc_get_cart_url())
-                ?><!--" method="post">-->
                 <?php if ($amount2 > 0): ?>
                     <table class="
                         tablesaw tablesaw-stack
                         table table-bordered  table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                         <thead>
                         <th></th>
-                        <th>Sản phẩm</th>
-                        <th class="text-center">Đơn giá</th>
-                        <th class="text-center">Số lượng</th>
-                        <th class="text-center" colspan="2">Thành tiền</th>
+                        <th><?php echo __('Sản phẩm', 'localFile') ?></th>
+                        <th class="text-center"><?php echo __('Đơn giá', 'localFile') ?></th>
+                        <th class="text-center"><?php echo __('Số lượng', 'localFile') ?></th>
+                        <th class="text-center" colspan="2"><?php echo __('Thành tiền', 'localFile') ?></th>
                         </th>
                         </thead>
                         <tbody>
@@ -228,7 +226,7 @@ function modal_add_to_cart_fragment($fragments)
                                         ?>
                                         <?php foreach ($values['variation'] as $key => $vari): ?>
                                         <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
-                                            <p style="margin-bottom: 0">Color:
+                                            <p style="margin-bottom: 0"><?php echo __('Color: ', 'localFile') ?>
                                                 <?php echo $vari ?>
                                             </p>
                                         <?php endif; ?>
@@ -236,7 +234,7 @@ function modal_add_to_cart_fragment($fragments)
                                     <?php endforeach; ?>
                                     <?php endif; ?>
                                     <p>
-                                        Categories:
+                                    <?php echo __('Categories:', 'localFile') ?>
                                         <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
                                         ?></p>
                                 </td>
@@ -363,27 +361,27 @@ function modal_add_to_cart_fragment($fragments)
                     </table>
                 <?php else: ?>
                     <div id="modal-empty-cart">
-                        <p class="text-center">Cart empty</p>
+                        <p class="text-center"><?php echo __('Cart empty', 'localFile') ?></p>
                         <p class="text-center">
                             <img width="100" class="img-fluid m-auto"
                                  src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                         <div class="prefix"></div>
                         <a class="text-center d-block " style="margin-top: 10px"
                            href="<?php get_category_link(66); ?> "><span
-                                    class="return-shop">Return shop</span></a>
+                                    class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
                         <br/>
                         </p>
                     </div>
                 <?php endif; ?>
             </div>
             <div id="modal-empty-cart" class="d-none">
-                <p class="text-center">Cart empty</p>
+                <p class="text-center"><?php echo __('Cart empty', 'localFile') ?></p>
                 <p class="text-center">
                     <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
                 <a class="text-center d-block " style="margin-top: 10px" href=""><span
-                            class="return-shop">Return shop</span></a>
+                            class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
                 <br/>
                 </p>
             </div>
@@ -392,12 +390,12 @@ function modal_add_to_cart_fragment($fragments)
             <div class="cart-btn modal-action text-right ">
                 <div>
                     <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
-                    <span>Order Total</span>
+                    <span><?php echo __('Order Total', 'localFile') ?></span>
                     <span class="total-price"><?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?></span>
                 </div>
                 <br/>
                 </button>
-                <a href="<?php wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs">Checkout</a>
+                <a href="<?php wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs"><?php echo __('Checkout', 'localFile') ?></a>
             </div>
         </div>
     </div>
@@ -703,7 +701,7 @@ function ajax_load_post_func()
                     $stock = $product->get_stock_status();
                     ?>
                     <?php if (!empty($sale)): ?>
-                        <p class="sale-banner">Sale!</p>
+                        <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                     <?php endif; ?>
                     <div class="img-thumb">
 
@@ -1018,7 +1016,7 @@ function filter_product()
                     $stock = $product->get_stock_status();
                     ?>
                     <?php if (!empty($sale)): ?>
-                        <p class="sale-banner">Sale!</p>
+                        <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                     <?php endif; ?>
                     <div class="img-thumb">
 

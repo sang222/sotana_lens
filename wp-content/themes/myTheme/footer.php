@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                <h4 class="widget-title line-bottom-theme-colored-2">Thông tin</h4>
+                <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Thông tin', 'localFile') ?></h4>
                     <ul class="list angle-double-right list-border">
                         <li><a>R4-64 Mỹ Toàn 2, Phường Tân Phong, Quận 7, TP. HCM, Vietnam</a></li>
                         <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone color-general mr-5"></i> <a href="tel:(028) 5412.5427">(028) 5412.5427</a></li>
@@ -51,10 +51,10 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2">Hotlines:</h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Hotlines:', 'localFile') ?></h4>
                     <div class="opening-hours">
                         <ul class="list-border">
-                            <li class="clearfix"><a>Tổng đài hỗ trợ hoạt động từ T2 đến T6</a>
+                            <li class="clearfix"><a><?php echo __('Tổng đài hỗ trợ hoạt động từ T2 đến T6', 'localFile') ?></a>
                             </li>
                         </ul>
                     </div>

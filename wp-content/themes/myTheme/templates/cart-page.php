@@ -3,7 +3,6 @@ Template Name: Cart-Page
 */ ?>
 <?php global $woocommerce;
 $items = $woocommerce->cart->get_cart();
-// var_dump($items);
 ?>
 <?php get_header() ?>
     <div class="breadcrumb-colect prefix">
@@ -26,10 +25,10 @@ $items = $woocommerce->cart->get_cart();
                 <div class="table-responsive cart-page-content">
                     <table class="table table-bordered table-cart shop_table cart woocommerce-cart-form__contents">
                         <tr>
-                            <th colspan="2">Thông tin chi tiết</th>
-                            <th class="text-center">Đơn giá</th>
-                            <th class="text-center">Số lượng</th>
-                            <th class="text-center">Thành tiền</th>
+                            <th colspan="2"><?php echo __('Thông tin chi tiết', 'localFile') ?></th>
+                            <th class="text-center"><?php echo __('Đơn giá', 'localFile') ?></th>
+                            <th class="text-center"><?php echo __('Số lượng', 'localFile') ?></th>
+                            <th class="text-center"><?php echo __('Thành tiền', 'localFile') ?></th>
                             <th></th>
                         </tr>
                         <?php
@@ -39,9 +38,7 @@ $items = $woocommerce->cart->get_cart();
                         foreach ($items as $item => $values) :
                             $_product = wc_get_product($values['data']->get_id());
                             $getProductDetail = wc_get_product($values['product_id']);
-//                            var_dump($_product);
                             $attr = $values['data']->get_attributes();
-//                        var_dump($values);
                             if ($getProductDetail->get_sale_price() > 0) {
                                 $total_price += $getProductDetail->get_sale_price() * $values['quantity'];
                             } else if ($getProductDetail->get_regular_price()) {
@@ -70,7 +67,7 @@ $items = $woocommerce->cart->get_cart();
                                         ?>
                                         <?php foreach ($values['variation'] as $key => $vari): ?>
                                         <?php if ($key == 'attribute_pa_color' && !empty($vari)): ?>
-                                            <p style="margin-bottom: 0"><b>Color:</b>
+                                            <p style="margin-bottom: 0"><b><?php echo __('Color:', 'localFile') ?></b>
                                                 <?php echo $vari ?>
                                             </p>
                                         <?php endif; ?>
@@ -78,7 +75,7 @@ $items = $woocommerce->cart->get_cart();
                                     <?php endforeach; ?>
                                     <?php endif; ?>
                                     <p>
-                                        <b>Categories:</b>
+                                        <b><?php echo __('Categories:', 'localFile') ?></b>
                                         <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
                                         ?></p>
 
@@ -89,7 +86,7 @@ $items = $woocommerce->cart->get_cart();
                                                 data-product_id="<?php echo $values['product_id'] ?>"
                                                 data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
                                         >
-                                            Xoá
+                                        <?php echo __('Xoá', 'localFile') ?>
                                         </small>
                                     <?php else: ?>
                                         <small
@@ -99,7 +96,7 @@ $items = $woocommerce->cart->get_cart();
                                                 data-product_id="<?php echo $values['product_id'] ?>"
                                                 data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
                                         >
-                                            Xoá
+                                        <?php echo __('Xoá', 'localFile') ?>
                                         </small>
                                     <?php endif; ?>
 
@@ -258,8 +255,8 @@ $items = $woocommerce->cart->get_cart();
                     <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
-                <span class="text-center d-block empty-shop" >Cart Empty</span>
-                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop">Return shop</span></a>
+                <span class="text-center d-block empty-shop" ><?php echo __('Cart Empty', 'localFile') ?></span>
+                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
                 </p>
             <?php endif; ?>
             <div id="empty-cart" class="d-none">
@@ -267,20 +264,20 @@ $items = $woocommerce->cart->get_cart();
                     <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
-                <span class="text-center d-block empty-shop" >Cart Empty</span>
-                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop">Return shop</span></a>
+                <span class="text-center d-block empty-shop" ><?php echo __('Cart Empty', 'localFile') ?></span>
+                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
                 </p>
             </div>
             <div style="text-align: right; margin-top: 20px;">
                 <div class="cart-btn modal-action <?php if ($vt == 0) echo 'd-none' ?> text-right ">
                     <div class="total-order-cart">
-                        <span>Tổng tiền:</span>
+                        <span><?php echo __('Tổng tiền:', 'localFile') ?></span>
                         <?php $amount2 = floatval(preg_replace('#[^\d.]#', '', $woocommerce->cart->get_cart_total())); ?>
                         <span class="total-price"><?php echo number_format($amount2, 0, ',', '.') . '<u>đ</u>'; ?></span><strong></strong>
                     </div>
                     <br/>
                     <div class="check-out-cart">
-                        <a href="<?php echo get_permalink(27) ?>" class=" btn-modal-cart btn  btn-xs">Thanh toán</a>
+                        <a href="<?php echo get_permalink(27) ?>" class=" btn-modal-cart btn  btn-xs"><?php echo __('Thanh toán', 'localFile') ?></a>
                     </div>
                 </div>
 

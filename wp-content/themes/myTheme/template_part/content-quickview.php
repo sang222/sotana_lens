@@ -23,7 +23,7 @@
                             <div class="d-flex justify-content-between align-items-center top-detail">
                                 <h3 class="nameQuickview"></h3>
                                 <div class="stock-quick">
-                                    <span class="status-product">Còn hàng</span>
+                                    <span class="status-product"><?php echo __('Còn hàng', 'localFile') ?></span>
                                 </div>
                             </div>
                             <p class="description-quick-view"></p>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="added_to_cart wc-forward"></div>
                             <hr/>
-                            <p class="quick-view-category"><b>Category:</b> <span class="category-items"></span>
+                            <p class="quick-view-category"><b><?php echo __('Category:', 'localFile') ?></b> <span class="category-items"></span>
                             </p>
                         </div>
                     </div>

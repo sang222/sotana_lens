@@ -2,7 +2,7 @@
     $baseURL = esc_url(get_template_directory_uri())
 ?>
 <div class="pro-title-breadcrumb">
-    <h4 style="margin: 0 0 20px">Bài viết mới nhất</h4>
+    <h4 style="margin: 0 0 20px"><?php echo __('Bài viết mới nhất', 'localFile') ?></h4>
     <?php
         $args = array(
             'post_type'	 => 'news',

@@ -9,7 +9,7 @@ $baseURL = esc_url(get_template_directory_uri())
             </div>
             <div class="text-center">
                 <nav class="woocommerce-breadcrumb">
-                    <a href="<?php echo get_site_url() ?>">Home</a>&nbsp;&#47;&nbsp;<?php echo the_title() ?></nav>
+                    <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?></nav>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@ $baseURL = esc_url(get_template_directory_uri())
                                         </p>
                                     </div>
                                     <div class="reading-next">
-                                        <a href="<?php echo get_the_permalink() ?>" class="linkTo">Continue Reading <i
+                                        <a href="<?php echo get_the_permalink() ?>" class="linkTo"><?php echo __('Home', 'Continue Reading', 'localFile') ?> <i
                                                     class="fa fa-caret-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>

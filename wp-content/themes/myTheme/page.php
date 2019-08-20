@@ -37,7 +37,7 @@ global $post;
                             </div>
                             <div class="text-center">
                                 <nav class="woocommerce-breadcrumb">
-                                    <a href="<?php echo get_site_url() ?>">Home</a>&nbsp;&#47;&nbsp;<?php echo the_title() ?>
+                                    <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?>
                                 </nav>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 <div class="sidebar-filter" style="margin-bottom: 30px">
     <div class="text-transform text-left font-weight-bold "
          style="padding-bottom: 20px;border-bottom:1px solid #dfdfdf">
-        <div class="font-weight-600 text-uppercase top-filter"><i class="fa fa-filter"></i> Filter Search</div>
+        <div class="font-weight-600 text-uppercase top-filter"><i class="fa fa-filter"></i> <?php echo __('Filter Search', 'localFile') ?></div>
     </div>
     <?php
     $term = get_queried_object();
@@ -13,12 +13,11 @@
     <?php if (sizeof($children) > 0): ?>
 
         <div class="filter-list" id="bs-collapse">
-            <h5 class="text-left text-uppercase"><i class="fa fa-bars"></i> Category<span
+            <h5 class="text-left text-uppercase"><i class="fa fa-bars"></i> <?php echo __('Category', 'localFile') ?><span
                         class="float-right icon-right"><i class="fa fa-angle-right"></i></h5>
             <div style="margin-left: 20px">
                 <ul class="no-bullets filter-price clearfix">
                     <?php foreach ($children as $child):
-//                        var_dump($child);
                         ?>
                         <li class="text-left text-uppercase" style="margin-left: 5px">
                             <i style="margin-right:15px;" class="weight-600"> - </i> <a
@@ -48,7 +47,7 @@
     <?php endif; ?>
 
     <div class="filter-list" id="bs-collapse">
-        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> Filter by price <span
+        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> <?php echo __('Filter by price', 'localFile') ?><span
                     class="float-right icon-right"><i class="fa fa-angle-right"></i></span></h5>
         <div style="margin-left: 20px" class="content-down">
             <ul class="no-bullets filter-price clearfix">
@@ -60,7 +59,7 @@
                             <?php if (!isset($_GET['price']) && empty($_GET['price']) || $_GET['price'] == '0:500000000') echo 'checked'; ?>
                                data-price="0:500000000"
                                value="0:500000000">
-                        <label for="test1">Tất cả</label>
+                        <label for="test1"><?php echo __('Tất cả', 'localFile') ?></label>
                     </p>
                 </li>
                 <li class="text-left">
@@ -70,7 +69,7 @@
                                data-price="<?php echo $_GET['price'] ?>"
                             <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '0:50000') echo 'checked' ?>
                                name="price-filter" value="0:50000">
-                        <label for="test2">Nhỏ hơn 50,000₫</label>
+                        <label for="test2"><?php echo __('Nhỏ hơn 50,000₫', 'localFile') ?></label>
                     </p>
 
                 </li>
@@ -80,7 +79,7 @@
                                id="test3"
                             <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '50000:100000') echo 'checked'; ?>
                                name="price-filter" data-price="7000" value="50000:100000">
-                        <label for="test3">Từ 50,000₫ - 100,000₫</label>
+                        <label for="test3"><?php echo __('Từ 50,000₫ - 100,000₫', 'localFile') ?></label>
                     </p>
                 </li>
                 <li class="text-left">
@@ -89,7 +88,7 @@
                                id="test4"
                             <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '100000:300000') echo 'checked'; ?>
                                name="price-filter" data-price="100000:300000" value="100000:300000">
-                        <label for="test4">Từ 100,000₫ - 300,000₫</label>
+                        <label for="test4"><?php echo __('Từ 100,000₫ - 300,000₫', 'localFile') ?></label>
                     </p>
                 </li>
                 <li class="text-left">
@@ -98,7 +97,7 @@
                                id="test5"
                             <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '300000:500000') echo 'checked'; ?>
                                name="price-filter" data-price="300000:500000" value="300000:500000">
-                        <label for="test5">Từ 300,000₫ - 500,000₫</label>
+                        <label for="test5"><?php echo __('Từ 300,000₫ - 500,000₫', 'localFile') ?></label>
                     </p>
                 </li>
                 <li class="text-left">
@@ -107,7 +106,7 @@
                                id="test6"
                             <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '500000:700000') echo 'checked'; ?>
                                name="price-filter" data-price="500000:700000" value="500000:700000">
-                        <label for="test6">Từ 500,000₫ - 700,000₫</label>
+                        <label for="test6"><?php echo __('Từ 500,000₫ - 700,000₫', 'localFile') ?></label>
                     </p>
                 </li>
                 <li class="text-left">
@@ -116,7 +115,7 @@
                                id="test7"
                             <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '700000:500000000') echo 'checked'; ?>
                                name="price-filter" data-price="700000:500000000" value="700000:500000000">
-                        <label for="test7">Lớn hơn 700,000₫</label>
+                        <label for="test7"><?php echo __('Lớn hơn 700,000₫', 'localFile') ?></label>
                     </p>
                 </li>
             </ul>
@@ -131,7 +130,7 @@
     if (sizeof($term_children) > 0):
     ?>
     <div class="filter-list" id="bs-collapse">
-        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> Filter by trademark <span
+        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> <?php echo __('Filter by trademark', 'localFile') ?><span
                     class="float-right icon-right"><i class="fa fa-angle-right"></i></h5>
         <div style="margin-left: 20px">
             <ul class="no-bullets filter-price clearfix">
