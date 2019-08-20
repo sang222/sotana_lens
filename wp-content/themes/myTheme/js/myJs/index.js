@@ -82,9 +82,13 @@ function clickItemVariableQuick() {
         });
     })
 }
-
+window.addEventListener("load", function (event) {
+    lazyload();
+});
 $(document).ready(function () {
     //funciton
+
+
     clickItemVariableItem();
     clickItemVariableQuick();
     //all

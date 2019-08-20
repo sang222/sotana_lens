@@ -21,7 +21,10 @@ $title_contact_slides = $tp_option['contact-title']
                            title="<?php echo $item_contact['title'] ?>"
                            target="_blank"
                         >
-                            <img src="<?php echo $item_contact['image'] ?>">
+                            <img class="lazyload"
+                                 src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                 data-src="<?php echo $item_contact['image'] ?>
+                            ">
                         </a>
                     </div>
                 <?php endforeach; ?>

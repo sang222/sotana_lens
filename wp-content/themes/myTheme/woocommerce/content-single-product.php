@@ -25,15 +25,15 @@ $currentURL = home_url($wp->request);
 
 ?>
 <div class="breadcrumb-colect prefix">
-        <div class="fixed-width content-breadcrum">
-            <div class="pro-title-breadcrumb text-center">
-                <h4><?php the_title() ?></h4>
-            </div>
-            <div class="text-center"><?php echo woocommerce_breadcrumb(); ?></div>
-            <br/>
-            <br/>
+    <div class="fixed-width content-breadcrum">
+        <div class="pro-title-breadcrumb text-center">
+            <h4><?php the_title() ?></h4>
         </div>
+        <div class="text-center"><?php echo woocommerce_breadcrumb(); ?></div>
+        <br/>
+        <br/>
     </div>
+</div>
 <div class="content-cart container">
     <div class="clearfix"></div>
     <div class="view-product">
@@ -233,10 +233,10 @@ $currentURL = home_url($wp->request);
                     <?php $stock_st = $product->get_stock_status();
                     if ($stock_st == 'instock'):
                         ?>
-                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
+                        <button onclick="var result = document.getElementById(&#39;qty_1&#39;); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                                 class="reduced action-count items-count2" type="button"><i class="fa fa-minus"></i>
                         </button>
-                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty" min="1" title="SL"
+                        <input type="text" pattern="[0-9]*" class="input-text qty" id="qty_1" min="1" title="SL"
                                max="100"
                                max inputmode="numeric" value="<?php if (isset($_POST['quantity'])) {
                             echo $_POST['quantity'];
@@ -244,7 +244,7 @@ $currentURL = home_url($wp->request);
                             echo '1';
                         } ?>" maxlength="3" name="quantity"
                                onkeyup="valid(this,&#39;numbers&#39;)" onblur="valid(this,&#39;numbers&#39;)">
-                        <button onclick="var result = document.getElementById(&#39;qty&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                        <button onclick="var result = document.getElementById(&#39;qty_1&#39;); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                                 class="increase action-count items-count2"
                                 data-id="<?php echo $product->get_id(); ?>"
                                 type="button">
@@ -252,7 +252,7 @@ $currentURL = home_url($wp->request);
                         </button>
                         <?php if ($product->is_type('simple')) : ?>
                         <a title="Add cart" id="add-more"
-                           class="cart-product add-cart quick_add_to_cart_button  button product_type_simple add_to_cart_button ajax_add_to_cart"
+                           class="cart-product add-cart add_single  button product_type_simple add_to_cart_button ajax_add_to_cart"
                            href="?add-to-cart=<?php echo $product->get_id() ?>"
                            data-quantity="1"
                            data-product_id="<?php echo $product->get_id() ?>"
@@ -364,7 +364,11 @@ $currentURL = home_url($wp->request);
                                 <?php endif; ?>
                                 <div class="img-thumb">
 
-                                    <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                                    <img
+                                            class="lazyload"
+                                            src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                            data-src="<?php the_post_thumbnail_url(); ?>"
+                                    />
 
                                 </div>
                             </a>
@@ -547,6 +551,8 @@ $currentURL = home_url($wp->request);
                 <?php
                 // Reset the global $the_post as this query will have stomped on it
                 wp_reset_query();
+            } else {
+                echo '<h4 class="text-center">Không có sản phẩm liên quan</h4>';
             }
             ?>
         </div>

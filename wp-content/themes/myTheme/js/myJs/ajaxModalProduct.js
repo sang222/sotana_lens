@@ -189,6 +189,7 @@ $(document).ready(function () {
     jaxButtonCart();
     submitProductVariable();
     submitProductQuick();
+    jaxButtonCartSingle();
 })
 
 function submitProductQuick() {
@@ -241,8 +242,7 @@ function submitProductVariable() {
         var product_id = $(this).attr('data-product_id');
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
-        console.log(variation_id)
-        var quantity = (document.getElementById('qty')) ? document.getElementById('qty').value : 1;
+        var quantity = ($("#myModal").hasClass('in')) ? document.getElementById('qty').value : 1;
         $this = $(this);
         $.ajax({
             url: $("#url_admin").val(),
@@ -277,13 +277,71 @@ function submitProductVariable() {
 function jaxButtonCart() {
 
     $(document).on('click', '.quick_add_to_cart_button', function (e) {
-
         e.preventDefault();
         // $("#modalCart").modal('show');
         var $thisbutton = $(this),
             $form = $thisbutton.closest('form.cart'),
             id = $thisbutton.attr('data-product_id'),
-            product_qty = (document.getElementById('qty')) ? document.getElementById('qty').value : 1,
+            product_qty = ($("#myModal").hasClass('in')) ? document.getElementById('qty').value : 1,
+            product_id = $form.find('input[name=product_id]').val() || id,
+            variation_id = $form.find('input[name=variation_id]').val() || 0;
+        var data = {
+            action: 'woocommerce_ajax_add_to_cart',
+            product_id: product_id,
+            product_sku: '',
+            quantity: product_qty,
+            variation_id: variation_id,
+        };
+        $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
+        $.ajax({
+            type: 'post',
+            url: wc_add_to_cart_params.ajax_url,
+            data: data,
+            beforeSend: function (response) {
+                $thisbutton.removeClass('added').addClass('loading');
+            },
+            complete: function (response) {
+                $thisbutton.addClass('added').removeClass('loading');
+            },
+            success: function (response) {
+                if (document.getElementById('qty')) {
+                    document.getElementById('qty').value = 1;
+                }
+
+                $("#modal-empty-cart").addClass('d-none');
+                if ($(".modal-action").hasClass('d-none')) {
+                    $(".modal-action").removeClass('d-none')
+                }
+
+                $("#modalCart").modal('show');
+                $("#myModal").modal('hide')
+                if (response.error & response.product_url) {
+                    console.log('error', response.error)
+                    // window.location = response.product_url;
+                    return;
+                } else {
+                    console.log('success', response)
+                    $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+        return false;
+    });
+
+}
+function jaxButtonCartSingle() {
+
+    $(document).on('click', '.add_single', function (e) {
+        e.preventDefault();
+        // $("#modalCart").modal('show');
+        var $thisbutton = $(this),
+            $form = $thisbutton.closest('form.cart'),
+            id = $thisbutton.attr('data-product_id'),
+            product_qty = (document.getElementById('qty_1')) ? document.getElementById('qty_1').value : 1,
             product_id = $form.find('input[name=product_id]').val() || id,
             variation_id = $form.find('input[name=variation_id]').val() || 0;
         var data = {
@@ -405,7 +463,7 @@ $(document).on('click', '.remove-product-variable', function (e) {
 //update cart
 $(document).on('keyup', '#modalCart input.qty', function () {
     // alert(1)
-    var old_value=$(this).attr('data-quantity');
+    var old_value = $(this).attr('data-quantity');
     var item_hash = $(this).attr('name').replace(/cart\[([\w]+)\]\[qty\]/g, "$1");
     var item_quantity = $(this).val();
     var currentVal = parseInt(item_quantity);
@@ -416,6 +474,7 @@ $(document).on('keyup', '#modalCart input.qty', function () {
             var scrollTop = document.getElementById("cart-roll").scrollTop
         }
         localStorage.setItem('scrollModal', scrollTop);
+
         function qty_cart() {
             $.ajax({
                 type: 'POST',

@@ -1,0 +1,10 @@
+2019-08-20T13:42:50+00:00 CRITICAL Uncaught Error: Call to undefined function get_post_thumbnail_url() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\woocommerce\archive-product.php:173
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-content\plugins\woocommerce\includes\wc-core-functions.php(249): include()
+#1 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\woocommerce\taxonomy-product_cat.php(22): wc_get_template('archive-product...')
+#2 C:\xampp1\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp1\\htdoc...')
+#3 C:\xampp1\htdocs\outsource\wp-blog-header.php(19): require_once('C:\\xampp1\\htdoc...')
+#4 C:\xampp1\htdocs\outsource\index.php(17): require('C:\\xampp1\\htdoc...')
+#5 {main}
+  thrown in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\woocommerce\archive-product.php on line 173
+

@@ -1833,11 +1833,11 @@ body .pagination {
 }
 
 .zoomContainer {
-    z-index: 9999999999999999999999;
+    z-index: 99;
 }
 
 .zoomWindow {
-    z-index: 99999999999999999999;
+    z-index: 99;
 }
 
 /* custom table cart */
