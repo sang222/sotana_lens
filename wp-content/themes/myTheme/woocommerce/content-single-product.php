@@ -25,15 +25,15 @@ $currentURL = home_url($wp->request);
 
 ?>
 <div class="breadcrumb-colect prefix">
-        <div class="fixed-width content-breadcrum">
-            <div class="pro-title-breadcrumb text-center">
-                <h4><?php the_title() ?></h4>
-            </div>
-            <div class="text-center"><?php echo woocommerce_breadcrumb(); ?></div>
-            <br/>
-            <br/>
+    <div class="fixed-width content-breadcrum">
+        <div class="pro-title-breadcrumb text-center">
+            <h4><?php the_title() ?></h4>
         </div>
+        <div class="text-center"><?php echo woocommerce_breadcrumb(); ?></div>
+        <br/>
+        <br/>
     </div>
+</div>
 <div class="content-cart container">
     <div class="clearfix"></div>
     <div class="view-product">
@@ -364,7 +364,11 @@ $currentURL = home_url($wp->request);
                                 <?php endif; ?>
                                 <div class="img-thumb">
 
-                                    <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                                    <img
+                                            class="lazyload"
+                                            src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                            data-src="<?php the_post_thumbnail_url(); ?>"
+                                    />
 
                                 </div>
                             </a>
@@ -547,7 +551,7 @@ $currentURL = home_url($wp->request);
                 <?php
                 // Reset the global $the_post as this query will have stomped on it
                 wp_reset_query();
-            }else{
+            } else {
                 echo '<h4 class="text-center">Không có sản phẩm liên quan</h4>';
             }
             ?>

@@ -85,6 +85,10 @@ function clickItemVariableQuick() {
 
 $(document).ready(function () {
     //funciton
+
+    window.addEventListener("load", function (event) {
+        lazyload();
+    });
     clickItemVariableItem();
     clickItemVariableQuick();
     //all

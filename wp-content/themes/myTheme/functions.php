@@ -43,6 +43,7 @@ function add_theme_scripts()
     wp_enqueue_script('scrollToFixed', get_theme_file_uri() . '/js/jquery-scrolltofixed-min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('wow-js', get_theme_file_uri() . '/js/wow.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('bootstrap-js', get_theme_file_uri() . '/js/bootstrap.min.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('lazy-load',  'https://cdn.rawgit.com/tuupola/jquery_lazyload/0a5e0785a90eb41a6411d67a2f2e56d55bbecbd3/lazyload.js', array('jquery'), '1.0', true);
 
     if(!is_cart()) {
         wp_enqueue_script('ajax-modal-js', get_theme_file_uri() . '/js/myJs/ajaxModalProduct.js', array('jquery'), '1.1', true);

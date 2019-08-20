@@ -166,8 +166,12 @@
                                         <p class="sale-banner">Sale!</p>
                                     <?php endif; ?>
                                     <div class="img-thumb">
-    
-                                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+
+                                        <img
+                                                class="lazyload"
+                                                src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                                data-src="<?php the_post_thumbnail_url(); ?>"
+                                        />
     
                                     </div>
                                 </a>

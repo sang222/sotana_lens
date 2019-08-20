@@ -50,9 +50,13 @@ $title_hot = $tp_option['product-title'];
                                         <p class="sale-banner">Sale!</p>
                                     <?php endif; ?>
                                     <div class="img-thumb">
-
-                                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
-
+                                        <!--                            --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyload','src'=>get_theme_file_uri().'/images/myimage/lazyload.jpg','data-src'=>''))
+                                        ?>
+                                        <img
+                                                class="lazyload"
+                                                src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                                data-src="<?php the_post_thumbnail_url(); ?>"
+                                        />
                                     </div>
                                 </a>
                                 <div class="action-detail">
@@ -226,6 +230,8 @@ $title_hot = $tp_option['product-title'];
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
 
 
