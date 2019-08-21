@@ -13,7 +13,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
 <?php if ($feat_pro->have_posts()): ?>
     <div class="pro-title wow fadeIn">
         <div class="fixed-width content-title title-slider">
-            <span class="text-uppercase"><?php echo __('BEST SALE', 'localFile') ?></span>
+            <span class="text-uppercase"><?php echo get_field('category_product', 'option')['title'] ?></span>
         </div>
     </div>
     <?php //echo get_user_locale(get_the_ID()) ?>

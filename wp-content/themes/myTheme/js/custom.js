@@ -22,8 +22,8 @@ var THEMEMASCOT = {};
     var menu_flag = false;
     var tl = new TimelineMax({paused: true, onReverseComplete: reverseFunction})
     var tl1 = new TimelineMax({paused: true, onReverseComplete: reverseFunction1})
-    var language = window.navigator.userLanguage || window.navigator.language;
-    console.log(navigator.language);
+    var language_current = $('#language_current').attr('lang')
+    console.log(language_current)
 
     //custom video
     var video = document.querySelector('video'), container = document.querySelector('.videoWrapper');

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="<?php echo get_locale() ?>" id="language_current">
 
 <head>
     <?php $baseURL = esc_url(get_template_directory_uri()); ?>
