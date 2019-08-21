@@ -115,14 +115,22 @@ $currentURL = home_url($wp->request);
                 </div>
                 <div class="meta-product">
                     <?php
-                    $terms = get_the_terms($post->ID, 'product_cat');
+                    $terms = get_the_terms($product->get_id(), 'product_cat');
+                    //                    var_dump($terms);
                     $trademark = array();
                     foreach ($terms as $category) {
-                        array_push($trademark, $category);
+
+                        if ($category->parent == 49) {
+
+                            array_push($trademark, $category);
+                        }
+//                        var_dump(get_category($category->term_id));
+
+
                     }
                     ?>
                     <span><?php echo __('Trademark:', 'localFile') ?> <b><a
-                                    href="<?php echo home_url() ?>/collection/?cat_name=<?php echo $trademark[1]->slug ?>"><?php echo $trademark[1]->name . '' ?></a></b> </span>
+                                    href="<?php echo home_url() ?>/collection/?cat_name=<?php echo $trademark[0]->slug ?>"><?php echo $trademark[0]->name . '' ?></a></b> </span>
                 </div>
                 <div class="social-product">
                     <span class="share-in"><?php echo __('Chia sẻ trên', 'localFile') ?> </span>
@@ -270,19 +278,20 @@ $currentURL = home_url($wp->request);
                     <?php endif; ?>
                 </div>
                 <div class="try_eyewear">
-                    <p><?php echo __('Bạn có muốn xem thử kính có hợp với mình không?', 'localFile') ?> <a class="color-secondary"
-                                                                          href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">
-                                                                          <?php echo __('Thử kính ngay', 'localFile') ?></a>.</p>
+                    <p><?php echo __('Bạn có muốn xem thử kính có hợp với mình không?', 'localFile') ?> <a
+                                class="color-secondary"
+                                href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">
+                            <?php echo __('Thử kính ngay', 'localFile') ?></a>.</p>
                 </div>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
                         <div class="product-hotline d-flex justify-content-between align-items-center">
                             <a href="tel:0902 547 710">
                                 <img
-                                        src="//theme.hstatic.net/1000269337/1000458651/14/phone-receiver.png?v=78"><span> 0989633508</span>
+                                        src="<?php echo get_theme_file_uri() ?>/images/myimage/single/phone-receiver.png?v=78"><span> 0989633508</span>
                             </a>
                             <span>
-                                <img src="//theme.hstatic.net/1000269337/1000458651/14/open.png?v=78"> <?php echo __('9h00 : 20h00', 'localFile') ?>
+                                <img src="<?php echo get_theme_file_uri() ?>/images/myimage/single/open.png?v=78"> <?php echo __('9h00 : 20h00', 'localFile') ?>
                             </span>
                         </div>
                         <div class="product-policy">

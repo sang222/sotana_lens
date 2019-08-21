@@ -29,7 +29,9 @@ get_header('shop');
 
 
 ?>
-<?php $cate = get_queried_object(); ?>
+<?php $cate = get_queried_object();
+$trademark = array();
+?>
 <div class="breadcrumb-colect prefix">
     <div class="fixed-width content-breadcrum">
         <div class="pro-title-breadcrumb text-center">
@@ -142,6 +144,7 @@ get_header('shop');
 
         }
         $loop = new WP_Query($args);
+
         ?>
         <input type="hidden" id="cate_id" value="<?php echo $cateID ?>"/>
         <div class="collection-one float-left col-lg-9 col-sm-8 col-xs-12 px-0 ml-0 colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
@@ -153,6 +156,7 @@ get_header('shop');
                     $loop->the_post();
                     global $product;
                     $max_post_count = $loop->post_count;
+
                     ?>
                     <div class=" ">
                         <div class="product-item">
@@ -351,15 +355,14 @@ get_header('shop');
             <div class="prefix"></div>
             <?php devvn_corenavi_ajax($loop); ?>
         </div>
-
         <div class="float-right col-lg-3 col-sm-4 col-xs-12">
+            <?php set_query_var('my_var', $cateID); ?>
             <?php get_template_part('template_part/content', 'sidebar') ?>
         </div>
     </div>
 </div>
 <div class="alert-box error-box"><?php echo __('Hết hàng', 'localFile') ?></div>
 <?php
-
 //quickview
 get_template_part('template_part/content', 'quickview');
 //cart Modal
