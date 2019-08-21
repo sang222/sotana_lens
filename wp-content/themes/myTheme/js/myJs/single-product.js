@@ -1,3 +1,4 @@
+var language_current = $('#language_current').attr('lang')
 $(document).ready(function () {
     settingSlider();
     viewVariable();
@@ -51,14 +52,24 @@ function submitProductVariable() {
 function viewVariable() {
 
     $(".product-variable .box-variable").click(function () {
+
         var variation_id = $(this).attr('data-variation_id');
         var attribute_pa_color = $(this).attr('data-attribute_pa_color');
         if ($(this).hasClass('box-out-variable')) {
-            $(".status-product").removeClass('has').addClass('not-has').text('Hết hàng');
-            $(".acttion-carts .add-cart").addClass('d-none');
+            if (language_current == 'vi') {
+                $(".status-product").removeClass('has').addClass('not-has').text('Hết hàng');
+            } else {
+                $(".status-product").removeClass('has').addClass('not-has').text('Out of Stock');
+            }
+
+            $(".qty-quick-views").addClass('d-none');
         } else {
-            $(".status-product").removeClass('not-has').addClass('has').text('Còn hàng');
-            $(".acttion-carts .add-cart").removeClass('d-none');
+            if (language_current == 'vi') {
+                $(".status-product").removeClass('not-has').addClass('has').text('Còn hàng');
+            } else {
+                $(".status-product").removeClass('not-has').addClass('has').text('In Stock');
+            }
+            $(".qty-quick-views").removeClass('d-none');
             $(".add-variable").attr('data-attribute_pa_color', attribute_pa_color);
             $(".add-variable").attr('data-variation_id', variation_id);
         }
