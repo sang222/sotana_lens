@@ -1,3 +1,5 @@
+var language_current = $('#language_current').attr('lang')
+
 function viewProduct(product_id, $this) {
     $("#qty").val(1);
     $($this).addClass('view-now')
@@ -56,7 +58,12 @@ function viewProduct(product_id, $this) {
                 $(".qty-quick-view").empty();
                 $(".stock-quick").empty();
                 if (stock == 'instock') {
-                    $(".stock-quick").append('<span class="status-product status-instock">Còn hàng</span>')
+                    if (language_current == 'vi') {
+                        $(".stock-quick").append('<span class="status-product status-instock">Còn hàng</span>')
+                    } else {
+                        $(".stock-quick").append('<span class="status-product status-instock">In Stock</span>')
+                    }
+
                     $(".qty-quick-view").append(`
                 <button onclick="var result = document.getElementById(&#39;qty&#39;);
                     var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
@@ -81,7 +88,11 @@ function viewProduct(product_id, $this) {
                                 class="fa fa-plus"></i>
                     </button> ` + btnAddCart + ``)
                 } else {
-                    $(".stock-quick").append('<span class="status-product out-instock">Hết hàng</span>')
+                    if (language_current == 'vi') {
+                        $(".stock-quick").append('<span class="status-product out-instock">Hết hàng</span>')
+                    } else {
+                        $(".stock-quick").append('<span class="status-product out-instock">Out of Stock</span>')
+                    }
                 }
 
                 response.data.category.forEach(function (value, index) {
@@ -333,6 +344,7 @@ function jaxButtonCart() {
     });
 
 }
+
 function jaxButtonCartSingle() {
 
     $(document).on('click', '.add_single', function (e) {

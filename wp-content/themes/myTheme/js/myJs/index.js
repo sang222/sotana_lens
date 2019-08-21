@@ -1,3 +1,6 @@
+var language_current = $('#language_current').attr('lang')
+console.log(language_current)
+
 function openProTabs(index, $this) {
     $(".pro-tablinks").removeClass('active');
     $($this).addClass('active');
@@ -36,7 +39,12 @@ function clickItemVariableItem() {
             $(this).parents('.product-item').find('.add-cart').addClass('d-none')
             $(this).parents('.product-item').find('.view-product').addClass('center-view')
             var color = $(this).parents('.out-variable-pr').attr('data-attribute_pa_color')
-            $("div.error-box").text('Màu ' + color + ' đã hết hàng').fadeIn(300).delay(1500).fadeOut(400);
+            if (language_current == 'vi') {
+                $("div.error-box").text('Màu bạn chọn đã hết hàng').fadeIn(300).delay(1500).fadeOut(400);
+            } else {
+                $("div.error-box").text('This color were out of stock').fadeIn(300).delay(1500).fadeOut(400);
+            }
+
         }
 
 
@@ -61,12 +69,20 @@ function clickItemVariableQuick() {
             $(this).parents('.content-quick').find('.price-sale').text(formatCurrency(display_regular_price));
         }
         if (!$(this).hasClass('out-variable-pr')) {
-            $(".status-product").addClass('status-instock').removeClass('out-instock').text('Còn hàng');
+            if (language_current == 'vi') {
+                $(".status-product").addClass('status-instock').removeClass('out-instock').text('Còn hàng');
+            } else {
+                $(".status-product").addClass('status-instock').removeClass('out-instock').text('In Stock');
+            }
 
             $("#myModal .add-cart").removeClass('d-none');
 
         } else {
-            $(".status-product").removeClass('status-instock').addClass('out-instock').text('Hết hàng');
+            if (language_current == 'vi') {
+                $(".status-product").removeClass('status-instock').addClass('out-instock').text('Hết hàng');
+            } else {
+                $(".status-product").removeClass('status-instock').addClass('out-instock').text('Out of Stock');
+            }
             $("#myModal .add-cart").addClass('d-none');
         }
         $('.zoomContainer').remove();
@@ -89,6 +105,7 @@ window.addEventListener("load", function (event) {
 $(document).ready(function () {
     //funciton
     // When the user clicks anywhere outside of the modal, close it
+
     window.onclick = function (event) {
         if ($(event.target).hasClass('close-custom')) {
             $('.zoomContainer').remove();
