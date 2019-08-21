@@ -1,7 +1,8 @@
 <div class="sidebar-filter" style="margin-bottom: 30px">
     <div class="text-transform text-left font-weight-bold "
          style="padding-bottom: 20px;border-bottom:1px solid #dfdfdf">
-        <div class="font-weight-600 text-uppercase top-filter"><i class="fa fa-filter"></i> <?php echo __('Filter Search', 'localFile') ?></div>
+        <div class="font-weight-600 text-uppercase top-filter"><i
+                    class="fa fa-filter"></i> <?php echo __('Filter Search', 'localFile') ?></div>
     </div>
     <?php
     $term = get_queried_object();
@@ -11,9 +12,9 @@
     ));
     ?>
     <?php if (sizeof($children) > 0): ?>
-
         <div class="filter-list" id="bs-collapse">
-            <h5 class="text-left text-uppercase"><i class="fa fa-bars"></i> <?php echo __('Category', 'localFile') ?><span
+            <h5 class="text-left text-uppercase"><i class="fa fa-bars"></i> <?php echo __('Category', 'localFile') ?>
+                <span
                         class="float-right icon-right"><i class="fa fa-angle-right"></i></h5>
             <div style="margin-left: 20px">
                 <ul class="no-bullets filter-price clearfix">
@@ -47,7 +48,8 @@
     <?php endif; ?>
 
     <div class="filter-list" id="bs-collapse">
-        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> <?php echo __('Filter by price', 'localFile') ?><span
+        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> <?php echo __('Filter by price', 'localFile') ?>
+            <span
                     class="float-right icon-right"><i class="fa fa-angle-right"></i></span></h5>
         <div style="margin-left: 20px" class="content-down">
             <ul class="no-bullets filter-price clearfix">
@@ -125,18 +127,55 @@
     <!--    end filter price-->
     <!--  Start filter thương hiệu   -->
     <?php
-    $term_id = get_term_by('slug', 'trademark', 'product_cat')->term_id;
-    $term_children = get_term_children($term_id, 'product_cat');
-    if (sizeof($term_children) > 0):
+    //    $term_id = get_term_by('slug', 'trademark', 'product_cat')->term_id;
+    $cateID = get_query_var('my_var');
+    $args = array(
+        'post_type' => array('product', 'product_variation'),
+        'ignore_sticky_posts' => 1,
+        'post_status' => 'publish',
+        'tax_query' => array(
+
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                'terms' => $cateID,
+                'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+            ),
+            array(
+                'taxonomy' => 'product_visibility',
+                'field' => 'slug',
+                'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                'operator' => 'NOT IN'
+            )
+
+
+        ),
+    );
+    $trademark = array();
+    $loop = new WP_Query($args);
+    while ($loop->have_posts()) :
+        $loop->the_post();
+        global $product;
+        $terms = get_the_terms($product->get_id(), 'product_cat');
+        //                    var_dump($terms);
+        foreach ($terms as $category) {
+            if ($category->parent == 49 && !in_array($category, $trademark)) {
+                array_push($trademark, $category);
+            }
+//                        var_dump(get_category($category->term_id));
+        }
+    endwhile;
+    if (sizeof($trademark) > 0):
     ?>
     <div class="filter-list" id="bs-collapse">
-        <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> <?php echo __('Filter by trademark', 'localFile') ?><span
+        <h5 class="text-left text-uppercase"><i
+                    class="fa fa-tags"></i> <?php echo __('Filter by trademark', 'localFile') ?><span
                     class="float-right icon-right"><i class="fa fa-angle-right"></i></h5>
         <div style="margin-left: 20px">
             <ul class="no-bullets filter-price clearfix">
                 <?php
                 $dem = 1;
-                foreach ($term_children as $cate_id): ?>
+                foreach ($trademark as $term): ?>
 
                     <?php $vendor_arr = explode(',', $_GET['vendor']) ?>
                     <?php $actual_link = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>
@@ -145,11 +184,11 @@
                             <input type="checkbox"
                                    id="check-<?php echo $dem ?>"
                                    name="trademark-filter" data-price="0:max"
-                                <?php if (in_array(get_term($cate_id)->slug, $vendor_arr)) {
+                                <?php if (in_array($term->slug, $vendor_arr)) {
                                     echo 'checked';
                                 } ?>
-                                   value="<?php echo get_term($cate_id)->slug ?>">
-                            <label for="check-<?php echo $dem ?>"><?php echo get_the_category_by_ID($cate_id) ?></label>
+                                   value="<?php echo $term->slug ?>">
+                            <label for="check-<?php echo $dem ?>"><?php echo get_the_category_by_ID($term->term_id) ?></label>
                         </span>
 
                     </li>
