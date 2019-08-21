@@ -1,20 +1,20 @@
 <?php
-global $tp_option;
-$category_hot = $tp_option['product-hot'];
-$title_hot = $tp_option['product-title'];
-
+    global $tp_option;
+    $category_hot = $tp_option['product-hot'];
+    $title_hot = $tp_option['product-title'];
+    $list_cate = get_field('category_product', 'option')['hot_sale'];
 ?>
 <?php if (sizeof($category_hot) > 0 && $title_hot != null): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
-            <span><?php echo $title_hot; ?></span>
+            <span><?php echo get_field('category_product', 'option')['title'] ?></span>
         </div>
 
     </div>
     <div class="row-product fixed-width wow fadeInDown" id="product-option">
         <div class="tab clearfix text-center clearfix">
             <?php $dem = 0; ?>
-            <?php foreach ($category_hot as $cate_id): ?>
+            <?php foreach ($list_cate as $cate_id): ?>
                 <button data-vt="<?php $dem + 1; ?>"
                         class="pro-tablinks text-uppercase <?php if ($dem == 0) echo 'active' ?>"
                         onclick="openProTabs(<?php echo $dem + 1 ?>,this)" id="defaultOpenProTabs">
@@ -27,7 +27,7 @@ $title_hot = $tp_option['product-title'];
         <?php
         $dem1 = 0;
 
-        foreach ($category_hot as $cate_id):
+        foreach ($list_cate as $cate_id):
             $args = array('post_type' => 'product', 'posts_per_page' => 10, 'product_cat' => get_the_category_by_ID($cate_id), 'orderby' => 'rand');
             $loop = new WP_Query($args);
             $dem2 = 1;

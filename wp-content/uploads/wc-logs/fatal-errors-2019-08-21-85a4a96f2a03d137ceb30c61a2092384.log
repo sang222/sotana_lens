@@ -68,3 +68,5 @@ Stack trace:
 #6 C:\xampp1\htdocs\outsource\wp-includes\template-loader.php(74): include('C:\\xampp1\\htdoc...')
 #7 C:\xampp1\htdocs\outsource\wp-blog-header.php(19): require_ in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\template_part\content-sidebar.php on line 155
 
+2019-08-21T16:56:47+00:00 CRITICAL syntax error, unexpected 'var_dump' (T_STRING) in D:\xampp\source\2018\freelancer\BE\sotana_lens\wp-content\themes\myTheme\template_part\product-noibat.php on line 6
+
