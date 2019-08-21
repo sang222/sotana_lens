@@ -9,7 +9,7 @@ $baseURL = esc_url(get_template_directory_uri())
             </div>
             <div class="text-center">
                 <nav class="woocommerce-breadcrumb">
-                    <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?></nav>
+                    <a href="<?php echo get_site_url() ?>"><?php echo __('[:en]Home[:][:vi]Trang chủ[:]') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?></nav>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@ $baseURL = esc_url(get_template_directory_uri())
                                         </p>
                                     </div>
                                     <div class="reading-next">
-                                        <a href="<?php echo get_the_permalink() ?>" class="linkTo"><?php echo __('Home', 'Continue Reading', 'localFile') ?> <i
+                                        <a href="<?php echo get_the_permalink() ?>" class="linkTo"><?php echo __( '[:en]Read more[:][:vi]Xem thêm[:]') ?> <i
                                                     class="fa fa-caret-right" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
@@ -68,10 +68,10 @@ $baseURL = esc_url(get_template_directory_uri())
                     <div class="paging pagenavi pagination">
                         <div class="paging-normal">
                             <?php
-                            if (function_exists('wp_pagenavi')) {
-                                wp_pagenavi(array('query' => $query));
-                            }
-                            wp_reset_query();
+                                if (function_exists('wp_pagenavi')) {
+                                    wp_pagenavi(array('query' => $query));
+                                }
+                                wp_reset_query();
                             ?>
                         </div>
                     </div>

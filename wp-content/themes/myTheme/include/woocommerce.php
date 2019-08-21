@@ -49,7 +49,7 @@ function header_add_to_cart_fragment($fragments)
         </div>
         <div class="popup-view-cart d-none">
             <div class="popup-cart-title">
-                <h5><?php echo __('Shopping cart', 'localFile') ?></h5>
+                <h5><?php echo __('[:en]Shopping cart[:][:vi]Giỏ hàng[:]') ?></h5>
             </div>
             <ul class="popup-cart-content">
                 <?php

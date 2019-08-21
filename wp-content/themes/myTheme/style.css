@@ -2385,6 +2385,7 @@ body .owl-carousel .owl-video-tn {
     background-size: cover;
     position: relative !important;
     padding: 10px 0px 55px 0px;
+    z-index: 10;
 }
 
 .breadcrumb-colect-blog .content-breadcrum {

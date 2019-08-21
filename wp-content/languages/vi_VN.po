@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-08-20 23:43+0700\n"
-"PO-Revision-Date: 2019-08-20 23:47+0700\n"
+"POT-Creation-Date: 2019-08-21 21:08+0700\n"
+"PO-Revision-Date: 2019-08-21 21:08+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: vi_VN\n"
@@ -378,7 +378,7 @@ msgstr ""
 msgid "<p>This is the sidebar content, HTML is allowed.</p>"
 msgstr ""
 
-#: core/options.php:281 page-blog.php:12 page-blog.php:56 page-lien-he.php:14
+#: core/options.php:281 page-blog.php:12 page-lien-he.php:14
 #: page-try-eyewear.php:14 page.php:40 search.php:15 single-news.php:12
 msgid "Home"
 msgstr ""
@@ -662,6 +662,10 @@ msgstr ""
 msgid "borderTopWidth,borderRightWidth,borderBottomWidth,borderLeftWidth"
 msgstr ""
 
+#: page-blog.php:56 single-news.php:81 template_part/content-blog.php:39
+msgid "Continue Reading"
+msgstr "Xem thêm"
+
 #: page-lien-he.php:22
 msgid "Địa chỉ công ty"
 msgstr ""
@@ -712,10 +716,6 @@ msgstr ""
 
 #: single-news.php:37
 msgid "Bài viết liên quan"
-msgstr ""
-
-#: single-news.php:81 template_part/content-blog.php:39
-msgid "Continue Reading"
 msgstr ""
 
 #: template_part/content-blog.php:4
