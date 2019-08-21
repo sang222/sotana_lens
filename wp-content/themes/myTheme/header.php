@@ -102,7 +102,11 @@
                         }
                         ?>
                     <li id="search" style="flex-direction: row; display: flex; justify-content: center;">
-                        
+                        <?php qtranxf_generateLanguageSelectCode(
+                            array(
+                                'type'   => 'image'
+                            ));
+                        ?>
                         <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
                     </li>
                 </ul>
