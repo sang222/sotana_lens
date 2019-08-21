@@ -7,7 +7,12 @@
     /*-o-transition: 1s all ease;*/
     border-radius: 2px;
 }
-
+.breadcrumb-colect{
+    padding-bottom: 0 !important;
+}
+#modalCart{
+    z-index: 99999999999999999999999;
+}
 .slick-carousel-mobile.owl-carousel.owl-loaded {
     display: none;
 }

@@ -14,7 +14,9 @@ Tags: shop, shopping cart, archive.
     margin: 0;
     padding: 0;
 }
-
+body.active{
+    overflow: hidden;
+}
 .color_general {
     color: #789be6 !important;
 }
@@ -1301,7 +1303,9 @@ input[type="checkbox"]:checked + label:after {
     padding: 0;
     text-transform: uppercase;
 }
-
+.c-card__header img{
+    padding-top: 15px;
+}
 .c-card__subtitle {
     font-size: 13px;
     text-transform: capitalize;
@@ -1771,7 +1775,7 @@ body .pagination {
 
 .modal.fade {
     padding-right: 0 !important;
-    z-index: 999998 !important;
+    /*z-index: 999998 !important;*/
 }
 
 .modal.fade .modal-dialog {
@@ -1832,13 +1836,7 @@ body .pagination {
     color: #ed030e;
 }
 
-.zoomContainer {
-    z-index: 99;
-}
 
-.zoomWindow {
-    z-index: 99;
-}
 
 /* custom table cart */
 .page-template-cart-page .title-cart {

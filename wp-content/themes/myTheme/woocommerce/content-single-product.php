@@ -289,7 +289,7 @@ $currentURL = home_url($wp->request);
                             <ul class="no-bullets">
                                 <li>
                                     <div class="icon">
-                                        <img src="//theme.hstatic.net/1000269337/1000458651/14/pro_policy_icon1.png?v=78"
+                                        <img src="<?php echo get_theme_file_uri() ?>/images/myimage/single/pro_policy_icon1.png?v=78"
                                              alt="Giao hàng miễn phí">
                                     </div>
                                     <span><?php echo __('Giao hàng miễn phí', 'localFile') ?></span>
@@ -297,7 +297,7 @@ $currentURL = home_url($wp->request);
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <img src="//theme.hstatic.net/1000269337/1000458651/14/pro_policy_icon2.png?v=78"
+                                        <img src="<?php echo get_theme_file_uri() ?>/images/myimage/single/pro_policy_icon2.png?v=78"
                                              alt="Đổi trả miễn phí">
                                     </div>
                                     <span><?php echo __('Đổi trả miễn phí', 'localFile') ?></span>
@@ -305,7 +305,7 @@ $currentURL = home_url($wp->request);
                                 </li>
                                 <li>
                                     <div class="icon">
-                                        <img src="//theme.hstatic.net/1000269337/1000458651/14/pro_policy_icon3.png?v=78"
+                                        <img src="<?php echo get_theme_file_uri() ?>/images/myimage/single/pro_policy_icon3.png?v=78"
                                              alt="Thanh toán COD">
                                     </div>
                                     <span><?php echo __('Thanh toán COD', 'localFile') ?></span>
@@ -314,7 +314,7 @@ $currentURL = home_url($wp->request);
                             </ul>
 
                             <img style="margin-top: 30px;"
-                                 src="//theme.hstatic.net/1000269337/1000458651/14/cattrong.jpg?v=78">
+                                 src="<?php echo get_theme_file_uri() ?>/images/myimage/single/cattrong.jpg?v=78">
                         </div>
                     </div>
                 </div>

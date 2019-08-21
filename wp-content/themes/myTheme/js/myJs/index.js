@@ -82,12 +82,19 @@ function clickItemVariableQuick() {
         });
     })
 }
+
 window.addEventListener("load", function (event) {
     lazyload();
 });
 $(document).ready(function () {
     //funciton
-
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if ($(event.target).hasClass('close-custom')) {
+            $('.zoomContainer').remove();
+            $("#picture-quickview").removeData('elevateZoom');
+        }
+    }
 
     clickItemVariableItem();
     clickItemVariableQuick();
@@ -306,6 +313,8 @@ $(document).ready(function () {
         $('#picture-quickview').attr('data-zoom-image', $(this).attr('src'));
         $('.zoomContainer').remove();
         $("#picture-quickview").removeData('elevateZoom');
+        $("#picture-quickview").attr('src', $(this).attr('src'));
+        $("#picture-quickview").data('zoom-image', $(this).attr('src'));
         $("#picture-quickview").elevateZoom({
             scrollZoom: true,
             zoomType: "inner",
