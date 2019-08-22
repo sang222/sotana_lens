@@ -8,7 +8,7 @@ $slideBanner = get_field('slide_banner', 'option');
         </div>
     </div>
     <div class="wow fadeInDown" style="padding: 0 15px">
-        <div class="m-auto">
+        <div style="max-width: 1500px" class="m-auto">
             <div class="owl-carousel owl-theme " id="contact-carousel">
                 <?php foreach ($slideBanner['list_image'] as $item_contact): ?>
                     <div class="" style="position: relative; width: auto; height: 555px; background: url(<?php echo $item_contact['image']['url'] ?>) center center no-repeat; background-size: cover">
