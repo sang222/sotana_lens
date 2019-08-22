@@ -3,6 +3,7 @@
     width: 100%;
     height: 100vh;
     display: table;
+    overflow: hidden;
     /*margin-top: 98px;*/
 }
 .sliderHome .owl-stage-outer, .sliderHome .owl-stage-outer .owl-stage {
@@ -12,7 +13,7 @@
     width: 100vw !important;
     height: 100vh;
     padding: 0 30px 50px;
-    display: table-cell;
+    /* display: none; */
     vertical-align: bottom;
     /* text-align: center; */
 }

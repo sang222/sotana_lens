@@ -70,7 +70,7 @@ var THEMEMASCOT = {};
             })
         }
     }
-
+    $('.sliderHome .sliderHome-item').css({'display': 'table-cell'})
     $('.sliderHome').owlCarousel({
         loop: true,
         items: 1,
