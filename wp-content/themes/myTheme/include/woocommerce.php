@@ -367,7 +367,7 @@ function modal_add_to_cart_fragment($fragments)
                                  src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                         <div class="prefix"></div>
                         <a class="text-center d-block " style="margin-top: 10px"
-                           href="<?php get_category_link(66); ?> "><span
+                           href="<?php echo get_category_link(66); ?> "><span
                                     class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
                         <br/>
                         </p>

@@ -33,23 +33,31 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
       action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
     <?php if ($checkout->get_checkout_fields()) : ?>
-
         <div class="col2-set row" id="customer_details">
             <div class="col-lg-6 float-left left-checkout col-xs-12">
 
                 <?php do_action('woocommerce_checkout_before_customer_details'); ?>
 
-                    <?php do_action('woocommerce_checkout_billing'); ?>
-                    <?php do_action( 'woocommerce_checkout_shipping' ); ?>
-
+                <?php do_action('woocommerce_checkout_billing'); ?>
+                <div class="ship-difer-other">
+                     <span class="text-left checkbox">
+                            <input type="checkbox"
+                                   id="check-difer"
+                                   name="difer"
+                                   value="">
+                         <label for="check-difer" class="title-difer">Ship To A Different Address?</label>
+                        </span>
+                    <?php do_action('woocommerce_checkout_shipping'); ?>
+                </div>
                 <?php do_action('woocommerce_checkout_after_customer_details'); ?>
             </div>
             <div class="col-lg-6 right-checkout col-xs-12">
+
                 <?php do_action('woocommerce_checkout_before_order_review'); ?>
-                    <div id="order_review" class="woocommerce-checkout-review-order">
-                        <h3 class="title-product-checkout"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
-                        <?php do_action('woocommerce_checkout_order_review'); ?>
-                    </div>
+                <div id="order_review" class="woocommerce-checkout-review-order">
+                    <h3 class="title-product-checkout"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
+                    <?php do_action('woocommerce_checkout_order_review'); ?>
+                </div>
                 <?php do_action('woocommerce_checkout_after_order_review'); ?>
             </div>
         </div>

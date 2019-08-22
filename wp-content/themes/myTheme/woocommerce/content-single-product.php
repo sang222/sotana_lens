@@ -134,11 +134,17 @@ $currentURL = home_url($wp->request);
                 </div>
                 <div class="social-product">
                     <span class="share-in"><?php echo __('Chia sẻ trên', 'localFile') ?> </span>
-                    <a class="fb-share" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentURL; ?>">
+                    <a class="fb-share " href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentURL; ?>">
                         <span class="icon-share facebook-icon">
                                 <i class="fa fa-facebook"></i>
                         </span>
                     </a>
+                    <a class="fb-share  zalo-share">
+                        <span class="icon-share zalo-icon">
+                               <img width="20" height="20" src="<?php echo get_template_directory_uri() ?>/images/myimage/favicon.ico"/>
+                        </span>
+                    </a>
+                    <div class="zalo-share-button d-none" data-href="<?php echo $currentURL; ?>" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize=false></div>
                     <a class="fb-share" href="https://twitter.com/home?status=<?php echo $currentURL; ?>">
                     <span class="icon-share twitter-icon">
                             <i class="fa fa-twitter"></i>

@@ -2,12 +2,13 @@
 <html dir="ltr" lang="<?php echo get_locale() ?>" id="language_current">
 
 <head>
+    <meta charset="<?php bloginfo('charset'); ?>">
     <?php $baseURL = esc_url(get_template_directory_uri()); ?>
-    <meta name="google-site-verification" content="05Zf8Oosra7dclwPY4po12vxX3EkmCL8h6COpebOID4" />
+    <meta name="google-site-verification" content="05Zf8Oosra7d clwPY4po12vxX3EkmCL8h6COpebOID4"/>
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="RepairShop | Car Repair & Car Wash HTML Template"/>
+    <meta name="description" content="<?php echo get_bloginfo('description') ?>"/>
     <meta name="keywords" content="car,auto,moto,repair,wash,cleaning,transport,workshop"/>
     <meta name="author" content="ThemeMascot"/>
     <!-- Page Title -->
@@ -31,12 +32,18 @@
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
     <!-- <link href="css/style.css" rel="stylesheet" type=#preloader"text/css"> -->
     <?php if (is_product()): ?>
-        <?php global $wp; ?>
-        <meta property="og:title" content="<?php echo get_bloginfo('name') . ' - ' . get_bloginfo('description'); ?>"/>
+
+        <?php global $wp;
+        global $product;
+
+        ?>
+        <meta property="og:title" content="<?php echo the_title() ?>"/>
         <meta property="og:type" content="article"/>
+        <meta property="og:description" content="<?php echo wp_trim_words(get_the_excerpt())?>"/>
         <meta property="og:url" content="<?php echo home_url($wp->request) ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
-        <meta property="og:image" content=""/>
+        <meta property="og:image" content="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>"/>
+        <script src="https://sp.zalo.me/plugins/sdk.js"></script>
         <!--        <script type='text/javascript' src="--><?php //echo get_template_directory_uri() ?><!--/assets/js/loader.js"></script>-->
     <?php endif; ?>
 
@@ -54,7 +61,9 @@
 <div id="status">
 </div>
 <input type="hidden" id="url_admin" value="<?php echo admin_url('admin-ajax.php') ?>">
-<div id="wrapper" class="clearfix  <?php if(is_front_page()){ echo 'home-header';} ?> " >
+<div id="wrapper" class="clearfix  <?php if (is_front_page()) {
+    echo 'home-header';
+} ?> ">
     <div style="position: relative;">
         <!-- Header -->
         <div class="header fixed-width">
@@ -77,47 +86,47 @@
             <div class="menu-main-sub">
                 <ul class="menu-pri">
                     <?php
-                        $menuLocations = get_nav_menu_locations();
-                        $menuID = $menuLocations['main-nav'];
-                        $primaryNav = wp_get_nav_menu_items($menuID);
-                        $id_parent = 0;
-                        foreach ($primaryNav as $navItem) {
-                            if ($navItem->menu_item_parent == $id_parent) {
-                                echo '<li class="menu-item' . $navItem->ID . '"> <a href="' . $navItem->url . '" title="' . $navItem->title . '">' . $navItem->title . '</a>';
-                                $sub = "";
-                                foreach ($primaryNav as $navItem2) {
-                                    if ($navItem2->menu_item_parent == $navItem->ID) {
-                                        $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" title="' . $navItem2->title . '">' . $navItem2->title . '</a>';
-                                        $sub2 = "";
-                                        foreach ($primaryNav as $navItem3) {
-                                            if ($navItem3->menu_item_parent == $navItem2->ID) {
-                                                $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" title="' . $navItem3->title . '">' . $navItem3->title . '</a></li>';
-                                            }
+                    $menuLocations = get_nav_menu_locations();
+                    $menuID = $menuLocations['main-nav'];
+                    $primaryNav = wp_get_nav_menu_items($menuID);
+                    $id_parent = 0;
+                    foreach ($primaryNav as $navItem) {
+                        if ($navItem->menu_item_parent == $id_parent) {
+                            echo '<li class="menu-item' . $navItem->ID . '"> <a href="' . $navItem->url . '" title="' . $navItem->title . '">' . $navItem->title . '</a>';
+                            $sub = "";
+                            foreach ($primaryNav as $navItem2) {
+                                if ($navItem2->menu_item_parent == $navItem->ID) {
+                                    $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" title="' . $navItem2->title . '">' . $navItem2->title . '</a>';
+                                    $sub2 = "";
+                                    foreach ($primaryNav as $navItem3) {
+                                        if ($navItem3->menu_item_parent == $navItem2->ID) {
+                                            $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" title="' . $navItem3->title . '">' . $navItem3->title . '</a></li>';
                                         }
-                                        $sub .= '<ul class="dropdown">' . $sub2 . '</ul>';
-                                        $sub .= '</li>';
                                     }
+                                    $sub .= '<ul class="dropdown">' . $sub2 . '</ul>';
+                                    $sub .= '</li>';
                                 }
-                                echo '<ul class="dropdown">' . $sub . '</ul>';
-                                echo '</li>';
                             }
+                            echo '<ul class="dropdown">' . $sub . '</ul>';
+                            echo '</li>';
                         }
-                        ?>
+                    }
+                    ?>
                     <li id="search" style="flex-direction: row; display: flex; justify-content: center;">
                         <?php qtranxf_generateLanguageSelectCode(
                             array(
-                                'type'   => 'image'
+                                'type' => 'image'
                             ));
                         ?>
                         <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
                     </li>
                 </ul>
                 <div class="search-box">
-                    <form method="get" action="<?php esc_url( home_url( '/' ) ) ?>" class="form-search-menu">
+                    <form method="get" action="<?php esc_url(home_url('/')) ?>" class="form-search-menu">
                         <input type="text" name="s" class="form-control" placeholder="Search product">
                         <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
                     </form>
                 </div>
             </div>
-        </div>
     </div>
+</div>
