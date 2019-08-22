@@ -40,6 +40,7 @@ if ( $show_downloads ) {
 	<div class="row">
 		<div class="col-md-8 col-xs-12">
 			<div class="table-responsive">
+
 				<table class="woocommerce-table table woocommerce-table--order-details shop_table order_details">
 					<thead>
 						<tr>

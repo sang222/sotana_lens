@@ -10,73 +10,73 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	https://docs.woocommerce.com/document/template-structure/
+ * @see    https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
  * @version 3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
-	return;
+if (!apply_filters('woocommerce_order_item_visible', true, $item)) {
+    return;
 }
 ?>
-<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'woocommerce-table__line-item order_item', $item, $order ) ); ?>">
+<tr class="<?php echo esc_attr(apply_filters('woocommerce_order_item_class', 'woocommerce-table__line-item order_item', $item, $order)); ?>">
 
-	<td class="woocommerce-table__product-name product-name">
-		<div class="product-name_image">
-			<?php
-				$variaColors = $product->get_id();
-				$id = new WC_Product_Variation( $variaColors );
-				$image = $id->image_id;
-			?>
-			<img src="<?php echo wp_get_attachment_image_src($image)[0] ?>"/>
-		</div>
-		<div class="product-name_content">
-			<?php
-				$is_visible        = $product && $product->is_visible();
-				$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
+    <td class="woocommerce-table__product-name product-name">
+        <div class="product-name_image">
+            <?php
+            $variaColors = $product->get_id();
+            $_product = wc_get_product($product->get_id());
+            $id = new WC_Product_Variation($variaColors);
+            $image = $id->image_id;
 
-				echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">%s</a>', $product_permalink, $item->get_name() ) : $item->get_name(), $item, $is_visible );
+            ?>
 
-				do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
+            <img src="<?php echo wp_get_attachment_image_src($image)[0] ?>"/>
+        </div>
+        <div class="product-name_content">
+            <?php
+            $is_visible = $product && $product->is_visible();
+            $product_permalink = apply_filters('woocommerce_order_item_permalink', $is_visible ? $product->get_permalink($item) : '', $item, $order);
 
-				wc_display_item_meta( $item );
+            echo apply_filters('woocommerce_order_item_name', $product_permalink ? sprintf('<a href="%s">%s</a>', $product_permalink, $item->get_name()) : $item->get_name(), $item, $is_visible);
 
-				do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
-			?>
-			<p>
-				<?php
-					$color = explode('-', $item->get_name(), 2);
-					if(count($color) > 1) :
-				?>
-					<span>Color: <?php echo $color[1] ?></span>
-				<?php endif ?>
-			</p>
-		</div>
-	</td>
-	<td class="text-right" style="padding-left: 30px">
+            do_action('woocommerce_order_item_meta_start', $item_id, $item, $order, false);
+
+            wc_display_item_meta($item);
+
+            do_action('woocommerce_order_item_meta_end', $item_id, $item, $order, false);
+            ?>
+            <p>
+                <?php if ($_product->product_type == 'variation') : ?>
+                    <span>Color: <span style="text-transform: capitalize"><?php echo $_product->attributes['pa_color'] ?></span></span>
+                <?php endif; ?>
+            </p>
+        </div>
+    </td>
+    <td class="text-right" style="padding-left: 30px">
 		<span>
 			<?php echo $item->get_total() / $item->get_quantity() . ' đ' ?>
 		</span>
-	</td>
-	<td class="text-right" style="padding-left: 30px">
-		<?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <span class="product-quantity">' . sprintf( '%s', $item->get_quantity() ) . '</span>', $item ); ?>
-	</td>
-	<td class="woocommerce-table__product-total product-total text-right" style="padding-left: 30px">
-		<?php echo $order->get_formatted_line_subtotal( $item ); ?>
-	</td>
+    </td>
+    <td class="text-right" style="padding-left: 30px">
+        <?php echo apply_filters('woocommerce_order_item_quantity_html', ' <span class="product-quantity">' . sprintf('%s', $item->get_quantity()) . '</span>', $item); ?>
+    </td>
+    <td class="woocommerce-table__product-total product-total text-right" style="padding-left: 30px">
+        <?php echo $order->get_formatted_line_subtotal($item); ?>
+    </td>
 
 </tr>
 
-<?php if ( $show_purchase_note && $purchase_note ) : ?>
+<?php if ($show_purchase_note && $purchase_note) : ?>
 
-<tr class="woocommerce-table__product-purchase-note product-purchase-note">
+    <tr class="woocommerce-table__product-purchase-note product-purchase-note">
 
-	<td colspan="2"><?php echo wpautop( do_shortcode( wp_kses_post( $purchase_note ) ) ); ?></td>
+        <td colspan="2"><?php echo wpautop(do_shortcode(wp_kses_post($purchase_note))); ?></td>
 
-</tr>
+    </tr>
 
 <?php endif; ?>
