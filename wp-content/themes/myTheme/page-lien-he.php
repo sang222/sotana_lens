@@ -20,15 +20,15 @@
         <div class="col-md-4 col-infomation">
             <div class="box box-addr">
                 <p><?php echo __('Địa chỉ công ty', 'localFile') ?></p>
-                <span>R4-64 Mỹ Toàn 2, Phường Tân Phong, Quận 7, TP. HCM, Vietnam</span>
+                <span><?php echo get_field('thong_tin', 'option')['addr'] ?></span>
             </div>
             <div class="box box-phone">
                 <p><?php echo __('Điện thoại', 'localFile') ?></p>
-                <a href="tel: 02854125427">(028) 5412.5427</a>
+                <a href="tel: <?php echo get_field('thong_tin', 'option')['phone'] ?>"><?php echo get_field('thong_tin', 'option')['phone'] ?></a>
             </div>
             <div class="box box-email">
                 <p><?php echo __('Email', 'localFile') ?></p>
-                <a href="mailto: gentleromeos@gmail.com">gentleromeos@gmail.com</a>
+                <a href="mailto: <?php echo get_field('thong_tin', 'option')['email'] ?>"><?php echo get_field('thong_tin', 'option')['email'] ?></a>
             </div>
         </div>
         <div class="col-md-4">

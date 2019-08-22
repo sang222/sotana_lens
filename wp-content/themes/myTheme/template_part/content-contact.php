@@ -1,35 +1,24 @@
 <?php
-global $tp_option;
-$arr_contact_slides = $tp_option['home-slides'];
-$title_contact_slides = $tp_option['contact-title']
+$slideBanner = get_field('slide_banner', 'option');
 ?>
-<?php if (sizeof($arr_contact_slides) > 0 && $title_contact_slides != null): ?>
+<?php if (sizeof($slideBanner) > 0 && $slideBanner != null): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
-            <span class="text-uppercase"><?php echo $title_contact_slides ?></span>
+            <span class="text-uppercase"><?php echo $slideBanner['title'] ?></span>
         </div>
     </div>
-    <div class="fixed-width wow fadeInDown" style="padding:30px 15px">
+    <div class="fixed-width wow fadeInDown" style="padding: 0 15px">
         <div style="max-width: 1500px" class="m-auto">
             <div class="owl-carousel owl-theme " id="contact-carousel">
-                <?php
-                foreach ($arr_contact_slides as $item_contact):
-
-                    ?>
-                    <div>
-                        <a href="<?php echo $item_contact['url'] ?>"
-                           title="<?php echo $item_contact['title'] ?>"
+                <?php foreach ($slideBanner['list_image'] as $item_contact): ?>
+                    <div class="" style="position: relative; width: auto; height: 405px; background: url(<?php echo $item_contact['image']['url'] ?>) center center no-repeat; background-size: cover">
+                        <a href="<?php echo $item_contact['link']['url'] ?>"
                            target="_blank"
+                           style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;"
                         >
-                            <img class="lazyload"
-                                 src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
-                                 data-src="<?php echo $item_contact['image'] ?>
-                            ">
                         </a>
                     </div>
                 <?php endforeach; ?>
-
-
             </div>
         </div>
     </div>

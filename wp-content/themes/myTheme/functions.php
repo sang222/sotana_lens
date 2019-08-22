@@ -151,6 +151,11 @@
             'menu_slug' => 'theme-general-settings'
         ));
         acf_add_options_sub_page(array(
+            'page_title' => 'General',
+            'menu_title' => 'General',
+            'parent_slug' => 'theme-general-settings',
+        ));
+        acf_add_options_sub_page(array(
             'page_title' => 'Home',
             'menu_title' => 'Home',
             'parent_slug' => 'theme-general-settings',

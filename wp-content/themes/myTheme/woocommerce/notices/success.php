@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! $messages ) {
+if ( $messages ) {
 	return;
 }
 

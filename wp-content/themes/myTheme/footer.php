@@ -5,11 +5,15 @@
         <div class="row">
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Thông tin', 'localFile') ?></h4>
+                <h4 class="widget-title line-bottom-theme-colored-2"><?php echo get_field('thong_tin', 'option')['title'] ?></h4>
                     <ul class="list angle-double-right list-border">
-                        <li><a>R4-64 Mỹ Toàn 2, Phường Tân Phong, Quận 7, TP. HCM, Vietnam</a></li>
-                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone color-general mr-5"></i> <a href="tel:(028) 5412.5427">(028) 5412.5427</a></li>
-                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o color-general mr-5"></i> <a href="#">contact@yourdomain.com</a> </li>
+                        <li><a><?php echo get_field('thong_tin', 'option')['addr'] ?></a></li>
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone color-general mr-5"></i> 
+                            <a href="tel: <?php echo get_field('thong_tin', 'option')['phone'] ?>"><?php echo get_field('thong_tin', 'option')['phone'] ?></a>
+                        </li>
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o color-general mr-5"></i> 
+                            <a href="mailto: <?php echo get_field('thong_tin', 'option')['email'] ?>"><?php echo get_field('thong_tin', 'option')['email'] ?></a> 
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -18,17 +22,15 @@
                     <?php
                         $idPolicy = 219;
                     ?>
-                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo get_the_title($idPolicy) ?></h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo get_field('policy', 'option')['title'] ?></h4>
                     <ul class="list angle-double-right list-border">
                         <?php
                             $current_page_id = $idPolicy;
-
+                            $lists = get_field('policy', 'option')['list'];
+                            
                             // get all the children of the current page
-                            $child_pages = get_pages(array(
-                                'child_of' => $idPolicy,
-                            ));
-                            foreach($child_pages as $child_page) {
-                                echo '<li><a href="'. get_the_permalink($child_page->ID) .'">'. $child_page->post_title .'</a></li>';
+                            foreach($lists as $list) {
+                                echo '<li><a href="'. get_the_permalink($list->ID) .'">'. $list->post_title .'</a></li>';
                             }
                         ?>
                     </ul>
@@ -36,14 +38,13 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Danh Mục', 'localFile') ?></h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo get_field('list_cate', 'option')['title'] ?></h4>
                     <ul class="list list-border">
                         <?php
-                            $menuLocations = get_nav_menu_locations();
-                            $menuID = $menuLocations['footer-nav'];
-                            $primaryNavs = wp_get_nav_menu_items($menuID);
-                            foreach($primaryNavs as $primaryNav) {
-                                echo '<li><a href="'. $primaryNav->url .'">'. $primaryNav->title .'</a></li>';
+                            $listCates = get_field('list_cate', 'option')['list'];
+                            foreach($listCates as $listCate) {
+                                $item = get_term($listCate);
+                                echo '<li><a href="'. get_term_link($item->term_id) .'">'. $item->name .'</a></li>';
                             }
                         ?>
                     </ul>
@@ -51,10 +52,10 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo __('Hotlines:', 'localFile') ?></h4>
+                    <h4 class="widget-title line-bottom-theme-colored-2"><?php echo get_field('hotline', 'option')['title'] ?></h4>
                     <div class="opening-hours">
                         <ul class="list-border">
-                            <li class="clearfix"><a><?php echo __('Tổng đài hỗ trợ hoạt động từ T2 đến T6', 'localFile') ?></a>
+                            <li class="clearfix"><a><?php echo get_field('hotline', 'option')['description'] ?></a>
                             </li>
                         </ul>
                     </div>

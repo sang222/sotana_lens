@@ -235,7 +235,7 @@ $(document).ready(function () {
 //    contact slidercontact-carousel
     $('#contact-carousel').owlCarousel({
         loop: false,
-        margin: 55,
+        margin: 15,
         dots: false,
         lazyLoad: true,
         autoplay: true,
@@ -244,15 +244,15 @@ $(document).ready(function () {
         responsiveClass: true,
         responsive: {
             0: {
-                items: 3,
+                items: 1,
                 nav: true
             },
             600: {
-                items: 4,
+                items: 2,
                 nav: true
             },
             1000: {
-                items: 7,
+                items: 2,
                 nav: false,
                 loop: true
             }

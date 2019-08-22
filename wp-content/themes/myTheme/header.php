@@ -66,7 +66,9 @@
                 </span>
             </div>
             <div class="logo">
-                <a href="<?php echo get_site_url() ?>"><img style="max-width: 150px" src="<?php echo esc_url(get_template_directory_uri()) ?>/images/logo3.png" alt=""></a>
+                <a href="<?php echo get_site_url() ?>">
+                    <img style="max-width: 150px; margin: 0" src="<?php echo get_field('logo', 'option')['url'] ?>" alt="">
+                </a>
             </div>
             <div class="container-mini-cart"></div>
         </div>
