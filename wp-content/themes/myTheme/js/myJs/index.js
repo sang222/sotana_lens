@@ -106,6 +106,12 @@ $(document).ready(function () {
     //funciton
     // When the user clicks anywhere outside of the modal, close it
     //shipping
+    $('body').on('click', function (e) {
+        if ($('.popup-view-cart').has(e.target).length === 0 && $('.container-mini-cart').has(e.target).length === 0) {
+
+            $('.popup-view-cart').addClass('d-none')
+        }
+    });
 
     //zalo share
     window.onclick = function (event) {

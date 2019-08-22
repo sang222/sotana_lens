@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d8077f6-367b-4cfb-934c-27853a78bd18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/fatal-errors-2019-08-22-85a4a96f2a03d137ceb30c61a2092384.log" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/wc-logs/fatal-errors-2019-08-22-85a4a96f2a03d137ceb30c61a2092384.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,20 +62,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="246">
-              <caret line="141" column="39" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
+              <caret line="141" column="40" selection-start-line="141" selection-start-column="40" selection-end-line="141" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="108" selection-start-line="108" selection-end-line="108" />
+            <state relative-caret-position="287">
+              <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -132,8 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>icon-menu</find>
-      <find>logo</find>
       <find>Zoom</find>
       <find>c-card__header</find>
       <find>bread</find>
@@ -162,6 +157,8 @@
       <find>short_description</find>
       <find>ge</find>
       <find>share</find>
+      <find>container-mini-cart</find>
+      <find>toggleclass</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -227,9 +224,9 @@
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/cartPage.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/include/woocommerce.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/header.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" />
       </list>
     </option>
   </component>
@@ -439,12 +436,12 @@
       <workItem from="1566304592405" duration="17662000" />
       <workItem from="1566396329298" duration="7282000" />
       <workItem from="1566405345354" duration="2858000" />
-      <workItem from="1566482129201" duration="9886000" />
+      <workItem from="1566482129201" duration="11171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="842080000" />
+    <option name="totallyTimeSpent" value="843365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -819,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -836,7 +826,14 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
-          <caret line="141" column="39" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
+          <caret line="141" column="40" selection-start-line="141" selection-start-column="40" selection-end-line="141" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
         </state>
       </provider>
     </entry>
