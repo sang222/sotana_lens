@@ -20,13 +20,13 @@ function viewProduct(product_id, $this) {
     data-quantity="1"
     data-attribute_pa_size="3"
     data-product_id="` + product_id + `"
-    ><i class="fa fa-cart-plus"></i> Add to cart</a>`
+    ><i class="fa fa-cart-plus"></i> Add to cart</a>`;
     var buttonHtmlVariable = `<a title="Add cart" id="add-variable"
                            class="cart-product add-cart"
                            data-variation_id="` + variable_id + `"
                            data-attribute_pa_color="` + attribute_pa_color + `"
                            data-product_id="` + product_id + `">
-                           <i class="fa fa-cart-plus"></i> Add to cart</a>`
+                           <i class="fa fa-cart-plus"></i> Add to cart</a>`;
     if (variable_id != "") {
         btnAddCart = buttonHtmlVariable;
     } else {
