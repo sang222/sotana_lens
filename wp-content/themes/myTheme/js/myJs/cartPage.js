@@ -23,7 +23,7 @@ $(document).on('click', '#container-tbl .remove-product', function (e) {
                 $this.parents('tr').find('.total-price-' + id).text(formatCurrency(total_price.toString()))
                 $this.parents('tr').remove();
             } else {
-
+                $(".modal-action").addClass('d-none');
                 $('.cart-page-content').empty();
                 $('.modal-action').addClass('d-none');
                 $(".total-price").text('0đ')
@@ -64,6 +64,7 @@ $(document).on('click', '#container-tbl .remove-product-variable', function (e) 
                 $this.parents('tr').find('.total-price-' + id).text(formatCurrency(total_price.toString()))
                 $this.parents('tr').remove();
             } else {
+                $(".modal-action").addClass('d-none');
                 $('.cart-page-content').empty();
                 $("#empty-cart").removeClass('d-none');
             }
