@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d8077f6-367b-4cfb-934c-27853a78bd18" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/images/sonata-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/languages/admin-network-vi.po" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/languages/admin-network-vi.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/languages/admin-vi.po" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/languages/admin-vi.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/languages/continents-cities-vi.po" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/languages/continents-cities-vi.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/languages/vi.po" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/languages/vi.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/category.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/checkout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/single-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/single-product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/include/woocommerce.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/include/woocommerce.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-noibat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/archive-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/archive-product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/fatal-errors-2019-07-23-85a4a96f2a03d137ceb30c61a2092384.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/fatal-errors-2019-07-24-85a4a96f2a03d137ceb30c61a2092384.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/fatal-errors-2019-07-25-85a4a96f2a03d137ceb30c61a2092384.log" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,20 +43,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="352" column="77" selection-start-line="352" selection-start-column="77" selection-end-line="352" selection-end-column="77" />
+            <state relative-caret-position="177">
+              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#9;n#div#3;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/single-product.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="430">
@@ -148,8 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>empty</find>
-      <find>Chia sẻ trên</find>
       <find>id</find>
       <find>short_description</find>
       <find>ge</find>
@@ -175,9 +155,11 @@
       <find>px</find>
       <find>small--one-half</find>
       <find>rela</find>
-      <find>.pro-title .content-title</find>
       <find>sale-carousel-related</find>
       <find>filter</find>
+      <find>.pro-title .content-title</find>
+      <find>no-bu</find>
+      <find>col-sm</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -244,8 +226,8 @@
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/index.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/js/myJs/single-product.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/template_part/product-bestsale.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/myTheme/css/myCss/single-product.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php" />
       </list>
     </option>
   </component>
@@ -483,12 +465,12 @@
       <workItem from="1566482129201" duration="12277000" />
       <workItem from="1566496033241" duration="367000" />
       <workItem from="1566564217795" duration="976000" />
-      <workItem from="1566734850151" duration="15088000" />
+      <workItem from="1566734850151" duration="15571000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="860902000" />
+    <option name="totallyTimeSpent" value="861385000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -885,17 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="352" column="77" selection-start-line="352" selection-start-column="77" selection-end-line="352" selection-end-column="77" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/include/woocommerce.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -907,6 +878,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="387" column="25" selection-start-line="387" selection-start-column="25" selection-end-line="387" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/myTheme/woocommerce/content-single-product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#9;n#div#3;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

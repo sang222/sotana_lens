@@ -99,7 +99,7 @@ $currentURL = home_url($wp->request);
                 </div>
 
             </div>
-            <div class="col-lg-4 col-sm-4 col-xs-12 product-detail">
+            <div class="col-lg-4 col-sm-5 col-xs-12 product-detail">
                 <div class="d-flex  w-100 justify-content-between align-items-center">
                     <div>
                         <h2 class="my-0 title-product"><?php the_title() ?></h2>
@@ -328,7 +328,7 @@ $currentURL = home_url($wp->request);
                                 </li>
                             </ul>
 
-                            <img style="margin-top: 30px;"
+                            <img style="margin-top: 30px; margin-bottom: 30px"
                                  src="<?php echo get_theme_file_uri() ?>/images/myimage/single/cattrong.jpg?v=78">
                         </div>
                     </div>
