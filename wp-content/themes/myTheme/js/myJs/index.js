@@ -75,7 +75,7 @@ function clickItemVariableQuick() {
                 $(".status-product").addClass('status-instock').removeClass('out-instock').text('In Stock');
             }
 
-            $("#myModal .add-cart").removeClass('d-none');
+            $("#myModal .qty-quick-view").removeClass('d-none');
 
         } else {
             if (language_current == 'vi') {
@@ -83,7 +83,7 @@ function clickItemVariableQuick() {
             } else {
                 $(".status-product").removeClass('status-instock').addClass('out-instock').text('Out of Stock');
             }
-            $("#myModal .add-cart").addClass('d-none');
+            $("#myModal .qty-quick-view").addClass('d-none');
         }
         $('.zoomContainer').remove();
         $("#picture-quickview").removeData('elevateZoom');
@@ -168,11 +168,16 @@ $(document).ready(function () {
                 items: 3,
                 nav: false
             },
+            768:{
+                items: 4,
+                nav: false
+            },
             1000: {
                 items: 5,
                 nav: true,
                 loop: true
-            }
+            },
+
         }
     });
 //    customer comment carousel

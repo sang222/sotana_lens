@@ -32,13 +32,13 @@
             $loop = new WP_Query($args);
             $dem2 = 1;
             ?>
-            <div class="collection w-100  colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
-                <div class="grid--product" style="padding: 0 15px;">
+            <div id="home-colection" class="collection w-100   colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
+                <div class=" product-list md-mg-left-15"  style="padding-right: 15px;">
                     <?php
                     while ($loop->have_posts()) : $loop->the_post();
                         global $product; ?>
                         <!--                --><?php //if (($dem2 - 1) % 4 == 0 || $dem2 == 1) echo '<div class="row">' ?>
-                        <div class="= <?php echo $dem2; ?> ">
+                        <div class="grid__item large--one-fifth   medium--one-quarter small--one-half md-pd-left15">
                             <div class="product-item">
                                 <a href="<?php the_permalink() ?>">
                                     <?php

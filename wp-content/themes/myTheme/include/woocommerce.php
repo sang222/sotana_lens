@@ -690,9 +690,9 @@ function ajax_load_post_func()
         $dem++;
         ?>
         <?php if ($dem == 1): ?>
-            <div class="grid--product">
+            <div class="grid-uniform product-list md-mg-left-15">
         <?php endif; ?>
-        <div class="">
+        <div class="grid__item large--one-quarter medium--one-quarter small--one-half md-pd-left15">
             <div class="product-item">
                 <a href="<?php the_permalink() ?>">
                     <?php
@@ -704,34 +704,31 @@ function ajax_load_post_func()
                         <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                     <?php endif; ?>
                     <div class="img-thumb">
-
                         <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
-
                     </div>
                 </a>
                 <div class="action-detail">
-
                     <p class="title-product"><?php echo get_the_title() ?></p>
                     <p class="price-product">
                         <?php if ($product->product_type != 'variable') : ?>
                             <span class="sale-price" style="text-decoration: line-through">
-                                <?php if ($product->sale_price) {
-                                    echo number_format($product->sale_price, 0, ',', '.') . 'đ';
-                                } ?>
-                                </span>
+                                    <?php if ($product->sale_price) {
+                                        echo number_format($product->sale_price, 0, ',', '.') . 'đ';
+                                    } ?>
+                                    </span>
                             <span class="regular-price">
-                                    <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                                </span>
+                                        <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                                    </span>
                         <?php else: ?>
                             <?php $available_variations = $product->get_available_variations(); ?>
                             <span class="sale-price" style="text-decoration: line-through">
-                                <?php if ($available_variations[0]['display_price']) {
-                                    echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
-                                } ?>
-                                </span>
+                                    <?php if ($available_variations[0]['display_price']) {
+                                        echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                    } ?>
+                                    </span>
                             <span class="regular-price">
-                                    <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
-                                </span>
+                                        <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                    </span>
                         <?php endif; ?>
 
                     </p>
@@ -853,26 +850,26 @@ function ajax_load_post_func()
                                   data-product_sku="<?php echo $product->sku ?>"
 
                                   data-product_price_regular="
-                                      <?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_regular_price()) {
+                                          <?php if ($product->product_type != 'variable') : ?>
+                                                  <?php if ($product->get_regular_price()) {
                                       echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
                                   } ?>
-                                          <?php else:
+                                              <?php else:
                                       if ($stock_first['display_regular_price']) {
                                           echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
                                       }
                                       ?>
-                                       <?php endif; ?>"
+                                           <?php endif; ?>"
                                   data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_price()) {
+                                                  <?php if ($product->get_price()) {
                                       echo number_format($product->get_price(), 0, ',', '.') . 'đ';
                                   } ?>
-                                          <?php else:
+                                              <?php else:
                                       if ($stock_first['display_price']) {
                                           echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
                                       }
                                       ?>
-                                       <?php endif; ?>"
+                                           <?php endif; ?>"
                                   data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                   data-product_link="<?php the_permalink() ?>"
                             ><i class="fa fa-search"></i></span>
@@ -880,8 +877,6 @@ function ajax_load_post_func()
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
         <?php if ($dem == $max_post_count): ?>
@@ -1005,9 +1000,9 @@ function filter_product()
         $max_post_count = $query->post_count;
         ?>
         <?php if ($dem == 1): ?>
-            <div class="grid--product <?php echo $dem; ?>">
+            <div class="grid-uniform product-list md-mg-left-15">
         <?php endif; ?>
-        <div class="">
+        <div class="grid__item large--one-quarter medium--one-quarter small--one-half md-pd-left15">
             <div class="product-item">
                 <a href="<?php the_permalink() ?>">
                     <?php
@@ -1019,34 +1014,31 @@ function filter_product()
                         <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                     <?php endif; ?>
                     <div class="img-thumb">
-
                         <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
-
                     </div>
                 </a>
                 <div class="action-detail">
-
                     <p class="title-product"><?php echo get_the_title() ?></p>
                     <p class="price-product">
                         <?php if ($product->product_type != 'variable') : ?>
                             <span class="sale-price" style="text-decoration: line-through">
-                                <?php if ($product->sale_price) {
-                                    echo number_format($product->sale_price, 0, ',', '.') . 'đ';
-                                } ?>
-                                </span>
+                                    <?php if ($product->sale_price) {
+                                        echo number_format($product->sale_price, 0, ',', '.') . 'đ';
+                                    } ?>
+                                    </span>
                             <span class="regular-price">
-                                    <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                                </span>
+                                        <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
+                                    </span>
                         <?php else: ?>
                             <?php $available_variations = $product->get_available_variations(); ?>
                             <span class="sale-price" style="text-decoration: line-through">
-                                <?php if ($available_variations[0]['display_price']) {
-                                    echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
-                                } ?>
-                                </span>
+                                    <?php if ($available_variations[0]['display_price']) {
+                                        echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                    } ?>
+                                    </span>
                             <span class="regular-price">
-                                    <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
-                                </span>
+                                        <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                    </span>
                         <?php endif; ?>
 
                     </p>
@@ -1168,26 +1160,26 @@ function filter_product()
                                   data-product_sku="<?php echo $product->sku ?>"
 
                                   data-product_price_regular="
-                                      <?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_regular_price()) {
+                                          <?php if ($product->product_type != 'variable') : ?>
+                                                  <?php if ($product->get_regular_price()) {
                                       echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
                                   } ?>
-                                          <?php else:
+                                              <?php else:
                                       if ($stock_first['display_regular_price']) {
                                           echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
                                       }
                                       ?>
-                                       <?php endif; ?>"
+                                           <?php endif; ?>"
                                   data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_price()) {
+                                                  <?php if ($product->get_price()) {
                                       echo number_format($product->get_price(), 0, ',', '.') . 'đ';
                                   } ?>
-                                          <?php else:
+                                              <?php else:
                                       if ($stock_first['display_price']) {
                                           echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
                                       }
                                       ?>
-                                       <?php endif; ?>"
+                                           <?php endif; ?>"
                                   data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                   data-product_link="<?php the_permalink() ?>"
                             ><i class="fa fa-search"></i></span>

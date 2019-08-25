@@ -7,12 +7,15 @@
     /*-o-transition: 1s all ease;*/
     border-radius: 2px;
 }
-.breadcrumb-colect{
+
+.breadcrumb-colect {
     padding-bottom: 0 !important;
 }
-#modalCart{
+
+#modalCart {
     z-index: 99999999999999999999999;
 }
+
 .slick-carousel-mobile.owl-carousel.owl-loaded {
     display: none;
 }
@@ -315,15 +318,20 @@ a.cart-product.add-cart.add-variable.loading:before {
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     display: flex;
+    display: -webkit-flex;
     top: 50%;
     z-index: 1;
     align-items: center;
+    -webkit-align-items: center;
     justify-content: center;
+    -webkit-justify-content: center;
 
 }
-.action-add .add-cart.loading{
-    opacity:  1 !important;
+
+.action-add .add-cart.loading {
+    opacity: 1 !important;
 }
+
 .action-add .add-cart.loading:after {
     content: '\f110' !important;
     width: 30px !important;
@@ -335,13 +343,17 @@ a.cart-product.add-cart.add-variable.loading:before {
     transform: translateX(-50%) !important;
     -webkit-transform: translateX(-50%) !important;
     -moz-transform: translateX(-50%) !important;
-    display: flex !important ;
+    display: flex !important;
+    display: -webkit-flex !important;
     top: 50% !important;
     z-index: 1 !important;
     align-items: center !important;
+    -webkit-align-items: center;
     justify-content: center !important;
+    -webkit-justify-content: center !important;
 
 }
+
 .acttion-carts .add-cart.add-variable.added:after {
     content: '\e017';
     /* position: absolute; */
@@ -356,7 +368,7 @@ a.cart-product.add-cart.add-variable.loading:before {
 }
 
 .woocommerce #respond input#submit.loading::after, .woocommerce a.button.loading::after, .woocommerce button.button.loading::after, .woocommerce input.button.loading::after {
-    display: none ;
+    display: none;
 }
 
 @keyframes spinner {
@@ -371,9 +383,12 @@ a.cart-product.add-cart.add-variable.loading:before {
 .row-product .product-item .content-action .cart-product {
     padding: 0;
 }
-.pro-title .content-title{
-    width: 100%;
+
+.pro-title .content-title {
+    width: calc(100% - 40px);
+    margin: 0 auto;
 }
-.box-out-variable{
+
+.box-out-variable {
     background: #dfdfdf;
 }

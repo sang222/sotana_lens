@@ -34,9 +34,9 @@ $currentURL = home_url($wp->request);
         <br/>
     </div>
 </div>
-<div class="content-cart container">
+<div class="content-cart fixed-width">
     <div class="clearfix"></div>
-    <div class="view-product">
+    <div class="view-product" style="padding: 0px 10px;">
 
         <div class="row">
             <?php $attachment_ids = $product->get_gallery_attachment_ids(); ?>
@@ -342,13 +342,15 @@ $currentURL = home_url($wp->request);
         </div>
     </div>
     <div class="prefix"></div>
-    <div class="pro-title  wow fadeIn">
-        <div class="fixed-width content-title title-slider">
-            <span class="text-uppercase"><?php echo __('RELATED PRODUCTS', 'localFile') ?></span>
+    <div class="pro-title fixed-width m-auto wow fadeIn">
+        <div class="pro-title wow fadeIn">
+            <div class="fixed-width content-title title-slider">
+                <span class="text-uppercase"><?php echo __('RELATED PRODUCTS', 'localFile') ?></span>
+            </div>
         </div>
 
     </div>
-    <div class="row-product fixed-width w-100 prefix">
+    <div class="row-product fixed-width w-100 prefix"  style="padding: 0 15px">
         <div class="owl-carousel owl-theme " id="sale-carousel-related">
             <?php
             global $post;

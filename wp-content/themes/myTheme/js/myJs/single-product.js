@@ -153,6 +153,8 @@ function settingSlider() {
 
     $(".slick-carousel-mobile img").click(function () {
         $('.zoomContainer').remove();
+        $(".slick-carousel-mobile img").removeClass('active');
+        $(this).addClass('active');
         $("#zoom").removeData('elevateZoom');
         $("#zoom").attr('src', $(this).attr('src'));
         $("#zoom").data('zoom-image', $(this).attr('src'));
@@ -179,11 +181,15 @@ function settingSlider() {
                 items: 3,
                 nav: false
             },
+            768:{
+                items: 4,
+                nav: false
+            },
             1000: {
                 items: 5,
                 nav: true,
-                loop: false
-            }
+                loop: true
+            },
         }
     });
 }

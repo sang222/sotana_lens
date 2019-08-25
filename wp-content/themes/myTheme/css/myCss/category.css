@@ -25,10 +25,13 @@
     -webkit-transform: translateX(-50%) !important;
     -moz-transform: translateX(-50%) !important;
     display: flex !important;
+    display: -webkit-flex; !important;
     top: 50% !important;
     z-index: 1 !important;
     align-items: center !important;
+    -webkit-align-items: center !important;
     justify-content: center !important;
+    -webkit-align-items: center !important;
 
 }
 
