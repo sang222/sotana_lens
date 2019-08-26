@@ -102,6 +102,14 @@
             return false;
         });
     })
+    (function(){
+        var head = document.getElementsByTagName('body')[0];
+        var lazyLoadScript = document.createElement("script");
+        var lazyLoadVersion = !("IntersectionObserver" in window) ? "8.2.1" : "10.3.3";
+        lazyLoadScript.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + lazyLoadVersion + "/lazyload.min.js";
+        window.lazyLoadOptions = {data_src: "src", data_srcset: "srcset"};
+        head.appendChild(lazyLoadScript);
+    }());
 </script>
 
 </body>

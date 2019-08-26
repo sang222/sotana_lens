@@ -34,9 +34,9 @@ $currentURL = home_url($wp->request);
         <br/>
     </div>
 </div>
-<div class="content-cart container">
+<div class="content-cart fixed-width">
     <div class="clearfix"></div>
-    <div class="view-product">
+    <div class="view-product" style="padding: 0px 10px;">
 
         <div class="row">
             <?php $attachment_ids = $product->get_gallery_attachment_ids(); ?>
@@ -99,7 +99,7 @@ $currentURL = home_url($wp->request);
                 </div>
 
             </div>
-            <div class="col-lg-4 col-sm-4 col-xs-12 product-detail">
+            <div class="col-lg-4 col-sm-5 col-xs-12 product-detail">
                 <div class="d-flex  w-100 justify-content-between align-items-center">
                     <div>
                         <h2 class="my-0 title-product"><?php the_title() ?></h2>
@@ -328,7 +328,7 @@ $currentURL = home_url($wp->request);
                                 </li>
                             </ul>
 
-                            <img style="margin-top: 30px;"
+                            <img style="margin-top: 30px; margin-bottom: 30px"
                                  src="<?php echo get_theme_file_uri() ?>/images/myimage/single/cattrong.jpg?v=78">
                         </div>
                     </div>
@@ -342,13 +342,15 @@ $currentURL = home_url($wp->request);
         </div>
     </div>
     <div class="prefix"></div>
-    <div class="pro-title  wow fadeIn">
-        <div class="fixed-width content-title title-slider">
-            <span class="text-uppercase"><?php echo __('RELATED PRODUCTS', 'localFile') ?></span>
+    <div class="pro-title fixed-width m-auto wow fadeIn">
+        <div class="pro-title wow fadeIn">
+            <div class="fixed-width content-title title-slider">
+                <span class="text-uppercase"><?php echo __('RELATED PRODUCTS', 'localFile') ?></span>
+            </div>
         </div>
 
     </div>
-    <div class="row-product fixed-width w-100 prefix">
+    <div class="row-product fixed-width w-100 prefix"  style="padding: 0 15px">
         <div class="owl-carousel owl-theme " id="sale-carousel-related">
             <?php
             global $post;
