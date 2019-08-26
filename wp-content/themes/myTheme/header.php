@@ -12,7 +12,7 @@
     <meta name="keywords" content="car,auto,moto,repair,wash,cleaning,transport,workshop"/>
     <meta name="author" content="ThemeMascot"/>
     <!-- Page Title -->
-    <title><?php echo the_title() ?></title>
+    <title><?php echo the_title() ?> - <?php echo get_bloginfo('title') ?></title>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <!-- Favicon and Touch Icons -->
     <link href="<?php echo $baseURL ?>/images/favicon.png" rel="shortcut icon" type="image/png">
