@@ -42,10 +42,12 @@
                     <ul class="list list-border">
                         <?php
                             $listCates = get_field('list_cate', 'option')['list'];
-                            foreach($listCates as $listCate) {
-                                $item = get_term($listCate);
-                                echo '<li><a href="'. get_term_link($item->term_id) .'">'. $item->name .'</a></li>';
-                            }
+                            if($listCates) :
+                                foreach($listCates as $listCate) {
+                                    $item = get_term($listCate);
+                                    echo '<li><a href="'. get_term_link($item->term_id) .'">'. $item->name .'</a></li>';
+                                }
+                            endif;
                         ?>
                     </ul>
                 </div>
