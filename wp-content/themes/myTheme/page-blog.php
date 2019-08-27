@@ -25,7 +25,7 @@ $baseURL = esc_url(get_template_directory_uri())
                         'post_status' => 'publish'
                     );
                     $query = new WP_Query($args);
-                    if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();
+                    if ($query->have_posts()) { while ($query->have_posts()) : $query->the_post();
                         $feature_image_id = get_post_thumbnail_id(get_the_ID());
                         $feature_image_meta = wp_get_attachment_image_src($feature_image_id, 'full');
                         $short_description = get_field('short_description')
@@ -60,9 +60,9 @@ $baseURL = esc_url(get_template_directory_uri())
                             </div>
                         </article>
                         <!-- End Item -->
-                    <?php endwhile;elseif : ?>
+                    <?php endwhile; } else { ?>
                         <p>Hiện chưa có bài viết nào</p>
-                    <?php endif;wp_reset_postdata(); ?>
+                    <?php } wp_reset_postdata(); ?>
                 </div>
                 <!-- Pagination -->
                 <?php if (count($query->posts) >= $paged) : ?>

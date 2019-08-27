@@ -5,17 +5,17 @@ $arr_customer_slides = $tp_option['home-customer'];
 $title_customer = $tp_option['customer-title'];
 $items = get_field('testimonial', 'option')['item'];
 ?>
-<?php if (sizeof($items) > 0 && $title_customer != null): ?>
+<?php if ($items && $title_customer != null): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
             <span class="text-uppercase"><?php echo get_field('testimonial', 'option')['title'] ?></span>
         </div>
     </div>
 <?php endif; ?>
+<?php if($items) : ?>
 <div class="fixed-width wow fadeInDown" style="margin-top:35px;padding: 15px">
     <div class="owl-carousel owl-theme " id="customer-carousel">
-        <?php
-        foreach ($items as $item_customer):
+        <?php foreach ($items as $item_customer):
             ?>
             <article class="c-card">
                 <header class="c-card__header">
@@ -39,7 +39,6 @@ $items = get_field('testimonial', 'option')['item'];
                 </div>
             </article>
         <?php endforeach; ?>
-
-
     </div>
 </div>
+<?php endif; ?>

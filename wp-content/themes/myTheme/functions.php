@@ -5,7 +5,7 @@
     include 'include/icon_socail.php';
     include 'include/info_web.php';
     include 'include/main_menu.php';
-    include 'include/slider.php';
+    // include 'include/slider.php';
     //woocommerce
     include 'include/checkout_func.php';
     include 'include/woocommerce.php';
