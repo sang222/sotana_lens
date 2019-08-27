@@ -1,5 +1,5 @@
 <?php //theme option
-    include 'core/init.php';
+    // include 'core/init.php';
 
     //customize
     include 'include/icon_socail.php';

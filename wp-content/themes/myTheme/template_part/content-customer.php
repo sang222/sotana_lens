@@ -5,7 +5,7 @@ $arr_customer_slides = $tp_option['home-customer'];
 $title_customer = $tp_option['customer-title'];
 $items = get_field('testimonial', 'option')['item'];
 ?>
-<?php if (sizeof($arr_customer_slides) > 0 && $title_customer != null): ?>
+<?php if (sizeof($items) > 0 && $title_customer != null): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
             <span class="text-uppercase"><?php echo get_field('testimonial', 'option')['title'] ?></span>

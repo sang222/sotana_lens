@@ -4,7 +4,7 @@
     $title_hot = $tp_option['product-title'];
     $list_cate = get_field('category_product', 'option')['hot_sale'];
 ?>
-<?php if (sizeof($category_hot) > 0 && $title_hot != null): ?>
+<?php if (sizeof($list_cate) > 0 && $title_hot != null): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
             <span><?php echo get_field('category_product', 'option')['title'] ?></span>

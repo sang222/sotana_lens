@@ -60,8 +60,9 @@ $baseURL = esc_url(get_template_directory_uri())
                             </div>
                         </article>
                         <!-- End Item -->
-                    <?php endwhile;endif;
-                    wp_reset_postdata(); ?>
+                    <?php endwhile;elseif : ?>
+                        <p>Hiện chưa có bài viết nào</p>
+                    <?php endif;wp_reset_postdata(); ?>
                 </div>
                 <!-- Pagination -->
                 <?php if (count($query->posts) >= $paged) : ?>
