@@ -169,9 +169,14 @@ $trademark = array();
                                 <?php if (!empty($sale)): ?>
                                     <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                                 <?php endif; ?>
-                                <div class="img-thumb">
-                                    <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
-                                </div>
+                                <img
+                                        class="lazyload"
+                                        src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                        data-src="<?php the_post_thumbnail_url(); ?>"
+                                />
+<!--                                <div class="img-thumb">-->
+<!--                                    --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+<!--                                </div>-->
                             </a>
                             <div class="action-detail">
                                 <p class="title-product"><?php echo get_the_title() ?></p>
@@ -250,7 +255,12 @@ $trademark = array();
                                 } else {
                                     ?>
                                     <div class="d-inline-block box-variable-pr border active ">
-                                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                                        <img
+                                                class="lazyload"
+                                                src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                                data-src="<?php the_post_thumbnail_url(); ?>"
+                                        />
+<!--                                        --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
                                     </div>
                                     <?php
                                 }

@@ -39,7 +39,7 @@
         ?>
         <meta property="og:title" content="<?php echo the_title() ?>"/>
         <meta property="og:type" content="article"/>
-        <meta property="og:description" content="<?php echo wp_trim_words(get_the_excerpt())?>"/>
+        <meta property="og:description" content="<?php echo wp_trim_words(get_the_excerpt()) ?>"/>
         <meta property="og:url" content="<?php echo home_url($wp->request) ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
         <meta property="og:image" content="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>"/>
@@ -57,7 +57,7 @@
 </head>
 
 <body <?php body_class('white'); ?>>
-
+<input type="hidden" id="url_public" value="<?php echo get_theme_file_uri() ?>">
 <div id="status">
 </div>
 <input type="hidden" id="url_admin" value="<?php echo admin_url('admin-ajax.php') ?>">
@@ -76,7 +76,8 @@
             </div>
             <div class="logo">
                 <a href="<?php echo get_site_url() ?>">
-                    <img style="max-width: 150px; margin: 0" src="<?php echo get_field('logo', 'option')['url'] ?>" alt="">
+                    <img style="max-width: 150px; margin: 0" src="<?php echo get_field('logo', 'option')['url'] ?>"
+                         alt="">
                 </a>
             </div>
             <div class="container-mini-cart"></div>
@@ -84,7 +85,7 @@
         <div class="circle"></div>
         <ul class="menu-main">
             <div class="menu-main-sub">
-                <ul class="menu-pri">
+                <ul class="menu-pri" id="nav">
                     <?php
                     $menuLocations = get_nav_menu_locations();
                     $menuID = $menuLocations['main-nav'];
@@ -93,34 +94,44 @@
                     foreach ($primaryNav as $navItem) {
                         if ($navItem->menu_item_parent == $id_parent) {
                             echo '<li class="menu-item' . $navItem->ID . '"> <a href="' . $navItem->url . '" title="' . $navItem->title . '">' . $navItem->title . '</a>';
+
                             $sub = "";
                             foreach ($primaryNav as $navItem2) {
                                 if ($navItem2->menu_item_parent == $navItem->ID) {
                                     $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" title="' . $navItem2->title . '">' . $navItem2->title . '</a>';
+
                                     $sub2 = "";
                                     foreach ($primaryNav as $navItem3) {
                                         if ($navItem3->menu_item_parent == $navItem2->ID) {
                                             $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" title="' . $navItem3->title . '">' . $navItem3->title . '</a></li>';
+
                                         }
                                     }
-                                    $sub .= '<ul class="dropdown">' . $sub2 . '</ul>';
+                                    $sub .= '<ul class="dropdown d-none">' . $sub2 . '</ul>';
+
                                     $sub .= '</li>';
                                 }
                             }
-                            echo '<ul class="dropdown">' . $sub . '</ul>';
+                            echo '<ul class="dropdown d-none parent">' . $sub . '</ul>';
+
                             echo '</li>';
                         }
                     }
                     ?>
-                    <li id="search" style="flex-direction: row; display: flex; justify-content: center;">
+                    <!--                    <li id="search" style="flex-direction: row; display: flex; justify-content: center;">-->
+                    <!---->
+                    <!--                    </li>-->
+                </ul>
+                <div class="language-content">
+                    <div id="search" style="flex-direction: row; display: flex; justify-content: center;">
                         <?php qtranxf_generateLanguageSelectCode(
                             array(
                                 'type' => 'image'
                             ));
                         ?>
                         <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
                 <div class="search-box">
                     <form method="get" action="<?php esc_url(home_url('/')) ?>" class="form-search-menu">
                         <input type="text" name="s" class="form-control" placeholder="Search product">

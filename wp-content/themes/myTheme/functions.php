@@ -32,6 +32,7 @@
     //     unset($fields['order']['order_comments']);
     //     return $fields;
     // }
+    //load afc media
 
     function add_theme_scripts()
     {

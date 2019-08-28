@@ -168,7 +168,7 @@ $(document).ready(function () {
                 items: 3,
                 nav: false
             },
-            768:{
+            768: {
                 items: 4,
                 nav: false
             },
@@ -403,3 +403,29 @@ function changeInputTextQty() {
     })
 }
 
+//header js
+jQuery(document).ready(function () {
+    jQuery('ul#nav li').has('ul>li').addClass('parentul');
+    $(".parentul").append('<span class="has-child"><img src="' + $('#url_public').val() + '/js/myJs/right-arrow.png"></span>')
+    $(".ul.dropdown").click(function () {
+        // $(this).children('ul.dropdown').first().removeClass('d-none')
+    })
+    $('.icon-menu').click(function () {
+        $('ul.dropdown').addClass('d-none')
+    })
+});
+$(document).on('click', '.menu-pri li.parentul .has-child', function (e) {
+
+    if (!$(this).prev('ul.dropdown').hasClass('d-none')) {
+        // $('ul.dropdown').addClass('d-none')
+        $(this).empty().append('<img src="' + $('#url_public').val() + '/js/myJs/right-arrow.png">')
+        $(this).removeClass('selected')
+        $(this).prev('ul.dropdown').addClass('d-none')
+    } else {
+        // $('ul.dropdown').addClass('d-none')
+        $(this).empty().append('<img src="' + $('#url_public').val() + '/js/myJs/down-arrow.png">')
+        $(this).addClass('selected')
+        $(this).prev('ul.dropdown').removeClass('d-none')
+    }
+
+})
