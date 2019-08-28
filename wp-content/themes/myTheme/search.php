@@ -3,6 +3,10 @@
     // Template Name: Search
     global $post;
 ?>
+<div class=" breadcrumb-colect-blog prefix">
+    <div class="content-breadcrum">
+    </div>
+</div>
 <div class="container">
     <div class="row" style="margin-top: 20px">
         <div class="col-md-12">

@@ -122,7 +122,7 @@
                     </li>
                 </ul>
                 <div class="search-box">
-                    <form method="get" action="<?php esc_url(home_url('/')) ?>" class="form-search-menu">
+                    <form method="get" action="<?php get_site_url() ?>" class="form-search-menu">
                         <input type="text" name="s" class="form-control" placeholder="Search product">
                         <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
                     </form>

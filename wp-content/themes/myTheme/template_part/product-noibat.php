@@ -4,7 +4,7 @@
     $title_hot = $tp_option['product-title'];
     $list_cate = get_field('category_product', 'option')['hot_sale'];
 ?>
-<?php if (sizeof($list_cate) > 0 && $title_hot != null): ?>
+<?php if (sizeof($list_cate) > 0): ?>
     <div class="pro-title wow fadeInDown">
         <div class="fixed-width content-title">
             <span><?php echo get_field('category_product', 'option')['title'] ?></span>
@@ -33,7 +33,7 @@
             $dem2 = 1;
             ?>
             <div id="home-colection" class="collection w-100   colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
-                <div class=" product-list md-mg-left-15"  style="padding-right: 15px;">
+                <div class=" product-list md-mg-left-15"  style="padding-right: 15px; display: flex; flex-direction: row; flex-wrap: wrap;">
                     <?php
                     while ($loop->have_posts()) : $loop->the_post();
                         global $product; ?>

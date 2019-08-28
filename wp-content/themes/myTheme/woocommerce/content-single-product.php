@@ -145,11 +145,6 @@ $currentURL = home_url($wp->request);
                         </span>
                     </a>
                     <div class="zalo-share-button d-none" data-href="<?php echo $currentURL; ?>" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize=false></div>
-                    <a class="fb-share" href="https://twitter.com/home?status=<?php echo $currentURL; ?>">
-                    <span class="icon-share twitter-icon">
-                            <i class="fa fa-twitter"></i>
-                    </span>
-                    </a>
                     <a class="fb-share" href="https://plus.google.com/share?url=<?php echo $currentURL; ?>">
                     <span class="icon-share google-icon">
                             <i class="fa fa-google"></i>
@@ -283,18 +278,20 @@ $currentURL = home_url($wp->request);
                     <?php endif; ?>
                     <?php endif; ?>
                 </div>
-                <div class="try_eyewear">
-                    <p><?php echo __('Bạn có muốn xem thử kính có hợp với mình không?', 'localFile') ?> <a
-                                class="color-secondary"
-                                href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>&id_lens=<?php echo get_the_ID() ?>">
-                            <?php echo __('Thử kính ngay', 'localFile') ?></a>.</p>
-                </div>
+                <?php if(get_field('try-eye')): ?>
+                    <div class="try_eyewear">
+                        <p><?php echo __('Bạn có muốn xem thử kính có hợp với mình không?', 'localFile') ?> <a
+                                    class="color-secondary"
+                                    href="<?php echo esc_url(get_page_link(get_page_by_path('try-eyewear'))) ?>/?id_lens=<?php echo get_the_ID() ?>">
+                                <?php echo __('Thử kính ngay', 'localFile') ?></a>.</p>
+                    </div>
+                <?php endif; ?>
                 <div class="ship-detail">
                     <div class="product-size-hotline">
                         <div class="product-hotline d-flex justify-content-between align-items-center">
-                            <a href="tel:0902 547 710">
+                            <a href="tel: <?php echo get_field('thong_tin', 'option')['phone'] ?>">
                                 <img
-                                        src="<?php echo get_theme_file_uri() ?>/images/myimage/single/phone-receiver.png?v=78"><span> 0989633508</span>
+                                        src="<?php echo get_theme_file_uri() ?>/images/myimage/single/phone-receiver.png?v=78"><span> <?php echo get_field('thong_tin', 'option')['phone'] ?></span>
                             </a>
                             <span>
                                 <img src="<?php echo get_theme_file_uri() ?>/images/myimage/single/open.png?v=78"> <?php echo __('9h00 : 20h00', 'localFile') ?>
@@ -327,9 +324,6 @@ $currentURL = home_url($wp->request);
                                     <span class="small"><?php echo __('(Thanh toán khi nhận hàng)', 'localFile') ?></span>
                                 </li>
                             </ul>
-
-                            <img style="margin-top: 30px; margin-bottom: 30px"
-                                 src="<?php echo get_theme_file_uri() ?>/images/myimage/single/cattrong.jpg?v=78">
                         </div>
                     </div>
                 </div>
