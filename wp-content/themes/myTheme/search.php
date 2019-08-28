@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-6" style="display: table; margin: 10px auto; float: none;">
             <div class="search-form-wrapper">
-                <form method="get" style="margin: 0" action="<?php esc_url( home_url( '/' ) ) ?>">
+                <form method="get" style="margin: 0" action="<?php get_site_url() ?>">
                     <input type="text"
                             onfocus="if(this.value =='Enter your search') { this.value = ''; }"
                             onblur="if(this.value == '') { this.value ='Enter your search'; }"
