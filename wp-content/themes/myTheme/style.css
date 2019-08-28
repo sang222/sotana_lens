@@ -2543,4 +2543,12 @@ body .owl-carousel .owl-video-tn {
         min-height: 37px !important;
     }
 }
-
+.menu-pri .dropdown {
+    display: none;
+}
+.menu-pri .dropdown li:last-child a {
+    margin-bottom: 15px;
+}
+.menu-pri .dropdown li:last-child a:before {
+    background: #fff
+}

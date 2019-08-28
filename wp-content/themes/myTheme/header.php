@@ -96,11 +96,11 @@
                             $sub = "";
                             foreach ($primaryNav as $navItem2) {
                                 if ($navItem2->menu_item_parent == $navItem->ID) {
-                                    $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" title="' . $navItem2->title . '">' . $navItem2->title . '</a>';
+                                    $sub .= '<li class="menu-item-' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" title="' . $navItem2->title . '">' . $navItem2->title . '</a>';
                                     $sub2 = "";
                                     foreach ($primaryNav as $navItem3) {
                                         if ($navItem3->menu_item_parent == $navItem2->ID) {
-                                            $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" title="' . $navItem3->title . '">' . $navItem3->title . '</a></li>';
+                                            $sub2 .= '<li class="menu-item-' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" title="' . $navItem3->title . '">' . $navItem3->title . '</a></li>';
                                         }
                                     }
                                     $sub .= '<ul class="dropdown">' . $sub2 . '</ul>';

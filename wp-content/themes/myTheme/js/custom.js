@@ -24,7 +24,12 @@ var THEMEMASCOT = {};
     var tl1 = new TimelineMax({paused: true, onReverseComplete: reverseFunction1})
     var language_current = $('#language_current').attr('lang')
     console.log(language_current)
-
+    $('.menu-pri li a').click(function(e) {
+        e.stopPropagation();
+        $('.menu-pri .dropdown').slideToggle('fast')
+        $(this).find('.dropdown').slideToggle('fast');
+        return false
+    })
     //custom video
     var video = document.querySelector('video'), container = document.querySelector('.videoWrapper');
     // console.log(video, container)
