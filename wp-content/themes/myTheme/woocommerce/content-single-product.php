@@ -176,7 +176,7 @@ $currentURL = home_url($wp->request);
                     <div class="price-product">
                         <span class="current-price <?php if ($available_variations[0]['display_regular_price']) {
                             echo 'through';
-                        } ?>"><?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?></span>
+                        } ?>"><?php if ($available_variations[0]['display_regular_price']>$available_variations[0]['display_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?></span>
                         <span class="sale-price"
                         ><?php if ($available_variations[0]['display_price']) echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ'; ?></span>
                     </div>
