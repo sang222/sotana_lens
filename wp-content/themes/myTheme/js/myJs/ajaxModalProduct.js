@@ -3,7 +3,6 @@ var language_current = $('#language_current').attr('lang')
 function viewProduct(product_id, $this) {
     $("#qty").val(1);
     $($this).addClass('view-now')
-    var price = $($this).attr('data-product_price_sale');
     var price_regular = $($this).attr('data-product_price_regular');
     var variable_id = $($this).attr('data-variable_id');
     var attribute_pa_color = $($this).attr('data-attribute_pa_color');
@@ -123,8 +122,13 @@ function viewProduct(product_id, $this) {
 
                 $(".nameQuickview").text(response.data.data['post_title'])
                 $(".description-quick-view").text(response.data.data['post_excerpt'])
-                $(".price-regular").text(price_regular)
-                $(".price-sale").text(price_sale)
+                if (price_sale != '') {
+                    $(".price-sale").empty().text(price_regular)
+                    $(".price-regular").empty().text(price_sale)
+                }else{
+                    $(".price-sale").empty().text(price_regular)
+                }
+
                 $(".category-items").html(html_cate);
                 $(".quick_add_to_cart_button").val(product_id);
                 $(".variable-quick").empty().append(response.data.html_variable)

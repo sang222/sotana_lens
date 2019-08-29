@@ -2484,3 +2484,9 @@ body .owl-carousel .owl-video-tn {
     }
 }
 
+.one-item img {
+    width: 32px !important;
+    border: 1px solid #789be6;
+    height: 32px !important;
+}
+
