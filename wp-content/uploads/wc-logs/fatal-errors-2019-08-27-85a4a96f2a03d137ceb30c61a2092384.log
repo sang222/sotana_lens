@@ -1,0 +1,13 @@
+2019-08-27T14:57:22+00:00 CRITICAL Uncaught Error: Call to undefined function avia_enqueue_script_conditionally() in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\functions.php:37
+Stack trace:
+#0 C:\xampp1\htdocs\outsource\wp-includes\class-wp-hook.php(286): custom_loadscripts('')
+#1 C:\xampp1\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 C:\xampp1\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\xampp1\htdocs\outsource\wp-includes\script-loader.php(1447): do_action('wp_enqueue_scri...')
+#4 C:\xampp1\htdocs\outsource\wp-includes\class-wp-hook.php(286): wp_enqueue_scripts('')
+#5 C:\xampp1\htdocs\outsource\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#6 C:\xampp1\htdocs\outsource\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#7 C:\xampp1\htdocs\outsource\wp-includes\general-template.php(2614): do_action('wp_head')
+#8 C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\header.php(56): wp_head()
+#9 C:\xampp1\htdocs\outsource\wp-in in C:\xampp1\htdocs\outsource\wp-content\themes\myTheme\functions.php on line 37
+
