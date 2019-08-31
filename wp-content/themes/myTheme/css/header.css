@@ -529,7 +529,7 @@ body .header {
 
 .menu-primary ul.menu-main-head {
     display: flex;
-    border-top: 1px solid #f1f1f1;
+
     height: 100%;
     align-items: center;
 }
@@ -818,6 +818,9 @@ ul li {
 
     }
 
+    .menu-primary ul.menu-main-head{
+        border-top: 1px solid #f1f1f1;
+    }
     .menu-primary ul.menu-main-head .mobile-icon {
         position: absolute;
         right: 30px;
