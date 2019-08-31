@@ -627,7 +627,7 @@ ul li {
     line-height: 35px;
     transition: .3s ease padding-left;
     padding: 0 15px;
-    -webkit-transition:.3s ease padding-left ;
+    -webkit-transition: .3s ease padding-left;
 }
 
 .menu-primary ul.menu-main-head > li ul li a:hover {
@@ -714,6 +714,18 @@ ul li {
 
     .header {
         padding-top: 12px;
+    }
+
+    .menu-primary ul.menu-main-head > li ul li a {
+        padding-left: 35px;
+        position: relative;
+    }
+
+    .menu-primary ul.menu-main-head > li ul li a:after {
+        content: '\f105';
+        position: absolute;
+        left: 20px;
+        font-family: FontAwesome;
     }
 
     .menu-toggle {
