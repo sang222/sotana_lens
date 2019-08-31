@@ -2476,66 +2476,6 @@ body .owl-carousel .owl-video-tn {
 .qtranxs_language_chooser li {
     margin-right: 15px;
 }
-.hover-item {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: transparent; /* rgba(0, 0, 0, 0.5) */
-    left: 0;
-    display: table;
-    transition: all 0.5s;
-}
-.hover-content {
-    padding: 20px;
-    border: 0; /* 1px solid #fff */
-    height: calc(100% - 40px);
-    box-sizing: border-box;
-    margin: 20px auto;
-    width: calc(100% - 40px);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    transition: all 0.3s;
-}
-.hover-content h3 {
-    color: #fff;
-    margin: 0;
-}
-.hover-content > * {
-    transition: all 0.3s;
-}
-.hover-content p {
-    color: #fff;
-    font-size: 36px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    margin-top: 15px;
-}
-.itemBanner {
-    position: relative; 
-    width: auto; 
-    height: 555px;
-}
-.itemBanner:hover .hover-item {
-    background: rgba(0, 0, 0, 0.5); /* rgba(0, 0, 0, 0.5) */
-}
-
-.itemBanner:hover .hover-content {
-    border: 1px solid #fff;
-}
-.itemBanner:hover .hover-content > * {
-    transform: translate3d(40px,0,0);   
-}
-.itemBanner-link {
-    position: absolute; 
-    left: 0; 
-    top: 0;
-    width: 100%; 
-    height: 100%;
-    z-index: 9;
-}
 
 @media screen and (max-width: 768px) {
     .sale-banner {
@@ -2543,12 +2483,10 @@ body .owl-carousel .owl-video-tn {
         min-height: 37px !important;
     }
 }
-.menu-pri .dropdown {
-    display: none;
+
+.one-item img {
+    width: 32px !important;
+    border: 1px solid #789be6;
+    height: 32px !important;
 }
-.menu-pri .dropdown li:last-child a {
-    margin-bottom: 15px;
-}
-.menu-pri .dropdown li:last-child a:before {
-    background: #fff
-}
+

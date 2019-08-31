@@ -87,8 +87,15 @@ function viewVariable() {
 
 
         //add on
-        $(".current-price").text(formatCurrency(display_regular_price));
-        $(".sale-price").text(formatCurrency(display_price));
+        if (display_price == display_regular_price) {
+            $(".current-price").empty();
+            $(".current-price").text(formatCurrency(display_price));
+        } else {
+            $(".current-price").text(formatCurrency(display_regular_price));
+            $(".sale-price").text(formatCurrency(display_price));
+
+        }
+
 
         var src = $(this).find('img').attr('src');
         $('.zoomContainer').remove();
@@ -181,7 +188,7 @@ function settingSlider() {
                 items: 3,
                 nav: false
             },
-            768:{
+            768: {
                 items: 4,
                 nav: false
             },

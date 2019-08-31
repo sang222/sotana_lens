@@ -22,12 +22,17 @@ function clickItemVariableItem() {
             var attribute_pa_color = $(this).parents('.box-variable-pr').attr('data-attribute_pa_color');
             var display_price = $(this).parents('.box-variable-pr').attr('data-display_price');
             var display_regular_price = $(this).parents('.box-variable-pr').attr('data-display_regular_price');
-            if (display_price != '') {
+            // $(this).parents('.action-detail').find('.sale-price').text(formatCurrency(display_regular_price))
+            if (display_price == '') {
+                $(this).parents('.action-detail').find('.sale-price').empty()
+                $(this).parents('.action-detail').find('.regular-price').empty().text(formatCurrency(display_regular_price))
+            } else {
+                $(this).parents('.action-detail').find('.regular-price').empty().text(formatCurrency(display_price))
                 $(this).parents('.action-detail').find('.sale-price').text(formatCurrency(display_regular_price))
             }
-            if (display_regular_price != '') {
-                $(this).parents('.action-detail').find('.regular-price').text(formatCurrency(display_price))
-            }
+            // if (display_regular_price != '') {
+            //
+            // }
             if ($(this).parents('.product-item').find('.add-variable').addClass('d-none')) {
                 $(this).parents('.product-item').find('.add-variable').removeClass('d-none');
             }
@@ -38,6 +43,16 @@ function clickItemVariableItem() {
         } else {
             $(this).parents('.product-item').find('.add-cart').addClass('d-none')
             $(this).parents('.product-item').find('.view-product').addClass('center-view')
+            var display_price = $(this).parents('.box-variable-pr').attr('data-display_price');
+            var display_regular_price = $(this).parents('.box-variable-pr').attr('data-display_regular_price');
+            // $(this).parents('.action-detail').find('.sale-price').text(formatCurrency(display_regular_price))
+            if (display_price == '') {
+                $(this).parents('.action-detail').find('.sale-price').empty()
+                $(this).parents('.action-detail').find('.regular-price').empty().text(formatCurrency(display_regular_price))
+            } else {
+                $(this).parents('.action-detail').find('.regular-price').empty().text(formatCurrency(display_price))
+                $(this).parents('.action-detail').find('.sale-price').text(formatCurrency(display_regular_price))
+            }
             var color = $(this).parents('.out-variable-pr').attr('data-attribute_pa_color')
             if (language_current == 'vi') {
                 $("div.error-box").text('Màu bạn chọn đã hết hàng').fadeIn(300).delay(1500).fadeOut(400);
@@ -61,11 +76,13 @@ function clickItemVariableQuick() {
         var display_price = $(this).attr('data-display_price');
         var display_regular_price = $(this).attr('data-display_regular_price')
         if (display_regular_price != '') {
+
             $(this).parents('.content-quick').find('.price-regular').text(formatCurrency(display_price));
             $("#add-variable").attr('data-variation_id', variation_id);
             $("#add-variable").attr('data-attribute_pa_color', attribute_pa_color);
         }
-        if (display_price != '') {
+        if (display_price == display_regular_price) {
+            $(this).parents('.content-quick').find('.price-regular').empty()
             $(this).parents('.content-quick').find('.price-sale').text(formatCurrency(display_regular_price));
         }
         if (!$(this).hasClass('out-variable-pr')) {

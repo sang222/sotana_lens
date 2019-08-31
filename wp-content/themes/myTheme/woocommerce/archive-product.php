@@ -169,37 +169,57 @@ $trademark = array();
                                 <?php if (!empty($sale)): ?>
                                     <p class="sale-banner"><?php echo __('Sale!', 'localFile') ?></p>
                                 <?php endif; ?>
-                                <img
-                                        class="lazyload"
-                                        src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
-                                        data-src="<?php the_post_thumbnail_url(); ?>"
-                                />
-<!--                                <div class="img-thumb">-->
-<!--                                    --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
-<!--                                </div>-->
+                                <div class="img-thumb">
+                                    <!--                            --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyload','src'=>get_theme_file_uri().'/images/myimage/lazyload.jpg','data-src'=>''))
+                                    ?>
+                                    <img
+                                            class="lazyload"
+                                            src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
+                                            data-src="<?php the_post_thumbnail_url(); ?>"
+                                    />
+                                </div>
                             </a>
                             <div class="action-detail">
+
                                 <p class="title-product"><?php echo get_the_title() ?></p>
                                 <p class="price-product">
                                     <?php if ($product->product_type != 'variable') : ?>
                                         <span class="sale-price" style="text-decoration: line-through">
-                                    <?php if ($product->sale_price) {
-                                        echo number_format($product->sale_price, 0, ',', '.') . 'đ';
-                                    } ?>
-                                    </span>
+                                <?php if ($product->is_on_sale()) {
+                                    echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
+                                } ?>
+                                </span>
                                         <span class="regular-price">
-                                        <?php if ($product->price) echo number_format($product->price, 0, ',', '.') . 'đ'; ?>
-                                    </span>
+                                    <?php if ($product->get_regular_price()) echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ'; ?>
+                                </span>
                                     <?php else: ?>
-                                        <?php $available_variations = $product->get_available_variations(); ?>
+
+                                        <?php $available_variations = $product->get_available_variations();
+                                        $d = 0;
+                                        ?>
+                                        <?php foreach ($available_variations as $key => $variations) :
+                                            $d++;
+                                            if ($d == sizeof($available_variations)) {
+                                                $first = $available_variations[0];
+                                            }
+                                            $variation_id = $available_variations[$key]['variation_id'];
+                                            $variable_product1 = new WC_Product_Variation($variation_id);
+                                            ?>
+                                            <?php if ($variable_product1->stock_status == 'instock'): ?>
+                                            <?php $first = $variations;
+                                            break; ?>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+
                                         <span class="sale-price" style="text-decoration: line-through">
-                                    <?php if ($available_variations[0]['display_price']) {
-                                        echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
-                                    } ?>
-                                    </span>
+                                                    <?php if ($first['display_price'] < $first['display_regular_price']) {
+                                                        echo number_format($first['display_price'], 0, ',', '.') . 'đ';
+                                                    } ?>
+                                                </span>
                                         <span class="regular-price">
-                                        <?php if ($available_variations[0]['display_regular_price']) echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ'; ?>
-                                    </span>
+                                                <?php if ($first['display_regular_price']) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                            </span>
+
                                     <?php endif; ?>
 
                                 </p>
@@ -228,7 +248,7 @@ $trademark = array();
                                                 <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
                                                      data-variation_id="<?php echo $variation_id ?>"
                                                      data-product_id="<?php echo $product->get_id() ?>"
-                                                     data-display_price="<?php echo $variations['display_price'] ?>"
+                                                     data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
                                                      data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
                                                      data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
                                                      data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
@@ -240,6 +260,11 @@ $trademark = array();
                                             else:
                                                 ?>
                                                 <div class="d-inline-block box-variable-pr out-variable-pr border"
+                                                     data-variation_id="<?php echo $variation_id ?>"
+                                                     data-product_id="<?php echo $product->get_id() ?>"
+                                                     data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
+                                                     data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
+                                                     data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
                                                      data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
                                                     <img style="width:32px" height="32px"
                                                          src="<?php echo $variations['image']['src'] ?>"/>
@@ -255,12 +280,7 @@ $trademark = array();
                                 } else {
                                     ?>
                                     <div class="d-inline-block box-variable-pr border active ">
-                                        <img
-                                                class="lazyload"
-                                                src="<?php echo get_theme_file_uri() ?>/images/myimage/lazyload.jpg"
-                                                data-src="<?php the_post_thumbnail_url(); ?>"
-                                        />
-<!--                                        --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
                                     </div>
                                     <?php
                                 }
@@ -297,16 +317,24 @@ $trademark = array();
                                         <?php if ($product->product_type == 'variable') {
                                             $available_variations = $product->get_available_variations();
                                             $ds = 0;
-                                            foreach ($available_variations as $available) {
-                                                $variable_product1 = new WC_Product_Variation($available['variation_id']);
-                                                if ($variable_product1->stock_status == 'instock' && $ds == 0) {
+                                            foreach ($available_variations as $key => $available) {
+                                                $variation_id = $available_variations[$key]['variation_id'];
+                                                $variable_product1 = new WC_Product_Variation($variation_id);
+                                                $ds++;
+                                                if (sizeof($available_variations) == $ds) {
+                                                    $stock_first = $available_variations[0];
+                                                }
+                                                if ($variable_product1->stock_status == 'instock') {
                                                     $stock_first = $available;
-                                                    $ds++;
+                                                    break;
+
                                                 }
 
                                             }
                                         }
                                         ?>
+
+
                                         <span class="cart-product view-product"
                                               onclick="viewProduct(
                                               <?php echo $product->get_id() ?>,this)"
@@ -326,26 +354,26 @@ $trademark = array();
                                               data-product_sku="<?php echo $product->sku ?>"
 
                                               data-product_price_regular="
-                                          <?php if ($product->product_type != 'variable') : ?>
-                                                  <?php if ($product->get_regular_price()) {
+                                      <?php if ($product->product_type != 'variable') : ?>
+                                              <?php if ($product->get_regular_price()) {
                                                   echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
                                               } ?>
-                                              <?php else:
+                                          <?php else:
                                                   if ($stock_first['display_regular_price']) {
-                                                      echo number_format($available_variations[0]['display_regular_price'], 0, ',', '.') . 'đ';
+                                                      echo number_format($stock_first['display_regular_price'], 0, ',', '.') . 'đ';
                                                   }
                                                   ?>
-                                           <?php endif; ?>"
+                                       <?php endif; ?>"
                                               data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
-                                                  <?php if ($product->get_price()) {
+                                              <?php if ($product->get_price()) {
                                                   echo number_format($product->get_price(), 0, ',', '.') . 'đ';
                                               } ?>
-                                              <?php else:
-                                                  if ($stock_first['display_price']) {
-                                                      echo number_format($available_variations[0]['display_price'], 0, ',', '.') . 'đ';
+                                          <?php else:
+                                                  if ($stock_first['display_regular_price'] > $stock_first['display_price']) {
+                                                      echo number_format($stock_first['display_price'], 0, ',', '.') . 'đ';
                                                   }
                                                   ?>
-                                           <?php endif; ?>"
+                                       <?php endif; ?>"
                                               data-product_price_stock="<?php $product->get_stock_status(); ?>"
                                               data-product_link="<?php the_permalink() ?>"
                                         ><i class="fa fa-search"></i></span>
