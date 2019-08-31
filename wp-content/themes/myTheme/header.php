@@ -4,6 +4,8 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <?php $baseURL = esc_url(get_template_directory_uri()); ?>
+    <link rel="shortcut icon" href="<?php echo $baseURL ?>/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo $baseURL ?>/images/favicon.ico" type="image/x-icon">
     <meta name="google-site-verification" content="05Zf8Oosra7d clwPY4po12vxX3EkmCL8h6COpebOID4"/>
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -14,8 +16,6 @@
     <!-- Page Title -->
     <title><?php echo the_title() ?> - <?php echo get_bloginfo('title') ?></title>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
-    <!-- Favicon and Touch Icons -->
-    <link href="<?php echo $baseURL ?>/images/favicon.png" rel="shortcut icon" type="image/png">
     <!-- Stylesheet -->
     <link href="<?php echo $baseURL ?>/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $baseURL ?>/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
