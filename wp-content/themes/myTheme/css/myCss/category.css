@@ -1,7 +1,6 @@
 .row-product .product-item:hover .content-action .cart-product.add-cart {
     right: 27% !important;
 }
-
 .row-product .product-item:hover .content-action .cart-product.view-product {
     left: 27% !important;
 }
@@ -99,6 +98,7 @@
 .breadcrumb-colect .content-breadcrum{
     position: relative;
     z-index: 9;
+    margin-top:130px;
 }
 .breadcrumb-colect .content-breadcrum h4{
     color: #ffffff;

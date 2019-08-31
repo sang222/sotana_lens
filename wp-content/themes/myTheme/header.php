@@ -64,23 +64,77 @@
 <div id="wrapper" class="clearfix  <?php if (is_front_page()) {
     echo 'home-header';
 } ?> ">
-    <div style="position: relative;">
+    <div style="position: relative;height: 100%;max-width: 1500px;margin: 0 auto;">
         <!-- Header -->
-        <div class="header fixed-width">
-            <div id="menu" aria-controls="page-menu" data-modal-nav-toggle="">
-                <span class="icon-menu">
-                    <span class="icon-menu__bar icon-menu__bar-1"></span>
-                    <span class="icon-menu__bar icon-menu__bar-2"></span>
-                    <span class="icon-menu__bar icon-menu__bar-3"></span>
-                </span>
-            </div>
+        <div class="header">
+
             <div class="logo">
                 <a href="<?php echo get_site_url() ?>">
                     <img style="max-width: 150px; margin: 0" src="<?php echo get_field('logo', 'option')['url'] ?>"
                          alt="">
                 </a>
             </div>
-            <div class="container-mini-cart"></div>
+            <!--            <div id="menu" aria-controls="page-menu" data-modal-nav-toggle="">-->
+            <!--                <span class="icon-menu">-->
+            <!--                    <span class="icon-menu__bar icon-menu__bar-1"></span>-->
+            <!--                    <span class="icon-menu__bar icon-menu__bar-2"></span>-->
+            <!--                    <span class="icon-menu__bar icon-menu__bar-3"></span>-->
+            <!--                </span>-->
+            <!--            </div>-->
+
+            <div class="space">
+
+            </div>
+            <div class="right-head d-flex align-items-center">
+                <div class="menu-primary active">
+                    <ul class="menu-main-head" id="nav-top">
+                        <?php
+                        $menuLocations = get_nav_menu_locations();
+                        $menuID = $menuLocations['main-nav'];
+                        $primaryNav = wp_get_nav_menu_items($menuID);
+                        $id_parent = 0;
+                        foreach ($primaryNav as $navItem) {
+                            if ($navItem->menu_item_parent == $id_parent) {
+                                echo '<li class="menu-item' . $navItem->ID . '"> <a href="' . $navItem->url . '" >' . $navItem->title . '</a>';
+
+                                $sub = "";
+                                foreach ($primaryNav as $navItem2) {
+                                    if ($navItem2->menu_item_parent == $navItem->ID) {
+                                        $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" >' . $navItem2->title . '</a>';
+
+                                        $sub2 = "";
+                                        foreach ($primaryNav as $navItem3) {
+                                            if ($navItem3->menu_item_parent == $navItem2->ID) {
+                                                $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" >' . $navItem3->title . '</a></li>';
+
+                                            }
+                                        }
+                                        $sub .= '<ul class="dropdown ">' . $sub2 . '</ul>';
+
+                                        $sub .= '</li>';
+                                    }
+                                }
+                                echo '<ul class="dropdown ">' . $sub . '</ul>';
+                                echo '</li>';
+                            }
+                        }
+                        ?>
+                        <!--                    <li id="search" style="flex-direction: row; display: flex; justify-content: center;">-->
+                        <!---->
+                        <!--                    </li>-->
+                    </ul>
+                </div>
+                <div>
+                    <div class="container-mini-cart"></div>
+                    <div>
+                        <div class="menu-toggle">
+                            <div class="one"></div>
+                            <div class="two"></div>
+                            <div class="three"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="circle"></div>
         <ul class="menu-main">

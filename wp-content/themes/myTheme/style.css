@@ -2438,6 +2438,7 @@ body .owl-carousel .owl-video-tn {
 .breadcrumb-colect-blog .content-breadcrum {
     position: relative;
     z-index: 999;
+    margin-top:130px !important;
 }
 
 .breadcrumb-colect-blog .content-breadcrum h4 {

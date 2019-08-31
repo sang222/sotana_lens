@@ -127,6 +127,7 @@
 .breadcrumb-colect .content-breadcrum{
     position: relative;
     z-index: 9;
+    margin-top:130px;
 }
 .breadcrumb-colect .content-breadcrum h4{
     color: #ffffff;
