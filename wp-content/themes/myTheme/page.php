@@ -17,32 +17,20 @@ global $post;
     <div class="breadcrumb-colect prefix">
         <div class="fixed-width content-breadcrum">
             <div class="pro-title-breadcrumb text-center">
-                <h4><?php echo get_the_title() ?></h4>
+                <h2 style="color: #fff"><?php echo get_the_title() ?></h2>
 
             </div>
-            <div class="text-center"><?php woocommerce_breadcrumb(); ?></div>
+            <nav class="woocommerce-breadcrumb" style="text-align: center">
+                                    <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?>
+                                </nav>
             <br/>
             <br/>
         </div>
     </div>
-    <div class="fixed-width wow fadeInDown">
+    <div class="fixed-width wow fadeInDown" style="padding: 0 15px">
 
         <?php while (have_posts()) : the_post(); ?>
-            <?php if ($post->post_parent > 0) { ?>
-                <div class="row" style="margin-top: 20px">
-                    <div class="col-md-12">
-                        <div class="fixed-width">
-                            <div class="pro-title-breadcrumb text-center">
-                                <h4><?php echo the_title() ?></h4>
-                            </div>
-                            <div class="text-center">
-                                <nav class="woocommerce-breadcrumb">
-                                    <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <?php if ($post->post_parent > 0 || $post->ID !== 27 || $post->ID !== 26 || $post->ID > 100) { ?>
                 <div class="row" style="margin: 50px 0">
                     <div class="col-md-8" style="padding: 0">
                         <div class="col-detail" style="padding-bottom: 30px">

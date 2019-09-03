@@ -615,8 +615,9 @@ ul li {
     -moz-transition: margin .1s ease-out;
     text-transform: uppercase;
     border-bottom: 0px solid #789be6;
-    font-weight: 600;
+    /* font-weight: 600; */
     display: block;
+    color: #000;
 }
 
 .menu-primary ul.menu-main-head li a:hover {
