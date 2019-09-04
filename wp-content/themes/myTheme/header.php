@@ -88,6 +88,12 @@
             <div class="right-head d-flex align-items-center">
                 <div class="menu-primary active">
                     <ul class="menu-main-head" id="nav-top">
+                        <li class="search-mobile">
+                            <form method="get" action="<?php esc_url(home_url('/')) ?>" class="form-search-menu">
+                                <input type="text" name="s" class="form-control search-frm" placeholder="Search product">
+                                <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
+                            </form>
+                        </li>
                         <?php
                         $menuLocations = get_nav_menu_locations();
                         $menuID = $menuLocations['main-nav'];
@@ -123,6 +129,20 @@
                         <!---->
                         <!--                    </li>-->
                     </ul>
+                </div>
+                <div class="search-box-container">
+                    <span class="label-search" style="margin-right:30px">
+                        <img src="https://theme.hstatic.net/1000269337/1000458651/14/hd_mainmenu_icon_search.png?v=101">
+                    </span>
+                    <div class="content-search">
+                        <h5 class="label-search">Search</h5>
+                        <div class="search-box">
+                            <form method="get" action="<?php esc_url(home_url('/')) ?>" class="form-search-menu">
+                                <input type="text" name="s" class="form-control search-frm" placeholder="Search product">
+                                <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div class="container-mini-cart"></div>
