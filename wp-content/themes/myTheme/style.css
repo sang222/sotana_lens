@@ -2396,21 +2396,8 @@ body .owl-carousel .owl-video-tn {
     height: 300px;
 }
 
-.form-search-menu {
-    display: flex;
-    display: -webkit-flex;
-    align-items: center;
-    -webkit-align-items: center;
-}
 
-.search-box .form-search-menu button {
-    margin-top: 0;
-    border-radius: 0;
-    height: 43px;
-    margin-left: 1px;
-    border: 0;
-    background-color: #000;
-}
+
 
 .fb_dialog {
     right: 64pt !important;
@@ -2438,7 +2425,7 @@ body .owl-carousel .owl-video-tn {
 .breadcrumb-colect-blog .content-breadcrum {
     position: relative;
     z-index: 999;
-    margin-top:130px !important;
+    margin-top: 130px !important;
 }
 
 .breadcrumb-colect-blog .content-breadcrum h4 {

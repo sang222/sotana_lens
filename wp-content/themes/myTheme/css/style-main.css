@@ -35,7 +35,7 @@ This file contains the common styles of this theme.
 		* Services.less
 		* Shop.less
 		* Blog.less
-		* Shortcode.less 
+		* Shortcode.less
 			* Alerts.less
 			* Buttons.less
 			* Blockquote.less
@@ -762,8 +762,8 @@ section > .container-fluid {
   color: #eee;
   font-size: 64px;
 }
-/*  
- * Extra.less 
+/*
+ * Extra.less
  * -----------------------------------------------
 */
 /* -------- Heading Style ---------- */
@@ -3427,7 +3427,7 @@ table.no-border td {
   padding: 0 8px 0 3px;
 }
 /*
- * blog.less 
+ * blog.less
  * -----------------------------------------------
 */
 .post {
@@ -3791,9 +3791,9 @@ table.no-border td {
   border-color: #8c8c8c;
 }
 .btn-default:hover {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  /*color: #333;*/
+  /*background-color: #e6e6e6;*/
+  /*border-color: #adadad;*/
 }
 .btn-default:active,
 .btn-default.active,
@@ -6254,8 +6254,8 @@ blockquote p {
 .working-process.theme-colored li a {
   color: #fff;
 }
-/*  
- * home-boxes.less 
+/*
+ * home-boxes.less
  * -----------------------------------------------
 */
 .home-boxes .each-box {
