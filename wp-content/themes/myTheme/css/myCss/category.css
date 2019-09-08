@@ -9,9 +9,9 @@
 .action-add .add-cart.loading {
     opacity: 1 !important;
 }
-.breadcrumb-colect{
-    padding-bottom: 0 !important;
-}
+/*.breadcrumb-colect{*/
+/*    padding-bottom: 0 !important;*/
+/*}*/
 .action-add .add-cart.loading:after {
     content: '\f110' !important;
     width: 30px !important;
@@ -99,6 +99,7 @@
     position: relative;
     z-index: 9;
     margin-top:130px;
+
 }
 .breadcrumb-colect .content-breadcrum h4{
     color: #ffffff;

@@ -256,6 +256,6 @@ div#checkout_now {
 #ship-to-different-address {
     display: none;
 }
-.breadcrumb-colect{
-    padding-bottom: 0 !important;
-}
+/*.breadcrumb-colect{*/
+/*    padding-bottom: 0 !important;*/
+/*}*/
