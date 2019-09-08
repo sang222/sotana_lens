@@ -46,80 +46,107 @@
         </div>
         <hr/>
     <?php endif; ?>
-
+    <?php
+    $arr_filter = get_field('filter', 'option');
+    ?>
     <div class="filter-list" id="bs-collapse">
         <h5 class="text-left text-uppercase"><i class="fa fa-tags"></i> <?php echo __('Filter by price', 'localFile') ?>
             <span
                     class="float-right icon-right"><i class="fa fa-angle-right"></i></span></h5>
         <div style="margin-left: 20px" class="content-down">
             <ul class="no-bullets filter-price clearfix">
-                <li class="text-left">
-                    <p>
-                        <input type="radio"
-                               id="test1"
-                               name="price-filter"
-                            <?php if (!isset($_GET['price']) && empty($_GET['price']) || $_GET['price'] == '0:500000000') echo 'checked'; ?>
-                               data-price="0:500000000"
-                               value="0:500000000">
-                        <label for="test1"><?php echo __('Tất cả', 'localFile') ?></label>
-                    </p>
-                </li>
-                <li class="text-left">
-                    <p>
-                        <input type="radio"
-                               id="test2"
-                               data-price="<?php echo $_GET['price'] ?>"
-                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '0:50000') echo 'checked' ?>
-                               name="price-filter" value="0:50000">
-                        <label for="test2"><?php echo __('Nhỏ hơn 50,000₫', 'localFile') ?></label>
-                    </p>
+                <?php
+                foreach ($arr_filter as $key => $rule) {
+                    $filter_about = $rule['min'] . ':' . $rule['max'];
+                    ?>
+                    <li class="text-left">
+                        <p>
+                            <input type="radio"
+                                   id="test_<?php echo $key ?>"
+                                   name="price-filter"
+                                <?php if (!isset($_GET['price']) && empty($_GET['price']) && $key == 0) echo 'checked'; else if ($_GET['price'] == $filter_about) echo 'checked' ?>
+                                   data-price="<?php echo $filter_about; ?>"
+                                   value="<?php echo $filter_about; ?>">
+                            <label for="test_<?php echo $key ?>">
+                                <?php if ($key == 0) : ?>
+                                    <?php echo __('Tất cả', 'localFile') ?>
+                                <?php endif; ?>
+                                <?php if ($key > 0 && $key < sizeof($arr_filter) - 1) : ?>
+                                    <?php echo __('Từ ' . number_format($rule['min'], 0, ',', '.') . 'đ' . ' đến ' . number_format($rule['max'], 0, ',', '.') . 'đ', 'localFile') ?>
+                                <?php endif; ?>
+                                <?php if ($key == sizeof($arr_filter) - 1) : ?>
+                                    <?php echo __('Lớn hơn ' . number_format($rule['min'], 0, ',', '.') . 'đ', 'localFile') ?>
+                                <?php endif; ?>
+                            </label>
+                        </p>
+                    </li>
+                    <?php
+                }
 
-                </li>
-                <li class="text-left">
-                    <p>
-                        <input type="radio"
-                               id="test3"
-                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '50000:100000') echo 'checked'; ?>
-                               name="price-filter" data-price="7000" value="50000:100000">
-                        <label for="test3"><?php echo __('Từ 50,000₫ - 100,000₫', 'localFile') ?></label>
-                    </p>
-                </li>
-                <li class="text-left">
-                    <p>
-                        <input type="radio"
-                               id="test4"
-                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '100000:300000') echo 'checked'; ?>
-                               name="price-filter" data-price="100000:300000" value="100000:300000">
-                        <label for="test4"><?php echo __('Từ 100,000₫ - 300,000₫', 'localFile') ?></label>
-                    </p>
-                </li>
-                <li class="text-left">
-                    <p>
-                        <input type="radio"
-                               id="test5"
-                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '300000:500000') echo 'checked'; ?>
-                               name="price-filter" data-price="300000:500000" value="300000:500000">
-                        <label for="test5"><?php echo __('Từ 300,000₫ - 500,000₫', 'localFile') ?></label>
-                    </p>
-                </li>
-                <li class="text-left">
-                    <p>
-                        <input type="radio"
-                               id="test6"
-                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '500000:700000') echo 'checked'; ?>
-                               name="price-filter" data-price="500000:700000" value="500000:700000">
-                        <label for="test6"><?php echo __('Từ 500,000₫ - 700,000₫', 'localFile') ?></label>
-                    </p>
-                </li>
-                <li class="text-left">
-                    <p>
-                        <input type="radio"
-                               id="test7"
-                            <?php if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '700000:500000000') echo 'checked'; ?>
-                               name="price-filter" data-price="700000:500000000" value="700000:500000000">
-                        <label for="test7"><?php echo __('Lớn hơn 700,000₫', 'localFile') ?></label>
-                    </p>
-                </li>
+                ?>
+
+                <!--                <li class="text-left">-->
+                <!--                    <p>-->
+                <!--                        <input type="radio"-->
+                <!--                               id="test2"-->
+                <!--                               data-price="--><?php //echo $_GET['price'] ?><!--"-->
+                <!--                            --><?php //if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '0:50000') echo 'checked' ?>
+                <!--                               name="price-filter" value="0:50000">-->
+                <!--                        <label for="test2">-->
+                <?php //echo __('Nhỏ hơn 50,000₫', 'localFile') ?><!--</label>-->
+                <!--                    </p>-->
+                <!---->
+                <!--                </li>-->
+                <!--                <li class="text-left">-->
+                <!--                    <p>-->
+                <!--                        <input type="radio"-->
+                <!--                               id="test3"-->
+                <!--                            --><?php //if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '50000:100000') echo 'checked'; ?>
+                <!--                               name="price-filter" data-price="7000" value="50000:100000">-->
+                <!--                        <label for="test3">-->
+                <?php //echo __('Từ 50,000₫ - 100,000₫', 'localFile') ?><!--</label>-->
+                <!--                    </p>-->
+                <!--                </li>-->
+                <!--                <li class="text-left">-->
+                <!--                    <p>-->
+                <!--                        <input type="radio"-->
+                <!--                               id="test4"-->
+                <!--                            --><?php //if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '100000:300000') echo 'checked'; ?>
+                <!--                               name="price-filter" data-price="100000:300000" value="100000:300000">-->
+                <!--                        <label for="test4">-->
+                <?php //echo __('Từ 100,000₫ - 300,000₫', 'localFile') ?><!--</label>-->
+                <!--                    </p>-->
+                <!--                </li>-->
+                <!--                <li class="text-left">-->
+                <!--                    <p>-->
+                <!--                        <input type="radio"-->
+                <!--                               id="test5"-->
+                <!--                            --><?php //if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '300000:500000') echo 'checked'; ?>
+                <!--                               name="price-filter" data-price="300000:500000" value="300000:500000">-->
+                <!--                        <label for="test5">-->
+                <?php //echo __('Từ 300,000₫ - 500,000₫', 'localFile') ?><!--</label>-->
+                <!--                    </p>-->
+                <!--                </li>-->
+                <!--                <li class="text-left">-->
+                <!--                    <p>-->
+                <!--                        <input type="radio"-->
+                <!--                               id="test6"-->
+                <!--                            --><?php //if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '500000:700000') echo 'checked'; ?>
+                <!--                               name="price-filter" data-price="500000:700000" value="500000:700000">-->
+                <!--                        <label for="test6">-->
+                <?php //echo __('Từ 500,000₫ - 700,000₫', 'localFile') ?><!--</label>-->
+                <!--                    </p>-->
+                <!--                </li>-->
+                <!--                <li class="text-left">-->
+                <!--                    <p>-->
+                <!--                        <input type="radio"-->
+                <!--                               id="test7"-->
+                <!--                            --><?php //if (isset($_GET['price']) && !empty($_GET['price']) && $_GET['price'] == '700000:500000000') echo 'checked'; ?>
+                <!--                               name="price-filter" data-price="700000:500000000" value="700000:500000000">-->
+                <!--                        <label for="test7">-->
+                <?php //echo __('Lớn hơn 700,000₫', 'localFile') ?><!--</label>-->
+                <!--                    </p>-->
+                <!--                </li>-->
             </ul>
         </div>
         <hr/>
@@ -178,7 +205,9 @@
                 foreach ($trademark as $term): ?>
 
                     <?php $vendor_arr = explode(',', $_GET['vendor']) ?>
-                    <?php $actual_link = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; ?>
+                    <?php
+                    ?>
+
                     <li class="text-left checkbox">
                         <span>
                             <input type="checkbox"

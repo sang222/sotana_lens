@@ -51,12 +51,12 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
                         <p class="price-product">
                             <?php if ($product->product_type != 'variable') : ?>
                                 <span class="sale-price" style="text-decoration: line-through">
-                                <?php if ($product->is_on_sale()) {
+                                <?php if ($product->is_on_sale() && is_numeric($product->is_on_sale())) {
                                     echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
                                 } ?>
                                 </span>
                                 <span class="regular-price">
-                                    <?php if ($product->get_regular_price()) echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ'; ?>
+                                    <?php if ($product->get_regular_price() && is_numeric($product->get_regular_price())) echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ'; ?>
                                 </span>
                             <?php else: ?>
 
@@ -78,12 +78,12 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
                                 <?php endforeach; ?>
 
                                 <span class="sale-price" style="text-decoration: line-through">
-                                                    <?php if ($first['display_price'] < $first['display_regular_price']) {
+                                                    <?php if ($first['display_price'] < $first['display_regular_price'] && is_numeric($first['display_price'])) {
                                                         echo number_format($first['display_price'], 0, ',', '.') . 'đ';
                                                     } ?>
                                                 </span>
                                 <span class="regular-price">
-                                                <?php if ($first['display_regular_price']) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                                <?php if ($first['display_regular_price'] && is_numeric($first['display_regular_price'])) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
                                             </span>
 
                             <?php endif; ?>
@@ -114,10 +114,10 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
                                         <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
                                              data-variation_id="<?php echo $variation_id ?>"
                                              data-product_id="<?php echo $product->get_id() ?>"
-                                             data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
+                                             data-display_price="<?php if (is_numeric($variations['display_price']) && $variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
                                              data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
                                              data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
-                                             data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                             data-display_regular_price="<?php if (is_numeric($variations['display_regular_price'])) echo $variations['display_regular_price'] ?>"
                                         >
                                             <img style="width:32px" height="32px"
                                                  src="<?php echo $variations['image']['src'] ?>"/>
@@ -128,9 +128,9 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
                                         <div class="d-inline-block box-variable-pr out-variable-pr border"
                                              data-variation_id="<?php echo $variation_id ?>"
                                              data-product_id="<?php echo $product->get_id() ?>"
-                                             data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
+                                             data-display_price="<?php if (is_numeric($variations['display_price']) && $variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
                                              data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
-                                             data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                             data-display_regular_price="<?php if (is_numeric($variations['display_regular_price'])) echo $variations['display_regular_price'] ?>"
                                              data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
                                             <img style="width:32px" height="32px"
                                                  src="<?php echo $variations['image']['src'] ?>"/>
@@ -145,7 +145,7 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
                             }
                         } else {
                             ?>
-                            <div class="d-inline-block one-item  border active ">
+                            <div class="d-inline-block box-variable-pr border active ">
                                 <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
                             </div>
                             <?php
@@ -247,8 +247,6 @@ $feat_pro = new WP_Query(array('posts_per_page' => 10,
                             </div>
                         </div>
                     </div>
-
-
                 </div>
 
             </div>

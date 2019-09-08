@@ -543,6 +543,15 @@ ul li {
     position: relative;
 }
 
+.menu-primary ul.menu-main-head > li.active > a {
+    border-bottom: 3px solid #789be6;
+    color: #789be6;
+}
+
+.menu-primary ul.menu-main-head li.active > a {
+    color: #789be6;
+}
+
 .menu-primary ul.menu-main-head li ul.dropdown {
     position: absolute;
     right: 0;
@@ -677,6 +686,14 @@ ul li {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 320px) {
+    .menu-toggle {
+        top: 15px;
+        right: -4px;
+        width: 30px;
+    }
+}
+
 .menu-toggle.on .one {
     -moz-transform: rotate(45deg) translate(7px, 7px);
     -ms-transform: rotate(45deg) translate(7px, 7px);
@@ -739,10 +756,9 @@ ul li {
 .content-search {
     background: #fff;
     position: absolute;
-    right: 38%;
-    /* display: none; */
+    right: -3%;
     visibility: hidden;
-    top: 105%;
+    top: 100%;
     min-width: 300px;
     border-radius: 5px;
     border: 1px solid #d3d3d3;
@@ -810,9 +826,11 @@ ul li {
     #wrapper {
         /*padding-top: 5px;*/
     }
-    .label-search{
+
+    .label-search {
         display: none;
     }
+
     .search-mobile {
         display: block;
     }
@@ -949,12 +967,37 @@ ul li {
         right: 81px;
     }
 }
+
 .language_main {
     margin-left: 15px;
 }
+
 html #qtranslate-chooser li {
     display: none;
 }
+
 html[lang="en_US"] #qtranslate-chooser li.lang-vi, html[lang="vi"] #qtranslate-chooser li.lang-en {
     display: block
+}
+
+.qtranxs_image img {
+    display: none;
+}
+
+.qtranxs_image_en {
+    background: url("flag-en.png");
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-size: 100%;
+}
+
+.qtranxs_image_vi {
+    background: url('flag-vi.jpg');
+    width: 37px;
+    height: 35px;
+    background-repeat: no-repeat;
+    display: block;
+    background-position: center;
+    background-size: 160%;
 }

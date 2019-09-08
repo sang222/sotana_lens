@@ -152,8 +152,10 @@ function header_add_to_cart_fragment($fragments)
                     <?php echo number_format($amount2, 0, ',', '.') . 'đ'; ?>
                 </p>
                 <div class="group-btn">
-                    <a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-default"><?php echo __('View cart', 'localFile') ?></a>
-                    <a href="<?php echo wc_get_checkout_url() ?>" class="btn btn-default"><?php echo __('Checkout', 'localFile') ?></a>
+                    <a href="<?php echo wc_get_cart_url(); ?>"
+                       class="btn btn-default"><?php echo __('View cart', 'localFile') ?></a>
+                    <a href="<?php echo wc_get_checkout_url() ?>"
+                       class="btn btn-default"><?php echo __('Checkout', 'localFile') ?></a>
                 </div>
             </div>
             <?php else : ?>
@@ -234,7 +236,7 @@ function modal_add_to_cart_fragment($fragments)
                                     <?php endforeach; ?>
                                     <?php endif; ?>
                                     <p>
-                                    <?php echo __('Categories:', 'localFile') ?>
+                                        <?php echo __('Categories:', 'localFile') ?>
                                         <?php echo push_to_cat(get_the_terms($values['product_id'], 'product_cat'))
                                         ?></p>
                                 </td>
@@ -395,7 +397,8 @@ function modal_add_to_cart_fragment($fragments)
                 </div>
                 <br/>
                 </button>
-                <a href="<?php echo wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs"><?php echo __('Checkout', 'localFile') ?></a>
+                <a href="<?php echo wc_get_checkout_url() ?>"
+                   class=" btn-modal-cart btn  btn-xs"><?php echo __('Checkout', 'localFile') ?></a>
             </div>
         </div>
     </div>
@@ -706,7 +709,11 @@ function ajax_load_post_func()
                     <div class="img-thumb">
                         <!--                            --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyload','src'=>get_theme_file_uri().'/images/myimage/lazyload.jpg','data-src'=>''))
                         ?>
-                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                        <img
+                                class="lazyload"
+                                src="<?php the_post_thumbnail_url(); ?>"
+                        />
+<!--                        --><?php //get_post_thumbnail('thumbnail', array('alt' => get_the_title(), 'class' => 'wp-post-image lazyOwl')) ?>
                     </div>
                 </a>
                 <div class="action-detail">
@@ -885,7 +892,7 @@ function ajax_load_post_func()
 
                                   data-product_price_regular="
                                       <?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_regular_price()) {
+                                              <?php if ($product->get_regular_price() && is_numeric($product->get_regular_price())) {
                                       echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
                                   } ?>
                                           <?php else:
@@ -895,11 +902,11 @@ function ajax_load_post_func()
                                       ?>
                                        <?php endif; ?>"
                                   data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_price()) {
+                                              <?php if ($product->get_price() && is_numeric($product->get_price())) {
                                       echo number_format($product->get_price(), 0, ',', '.') . 'đ';
                                   } ?>
                                           <?php else:
-                                      if ($stock_first['display_regular_price'] > $stock_first['display_price']) {
+                                      if (is_numeric($stock_first['display_price']) && $stock_first['display_regular_price'] > $stock_first['display_price']) {
                                           echo number_format($stock_first['display_price'], 0, ',', '.') . 'đ';
                                       }
                                       ?>
@@ -1050,7 +1057,10 @@ function filter_product()
                     <div class="img-thumb">
                         <!--                            --><?php //the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyload','src'=>get_theme_file_uri().'/images/myimage/lazyload.jpg','data-src'=>''))
                         ?>
-                        <?php the_post_thumbnail('shop_catalog', array('alt' => get_the_title(), 'class' => 'lazyOwl')) ?>
+                        <img
+                                class="lazyload"
+                                src="<?php the_post_thumbnail_url(); ?>"
+                        />
                     </div>
                 </a>
                 <div class="action-detail">
@@ -1059,12 +1069,12 @@ function filter_product()
                     <p class="price-product">
                         <?php if ($product->product_type != 'variable') : ?>
                             <span class="sale-price" style="text-decoration: line-through">
-                                <?php if ($product->is_on_sale()) {
+                                <?php if ($product->is_on_sale() && is_numeric($product->is_on_sale())) {
                                     echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
                                 } ?>
                                 </span>
                             <span class="regular-price">
-                                    <?php if ($product->get_regular_price()) echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ'; ?>
+                                    <?php if ($product->get_regular_price() && is_numeric($product->get_regular_price())) echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ'; ?>
                                 </span>
                         <?php else: ?>
 
@@ -1086,12 +1096,12 @@ function filter_product()
                             <?php endforeach; ?>
 
                             <span class="sale-price" style="text-decoration: line-through">
-                                                    <?php if ($first['display_price'] < $first['display_regular_price']) {
+                                                    <?php if (is_numeric($first['display_price']) && $first['display_price'] < $first['display_regular_price']) {
                                                         echo number_format($first['display_price'], 0, ',', '.') . 'đ';
                                                     } ?>
                                                 </span>
                             <span class="regular-price">
-                                                <?php if ($first['display_regular_price']) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                                <?php if ($first['display_regular_price'] && is_numeric($first['display_regular_price'])) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
                                             </span>
 
                         <?php endif; ?>
@@ -1122,10 +1132,10 @@ function filter_product()
                                     <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
                                          data-variation_id="<?php echo $variation_id ?>"
                                          data-product_id="<?php echo $product->get_id() ?>"
-                                         data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
+                                         data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price'] && is_numeric($variations['display_price'])) echo $variations['display_price'] ?>"
                                          data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
                                          data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
-                                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                         data-display_regular_price="<?php if (is_numeric($variations['display_regular_price'])) echo $variations['display_regular_price'] ?>"
                                     >
                                         <img style="width:32px" height="32px"
                                              src="<?php echo $variations['image']['src'] ?>"/>
@@ -1136,9 +1146,9 @@ function filter_product()
                                     <div class="d-inline-block box-variable-pr out-variable-pr border"
                                          data-variation_id="<?php echo $variation_id ?>"
                                          data-product_id="<?php echo $product->get_id() ?>"
-                                         data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
+                                         data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price'] && is_numeric($variations['display_price'])) echo $variations['display_price'] ?>"
                                          data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
-                                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                         data-display_regular_price="<?php if (is_numeric($variations['display_regular_price'])) echo $variations['display_regular_price'] ?>"
                                          data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
                                         <img style="width:32px" height="32px"
                                              src="<?php echo $variations['image']['src'] ?>"/>
@@ -1229,21 +1239,21 @@ function filter_product()
 
                                   data-product_price_regular="
                                       <?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_regular_price()) {
+                                              <?php if ($product->get_regular_price() && is_numeric($product->get_regular_price())) {
                                       echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ';
                                   } ?>
                                           <?php else:
-                                      if ($stock_first['display_regular_price']) {
+                                      if ($stock_first['display_regular_price'] && is_numeric($stock_first['display_regular_price'])) {
                                           echo number_format($stock_first['display_regular_price'], 0, ',', '.') . 'đ';
                                       }
                                       ?>
                                        <?php endif; ?>"
                                   data-product_price_sale="<?php if ($product->product_type != 'variable') : ?>
-                                              <?php if ($product->get_price()) {
+                                              <?php if ($product->get_price() && is_numeric($product->get_price())) {
                                       echo number_format($product->get_price(), 0, ',', '.') . 'đ';
                                   } ?>
                                           <?php else:
-                                      if ($stock_first['display_regular_price'] > $stock_first['display_price']) {
+                                      if (is_numeric($stock_first['display_price']) && $stock_first['display_regular_price'] > $stock_first['display_price']) {
                                           echo number_format($stock_first['display_price'], 0, ',', '.') . 'đ';
                                       }
                                       ?>

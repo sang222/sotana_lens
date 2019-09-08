@@ -2379,7 +2379,9 @@ body .owl-carousel .owl-video-tn {
     border-color: #d6e9c6;
     display: none;
 }
-
+.bar{
+    margin: 0px 2px;
+}
 /*social*/
 .fb_dialog {
     right: 150pt !important;

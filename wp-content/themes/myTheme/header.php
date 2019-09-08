@@ -90,7 +90,8 @@
                     <ul class="menu-main-head" id="nav-top">
                         <li class="search-mobile">
                             <form method="get" action="<?php esc_url(home_url('/')) ?>" class="form-search-menu">
-                                <input type="text" name="s" class="form-control search-frm" placeholder="Search product">
+                                <input type="text" name="s" class="form-control search-frm"
+                                       placeholder="Search product">
                                 <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
                             </form>
                         </li>
@@ -99,19 +100,25 @@
                         $menuID = $menuLocations['main-nav'];
                         $primaryNav = wp_get_nav_menu_items($menuID);
                         $id_parent = 0;
+                        $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+                        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$uri}";
                         foreach ($primaryNav as $navItem) {
                             if ($navItem->menu_item_parent == $id_parent) {
-                                echo '<li class="menu-item' . $navItem->ID . '"> <a href="' . $navItem->url . '" >' . $navItem->title . '</a>';
+                                $active = ($navItem->url == $actual_link) ? ' active' : '';
+                                echo '<li class="menu-item' . $navItem->ID . '' . $active . '"> <a href="' . $navItem->url . '" >' . $navItem->title . '</a>';
 
                                 $sub = "";
                                 foreach ($primaryNav as $navItem2) {
+                                    $active1 = ($navItem2->url == $actual_link) ? ' active' : '';
                                     if ($navItem2->menu_item_parent == $navItem->ID) {
-                                        $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" >' . $navItem2->title . '</a>';
+
+                                        $sub .= '<li class="menu-item' . $navItem2->ID . ' ' . $active1 . '"> <a href="' . $navItem2->url . '" >' . $navItem2->title . '</a>';
 
                                         $sub2 = "";
                                         foreach ($primaryNav as $navItem3) {
+                                            $active2 = ($navItem2->url == $actual_link) ? ' active' : '';
                                             if ($navItem3->menu_item_parent == $navItem2->ID) {
-                                                $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" >' . $navItem3->title . '</a></li>';
+                                                $sub2 .= '<li class="menu-item' . $navItem3->ID . ' ' . $active2 . '"> <a href="' . $navItem3->url . '" >' . $navItem3->title . '</a></li>';
 
                                             }
                                         }
@@ -131,26 +138,27 @@
                     </ul>
                 </div>
                 <div class="search-box-container">
-                    <span class="label-search" style="margin-right:30px">
+                    <span class="label-search">
                         <img src="https://theme.hstatic.net/1000269337/1000458651/14/hd_mainmenu_icon_search.png?v=101">
                     </span>
                     <div class="content-search">
                         <h5 class="label-search">Search</h5>
                         <div class="search-box">
                             <form method="get" action="<?php esc_url(home_url('/')) ?>" class="form-search-menu">
-                                <input type="text" name="s" class="form-control search-frm" placeholder="Search product">
+                                <input type="text" name="s" class="form-control search-frm"
+                                       placeholder="Search product">
                                 <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
                             </form>
                         </div>
                     </div>
                 </div>
-                    <div class="language_main">
-                        <?php qtranxf_generateLanguageSelectCode(
-                                array(
-                                    'type' => 'image'
-                                ));
-                            ?>
-                    </div>
+                <div class="language_main">
+                    <?php qtranxf_generateLanguageSelectCode(
+                        array(
+                            'type' => 'image'
+                        ));
+                    ?>
+                </div>
                 <div style="display: flex; align-items: center">
                     <div class="container-mini-cart"></div>
                     <div>

@@ -1,8 +1,8 @@
 <?php
-    global $tp_option;
-    $category_hot = $tp_option['product-hot'];
-    $title_hot = $tp_option['product-title'];
-    $list_cate = get_field('category_product', 'option')['hot_sale'];
+global $tp_option;
+$category_hot = $tp_option['product-hot'];
+$title_hot = $tp_option['product-title'];
+$list_cate = get_field('category_product', 'option')['hot_sale'];
 ?>
 <?php if (sizeof($list_cate) > 0): ?>
     <div class="pro-title wow fadeInDown">
@@ -32,8 +32,10 @@
             $loop = new WP_Query($args);
             $dem2 = 1;
             ?>
-            <div id="home-colection" class="collection w-100   colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
-                <div class=" product-list md-mg-left-15"  style="padding-right: 15px; display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div id="home-colection"
+                 class="collection w-100   colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
+                <div class=" product-list md-mg-left-15"
+                     style="padding-right: 15px; display: flex; flex-direction: row; flex-wrap: wrap;">
                     <?php
                     while ($loop->have_posts()) : $loop->the_post();
                         global $product; ?>
@@ -65,12 +67,12 @@
                                     <p class="price-product">
                                         <?php if ($product->product_type != 'variable') : ?>
                                             <span class="sale-price" style="text-decoration: line-through">
-                                <?php if ($product->is_on_sale()) {
+                                <?php if ($product->is_on_sale() && is_numeric($product->is_on_sale())) {
                                     echo number_format($product->get_sale_price(), 0, ',', '.') . 'đ';
                                 } ?>
                                 </span>
                                             <span class="regular-price">
-                                    <?php if ($product->get_regular_price()) echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ'; ?>
+                                    <?php if ($product->get_regular_price() && is_numeric($product->get_regular_price())) echo number_format($product->get_regular_price(), 0, ',', '.') . 'đ'; ?>
                                 </span>
                                         <?php else: ?>
 
@@ -92,12 +94,12 @@
                                             <?php endforeach; ?>
 
                                             <span class="sale-price" style="text-decoration: line-through">
-                                                    <?php if ($first['display_price'] < $first['display_regular_price']) {
+                                                    <?php if ($first['display_price'] < $first['display_regular_price'] && is_numeric($first['display_price'])) {
                                                         echo number_format($first['display_price'], 0, ',', '.') . 'đ';
                                                     } ?>
                                                 </span>
                                             <span class="regular-price">
-                                                <?php if ($first['display_regular_price']) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                                <?php if ($first['display_regular_price'] && is_numeric($first['display_regular_price'])) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
                                             </span>
 
                                         <?php endif; ?>
@@ -128,10 +130,10 @@
                                                     <div class="d-inline-block box-variable-pr border <?php if ($vt == 1) echo 'active' ?>"
                                                          data-variation_id="<?php echo $variation_id ?>"
                                                          data-product_id="<?php echo $product->get_id() ?>"
-                                                         data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
+                                                         data-display_price="<?php if (is_numeric($variations['display_price']) && $variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
                                                          data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>"
                                                          data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
-                                                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                                         data-display_regular_price="<?php if (is_numeric($variations['display_regular_price'])) echo $variations['display_regular_price'] ?>"
                                                     >
                                                         <img style="width:32px" height="32px"
                                                              src="<?php echo $variations['image']['src'] ?>"/>
@@ -142,9 +144,9 @@
                                                     <div class="d-inline-block box-variable-pr out-variable-pr border"
                                                          data-variation_id="<?php echo $variation_id ?>"
                                                          data-product_id="<?php echo $product->get_id() ?>"
-                                                         data-display_price="<?php if ($variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
+                                                         data-display_price="<?php if (is_numeric($variations['display_price']) && $variations['display_regular_price'] > $variations['display_price']) echo $variations['display_price'] ?>"
                                                          data-attribute_pa_size="<?php echo $variations['attributes']['attribute_pa_size'] ?>"
-                                                         data-display_regular_price="<?php echo $variations['display_regular_price'] ?>"
+                                                         data-display_regular_price="<?php if (is_numeric($variations['display_regular_price'])) echo $variations['display_regular_price'] ?>"
                                                          data-attribute_pa_color="<?php echo $variations['attributes']['attribute_pa_color'] ?>">
                                                         <img style="width:32px" height="32px"
                                                              src="<?php echo $variations['image']['src'] ?>"/>
@@ -279,9 +281,10 @@
                     <?php
                 } else {
                     ?>
-                    <div class="text-center prefix"><span><?php echo __('View all product', 'localFile') ?> </span><a class="color-general weight-600"
-                                                                                     href="<?php echo get_category_link($cate_id) ?>"
-                                                                                     title="<?php echo get_the_category_by_ID($cate_id) ?>"> <?php echo get_the_category_by_ID($cate_id) ?>
+                    <div class="text-center prefix"><span><?php echo __('View all product', 'localFile') ?> </span><a
+                                class="color-general weight-600"
+                                href="<?php echo get_category_link($cate_id) ?>"
+                                title="<?php echo get_the_category_by_ID($cate_id) ?>"> <?php echo get_the_category_by_ID($cate_id) ?>
                             <i class="fa fa-angle-double-right"></i></a></div>
                     <?php
                 } ?>

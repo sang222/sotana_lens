@@ -34,7 +34,14 @@
     //     return $fields;
     // }
     //load afc media
+    add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 
+    function special_nav_class ($classes, $item) {
+        if (in_array('current-post-ancestor', $classes) || in_array('current-page-ancestor', $classes) || in_array('current-menu-item', $classes) ){
+            $classes[] = 'active ';
+        }
+        return $classes;
+    }
     function add_theme_scripts()
     {
         wp_enqueue_script('jquery-js', get_theme_file_uri() . '/js/jquery-2.2.4.min.js', array('jquery'), '1.0', true);

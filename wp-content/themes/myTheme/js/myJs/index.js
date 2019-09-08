@@ -460,6 +460,9 @@ jQuery(document).ready(function () {
     $(".cart-icon").click(function () {
         $('.content-search ').removeClass('active')
     })
+    //active link primary menu
+    $('.menu-primary ul.menu-main-head li.active').parents('li.parentul').addClass('active')
+
     // $('body').on('click', function (e) {
     //     console.log($(e.taget).hasClass('mobile-icon'))
     //     if ($(e.target).parents('.menu-primary').length > 0 || $(e.target).hasClass('menu-primary') || $(e.taget).hasClass('mobile-icon') || $(e.taget).children().hasClass('on')) {
