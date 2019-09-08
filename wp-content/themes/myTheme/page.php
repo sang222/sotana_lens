@@ -46,7 +46,7 @@ global $post;
                         </div>
                     </div>
                     <div class="col-md-4 sidebar-blog fixed-top">
-                        <?php get_sidebar() ?>
+                        <?php //get_sidebar() ?>
                     </div>
                 </div>
             <?php } else { ?>

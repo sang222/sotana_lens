@@ -839,7 +839,7 @@ ul li {
     }
 
     #icon-cart-mobile {
-        margin-right: 72px;
+        margin-right: 62px;
     }
 
     .menu-primary.active {
@@ -948,4 +948,13 @@ ul li {
     .popup-view-cart:before {
         right: 81px;
     }
+}
+.language_main {
+    margin-left: 15px;
+}
+html #qtranslate-chooser li {
+    display: none;
+}
+html[lang="en_US"] #qtranslate-chooser li.lang-vi, html[lang="vi"] #qtranslate-chooser li.lang-en {
+    display: block
 }

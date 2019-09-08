@@ -113,25 +113,6 @@ $currentURL = home_url($wp->request);
                     <div class="status-product <?php if ($stock_st == 'instock') echo 'has'; else echo 'not-has'; ?> "><?php echo $stock; ?></div>
 
                 </div>
-                <div class="meta-product">
-                    <?php
-                    $terms = get_the_terms($product->get_id(), 'product_cat');
-                    //                    var_dump($terms);
-                    $trademark = array();
-                    foreach ($terms as $category) {
-
-                        if ($category->parent == 49) {
-
-                            array_push($trademark, $category);
-                        }
-//                        var_dump(get_category($category->term_id));
-
-
-                    }
-                    ?>
-                    <span><?php echo __('Trademark:', 'localFile') ?> <b><a
-                                    href="<?php echo home_url() ?>/collection/?cat_name=<?php echo $trademark[0]->slug ?>"><?php echo $trademark[0]->name . '' ?></a></b> </span>
-                </div>
                 <div class="social-product">
                     <span class="share-in"><?php echo __('Chia sẻ trên', 'localFile') ?> </span>
                     <a class="fb-share " href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentURL; ?>">

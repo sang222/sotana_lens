@@ -144,7 +144,14 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                    <div class="language_main">
+                        <?php qtranxf_generateLanguageSelectCode(
+                                array(
+                                    'type' => 'image'
+                                ));
+                            ?>
+                    </div>
+                <div style="display: flex; align-items: center">
                     <div class="container-mini-cart"></div>
                     <div>
                         <div class="menu-toggle">
@@ -156,62 +163,5 @@
                 </div>
             </div>
         </div>
-        <div class="circle"></div>
-        <ul class="menu-main">
-            <div class="menu-main-sub">
-                <ul class="menu-pri" id="nav">
-                    <?php
-                    $menuLocations = get_nav_menu_locations();
-                    $menuID = $menuLocations['main-nav'];
-                    $primaryNav = wp_get_nav_menu_items($menuID);
-                    $id_parent = 0;
-                    foreach ($primaryNav as $navItem) {
-                        if ($navItem->menu_item_parent == $id_parent) {
-                            echo '<li class="menu-item' . $navItem->ID . '"> <a href="' . $navItem->url . '" title="' . $navItem->title . '">' . $navItem->title . '</a>';
-
-                            $sub = "";
-                            foreach ($primaryNav as $navItem2) {
-                                if ($navItem2->menu_item_parent == $navItem->ID) {
-                                    $sub .= '<li class="menu-item' . $navItem2->ID . '"> <a href="' . $navItem2->url . '" title="' . $navItem2->title . '">' . $navItem2->title . '</a>';
-
-                                    $sub2 = "";
-                                    foreach ($primaryNav as $navItem3) {
-                                        if ($navItem3->menu_item_parent == $navItem2->ID) {
-                                            $sub2 .= '<li class="menu-item' . $navItem3->ID . '"> <a href="' . $navItem3->url . '" title="' . $navItem3->title . '">' . $navItem3->title . '</a></li>';
-
-                                        }
-                                    }
-                                    $sub .= '<ul class="dropdown d-none">' . $sub2 . '</ul>';
-
-                                    $sub .= '</li>';
-                                }
-                            }
-                            echo '<ul class="dropdown d-none parent">' . $sub . '</ul>';
-
-                            echo '</li>';
-                        }
-                    }
-                    ?>
-                    <!--                    <li id="search" style="flex-direction: row; display: flex; justify-content: center;">-->
-                    <!---->
-                    <!--                    </li>-->
-                </ul>
-                <div class="language-content">
-                    <div id="search" style="flex-direction: row; display: flex; justify-content: center;">
-                        <?php qtranxf_generateLanguageSelectCode(
-                            array(
-                                'type' => 'image'
-                            ));
-                        ?>
-                        <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-                <div class="search-box">
-                    <form method="get" action="<?php get_site_url() ?>" class="form-search-menu">
-                        <input type="text" name="s" class="form-control" placeholder="Search product">
-                        <button class="btn btn-default"><?php echo __('Search', 'localFile') ?></button>
-                    </form>
-                </div>
-            </div>
     </div>
 </div>
