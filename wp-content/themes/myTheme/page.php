@@ -30,7 +30,7 @@ global $post;
     <div class="fixed-width wow fadeInDown" style="padding: 0 15px">
 
         <?php while (have_posts()) : the_post(); ?>
-            <?php if ($post->post_parent > 0 || $post->ID !== 27 || $post->ID !== 26 || $post->ID > 100) { ?>
+            <?php if ($post->post_parent > 0 || $post->ID > 152) { ?>
                 <div class="row" style="margin: 50px 0">
                     <div class="col-md-8" style="padding: 0">
                         <div class="col-detail" style="padding-bottom: 30px">

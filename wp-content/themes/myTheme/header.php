@@ -14,7 +14,7 @@
     <meta name="keywords" content="car,auto,moto,repair,wash,cleaning,transport,workshop"/>
     <meta name="author" content="ThemeMascot"/>
     <!-- Page Title -->
-    <title><?php echo the_title() ?> - <?php echo get_bloginfo('title') ?></title>
+    <title><?php echo the_title() ?> - <?php echo 'Sonata Eyewear' ?></title>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <!-- Stylesheet -->
     <link href="<?php echo $baseURL ?>/css/bootstrap.min.css" rel="stylesheet" type="text/css">

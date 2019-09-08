@@ -395,7 +395,7 @@ function modal_add_to_cart_fragment($fragments)
                 </div>
                 <br/>
                 </button>
-                <a href="<?php wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs"><?php echo __('Checkout', 'localFile') ?></a>
+                <a href="<?php echo wc_get_checkout_url() ?>" class=" btn-modal-cart btn  btn-xs"><?php echo __('Checkout', 'localFile') ?></a>
             </div>
         </div>
     </div>
