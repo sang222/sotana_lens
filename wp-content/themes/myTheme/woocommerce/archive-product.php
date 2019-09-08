@@ -410,155 +410,159 @@ get_template_part('template_part/content', 'loading');
 get_footer('shop');
 ?>
 <script>
-    function replaceUrlParam(paramName, paramValue) {
-        var url = window.location.href;
+    document.addEventListener('DOMContentLoaded', function() {
+        jQuery && jQuery(function($){
+            function replaceUrlParam(paramName, paramValue) {
+                var url = window.location.href;
 
-        if (paramValue == null) {
-            paramValue = '';
-        }
-
-        var pattern = new RegExp('\\b(' + paramName + '=).*?(&|#|$)');
-        if (url.search(pattern) >= 0) {
-            return url.replace(pattern, '$1' + paramValue + '$2');
-        }
-
-        url = url.replace(/[?#]$/, '');
-        return url + (url.indexOf('?') > 0 ? '&' : '?') + paramName + '=' + paramValue;
-    }
-
-    var arr = Array.from($('#vendor').val().split(','));
-    $(".no-bullets input[type=radio]").change(function () {
-        $('.fixed-loading').removeClass('d-none')
-        $('body').css({'overflow': 'hidden'})
-        var newurl = replaceUrlParam('price', $(this).val());
-        let send_vendor = '';
-        for (var i = 0; i < arr.length; i++) {
-            send_vendor += arr[i];
-            if (i < arr.length - 1) {
-                send_vendor += ',';
-            }
-        }
-        $("#price").val($(this).val())
-        history.pushState(null, null, newurl);
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: $("#url_admin").val(),
-            data: {
-                action: "filter",
-                price: $(this).val(),
-                cat_id: $("#cate_id").val(),
-                vendor: send_vendor,
-            }, success: function (data) {
-                console.log(data);
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 500);
-                $(".fixed-loading").addClass('d-none')
-                $('body').css({'overflow': 'auto'})
-                $(".collection-one").children().remove();
-                if (data.data.trim() != '') {
-                    $(".collection-one").append(data.data);
-                } else {
-                    $(".collection-one").append('<h3>Not found product</h3>');
+                if (paramValue == null) {
+                    paramValue = '';
                 }
 
+                var pattern = new RegExp('\\b(' + paramName + '=).*?(&|#|$)');
+                if (url.search(pattern) >= 0) {
+                    return url.replace(pattern, '$1' + paramValue + '$2');
+                }
 
-            }, error: function (err) {
-                console.log(err);
+                url = url.replace(/[?#]$/, '');
+                return url + (url.indexOf('?') > 0 ? '&' : '?') + paramName + '=' + paramValue;
             }
-        });
+
+            var arr = Array.from($('#vendor').val().split(','));
+            $(".no-bullets input[type=radio]").change(function () {
+                $('.fixed-loading').removeClass('d-none')
+                $('body').css({'overflow': 'hidden'})
+                var newurl = replaceUrlParam('price', $(this).val());
+                let send_vendor = '';
+                for (var i = 0; i < arr.length; i++) {
+                    send_vendor += arr[i];
+                    if (i < arr.length - 1) {
+                        send_vendor += ',';
+                    }
+                }
+                $("#price").val($(this).val())
+                history.pushState(null, null, newurl);
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: $("#url_admin").val(),
+                    data: {
+                        action: "filter",
+                        price: $(this).val(),
+                        cat_id: $("#cate_id").val(),
+                        vendor: send_vendor,
+                    }, success: function (data) {
+                        console.log(data);
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 500);
+                        $(".fixed-loading").addClass('d-none')
+                        $('body').css({'overflow': 'auto'})
+                        $(".collection-one").children().remove();
+                        if (data.data.trim() != '') {
+                            $(".collection-one").append(data.data);
+                        } else {
+                            $(".collection-one").append('<h3>Not found product</h3>');
+                        }
+
+
+                    }, error: function (err) {
+                        console.log(err);
+                    }
+                });
+            })
+
+            $(".no-bullets input[type=checkbox]").change(function (e) {
+                $(".fixed-loading").removeClass('d-none')
+                $('body').css({'overflow': 'hidden'})
+                if (e.target.checked) {
+                    arr.push($(this).val().trim())
+                } else {
+                    var vt = arr.indexOf($(this).val());
+                    arr.splice(vt, 1);
+                }
+                var newurl = replaceUrlParam('vendor', arr);
+                history.pushState(null, null, newurl);
+                let send_vendor = '';
+                for (var i = 0; i < arr.length; i++) {
+                    send_vendor += arr[i];
+                    if (i < arr.length - 1) {
+                        send_vendor += ',';
+                    }
+                }
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: $("#url_admin").val(),
+                    data: {
+                        action: "filter",
+                        price: $("#price").val(),
+                        cat_id: $("#cate_id").val(),
+                        vendor: send_vendor,
+                    }, success: function (data) {
+                        console.log(data);
+                        $('body').css({'overflow': 'auto'})
+                        $(".fixed-loading").addClass('d-none')
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 500);
+                        $(".collection-one").children().remove();
+                        if (data.data.trim() != '') {
+                            $(".collection-one").append(data.data);
+                        } else {
+                            $(".collection-one").append('<h3>Not found product</h3>');
+                        }
+
+
+                    }, error: function (err) {
+                        console.log(err);
+                    }
+                });
+            });
+            //    click pagination
+            $(".collection-one").on('click', '.paginate_links a', function (e) {
+                e.preventDefault();
+                var hrefThis = $(this).attr('href');
+                var paged = hrefThis.match(/\/\d+\//)[0];
+                let send_vendor = '';
+                for (var i = 0; i < arr.length; i++) {
+                    send_vendor += arr[i];
+                    if (i < arr.length - 1) {
+                        send_vendor += ',';
+                    }
+                }
+                paged = paged.match(/\d+/)[0];
+                if (!paged) paged = 1;
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: $("#url_admin").val(),
+                    data: {
+                        action: "ajax_load_post",
+                        cat_id: $("#cate_id").val(),
+                        ajax_paged: paged,
+                        price: $("#price").val(),
+                        vendor: send_vendor,
+                    },
+                    context: this,
+                    beforeSend: function () {
+                        $('.collection-one').addClass('active');
+                    },
+                    success: function (response) {
+                        console.log(response)
+                        if (response.success) {
+                            $('html, body').animate({
+                                scrollTop: 0
+                            }, 500);
+                            $(response.data).addClass('holder');
+                            $(".collection-one").empty();
+                            $(".collection-one").append($(response.data));
+                        }
+                        $('.collection-one').removeClass('active');
+                    }
+                });
+            });
+        })
     })
-
-    $(".no-bullets input[type=checkbox]").change(function (e) {
-        $(".fixed-loading").removeClass('d-none')
-        $('body').css({'overflow': 'hidden'})
-        if (e.target.checked) {
-            arr.push($(this).val().trim())
-        } else {
-            var vt = arr.indexOf($(this).val());
-            arr.splice(vt, 1);
-        }
-        var newurl = replaceUrlParam('vendor', arr);
-        history.pushState(null, null, newurl);
-        let send_vendor = '';
-        for (var i = 0; i < arr.length; i++) {
-            send_vendor += arr[i];
-            if (i < arr.length - 1) {
-                send_vendor += ',';
-            }
-        }
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: $("#url_admin").val(),
-            data: {
-                action: "filter",
-                price: $("#price").val(),
-                cat_id: $("#cate_id").val(),
-                vendor: send_vendor,
-            }, success: function (data) {
-                console.log(data);
-                $('body').css({'overflow': 'auto'})
-                $(".fixed-loading").addClass('d-none')
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 500);
-                $(".collection-one").children().remove();
-                if (data.data.trim() != '') {
-                    $(".collection-one").append(data.data);
-                } else {
-                    $(".collection-one").append('<h3>Not found product</h3>');
-                }
-
-
-            }, error: function (err) {
-                console.log(err);
-            }
-        });
-    });
-    //    click pagination
-    $(".collection-one").on('click', '.paginate_links a', function (e) {
-        e.preventDefault();
-        var hrefThis = $(this).attr('href');
-        var paged = hrefThis.match(/\/\d+\//)[0];
-        let send_vendor = '';
-        for (var i = 0; i < arr.length; i++) {
-            send_vendor += arr[i];
-            if (i < arr.length - 1) {
-                send_vendor += ',';
-            }
-        }
-        paged = paged.match(/\d+/)[0];
-        if (!paged) paged = 1;
-        $.ajax({
-            type: "post",
-            dataType: "json",
-            url: $("#url_admin").val(),
-            data: {
-                action: "ajax_load_post",
-                cat_id: $("#cate_id").val(),
-                ajax_paged: paged,
-                price: $("#price").val(),
-                vendor: send_vendor,
-            },
-            context: this,
-            beforeSend: function () {
-                $('.collection-one').addClass('active');
-            },
-            success: function (response) {
-                console.log(response)
-                if (response.success) {
-                    $('html, body').animate({
-                        scrollTop: 0
-                    }, 500);
-                    $(response.data).addClass('holder');
-                    $(".collection-one").empty();
-                    $(".collection-one").append($(response.data));
-                }
-                $('.collection-one').removeClass('active');
-            }
-        });
-    });
 </script>
     
