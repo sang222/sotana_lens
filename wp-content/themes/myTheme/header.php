@@ -25,7 +25,7 @@
     <link href="<?php echo $baseURL ?>/css/style-main.css" rel="stylesheet" type="text/css">
     <!-- CSS | Preloader Styles -->
     <!-- CSS | Custom Margin Padding Collection -->
-    <link href="<?php echo $baseURL ?>/css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
+    <!-- <link href="<?php echo $baseURL ?>/css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css"> -->
     <!-- CSS | Responsive media queries -->
     <link href="<?php echo $baseURL ?>/css/responsive.css" rel="stylesheet" type="text/css">
     <!-- CSS | For Dark Layout -->
@@ -43,14 +43,14 @@
         <meta property="og:url" content="<?php echo home_url($wp->request) ?>"/>
         <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
         <meta property="og:image" content="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>"/>
-        <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+        <!-- <script src="https://sp.zalo.me/plugins/sdk.js"></script> -->
         <!--        <script type='text/javascript' src="--><?php //echo get_template_directory_uri() ?><!--/assets/js/loader.js"></script>-->
     <?php endif; ?>
 
     <!-- Revolution Slider 5.x CSS settings -->
 
     <!-- CSS | Theme Color -->
-    <link href="<?php echo $baseURL ?>/css/colors/theme-skin-color-set-1.css" rel="stylesheet" type="text/css">
+    <!-- <link href="<?php echo $baseURL ?>/css/colors/theme-skin-color-set-1.css" rel="stylesheet" type="text/css"> -->
 
 
     <?php wp_head() ?>

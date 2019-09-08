@@ -71,22 +71,24 @@
 <!-- Footer Scripts -->
 <!-- JS | Calendar Event Data -->
 <?php wp_footer() ?>
-<script src="<?php echo  $baseURL ?>/js/calendar-events-data.js"></script>
+<!-- <script src="<?php echo  $baseURL ?>/js/calendar-events-data.js"></script> -->
 <!-- JS | Custom script for all pages -->
 <script src="<?php echo $baseURL ?>/js/custom.js"></script>
 <script>
-    $(document).ready(function () {
-        $('.fb-share').click(function (e) {
-            e.preventDefault();
-            window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-            return false;
-        });
-        var head = document.getElementsByTagName('body')[0];
-        var lazyLoadScript = document.createElement("script");
-        var lazyLoadVersion = !("IntersectionObserver" in window) ? "8.2.1" : "10.3.3";
-        lazyLoadScript.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + lazyLoadVersion + "/lazyload.min.js";
-        window.lazyLoadOptions = {data_src: "src", data_srcset: "srcset"};
-        head.appendChild(lazyLoadScript);
+    document.addEventListener('DOMContentLoaded', function() {
+        jQuery && jQuery(function($){
+            $('.fb-share').click(function (e) {
+                e.preventDefault();
+                window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+                return false;
+            });
+            var head = document.getElementsByTagName('body')[0];
+            var lazyLoadScript = document.createElement("script");
+            var lazyLoadVersion = !("IntersectionObserver" in window) ? "8.2.1" : "10.3.3";
+            lazyLoadScript.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + lazyLoadVersion + "/lazyload.min.js";
+            window.lazyLoadOptions = {data_src: "src", data_srcset: "srcset"};
+            head.appendChild(lazyLoadScript);
+        })
     })
 </script>
 
