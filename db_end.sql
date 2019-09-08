@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 08, 2019 at 11:45 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th9 08, 2019 lúc 06:46 PM
+-- Phiên bản máy phục vụ: 10.3.16-MariaDB
+-- Phiên bản PHP: 7.1.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,44 +19,44 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `outsource`
+-- Cơ sở dữ liệu: `outsource`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_berocket_termmeta`
+-- Cấu trúc bảng cho bảng `wp_berocket_termmeta`
 --
 
 CREATE TABLE `wp_berocket_termmeta` (
   `meta_id` bigint(20) NOT NULL,
-  `berocket_term_id` bigint(20) NOT NULL DEFAULT '0',
+  `berocket_term_id` bigint(20) NOT NULL DEFAULT 0,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_commentmeta`
+-- Cấu trúc bảng cho bảng `wp_commentmeta`
 --
 
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
-  `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_comments`
+-- Cấu trúc bảng cho bảng `wp_comments`
 --
 
 CREATE TABLE `wp_comments` (
   `comment_ID` bigint(20) UNSIGNED NOT NULL,
-  `comment_post_ID` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `comment_post_ID` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `comment_author` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -64,28 +64,25 @@ CREATE TABLE `wp_comments` (
   `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `comment_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment_karma` int(11) NOT NULL DEFAULT '0',
+  `comment_karma` int(11) NOT NULL DEFAULT 0,
   `comment_approved` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
   `comment_agent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0'
+  `comment_parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_comments`
+-- Đang đổ dữ liệu cho bảng `wp_comments`
 --
 
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
-(1, 1, 'A WordPress Commenter', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2019-06-24 15:50:49', '2019-06-24 15:50:49', 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.', 0, '1', '', '', 0, 0),
-(24, 260, 'ActionScheduler', '', '', '', '2019-08-08 13:02:20', '2019-08-08 13:02:20', 'action created', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
-(25, 260, 'ActionScheduler', '', '', '', '2019-08-08 13:02:34', '2019-08-08 13:02:34', 'action started', 0, '1', 'ActionScheduler', 'action_log', 0, 0),
-(26, 260, 'ActionScheduler', '', '', '', '2019-08-08 13:02:34', '2019-08-08 13:02:34', 'action complete', 0, '1', 'ActionScheduler', 'action_log', 0, 0);
+(1, 1, 'A WordPress Commenter', 'wapuu@wordpress.example', 'https://wordpress.org/', '', '2019-06-24 15:50:49', '2019-06-24 15:50:49', 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.', 0, '1', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_links`
+-- Cấu trúc bảng cho bảng `wp_links`
 --
 
 CREATE TABLE `wp_links` (
@@ -96,8 +93,8 @@ CREATE TABLE `wp_links` (
   `link_target` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_visible` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Y',
-  `link_owner` bigint(20) UNSIGNED NOT NULL DEFAULT '1',
-  `link_rating` int(11) NOT NULL DEFAULT '0',
+  `link_owner` bigint(20) UNSIGNED NOT NULL DEFAULT 1,
+  `link_rating` int(11) NOT NULL DEFAULT 0,
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -107,7 +104,7 @@ CREATE TABLE `wp_links` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_masterslider_options`
+-- Cấu trúc bảng cho bảng `wp_masterslider_options`
 --
 
 CREATE TABLE `wp_masterslider_options` (
@@ -117,7 +114,7 @@ CREATE TABLE `wp_masterslider_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_masterslider_options`
+-- Đang đổ dữ liệu cho bảng `wp_masterslider_options`
 --
 
 INSERT INTO `wp_masterslider_options` (`ID`, `option_name`, `option_value`) VALUES
@@ -127,7 +124,7 @@ INSERT INTO `wp_masterslider_options` (`ID`, `option_name`, `option_value`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_masterslider_sliders`
+-- Cấu trúc bảng cho bảng `wp_masterslider_sliders`
 --
 
 CREATE TABLE `wp_masterslider_sliders` (
@@ -144,7 +141,7 @@ CREATE TABLE `wp_masterslider_sliders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_masterslider_sliders`
+-- Đang đổ dữ liệu cho bảng `wp_masterslider_sliders`
 --
 
 INSERT INTO `wp_masterslider_sliders` (`ID`, `title`, `type`, `slides_num`, `date_created`, `date_modified`, `params`, `custom_styles`, `custom_fonts`, `status`) VALUES
@@ -153,7 +150,7 @@ INSERT INTO `wp_masterslider_sliders` (`ID`, `title`, `type`, `slides_num`, `dat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_options`
+-- Cấu trúc bảng cho bảng `wp_options`
 --
 
 CREATE TABLE `wp_options` (
@@ -164,12 +161,12 @@ CREATE TABLE `wp_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_options`
+-- Đang đổ dữ liệu cho bảng `wp_options`
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'http://localhost/2018/freelancer/BE/sotana_lens/', 'yes'),
-(2, 'home', 'http://localhost/2018/freelancer/BE/sotana_lens/', 'yes'),
+(1, 'siteurl', 'http://localhost:8080/outsource', 'yes'),
+(2, 'home', 'http://localhost:8080/outsource', 'yes'),
 (3, 'blogname', '[:en]Sonata Eyewear[:vi]My Project[:]', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '1', 'yes'),
@@ -277,7 +274,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (108, 'widget_tag_cloud', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
 (109, 'widget_nav_menu', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
 (110, 'widget_custom_html', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
-(111, 'cron', 'a:18:{i:1567934972;a:1:{s:26:\"action_scheduler_run_queue\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:12:\"every_minute\";s:4:\"args\";a:0:{}s:8:\"interval\";i:60;}}}i:1567936250;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1567936293;a:1:{s:26:\"upgrader_scheduled_cleanup\";a:1:{s:32:\"42ae49c4e23fda3d31de20c0572f6b91\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:1:{i:0;i:1000;}}}}i:1567936427;a:1:{s:32:\"woocommerce_cancel_unpaid_orders\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1567938724;a:1:{s:26:\"upgrader_scheduled_cleanup\";a:1:{s:32:\"5f5d5e32abcd9380fe064dbbc79e11cb\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:1:{i:0;i:1008;}}}}i:1567943911;a:1:{s:33:\"woocommerce_cleanup_personal_data\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1567943921;a:1:{s:30:\"woocommerce_tracker_send_event\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1567954711;a:1:{s:24:\"woocommerce_cleanup_logs\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1567957850;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1567957860;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1567965511;a:1:{s:28:\"woocommerce_cleanup_sessions\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1567966163;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1567975048;a:1:{s:21:\"wpo_plugin_cron_tasks\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1567975691;a:1:{s:15:\"ao_cachechecker\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1567987200;a:1:{s:27:\"woocommerce_scheduled_sales\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1568018310;a:1:{s:31:\"wpo_page_cache_schedule_preload\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:9:\"wpo_daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1570320000;a:1:{s:25:\"woocommerce_geoip_updater\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:7:\"monthly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:2635200;}}}s:7:\"version\";i:2;}', 'yes'),
+(111, 'cron', 'a:16:{i:1567961132;a:1:{s:26:\"action_scheduler_run_queue\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:12:\"every_minute\";s:4:\"args\";a:0:{}s:8:\"interval\";i:60;}}}i:1567961450;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1567963814;a:1:{s:32:\"woocommerce_cancel_unpaid_orders\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1567965511;a:1:{s:28:\"woocommerce_cleanup_sessions\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1567966163;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1567975048;a:1:{s:21:\"wpo_plugin_cron_tasks\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1567975691;a:1:{s:15:\"ao_cachechecker\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1567987200;a:1:{s:27:\"woocommerce_scheduled_sales\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1568001050;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1568018310;a:1:{s:31:\"wpo_page_cache_schedule_preload\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:9:\"wpo_daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1568030311;a:1:{s:33:\"woocommerce_cleanup_personal_data\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1568030321;a:1:{s:30:\"woocommerce_tracker_send_event\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1568041111;a:1:{s:24:\"woocommerce_cleanup_logs\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1568044260;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1570320000;a:1:{s:25:\"woocommerce_geoip_updater\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:7:\"monthly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:2635200;}}}s:7:\"version\";i:2;}', 'yes'),
 (112, 'theme_mods_twentyseventeen', 'a:3:{s:18:\"custom_css_post_id\";i:-1;s:16:\"sidebars_widgets\";a:2:{s:4:\"time\";i:1563679025;s:4:\"data\";a:4:{s:19:\"wp_inactive_widgets\";a:4:{i:0;s:6:\"text-2\";i:1;s:6:\"text-3\";i:2;s:6:\"text-4\";i:3;s:6:\"text-5\";}s:9:\"sidebar-1\";a:6:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";i:3;s:10:\"archives-2\";i:4;s:12:\"categories-2\";i:5;s:6:\"meta-2\";}s:9:\"sidebar-2\";a:0:{}s:9:\"sidebar-3\";a:0:{}}}s:18:\"nav_menu_locations\";a:1:{s:3:\"top\";i:2;}}', 'yes'),
 (128, 'can_compress_scripts', '1', 'no'),
 (129, 'auto_core_update_notified', 'a:4:{s:4:\"type\";s:7:\"success\";s:5:\"email\";s:22:\"caohoang2911@gmail.com\";s:7:\"version\";s:6:\"4.9.11\";s:9:\"timestamp\";i:1567658156;}', 'no'),
@@ -415,9 +412,9 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (313, 'woocommerce_bacs_settings', 'a:11:{s:7:\"enabled\";s:2:\"no\";s:5:\"title\";s:20:\"Direct bank transfer\";s:11:\"description\";s:324:\"Thông tin chuyển khoản: 1\r\n- Ngân hàng Vietcombank - Chi nhánh Bến Thành\r\n- Tên tài khoản: Hồng Hải Toàn\r\n- Số tài khoản: ‎0331000462086\r\n\r\nThông tin chuyển khoản :2 \r\n- Ngân hàng TMCP Á Châu - Chi Nhánh Sài Gòn.\r\n- Tên Tài khoản: Hồng Hải Toàn\r\n- Số tài khoản: 183858519\";s:12:\"instructions\";s:0:\"\";s:12:\"account_name\";s:0:\"\";s:14:\"account_number\";s:0:\"\";s:9:\"sort_code\";s:0:\"\";s:9:\"bank_name\";s:0:\"\";s:4:\"iban\";s:0:\"\";s:3:\"bic\";s:0:\"\";s:15:\"account_details\";s:0:\"\";}', 'yes'),
 (314, 'woocommerce_cod_settings', 'a:6:{s:7:\"enabled\";s:3:\"yes\";s:5:\"title\";s:32:\"Thanh toán khi giao hàng (COD)\";s:11:\"description\";s:0:\"\";s:12:\"instructions\";s:0:\"\";s:18:\"enable_for_methods\";s:0:\"\";s:18:\"enable_for_virtual\";s:3:\"yes\";}', 'yes'),
 (316, '_transient_shipping-transient-version', '1567010570', 'yes'),
-(317, '_transient_product_query-transient-version', '1567934367', 'yes'),
+(317, '_transient_product_query-transient-version', '1567949624', 'yes'),
 (336, 'woocommerce_marketplace_suggestions', 'a:2:{s:11:\"suggestions\";a:26:{i:0;a:4:{s:4:\"slug\";s:28:\"product-edit-meta-tab-header\";s:7:\"context\";s:28:\"product-edit-meta-tab-header\";s:5:\"title\";s:22:\"Recommended extensions\";s:13:\"allow-dismiss\";b:0;}i:1;a:6:{s:4:\"slug\";s:39:\"product-edit-meta-tab-footer-browse-all\";s:7:\"context\";s:28:\"product-edit-meta-tab-footer\";s:9:\"link-text\";s:21:\"Browse all extensions\";s:3:\"url\";s:64:\"https://woocommerce.com/product-category/woocommerce-extensions/\";s:8:\"promoted\";s:31:\"category-woocommerce-extensions\";s:13:\"allow-dismiss\";b:0;}i:2;a:9:{s:4:\"slug\";s:46:\"product-edit-mailchimp-woocommerce-memberships\";s:7:\"product\";s:33:\"woocommerce-memberships-mailchimp\";s:14:\"show-if-active\";a:1:{i:0;s:23:\"woocommerce-memberships\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:117:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/mailchimp-for-memberships.svg\";s:5:\"title\";s:25:\"Mailchimp for Memberships\";s:4:\"copy\";s:79:\"Completely automate your email lists by syncing membership changes to Mailchimp\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:67:\"https://woocommerce.com/products/mailchimp-woocommerce-memberships/\";}i:3;a:9:{s:4:\"slug\";s:19:\"product-edit-addons\";s:7:\"product\";s:26:\"woocommerce-product-addons\";s:14:\"show-if-active\";a:2:{i:0;s:25:\"woocommerce-subscriptions\";i:1;s:20:\"woocommerce-bookings\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/product-add-ons.svg\";s:5:\"title\";s:15:\"Product Add-Ons\";s:4:\"copy\";s:93:\"Offer add-ons like gift wrapping, special messages or other special options for your products\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/product-add-ons/\";}i:4;a:9:{s:4:\"slug\";s:46:\"product-edit-woocommerce-subscriptions-gifting\";s:7:\"product\";s:33:\"woocommerce-subscriptions-gifting\";s:14:\"show-if-active\";a:1:{i:0;s:25:\"woocommerce-subscriptions\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:117:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/gifting-for-subscriptions.svg\";s:5:\"title\";s:25:\"Gifting for Subscriptions\";s:4:\"copy\";s:70:\"Let customers buy subscriptions for others - they\'re the ultimate gift\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:67:\"https://woocommerce.com/products/woocommerce-subscriptions-gifting/\";}i:5;a:9:{s:4:\"slug\";s:42:\"product-edit-teams-woocommerce-memberships\";s:7:\"product\";s:33:\"woocommerce-memberships-for-teams\";s:14:\"show-if-active\";a:1:{i:0;s:23:\"woocommerce-memberships\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:113:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/teams-for-memberships.svg\";s:5:\"title\";s:21:\"Teams for Memberships\";s:4:\"copy\";s:123:\"Adds B2B functionality to WooCommerce Memberships, allowing sites to sell team, group, corporate, or family member accounts\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:63:\"https://woocommerce.com/products/teams-woocommerce-memberships/\";}i:6;a:8:{s:4:\"slug\";s:29:\"product-edit-variation-images\";s:7:\"product\";s:39:\"woocommerce-additional-variation-images\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:119:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/additional-variation-images.svg\";s:5:\"title\";s:27:\"Additional Variation Images\";s:4:\"copy\";s:72:\"Showcase your products in the best light with a image for each variation\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:73:\"https://woocommerce.com/products/woocommerce-additional-variation-images/\";}i:7;a:9:{s:4:\"slug\";s:47:\"product-edit-woocommerce-subscription-downloads\";s:7:\"product\";s:34:\"woocommerce-subscription-downloads\";s:14:\"show-if-active\";a:1:{i:0;s:25:\"woocommerce-subscriptions\";}s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:114:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/subscription-downloads.svg\";s:5:\"title\";s:22:\"Subscription Downloads\";s:4:\"copy\";s:57:\"Give customers special downloads with their subscriptions\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:68:\"https://woocommerce.com/products/woocommerce-subscription-downloads/\";}i:8;a:8:{s:4:\"slug\";s:31:\"product-edit-min-max-quantities\";s:7:\"product\";s:30:\"woocommerce-min-max-quantities\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:110:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/min-max-quantities.svg\";s:5:\"title\";s:18:\"Min/Max Quantities\";s:4:\"copy\";s:81:\"Specify minimum and maximum allowed product quantities for orders to be completed\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:52:\"https://woocommerce.com/products/min-max-quantities/\";}i:9;a:8:{s:4:\"slug\";s:28:\"product-edit-name-your-price\";s:7:\"product\";s:27:\"woocommerce-name-your-price\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/name-your-price.svg\";s:5:\"title\";s:15:\"Name Your Price\";s:4:\"copy\";s:70:\"Let customers pay what they want - useful for donations, tips and more\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/name-your-price/\";}i:10;a:8:{s:4:\"slug\";s:42:\"product-edit-woocommerce-one-page-checkout\";s:7:\"product\";s:29:\"woocommerce-one-page-checkout\";s:7:\"context\";a:1:{i:0;s:26:\"product-edit-meta-tab-body\";}s:4:\"icon\";s:109:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/one-page-checkout.svg\";s:5:\"title\";s:17:\"One Page Checkout\";s:4:\"copy\";s:92:\"Don\'t make customers click around - let them choose products, checkout & pay all on one page\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:63:\"https://woocommerce.com/products/woocommerce-one-page-checkout/\";}i:11;a:4:{s:4:\"slug\";s:19:\"orders-empty-header\";s:7:\"context\";s:24:\"orders-list-empty-header\";s:5:\"title\";s:20:\"Tools for your store\";s:13:\"allow-dismiss\";b:0;}i:12;a:6:{s:4:\"slug\";s:30:\"orders-empty-footer-browse-all\";s:7:\"context\";s:24:\"orders-list-empty-footer\";s:9:\"link-text\";s:21:\"Browse all extensions\";s:3:\"url\";s:64:\"https://woocommerce.com/product-category/woocommerce-extensions/\";s:8:\"promoted\";s:31:\"category-woocommerce-extensions\";s:13:\"allow-dismiss\";b:0;}i:13;a:8:{s:4:\"slug\";s:19:\"orders-empty-zapier\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:18:\"woocommerce-zapier\";s:4:\"icon\";s:98:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/zapier.svg\";s:5:\"title\";s:6:\"Zapier\";s:4:\"copy\";s:88:\"Save time and increase productivity by connecting your store to more than 1000+ services\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:52:\"https://woocommerce.com/products/woocommerce-zapier/\";}i:14;a:8:{s:4:\"slug\";s:30:\"orders-empty-shipment-tracking\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:29:\"woocommerce-shipment-tracking\";s:4:\"icon\";s:109:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/shipment-tracking.svg\";s:5:\"title\";s:17:\"Shipment Tracking\";s:4:\"copy\";s:86:\"Let customers know when their orders will arrive by adding shipment tracking to emails\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:51:\"https://woocommerce.com/products/shipment-tracking/\";}i:15;a:8:{s:4:\"slug\";s:32:\"orders-empty-table-rate-shipping\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:31:\"woocommerce-table-rate-shipping\";s:4:\"icon\";s:111:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/table-rate-shipping.svg\";s:5:\"title\";s:19:\"Table Rate Shipping\";s:4:\"copy\";s:122:\"Advanced, flexible shipping. Define multiple shipping rates based on location, price, weight, shipping class or item count\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:53:\"https://woocommerce.com/products/table-rate-shipping/\";}i:16;a:8:{s:4:\"slug\";s:40:\"orders-empty-shipping-carrier-extensions\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:4:\"icon\";s:119:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/shipping-carrier-extensions.svg\";s:5:\"title\";s:27:\"Shipping Carrier Extensions\";s:4:\"copy\";s:116:\"Show live rates from FedEx, UPS, USPS and more directly on your store - never under or overcharge for shipping again\";s:11:\"button-text\";s:13:\"Find Carriers\";s:8:\"promoted\";s:26:\"category-shipping-carriers\";s:3:\"url\";s:99:\"https://woocommerce.com/product-category/woocommerce-extensions/shipping-methods/shipping-carriers/\";}i:17;a:8:{s:4:\"slug\";s:32:\"orders-empty-google-product-feed\";s:7:\"context\";s:22:\"orders-list-empty-body\";s:7:\"product\";s:25:\"woocommerce-product-feeds\";s:4:\"icon\";s:111:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/google-product-feed.svg\";s:5:\"title\";s:19:\"Google Product Feed\";s:4:\"copy\";s:76:\"Increase sales by letting customers find you when they\'re shopping on Google\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:53:\"https://woocommerce.com/products/google-product-feed/\";}i:18;a:4:{s:4:\"slug\";s:35:\"products-empty-header-product-types\";s:7:\"context\";s:26:\"products-list-empty-header\";s:5:\"title\";s:23:\"Other types of products\";s:13:\"allow-dismiss\";b:0;}i:19;a:6:{s:4:\"slug\";s:32:\"products-empty-footer-browse-all\";s:7:\"context\";s:26:\"products-list-empty-footer\";s:9:\"link-text\";s:21:\"Browse all extensions\";s:3:\"url\";s:64:\"https://woocommerce.com/product-category/woocommerce-extensions/\";s:8:\"promoted\";s:31:\"category-woocommerce-extensions\";s:13:\"allow-dismiss\";b:0;}i:20;a:8:{s:4:\"slug\";s:30:\"products-empty-product-vendors\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:27:\"woocommerce-product-vendors\";s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/product-vendors.svg\";s:5:\"title\";s:15:\"Product Vendors\";s:4:\"copy\";s:47:\"Turn your store into a multi-vendor marketplace\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/product-vendors/\";}i:21;a:8:{s:4:\"slug\";s:26:\"products-empty-memberships\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:23:\"woocommerce-memberships\";s:4:\"icon\";s:103:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/memberships.svg\";s:5:\"title\";s:11:\"Memberships\";s:4:\"copy\";s:76:\"Give members access to restricted content or products, for a fee or for free\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:57:\"https://woocommerce.com/products/woocommerce-memberships/\";}i:22;a:9:{s:4:\"slug\";s:35:\"products-empty-woocommerce-deposits\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:20:\"woocommerce-deposits\";s:14:\"show-if-active\";a:1:{i:0;s:20:\"woocommerce-bookings\";}s:4:\"icon\";s:100:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/deposits.svg\";s:5:\"title\";s:8:\"Deposits\";s:4:\"copy\";s:75:\"Make it easier for customers to pay by offering a deposit or a payment plan\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:54:\"https://woocommerce.com/products/woocommerce-deposits/\";}i:23;a:8:{s:4:\"slug\";s:40:\"products-empty-woocommerce-subscriptions\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:25:\"woocommerce-subscriptions\";s:4:\"icon\";s:105:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/subscriptions.svg\";s:5:\"title\";s:13:\"Subscriptions\";s:4:\"copy\";s:97:\"Let customers subscribe to your products or services and pay on a weekly, monthly or annual basis\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:59:\"https://woocommerce.com/products/woocommerce-subscriptions/\";}i:24;a:8:{s:4:\"slug\";s:35:\"products-empty-woocommerce-bookings\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:20:\"woocommerce-bookings\";s:4:\"icon\";s:100:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/bookings.svg\";s:5:\"title\";s:8:\"Bookings\";s:4:\"copy\";s:99:\"Allow customers to book appointments, make reservations or rent equipment without leaving your site\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:54:\"https://woocommerce.com/products/woocommerce-bookings/\";}i:25;a:8:{s:4:\"slug\";s:30:\"products-empty-product-bundles\";s:7:\"context\";s:24:\"products-list-empty-body\";s:7:\"product\";s:27:\"woocommerce-product-bundles\";s:4:\"icon\";s:107:\"https://woocommerce.com/wp-content/plugins/wccom-plugins//marketplace-suggestions/icons/product-bundles.svg\";s:5:\"title\";s:15:\"Product Bundles\";s:4:\"copy\";s:49:\"Offer customizable bundles and assembled products\";s:11:\"button-text\";s:10:\"Learn More\";s:3:\"url\";s:49:\"https://woocommerce.com/products/product-bundles/\";}}s:7:\"updated\";i:1565269354;}', 'no'),
-(347, '_transient_product-transient-version', '1567765484', 'yes'),
+(347, '_transient_product-transient-version', '1567949624', 'yes'),
 (400, 'woocommerce_tracker_ua', 'a:4:{i:0;s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36\";i:1;s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36\";i:2;s:135:\"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/80.0.180 Chrome/74.0.3729.180 Safari/537.36\";i:3;s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36\";}', 'yes'),
 (424, '_transient_timeout_wc_shipping_method_count_legacy', '1569602571', 'no'),
 (425, '_transient_wc_shipping_method_count_legacy', 'a:2:{s:7:\"version\";s:10:\"1567010570\";s:5:\"value\";i:2;}', 'no'),
@@ -745,8 +742,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (13234, '_options_slide_main_0_description', 'field_5d5d7aa88a91c', 'no'),
 (13235, 'options_slide_main_0_youtube_link', '', 'no'),
 (13236, '_options_slide_main_0_youtube_link', 'field_5d5d7ab28a91d', 'no'),
-(13251, '_transient_wc_count_comments', 'O:8:\"stdClass\":7:{s:14:\"total_comments\";i:4;s:3:\"all\";i:4;s:8:\"approved\";s:1:\"4\";s:9:\"moderated\";i:0;s:4:\"spam\";i:0;s:5:\"trash\";i:0;s:12:\"post-trashed\";i:0;}', 'yes'),
-(13252, '_transient_as_comment_count', 'O:8:\"stdClass\":7:{s:8:\"approved\";s:1:\"1\";s:14:\"total_comments\";i:1;s:3:\"all\";i:1;s:9:\"moderated\";i:0;s:4:\"spam\";i:0;s:5:\"trash\";i:0;s:12:\"post-trashed\";i:0;}', 'yes'),
 (13433, 'qtranslate_term_name', 'a:15:{s:15:\"High Tech Steel\";a:2:{s:2:\"en\";s:15:\"High Tech Steel\";s:2:\"vi\";s:17:\"KIM LOẠI ĐỨC\";}s:18:\"Paper Thin Rimless\";a:2:{s:2:\"en\";s:18:\"Paper Thin Rimless\";s:2:\"vi\";s:18:\"KÍNH VÀNH MỎNG\";}s:14:\"Ultem Original\";a:2:{s:2:\"en\";s:14:\"Ultem Original\";s:2:\"vi\";s:11:\"NHỰA UTEM\";}s:8:\"Titanium\";a:2:{s:2:\"en\";s:8:\"Titanium\";s:2:\"vi\";s:8:\"TITANIUM\";}s:14:\"Swalovski Lady\";a:2:{s:2:\"en\";s:14:\"Swalovski Lady\";s:2:\"vi\";s:14:\"SWALOVSKI NỮ\";}s:7:\"COMPANY\";a:2:{s:2:\"en\";s:7:\"COMPANY\";s:2:\"vi\";s:8:\"CÔNG TY\";}s:10:\"CONTACT US\";a:2:{s:2:\"en\";s:10:\"CONTACT US\";s:2:\"vi\";s:10:\"LIÊN HỆ\";}s:11:\"SUN CLIP ON\";a:2:{s:2:\"en\";s:11:\"SUN CLIP ON\";s:2:\"vi\";s:20:\"GỌNG KÍNH CLIP ON\";}s:7:\"OPTICAL\";a:2:{s:2:\"en\";s:7:\"OPTICAL\";s:2:\"vi\";s:12:\"GỌNG KÍNH\";}s:13:\"Utem Original\";a:2:{s:2:\"en\";s:13:\"Utem Original\";s:2:\"vi\";s:5:\"ULTEM\";}s:5:\"Steel\";a:2:{s:2:\"en\";s:5:\"Steel\";s:2:\"vi\";s:10:\"KIM LOẠI\";}s:11:\"Combination\";a:2:{s:2:\"en\";s:11:\"Combination\";s:2:\"vi\";s:11:\"HỖN HỢP\";}s:10:\"Econo Line\";a:2:{s:2:\"en\";s:10:\"Econo Line\";s:2:\"vi\";s:9:\"NHỰA TR\";}s:30:\"Paper Thin Metal &amp; Acetate\";a:2:{s:2:\"en\";s:30:\"Paper Thin Metal &amp; Acetate\";s:2:\"vi\";s:24:\"KIM LOẠI &amp; ACETATE\";}s:5:\"ULTEM\";a:2:{s:2:\"en\";s:5:\"ULTEM\";s:2:\"vi\";s:5:\"ULTEM\";}}', 'yes'),
 (13587, 'options_slide_main_1_title', '', 'no'),
 (13588, '_options_slide_main_1_title', 'field_5d5d7a678a91a', 'no'),
@@ -761,16 +756,15 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (14525, 'woocommerce_facebookcommerce_settings', 'a:10:{s:10:\"fb_api_key\";s:200:\"EAAVmx1AUlYwBAJfZA3jXkj2QTbxD0ytkJO7QPyo2BZA5lpYiIfZBZCDCmchAdZCLOwBlcwPbzYHCzeSosF22PGkU8TzBCvFautLayM7X0Q2L7ZBQCFCg29eqUzpd5JidtXb9fPFyykVDMikx8ZCUEOMWh2TazBXDRBZAVxiBhzRrXbKZB43ZCJhMdiGPfGthbHgKcZD\";s:21:\"fb_product_catalog_id\";s:15:\"387447432152658\";s:11:\"fb_pixel_id\";s:15:\"486663968778643\";s:18:\"pixel_install_time\";s:19:\"2019-08-28 13:35:49\";s:16:\"fb_pixel_use_pii\";s:3:\"yes\";s:10:\"fb_page_id\";s:15:\"103880124318626\";s:32:\"fb_external_merchant_settings_id\";s:16:\"1330126817164138\";s:32:\"is_messenger_chat_plugin_enabled\";s:3:\"yes\";s:22:\"facebook_jssdk_version\";s:4:\"v4.0\";s:31:\"msger_chat_customization_locale\";s:5:\"vi_VN\";}', 'yes'),
 (14526, 'facebook_config', 'a:2:{s:8:\"pixel_id\";s:15:\"486663968778643\";s:7:\"use_pii\";i:0;}', 'yes'),
 (14527, 'fb_cart_url', 'https://koreasonata.com/cart/', 'yes'),
-(14544, 'fb_info_banner_last_query_time', '2019-08-28 13:57:47', 'yes');
-INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(14544, 'fb_info_banner_last_query_time', '2019-08-28 13:57:47', 'yes'),
 (14694, 'woocommerce_free_shipping_6_settings', 'a:3:{s:5:\"title\";s:13:\"Free shipping\";s:8:\"requires\";s:10:\"min_amount\";s:10:\"min_amount\";s:6:\"500000\";}', 'yes'),
 (16089, '_transient_timeout_wc_var_prices_571', '1570357045', 'no'),
 (16090, '_transient_wc_var_prices_571', '{\"version\":\"1567765045\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":[],\"regular_price\":[],\"sale_price\":[]}}', 'no'),
-(16458, '_transient_timeout_wc_var_prices_690', '1570357045', 'no'),
+(16458, '_transient_timeout_wc_var_prices_690', '1570357045', 'no');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (16459, '_transient_wc_var_prices_690', '{\"version\":\"1567765045\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":[],\"regular_price\":[],\"sale_price\":[]}}', 'no'),
 (16881, '_transient_timeout_wc_var_prices_712', '1570357045', 'no'),
 (16882, '_transient_wc_var_prices_712', '{\"version\":\"1567765045\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":[],\"regular_price\":[],\"sale_price\":[]}}', 'no'),
-(17092, '_site_transient_update_themes', 'O:8:\"stdClass\":4:{s:12:\"last_checked\";i:1567932484;s:7:\"checked\";a:1:{s:7:\"myTheme\";s:3:\"1.1\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}}', 'no'),
 (17406, '_site_transient_timeout_browser_84a2db016d9fbaae4581c47bd2b3178d', '1568175785', 'no'),
 (17407, '_site_transient_browser_84a2db016d9fbaae4581c47bd2b3178d', 'a:10:{s:4:\"name\";s:6:\"Chrome\";s:7:\"version\";s:13:\"74.0.3729.182\";s:8:\"platform\";s:7:\"Windows\";s:10:\"update_url\";s:29:\"https://www.google.com/chrome\";s:7:\"img_src\";s:43:\"http://s.w.org/images/browsers/chrome.png?1\";s:11:\"img_src_ssl\";s:44:\"https://s.w.org/images/browsers/chrome.png?1\";s:15:\"current_version\";s:2:\"18\";s:7:\"upgrade\";b:0;s:8:\"insecure\";b:0;s:6:\"mobile\";b:0;}', 'no'),
 (17435, '_site_transient_timeout_browser_c1c3eae4679182f89d64e2e28b11c954', '1568184503', 'no'),
@@ -805,7 +799,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (17772, '_transient_wc_var_prices_546', '{\"version\":\"1567765045\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":[],\"regular_price\":[],\"sale_price\":[]}}', 'no'),
 (17780, '_transient_timeout_wc_var_prices_536', '1570357045', 'no'),
 (17781, '_transient_wc_var_prices_536', '{\"version\":\"1567765045\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":[],\"regular_price\":[],\"sale_price\":[]}}', 'no'),
-(17869, '_site_transient_update_core', 'O:8:\"stdClass\":4:{s:7:\"updates\";a:5:{i:0;O:8:\"stdClass\":10:{s:8:\"response\";s:7:\"upgrade\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.2.3-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.2.3-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.2.3\";s:7:\"version\";s:5:\"5.2.3\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";}i:1;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.2.3-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.2.3-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.2.3\";s:7:\"version\";s:5:\"5.2.3\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:2;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.1.2.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.1.2.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.1.2-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.1.2-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.1.2\";s:7:\"version\";s:5:\"5.1.2\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:3;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.0.6.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.0.6.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.0.6-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.0.6-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.0.6\";s:7:\"version\";s:5:\"5.0.6\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:4;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:60:\"https://downloads.wordpress.org/release/wordpress-4.9.11.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:60:\"https://downloads.wordpress.org/release/wordpress-4.9.11.zip\";s:10:\"no_content\";s:71:\"https://downloads.wordpress.org/release/wordpress-4.9.11-no-content.zip\";s:11:\"new_bundled\";s:72:\"https://downloads.wordpress.org/release/wordpress-4.9.11-new-bundled.zip\";s:7:\"partial\";s:71:\"https://downloads.wordpress.org/release/wordpress-4.9.11-partial-10.zip\";s:8:\"rollback\";s:72:\"https://downloads.wordpress.org/release/wordpress-4.9.11-rollback-10.zip\";}s:7:\"current\";s:6:\"4.9.11\";s:7:\"version\";s:6:\"4.9.11\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:6:\"4.9.10\";s:9:\"new_files\";s:0:\"\";}}s:12:\"last_checked\";i:1567932481;s:15:\"version_checked\";s:6:\"4.9.10\";s:12:\"translations\";a:0:{}}', 'no'),
 (17888, 'options_slide_main_3_title', '[:en]Fashionable Korean Eyewear[:vi]Kính mắt thời trang Hàn Quốc[:]', 'no'),
 (17889, '_options_slide_main_3_title', 'field_5d5d7a678a91a', 'no'),
 (17890, 'options_slide_main_3_background', '872', 'no'),
@@ -818,24 +811,24 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (18139, 'product_cat_children', 'a:2:{i:80;a:7:{i:0;i:66;i:1;i:74;i:2;i:75;i:3;i:77;i:4;i:78;i:5;i:79;i:6;i:86;}i:81;a:3:{i:0;i:98;i:1;i:99;i:2;i:100;}}', 'yes'),
 (18420, '_transient_timeout_wc_product_children_890', '1570333917', 'no'),
 (18421, '_transient_wc_product_children_890', 'a:2:{s:3:\"all\";a:2:{i:0;i:896;i:1;i:895;}s:7:\"visible\";a:2:{i:0;i:896;i:1;i:895;}}', 'no'),
-(18422, '_transient_timeout_wc_var_prices_890', '1570358596', 'no'),
-(18423, '_transient_wc_var_prices_890', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"896\":\"1290000\",\"895\":\"1290000\"},\"regular_price\":{\"896\":\"1290000\",\"895\":\"1290000\"},\"sale_price\":{\"896\":\"1290000\",\"895\":\"1290000\"}}}', 'no'),
+(18422, '_transient_timeout_wc_var_prices_890', '1570542888', 'no'),
+(18423, '_transient_wc_var_prices_890', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"896\":\"1290000\",\"895\":\"1290000\"},\"regular_price\":{\"896\":\"1290000\",\"895\":\"1290000\"},\"sale_price\":{\"896\":\"1290000\",\"895\":\"1290000\"}}}', 'no'),
 (18432, '_transient_timeout_wc_product_children_904', '1570333947', 'no'),
 (18433, '_transient_wc_product_children_904', 'a:2:{s:3:\"all\";a:2:{i:0;i:905;i:1;i:906;}s:7:\"visible\";a:2:{i:0;i:905;i:1;i:906;}}', 'no'),
-(18434, '_transient_timeout_wc_var_prices_904', '1570358596', 'no'),
-(18435, '_transient_wc_var_prices_904', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"905\":\"1290000\",\"906\":\"1290000\"},\"regular_price\":{\"905\":\"1290000\",\"906\":\"1290000\"},\"sale_price\":{\"905\":\"1290000\",\"906\":\"1290000\"}}}', 'no'),
+(18434, '_transient_timeout_wc_var_prices_904', '1570542888', 'no'),
+(18435, '_transient_wc_var_prices_904', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"905\":\"1290000\",\"906\":\"1290000\"},\"regular_price\":{\"905\":\"1290000\",\"906\":\"1290000\"},\"sale_price\":{\"905\":\"1290000\",\"906\":\"1290000\"}}}', 'no'),
 (18481, '_transient_timeout_wc_product_children_897', '1570334320', 'no'),
 (18482, '_transient_wc_product_children_897', 'a:2:{s:3:\"all\";a:2:{i:0;i:898;i:1;i:899;}s:7:\"visible\";a:2:{i:0;i:898;i:1;i:899;}}', 'no'),
-(18483, '_transient_timeout_wc_var_prices_897', '1570358596', 'no'),
-(18484, '_transient_wc_var_prices_897', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"898\":\"1290000\",\"899\":\"1290000\"},\"regular_price\":{\"898\":\"1290000\",\"899\":\"1290000\"},\"sale_price\":{\"898\":\"1290000\",\"899\":\"1290000\"}}}', 'no'),
+(18483, '_transient_timeout_wc_var_prices_897', '1570542888', 'no'),
+(18484, '_transient_wc_var_prices_897', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"898\":\"1290000\",\"899\":\"1290000\"},\"regular_price\":{\"898\":\"1290000\",\"899\":\"1290000\"},\"sale_price\":{\"898\":\"1290000\",\"899\":\"1290000\"}}}', 'no'),
 (18519, '_transient_timeout_wc_product_children_825', '1570334702', 'no'),
 (18520, '_transient_wc_product_children_825', 'a:2:{s:3:\"all\";a:2:{i:0;i:826;i:1;i:827;}s:7:\"visible\";a:2:{i:0;i:826;i:1;i:827;}}', 'no'),
-(18521, '_transient_timeout_wc_var_prices_825', '1570358596', 'no'),
-(18522, '_transient_wc_var_prices_825', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"826\":\"1290000\",\"827\":\"1290000\"},\"regular_price\":{\"826\":\"1290000\",\"827\":\"1290000\"},\"sale_price\":{\"826\":\"1290000\",\"827\":\"1290000\"}}}', 'no'),
+(18521, '_transient_timeout_wc_var_prices_825', '1570542888', 'no'),
+(18522, '_transient_wc_var_prices_825', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"826\":\"1290000\",\"827\":\"1290000\"},\"regular_price\":{\"826\":\"1290000\",\"827\":\"1290000\"},\"sale_price\":{\"826\":\"1290000\",\"827\":\"1290000\"}}}', 'no'),
 (18590, '_transient_timeout_wc_product_children_908', '1570338437', 'no'),
 (18591, '_transient_wc_product_children_908', 'a:2:{s:3:\"all\";a:2:{i:0;i:909;i:1;i:910;}s:7:\"visible\";a:2:{i:0;i:909;i:1;i:910;}}', 'no'),
-(18592, '_transient_timeout_wc_var_prices_908', '1570358596', 'no'),
-(18593, '_transient_wc_var_prices_908', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"909\":\"1290000\",\"910\":\"1290000\"},\"regular_price\":{\"909\":\"1290000\",\"910\":\"1290000\"},\"sale_price\":{\"909\":\"1290000\",\"910\":\"1290000\"}}}', 'no'),
+(18592, '_transient_timeout_wc_var_prices_908', '1570542888', 'no'),
+(18593, '_transient_wc_var_prices_908', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"909\":\"1290000\",\"910\":\"1290000\"},\"regular_price\":{\"909\":\"1290000\",\"910\":\"1290000\"},\"sale_price\":{\"909\":\"1290000\",\"910\":\"1290000\"}}}', 'no'),
 (18646, '_transient_timeout_wc_product_children_667', '1570342563', 'no'),
 (18647, '_transient_wc_product_children_667', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
 (18661, '_transient_timeout_wc_product_children_712', '1570342607', 'no'),
@@ -866,63 +859,61 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (18691, '_transient_wc_product_children_516', 'a:2:{s:3:\"all\";a:0:{}s:7:\"visible\";a:0:{}}', 'no'),
 (19211, '_transient_timeout_wc_product_children_937', '1570351122', 'no'),
 (19212, '_transient_wc_product_children_937', 'a:2:{s:3:\"all\";a:5:{i:0;i:938;i:1;i:939;i:2;i:940;i:3;i:941;i:4;i:942;}s:7:\"visible\";a:5:{i:0;i:938;i:1;i:939;i:2;i:940;i:3;i:941;i:4;i:942;}}', 'no'),
-(19213, '_transient_timeout_wc_var_prices_937', '1570358595', 'no'),
-(19214, '_transient_wc_var_prices_937', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"938\":\"0\",\"939\":\"0\",\"940\":\"0\",\"941\":\"0\",\"942\":\"0\"},\"regular_price\":{\"938\":\"0\",\"939\":\"0\",\"940\":\"0\",\"941\":\"0\",\"942\":\"0\"},\"sale_price\":{\"938\":\"0\",\"939\":\"0\",\"940\":\"0\",\"941\":\"0\",\"942\":\"0\"}}}', 'no'),
+(19213, '_transient_timeout_wc_var_prices_937', '1570544524', 'no'),
+(19214, '_transient_wc_var_prices_937', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"938\":\"0\",\"939\":\"0\",\"940\":\"0\",\"941\":\"0\",\"942\":\"0\"},\"regular_price\":{\"938\":\"0\",\"939\":\"0\",\"940\":\"0\",\"941\":\"0\",\"942\":\"0\"},\"sale_price\":{\"938\":\"0\",\"939\":\"0\",\"940\":\"0\",\"941\":\"0\",\"942\":\"0\"}}}', 'no'),
 (19333, 'woocommerce_meta_box_errors', 'a:0:{}', 'yes'),
 (19416, '_transient_timeout_wc_product_children_971', '1570353218', 'no'),
 (19417, '_transient_wc_product_children_971', 'a:2:{s:3:\"all\";a:5:{i:0;i:972;i:1;i:973;i:2;i:974;i:3;i:975;i:4;i:976;}s:7:\"visible\";a:5:{i:0;i:972;i:1;i:973;i:2;i:974;i:3;i:975;i:4;i:976;}}', 'no'),
-(19418, '_transient_timeout_wc_var_prices_971', '1570358595', 'no'),
-(19419, '_transient_wc_var_prices_971', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"972\":\"0\",\"973\":\"0\",\"974\":\"0\",\"975\":\"0\",\"976\":\"0\"},\"regular_price\":{\"972\":\"0\",\"973\":\"0\",\"974\":\"0\",\"975\":\"0\",\"976\":\"0\"},\"sale_price\":{\"972\":\"0\",\"973\":\"0\",\"974\":\"0\",\"975\":\"0\",\"976\":\"0\"}}}', 'no'),
+(19418, '_transient_timeout_wc_var_prices_971', '1570544524', 'no'),
+(19419, '_transient_wc_var_prices_971', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"972\":\"0\",\"973\":\"0\",\"974\":\"0\",\"975\":\"0\",\"976\":\"0\"},\"regular_price\":{\"972\":\"0\",\"973\":\"0\",\"974\":\"0\",\"975\":\"0\",\"976\":\"0\"},\"sale_price\":{\"972\":\"0\",\"973\":\"0\",\"974\":\"0\",\"975\":\"0\",\"976\":\"0\"}}}', 'no'),
 (19549, '_transient_timeout_wc_product_children_988', '1570356261', 'no'),
 (19550, '_transient_wc_product_children_988', 'a:2:{s:3:\"all\";a:3:{i:0;i:989;i:1;i:990;i:2;i:991;}s:7:\"visible\";a:3:{i:0;i:989;i:1;i:990;i:2;i:991;}}', 'no'),
-(19551, '_transient_timeout_wc_var_prices_988', '1570358596', 'no'),
-(19552, '_transient_wc_var_prices_988', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"989\":\"0\",\"990\":\"0\",\"991\":\"0\"},\"regular_price\":{\"989\":\"0\",\"990\":\"0\",\"991\":\"0\"},\"sale_price\":{\"989\":\"0\",\"990\":\"0\",\"991\":\"0\"}}}', 'no'),
+(19551, '_transient_timeout_wc_var_prices_988', '1570541639', 'no'),
+(19552, '_transient_wc_var_prices_988', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"989\":\"0\",\"990\":\"0\",\"991\":\"0\"},\"regular_price\":{\"989\":\"0\",\"990\":\"0\",\"991\":\"0\"},\"sale_price\":{\"989\":\"0\",\"990\":\"0\",\"991\":\"0\"}}}', 'no'),
 (19559, '_transient_timeout_wc_product_children_982', '1570356344', 'no'),
 (19560, '_transient_wc_product_children_982', 'a:2:{s:3:\"all\";a:5:{i:0;i:983;i:1;i:984;i:2;i:985;i:3;i:986;i:4;i:987;}s:7:\"visible\";a:5:{i:0;i:983;i:1;i:984;i:2;i:985;i:3;i:986;i:4;i:987;}}', 'no'),
-(19561, '_transient_timeout_wc_var_prices_982', '1570358595', 'no'),
-(19562, '_transient_wc_var_prices_982', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"983\":\"0\",\"984\":\"0\",\"985\":\"0\",\"986\":\"0\",\"987\":\"0\"},\"regular_price\":{\"983\":\"0\",\"984\":\"0\",\"985\":\"0\",\"986\":\"0\",\"987\":\"0\"},\"sale_price\":{\"983\":\"0\",\"984\":\"0\",\"985\":\"0\",\"986\":\"0\",\"987\":\"0\"}}}', 'no'),
+(19561, '_transient_timeout_wc_var_prices_982', '1570544524', 'no'),
+(19562, '_transient_wc_var_prices_982', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"983\":\"0\",\"984\":\"0\",\"985\":\"0\",\"986\":\"0\",\"987\":\"0\"},\"regular_price\":{\"983\":\"0\",\"984\":\"0\",\"985\":\"0\",\"986\":\"0\",\"987\":\"0\"},\"sale_price\":{\"983\":\"0\",\"984\":\"0\",\"985\":\"0\",\"986\":\"0\",\"987\":\"0\"}}}', 'no'),
 (19573, '_transient_timeout_wc_product_children_922', '1570356519', 'no'),
 (19574, '_transient_wc_product_children_922', 'a:2:{s:3:\"all\";a:4:{i:0;i:923;i:1;i:924;i:2;i:925;i:3;i:926;}s:7:\"visible\";a:4:{i:0;i:923;i:1;i:924;i:2;i:925;i:3;i:926;}}', 'no'),
-(19575, '_transient_timeout_wc_var_prices_922', '1570358596', 'no'),
-(19576, '_transient_wc_var_prices_922', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"923\":\"0\",\"924\":\"0\",\"925\":\"0\",\"926\":\"0\"},\"regular_price\":{\"923\":\"0\",\"924\":\"0\",\"925\":\"0\",\"926\":\"0\"},\"sale_price\":{\"923\":\"0\",\"924\":\"0\",\"925\":\"0\",\"926\":\"0\"}}}', 'no'),
+(19575, '_transient_timeout_wc_var_prices_922', '1570541641', 'no'),
+(19576, '_transient_wc_var_prices_922', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"923\":\"0\",\"924\":\"0\",\"925\":\"0\",\"926\":\"0\"},\"regular_price\":{\"923\":\"0\",\"924\":\"0\",\"925\":\"0\",\"926\":\"0\"},\"sale_price\":{\"923\":\"0\",\"924\":\"0\",\"925\":\"0\",\"926\":\"0\"}}}', 'no'),
 (19582, '_transient_timeout_wc_product_children_927', '1570356586', 'no'),
 (19583, '_transient_wc_product_children_927', 'a:2:{s:3:\"all\";a:4:{i:0;i:928;i:1;i:929;i:2;i:930;i:3;i:931;}s:7:\"visible\";a:4:{i:0;i:928;i:1;i:929;i:2;i:930;i:3;i:931;}}', 'no'),
-(19584, '_transient_timeout_wc_var_prices_927', '1570358595', 'no'),
-(19585, '_transient_wc_var_prices_927', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"928\":\"0\",\"929\":\"0\",\"930\":\"0\",\"931\":\"0\"},\"regular_price\":{\"928\":\"0\",\"929\":\"0\",\"930\":\"0\",\"931\":\"0\"},\"sale_price\":{\"928\":\"0\",\"929\":\"0\",\"930\":\"0\",\"931\":\"0\"}}}', 'no'),
+(19584, '_transient_timeout_wc_var_prices_927', '1570541640', 'no'),
+(19585, '_transient_wc_var_prices_927', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"928\":\"0\",\"929\":\"0\",\"930\":\"0\",\"931\":\"0\"},\"regular_price\":{\"928\":\"0\",\"929\":\"0\",\"930\":\"0\",\"931\":\"0\"},\"sale_price\":{\"928\":\"0\",\"929\":\"0\",\"930\":\"0\",\"931\":\"0\"}}}', 'no'),
 (19591, '_transient_timeout_wc_product_children_932', '1570356655', 'no'),
 (19592, '_transient_wc_product_children_932', 'a:2:{s:3:\"all\";a:4:{i:0;i:933;i:1;i:934;i:2;i:935;i:3;i:936;}s:7:\"visible\";a:4:{i:0;i:933;i:1;i:934;i:2;i:935;i:3;i:936;}}', 'no'),
-(19593, '_transient_timeout_wc_var_prices_932', '1570358595', 'no'),
-(19594, '_transient_wc_var_prices_932', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"933\":\"0\",\"934\":\"0\",\"935\":\"0\"},\"regular_price\":{\"933\":\"0\",\"934\":\"0\",\"935\":\"0\"},\"sale_price\":{\"933\":\"0\",\"934\":\"0\",\"935\":\"0\"}}}', 'no'),
+(19593, '_transient_timeout_wc_var_prices_932', '1570541640', 'no'),
+(19594, '_transient_wc_var_prices_932', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"933\":\"0\",\"934\":\"0\",\"935\":\"0\"},\"regular_price\":{\"933\":\"0\",\"934\":\"0\",\"935\":\"0\"},\"sale_price\":{\"933\":\"0\",\"934\":\"0\",\"935\":\"0\"}}}', 'no'),
 (19600, '_transient_timeout_wc_product_children_977', '1570356697', 'no'),
 (19601, '_transient_wc_product_children_977', 'a:2:{s:3:\"all\";a:3:{i:0;i:978;i:1;i:979;i:2;i:980;}s:7:\"visible\";a:3:{i:0;i:978;i:1;i:979;i:2;i:980;}}', 'no'),
-(19602, '_transient_timeout_wc_var_prices_977', '1570358596', 'no'),
-(19603, '_transient_wc_var_prices_977', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"978\":\"0\",\"979\":\"0\",\"980\":\"0\"},\"regular_price\":{\"978\":\"0\",\"979\":\"0\",\"980\":\"0\"},\"sale_price\":{\"978\":\"0\",\"979\":\"0\",\"980\":\"0\"}}}', 'no'),
+(19602, '_transient_timeout_wc_var_prices_977', '1570541639', 'no'),
+(19603, '_transient_wc_var_prices_977', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"978\":\"0\",\"979\":\"0\",\"980\":\"0\"},\"regular_price\":{\"978\":\"0\",\"979\":\"0\",\"980\":\"0\"},\"sale_price\":{\"978\":\"0\",\"979\":\"0\",\"980\":\"0\"}}}', 'no'),
 (19609, '_transient_timeout_wc_product_children_967', '1570356773', 'no'),
 (19610, '_transient_wc_product_children_967', 'a:2:{s:3:\"all\";a:3:{i:0;i:968;i:1;i:969;i:2;i:970;}s:7:\"visible\";a:3:{i:0;i:968;i:1;i:969;i:2;i:970;}}', 'no'),
-(19611, '_transient_timeout_wc_var_prices_967', '1570358596', 'no'),
-(19612, '_transient_wc_var_prices_967', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"968\":\"0\",\"969\":\"0\"},\"regular_price\":{\"968\":\"0\",\"969\":\"0\"},\"sale_price\":{\"968\":\"0\",\"969\":\"0\"}}}', 'no'),
+(19611, '_transient_timeout_wc_var_prices_967', '1570541639', 'no'),
+(19612, '_transient_wc_var_prices_967', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"968\":\"0\",\"969\":\"0\"},\"regular_price\":{\"968\":\"0\",\"969\":\"0\"},\"sale_price\":{\"968\":\"0\",\"969\":\"0\"}}}', 'no'),
 (19618, '_transient_timeout_wc_product_children_961', '1570356846', 'no'),
 (19619, '_transient_wc_product_children_961', 'a:2:{s:3:\"all\";a:5:{i:0;i:962;i:1;i:963;i:2;i:964;i:3;i:965;i:4;i:966;}s:7:\"visible\";a:5:{i:0;i:962;i:1;i:963;i:2;i:964;i:3;i:965;i:4;i:966;}}', 'no'),
-(19620, '_transient_timeout_wc_var_prices_961', '1570358595', 'no'),
-(19621, '_transient_wc_var_prices_961', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"962\":\"0\",\"963\":\"0\",\"964\":\"0\",\"965\":\"0\",\"966\":\"0\"},\"regular_price\":{\"962\":\"0\",\"963\":\"0\",\"964\":\"0\",\"965\":\"0\",\"966\":\"0\"},\"sale_price\":{\"962\":\"0\",\"963\":\"0\",\"964\":\"0\",\"965\":\"0\",\"966\":\"0\"}}}', 'no'),
+(19620, '_transient_timeout_wc_var_prices_961', '1570544524', 'no'),
+(19621, '_transient_wc_var_prices_961', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"962\":\"0\",\"963\":\"0\",\"964\":\"0\",\"965\":\"0\",\"966\":\"0\"},\"regular_price\":{\"962\":\"0\",\"963\":\"0\",\"964\":\"0\",\"965\":\"0\",\"966\":\"0\"},\"sale_price\":{\"962\":\"0\",\"963\":\"0\",\"964\":\"0\",\"965\":\"0\",\"966\":\"0\"}}}', 'no'),
 (19627, '_transient_timeout_wc_product_children_955', '1570356903', 'no'),
 (19628, '_transient_wc_product_children_955', 'a:2:{s:3:\"all\";a:4:{i:0;i:956;i:1;i:957;i:2;i:958;i:3;i:959;}s:7:\"visible\";a:4:{i:0;i:956;i:1;i:957;i:2;i:958;i:3;i:959;}}', 'no'),
-(19629, '_transient_timeout_wc_var_prices_955', '1570358596', 'no'),
-(19630, '_transient_wc_var_prices_955', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"956\":\"0\",\"957\":\"0\",\"959\":\"0\"},\"regular_price\":{\"956\":\"0\",\"957\":\"0\",\"959\":\"0\"},\"sale_price\":{\"956\":\"0\",\"957\":\"0\",\"959\":\"0\"}}}', 'no'),
+(19629, '_transient_timeout_wc_var_prices_955', '1570541640', 'no'),
+(19630, '_transient_wc_var_prices_955', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"956\":\"0\",\"957\":\"0\",\"959\":\"0\"},\"regular_price\":{\"956\":\"0\",\"957\":\"0\",\"959\":\"0\"},\"sale_price\":{\"956\":\"0\",\"957\":\"0\",\"959\":\"0\"}}}', 'no'),
 (19636, '_transient_timeout_wc_product_children_949', '1570356948', 'no'),
 (19637, '_transient_wc_product_children_949', 'a:2:{s:3:\"all\";a:5:{i:0;i:950;i:1;i:951;i:2;i:952;i:3;i:953;i:4;i:954;}s:7:\"visible\";a:5:{i:0;i:950;i:1;i:951;i:2;i:952;i:3;i:953;i:4;i:954;}}', 'no'),
-(19638, '_transient_timeout_wc_var_prices_949', '1570358596', 'no'),
-(19639, '_transient_wc_var_prices_949', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"950\":\"0\",\"951\":\"0\",\"952\":\"0\",\"953\":\"0\"},\"regular_price\":{\"950\":\"0\",\"951\":\"0\",\"952\":\"0\",\"953\":\"0\"},\"sale_price\":{\"950\":\"0\",\"951\":\"0\",\"952\":\"0\",\"953\":\"0\"}}}', 'no'),
+(19638, '_transient_timeout_wc_var_prices_949', '1570549227', 'no'),
+(19639, '_transient_wc_var_prices_949', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"950\":\"0\",\"951\":\"0\",\"952\":\"0\",\"953\":\"0\"},\"regular_price\":{\"950\":\"0\",\"951\":\"0\",\"952\":\"0\",\"953\":\"0\"},\"sale_price\":{\"950\":\"0\",\"951\":\"0\",\"952\":\"0\",\"953\":\"0\"}}}', 'no'),
 (19644, '_transient_timeout_wc_product_children_943', '1570356990', 'no'),
 (19645, '_transient_wc_product_children_943', 'a:2:{s:3:\"all\";a:4:{i:0;i:944;i:1;i:945;i:2;i:946;i:3;i:947;}s:7:\"visible\";a:4:{i:0;i:944;i:1;i:945;i:2;i:946;i:3;i:947;}}', 'no'),
-(19646, '_transient_timeout_wc_var_prices_943', '1570358596', 'no'),
-(19647, '_transient_wc_var_prices_943', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"944\":\"0\",\"945\":\"0\",\"946\":\"0\",\"947\":\"0\"},\"regular_price\":{\"944\":\"0\",\"945\":\"0\",\"946\":\"0\",\"947\":\"0\"},\"sale_price\":{\"944\":\"0\",\"945\":\"0\",\"946\":\"0\",\"947\":\"0\"}}}', 'no'),
-(19689, '_transient_timeout_wc_term_counts', '1570450051', 'no'),
-(19690, '_transient_wc_term_counts', 'a:15:{i:80;s:2:\"15\";i:66;s:2:\"10\";i:79;s:1:\"5\";i:81;s:1:\"5\";i:98;s:1:\"5\";i:82;s:1:\"5\";i:75;s:0:\"\";i:74;s:0:\"\";i:78;s:0:\"\";i:77;s:0:\"\";i:86;s:1:\"0\";i:100;s:1:\"0\";i:99;s:1:\"0\";i:118;s:1:\"5\";i:104;s:1:\"5\";}', 'no'),
+(19646, '_transient_timeout_wc_var_prices_943', '1570541640', 'no'),
+(19647, '_transient_wc_var_prices_943', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"944\":\"0\",\"945\":\"0\",\"946\":\"0\",\"947\":\"0\"},\"regular_price\":{\"944\":\"0\",\"945\":\"0\",\"946\":\"0\",\"947\":\"0\"},\"sale_price\":{\"944\":\"0\",\"945\":\"0\",\"946\":\"0\",\"947\":\"0\"}}}', 'no'),
 (19691, '_transient_timeout_wc_product_children_427', '1570358596', 'no'),
 (19692, '_transient_wc_product_children_427', 'a:2:{s:3:\"all\";a:4:{i:0;i:428;i:1;i:429;i:2;i:430;i:3;i:431;}s:7:\"visible\";a:4:{i:0;i:428;i:1;i:429;i:2;i:430;i:3;i:431;}}', 'no'),
-(19693, '_transient_timeout_wc_var_prices_427', '1570358596', 'no'),
-(19694, '_transient_wc_var_prices_427', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"428\":\"0\",\"429\":\"0\",\"430\":\"0\",\"431\":\"0\"},\"regular_price\":{\"428\":\"0\",\"429\":\"0\",\"430\":\"0\",\"431\":\"0\"},\"sale_price\":{\"428\":\"0\",\"429\":\"0\",\"430\":\"0\",\"431\":\"0\"}}}', 'no'),
+(19693, '_transient_timeout_wc_var_prices_427', '1570544525', 'no'),
+(19694, '_transient_wc_var_prices_427', '{\"version\":\"1567949624\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":{\"428\":\"0\",\"429\":\"0\",\"430\":\"0\",\"431\":\"0\"},\"regular_price\":{\"428\":\"0\",\"429\":\"0\",\"430\":\"0\",\"431\":\"0\"},\"sale_price\":{\"428\":\"0\",\"429\":\"0\",\"430\":\"0\",\"431\":\"0\"}}}', 'no'),
 (19695, '_transient_timeout_wc_product_children_994', '1570358596', 'no'),
 (19696, '_transient_wc_product_children_994', 'a:2:{s:3:\"all\";a:3:{i:0;i:995;i:1;i:996;i:2;i:997;}s:7:\"visible\";a:3:{i:0;i:995;i:1;i:996;i:2;i:997;}}', 'no'),
 (19789, '_site_transient_timeout_browser_471e4b86e3560c6feb474def098169b6', '1568530756', 'no'),
@@ -931,10 +922,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (19792, '_transient_wc_report_sales_by_date', 'a:16:{s:32:\"9e8f6efa2d5548b90cae0a1e6f5d2f8c\";a:0:{}s:32:\"19eea03f098373bfdf8778488cea6cd1\";a:0:{}s:32:\"b0e643dab0af94b24ced78f5cc462219\";a:0:{}s:32:\"fe0d7c8bf7ab7b921f9817327f9b137c\";N;s:32:\"4d0b748a88e5ab4fbc8a68f7b8de949b\";a:0:{}s:32:\"3f59cd113d8e9dc36a62a003068ca204\";a:0:{}s:32:\"b50b0b5529ba48ca82a44ab05834f188\";a:0:{}s:32:\"2e7c738013a4a00bcf0ad4eec80660ae\";a:0:{}s:32:\"77b3da09a429d89eb0d9c1b8f395503f\";a:0:{}s:32:\"4847bfbb263d058ceb4d71ee3e1e9867\";a:0:{}s:32:\"3188bd1831abca17ade0386cf9eebf21\";a:0:{}s:32:\"9cd1c5a2db52266404a1bf14920fddf6\";N;s:32:\"e2464b6fccc706f57e0faf000f34974e\";a:0:{}s:32:\"4415fa52e2ce38bfeea0e474e1c43fc0\";a:0:{}s:32:\"0a2d299d932e8bd0adf835a6aec8983c\";a:0:{}s:32:\"b51fd7aeceed3dc661d61e635fda4c0f\";a:0:{}}', 'no'),
 (19793, '_transient_timeout_wc_admin_report', '1568015345', 'no'),
 (19794, '_transient_wc_admin_report', 'a:2:{s:32:\"89e17c1afaf5676c998047f5931050be\";a:0:{}s:32:\"8f985f46a8f55b0c8bbded0c7f082d2d\";a:0:{}}', 'no'),
-(19795, '_transient_timeout_wc_low_stock_count', '1570517956', 'no'),
-(19796, '_transient_wc_low_stock_count', '0', 'no'),
-(19797, '_transient_timeout_wc_outofstock_count', '1570517956', 'no'),
-(19798, '_transient_wc_outofstock_count', '0', 'no'),
 (19799, '_site_transient_timeout_community-events-a48180403967f7b65c9fec05ff216882', '1567969158', 'no'),
 (19800, '_site_transient_community-events-a48180403967f7b65c9fec05ff216882', 'a:3:{s:9:\"sandboxed\";b:0;s:8:\"location\";a:1:{s:2:\"ip\";s:12:\"42.116.115.0\";}s:6:\"events\";a:0:{}}', 'no'),
 (19801, '_transient_timeout_feed_ac0b00fe65abe10e0c5b588f3ed8c7ca', '1567969160', 'no');
@@ -951,17 +938,12 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (19808, '_transient_feed_mod_d117b5738fbd35bd8c0391cda1f2b5d9', '1567925961', 'no'),
 (19809, '_transient_timeout_dash_v2_88ae138922fe95674369b1cb3d215a2b', '1567969161', 'no'),
 (19810, '_transient_dash_v2_88ae138922fe95674369b1cb3d215a2b', '<div class=\"rss-widget\"><ul><li><a class=\'rsswidget\' href=\'https://wordpress.org/news/2019/09/people-of-wordpress-abdullah-ramzan/\'>People of WordPress: Abdullah Ramzan</a></li></ul></div><div class=\"rss-widget\"><ul><li><a class=\'rsswidget\' href=\'https://wptavern.com/first-look-at-twenty-twenty-new-wordpress-default-theme-based-on-chaplain\'>WPTavern: First Look at Twenty Twenty: New WordPress Default Theme based on Chaplin</a></li><li><a class=\'rsswidget\' href=\'https://wptavern.com/google-releases-native-lazyload-plugin-for-wordpress\'>WPTavern: Google Releases Native Lazyload Plugin for WordPress</a></li><li><a class=\'rsswidget\' href=\'https://wordpress.org/news/2019/09/people-of-wordpress-abdullah-ramzan/\'>WordPress.org blog: People of WordPress: Abdullah Ramzan</a></li></ul></div>', 'no'),
-(19819, '_site_transient_timeout_available_translations', '1567937464', 'no'),
-(19820, '_site_transient_available_translations', 'a:114:{s:2:\"af\";a:8:{s:8:\"language\";s:2:\"af\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-05-16 12:53:39\";s:12:\"english_name\";s:9:\"Afrikaans\";s:11:\"native_name\";s:9:\"Afrikaans\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/af.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"af\";i:2;s:3:\"afr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Gaan voort\";}}s:2:\"ar\";a:8:{s:8:\"language\";s:2:\"ar\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-09-03 09:41:22\";s:12:\"english_name\";s:6:\"Arabic\";s:11:\"native_name\";s:14:\"العربية\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/ar.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ar\";i:2;s:3:\"ara\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"المتابعة\";}}s:3:\"ary\";a:8:{s:8:\"language\";s:3:\"ary\";s:7:\"version\";s:5:\"4.7.7\";s:7:\"updated\";s:19:\"2017-01-26 15:42:35\";s:12:\"english_name\";s:15:\"Moroccan Arabic\";s:11:\"native_name\";s:31:\"العربية المغربية\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.7/ary.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ar\";i:3;s:3:\"ary\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"المتابعة\";}}s:2:\"as\";a:8:{s:8:\"language\";s:2:\"as\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-22 18:59:07\";s:12:\"english_name\";s:8:\"Assamese\";s:11:\"native_name\";s:21:\"অসমীয়া\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/as.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"as\";i:2;s:3:\"asm\";i:3;s:3:\"asm\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:3:\"azb\";a:8:{s:8:\"language\";s:3:\"azb\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-09-12 20:34:31\";s:12:\"english_name\";s:17:\"South Azerbaijani\";s:11:\"native_name\";s:29:\"گؤنئی آذربایجان\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/azb.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"az\";i:3;s:3:\"azb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:2:\"az\";a:8:{s:8:\"language\";s:2:\"az\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-06 00:09:27\";s:12:\"english_name\";s:11:\"Azerbaijani\";s:11:\"native_name\";s:16:\"Azərbaycan dili\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/az.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"az\";i:2;s:3:\"aze\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Davam\";}}s:3:\"bel\";a:8:{s:8:\"language\";s:3:\"bel\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-05-14 14:59:20\";s:12:\"english_name\";s:10:\"Belarusian\";s:11:\"native_name\";s:29:\"Беларуская мова\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/translation/core/4.9.11/bel.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"be\";i:2;s:3:\"bel\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Працягнуць\";}}s:5:\"bg_BG\";a:8:{s:8:\"language\";s:5:\"bg_BG\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-11-05 11:37:23\";s:12:\"english_name\";s:9:\"Bulgarian\";s:11:\"native_name\";s:18:\"Български\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/bg_BG.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bg\";i:2;s:3:\"bul\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Напред\";}}s:5:\"bn_BD\";a:8:{s:8:\"language\";s:5:\"bn_BD\";s:7:\"version\";s:5:\"4.8.6\";s:7:\"updated\";s:19:\"2017-10-01 12:57:10\";s:12:\"english_name\";s:20:\"Bengali (Bangladesh)\";s:11:\"native_name\";s:15:\"বাংলা\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.8.6/bn_BD.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"bn\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:23:\"এগিয়ে চল.\";}}s:2:\"bo\";a:8:{s:8:\"language\";s:2:\"bo\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-05-16 08:03:06\";s:12:\"english_name\";s:7:\"Tibetan\";s:11:\"native_name\";s:21:\"བོད་ཡིག\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/bo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bo\";i:2;s:3:\"tib\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:33:\"མུ་མཐུད་དུ།\";}}s:5:\"bs_BA\";a:8:{s:8:\"language\";s:5:\"bs_BA\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-06-12 06:34:37\";s:12:\"english_name\";s:7:\"Bosnian\";s:11:\"native_name\";s:8:\"Bosanski\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/bs_BA.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bs\";i:2;s:3:\"bos\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Nastavi\";}}s:2:\"ca\";a:8:{s:8:\"language\";s:2:\"ca\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 02:38:14\";s:12:\"english_name\";s:7:\"Catalan\";s:11:\"native_name\";s:7:\"Català\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/ca.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ca\";i:2;s:3:\"cat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continua\";}}s:3:\"ceb\";a:8:{s:8:\"language\";s:3:\"ceb\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-03-02 17:25:51\";s:12:\"english_name\";s:7:\"Cebuano\";s:11:\"native_name\";s:7:\"Cebuano\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/ceb.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"ceb\";i:3;s:3:\"ceb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Padayun\";}}s:5:\"cs_CZ\";a:8:{s:8:\"language\";s:5:\"cs_CZ\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-07-02 05:02:53\";s:12:\"english_name\";s:5:\"Czech\";s:11:\"native_name\";s:9:\"Čeština\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/cs_CZ.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"cs\";i:2;s:3:\"ces\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:11:\"Pokračovat\";}}s:2:\"cy\";a:8:{s:8:\"language\";s:2:\"cy\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-19 09:40:25\";s:12:\"english_name\";s:5:\"Welsh\";s:11:\"native_name\";s:7:\"Cymraeg\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/cy.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"cy\";i:2;s:3:\"cym\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Parhau\";}}s:5:\"da_DK\";a:8:{s:8:\"language\";s:5:\"da_DK\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-04-02 13:26:35\";s:12:\"english_name\";s:6:\"Danish\";s:11:\"native_name\";s:5:\"Dansk\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/da_DK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"da\";i:2;s:3:\"dan\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Fortsæt\";}}s:5:\"de_DE\";a:8:{s:8:\"language\";s:5:\"de_DE\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-04-04 14:01:41\";s:12:\"english_name\";s:6:\"German\";s:11:\"native_name\";s:7:\"Deutsch\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/de_DE.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:12:\"de_DE_formal\";a:8:{s:8:\"language\";s:12:\"de_DE_formal\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-20 12:44:05\";s:12:\"english_name\";s:15:\"German (Formal)\";s:11:\"native_name\";s:13:\"Deutsch (Sie)\";s:7:\"package\";s:72:\"https://downloads.wordpress.org/translation/core/4.9.11/de_DE_formal.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:14:\"de_CH_informal\";a:8:{s:8:\"language\";s:14:\"de_CH_informal\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-07-28 11:48:22\";s:12:\"english_name\";s:30:\"German (Switzerland, Informal)\";s:11:\"native_name\";s:21:\"Deutsch (Schweiz, Du)\";s:7:\"package\";s:73:\"https://downloads.wordpress.org/translation/core/4.9.8/de_CH_informal.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:5:\"de_CH\";a:8:{s:8:\"language\";s:5:\"de_CH\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-07-28 11:47:36\";s:12:\"english_name\";s:20:\"German (Switzerland)\";s:11:\"native_name\";s:17:\"Deutsch (Schweiz)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/de_CH.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:3:\"dzo\";a:8:{s:8:\"language\";s:3:\"dzo\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-06-29 08:59:03\";s:12:\"english_name\";s:8:\"Dzongkha\";s:11:\"native_name\";s:18:\"རྫོང་ཁ\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/dzo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"dz\";i:2;s:3:\"dzo\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:2:\"el\";a:8:{s:8:\"language\";s:2:\"el\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 14:41:04\";s:12:\"english_name\";s:5:\"Greek\";s:11:\"native_name\";s:16:\"Ελληνικά\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/el.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"el\";i:2;s:3:\"ell\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"Συνέχεια\";}}s:5:\"en_GB\";a:8:{s:8:\"language\";s:5:\"en_GB\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 07:19:03\";s:12:\"english_name\";s:12:\"English (UK)\";s:11:\"native_name\";s:12:\"English (UK)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/en_GB.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_ZA\";a:8:{s:8:\"language\";s:5:\"en_ZA\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 07:15:15\";s:12:\"english_name\";s:22:\"English (South Africa)\";s:11:\"native_name\";s:22:\"English (South Africa)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/en_ZA.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_NZ\";a:8:{s:8:\"language\";s:5:\"en_NZ\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 09:05:53\";s:12:\"english_name\";s:21:\"English (New Zealand)\";s:11:\"native_name\";s:21:\"English (New Zealand)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/en_NZ.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_CA\";a:8:{s:8:\"language\";s:5:\"en_CA\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-05-03 20:13:34\";s:12:\"english_name\";s:16:\"English (Canada)\";s:11:\"native_name\";s:16:\"English (Canada)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/en_CA.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_AU\";a:8:{s:8:\"language\";s:5:\"en_AU\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 02:09:13\";s:12:\"english_name\";s:19:\"English (Australia)\";s:11:\"native_name\";s:19:\"English (Australia)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/en_AU.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:2:\"eo\";a:8:{s:8:\"language\";s:2:\"eo\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-04-24 14:32:41\";s:12:\"english_name\";s:9:\"Esperanto\";s:11:\"native_name\";s:9:\"Esperanto\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/eo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"eo\";i:2;s:3:\"epo\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Daŭrigi\";}}s:5:\"es_ES\";a:8:{s:8:\"language\";s:5:\"es_ES\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-04-24 21:10:09\";s:12:\"english_name\";s:15:\"Spanish (Spain)\";s:11:\"native_name\";s:8:\"Español\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/es_ES.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_VE\";a:8:{s:8:\"language\";s:5:\"es_VE\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2018-08-21 14:41:13\";s:12:\"english_name\";s:19:\"Spanish (Venezuela)\";s:11:\"native_name\";s:21:\"Español de Venezuela\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/es_VE.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_GT\";a:8:{s:8:\"language\";s:5:\"es_GT\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2019-03-02 06:27:10\";s:12:\"english_name\";s:19:\"Spanish (Guatemala)\";s:11:\"native_name\";s:21:\"Español de Guatemala\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.9/es_GT.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_MX\";a:8:{s:8:\"language\";s:5:\"es_MX\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-11-15 16:32:57\";s:12:\"english_name\";s:16:\"Spanish (Mexico)\";s:11:\"native_name\";s:19:\"Español de México\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/es_MX.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_CR\";a:8:{s:8:\"language\";s:5:\"es_CR\";s:7:\"version\";s:5:\"4.8.3\";s:7:\"updated\";s:19:\"2017-10-01 17:54:52\";s:12:\"english_name\";s:20:\"Spanish (Costa Rica)\";s:11:\"native_name\";s:22:\"Español de Costa Rica\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.8.3/es_CR.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_PE\";a:8:{s:8:\"language\";s:5:\"es_PE\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-09-09 09:36:22\";s:12:\"english_name\";s:14:\"Spanish (Peru)\";s:11:\"native_name\";s:17:\"Español de Perú\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/es_PE.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_CO\";a:8:{s:8:\"language\";s:5:\"es_CO\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-05-23 02:23:28\";s:12:\"english_name\";s:18:\"Spanish (Colombia)\";s:11:\"native_name\";s:20:\"Español de Colombia\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/es_CO.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_CL\";a:8:{s:8:\"language\";s:5:\"es_CL\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-04-22 17:01:37\";s:12:\"english_name\";s:15:\"Spanish (Chile)\";s:11:\"native_name\";s:17:\"Español de Chile\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/es_CL.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_AR\";a:8:{s:8:\"language\";s:5:\"es_AR\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-21 23:58:09\";s:12:\"english_name\";s:19:\"Spanish (Argentina)\";s:11:\"native_name\";s:21:\"Español de Argentina\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/es_AR.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:2:\"et\";a:8:{s:8:\"language\";s:2:\"et\";s:7:\"version\";s:5:\"4.9.2\";s:7:\"updated\";s:19:\"2017-11-19 14:11:29\";s:12:\"english_name\";s:8:\"Estonian\";s:11:\"native_name\";s:5:\"Eesti\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.2/et.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"et\";i:2;s:3:\"est\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Jätka\";}}s:2:\"eu\";a:8:{s:8:\"language\";s:2:\"eu\";s:7:\"version\";s:5:\"4.9.2\";s:7:\"updated\";s:19:\"2017-12-09 21:12:23\";s:12:\"english_name\";s:6:\"Basque\";s:11:\"native_name\";s:7:\"Euskara\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.2/eu.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"eu\";i:2;s:3:\"eus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Jarraitu\";}}s:5:\"fa_IR\";a:8:{s:8:\"language\";s:5:\"fa_IR\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-04-07 02:18:08\";s:12:\"english_name\";s:7:\"Persian\";s:11:\"native_name\";s:10:\"فارسی\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/fa_IR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fa\";i:2;s:3:\"fas\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"ادامه\";}}s:2:\"fi\";a:8:{s:8:\"language\";s:2:\"fi\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-19 08:17:42\";s:12:\"english_name\";s:7:\"Finnish\";s:11:\"native_name\";s:5:\"Suomi\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/fi.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fi\";i:2;s:3:\"fin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Jatka\";}}s:5:\"fr_FR\";a:8:{s:8:\"language\";s:5:\"fr_FR\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 07:18:23\";s:12:\"english_name\";s:15:\"French (France)\";s:11:\"native_name\";s:9:\"Français\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/fr_FR.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"fr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:5:\"fr_BE\";a:8:{s:8:\"language\";s:5:\"fr_BE\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-01-31 11:16:06\";s:12:\"english_name\";s:16:\"French (Belgium)\";s:11:\"native_name\";s:21:\"Français de Belgique\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/fr_BE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fr\";i:2;s:3:\"fra\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:5:\"fr_CA\";a:8:{s:8:\"language\";s:5:\"fr_CA\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-07-28 14:50:34\";s:12:\"english_name\";s:15:\"French (Canada)\";s:11:\"native_name\";s:19:\"Français du Canada\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/fr_CA.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fr\";i:2;s:3:\"fra\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:3:\"fur\";a:8:{s:8:\"language\";s:3:\"fur\";s:7:\"version\";s:5:\"4.8.6\";s:7:\"updated\";s:19:\"2018-01-29 17:32:35\";s:12:\"english_name\";s:8:\"Friulian\";s:11:\"native_name\";s:8:\"Friulian\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.8.6/fur.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"fur\";i:3;s:3:\"fur\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:2:\"gd\";a:8:{s:8:\"language\";s:2:\"gd\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-08-23 17:41:37\";s:12:\"english_name\";s:15:\"Scottish Gaelic\";s:11:\"native_name\";s:9:\"Gàidhlig\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/gd.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"gd\";i:2;s:3:\"gla\";i:3;s:3:\"gla\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:15:\"Lean air adhart\";}}s:5:\"gl_ES\";a:8:{s:8:\"language\";s:5:\"gl_ES\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 08:20:40\";s:12:\"english_name\";s:8:\"Galician\";s:11:\"native_name\";s:6:\"Galego\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/gl_ES.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"gl\";i:2;s:3:\"glg\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:2:\"gu\";a:8:{s:8:\"language\";s:2:\"gu\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-09-14 12:33:48\";s:12:\"english_name\";s:8:\"Gujarati\";s:11:\"native_name\";s:21:\"ગુજરાતી\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.8/gu.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"gu\";i:2;s:3:\"guj\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:31:\"ચાલુ રાખવું\";}}s:3:\"haz\";a:8:{s:8:\"language\";s:3:\"haz\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-05 00:59:09\";s:12:\"english_name\";s:8:\"Hazaragi\";s:11:\"native_name\";s:15:\"هزاره گی\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.4.2/haz.zip\";s:3:\"iso\";a:1:{i:3;s:3:\"haz\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"ادامه\";}}s:5:\"he_IL\";a:8:{s:8:\"language\";s:5:\"he_IL\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-07-09 19:18:21\";s:12:\"english_name\";s:6:\"Hebrew\";s:11:\"native_name\";s:16:\"עִבְרִית\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/he_IL.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"he\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"המשך\";}}s:5:\"hi_IN\";a:8:{s:8:\"language\";s:5:\"hi_IN\";s:7:\"version\";s:5:\"4.9.7\";s:7:\"updated\";s:19:\"2018-06-17 09:33:44\";s:12:\"english_name\";s:5:\"Hindi\";s:11:\"native_name\";s:18:\"हिन्दी\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.7/hi_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hi\";i:2;s:3:\"hin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"जारी\";}}s:2:\"hr\";a:8:{s:8:\"language\";s:2:\"hr\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-14 19:18:02\";s:12:\"english_name\";s:8:\"Croatian\";s:11:\"native_name\";s:8:\"Hrvatski\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/hr.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hr\";i:2;s:3:\"hrv\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Nastavi\";}}s:5:\"hu_HU\";a:8:{s:8:\"language\";s:5:\"hu_HU\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2018-12-16 15:53:35\";s:12:\"english_name\";s:9:\"Hungarian\";s:11:\"native_name\";s:6:\"Magyar\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/hu_HU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hu\";i:2;s:3:\"hun\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Folytatás\";}}s:2:\"hy\";a:8:{s:8:\"language\";s:2:\"hy\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-12-03 16:21:10\";s:12:\"english_name\";s:8:\"Armenian\";s:11:\"native_name\";s:14:\"Հայերեն\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/hy.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hy\";i:2;s:3:\"hye\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Շարունակել\";}}s:5:\"id_ID\";a:8:{s:8:\"language\";s:5:\"id_ID\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-07-28 13:16:13\";s:12:\"english_name\";s:10:\"Indonesian\";s:11:\"native_name\";s:16:\"Bahasa Indonesia\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/id_ID.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"id\";i:2;s:3:\"ind\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Lanjutkan\";}}s:5:\"is_IS\";a:8:{s:8:\"language\";s:5:\"is_IS\";s:7:\"version\";s:6:\"4.7.11\";s:7:\"updated\";s:19:\"2018-09-20 11:13:37\";s:12:\"english_name\";s:9:\"Icelandic\";s:11:\"native_name\";s:9:\"Íslenska\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.7.11/is_IS.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"is\";i:2;s:3:\"isl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Áfram\";}}s:5:\"it_IT\";a:8:{s:8:\"language\";s:5:\"it_IT\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-09-02 18:22:51\";s:12:\"english_name\";s:7:\"Italian\";s:11:\"native_name\";s:8:\"Italiano\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/it_IT.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"it\";i:2;s:3:\"ita\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continua\";}}s:2:\"ja\";a:8:{s:8:\"language\";s:2:\"ja\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 02:04:21\";s:12:\"english_name\";s:8:\"Japanese\";s:11:\"native_name\";s:9:\"日本語\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/ja.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"ja\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"続ける\";}}s:5:\"jv_ID\";a:8:{s:8:\"language\";s:5:\"jv_ID\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-24 13:53:29\";s:12:\"english_name\";s:8:\"Javanese\";s:11:\"native_name\";s:9:\"Basa Jawa\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/jv_ID.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"jv\";i:2;s:3:\"jav\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Nerusaké\";}}s:5:\"ka_GE\";a:8:{s:8:\"language\";s:5:\"ka_GE\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2019-02-18 10:06:00\";s:12:\"english_name\";s:8:\"Georgian\";s:11:\"native_name\";s:21:\"ქართული\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.9/ka_GE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ka\";i:2;s:3:\"kat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"გაგრძელება\";}}s:3:\"kab\";a:8:{s:8:\"language\";s:3:\"kab\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-09-21 14:15:57\";s:12:\"english_name\";s:6:\"Kabyle\";s:11:\"native_name\";s:9:\"Taqbaylit\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.8/kab.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"kab\";i:3;s:3:\"kab\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Kemmel\";}}s:2:\"kk\";a:8:{s:8:\"language\";s:2:\"kk\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-12 08:08:32\";s:12:\"english_name\";s:6:\"Kazakh\";s:11:\"native_name\";s:19:\"Қазақ тілі\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.5/kk.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"kk\";i:2;s:3:\"kaz\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Жалғастыру\";}}s:2:\"km\";a:8:{s:8:\"language\";s:2:\"km\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-12-07 02:07:59\";s:12:\"english_name\";s:5:\"Khmer\";s:11:\"native_name\";s:27:\"ភាសាខ្មែរ\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/km.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"km\";i:2;s:3:\"khm\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"បន្ត\";}}s:2:\"kn\";a:8:{s:8:\"language\";s:2:\"kn\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-05-08 04:00:57\";s:12:\"english_name\";s:7:\"Kannada\";s:11:\"native_name\";s:15:\"ಕನ್ನಡ\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/kn.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"kn\";i:2;s:3:\"kan\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"ಮುಂದುವರೆಸಿ\";}}s:5:\"ko_KR\";a:8:{s:8:\"language\";s:5:\"ko_KR\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-04-13 15:03:57\";s:12:\"english_name\";s:6:\"Korean\";s:11:\"native_name\";s:9:\"한국어\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/ko_KR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ko\";i:2;s:3:\"kor\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"계속\";}}s:3:\"ckb\";a:8:{s:8:\"language\";s:3:\"ckb\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2018-12-18 14:32:44\";s:12:\"english_name\";s:16:\"Kurdish (Sorani)\";s:11:\"native_name\";s:13:\"كوردی‎\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.9/ckb.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ku\";i:3;s:3:\"ckb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"به‌رده‌وام به‌\";}}s:2:\"lo\";a:8:{s:8:\"language\";s:2:\"lo\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-12 09:59:23\";s:12:\"english_name\";s:3:\"Lao\";s:11:\"native_name\";s:21:\"ພາສາລາວ\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/lo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"lo\";i:2;s:3:\"lao\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:18:\"ຕໍ່​ໄປ\";}}s:5:\"lt_LT\";a:8:{s:8:\"language\";s:5:\"lt_LT\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-08-27 09:34:16\";s:12:\"english_name\";s:10:\"Lithuanian\";s:11:\"native_name\";s:15:\"Lietuvių kalba\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/lt_LT.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"lt\";i:2;s:3:\"lit\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Tęsti\";}}s:2:\"lv\";a:8:{s:8:\"language\";s:2:\"lv\";s:7:\"version\";s:6:\"4.7.14\";s:7:\"updated\";s:19:\"2019-05-10 10:24:08\";s:12:\"english_name\";s:7:\"Latvian\";s:11:\"native_name\";s:16:\"Latviešu valoda\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.14/lv.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"lv\";i:2;s:3:\"lav\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Turpināt\";}}s:5:\"mk_MK\";a:8:{s:8:\"language\";s:5:\"mk_MK\";s:7:\"version\";s:5:\"4.7.7\";s:7:\"updated\";s:19:\"2017-01-26 15:54:41\";s:12:\"english_name\";s:10:\"Macedonian\";s:11:\"native_name\";s:31:\"Македонски јазик\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.7/mk_MK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"mk\";i:2;s:3:\"mkd\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"Продолжи\";}}s:5:\"ml_IN\";a:8:{s:8:\"language\";s:5:\"ml_IN\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-27 03:43:32\";s:12:\"english_name\";s:9:\"Malayalam\";s:11:\"native_name\";s:18:\"മലയാളം\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/ml_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ml\";i:2;s:3:\"mal\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:18:\"തുടരുക\";}}s:2:\"mn\";a:8:{s:8:\"language\";s:2:\"mn\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-12 07:29:35\";s:12:\"english_name\";s:9:\"Mongolian\";s:11:\"native_name\";s:12:\"Монгол\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/mn.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"mn\";i:2;s:3:\"mon\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:24:\"Үргэлжлүүлэх\";}}s:2:\"mr\";a:8:{s:8:\"language\";s:2:\"mr\";s:7:\"version\";s:6:\"4.8.10\";s:7:\"updated\";s:19:\"2018-02-13 07:38:55\";s:12:\"english_name\";s:7:\"Marathi\";s:11:\"native_name\";s:15:\"मराठी\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.8.10/mr.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"mr\";i:2;s:3:\"mar\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:25:\"सुरु ठेवा\";}}s:5:\"ms_MY\";a:8:{s:8:\"language\";s:5:\"ms_MY\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-08-30 20:27:25\";s:12:\"english_name\";s:5:\"Malay\";s:11:\"native_name\";s:13:\"Bahasa Melayu\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/ms_MY.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ms\";i:2;s:3:\"msa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Teruskan\";}}s:5:\"my_MM\";a:8:{s:8:\"language\";s:5:\"my_MM\";s:7:\"version\";s:6:\"4.1.20\";s:7:\"updated\";s:19:\"2015-03-26 15:57:42\";s:12:\"english_name\";s:17:\"Myanmar (Burmese)\";s:11:\"native_name\";s:15:\"ဗမာစာ\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.1.20/my_MM.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"my\";i:2;s:3:\"mya\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:54:\"ဆက်လက်လုပ်ဆောင်ပါ။\";}}s:5:\"nb_NO\";a:8:{s:8:\"language\";s:5:\"nb_NO\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-05-01 11:10:49\";s:12:\"english_name\";s:19:\"Norwegian (Bokmål)\";s:11:\"native_name\";s:13:\"Norsk bokmål\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/nb_NO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nb\";i:2;s:3:\"nob\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Fortsett\";}}s:5:\"ne_NP\";a:8:{s:8:\"language\";s:5:\"ne_NP\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-27 10:30:26\";s:12:\"english_name\";s:6:\"Nepali\";s:11:\"native_name\";s:18:\"नेपाली\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/ne_NP.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ne\";i:2;s:3:\"nep\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:43:\"जारी राख्नुहोस्\";}}s:12:\"nl_NL_formal\";a:8:{s:8:\"language\";s:12:\"nl_NL_formal\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 05:36:09\";s:12:\"english_name\";s:14:\"Dutch (Formal)\";s:11:\"native_name\";s:20:\"Nederlands (Formeel)\";s:7:\"package\";s:72:\"https://downloads.wordpress.org/translation/core/4.9.11/nl_NL_formal.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nl_BE\";a:8:{s:8:\"language\";s:5:\"nl_BE\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2019-01-07 07:51:16\";s:12:\"english_name\";s:15:\"Dutch (Belgium)\";s:11:\"native_name\";s:20:\"Nederlands (België)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.9/nl_BE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nl_NL\";a:8:{s:8:\"language\";s:5:\"nl_NL\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 05:36:23\";s:12:\"english_name\";s:5:\"Dutch\";s:11:\"native_name\";s:10:\"Nederlands\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/nl_NL.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nn_NO\";a:8:{s:8:\"language\";s:5:\"nn_NO\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-06-19 21:14:43\";s:12:\"english_name\";s:19:\"Norwegian (Nynorsk)\";s:11:\"native_name\";s:13:\"Norsk nynorsk\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/nn_NO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nn\";i:2;s:3:\"nno\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Hald fram\";}}s:3:\"oci\";a:8:{s:8:\"language\";s:3:\"oci\";s:7:\"version\";s:5:\"4.8.3\";s:7:\"updated\";s:19:\"2017-08-25 10:03:08\";s:12:\"english_name\";s:7:\"Occitan\";s:11:\"native_name\";s:7:\"Occitan\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.8.3/oci.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"oc\";i:2;s:3:\"oci\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Contunhar\";}}s:5:\"pa_IN\";a:8:{s:8:\"language\";s:5:\"pa_IN\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-16 05:19:43\";s:12:\"english_name\";s:7:\"Punjabi\";s:11:\"native_name\";s:18:\"ਪੰਜਾਬੀ\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/pa_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pa\";i:2;s:3:\"pan\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:25:\"ਜਾਰੀ ਰੱਖੋ\";}}s:5:\"pl_PL\";a:8:{s:8:\"language\";s:5:\"pl_PL\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 06:40:44\";s:12:\"english_name\";s:6:\"Polish\";s:11:\"native_name\";s:6:\"Polski\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/pl_PL.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pl\";i:2;s:3:\"pol\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Kontynuuj\";}}s:2:\"ps\";a:8:{s:8:\"language\";s:2:\"ps\";s:7:\"version\";s:6:\"4.1.20\";s:7:\"updated\";s:19:\"2015-03-29 22:19:48\";s:12:\"english_name\";s:6:\"Pashto\";s:11:\"native_name\";s:8:\"پښتو\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.1.20/ps.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ps\";i:2;s:3:\"pus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:19:\"دوام ورکړه\";}}s:5:\"pt_PT\";a:8:{s:8:\"language\";s:5:\"pt_PT\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-07-02 08:08:11\";s:12:\"english_name\";s:21:\"Portuguese (Portugal)\";s:11:\"native_name\";s:10:\"Português\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/pt_PT.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"pt\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"pt_BR\";a:8:{s:8:\"language\";s:5:\"pt_BR\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 18:00:56\";s:12:\"english_name\";s:19:\"Portuguese (Brazil)\";s:11:\"native_name\";s:20:\"Português do Brasil\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/pt_BR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pt\";i:2;s:3:\"por\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:10:\"pt_PT_ao90\";a:8:{s:8:\"language\";s:10:\"pt_PT_ao90\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-09 09:30:48\";s:12:\"english_name\";s:27:\"Portuguese (Portugal, AO90)\";s:11:\"native_name\";s:17:\"Português (AO90)\";s:7:\"package\";s:69:\"https://downloads.wordpress.org/translation/core/4.9.5/pt_PT_ao90.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"pt\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:3:\"rhg\";a:8:{s:8:\"language\";s:3:\"rhg\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-03-16 13:03:18\";s:12:\"english_name\";s:8:\"Rohingya\";s:11:\"native_name\";s:8:\"Ruáinga\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/rhg.zip\";s:3:\"iso\";a:1:{i:3;s:3:\"rhg\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:5:\"ro_RO\";a:8:{s:8:\"language\";s:5:\"ro_RO\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-09-06 13:14:57\";s:12:\"english_name\";s:8:\"Romanian\";s:11:\"native_name\";s:8:\"Română\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/ro_RO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ro\";i:2;s:3:\"ron\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuă\";}}s:5:\"ru_RU\";a:8:{s:8:\"language\";s:5:\"ru_RU\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-13 06:58:14\";s:12:\"english_name\";s:7:\"Russian\";s:11:\"native_name\";s:14:\"Русский\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/ru_RU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ru\";i:2;s:3:\"rus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Продолжить\";}}s:3:\"sah\";a:8:{s:8:\"language\";s:3:\"sah\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-21 02:06:41\";s:12:\"english_name\";s:5:\"Sakha\";s:11:\"native_name\";s:14:\"Сахалыы\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/sah.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"sah\";i:3;s:3:\"sah\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Салҕаа\";}}s:5:\"si_LK\";a:8:{s:8:\"language\";s:5:\"si_LK\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-12 06:00:52\";s:12:\"english_name\";s:7:\"Sinhala\";s:11:\"native_name\";s:15:\"සිංහල\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/si_LK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"si\";i:2;s:3:\"sin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:44:\"දිගටම කරගෙන යන්න\";}}s:5:\"sk_SK\";a:8:{s:8:\"language\";s:5:\"sk_SK\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-22 15:02:38\";s:12:\"english_name\";s:6:\"Slovak\";s:11:\"native_name\";s:11:\"Slovenčina\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/sk_SK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sk\";i:2;s:3:\"slk\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Pokračovať\";}}s:5:\"sl_SI\";a:8:{s:8:\"language\";s:5:\"sl_SI\";s:7:\"version\";s:5:\"4.9.2\";s:7:\"updated\";s:19:\"2018-01-04 13:33:13\";s:12:\"english_name\";s:9:\"Slovenian\";s:11:\"native_name\";s:13:\"Slovenščina\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.2/sl_SI.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sl\";i:2;s:3:\"slv\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Nadaljuj\";}}s:2:\"sq\";a:8:{s:8:\"language\";s:2:\"sq\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-09-05 08:31:30\";s:12:\"english_name\";s:8:\"Albanian\";s:11:\"native_name\";s:5:\"Shqip\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/sq.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sq\";i:2;s:3:\"sqi\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Vazhdo\";}}s:5:\"sr_RS\";a:8:{s:8:\"language\";s:5:\"sr_RS\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-08-02 20:59:54\";s:12:\"english_name\";s:7:\"Serbian\";s:11:\"native_name\";s:23:\"Српски језик\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/sr_RS.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sr\";i:2;s:3:\"srp\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:14:\"Настави\";}}s:5:\"sv_SE\";a:8:{s:8:\"language\";s:5:\"sv_SE\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-23 10:08:08\";s:12:\"english_name\";s:7:\"Swedish\";s:11:\"native_name\";s:7:\"Svenska\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/sv_SE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sv\";i:2;s:3:\"swe\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Fortsätt\";}}s:3:\"szl\";a:8:{s:8:\"language\";s:3:\"szl\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-09-24 19:58:14\";s:12:\"english_name\";s:8:\"Silesian\";s:11:\"native_name\";s:17:\"Ślōnskŏ gŏdka\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/szl.zip\";s:3:\"iso\";a:1:{i:3;s:3:\"szl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:13:\"Kōntynuować\";}}s:5:\"ta_IN\";a:8:{s:8:\"language\";s:5:\"ta_IN\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-27 03:22:47\";s:12:\"english_name\";s:5:\"Tamil\";s:11:\"native_name\";s:15:\"தமிழ்\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/ta_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ta\";i:2;s:3:\"tam\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:24:\"தொடரவும்\";}}s:2:\"te\";a:8:{s:8:\"language\";s:2:\"te\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-26 15:47:39\";s:12:\"english_name\";s:6:\"Telugu\";s:11:\"native_name\";s:18:\"తెలుగు\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/te.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"te\";i:2;s:3:\"tel\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"కొనసాగించు\";}}s:2:\"th\";a:8:{s:8:\"language\";s:2:\"th\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-27 04:30:57\";s:12:\"english_name\";s:4:\"Thai\";s:11:\"native_name\";s:9:\"ไทย\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/th.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"th\";i:2;s:3:\"tha\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:15:\"ต่อไป\";}}s:2:\"tl\";a:8:{s:8:\"language\";s:2:\"tl\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-12-30 02:38:08\";s:12:\"english_name\";s:7:\"Tagalog\";s:11:\"native_name\";s:7:\"Tagalog\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/tl.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tl\";i:2;s:3:\"tgl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Magpatuloy\";}}s:5:\"tr_TR\";a:8:{s:8:\"language\";s:5:\"tr_TR\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-17 21:22:26\";s:12:\"english_name\";s:7:\"Turkish\";s:11:\"native_name\";s:8:\"Türkçe\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/tr_TR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tr\";i:2;s:3:\"tur\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Devam\";}}s:5:\"tt_RU\";a:8:{s:8:\"language\";s:5:\"tt_RU\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-20 20:20:50\";s:12:\"english_name\";s:5:\"Tatar\";s:11:\"native_name\";s:19:\"Татар теле\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/tt_RU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tt\";i:2;s:3:\"tat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:17:\"дәвам итү\";}}s:3:\"tah\";a:8:{s:8:\"language\";s:3:\"tah\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-03-06 18:39:39\";s:12:\"english_name\";s:8:\"Tahitian\";s:11:\"native_name\";s:10:\"Reo Tahiti\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/tah.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"ty\";i:2;s:3:\"tah\";i:3;s:3:\"tah\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:5:\"ug_CN\";a:8:{s:8:\"language\";s:5:\"ug_CN\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-04-12 12:31:53\";s:12:\"english_name\";s:6:\"Uighur\";s:11:\"native_name\";s:16:\"ئۇيغۇرچە\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/ug_CN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ug\";i:2;s:3:\"uig\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:26:\"داۋاملاشتۇرۇش\";}}s:2:\"uk\";a:8:{s:8:\"language\";s:2:\"uk\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-08-27 22:13:20\";s:12:\"english_name\";s:9:\"Ukrainian\";s:11:\"native_name\";s:20:\"Українська\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/uk.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"uk\";i:2;s:3:\"ukr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Продовжити\";}}s:2:\"ur\";a:8:{s:8:\"language\";s:2:\"ur\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-21 08:17:35\";s:12:\"english_name\";s:4:\"Urdu\";s:11:\"native_name\";s:8:\"اردو\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/ur.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ur\";i:2;s:3:\"urd\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:19:\"جاری رکھیں\";}}s:5:\"uz_UZ\";a:8:{s:8:\"language\";s:5:\"uz_UZ\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-10-11 06:46:15\";s:12:\"english_name\";s:5:\"Uzbek\";s:11:\"native_name\";s:11:\"O‘zbekcha\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/uz_UZ.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"uz\";i:2;s:3:\"uzb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:11:\"Davom etish\";}}s:2:\"vi\";a:8:{s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-03-25 02:35:54\";s:12:\"english_name\";s:10:\"Vietnamese\";s:11:\"native_name\";s:14:\"Tiếng Việt\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.11/vi.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"vi\";i:2;s:3:\"vie\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Tiếp tục\";}}s:5:\"zh_TW\";a:8:{s:8:\"language\";s:5:\"zh_TW\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-06-27 13:27:00\";s:12:\"english_name\";s:16:\"Chinese (Taiwan)\";s:11:\"native_name\";s:12:\"繁體中文\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/zh_TW.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"繼續\";}}s:5:\"zh_CN\";a:8:{s:8:\"language\";s:5:\"zh_CN\";s:7:\"version\";s:6:\"4.9.11\";s:7:\"updated\";s:19:\"2019-07-28 01:29:47\";s:12:\"english_name\";s:15:\"Chinese (China)\";s:11:\"native_name\";s:12:\"简体中文\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.11/zh_CN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"继续\";}}s:5:\"zh_HK\";a:8:{s:8:\"language\";s:5:\"zh_HK\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-04-09 00:56:52\";s:12:\"english_name\";s:19:\"Chinese (Hong Kong)\";s:11:\"native_name\";s:16:\"香港中文版	\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/zh_HK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"繼續\";}}}', 'no'),
 (19842, '_transient_timeout__woocommerce_helper_updates', '1567972162', 'no'),
 (19843, '_transient__woocommerce_helper_updates', 'a:4:{s:4:\"hash\";s:32:\"358c40eaa335ac0d027f3e9faa3c726e\";s:7:\"updated\";i:1567928962;s:8:\"products\";a:0:{}s:6:\"errors\";a:1:{i:0;s:10:\"http-error\";}}', 'no'),
 (19848, '_transient_timeout_plugin_slugs', '1568018892', 'no'),
 (19849, '_transient_plugin_slugs', 'a:14:{i:0;s:33:\"acf-qtranslate/acf-qtranslate.php\";i:1;s:34:\"advanced-custom-fields-pro/acf.php\";i:2;s:27:\"autoptimize/autoptimize.php\";i:3;s:45:\"tiny-compress-images/tiny-compress-images.php\";i:4;s:36:\"contact-form-7/wp-contact-form-7.php\";i:5;s:43:\"custom-post-type-ui/custom-post-type-ui.php\";i:6;s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";i:7;s:19:\"ot-zalo/ot-zalo.php\";i:8;s:27:\"qtranslate-x/qtranslate.php\";i:9;s:27:\"woocommerce/woocommerce.php\";i:10;s:53:\"woocommerce-qtranslate-x/woocommerce-qtranslate-x.php\";i:11;s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";i:12;s:27:\"wp-pagenavi/wp-pagenavi.php\";i:13;s:29:\"wp-mail-smtp/wp_mail_smtp.php\";}', 'no'),
 (19850, '_transient_timeout_wc_upgrade_notice_3.7.0', '1568015366', 'no'),
 (19852, '_transient_wc_upgrade_notice_3.7.0', '', 'no'),
-(19870, '_site_transient_timeout_poptags_40cd750bba9870f18aada2478b24840a', '1567939883', 'no');
-INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(19871, '_site_transient_poptags_40cd750bba9870f18aada2478b24840a', 'O:8:\"stdClass\":100:{s:6:\"widget\";a:3:{s:4:\"name\";s:6:\"widget\";s:4:\"slug\";s:6:\"widget\";s:5:\"count\";i:4616;}s:11:\"woocommerce\";a:3:{s:4:\"name\";s:11:\"woocommerce\";s:4:\"slug\";s:11:\"woocommerce\";s:5:\"count\";i:3610;}s:4:\"post\";a:3:{s:4:\"name\";s:4:\"post\";s:4:\"slug\";s:4:\"post\";s:5:\"count\";i:2641;}s:5:\"admin\";a:3:{s:4:\"name\";s:5:\"admin\";s:4:\"slug\";s:5:\"admin\";s:5:\"count\";i:2512;}s:5:\"posts\";a:3:{s:4:\"name\";s:5:\"posts\";s:4:\"slug\";s:5:\"posts\";s:5:\"count\";i:1935;}s:9:\"shortcode\";a:3:{s:4:\"name\";s:9:\"shortcode\";s:4:\"slug\";s:9:\"shortcode\";s:5:\"count\";i:1753;}s:8:\"comments\";a:3:{s:4:\"name\";s:8:\"comments\";s:4:\"slug\";s:8:\"comments\";s:5:\"count\";i:1746;}s:7:\"twitter\";a:3:{s:4:\"name\";s:7:\"twitter\";s:4:\"slug\";s:7:\"twitter\";s:5:\"count\";i:1471;}s:6:\"images\";a:3:{s:4:\"name\";s:6:\"images\";s:4:\"slug\";s:6:\"images\";s:5:\"count\";i:1450;}s:6:\"google\";a:3:{s:4:\"name\";s:6:\"google\";s:4:\"slug\";s:6:\"google\";s:5:\"count\";i:1445;}s:8:\"facebook\";a:3:{s:4:\"name\";s:8:\"facebook\";s:4:\"slug\";s:8:\"facebook\";s:5:\"count\";i:1438;}s:5:\"image\";a:3:{s:4:\"name\";s:5:\"image\";s:4:\"slug\";s:5:\"image\";s:5:\"count\";i:1382;}s:3:\"seo\";a:3:{s:4:\"name\";s:3:\"seo\";s:4:\"slug\";s:3:\"seo\";s:5:\"count\";i:1348;}s:7:\"sidebar\";a:3:{s:4:\"name\";s:7:\"sidebar\";s:4:\"slug\";s:7:\"sidebar\";s:5:\"count\";i:1295;}s:7:\"gallery\";a:3:{s:4:\"name\";s:7:\"gallery\";s:4:\"slug\";s:7:\"gallery\";s:5:\"count\";i:1154;}s:5:\"email\";a:3:{s:4:\"name\";s:5:\"email\";s:4:\"slug\";s:5:\"email\";s:5:\"count\";i:1136;}s:4:\"page\";a:3:{s:4:\"name\";s:4:\"page\";s:4:\"slug\";s:4:\"page\";s:5:\"count\";i:1104;}s:6:\"social\";a:3:{s:4:\"name\";s:6:\"social\";s:4:\"slug\";s:6:\"social\";s:5:\"count\";i:1073;}s:9:\"ecommerce\";a:3:{s:4:\"name\";s:9:\"ecommerce\";s:4:\"slug\";s:9:\"ecommerce\";s:5:\"count\";i:1038;}s:5:\"login\";a:3:{s:4:\"name\";s:5:\"login\";s:4:\"slug\";s:5:\"login\";s:5:\"count\";i:949;}s:5:\"links\";a:3:{s:4:\"name\";s:5:\"links\";s:4:\"slug\";s:5:\"links\";s:5:\"count\";i:860;}s:7:\"widgets\";a:3:{s:4:\"name\";s:7:\"widgets\";s:4:\"slug\";s:7:\"widgets\";s:5:\"count\";i:848;}s:5:\"video\";a:3:{s:4:\"name\";s:5:\"video\";s:4:\"slug\";s:5:\"video\";s:5:\"count\";i:843;}s:8:\"security\";a:3:{s:4:\"name\";s:8:\"security\";s:4:\"slug\";s:8:\"security\";s:5:\"count\";i:811;}s:4:\"spam\";a:3:{s:4:\"name\";s:4:\"spam\";s:4:\"slug\";s:4:\"spam\";s:5:\"count\";i:752;}s:7:\"content\";a:3:{s:4:\"name\";s:7:\"content\";s:4:\"slug\";s:7:\"content\";s:5:\"count\";i:745;}s:6:\"slider\";a:3:{s:4:\"name\";s:6:\"slider\";s:4:\"slug\";s:6:\"slider\";s:5:\"count\";i:733;}s:10:\"buddypress\";a:3:{s:4:\"name\";s:10:\"buddypress\";s:4:\"slug\";s:10:\"buddypress\";s:5:\"count\";i:732;}s:10:\"e-commerce\";a:3:{s:4:\"name\";s:10:\"e-commerce\";s:4:\"slug\";s:10:\"e-commerce\";s:5:\"count\";i:720;}s:9:\"analytics\";a:3:{s:4:\"name\";s:9:\"analytics\";s:4:\"slug\";s:9:\"analytics\";s:5:\"count\";i:705;}s:3:\"rss\";a:3:{s:4:\"name\";s:3:\"rss\";s:4:\"slug\";s:3:\"rss\";s:5:\"count\";i:703;}s:5:\"pages\";a:3:{s:4:\"name\";s:5:\"pages\";s:4:\"slug\";s:5:\"pages\";s:5:\"count\";i:687;}s:5:\"media\";a:3:{s:4:\"name\";s:5:\"media\";s:4:\"slug\";s:5:\"media\";s:5:\"count\";i:681;}s:6:\"search\";a:3:{s:4:\"name\";s:6:\"search\";s:4:\"slug\";s:6:\"search\";s:5:\"count\";i:670;}s:4:\"form\";a:3:{s:4:\"name\";s:4:\"form\";s:4:\"slug\";s:4:\"form\";s:5:\"count\";i:668;}s:6:\"jquery\";a:3:{s:4:\"name\";s:6:\"jquery\";s:4:\"slug\";s:6:\"jquery\";s:5:\"count\";i:655;}s:4:\"feed\";a:3:{s:4:\"name\";s:4:\"feed\";s:4:\"slug\";s:4:\"feed\";s:5:\"count\";i:636;}s:4:\"menu\";a:3:{s:4:\"name\";s:4:\"menu\";s:4:\"slug\";s:4:\"menu\";s:5:\"count\";i:631;}s:8:\"category\";a:3:{s:4:\"name\";s:8:\"category\";s:4:\"slug\";s:8:\"category\";s:5:\"count\";i:624;}s:4:\"ajax\";a:3:{s:4:\"name\";s:4:\"ajax\";s:4:\"slug\";s:4:\"ajax\";s:5:\"count\";i:623;}s:6:\"editor\";a:3:{s:4:\"name\";s:6:\"editor\";s:4:\"slug\";s:6:\"editor\";s:5:\"count\";i:605;}s:5:\"embed\";a:3:{s:4:\"name\";s:5:\"embed\";s:4:\"slug\";s:5:\"embed\";s:5:\"count\";i:599;}s:10:\"javascript\";a:3:{s:4:\"name\";s:10:\"javascript\";s:4:\"slug\";s:10:\"javascript\";s:5:\"count\";i:576;}s:3:\"css\";a:3:{s:4:\"name\";s:3:\"css\";s:4:\"slug\";s:3:\"css\";s:5:\"count\";i:573;}s:4:\"link\";a:3:{s:4:\"name\";s:4:\"link\";s:4:\"slug\";s:4:\"link\";s:5:\"count\";i:561;}s:7:\"youtube\";a:3:{s:4:\"name\";s:7:\"youtube\";s:4:\"slug\";s:7:\"youtube\";s:5:\"count\";i:561;}s:12:\"contact-form\";a:3:{s:4:\"name\";s:12:\"contact form\";s:4:\"slug\";s:12:\"contact-form\";s:5:\"count\";i:554;}s:5:\"share\";a:3:{s:4:\"name\";s:5:\"share\";s:4:\"slug\";s:5:\"share\";s:5:\"count\";i:544;}s:5:\"theme\";a:3:{s:4:\"name\";s:5:\"theme\";s:4:\"slug\";s:5:\"theme\";s:5:\"count\";i:537;}s:7:\"comment\";a:3:{s:4:\"name\";s:7:\"comment\";s:4:\"slug\";s:7:\"comment\";s:5:\"count\";i:532;}s:10:\"responsive\";a:3:{s:4:\"name\";s:10:\"responsive\";s:4:\"slug\";s:10:\"responsive\";s:5:\"count\";i:529;}s:9:\"dashboard\";a:3:{s:4:\"name\";s:9:\"dashboard\";s:4:\"slug\";s:9:\"dashboard\";s:5:\"count\";i:524;}s:6:\"custom\";a:3:{s:4:\"name\";s:6:\"custom\";s:4:\"slug\";s:6:\"custom\";s:5:\"count\";i:519;}s:9:\"affiliate\";a:3:{s:4:\"name\";s:9:\"affiliate\";s:4:\"slug\";s:9:\"affiliate\";s:5:\"count\";i:516;}s:3:\"ads\";a:3:{s:4:\"name\";s:3:\"ads\";s:4:\"slug\";s:3:\"ads\";s:5:\"count\";i:513;}s:7:\"payment\";a:3:{s:4:\"name\";s:7:\"payment\";s:4:\"slug\";s:7:\"payment\";s:5:\"count\";i:510;}s:10:\"categories\";a:3:{s:4:\"name\";s:10:\"categories\";s:4:\"slug\";s:10:\"categories\";s:5:\"count\";i:504;}s:7:\"contact\";a:3:{s:4:\"name\";s:7:\"contact\";s:4:\"slug\";s:7:\"contact\";s:5:\"count\";i:481;}s:4:\"tags\";a:3:{s:4:\"name\";s:4:\"tags\";s:4:\"slug\";s:4:\"tags\";s:5:\"count\";i:480;}s:4:\"user\";a:3:{s:4:\"name\";s:4:\"user\";s:4:\"slug\";s:4:\"user\";s:5:\"count\";i:480;}s:6:\"button\";a:3:{s:4:\"name\";s:6:\"button\";s:4:\"slug\";s:6:\"button\";s:5:\"count\";i:478;}s:3:\"api\";a:3:{s:4:\"name\";s:3:\"api\";s:4:\"slug\";s:3:\"api\";s:5:\"count\";i:476;}s:6:\"mobile\";a:3:{s:4:\"name\";s:6:\"mobile\";s:4:\"slug\";s:6:\"mobile\";s:5:\"count\";i:459;}s:5:\"users\";a:3:{s:4:\"name\";s:5:\"users\";s:4:\"slug\";s:5:\"users\";s:5:\"count\";i:458;}s:6:\"events\";a:3:{s:4:\"name\";s:6:\"events\";s:4:\"slug\";s:6:\"events\";s:5:\"count\";i:447;}s:15:\"payment-gateway\";a:3:{s:4:\"name\";s:15:\"payment gateway\";s:4:\"slug\";s:15:\"payment-gateway\";s:5:\"count\";i:440;}s:5:\"photo\";a:3:{s:4:\"name\";s:5:\"photo\";s:4:\"slug\";s:5:\"photo\";s:5:\"count\";i:431;}s:9:\"slideshow\";a:3:{s:4:\"name\";s:9:\"slideshow\";s:4:\"slug\";s:9:\"slideshow\";s:5:\"count\";i:424;}s:6:\"photos\";a:3:{s:4:\"name\";s:6:\"photos\";s:4:\"slug\";s:6:\"photos\";s:5:\"count\";i:418;}s:5:\"stats\";a:3:{s:4:\"name\";s:5:\"stats\";s:4:\"slug\";s:5:\"stats\";s:5:\"count\";i:417;}s:10:\"navigation\";a:3:{s:4:\"name\";s:10:\"navigation\";s:4:\"slug\";s:10:\"navigation\";s:5:\"count\";i:416;}s:9:\"marketing\";a:3:{s:4:\"name\";s:9:\"marketing\";s:4:\"slug\";s:9:\"marketing\";s:5:\"count\";i:412;}s:8:\"calendar\";a:3:{s:4:\"name\";s:8:\"calendar\";s:4:\"slug\";s:8:\"calendar\";s:5:\"count\";i:407;}s:10:\"statistics\";a:3:{s:4:\"name\";s:10:\"statistics\";s:4:\"slug\";s:10:\"statistics\";s:5:\"count\";i:402;}s:4:\"chat\";a:3:{s:4:\"name\";s:4:\"chat\";s:4:\"slug\";s:4:\"chat\";s:5:\"count\";i:400;}s:5:\"popup\";a:3:{s:4:\"name\";s:5:\"popup\";s:4:\"slug\";s:5:\"popup\";s:5:\"count\";i:395;}s:9:\"gutenberg\";a:3:{s:4:\"name\";s:9:\"gutenberg\";s:4:\"slug\";s:9:\"gutenberg\";s:5:\"count\";i:389;}s:10:\"newsletter\";a:3:{s:4:\"name\";s:10:\"newsletter\";s:4:\"slug\";s:10:\"newsletter\";s:5:\"count\";i:388;}s:10:\"shortcodes\";a:3:{s:4:\"name\";s:10:\"shortcodes\";s:4:\"slug\";s:10:\"shortcodes\";s:5:\"count\";i:387;}s:4:\"news\";a:3:{s:4:\"name\";s:4:\"news\";s:4:\"slug\";s:4:\"news\";s:5:\"count\";i:386;}s:12:\"social-media\";a:3:{s:4:\"name\";s:12:\"social media\";s:4:\"slug\";s:12:\"social-media\";s:5:\"count\";i:382;}s:5:\"forms\";a:3:{s:4:\"name\";s:5:\"forms\";s:4:\"slug\";s:5:\"forms\";s:5:\"count\";i:377;}s:4:\"code\";a:3:{s:4:\"name\";s:4:\"code\";s:4:\"slug\";s:4:\"code\";s:5:\"count\";i:369;}s:7:\"plugins\";a:3:{s:4:\"name\";s:7:\"plugins\";s:4:\"slug\";s:7:\"plugins\";s:5:\"count\";i:363;}s:8:\"redirect\";a:3:{s:4:\"name\";s:8:\"redirect\";s:4:\"slug\";s:8:\"redirect\";s:5:\"count\";i:363;}s:9:\"multisite\";a:3:{s:4:\"name\";s:9:\"multisite\";s:4:\"slug\";s:9:\"multisite\";s:5:\"count\";i:359;}s:3:\"url\";a:3:{s:4:\"name\";s:3:\"url\";s:4:\"slug\";s:3:\"url\";s:5:\"count\";i:357;}s:14:\"contact-form-7\";a:3:{s:4:\"name\";s:14:\"contact form 7\";s:4:\"slug\";s:14:\"contact-form-7\";s:5:\"count\";i:356;}s:4:\"meta\";a:3:{s:4:\"name\";s:4:\"meta\";s:4:\"slug\";s:4:\"meta\";s:5:\"count\";i:351;}s:4:\"list\";a:3:{s:4:\"name\";s:4:\"list\";s:4:\"slug\";s:4:\"list\";s:5:\"count\";i:348;}s:11:\"performance\";a:3:{s:4:\"name\";s:11:\"performance\";s:4:\"slug\";s:11:\"performance\";s:5:\"count\";i:345;}s:12:\"notification\";a:3:{s:4:\"name\";s:12:\"notification\";s:4:\"slug\";s:12:\"notification\";s:5:\"count\";i:335;}s:16:\"custom-post-type\";a:3:{s:4:\"name\";s:16:\"custom post type\";s:4:\"slug\";s:16:\"custom-post-type\";s:5:\"count\";i:326;}s:8:\"tracking\";a:3:{s:4:\"name\";s:8:\"tracking\";s:4:\"slug\";s:8:\"tracking\";s:5:\"count\";i:326;}s:11:\"advertising\";a:3:{s:4:\"name\";s:11:\"advertising\";s:4:\"slug\";s:11:\"advertising\";s:5:\"count\";i:326;}s:16:\"google-analytics\";a:3:{s:4:\"name\";s:16:\"google analytics\";s:4:\"slug\";s:16:\"google-analytics\";s:5:\"count\";i:322;}s:6:\"simple\";a:3:{s:4:\"name\";s:6:\"simple\";s:4:\"slug\";s:6:\"simple\";s:5:\"count\";i:319;}s:4:\"html\";a:3:{s:4:\"name\";s:4:\"html\";s:4:\"slug\";s:4:\"html\";s:5:\"count\";i:317;}s:6:\"author\";a:3:{s:4:\"name\";s:6:\"author\";s:4:\"slug\";s:6:\"author\";s:5:\"count\";i:313;}s:7:\"adsense\";a:3:{s:4:\"name\";s:7:\"adsense\";s:4:\"slug\";s:7:\"adsense\";s:5:\"count\";i:311;}}', 'no'),
 (19876, 'tinypng_compression_timing', 'background', 'yes'),
 (19878, 'tinypng_api_key', '', 'yes'),
 (19880, 'tinypng_status', '11', 'yes'),
@@ -974,8 +956,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (19887, 'tinypng_preserve_data', '', 'yes'),
 (19894, '_transient_timeout_wc_var_prices_994', '1570521249', 'no'),
 (19895, '_transient_wc_var_prices_994', '{\"version\":\"1567765484\",\"f9e544f77b7eac7add281ef28ca5559f\":{\"price\":[],\"regular_price\":[],\"sale_price\":[]}}', 'no'),
-(19918, '_site_transient_timeout_theme_roots', '1567933308', 'no'),
-(19919, '_site_transient_theme_roots', 'a:2:{s:7:\"myTheme\";s:7:\"/themes\";s:13:\"twentysixteen\";s:7:\"/themes\";}', 'no'),
 (19921, 'fvm-last-cache-update', '1567931767', 'yes'),
 (19922, 'fastvelocity_min_fvm_fix_editor', '1', 'yes'),
 (19923, 'fastvelocity_min_remove_print_mediatypes', '1', 'yes'),
@@ -1037,7 +1017,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (20014, 'wp-optimize-total_percent_saved', '0', 'yes'),
 (20016, 'wp-optimize-wpo_last_page_cache_preload', '1567931943', 'yes'),
 (20018, 'Re_Smush_It_Task', 'Cannot copy from uploaded file', 'yes'),
-(20031, '_site_transient_update_plugins', 'O:8:\"stdClass\":5:{s:12:\"last_checked\";i:1567932488;s:7:\"checked\";a:14:{s:33:\"acf-qtranslate/acf-qtranslate.php\";s:6:\"1.7.25\";s:34:\"advanced-custom-fields-pro/acf.php\";s:5:\"5.6.1\";s:27:\"autoptimize/autoptimize.php\";s:5:\"2.5.1\";s:45:\"tiny-compress-images/tiny-compress-images.php\";s:5:\"3.2.0\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:5:\"5.1.3\";s:43:\"custom-post-type-ui/custom-post-type-ui.php\";s:5:\"1.6.1\";s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";s:6:\"1.9.15\";s:19:\"ot-zalo/ot-zalo.php\";s:5:\"1.1.0\";s:27:\"qtranslate-x/qtranslate.php\";s:7:\"3.4.6.8\";s:27:\"woocommerce/woocommerce.php\";s:5:\"3.6.4\";s:53:\"woocommerce-qtranslate-x/woocommerce-qtranslate-x.php\";s:3:\"1.3\";s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";s:5:\"1.0.6\";s:27:\"wp-pagenavi/wp-pagenavi.php\";s:4:\"2.93\";s:29:\"wp-mail-smtp/wp_mail_smtp.php\";s:5:\"1.4.2\";}s:8:\"response\";a:6:{s:36:\"contact-form-7/wp-contact-form-7.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:28:\"w.org/plugins/contact-form-7\";s:4:\"slug\";s:14:\"contact-form-7\";s:6:\"plugin\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:11:\"new_version\";s:5:\"5.1.4\";s:3:\"url\";s:45:\"https://wordpress.org/plugins/contact-form-7/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/contact-form-7.5.1.4.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-256x256.png?rev=984007\";s:2:\"1x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-128x128.png?rev=984007\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:69:\"https://ps.w.org/contact-form-7/assets/banner-1544x500.png?rev=860901\";s:2:\"1x\";s:68:\"https://ps.w.org/contact-form-7/assets/banner-772x250.png?rev=880427\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";b:0;s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:43:\"custom-post-type-ui/custom-post-type-ui.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:33:\"w.org/plugins/custom-post-type-ui\";s:4:\"slug\";s:19:\"custom-post-type-ui\";s:6:\"plugin\";s:43:\"custom-post-type-ui/custom-post-type-ui.php\";s:11:\"new_version\";s:5:\"1.6.2\";s:3:\"url\";s:50:\"https://wordpress.org/plugins/custom-post-type-ui/\";s:7:\"package\";s:68:\"https://downloads.wordpress.org/plugin/custom-post-type-ui.1.6.2.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:72:\"https://ps.w.org/custom-post-type-ui/assets/icon-256x256.png?rev=1069557\";s:2:\"1x\";s:72:\"https://ps.w.org/custom-post-type-ui/assets/icon-128x128.png?rev=1069557\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:75:\"https://ps.w.org/custom-post-type-ui/assets/banner-1544x500.png?rev=1069557\";s:2:\"1x\";s:74:\"https://ps.w.org/custom-post-type-ui/assets/banner-772x250.png?rev=1069557\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";s:3:\"5.2\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:27:\"woocommerce/woocommerce.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:25:\"w.org/plugins/woocommerce\";s:4:\"slug\";s:11:\"woocommerce\";s:6:\"plugin\";s:27:\"woocommerce/woocommerce.php\";s:11:\"new_version\";s:5:\"3.7.0\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/woocommerce/\";s:7:\"package\";s:60:\"https://downloads.wordpress.org/plugin/woocommerce.3.7.0.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:64:\"https://ps.w.org/woocommerce/assets/icon-256x256.png?rev=2075035\";s:2:\"1x\";s:64:\"https://ps.w.org/woocommerce/assets/icon-128x128.png?rev=2075035\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:67:\"https://ps.w.org/woocommerce/assets/banner-1544x500.png?rev=2075035\";s:2:\"1x\";s:66:\"https://ps.w.org/woocommerce/assets/banner-772x250.png?rev=2075035\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";s:3:\"5.6\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:34:\"w.org/plugins/woo-vietnam-checkout\";s:4:\"slug\";s:20:\"woo-vietnam-checkout\";s:6:\"plugin\";s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";s:11:\"new_version\";s:5:\"1.0.7\";s:3:\"url\";s:51:\"https://wordpress.org/plugins/woo-vietnam-checkout/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/woo-vietnam-checkout.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:73:\"https://ps.w.org/woo-vietnam-checkout/assets/icon-256x256.png?rev=1795326\";s:2:\"1x\";s:73:\"https://ps.w.org/woo-vietnam-checkout/assets/icon-128x128.png?rev=1795326\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:76:\"https://ps.w.org/woo-vietnam-checkout/assets/banner-1544x500.png?rev=1795326\";s:2:\"1x\";s:75:\"https://ps.w.org/woo-vietnam-checkout/assets/banner-772x250.png?rev=1795326\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:6:\"4.9.11\";s:12:\"requires_php\";b:0;s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:29:\"wp-mail-smtp/wp_mail_smtp.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:26:\"w.org/plugins/wp-mail-smtp\";s:4:\"slug\";s:12:\"wp-mail-smtp\";s:6:\"plugin\";s:29:\"wp-mail-smtp/wp_mail_smtp.php\";s:11:\"new_version\";s:5:\"1.6.2\";s:3:\"url\";s:43:\"https://wordpress.org/plugins/wp-mail-smtp/\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/plugin/wp-mail-smtp.1.6.2.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:65:\"https://ps.w.org/wp-mail-smtp/assets/icon-256x256.png?rev=1755440\";s:2:\"1x\";s:65:\"https://ps.w.org/wp-mail-smtp/assets/icon-128x128.png?rev=1755440\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:68:\"https://ps.w.org/wp-mail-smtp/assets/banner-1544x500.png?rev=2120094\";s:2:\"1x\";s:67:\"https://ps.w.org/wp-mail-smtp/assets/banner-772x250.png?rev=2120094\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";s:3:\"5.3\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:34:\"advanced-custom-fields-pro/acf.php\";O:8:\"stdClass\":8:{s:4:\"slug\";s:26:\"advanced-custom-fields-pro\";s:6:\"plugin\";s:34:\"advanced-custom-fields-pro/acf.php\";s:11:\"new_version\";s:5:\"5.8.4\";s:3:\"url\";s:36:\"https://www.advancedcustomfields.com\";s:6:\"tested\";s:3:\"5.2\";s:7:\"package\";s:0:\"\";s:5:\"icons\";a:1:{s:7:\"default\";s:63:\"https://ps.w.org/advanced-custom-fields/assets/icon-256x256.png\";}s:7:\"banners\";a:1:{s:7:\"default\";s:66:\"https://ps.w.org/advanced-custom-fields/assets/banner-1544x500.jpg\";}}}s:12:\"translations\";a:4:{i:0;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:14:\"contact-form-7\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:5:\"5.1.3\";s:7:\"updated\";s:19:\"2019-08-01 04:56:38\";s:7:\"package\";s:78:\"https://downloads.wordpress.org/translation/plugin/contact-form-7/5.1.3/vi.zip\";s:10:\"autoupdate\";b:1;}i:1;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:11:\"woocommerce\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:5:\"3.6.4\";s:7:\"updated\";s:19:\"2019-06-10 02:29:26\";s:7:\"package\";s:75:\"https://downloads.wordpress.org/translation/plugin/woocommerce/3.6.4/vi.zip\";s:10:\"autoupdate\";b:1;}i:2;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:11:\"wp-pagenavi\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:4:\"2.92\";s:7:\"updated\";s:19:\"2016-12-05 01:59:40\";s:7:\"package\";s:74:\"https://downloads.wordpress.org/translation/plugin/wp-pagenavi/2.92/vi.zip\";s:10:\"autoupdate\";b:1;}i:3;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:12:\"wp-mail-smtp\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:6:\"0.10.1\";s:7:\"updated\";s:19:\"2016-12-05 02:10:49\";s:7:\"package\";s:77:\"https://downloads.wordpress.org/translation/plugin/wp-mail-smtp/0.10.1/vi.zip\";s:10:\"autoupdate\";b:1;}}s:9:\"no_update\";a:8:{s:33:\"acf-qtranslate/acf-qtranslate.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:28:\"w.org/plugins/acf-qtranslate\";s:4:\"slug\";s:14:\"acf-qtranslate\";s:6:\"plugin\";s:33:\"acf-qtranslate/acf-qtranslate.php\";s:11:\"new_version\";s:6:\"1.7.25\";s:3:\"url\";s:45:\"https://wordpress.org/plugins/acf-qtranslate/\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/plugin/acf-qtranslate.1.7.25.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:58:\"https://s.w.org/plugins/geopattern-icon/acf-qtranslate.svg\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:27:\"autoptimize/autoptimize.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:25:\"w.org/plugins/autoptimize\";s:4:\"slug\";s:11:\"autoptimize\";s:6:\"plugin\";s:27:\"autoptimize/autoptimize.php\";s:11:\"new_version\";s:5:\"2.5.1\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/autoptimize/\";s:7:\"package\";s:60:\"https://downloads.wordpress.org/plugin/autoptimize.2.5.1.zip\";s:5:\"icons\";a:1:{s:2:\"1x\";s:64:\"https://ps.w.org/autoptimize/assets/icon-128x128.png?rev=1864142\";}s:7:\"banners\";a:1:{s:2:\"1x\";s:66:\"https://ps.w.org/autoptimize/assets/banner-772x250.jpg?rev=1315920\";}s:11:\"banners_rtl\";a:0:{}}s:45:\"tiny-compress-images/tiny-compress-images.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:34:\"w.org/plugins/tiny-compress-images\";s:4:\"slug\";s:20:\"tiny-compress-images\";s:6:\"plugin\";s:45:\"tiny-compress-images/tiny-compress-images.php\";s:11:\"new_version\";s:5:\"3.2.0\";s:3:\"url\";s:51:\"https://wordpress.org/plugins/tiny-compress-images/\";s:7:\"package\";s:69:\"https://downloads.wordpress.org/plugin/tiny-compress-images.3.2.0.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:73:\"https://ps.w.org/tiny-compress-images/assets/icon-256x256.png?rev=1088385\";s:2:\"1x\";s:73:\"https://ps.w.org/tiny-compress-images/assets/icon-128x128.png?rev=1088385\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:76:\"https://ps.w.org/tiny-compress-images/assets/banner-1544x500.jpg?rev=1088297\";s:2:\"1x\";s:75:\"https://ps.w.org/tiny-compress-images/assets/banner-772x250.jpg?rev=1088297\";}s:11:\"banners_rtl\";a:0:{}}s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:38:\"w.org/plugins/facebook-for-woocommerce\";s:4:\"slug\";s:24:\"facebook-for-woocommerce\";s:6:\"plugin\";s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";s:11:\"new_version\";s:6:\"1.9.15\";s:3:\"url\";s:55:\"https://wordpress.org/plugins/facebook-for-woocommerce/\";s:7:\"package\";s:74:\"https://downloads.wordpress.org/plugin/facebook-for-woocommerce.1.9.15.zip\";s:5:\"icons\";a:3:{s:2:\"2x\";s:77:\"https://ps.w.org/facebook-for-woocommerce/assets/icon-256x256.png?rev=2040223\";s:2:\"1x\";s:69:\"https://ps.w.org/facebook-for-woocommerce/assets/icon.svg?rev=2040223\";s:3:\"svg\";s:69:\"https://ps.w.org/facebook-for-woocommerce/assets/icon.svg?rev=2040223\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:19:\"ot-zalo/ot-zalo.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:21:\"w.org/plugins/ot-zalo\";s:4:\"slug\";s:7:\"ot-zalo\";s:6:\"plugin\";s:19:\"ot-zalo/ot-zalo.php\";s:11:\"new_version\";s:5:\"1.1.0\";s:3:\"url\";s:38:\"https://wordpress.org/plugins/ot-zalo/\";s:7:\"package\";s:50:\"https://downloads.wordpress.org/plugin/ot-zalo.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:51:\"https://s.w.org/plugins/geopattern-icon/ot-zalo.svg\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:27:\"qtranslate-x/qtranslate.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:26:\"w.org/plugins/qtranslate-x\";s:4:\"slug\";s:12:\"qtranslate-x\";s:6:\"plugin\";s:27:\"qtranslate-x/qtranslate.php\";s:11:\"new_version\";s:7:\"3.4.6.8\";s:3:\"url\";s:43:\"https://wordpress.org/plugins/qtranslate-x/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/qtranslate-x.3.4.6.8.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:63:\"https://s.w.org/plugins/geopattern-icon/qtranslate-x_f9f9f9.svg\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:68:\"https://ps.w.org/qtranslate-x/assets/banner-1544x500.png?rev=1286019\";s:2:\"1x\";s:67:\"https://ps.w.org/qtranslate-x/assets/banner-772x250.png?rev=1286019\";}s:11:\"banners_rtl\";a:0:{}}s:53:\"woocommerce-qtranslate-x/woocommerce-qtranslate-x.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:38:\"w.org/plugins/woocommerce-qtranslate-x\";s:4:\"slug\";s:24:\"woocommerce-qtranslate-x\";s:6:\"plugin\";s:53:\"woocommerce-qtranslate-x/woocommerce-qtranslate-x.php\";s:11:\"new_version\";s:3:\"1.3\";s:3:\"url\";s:55:\"https://wordpress.org/plugins/woocommerce-qtranslate-x/\";s:7:\"package\";s:71:\"https://downloads.wordpress.org/plugin/woocommerce-qtranslate-x.1.3.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:68:\"https://s.w.org/plugins/geopattern-icon/woocommerce-qtranslate-x.svg\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:27:\"wp-pagenavi/wp-pagenavi.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:25:\"w.org/plugins/wp-pagenavi\";s:4:\"slug\";s:11:\"wp-pagenavi\";s:6:\"plugin\";s:27:\"wp-pagenavi/wp-pagenavi.php\";s:11:\"new_version\";s:4:\"2.93\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/wp-pagenavi/\";s:7:\"package\";s:59:\"https://downloads.wordpress.org/plugin/wp-pagenavi.2.93.zip\";s:5:\"icons\";a:2:{s:2:\"1x\";s:55:\"https://ps.w.org/wp-pagenavi/assets/icon.svg?rev=977997\";s:3:\"svg\";s:55:\"https://ps.w.org/wp-pagenavi/assets/icon.svg?rev=977997\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:67:\"https://ps.w.org/wp-pagenavi/assets/banner-1544x500.jpg?rev=1206758\";s:2:\"1x\";s:66:\"https://ps.w.org/wp-pagenavi/assets/banner-772x250.jpg?rev=1206758\";}s:11:\"banners_rtl\";a:0:{}}}}', 'no'),
 (20032, 'autoptimize_version', '2.5.1', 'yes'),
 (20033, 'autoptimize_service_availablity', 'a:2:{s:12:\"extra_imgopt\";a:3:{s:6:\"status\";s:2:\"up\";s:5:\"hosts\";a:1:{i:1;s:26:\"https://cdn.shortpixel.ai/\";}s:16:\"launch-threshold\";s:4:\"4096\";}s:7:\"critcss\";a:2:{s:6:\"status\";s:2:\"up\";s:5:\"hosts\";a:1:{i:1;s:24:\"https://criticalcss.com/\";}}}', 'yes'),
 (20035, 'autoptimize_imgopt_launched', 'on', 'yes'),
@@ -1084,25 +1063,64 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (20072, 'autoptimize_optimize_logged', 'on', 'yes'),
 (20073, 'autoptimize_optimize_checkout', 'on', 'yes'),
 (20074, 'autoptimize_minify_excluded', 'on', 'yes'),
-(20077, '_transient_timeout_autoptimize_cache_warmer_protector', '1567933111', 'no'),
-(20078, '_transient_autoptimize_cache_warmer_protector', 'I shall not warm cache for another 10 minutes.', 'no'),
-(20104, 'pand-d83e5fe4823f8f867dc30d3bb0b6c7de', '1578561566', 'no');
+(20104, 'pand-d83e5fe4823f8f867dc30d3bb0b6c7de', '1578561566', 'no'),
+(20119, '_transient_wc_count_comments', 'O:8:\"stdClass\":7:{s:14:\"total_comments\";i:1;s:3:\"all\";i:1;s:8:\"approved\";s:1:\"1\";s:9:\"moderated\";i:0;s:4:\"spam\";i:0;s:5:\"trash\";i:0;s:12:\"post-trashed\";i:0;}', 'yes'),
+(20120, '_transient_as_comment_count', 'O:8:\"stdClass\":7:{s:8:\"approved\";s:1:\"1\";s:14:\"total_comments\";i:1;s:3:\"all\";i:1;s:9:\"moderated\";i:0;s:4:\"spam\";i:0;s:5:\"trash\";i:0;s:12:\"post-trashed\";i:0;}', 'yes'),
+(20130, '_transient_timeout_wc_term_counts', '1570551748', 'no'),
+(20131, '_transient_wc_term_counts', 'a:13:{i:80;s:2:\"15\";i:66;s:2:\"10\";i:79;s:1:\"5\";i:81;s:1:\"5\";i:98;s:1:\"5\";i:82;s:1:\"5\";i:75;s:0:\"\";i:74;s:0:\"\";i:78;s:0:\"\";i:77;s:0:\"\";i:86;s:1:\"0\";i:100;s:1:\"0\";i:99;s:1:\"0\";}', 'no'),
+(20164, '_site_transient_timeout_available_translations', '1567963401', 'no');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(20165, '_site_transient_available_translations', 'a:114:{s:2:\"af\";a:8:{s:8:\"language\";s:2:\"af\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-05-16 12:53:39\";s:12:\"english_name\";s:9:\"Afrikaans\";s:11:\"native_name\";s:9:\"Afrikaans\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/af.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"af\";i:2;s:3:\"afr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Gaan voort\";}}s:2:\"ar\";a:8:{s:8:\"language\";s:2:\"ar\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-09-03 09:41:22\";s:12:\"english_name\";s:6:\"Arabic\";s:11:\"native_name\";s:14:\"العربية\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/ar.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ar\";i:2;s:3:\"ara\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"المتابعة\";}}s:3:\"ary\";a:8:{s:8:\"language\";s:3:\"ary\";s:7:\"version\";s:5:\"4.7.7\";s:7:\"updated\";s:19:\"2017-01-26 15:42:35\";s:12:\"english_name\";s:15:\"Moroccan Arabic\";s:11:\"native_name\";s:31:\"العربية المغربية\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.7/ary.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ar\";i:3;s:3:\"ary\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"المتابعة\";}}s:2:\"as\";a:8:{s:8:\"language\";s:2:\"as\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-22 18:59:07\";s:12:\"english_name\";s:8:\"Assamese\";s:11:\"native_name\";s:21:\"অসমীয়া\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/as.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"as\";i:2;s:3:\"asm\";i:3;s:3:\"asm\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:2:\"az\";a:8:{s:8:\"language\";s:2:\"az\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-06 00:09:27\";s:12:\"english_name\";s:11:\"Azerbaijani\";s:11:\"native_name\";s:16:\"Azərbaycan dili\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/az.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"az\";i:2;s:3:\"aze\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Davam\";}}s:3:\"azb\";a:8:{s:8:\"language\";s:3:\"azb\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-09-12 20:34:31\";s:12:\"english_name\";s:17:\"South Azerbaijani\";s:11:\"native_name\";s:29:\"گؤنئی آذربایجان\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/azb.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"az\";i:3;s:3:\"azb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:3:\"bel\";a:8:{s:8:\"language\";s:3:\"bel\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-05-14 14:59:20\";s:12:\"english_name\";s:10:\"Belarusian\";s:11:\"native_name\";s:29:\"Беларуская мова\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/translation/core/4.9.10/bel.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"be\";i:2;s:3:\"bel\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Працягнуць\";}}s:5:\"bg_BG\";a:8:{s:8:\"language\";s:5:\"bg_BG\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-11-05 11:37:23\";s:12:\"english_name\";s:9:\"Bulgarian\";s:11:\"native_name\";s:18:\"Български\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/bg_BG.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bg\";i:2;s:3:\"bul\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Напред\";}}s:5:\"bn_BD\";a:8:{s:8:\"language\";s:5:\"bn_BD\";s:7:\"version\";s:5:\"4.8.6\";s:7:\"updated\";s:19:\"2017-10-01 12:57:10\";s:12:\"english_name\";s:20:\"Bengali (Bangladesh)\";s:11:\"native_name\";s:15:\"বাংলা\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.8.6/bn_BD.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"bn\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:23:\"এগিয়ে চল.\";}}s:2:\"bo\";a:8:{s:8:\"language\";s:2:\"bo\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-05-16 08:03:06\";s:12:\"english_name\";s:7:\"Tibetan\";s:11:\"native_name\";s:21:\"བོད་ཡིག\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/bo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bo\";i:2;s:3:\"tib\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:33:\"མུ་མཐུད་དུ།\";}}s:5:\"bs_BA\";a:8:{s:8:\"language\";s:5:\"bs_BA\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-06-12 06:34:37\";s:12:\"english_name\";s:7:\"Bosnian\";s:11:\"native_name\";s:8:\"Bosanski\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/bs_BA.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"bs\";i:2;s:3:\"bos\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Nastavi\";}}s:2:\"ca\";a:8:{s:8:\"language\";s:2:\"ca\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 02:38:14\";s:12:\"english_name\";s:7:\"Catalan\";s:11:\"native_name\";s:7:\"Català\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/ca.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ca\";i:2;s:3:\"cat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continua\";}}s:3:\"ceb\";a:8:{s:8:\"language\";s:3:\"ceb\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-03-02 17:25:51\";s:12:\"english_name\";s:7:\"Cebuano\";s:11:\"native_name\";s:7:\"Cebuano\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/ceb.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"ceb\";i:3;s:3:\"ceb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Padayun\";}}s:5:\"cs_CZ\";a:8:{s:8:\"language\";s:5:\"cs_CZ\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-07-02 05:02:53\";s:12:\"english_name\";s:5:\"Czech\";s:11:\"native_name\";s:9:\"Čeština\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/cs_CZ.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"cs\";i:2;s:3:\"ces\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:11:\"Pokračovat\";}}s:2:\"cy\";a:8:{s:8:\"language\";s:2:\"cy\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-19 09:40:25\";s:12:\"english_name\";s:5:\"Welsh\";s:11:\"native_name\";s:7:\"Cymraeg\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/cy.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"cy\";i:2;s:3:\"cym\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Parhau\";}}s:5:\"da_DK\";a:8:{s:8:\"language\";s:5:\"da_DK\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-02 13:26:35\";s:12:\"english_name\";s:6:\"Danish\";s:11:\"native_name\";s:5:\"Dansk\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/da_DK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"da\";i:2;s:3:\"dan\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Fortsæt\";}}s:5:\"de_DE\";a:8:{s:8:\"language\";s:5:\"de_DE\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-04 14:01:41\";s:12:\"english_name\";s:6:\"German\";s:11:\"native_name\";s:7:\"Deutsch\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/de_DE.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:5:\"de_CH\";a:8:{s:8:\"language\";s:5:\"de_CH\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-07-28 11:47:36\";s:12:\"english_name\";s:20:\"German (Switzerland)\";s:11:\"native_name\";s:17:\"Deutsch (Schweiz)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/de_CH.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:14:\"de_CH_informal\";a:8:{s:8:\"language\";s:14:\"de_CH_informal\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-07-28 11:48:22\";s:12:\"english_name\";s:30:\"German (Switzerland, Informal)\";s:11:\"native_name\";s:21:\"Deutsch (Schweiz, Du)\";s:7:\"package\";s:73:\"https://downloads.wordpress.org/translation/core/4.9.8/de_CH_informal.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:12:\"de_DE_formal\";a:8:{s:8:\"language\";s:12:\"de_DE_formal\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-20 12:44:05\";s:12:\"english_name\";s:15:\"German (Formal)\";s:11:\"native_name\";s:13:\"Deutsch (Sie)\";s:7:\"package\";s:72:\"https://downloads.wordpress.org/translation/core/4.9.10/de_DE_formal.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"de\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Weiter\";}}s:3:\"dzo\";a:8:{s:8:\"language\";s:3:\"dzo\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-06-29 08:59:03\";s:12:\"english_name\";s:8:\"Dzongkha\";s:11:\"native_name\";s:18:\"རྫོང་ཁ\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/dzo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"dz\";i:2;s:3:\"dzo\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:2:\"el\";a:8:{s:8:\"language\";s:2:\"el\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 14:41:04\";s:12:\"english_name\";s:5:\"Greek\";s:11:\"native_name\";s:16:\"Ελληνικά\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/el.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"el\";i:2;s:3:\"ell\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"Συνέχεια\";}}s:5:\"en_GB\";a:8:{s:8:\"language\";s:5:\"en_GB\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 07:19:03\";s:12:\"english_name\";s:12:\"English (UK)\";s:11:\"native_name\";s:12:\"English (UK)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/en_GB.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_NZ\";a:8:{s:8:\"language\";s:5:\"en_NZ\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 09:05:53\";s:12:\"english_name\";s:21:\"English (New Zealand)\";s:11:\"native_name\";s:21:\"English (New Zealand)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/en_NZ.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_ZA\";a:8:{s:8:\"language\";s:5:\"en_ZA\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 07:15:15\";s:12:\"english_name\";s:22:\"English (South Africa)\";s:11:\"native_name\";s:22:\"English (South Africa)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/en_ZA.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_AU\";a:8:{s:8:\"language\";s:5:\"en_AU\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 02:09:13\";s:12:\"english_name\";s:19:\"English (Australia)\";s:11:\"native_name\";s:19:\"English (Australia)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/en_AU.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:5:\"en_CA\";a:8:{s:8:\"language\";s:5:\"en_CA\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-05-03 20:13:34\";s:12:\"english_name\";s:16:\"English (Canada)\";s:11:\"native_name\";s:16:\"English (Canada)\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/en_CA.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"en\";i:2;s:3:\"eng\";i:3;s:3:\"eng\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:2:\"eo\";a:8:{s:8:\"language\";s:2:\"eo\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-24 14:32:41\";s:12:\"english_name\";s:9:\"Esperanto\";s:11:\"native_name\";s:9:\"Esperanto\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/eo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"eo\";i:2;s:3:\"epo\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Daŭrigi\";}}s:5:\"es_ES\";a:8:{s:8:\"language\";s:5:\"es_ES\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-24 21:10:09\";s:12:\"english_name\";s:15:\"Spanish (Spain)\";s:11:\"native_name\";s:8:\"Español\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/es_ES.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_AR\";a:8:{s:8:\"language\";s:5:\"es_AR\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-21 23:58:09\";s:12:\"english_name\";s:19:\"Spanish (Argentina)\";s:11:\"native_name\";s:21:\"Español de Argentina\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/es_AR.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_CO\";a:8:{s:8:\"language\";s:5:\"es_CO\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-05-23 02:23:28\";s:12:\"english_name\";s:18:\"Spanish (Colombia)\";s:11:\"native_name\";s:20:\"Español de Colombia\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/es_CO.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_GT\";a:8:{s:8:\"language\";s:5:\"es_GT\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2019-03-02 06:27:10\";s:12:\"english_name\";s:19:\"Spanish (Guatemala)\";s:11:\"native_name\";s:21:\"Español de Guatemala\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.9/es_GT.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_MX\";a:8:{s:8:\"language\";s:5:\"es_MX\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-11-15 16:32:57\";s:12:\"english_name\";s:16:\"Spanish (Mexico)\";s:11:\"native_name\";s:19:\"Español de México\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/es_MX.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_CR\";a:8:{s:8:\"language\";s:5:\"es_CR\";s:7:\"version\";s:5:\"4.8.3\";s:7:\"updated\";s:19:\"2017-10-01 17:54:52\";s:12:\"english_name\";s:20:\"Spanish (Costa Rica)\";s:11:\"native_name\";s:22:\"Español de Costa Rica\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.8.3/es_CR.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_PE\";a:8:{s:8:\"language\";s:5:\"es_PE\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-09-09 09:36:22\";s:12:\"english_name\";s:14:\"Spanish (Peru)\";s:11:\"native_name\";s:17:\"Español de Perú\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/es_PE.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_CL\";a:8:{s:8:\"language\";s:5:\"es_CL\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-22 17:01:37\";s:12:\"english_name\";s:15:\"Spanish (Chile)\";s:11:\"native_name\";s:17:\"Español de Chile\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/es_CL.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"es_VE\";a:8:{s:8:\"language\";s:5:\"es_VE\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2018-08-21 14:41:13\";s:12:\"english_name\";s:19:\"Spanish (Venezuela)\";s:11:\"native_name\";s:21:\"Español de Venezuela\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/es_VE.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"es\";i:2;s:3:\"spa\";i:3;s:3:\"spa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:2:\"et\";a:8:{s:8:\"language\";s:2:\"et\";s:7:\"version\";s:5:\"4.9.2\";s:7:\"updated\";s:19:\"2017-11-19 14:11:29\";s:12:\"english_name\";s:8:\"Estonian\";s:11:\"native_name\";s:5:\"Eesti\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.2/et.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"et\";i:2;s:3:\"est\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Jätka\";}}s:2:\"eu\";a:8:{s:8:\"language\";s:2:\"eu\";s:7:\"version\";s:5:\"4.9.2\";s:7:\"updated\";s:19:\"2017-12-09 21:12:23\";s:12:\"english_name\";s:6:\"Basque\";s:11:\"native_name\";s:7:\"Euskara\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.2/eu.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"eu\";i:2;s:3:\"eus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Jarraitu\";}}s:5:\"fa_IR\";a:8:{s:8:\"language\";s:5:\"fa_IR\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-07 02:18:08\";s:12:\"english_name\";s:7:\"Persian\";s:11:\"native_name\";s:10:\"فارسی\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/fa_IR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fa\";i:2;s:3:\"fas\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"ادامه\";}}s:2:\"fi\";a:8:{s:8:\"language\";s:2:\"fi\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-19 08:17:42\";s:12:\"english_name\";s:7:\"Finnish\";s:11:\"native_name\";s:5:\"Suomi\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/fi.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fi\";i:2;s:3:\"fin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Jatka\";}}s:5:\"fr_FR\";a:8:{s:8:\"language\";s:5:\"fr_FR\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 07:18:23\";s:12:\"english_name\";s:15:\"French (France)\";s:11:\"native_name\";s:9:\"Français\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/fr_FR.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"fr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:5:\"fr_CA\";a:8:{s:8:\"language\";s:5:\"fr_CA\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-07-28 14:50:34\";s:12:\"english_name\";s:15:\"French (Canada)\";s:11:\"native_name\";s:19:\"Français du Canada\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/fr_CA.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fr\";i:2;s:3:\"fra\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:5:\"fr_BE\";a:8:{s:8:\"language\";s:5:\"fr_BE\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-01-31 11:16:06\";s:12:\"english_name\";s:16:\"French (Belgium)\";s:11:\"native_name\";s:21:\"Français de Belgique\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/fr_BE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"fr\";i:2;s:3:\"fra\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuer\";}}s:3:\"fur\";a:8:{s:8:\"language\";s:3:\"fur\";s:7:\"version\";s:5:\"4.8.6\";s:7:\"updated\";s:19:\"2018-01-29 17:32:35\";s:12:\"english_name\";s:8:\"Friulian\";s:11:\"native_name\";s:8:\"Friulian\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.8.6/fur.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"fur\";i:3;s:3:\"fur\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continue\";}}s:2:\"gd\";a:8:{s:8:\"language\";s:2:\"gd\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-08-23 17:41:37\";s:12:\"english_name\";s:15:\"Scottish Gaelic\";s:11:\"native_name\";s:9:\"Gàidhlig\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/gd.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"gd\";i:2;s:3:\"gla\";i:3;s:3:\"gla\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:15:\"Lean air adhart\";}}s:5:\"gl_ES\";a:8:{s:8:\"language\";s:5:\"gl_ES\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 08:20:40\";s:12:\"english_name\";s:8:\"Galician\";s:11:\"native_name\";s:6:\"Galego\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/gl_ES.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"gl\";i:2;s:3:\"glg\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:2:\"gu\";a:8:{s:8:\"language\";s:2:\"gu\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-09-14 12:33:48\";s:12:\"english_name\";s:8:\"Gujarati\";s:11:\"native_name\";s:21:\"ગુજરાતી\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.8/gu.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"gu\";i:2;s:3:\"guj\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:31:\"ચાલુ રાખવું\";}}s:3:\"haz\";a:8:{s:8:\"language\";s:3:\"haz\";s:7:\"version\";s:5:\"4.4.2\";s:7:\"updated\";s:19:\"2015-12-05 00:59:09\";s:12:\"english_name\";s:8:\"Hazaragi\";s:11:\"native_name\";s:15:\"هزاره گی\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.4.2/haz.zip\";s:3:\"iso\";a:1:{i:3;s:3:\"haz\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"ادامه\";}}s:5:\"he_IL\";a:8:{s:8:\"language\";s:5:\"he_IL\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-07-09 19:18:21\";s:12:\"english_name\";s:6:\"Hebrew\";s:11:\"native_name\";s:16:\"עִבְרִית\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/he_IL.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"he\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"המשך\";}}s:5:\"hi_IN\";a:8:{s:8:\"language\";s:5:\"hi_IN\";s:7:\"version\";s:5:\"4.9.7\";s:7:\"updated\";s:19:\"2018-06-17 09:33:44\";s:12:\"english_name\";s:5:\"Hindi\";s:11:\"native_name\";s:18:\"हिन्दी\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.7/hi_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hi\";i:2;s:3:\"hin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"जारी\";}}s:2:\"hr\";a:8:{s:8:\"language\";s:2:\"hr\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-14 19:18:02\";s:12:\"english_name\";s:8:\"Croatian\";s:11:\"native_name\";s:8:\"Hrvatski\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/hr.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hr\";i:2;s:3:\"hrv\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:7:\"Nastavi\";}}s:5:\"hu_HU\";a:8:{s:8:\"language\";s:5:\"hu_HU\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2018-12-16 15:53:35\";s:12:\"english_name\";s:9:\"Hungarian\";s:11:\"native_name\";s:6:\"Magyar\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/hu_HU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hu\";i:2;s:3:\"hun\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Folytatás\";}}s:2:\"hy\";a:8:{s:8:\"language\";s:2:\"hy\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-12-03 16:21:10\";s:12:\"english_name\";s:8:\"Armenian\";s:11:\"native_name\";s:14:\"Հայերեն\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/hy.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"hy\";i:2;s:3:\"hye\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Շարունակել\";}}s:5:\"id_ID\";a:8:{s:8:\"language\";s:5:\"id_ID\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-07-28 13:16:13\";s:12:\"english_name\";s:10:\"Indonesian\";s:11:\"native_name\";s:16:\"Bahasa Indonesia\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/id_ID.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"id\";i:2;s:3:\"ind\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Lanjutkan\";}}s:5:\"is_IS\";a:8:{s:8:\"language\";s:5:\"is_IS\";s:7:\"version\";s:6:\"4.7.11\";s:7:\"updated\";s:19:\"2018-09-20 11:13:37\";s:12:\"english_name\";s:9:\"Icelandic\";s:11:\"native_name\";s:9:\"Íslenska\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.7.11/is_IS.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"is\";i:2;s:3:\"isl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Áfram\";}}s:5:\"it_IT\";a:8:{s:8:\"language\";s:5:\"it_IT\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-09-02 18:22:51\";s:12:\"english_name\";s:7:\"Italian\";s:11:\"native_name\";s:8:\"Italiano\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/it_IT.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"it\";i:2;s:3:\"ita\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Continua\";}}s:2:\"ja\";a:8:{s:8:\"language\";s:2:\"ja\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 02:04:21\";s:12:\"english_name\";s:8:\"Japanese\";s:11:\"native_name\";s:9:\"日本語\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/ja.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"ja\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"続ける\";}}s:5:\"jv_ID\";a:8:{s:8:\"language\";s:5:\"jv_ID\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-24 13:53:29\";s:12:\"english_name\";s:8:\"Javanese\";s:11:\"native_name\";s:9:\"Basa Jawa\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/jv_ID.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"jv\";i:2;s:3:\"jav\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Nerusaké\";}}s:5:\"ka_GE\";a:8:{s:8:\"language\";s:5:\"ka_GE\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2019-02-18 10:06:00\";s:12:\"english_name\";s:8:\"Georgian\";s:11:\"native_name\";s:21:\"ქართული\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.9/ka_GE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ka\";i:2;s:3:\"kat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"გაგრძელება\";}}s:3:\"kab\";a:8:{s:8:\"language\";s:3:\"kab\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-09-21 14:15:57\";s:12:\"english_name\";s:6:\"Kabyle\";s:11:\"native_name\";s:9:\"Taqbaylit\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.8/kab.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"kab\";i:3;s:3:\"kab\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Kemmel\";}}s:2:\"kk\";a:8:{s:8:\"language\";s:2:\"kk\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-12 08:08:32\";s:12:\"english_name\";s:6:\"Kazakh\";s:11:\"native_name\";s:19:\"Қазақ тілі\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.9.5/kk.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"kk\";i:2;s:3:\"kaz\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Жалғастыру\";}}s:2:\"km\";a:8:{s:8:\"language\";s:2:\"km\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-12-07 02:07:59\";s:12:\"english_name\";s:5:\"Khmer\";s:11:\"native_name\";s:27:\"ភាសាខ្មែរ\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/km.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"km\";i:2;s:3:\"khm\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"បន្ត\";}}s:2:\"kn\";a:8:{s:8:\"language\";s:2:\"kn\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-05-08 04:00:57\";s:12:\"english_name\";s:7:\"Kannada\";s:11:\"native_name\";s:15:\"ಕನ್ನಡ\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/kn.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"kn\";i:2;s:3:\"kan\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"ಮುಂದುವರೆಸಿ\";}}s:5:\"ko_KR\";a:8:{s:8:\"language\";s:5:\"ko_KR\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-13 15:03:57\";s:12:\"english_name\";s:6:\"Korean\";s:11:\"native_name\";s:9:\"한국어\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/ko_KR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ko\";i:2;s:3:\"kor\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"계속\";}}s:3:\"ckb\";a:8:{s:8:\"language\";s:3:\"ckb\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2018-12-18 14:32:44\";s:12:\"english_name\";s:16:\"Kurdish (Sorani)\";s:11:\"native_name\";s:13:\"كوردی‎\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.9/ckb.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ku\";i:3;s:3:\"ckb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"به‌رده‌وام به‌\";}}s:2:\"lo\";a:8:{s:8:\"language\";s:2:\"lo\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-12 09:59:23\";s:12:\"english_name\";s:3:\"Lao\";s:11:\"native_name\";s:21:\"ພາສາລາວ\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/lo.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"lo\";i:2;s:3:\"lao\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:18:\"ຕໍ່​ໄປ\";}}s:5:\"lt_LT\";a:8:{s:8:\"language\";s:5:\"lt_LT\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-08-27 09:34:16\";s:12:\"english_name\";s:10:\"Lithuanian\";s:11:\"native_name\";s:15:\"Lietuvių kalba\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/lt_LT.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"lt\";i:2;s:3:\"lit\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Tęsti\";}}s:2:\"lv\";a:8:{s:8:\"language\";s:2:\"lv\";s:7:\"version\";s:6:\"4.7.14\";s:7:\"updated\";s:19:\"2019-05-10 10:24:08\";s:12:\"english_name\";s:7:\"Latvian\";s:11:\"native_name\";s:16:\"Latviešu valoda\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.14/lv.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"lv\";i:2;s:3:\"lav\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Turpināt\";}}s:5:\"mk_MK\";a:8:{s:8:\"language\";s:5:\"mk_MK\";s:7:\"version\";s:5:\"4.7.7\";s:7:\"updated\";s:19:\"2017-01-26 15:54:41\";s:12:\"english_name\";s:10:\"Macedonian\";s:11:\"native_name\";s:31:\"Македонски јазик\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.7/mk_MK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"mk\";i:2;s:3:\"mkd\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:16:\"Продолжи\";}}s:5:\"ml_IN\";a:8:{s:8:\"language\";s:5:\"ml_IN\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-27 03:43:32\";s:12:\"english_name\";s:9:\"Malayalam\";s:11:\"native_name\";s:18:\"മലയാളം\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/ml_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ml\";i:2;s:3:\"mal\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:18:\"തുടരുക\";}}s:2:\"mn\";a:8:{s:8:\"language\";s:2:\"mn\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-12 07:29:35\";s:12:\"english_name\";s:9:\"Mongolian\";s:11:\"native_name\";s:12:\"Монгол\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/mn.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"mn\";i:2;s:3:\"mon\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:24:\"Үргэлжлүүлэх\";}}s:2:\"mr\";a:8:{s:8:\"language\";s:2:\"mr\";s:7:\"version\";s:6:\"4.8.10\";s:7:\"updated\";s:19:\"2018-02-13 07:38:55\";s:12:\"english_name\";s:7:\"Marathi\";s:11:\"native_name\";s:15:\"मराठी\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.8.10/mr.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"mr\";i:2;s:3:\"mar\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:25:\"सुरु ठेवा\";}}s:5:\"ms_MY\";a:8:{s:8:\"language\";s:5:\"ms_MY\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-08-30 20:27:25\";s:12:\"english_name\";s:5:\"Malay\";s:11:\"native_name\";s:13:\"Bahasa Melayu\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/ms_MY.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ms\";i:2;s:3:\"msa\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Teruskan\";}}s:5:\"my_MM\";a:8:{s:8:\"language\";s:5:\"my_MM\";s:7:\"version\";s:6:\"4.1.20\";s:7:\"updated\";s:19:\"2015-03-26 15:57:42\";s:12:\"english_name\";s:17:\"Myanmar (Burmese)\";s:11:\"native_name\";s:15:\"ဗမာစာ\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.1.20/my_MM.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"my\";i:2;s:3:\"mya\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:54:\"ဆက်လက်လုပ်ဆောင်ပါ။\";}}s:5:\"nb_NO\";a:8:{s:8:\"language\";s:5:\"nb_NO\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-05-01 11:10:49\";s:12:\"english_name\";s:19:\"Norwegian (Bokmål)\";s:11:\"native_name\";s:13:\"Norsk bokmål\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/nb_NO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nb\";i:2;s:3:\"nob\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Fortsett\";}}s:5:\"ne_NP\";a:8:{s:8:\"language\";s:5:\"ne_NP\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-27 10:30:26\";s:12:\"english_name\";s:6:\"Nepali\";s:11:\"native_name\";s:18:\"नेपाली\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/ne_NP.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ne\";i:2;s:3:\"nep\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:43:\"जारी राख्नुहोस्\";}}s:12:\"nl_NL_formal\";a:8:{s:8:\"language\";s:12:\"nl_NL_formal\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 05:36:09\";s:12:\"english_name\";s:14:\"Dutch (Formal)\";s:11:\"native_name\";s:20:\"Nederlands (Formeel)\";s:7:\"package\";s:72:\"https://downloads.wordpress.org/translation/core/4.9.10/nl_NL_formal.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nl_BE\";a:8:{s:8:\"language\";s:5:\"nl_BE\";s:7:\"version\";s:5:\"4.9.9\";s:7:\"updated\";s:19:\"2019-01-07 07:51:16\";s:12:\"english_name\";s:15:\"Dutch (Belgium)\";s:11:\"native_name\";s:20:\"Nederlands (België)\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.9/nl_BE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nl_NL\";a:8:{s:8:\"language\";s:5:\"nl_NL\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 05:36:23\";s:12:\"english_name\";s:5:\"Dutch\";s:11:\"native_name\";s:10:\"Nederlands\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/nl_NL.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nl\";i:2;s:3:\"nld\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Doorgaan\";}}s:5:\"nn_NO\";a:8:{s:8:\"language\";s:5:\"nn_NO\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-06-19 21:14:43\";s:12:\"english_name\";s:19:\"Norwegian (Nynorsk)\";s:11:\"native_name\";s:13:\"Norsk nynorsk\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/nn_NO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"nn\";i:2;s:3:\"nno\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Hald fram\";}}s:3:\"oci\";a:8:{s:8:\"language\";s:3:\"oci\";s:7:\"version\";s:5:\"4.8.3\";s:7:\"updated\";s:19:\"2017-08-25 10:03:08\";s:12:\"english_name\";s:7:\"Occitan\";s:11:\"native_name\";s:7:\"Occitan\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.8.3/oci.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"oc\";i:2;s:3:\"oci\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Contunhar\";}}s:5:\"pa_IN\";a:8:{s:8:\"language\";s:5:\"pa_IN\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-16 05:19:43\";s:12:\"english_name\";s:7:\"Punjabi\";s:11:\"native_name\";s:18:\"ਪੰਜਾਬੀ\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/pa_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pa\";i:2;s:3:\"pan\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:25:\"ਜਾਰੀ ਰੱਖੋ\";}}s:5:\"pl_PL\";a:8:{s:8:\"language\";s:5:\"pl_PL\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 06:40:44\";s:12:\"english_name\";s:6:\"Polish\";s:11:\"native_name\";s:6:\"Polski\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/pl_PL.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pl\";i:2;s:3:\"pol\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Kontynuuj\";}}s:2:\"ps\";a:8:{s:8:\"language\";s:2:\"ps\";s:7:\"version\";s:6:\"4.1.20\";s:7:\"updated\";s:19:\"2015-03-29 22:19:48\";s:12:\"english_name\";s:6:\"Pashto\";s:11:\"native_name\";s:8:\"پښتو\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.1.20/ps.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ps\";i:2;s:3:\"pus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:19:\"دوام ورکړه\";}}s:5:\"pt_BR\";a:8:{s:8:\"language\";s:5:\"pt_BR\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 18:00:56\";s:12:\"english_name\";s:19:\"Portuguese (Brazil)\";s:11:\"native_name\";s:20:\"Português do Brasil\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/pt_BR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"pt\";i:2;s:3:\"por\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:5:\"pt_PT\";a:8:{s:8:\"language\";s:5:\"pt_PT\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-07-02 08:08:11\";s:12:\"english_name\";s:21:\"Portuguese (Portugal)\";s:11:\"native_name\";s:10:\"Português\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/pt_PT.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"pt\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:10:\"pt_PT_ao90\";a:8:{s:8:\"language\";s:10:\"pt_PT_ao90\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-03-09 09:30:48\";s:12:\"english_name\";s:27:\"Portuguese (Portugal, AO90)\";s:11:\"native_name\";s:17:\"Português (AO90)\";s:7:\"package\";s:69:\"https://downloads.wordpress.org/translation/core/4.9.5/pt_PT_ao90.zip\";s:3:\"iso\";a:1:{i:1;s:2:\"pt\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuar\";}}s:3:\"rhg\";a:8:{s:8:\"language\";s:3:\"rhg\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-03-16 13:03:18\";s:12:\"english_name\";s:8:\"Rohingya\";s:11:\"native_name\";s:8:\"Ruáinga\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/rhg.zip\";s:3:\"iso\";a:1:{i:3;s:3:\"rhg\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:5:\"ro_RO\";a:8:{s:8:\"language\";s:5:\"ro_RO\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-08-02 10:04:39\";s:12:\"english_name\";s:8:\"Romanian\";s:11:\"native_name\";s:8:\"Română\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/ro_RO.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ro\";i:2;s:3:\"ron\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Continuă\";}}s:5:\"ru_RU\";a:8:{s:8:\"language\";s:5:\"ru_RU\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-13 06:58:14\";s:12:\"english_name\";s:7:\"Russian\";s:11:\"native_name\";s:14:\"Русский\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/ru_RU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ru\";i:2;s:3:\"rus\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Продолжить\";}}s:3:\"sah\";a:8:{s:8:\"language\";s:3:\"sah\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-21 02:06:41\";s:12:\"english_name\";s:5:\"Sakha\";s:11:\"native_name\";s:14:\"Сахалыы\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/sah.zip\";s:3:\"iso\";a:2:{i:2;s:3:\"sah\";i:3;s:3:\"sah\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Салҕаа\";}}s:5:\"si_LK\";a:8:{s:8:\"language\";s:5:\"si_LK\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-12 06:00:52\";s:12:\"english_name\";s:7:\"Sinhala\";s:11:\"native_name\";s:15:\"සිංහල\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/si_LK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"si\";i:2;s:3:\"sin\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:44:\"දිගටම කරගෙන යන්න\";}}s:5:\"sk_SK\";a:8:{s:8:\"language\";s:5:\"sk_SK\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-22 15:02:38\";s:12:\"english_name\";s:6:\"Slovak\";s:11:\"native_name\";s:11:\"Slovenčina\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/sk_SK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sk\";i:2;s:3:\"slk\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Pokračovať\";}}s:5:\"sl_SI\";a:8:{s:8:\"language\";s:5:\"sl_SI\";s:7:\"version\";s:5:\"4.9.2\";s:7:\"updated\";s:19:\"2018-01-04 13:33:13\";s:12:\"english_name\";s:9:\"Slovenian\";s:11:\"native_name\";s:13:\"Slovenščina\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.2/sl_SI.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sl\";i:2;s:3:\"slv\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:8:\"Nadaljuj\";}}s:2:\"sq\";a:8:{s:8:\"language\";s:2:\"sq\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-04-02 15:10:56\";s:12:\"english_name\";s:8:\"Albanian\";s:11:\"native_name\";s:5:\"Shqip\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/sq.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sq\";i:2;s:3:\"sqi\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"Vazhdo\";}}s:5:\"sr_RS\";a:8:{s:8:\"language\";s:5:\"sr_RS\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-08-02 20:59:54\";s:12:\"english_name\";s:7:\"Serbian\";s:11:\"native_name\";s:23:\"Српски језик\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/sr_RS.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sr\";i:2;s:3:\"srp\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:14:\"Настави\";}}s:5:\"sv_SE\";a:8:{s:8:\"language\";s:5:\"sv_SE\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-23 10:08:08\";s:12:\"english_name\";s:7:\"Swedish\";s:11:\"native_name\";s:7:\"Svenska\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/sv_SE.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"sv\";i:2;s:3:\"swe\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:9:\"Fortsätt\";}}s:3:\"szl\";a:8:{s:8:\"language\";s:3:\"szl\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-09-24 19:58:14\";s:12:\"english_name\";s:8:\"Silesian\";s:11:\"native_name\";s:17:\"Ślōnskŏ gŏdka\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/szl.zip\";s:3:\"iso\";a:1:{i:3;s:3:\"szl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:13:\"Kōntynuować\";}}s:5:\"ta_IN\";a:8:{s:8:\"language\";s:5:\"ta_IN\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-27 03:22:47\";s:12:\"english_name\";s:5:\"Tamil\";s:11:\"native_name\";s:15:\"தமிழ்\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/ta_IN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ta\";i:2;s:3:\"tam\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:24:\"தொடரவும்\";}}s:2:\"te\";a:8:{s:8:\"language\";s:2:\"te\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2017-01-26 15:47:39\";s:12:\"english_name\";s:6:\"Telugu\";s:11:\"native_name\";s:18:\"తెలుగు\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/te.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"te\";i:2;s:3:\"tel\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:30:\"కొనసాగించు\";}}s:2:\"th\";a:8:{s:8:\"language\";s:2:\"th\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-27 04:30:57\";s:12:\"english_name\";s:4:\"Thai\";s:11:\"native_name\";s:9:\"ไทย\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/th.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"th\";i:2;s:3:\"tha\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:15:\"ต่อไป\";}}s:2:\"tl\";a:8:{s:8:\"language\";s:2:\"tl\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-12-30 02:38:08\";s:12:\"english_name\";s:7:\"Tagalog\";s:11:\"native_name\";s:7:\"Tagalog\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/translation/core/4.7.2/tl.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tl\";i:2;s:3:\"tgl\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:10:\"Magpatuloy\";}}s:5:\"tr_TR\";a:8:{s:8:\"language\";s:5:\"tr_TR\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-17 21:22:26\";s:12:\"english_name\";s:7:\"Turkish\";s:11:\"native_name\";s:8:\"Türkçe\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/tr_TR.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tr\";i:2;s:3:\"tur\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:5:\"Devam\";}}s:5:\"tt_RU\";a:8:{s:8:\"language\";s:5:\"tt_RU\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-11-20 20:20:50\";s:12:\"english_name\";s:5:\"Tatar\";s:11:\"native_name\";s:19:\"Татар теле\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.7.2/tt_RU.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"tt\";i:2;s:3:\"tat\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:17:\"дәвам итү\";}}s:3:\"tah\";a:8:{s:8:\"language\";s:3:\"tah\";s:7:\"version\";s:5:\"4.7.2\";s:7:\"updated\";s:19:\"2016-03-06 18:39:39\";s:12:\"english_name\";s:8:\"Tahitian\";s:11:\"native_name\";s:10:\"Reo Tahiti\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.7.2/tah.zip\";s:3:\"iso\";a:3:{i:1;s:2:\"ty\";i:2;s:3:\"tah\";i:3;s:3:\"tah\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:0:\"\";}}s:5:\"ug_CN\";a:8:{s:8:\"language\";s:5:\"ug_CN\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-04-12 12:31:53\";s:12:\"english_name\";s:6:\"Uighur\";s:11:\"native_name\";s:16:\"ئۇيغۇرچە\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/ug_CN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ug\";i:2;s:3:\"uig\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:26:\"داۋاملاشتۇرۇش\";}}s:2:\"uk\";a:8:{s:8:\"language\";s:2:\"uk\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-08-27 22:13:20\";s:12:\"english_name\";s:9:\"Ukrainian\";s:11:\"native_name\";s:20:\"Українська\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/uk.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"uk\";i:2;s:3:\"ukr\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:20:\"Продовжити\";}}s:2:\"ur\";a:8:{s:8:\"language\";s:2:\"ur\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-21 08:17:35\";s:12:\"english_name\";s:4:\"Urdu\";s:11:\"native_name\";s:8:\"اردو\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/ur.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"ur\";i:2;s:3:\"urd\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:19:\"جاری رکھیں\";}}s:5:\"uz_UZ\";a:8:{s:8:\"language\";s:5:\"uz_UZ\";s:7:\"version\";s:5:\"4.9.8\";s:7:\"updated\";s:19:\"2018-10-11 06:46:15\";s:12:\"english_name\";s:5:\"Uzbek\";s:11:\"native_name\";s:11:\"O‘zbekcha\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.8/uz_UZ.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"uz\";i:2;s:3:\"uzb\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:11:\"Davom etish\";}}s:2:\"vi\";a:8:{s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-03-25 02:35:54\";s:12:\"english_name\";s:10:\"Vietnamese\";s:11:\"native_name\";s:14:\"Tiếng Việt\";s:7:\"package\";s:62:\"https://downloads.wordpress.org/translation/core/4.9.10/vi.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"vi\";i:2;s:3:\"vie\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:12:\"Tiếp tục\";}}s:5:\"zh_CN\";a:8:{s:8:\"language\";s:5:\"zh_CN\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-07-28 01:29:47\";s:12:\"english_name\";s:15:\"Chinese (China)\";s:11:\"native_name\";s:12:\"简体中文\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/zh_CN.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"继续\";}}s:5:\"zh_TW\";a:8:{s:8:\"language\";s:5:\"zh_TW\";s:7:\"version\";s:6:\"4.9.10\";s:7:\"updated\";s:19:\"2019-06-27 13:27:00\";s:12:\"english_name\";s:16:\"Chinese (Taiwan)\";s:11:\"native_name\";s:12:\"繁體中文\";s:7:\"package\";s:65:\"https://downloads.wordpress.org/translation/core/4.9.10/zh_TW.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"繼續\";}}s:5:\"zh_HK\";a:8:{s:8:\"language\";s:5:\"zh_HK\";s:7:\"version\";s:5:\"4.9.5\";s:7:\"updated\";s:19:\"2018-04-09 00:56:52\";s:12:\"english_name\";s:19:\"Chinese (Hong Kong)\";s:11:\"native_name\";s:16:\"香港中文版	\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/translation/core/4.9.5/zh_HK.zip\";s:3:\"iso\";a:2:{i:1;s:2:\"zh\";i:2;s:3:\"zho\";}s:7:\"strings\";a:1:{s:8:\"continue\";s:6:\"繼續\";}}}', 'no'),
+(20181, 'options_filter_0_Max', '500000000', 'no'),
+(20182, '_options_filter_0_Max', 'field_5d75154c5b0ba', 'no'),
+(20183, 'options_filter_1_Max', '500000', 'no'),
+(20184, '_options_filter_1_Max', 'field_5d75154c5b0ba', 'no'),
+(20185, 'options_filter_2_Max', '1000000', 'no'),
+(20186, '_options_filter_2_Max', 'field_5d75154c5b0ba', 'no'),
+(20187, 'options_filter_3_Max', '2000000', 'no'),
+(20188, '_options_filter_3_Max', 'field_5d75154c5b0ba', 'no'),
+(20189, 'options_filter_4_Max', '3000000', 'no'),
+(20190, '_options_filter_4_Max', 'field_5d75154c5b0ba', 'no'),
+(20191, 'options_filter_5_Max', '500000000', 'no'),
+(20192, '_options_filter_5_Max', 'field_5d75154c5b0ba', 'no'),
+(20193, 'options_filter', '6', 'no'),
+(20194, '_options_filter', 'field_5d750dbddf4e7', 'no'),
+(20206, 'options_filter_0_min', '0', 'no'),
+(20207, '_options_filter_0_min', 'field_5d7515335b0b9', 'no'),
+(20208, 'options_filter_1_min', '0', 'no'),
+(20209, '_options_filter_1_min', 'field_5d7515335b0b9', 'no'),
+(20210, 'options_filter_2_min', '500000', 'no'),
+(20211, '_options_filter_2_min', 'field_5d7515335b0b9', 'no'),
+(20212, 'options_filter_3_min', '1000000', 'no'),
+(20213, '_options_filter_3_min', 'field_5d7515335b0b9', 'no'),
+(20214, 'options_filter_4_min', '2000000', 'no'),
+(20215, '_options_filter_4_min', 'field_5d7515335b0b9', 'no'),
+(20216, 'options_filter_5_min', '3000000', 'no'),
+(20217, '_options_filter_5_min', 'field_5d7515335b0b9', 'no'),
+(20276, '_site_transient_timeout_theme_roots', '1567959668', 'no'),
+(20277, '_site_transient_theme_roots', 'a:2:{s:7:\"myTheme\";s:7:\"/themes\";s:13:\"twentysixteen\";s:7:\"/themes\";}', 'no');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
+(20279, '_site_transient_update_core', 'O:8:\"stdClass\":4:{s:7:\"updates\";a:5:{i:0;O:8:\"stdClass\":10:{s:8:\"response\";s:7:\"upgrade\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.2.3-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.2.3-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.2.3\";s:7:\"version\";s:5:\"5.2.3\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";}i:1;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.2.3.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.2.3-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.2.3-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.2.3\";s:7:\"version\";s:5:\"5.2.3\";s:11:\"php_version\";s:6:\"5.6.20\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:2;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.1.2.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.1.2.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.1.2-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.1.2-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.1.2\";s:7:\"version\";s:5:\"5.1.2\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:3;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.0.6.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:59:\"https://downloads.wordpress.org/release/wordpress-5.0.6.zip\";s:10:\"no_content\";s:70:\"https://downloads.wordpress.org/release/wordpress-5.0.6-no-content.zip\";s:11:\"new_bundled\";s:71:\"https://downloads.wordpress.org/release/wordpress-5.0.6-new-bundled.zip\";s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"5.0.6\";s:7:\"version\";s:5:\"5.0.6\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:0:\"\";s:9:\"new_files\";s:1:\"1\";}i:4;O:8:\"stdClass\":11:{s:8:\"response\";s:10:\"autoupdate\";s:8:\"download\";s:60:\"https://downloads.wordpress.org/release/wordpress-4.9.11.zip\";s:6:\"locale\";s:5:\"en_US\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:60:\"https://downloads.wordpress.org/release/wordpress-4.9.11.zip\";s:10:\"no_content\";s:71:\"https://downloads.wordpress.org/release/wordpress-4.9.11-no-content.zip\";s:11:\"new_bundled\";s:72:\"https://downloads.wordpress.org/release/wordpress-4.9.11-new-bundled.zip\";s:7:\"partial\";s:71:\"https://downloads.wordpress.org/release/wordpress-4.9.11-partial-10.zip\";s:8:\"rollback\";s:72:\"https://downloads.wordpress.org/release/wordpress-4.9.11-rollback-10.zip\";}s:7:\"current\";s:6:\"4.9.11\";s:7:\"version\";s:6:\"4.9.11\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"5.0\";s:15:\"partial_version\";s:6:\"4.9.10\";s:9:\"new_files\";s:0:\"\";}}s:12:\"last_checked\";i:1567957872;s:15:\"version_checked\";s:6:\"4.9.10\";s:12:\"translations\";a:0:{}}', 'no'),
+(20280, '_site_transient_update_themes', 'O:8:\"stdClass\":4:{s:12:\"last_checked\";i:1567957873;s:7:\"checked\";a:1:{s:7:\"myTheme\";s:3:\"1.1\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}}', 'no'),
+(20281, '_site_transient_update_plugins', 'O:8:\"stdClass\":5:{s:12:\"last_checked\";i:1567957874;s:7:\"checked\";a:14:{s:33:\"acf-qtranslate/acf-qtranslate.php\";s:6:\"1.7.25\";s:34:\"advanced-custom-fields-pro/acf.php\";s:5:\"5.6.1\";s:27:\"autoptimize/autoptimize.php\";s:5:\"2.5.1\";s:45:\"tiny-compress-images/tiny-compress-images.php\";s:5:\"3.2.0\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:5:\"5.1.3\";s:43:\"custom-post-type-ui/custom-post-type-ui.php\";s:5:\"1.6.1\";s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";s:6:\"1.9.15\";s:19:\"ot-zalo/ot-zalo.php\";s:5:\"1.1.0\";s:27:\"qtranslate-x/qtranslate.php\";s:7:\"3.4.6.8\";s:27:\"woocommerce/woocommerce.php\";s:5:\"3.6.4\";s:53:\"woocommerce-qtranslate-x/woocommerce-qtranslate-x.php\";s:3:\"1.3\";s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";s:5:\"1.0.6\";s:27:\"wp-pagenavi/wp-pagenavi.php\";s:4:\"2.93\";s:29:\"wp-mail-smtp/wp_mail_smtp.php\";s:5:\"1.4.2\";}s:8:\"response\";a:6:{s:36:\"contact-form-7/wp-contact-form-7.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:28:\"w.org/plugins/contact-form-7\";s:4:\"slug\";s:14:\"contact-form-7\";s:6:\"plugin\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:11:\"new_version\";s:5:\"5.1.4\";s:3:\"url\";s:45:\"https://wordpress.org/plugins/contact-form-7/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/contact-form-7.5.1.4.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-256x256.png?rev=984007\";s:2:\"1x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-128x128.png?rev=984007\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:69:\"https://ps.w.org/contact-form-7/assets/banner-1544x500.png?rev=860901\";s:2:\"1x\";s:68:\"https://ps.w.org/contact-form-7/assets/banner-772x250.png?rev=880427\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";b:0;s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:43:\"custom-post-type-ui/custom-post-type-ui.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:33:\"w.org/plugins/custom-post-type-ui\";s:4:\"slug\";s:19:\"custom-post-type-ui\";s:6:\"plugin\";s:43:\"custom-post-type-ui/custom-post-type-ui.php\";s:11:\"new_version\";s:5:\"1.6.2\";s:3:\"url\";s:50:\"https://wordpress.org/plugins/custom-post-type-ui/\";s:7:\"package\";s:68:\"https://downloads.wordpress.org/plugin/custom-post-type-ui.1.6.2.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:72:\"https://ps.w.org/custom-post-type-ui/assets/icon-256x256.png?rev=1069557\";s:2:\"1x\";s:72:\"https://ps.w.org/custom-post-type-ui/assets/icon-128x128.png?rev=1069557\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:75:\"https://ps.w.org/custom-post-type-ui/assets/banner-1544x500.png?rev=1069557\";s:2:\"1x\";s:74:\"https://ps.w.org/custom-post-type-ui/assets/banner-772x250.png?rev=1069557\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";s:3:\"5.2\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:27:\"woocommerce/woocommerce.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:25:\"w.org/plugins/woocommerce\";s:4:\"slug\";s:11:\"woocommerce\";s:6:\"plugin\";s:27:\"woocommerce/woocommerce.php\";s:11:\"new_version\";s:5:\"3.7.0\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/woocommerce/\";s:7:\"package\";s:60:\"https://downloads.wordpress.org/plugin/woocommerce.3.7.0.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:64:\"https://ps.w.org/woocommerce/assets/icon-256x256.png?rev=2075035\";s:2:\"1x\";s:64:\"https://ps.w.org/woocommerce/assets/icon-128x128.png?rev=2075035\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:67:\"https://ps.w.org/woocommerce/assets/banner-1544x500.png?rev=2075035\";s:2:\"1x\";s:66:\"https://ps.w.org/woocommerce/assets/banner-772x250.png?rev=2075035\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";s:3:\"5.6\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:34:\"w.org/plugins/woo-vietnam-checkout\";s:4:\"slug\";s:20:\"woo-vietnam-checkout\";s:6:\"plugin\";s:52:\"woo-vietnam-checkout/devvn-woo-address-selectbox.php\";s:11:\"new_version\";s:5:\"1.0.7\";s:3:\"url\";s:51:\"https://wordpress.org/plugins/woo-vietnam-checkout/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/woo-vietnam-checkout.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:73:\"https://ps.w.org/woo-vietnam-checkout/assets/icon-256x256.png?rev=1795326\";s:2:\"1x\";s:73:\"https://ps.w.org/woo-vietnam-checkout/assets/icon-128x128.png?rev=1795326\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:76:\"https://ps.w.org/woo-vietnam-checkout/assets/banner-1544x500.png?rev=1795326\";s:2:\"1x\";s:75:\"https://ps.w.org/woo-vietnam-checkout/assets/banner-772x250.png?rev=1795326\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:6:\"4.9.11\";s:12:\"requires_php\";b:0;s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:29:\"wp-mail-smtp/wp_mail_smtp.php\";O:8:\"stdClass\":12:{s:2:\"id\";s:26:\"w.org/plugins/wp-mail-smtp\";s:4:\"slug\";s:12:\"wp-mail-smtp\";s:6:\"plugin\";s:29:\"wp-mail-smtp/wp_mail_smtp.php\";s:11:\"new_version\";s:5:\"1.6.2\";s:3:\"url\";s:43:\"https://wordpress.org/plugins/wp-mail-smtp/\";s:7:\"package\";s:61:\"https://downloads.wordpress.org/plugin/wp-mail-smtp.1.6.2.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:65:\"https://ps.w.org/wp-mail-smtp/assets/icon-256x256.png?rev=1755440\";s:2:\"1x\";s:65:\"https://ps.w.org/wp-mail-smtp/assets/icon-128x128.png?rev=1755440\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:68:\"https://ps.w.org/wp-mail-smtp/assets/banner-1544x500.png?rev=2120094\";s:2:\"1x\";s:67:\"https://ps.w.org/wp-mail-smtp/assets/banner-772x250.png?rev=2120094\";}s:11:\"banners_rtl\";a:0:{}s:6:\"tested\";s:5:\"5.2.3\";s:12:\"requires_php\";s:3:\"5.3\";s:13:\"compatibility\";O:8:\"stdClass\":0:{}}s:34:\"advanced-custom-fields-pro/acf.php\";O:8:\"stdClass\":8:{s:4:\"slug\";s:26:\"advanced-custom-fields-pro\";s:6:\"plugin\";s:34:\"advanced-custom-fields-pro/acf.php\";s:11:\"new_version\";s:5:\"5.8.4\";s:3:\"url\";s:36:\"https://www.advancedcustomfields.com\";s:6:\"tested\";s:3:\"5.2\";s:7:\"package\";s:0:\"\";s:5:\"icons\";a:1:{s:7:\"default\";s:63:\"https://ps.w.org/advanced-custom-fields/assets/icon-256x256.png\";}s:7:\"banners\";a:1:{s:7:\"default\";s:66:\"https://ps.w.org/advanced-custom-fields/assets/banner-1544x500.jpg\";}}}s:12:\"translations\";a:4:{i:0;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:14:\"contact-form-7\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:5:\"5.1.3\";s:7:\"updated\";s:19:\"2019-08-01 04:56:38\";s:7:\"package\";s:78:\"https://downloads.wordpress.org/translation/plugin/contact-form-7/5.1.3/vi.zip\";s:10:\"autoupdate\";b:1;}i:1;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:11:\"woocommerce\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:5:\"3.6.4\";s:7:\"updated\";s:19:\"2019-06-10 02:29:26\";s:7:\"package\";s:75:\"https://downloads.wordpress.org/translation/plugin/woocommerce/3.6.4/vi.zip\";s:10:\"autoupdate\";b:1;}i:2;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:11:\"wp-pagenavi\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:4:\"2.92\";s:7:\"updated\";s:19:\"2016-12-05 01:59:40\";s:7:\"package\";s:74:\"https://downloads.wordpress.org/translation/plugin/wp-pagenavi/2.92/vi.zip\";s:10:\"autoupdate\";b:1;}i:3;a:7:{s:4:\"type\";s:6:\"plugin\";s:4:\"slug\";s:12:\"wp-mail-smtp\";s:8:\"language\";s:2:\"vi\";s:7:\"version\";s:6:\"0.10.1\";s:7:\"updated\";s:19:\"2016-12-05 02:10:49\";s:7:\"package\";s:77:\"https://downloads.wordpress.org/translation/plugin/wp-mail-smtp/0.10.1/vi.zip\";s:10:\"autoupdate\";b:1;}}s:9:\"no_update\";a:8:{s:33:\"acf-qtranslate/acf-qtranslate.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:28:\"w.org/plugins/acf-qtranslate\";s:4:\"slug\";s:14:\"acf-qtranslate\";s:6:\"plugin\";s:33:\"acf-qtranslate/acf-qtranslate.php\";s:11:\"new_version\";s:6:\"1.7.25\";s:3:\"url\";s:45:\"https://wordpress.org/plugins/acf-qtranslate/\";s:7:\"package\";s:64:\"https://downloads.wordpress.org/plugin/acf-qtranslate.1.7.25.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:58:\"https://s.w.org/plugins/geopattern-icon/acf-qtranslate.svg\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:27:\"autoptimize/autoptimize.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:25:\"w.org/plugins/autoptimize\";s:4:\"slug\";s:11:\"autoptimize\";s:6:\"plugin\";s:27:\"autoptimize/autoptimize.php\";s:11:\"new_version\";s:5:\"2.5.1\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/autoptimize/\";s:7:\"package\";s:60:\"https://downloads.wordpress.org/plugin/autoptimize.2.5.1.zip\";s:5:\"icons\";a:1:{s:2:\"1x\";s:64:\"https://ps.w.org/autoptimize/assets/icon-128x128.png?rev=1864142\";}s:7:\"banners\";a:1:{s:2:\"1x\";s:66:\"https://ps.w.org/autoptimize/assets/banner-772x250.jpg?rev=1315920\";}s:11:\"banners_rtl\";a:0:{}}s:45:\"tiny-compress-images/tiny-compress-images.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:34:\"w.org/plugins/tiny-compress-images\";s:4:\"slug\";s:20:\"tiny-compress-images\";s:6:\"plugin\";s:45:\"tiny-compress-images/tiny-compress-images.php\";s:11:\"new_version\";s:5:\"3.2.0\";s:3:\"url\";s:51:\"https://wordpress.org/plugins/tiny-compress-images/\";s:7:\"package\";s:69:\"https://downloads.wordpress.org/plugin/tiny-compress-images.3.2.0.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:73:\"https://ps.w.org/tiny-compress-images/assets/icon-256x256.png?rev=1088385\";s:2:\"1x\";s:73:\"https://ps.w.org/tiny-compress-images/assets/icon-128x128.png?rev=1088385\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:76:\"https://ps.w.org/tiny-compress-images/assets/banner-1544x500.jpg?rev=1088297\";s:2:\"1x\";s:75:\"https://ps.w.org/tiny-compress-images/assets/banner-772x250.jpg?rev=1088297\";}s:11:\"banners_rtl\";a:0:{}}s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:38:\"w.org/plugins/facebook-for-woocommerce\";s:4:\"slug\";s:24:\"facebook-for-woocommerce\";s:6:\"plugin\";s:53:\"facebook-for-woocommerce/facebook-for-woocommerce.php\";s:11:\"new_version\";s:6:\"1.9.15\";s:3:\"url\";s:55:\"https://wordpress.org/plugins/facebook-for-woocommerce/\";s:7:\"package\";s:74:\"https://downloads.wordpress.org/plugin/facebook-for-woocommerce.1.9.15.zip\";s:5:\"icons\";a:3:{s:2:\"2x\";s:77:\"https://ps.w.org/facebook-for-woocommerce/assets/icon-256x256.png?rev=2040223\";s:2:\"1x\";s:69:\"https://ps.w.org/facebook-for-woocommerce/assets/icon.svg?rev=2040223\";s:3:\"svg\";s:69:\"https://ps.w.org/facebook-for-woocommerce/assets/icon.svg?rev=2040223\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:19:\"ot-zalo/ot-zalo.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:21:\"w.org/plugins/ot-zalo\";s:4:\"slug\";s:7:\"ot-zalo\";s:6:\"plugin\";s:19:\"ot-zalo/ot-zalo.php\";s:11:\"new_version\";s:5:\"1.1.0\";s:3:\"url\";s:38:\"https://wordpress.org/plugins/ot-zalo/\";s:7:\"package\";s:50:\"https://downloads.wordpress.org/plugin/ot-zalo.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:51:\"https://s.w.org/plugins/geopattern-icon/ot-zalo.svg\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:27:\"qtranslate-x/qtranslate.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:26:\"w.org/plugins/qtranslate-x\";s:4:\"slug\";s:12:\"qtranslate-x\";s:6:\"plugin\";s:27:\"qtranslate-x/qtranslate.php\";s:11:\"new_version\";s:7:\"3.4.6.8\";s:3:\"url\";s:43:\"https://wordpress.org/plugins/qtranslate-x/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/qtranslate-x.3.4.6.8.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:63:\"https://s.w.org/plugins/geopattern-icon/qtranslate-x_f9f9f9.svg\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:68:\"https://ps.w.org/qtranslate-x/assets/banner-1544x500.png?rev=1286019\";s:2:\"1x\";s:67:\"https://ps.w.org/qtranslate-x/assets/banner-772x250.png?rev=1286019\";}s:11:\"banners_rtl\";a:0:{}}s:53:\"woocommerce-qtranslate-x/woocommerce-qtranslate-x.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:38:\"w.org/plugins/woocommerce-qtranslate-x\";s:4:\"slug\";s:24:\"woocommerce-qtranslate-x\";s:6:\"plugin\";s:53:\"woocommerce-qtranslate-x/woocommerce-qtranslate-x.php\";s:11:\"new_version\";s:3:\"1.3\";s:3:\"url\";s:55:\"https://wordpress.org/plugins/woocommerce-qtranslate-x/\";s:7:\"package\";s:71:\"https://downloads.wordpress.org/plugin/woocommerce-qtranslate-x.1.3.zip\";s:5:\"icons\";a:1:{s:7:\"default\";s:68:\"https://s.w.org/plugins/geopattern-icon/woocommerce-qtranslate-x.svg\";}s:7:\"banners\";a:0:{}s:11:\"banners_rtl\";a:0:{}}s:27:\"wp-pagenavi/wp-pagenavi.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:25:\"w.org/plugins/wp-pagenavi\";s:4:\"slug\";s:11:\"wp-pagenavi\";s:6:\"plugin\";s:27:\"wp-pagenavi/wp-pagenavi.php\";s:11:\"new_version\";s:4:\"2.93\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/wp-pagenavi/\";s:7:\"package\";s:59:\"https://downloads.wordpress.org/plugin/wp-pagenavi.2.93.zip\";s:5:\"icons\";a:2:{s:2:\"1x\";s:55:\"https://ps.w.org/wp-pagenavi/assets/icon.svg?rev=977997\";s:3:\"svg\";s:55:\"https://ps.w.org/wp-pagenavi/assets/icon.svg?rev=977997\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:67:\"https://ps.w.org/wp-pagenavi/assets/banner-1544x500.jpg?rev=1206758\";s:2:\"1x\";s:66:\"https://ps.w.org/wp-pagenavi/assets/banner-772x250.jpg?rev=1206758\";}s:11:\"banners_rtl\";a:0:{}}}}', 'no'),
+(20302, '_transient_timeout_autoptimize_stats', '1567963006', 'no'),
+(20303, '_transient_autoptimize_stats', 'a:3:{i:0;i:152;i:1;i:44099280;i:2;i:1567959406;}', 'no');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_postmeta`
+-- Cấu trúc bảng cho bảng `wp_postmeta`
 --
 
 CREATE TABLE `wp_postmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
-  `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_postmeta`
+-- Đang đổ dữ liệu cho bảng `wp_postmeta`
 --
 
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
@@ -1492,11 +1510,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (2348, 257, '_edit_lock', '1564712258:1'),
 (2349, 257, '_edit_last', '1'),
 (2350, 257, '_wp_page_template', 'search.php'),
-(2355, 260, '_text1_slide', ''),
-(2356, 260, '_text2_slide', ''),
-(2357, 260, '_text3_slide', ''),
-(2358, 260, '_text4_slide', ''),
-(2359, 260, '_action_manager_schedule', 'O:30:\"ActionScheduler_SimpleSchedule\":1:{s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1565269340;}'),
 (2466, 265, '_text1_slide', ''),
 (2467, 265, '_text2_slide', ''),
 (2468, 265, '_text3_slide', ''),
@@ -2850,7 +2863,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (9112, 918, '_edit_lock', '1567746975:6'),
 (9113, 918, '_edit_last', '6'),
 (9114, 919, '_sku', 'R541'),
-(9115, 919, '_regular_price', '--'),
 (9116, 919, 'total_sales', '0'),
 (9117, 919, '_tax_status', 'taxable'),
 (9118, 919, '_tax_class', ''),
@@ -2868,7 +2880,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (9130, 919, '_wc_average_rating', '0'),
 (9131, 919, '_wc_review_count', '0'),
 (9132, 919, '_product_version', '3.6.4'),
-(9133, 919, '_price', '--'),
+(9133, 919, '_price', ''),
 (9134, 919, 'fb_product_description', ''),
 (9135, 919, 'fb_visibility', '1'),
 (9136, 919, 'try-eye', ''),
@@ -2876,8 +2888,8 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (9138, 919, '_wp_trash_meta_status', 'publish'),
 (9139, 919, '_wp_trash_meta_time', '1567743121'),
 (9140, 919, '_wp_desired_post_slug', 'r541'),
-(9141, 919, '_edit_lock', '1567750305:6'),
-(9142, 919, '_edit_last', '6'),
+(9141, 919, '_edit_lock', '1567952025:1'),
+(9142, 919, '_edit_last', '1'),
 (9143, 920, '_sku', 'R540'),
 (9144, 920, '_regular_price', '--'),
 (9145, 920, 'total_sales', '0'),
@@ -3518,9 +3530,9 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (10208, 949, 'try-eye', '830'),
 (10209, 949, '_try-eye', 'field_5d542974c4619'),
 (10210, 949, 'fb_product_description', ''),
-(10211, 949, 'fb_image', '');
+(10211, 949, 'fb_image', ''),
+(10212, 949, 'fb_visibility', '1');
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(10212, 949, 'fb_visibility', '1'),
 (10213, 949, '_wp_trash_meta_status', 'publish'),
 (10214, 949, '_wp_trash_meta_time', '1567751096'),
 (10215, 949, '_wp_desired_post_slug', 'romeo'),
@@ -4531,17 +4543,21 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (11298, 1009, '_wp_attached_file', '2019/09/5.jpg'),
 (11299, 1009, 'tiny_compress_images', 'a:11:{i:0;a:3:{s:5:\"error\";s:8:\"KeyError\";s:7:\"message\";s:47:\"Register an account or provide an API key first\";s:9:\"timestamp\";i:1567933881;}s:9:\"thumbnail\";a:3:{s:5:\"error\";s:8:\"KeyError\";s:7:\"message\";s:47:\"Register an account or provide an API key first\";s:9:\"timestamp\";i:1567933881;}s:6:\"medium\";a:3:{s:5:\"error\";s:8:\"KeyError\";s:7:\"message\";s:47:\"Register an account or provide an API key first\";s:9:\"timestamp\";i:1567933881;}s:12:\"medium_large\";a:3:{s:5:\"error\";s:8:\"KeyError\";s:7:\"message\";s:47:\"Register an account or provide an API key first\";s:9:\"timestamp\";i:1567933881;}s:5:\"large\";a:3:{s:5:\"error\";s:8:\"KeyError\";s:7:\"message\";s:47:\"Register an account or provide an API key first\";s:9:\"timestamp\";i:1567933881;}s:21:\"woocommerce_thumbnail\";a:0:{}s:18:\"woocommerce_single\";a:3:{s:5:\"error\";s:8:\"KeyError\";s:7:\"message\";s:47:\"Register an account or provide an API key first\";s:9:\"timestamp\";i:1567933881;}s:29:\"woocommerce_gallery_thumbnail\";a:3:{s:5:\"error\";s:8:\"KeyError\";s:7:\"message\";s:47:\"Register an account or provide an API key first\";s:9:\"timestamp\";i:1567933881;}s:12:\"shop_catalog\";a:0:{}s:11:\"shop_single\";a:0:{}s:14:\"shop_thumbnail\";a:0:{}}');
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(11300, 1009, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:2818;s:6:\"height\";i:2818;s:4:\"file\";s:13:\"2019/09/5.jpg\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:13:\"5-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:13:\"5-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:13:\"5-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:15:\"5-1024x1024.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:1024;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:13:\"5-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:13:\"5-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:13:\"5-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:13:\"5-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:13:\"5-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:13:\"5-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"10\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1563661476\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"28\";s:3:\"iso\";s:4:\"2500\";s:13:\"shutter_speed\";s:17:\"0.033333333333333\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}');
+(11300, 1009, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:2818;s:6:\"height\";i:2818;s:4:\"file\";s:13:\"2019/09/5.jpg\";s:5:\"sizes\";a:10:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:13:\"5-300x150.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:13:\"5-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"medium_large\";a:4:{s:4:\"file\";s:13:\"5-768x768.jpg\";s:5:\"width\";i:768;s:6:\"height\";i:768;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:5:\"large\";a:4:{s:4:\"file\";s:15:\"5-1024x1024.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:1024;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:21:\"woocommerce_thumbnail\";a:5:{s:4:\"file\";s:13:\"5-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";s:9:\"uncropped\";b:0;}s:18:\"woocommerce_single\";a:4:{s:4:\"file\";s:13:\"5-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:29:\"woocommerce_gallery_thumbnail\";a:4:{s:4:\"file\";s:13:\"5-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:12:\"shop_catalog\";a:4:{s:4:\"file\";s:13:\"5-300x300.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:300;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:11:\"shop_single\";a:4:{s:4:\"file\";s:13:\"5-600x600.jpg\";s:5:\"width\";i:600;s:6:\"height\";i:600;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:14:\"shop_thumbnail\";a:4:{s:4:\"file\";s:13:\"5-100x100.jpg\";s:5:\"width\";i:100;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:2:\"10\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:13:\"Canon EOS 70D\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:10:\"1563661476\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:2:\"28\";s:3:\"iso\";s:4:\"2500\";s:13:\"shutter_speed\";s:17:\"0.033333333333333\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"1\";s:8:\"keywords\";a:0:{}}}'),
+(11301, 919, '_sale_price', ''),
+(11302, 1011, '_edit_lock', '1567952295:1'),
+(11303, 1012, '_edit_lock', '1567961107:1'),
+(11304, 1012, '_edit_last', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_posts`
+-- Cấu trúc bảng cho bảng `wp_posts`
 --
 
 CREATE TABLE `wp_posts` (
   `ID` bigint(20) UNSIGNED NOT NULL,
-  `post_author` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `post_author` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -4557,16 +4573,16 @@ CREATE TABLE `wp_posts` (
   `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_content_filtered` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `post_parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `guid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `menu_order` int(11) NOT NULL DEFAULT '0',
+  `menu_order` int(11) NOT NULL DEFAULT 0,
   `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
   `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_count` bigint(20) NOT NULL DEFAULT '0'
+  `comment_count` bigint(20) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_posts`
+-- Đang đổ dữ liệu cho bảng `wp_posts`
 --
 
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
@@ -4655,7 +4671,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (242, 1, '2019-08-01 15:32:22', '2019-08-01 15:32:22', ' ', '', '', 'publish', 'closed', 'closed', '', '242', '', '', '2019-08-29 04:08:16', '2019-08-29 04:08:16', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=242', 2, 'nav_menu_item', '', 0),
 (243, 1, '2019-08-01 17:23:20', '2019-08-01 17:23:20', '[text* text-382 class:form-control placeholder \"Họ và tên\"]\r\n\r\n[email* email-594 class:form-control placeholder \"Email\"]\r\n\r\n[text* text-384 class:form-control placeholder \"Số điện thoại\"]\r\n\r\n[textarea* textarea-152 class:form-control placeholder \"Nội dung\"]\r\n\r\n[submit class:btn class:btn-default \"Send\"]\n1\nKorea Sonata Contact\nKorea Sonata <caohoang2911@gmail.com>\n[email-594]\nName: [text-382]\r\n\r\nEmail: [email-594]\r\n\r\nPhone: [text-384]\r\n\r\nMessage: [textarea-152]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on My Project (http://localhost/2018/freelancer/BE/sotana_lens)\n\n\n\n\n\nMy Project \"[your-subject]\"\nMy Project <caohoang2911@gmail.com>\n[your-email]\nMessage Body:\r\n[your-message]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on My Project (http://localhost/2018/freelancer/BE/sotana_lens)\nReply-To: caohoang2911@gmail.com\n\n\n\nThank you for your message. It has been sent.\nThere was an error trying to send your message. Please try again later.\nOne or more fields have an error. Please check and try again.\nThere was an error trying to send your message. Please try again later.\nYou must accept the terms and conditions before sending your message.\nThe field is required.\nThe field is too long.\nThe field is too short.\nThe date format is incorrect.\nThe date is before the earliest one allowed.\nThe date is after the latest one allowed.\nThere was an unknown error uploading the file.\nYou are not allowed to upload files of this type.\nThe file is too big.\nThere was an error uploading the file.\nThe number format is invalid.\nThe number is smaller than the minimum allowed.\nThe number is larger than the maximum allowed.\nThe answer to the quiz is incorrect.\nYour entered code is incorrect.\nThe e-mail address entered is invalid.\nThe URL is invalid.\nThe telephone number is invalid.', 'Contact Form', '', 'publish', 'closed', 'closed', '', 'contact-form-1', '', '', '2019-09-05 09:33:12', '2019-09-05 09:33:12', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?post_type=wpcf7_contact_form&#038;p=243', 0, 'wpcf7_contact_form', '', 0),
 (257, 1, '2019-08-02 01:51:38', '2019-08-02 01:51:38', '', 'Search', '', 'publish', 'closed', 'closed', '', 'search', '', '', '2019-08-02 01:56:35', '2019-08-02 01:56:35', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?page_id=257', 0, 'page', '', 0),
-(260, 0, '2019-08-08 13:02:20', '2019-08-08 13:02:20', '[]', 'woocommerce_update_marketplace_suggestions', '', 'publish', 'open', 'closed', '', 'woocommerce_update_marketplace_suggestions-2', '', '', '2019-08-08 13:02:34', '2019-08-08 13:02:34', '', 0, 'http://localhost:8080/outsource/?post_type=scheduled-action&#038;p=260', 0, 'scheduled-action', '', 3),
 (265, 1, '2019-08-10 16:49:32', '2019-08-10 16:49:32', '', 'All Product', '', 'publish', 'closed', 'closed', '', 'all-product', '', '', '2019-08-10 16:49:32', '2019-08-10 16:49:32', '', 0, 'http://localhost:8080/outsource/?page_id=265', 0, 'page', '', 0),
 (280, 1, '2019-08-14 14:42:49', '2019-08-14 14:42:49', '', 'Try eyewear', '', 'publish', 'closed', 'closed', '', 'try-eyewear', '', '', '2019-08-14 14:42:49', '2019-08-14 14:42:49', '', 0, 'http://localhost:8080/outsource/?page_id=280', 0, 'page', '', 0),
 (282, 1, '2019-08-14 15:33:04', '2019-08-14 15:33:04', 'a:7:{s:8:\"location\";a:1:{i:0;a:1:{i:0;a:3:{s:5:\"param\";s:9:\"post_type\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:7:\"product\";}}}s:8:\"position\";s:6:\"normal\";s:5:\"style\";s:7:\"default\";s:15:\"label_placement\";s:3:\"top\";s:21:\"instruction_placement\";s:5:\"label\";s:14:\"hide_on_screen\";s:0:\"\";s:11:\"description\";s:0:\"\";}', 'Try eye', 'try-eye', 'publish', 'closed', 'closed', '', 'group_5d54292bc33a8', '', '', '2019-08-14 15:47:40', '2019-08-14 15:47:40', '', 0, 'http://localhost:8080/outsource/?post_type=acf-field-group&#038;p=282', 0, 'acf-field-group', '', 0),
@@ -4966,8 +4981,8 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (821, 6, '2019-08-29 08:59:58', '2019-08-29 08:59:58', '', 'Crystal-2', '', 'inherit', 'open', 'closed', '', 'crystal-2', '', '', '2019-08-29 08:59:58', '2019-08-29 08:59:58', '', 814, 'https://koreasonata.com/wp-content/uploads/2019/08/Crystal-2.jpg', 0, 'attachment', 'image/jpeg', 0);
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 (825, 6, '2019-08-29 09:22:10', '2019-08-29 09:22:10', '[:en]Based on fashionable  eyewear trend of Korea we present you special design of sunglasses.\r\n\r\nDefined by slim, innovative materials, and simple constructions. The SUNBIKE collection combines design and function for beautiful sunglasses.\r\n\r\nBy pushing the limits of optical technology and comfort, we offer unparalleled strength and lasting quality.\r\n\r\n100% Made in Korea / European Grilamid material / 35g\r\nProtect your eyes on Driving/Fishing/Golf/Outdoor sports &amp; Leisure\r\nYour eyes are safe from reflected Sunshine by road, cars and water wave\r\nYour eyes are free from  rain, wind and dust during Bike driving\r\nUV 99% protection with Best Polarized Lens, Double layers and thickness than general type/Wide Lens on front &amp; side\r\n5 Colors are available: Black,Blue,Wine,Grey,Crystal\r\n\r\nShipping in all cities in Vietnam\r\n\r\nVery good for gift.\r\n\r\nMany discount program is available according to order QTY /  12 months Warranty\r\nNo need put off your eyeglasses for SUNBIKE wearing.[:vi]Dựa trên văn hóa và thời trang của Hàn Quốc, chúng tôi mang đến cho các bạn dòng SUNBIKE với thiết kế đặc biệt. Với các chi tiết mỏng nhẹ, cải thiện về chất liệu, kết cấu giản đơn. Bộ sưu tập SUNBIKE được thiết kế và kết hợp hài hòa cùng với chức năng tuyệt vời của dòng kính mát.\r\n\r\nĐược 100% sản xuất tại Hàn Quốc với chất liệu Grillamid được sản xuất theo tiêu chuẩn Châu Âu\r\n\r\nTrọng lượng 35g\r\nKính mát SUNBIKE với thiết kế ôm sát khuôn mặt giúp bảo vệ đôi mắt của bạn một cách toàn diện. SUNBIKE là dòng kính với thiết kế unisex nên phù hợp cho cả nam và nữ. Các ưu điểm của thiết kế này như cản gió và mưa sẽ được phát huy khi bạn sử dụng trong các hoạt động thể thao như chơi Golf, hay lái xe Motor đường dài.\r\n\r\nSUNBIKE: 5 màu,  Tròng kính: 2 màu (Green/Smoke)\r\n\r\nKhi bạn mang kính cận, bạn có thể kết hợp cùng SUNBIKE một cách nhẹ nhàng khi đi ra ngoài để tránh ánh nắng mặt trời phản chiếu\r\n\r\nVới thiết kế của SUNBIKE bạn không cần phải tháo kính cận ra.[:]', '[:en]SUNBIKE CRYSTAL[:vi]KÍNH SUNBIKE TRẮNG[:]', '[:en]Made in Korea\r\n\r\nMaterial: Polarized Lens/ Grillamid\r\n\r\n&nbsp;[:vi]Sản xuất tại Hàn Quốc.\r\n\r\nChất liệu: nhựa Grillamid và tròng kính Polarized[:]', 'publish', 'open', 'closed', '', 'sunbike-crystal', '', '', '2019-09-06 04:04:53', '2019-09-06 04:04:53', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=825', 7, 'product', '', 0),
-(826, 6, '2019-08-29 09:22:10', '2019-08-29 09:22:10', '', 'SUNBIKE CRYSTAL - Crystal-Green', 'Color: Crystal-Green', 'publish', 'closed', 'closed', '', 'sunbike-black-3-2-2-2', '', '', '2019-09-06 04:04:52', '2019-09-06 04:04:52', '', 825, 'https://koreasonata.com/?post_type=product_variation&#038;p=826', 1, 'product_variation', '', 0),
-(827, 6, '2019-08-29 09:22:10', '2019-08-29 09:22:10', '', 'SUNBIKE CRYSTAL - Crystal-Grey', 'Color: Crystal-Grey', 'publish', 'closed', 'closed', '', 'sunbike-black-2-2-2-2-2', '', '', '2019-09-06 04:04:52', '2019-09-06 04:04:52', '', 825, 'https://koreasonata.com/?post_type=product_variation&#038;p=827', 2, 'product_variation', '', 0),
+(826, 6, '2019-08-29 09:22:10', '2019-08-29 09:22:10', '', 'KÍNH SUNBIKE TRẮNG - Crystal-Green', 'Color: Crystal-Green', 'publish', 'closed', 'closed', '', 'sunbike-black-3-2-2-2', '', '', '2019-09-06 04:04:52', '2019-09-06 04:04:52', '', 825, 'https://koreasonata.com/?post_type=product_variation&#038;p=826', 1, 'product_variation', '', 0),
+(827, 6, '2019-08-29 09:22:10', '2019-08-29 09:22:10', '', 'KÍNH SUNBIKE TRẮNG - Crystal-Grey', 'Color: Crystal-Grey', 'publish', 'closed', 'closed', '', 'sunbike-black-2-2-2-2-2', '', '', '2019-09-06 04:04:52', '2019-09-06 04:04:52', '', 825, 'https://koreasonata.com/?post_type=product_variation&#038;p=827', 2, 'product_variation', '', 0),
 (828, 6, '2019-08-29 09:28:53', '2019-08-29 09:28:53', '', 'Picture1', '', 'inherit', 'open', 'closed', '', 'picture1', '', '', '2019-08-29 09:28:53', '2019-08-29 09:28:53', '', 825, 'https://koreasonata.com/wp-content/uploads/2019/08/Picture1.jpg', 0, 'attachment', 'image/jpeg', 0),
 (829, 6, '2019-08-30 10:59:06', '2019-08-30 10:59:06', '', 'IMG_6024-removebg-preview (1)', '', 'inherit', 'open', 'closed', '', 'img_6024-removebg-preview-1', '', '', '2019-09-06 07:49:01', '2019-09-06 07:49:01', '', 943, 'https://koreasonata.com/wp-content/uploads/2019/08/IMG_6024-removebg-preview-1.png', 0, 'attachment', 'image/png', 0),
 (830, 6, '2019-08-30 11:03:57', '2019-08-30 11:03:57', '', 'IMG_6035-removebg-preview', '', 'inherit', 'open', 'closed', '', 'img_6035-removebg-preview', '', '', '2019-09-06 08:18:23', '2019-09-06 08:18:23', '', 949, 'https://koreasonata.com/wp-content/uploads/2019/08/IMG_6035-removebg-preview.png', 0, 'attachment', 'image/png', 0),
@@ -5003,22 +5018,22 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (892, 6, '2019-09-06 03:01:46', '2019-09-06 03:01:46', '', 'IMG_6169', '', 'inherit', 'open', 'closed', '', 'img_6169', '', '', '2019-09-06 03:01:46', '2019-09-06 03:01:46', '', 890, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6169.jpg', 0, 'attachment', 'image/jpeg', 0),
 (893, 6, '2019-09-06 03:02:10', '2019-09-06 03:02:10', '', 'IMG_6149', '', 'inherit', 'open', 'closed', '', 'img_6149', '', '', '2019-09-06 03:02:10', '2019-09-06 03:02:10', '', 890, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6149.jpg', 0, 'attachment', 'image/jpeg', 0),
 (894, 6, '2019-09-06 03:02:32', '2019-09-06 03:02:32', '', 'IMG_6150', '', 'inherit', 'open', 'closed', '', 'img_6150', '', '', '2019-09-06 03:02:32', '2019-09-06 03:02:32', '', 890, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6150.jpg', 0, 'attachment', 'image/jpeg', 0),
-(895, 6, '2019-09-06 03:06:41', '2019-09-06 03:06:41', '', 'SUNBIKE WINE - Wine_Grey', 'Color: Wine_Grey', 'publish', 'closed', 'closed', '', 'sunbike-wine', '', '', '2019-09-06 03:50:59', '2019-09-06 03:50:59', '', 890, 'https://koreasonata.com/?post_type=product_variation&#038;p=895', 2, 'product_variation', '', 0),
-(896, 6, '2019-09-06 03:06:44', '2019-09-06 03:06:44', '', 'SUNBIKE WINE - Wine-Green', 'Color: Wine-Green', 'publish', 'closed', 'closed', '', 'sunbike-wine-2', '', '', '2019-09-06 03:50:59', '2019-09-06 03:50:59', '', 890, 'https://koreasonata.com/?post_type=product_variation&#038;p=896', 0, 'product_variation', '', 0),
+(895, 6, '2019-09-06 03:06:41', '2019-09-06 03:06:41', '', 'KÍNH SUNBIKE ĐỎ RƯỢU - Wine_Grey', 'Color: Wine_Grey', 'publish', 'closed', 'closed', '', 'sunbike-wine', '', '', '2019-09-06 03:50:59', '2019-09-06 03:50:59', '', 890, 'https://koreasonata.com/?post_type=product_variation&#038;p=895', 2, 'product_variation', '', 0),
+(896, 6, '2019-09-06 03:06:44', '2019-09-06 03:06:44', '', 'KÍNH SUNBIKE ĐỎ RƯỢU - Wine-Green', 'Color: Wine-Green', 'publish', 'closed', 'closed', '', 'sunbike-wine-2', '', '', '2019-09-06 03:50:59', '2019-09-06 03:50:59', '', 890, 'https://koreasonata.com/?post_type=product_variation&#038;p=896', 0, 'product_variation', '', 0),
 (897, 6, '2019-09-06 03:31:07', '2019-09-06 03:31:07', '[:en]Based on fashionable  eyewear trend of Korea we present you special design of sunglasses.\r\n\r\nDefined by slim, innovative materials, and simple constructions. The SUNBIKE collection combines design and function for beautiful sunglasses.\r\n\r\nBy pushing the limits of optical technology and comfort, we offer unparalleled strength and lasting quality.\r\n\r\n100% Made in Korea / European Grilamid material / 35g\r\nProtect your eyes on Driving/Fishing/Golf/Outdoor sports &amp; Leisure\r\nYour eyes are safe from reflected Sunshine by road, cars and water wave\r\nYour eyes are free from  rain, wind and dust during Bike driving\r\nUV 99% protection with Best Polarized Lens, Double layers and thickness than general type/Wide Lens on front &amp; side\r\n5 Colors are available: Black,Blue,Wine,Grey,Crystal\r\n\r\nShipping in all cities in Vietnam\r\n\r\nVery good for gift.\r\n\r\nMany discount program is available according to order QTY /  12 months Warranty\r\nNo need put off your eyeglasses for SUNBIKE wearing.[:vi]Dựa trên văn hóa và thời trang của Hàn Quốc, chúng tôi mang đến cho các bạn dòng SUNBIKE với thiết kế đặc biệt. Với các chi tiết mỏng nhẹ, cải thiện về chất liệu, kết cấu giản đơn. Bộ sưu tập SUNBIKE được thiết kế và kết hợp hài hòa cùng với chức năng tuyệt vời của dòng kính mát.\r\n\r\nĐược 100% sản xuất tại Hàn Quốc với chất liệu Grillamid được sản xuất theo tiêu chuẩn Châu Âu\r\n\r\nTrọng lượng 35g\r\nKính mát SUNBIKE với thiết kế ôm sát khuôn mặt giúp bảo vệ đôi mắt của bạn một cách toàn diện. SUNBIKE là dòng kính với thiết kế unisex nên phù hợp cho cả nam và nữ. Các ưu điểm của thiết kế này như cản gió và mưa sẽ được phát huy khi bạn sử dụng trong các hoạt động thể thao như chơi Golf, hay lái xe Motor đường dài.\r\n\r\nSUNBIKE: 5 màu,  Tròng kính: 2 màu (Green/Smoke)\r\n\r\nKhi bạn mang kính cận, bạn có thể kết hợp cùng SUNBIKE một cách nhẹ nhàng khi đi ra ngoài để tránh ánh nắng mặt trời phản chiếu\r\n\r\nVới thiết kế của SUNBIKE bạn không cần phải tháo kính cận ra.[:]', '[:en]SUNBIKE GREY[:vi]KÍNH SUNBIKE XÁM[:]', '[:en]Made in Korea\r\n\r\nMaterial: Polarized Lens/ Grillamid\r\n\r\n&nbsp;[:vi]Sản xuất tại Hàn Quốc.\r\n\r\nChất liệu: nhựa Grillamid và tròng kính Polarized[:]', 'publish', 'open', 'closed', '', 'sunbike-grey', '', '', '2019-09-06 03:58:33', '2019-09-06 03:58:33', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=897', 5, 'product', '', 0),
-(898, 6, '2019-09-06 03:32:16', '2019-09-06 03:32:16', '', 'SUNBIKE GREY - Grey-Grey', 'Color: Grey-Grey', 'publish', 'closed', 'closed', '', 'sunbike-grey', '', '', '2019-09-06 03:50:30', '2019-09-06 03:50:30', '', 897, 'https://koreasonata.com/?post_type=product_variation&#038;p=898', 0, 'product_variation', '', 0),
-(899, 6, '2019-09-06 03:32:19', '2019-09-06 03:32:19', '', 'SUNBIKE GREY - Grey-Green', 'Color: Grey-Green', 'publish', 'closed', 'closed', '', 'sunbike-grey-2', '', '', '2019-09-06 03:50:30', '2019-09-06 03:50:30', '', 897, 'https://koreasonata.com/?post_type=product_variation&#038;p=899', 0, 'product_variation', '', 0),
+(898, 6, '2019-09-06 03:32:16', '2019-09-06 03:32:16', '', 'KÍNH SUNBIKE XÁM - Grey-Grey', 'Color: Grey-Grey', 'publish', 'closed', 'closed', '', 'sunbike-grey', '', '', '2019-09-06 03:50:30', '2019-09-06 03:50:30', '', 897, 'https://koreasonata.com/?post_type=product_variation&#038;p=898', 0, 'product_variation', '', 0),
+(899, 6, '2019-09-06 03:32:19', '2019-09-06 03:32:19', '', 'KÍNH SUNBIKE XÁM - Grey-Green', 'Color: Grey-Green', 'publish', 'closed', 'closed', '', 'sunbike-grey-2', '', '', '2019-09-06 03:50:30', '2019-09-06 03:50:30', '', 897, 'https://koreasonata.com/?post_type=product_variation&#038;p=899', 0, 'product_variation', '', 0),
 (900, 6, '2019-09-06 03:33:27', '2019-09-06 03:33:27', '', 'IMG_6159', '', 'inherit', 'open', 'closed', '', 'img_6159', '', '', '2019-09-06 03:33:27', '2019-09-06 03:33:27', '', 899, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6159.jpg', 0, 'attachment', 'image/jpeg', 0),
 (901, 6, '2019-09-06 03:35:12', '2019-09-06 03:35:12', '', 'IMG_6161', '', 'inherit', 'open', 'closed', '', 'img_6161', '', '', '2019-09-06 03:35:12', '2019-09-06 03:35:12', '', 899, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6161.jpg', 0, 'attachment', 'image/jpeg', 0),
 (902, 6, '2019-09-06 03:35:36', '2019-09-06 03:35:36', '', 'IMG_6162', '', 'inherit', 'open', 'closed', '', 'img_6162', '', '', '2019-09-06 03:35:36', '2019-09-06 03:35:36', '', 899, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6162.jpg', 0, 'attachment', 'image/jpeg', 0),
 (903, 6, '2019-09-06 03:39:32', '2019-09-06 03:39:32', '', 'IMG_6163', '', 'inherit', 'open', 'closed', '', 'img_6163', '', '', '2019-09-06 03:39:32', '2019-09-06 03:39:32', '', 898, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6163.jpg', 0, 'attachment', 'image/jpeg', 0),
 (904, 6, '2019-09-06 03:44:29', '2019-09-06 03:44:29', '[:en]Based on fashionable  eyewear trend of Korea we present you special design of sunglasses.\r\n\r\nDefined by slim, innovative materials, and simple constructions. The SUNBIKE collection combines design and function for beautiful sunglasses.\r\n\r\nBy pushing the limits of optical technology and comfort, we offer unparalleled strength and lasting quality.\r\n\r\n100% Made in Korea / European Grilamid material / 35g\r\nProtect your eyes on Driving/Fishing/Golf/Outdoor sports &amp; Leisure\r\nYour eyes are safe from reflected Sunshine by road, cars and water wave\r\nYour eyes are free from  rain, wind and dust during Bike driving\r\nUV 99% protection with Best Polarized Lens, Double layers and thickness than general type/Wide Lens on front &amp; side\r\n5 Colors are available: Black,Blue,Wine,Grey,Crystal\r\n\r\nShipping in all cities in Vietnam\r\n\r\nVery good for gift.\r\n\r\nMany discount program is available according to order QTY /  12 months Warranty\r\nNo need put off your eyeglasses for SUNBIKE wearing.[:vi]Dựa trên văn hóa và thời trang của Hàn Quốc, chúng tôi mang đến cho các bạn dòng SUNBIKE với thiết kế đặc biệt. Với các chi tiết mỏng nhẹ, cải thiện về chất liệu, kết cấu giản đơn. Bộ sưu tập SUNBIKE được thiết kế và kết hợp hài hòa cùng với chức năng tuyệt vời của dòng kính mát.\r\n\r\nĐược 100% sản xuất tại Hàn Quốc với chất liệu Grillamid được sản xuất theo tiêu chuẩn Châu Âu\r\n\r\nTrọng lượng 35g\r\nKính mát SUNBIKE với thiết kế ôm sát khuôn mặt giúp bảo vệ đôi mắt của bạn một cách toàn diện. SUNBIKE là dòng kính với thiết kế unisex nên phù hợp cho cả nam và nữ. Các ưu điểm của thiết kế này như cản gió và mưa sẽ được phát huy khi bạn sử dụng trong các hoạt động thể thao như chơi Golf, hay lái xe Motor đường dài.\r\n\r\nSUNBIKE: 5 màu,  Tròng kính: 2 màu (Green/Smoke)\r\n\r\nKhi bạn mang kính cận, bạn có thể kết hợp cùng SUNBIKE một cách nhẹ nhàng khi đi ra ngoài để tránh ánh nắng mặt trời phản chiếu\r\n\r\nVới thiết kế của SUNBIKE bạn không cần phải tháo kính cận ra.[:]', '[:en]SUNBIKE BLUE[:vi]KÍNH SUNBIKE XANH[:]', '[:en]Made in Korea\r\n\r\nMaterial: Polarized Lens/ Grillamid\r\n\r\n&nbsp;[:vi]Sản xuất tại Hàn Quốc.\r\n\r\nChất liệu: nhựa Grillamid và tròng kính Polarized[:]', 'publish', 'open', 'closed', '', 'sunbike-blue', '', '', '2019-09-06 03:52:25', '2019-09-06 03:52:25', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=904', 4, 'product', '', 0),
-(905, 6, '2019-09-06 03:45:16', '2019-09-06 03:45:16', '', 'SUNBIKE BLUE - Blue-Grey', 'Color: Blue-Grey', 'publish', 'closed', 'closed', '', 'sunbike-blue', '', '', '2019-09-06 03:49:35', '2019-09-06 03:49:35', '', 904, 'https://koreasonata.com/?post_type=product_variation&#038;p=905', 0, 'product_variation', '', 0),
-(906, 6, '2019-09-06 03:45:18', '2019-09-06 03:45:18', '', 'SUNBIKE BLUE - Blue-Green', 'Color: Blue-Green', 'publish', 'closed', 'closed', '', 'sunbike-blue-2', '', '', '2019-09-06 03:49:35', '2019-09-06 03:49:35', '', 904, 'https://koreasonata.com/?post_type=product_variation&#038;p=906', 0, 'product_variation', '', 0),
+(905, 6, '2019-09-06 03:45:16', '2019-09-06 03:45:16', '', 'KÍNH SUNBIKE XANH - Blue-Grey', 'Color: Blue-Grey', 'publish', 'closed', 'closed', '', 'sunbike-blue', '', '', '2019-09-06 03:49:35', '2019-09-06 03:49:35', '', 904, 'https://koreasonata.com/?post_type=product_variation&#038;p=905', 0, 'product_variation', '', 0),
+(906, 6, '2019-09-06 03:45:18', '2019-09-06 03:45:18', '', 'KÍNH SUNBIKE XANH - Blue-Green', 'Color: Blue-Green', 'publish', 'closed', 'closed', '', 'sunbike-blue-2', '', '', '2019-09-06 03:49:35', '2019-09-06 03:49:35', '', 904, 'https://koreasonata.com/?post_type=product_variation&#038;p=906', 0, 'product_variation', '', 0),
 (907, 6, '2019-09-06 03:48:14', '2019-09-06 03:48:14', '', 'IMG_6157', '', 'inherit', 'open', 'closed', '', 'img_6157', '', '', '2019-09-06 03:48:14', '2019-09-06 03:48:14', '', 904, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6157.jpg', 0, 'attachment', 'image/jpeg', 0),
 (908, 6, '2019-09-06 03:52:46', '2019-09-06 03:52:46', '[:en]Based on fashionable  eyewear trend of Korea we present you special design of sunglasses.\r\n\r\nDefined by slim, innovative materials, and simple constructions. The SUNBIKE collection combines design and function for beautiful sunglasses.\r\n\r\nBy pushing the limits of optical technology and comfort, we offer unparalleled strength and lasting quality.\r\n\r\n100% Made in Korea / European Grilamid material / 35g\r\nProtect your eyes on Driving/Fishing/Golf/Outdoor sports &amp; Leisure\r\nYour eyes are safe from reflected Sunshine by road, cars and water wave\r\nYour eyes are free from  rain, wind and dust during Bike driving\r\nUV 99% protection with Best Polarized Lens, Double layers and thickness than general type/Wide Lens on front &amp; side\r\n5 Colors are available: Black,Blue,Wine,Grey,Crystal\r\n\r\nShipping in all cities in Vietnam\r\n\r\nVery good for gift.\r\n\r\nMany discount program is available according to order QTY /  12 months Warranty\r\nNo need put off your eyeglasses for SUNBIKE wearing.[:vi]Dựa trên văn hóa và thời trang của Hàn Quốc, chúng tôi mang đến cho các bạn dòng SUNBIKE với thiết kế đặc biệt. Với các chi tiết mỏng nhẹ, cải thiện về chất liệu, kết cấu giản đơn. Bộ sưu tập SUNBIKE được thiết kế và kết hợp hài hòa cùng với chức năng tuyệt vời của dòng kính mát.\r\n\r\nĐược 100% sản xuất tại Hàn Quốc với chất liệu Grillamid được sản xuất theo tiêu chuẩn Châu Âu\r\n\r\nTrọng lượng 35g\r\nKính mát SUNBIKE với thiết kế ôm sát khuôn mặt giúp bảo vệ đôi mắt của bạn một cách toàn diện. SUNBIKE là dòng kính với thiết kế unisex nên phù hợp cho cả nam và nữ. Các ưu điểm của thiết kế này như cản gió và mưa sẽ được phát huy khi bạn sử dụng trong các hoạt động thể thao như chơi Golf, hay lái xe Motor đường dài.\r\n\r\nSUNBIKE: 5 màu,  Tròng kính: 2 màu (Green/Smoke)\r\n\r\nKhi bạn mang kính cận, bạn có thể kết hợp cùng SUNBIKE một cách nhẹ nhàng khi đi ra ngoài để tránh ánh nắng mặt trời phản chiếu\r\n\r\nVới thiết kế của SUNBIKE bạn không cần phải tháo kính cận ra.[:]', '[:en]SUNBIKE BLACK[:vi]KÍNH SUNBIKE ĐEN[:]', '[:en]Made in Korea\r\n\r\nMaterial: Polarized Lens/ Grillamid\r\n\r\n&nbsp;[:vi]Sản xuất tại Hàn Quốc.\r\n\r\nChất liệu: nhựa Grillamid và tròng kính Polarized[:]', 'publish', 'open', 'closed', '', 'sunbike-black', '', '', '2019-09-06 05:05:31', '2019-09-06 05:05:31', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=908', 2, 'product', '', 0),
-(909, 6, '2019-09-06 03:53:17', '2019-09-06 03:53:17', '', 'SUNBIKE BLACK - Black-Grey', 'Color: Black-Grey', 'publish', 'closed', 'closed', '', 'sunbike-black', '', '', '2019-09-06 05:05:30', '2019-09-06 05:05:30', '', 908, 'https://koreasonata.com/?post_type=product_variation&#038;p=909', 0, 'product_variation', '', 0),
-(910, 6, '2019-09-06 03:53:18', '2019-09-06 03:53:18', '', 'SUNBIKE BLACK - Black-green', 'Color: Black-green', 'publish', 'closed', 'closed', '', 'sunbike-black-2', '', '', '2019-09-06 05:05:30', '2019-09-06 05:05:30', '', 908, 'https://koreasonata.com/?post_type=product_variation&#038;p=910', 0, 'product_variation', '', 0),
+(909, 6, '2019-09-06 03:53:17', '2019-09-06 03:53:17', '', 'KÍNH SUNBIKE ĐEN - Black-Grey', 'Color: Black-Grey', 'publish', 'closed', 'closed', '', 'sunbike-black', '', '', '2019-09-06 05:05:30', '2019-09-06 05:05:30', '', 908, 'https://koreasonata.com/?post_type=product_variation&#038;p=909', 0, 'product_variation', '', 0),
+(910, 6, '2019-09-06 03:53:18', '2019-09-06 03:53:18', '', 'KÍNH SUNBIKE ĐEN - Black-green', 'Color: Black-green', 'publish', 'closed', 'closed', '', 'sunbike-black-2', '', '', '2019-09-06 05:05:30', '2019-09-06 05:05:30', '', 908, 'https://koreasonata.com/?post_type=product_variation&#038;p=910', 0, 'product_variation', '', 0),
 (911, 6, '2019-09-06 03:54:10', '2019-09-06 03:54:10', '', 'IMG_6151', '', 'inherit', 'open', 'closed', '', 'img_6151', '', '', '2019-09-06 03:54:10', '2019-09-06 03:54:10', '', 909, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6151.jpg', 0, 'attachment', 'image/jpeg', 0),
 (912, 6, '2019-09-06 03:55:59', '2019-09-06 03:55:59', '', 'IMG_6154', '', 'inherit', 'open', 'closed', '', 'img_6154', '', '', '2019-09-06 03:55:59', '2019-09-06 03:55:59', '', 908, 'https://koreasonata.com/wp-content/uploads/2019/09/IMG_6154.jpg', 0, 'attachment', 'image/jpeg', 0),
 (913, 6, '2019-09-06 04:01:01', '2019-09-06 04:01:01', '', 'IMG_6170', '', 'inherit', 'open', 'closed', '', 'img_6170', '', '', '2019-09-06 04:01:01', '2019-09-06 04:01:01', '', 826, 'https://koreasonata.com/wp-content/uploads/2019/08/IMG_6170.jpg', 0, 'attachment', 'image/jpeg', 0),
@@ -5027,7 +5042,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (916, 6, '2019-09-06 04:02:14', '2019-09-06 04:02:14', '', 'IMG_6173', '', 'inherit', 'open', 'closed', '', 'img_6173', '', '', '2019-09-06 04:02:14', '2019-09-06 04:02:14', '', 826, 'https://koreasonata.com/wp-content/uploads/2019/08/IMG_6173.jpg', 0, 'attachment', 'image/jpeg', 0),
 (917, 6, '2019-09-06 05:10:03', '2019-09-06 05:10:03', '[:en]Material: Grillamid\r\n\r\nMade in Korea\r\n\r\nProduct can be good bearing and heat resistance, does not irritate the skin.[:vi]Chất liệu: nhựa Grillamid ( một loại thuộc họ TR)\r\n\r\nĐược sản xuất và nhập khẩu từ Hàn Quốc.\r\n\r\nSản phẩm có khả năng chịu lực và chịu nhiệt tốt, không gây kích ứng da.[:]', 'R543', '', 'publish', 'open', 'closed', '', 'r543', '', '', '2019-09-06 05:10:36', '2019-09-06 05:10:36', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=917', 27, 'product', '', 0),
 (918, 6, '2019-09-06 05:11:55', '2019-09-06 05:11:55', '[:en]Material: Grillamid\r\n\r\nMade in Korea\r\n\r\nProduct can be good bearing and heat resistance, does not irritate the skin.[:vi]Chất liệu: nhựa Grillamid ( một loại thuộc họ TR)\r\n\r\nĐược sản xuất và nhập khẩu từ Hàn Quốc.\r\n\r\nSản phẩm có khả năng chịu lực và chịu nhiệt tốt, không gây kích ứng da.[:]', 'R542', '', 'publish', 'open', 'closed', '', 'r542', '', '', '2019-09-06 05:18:32', '2019-09-06 05:18:32', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=918', 26, 'product', '', 0),
-(919, 6, '2019-09-06 06:13:35', '2019-09-06 06:13:35', '[:en]Material: Grillamid\r\n\r\nMade in Korea\r\n\r\nProduct can be good bearing and heat resistance, does not irritate the skin.[:vi]Chất liệu: nhựa Grillamid ( một loại thuộc họ TR)\r\n\r\nĐược sản xuất và nhập khẩu từ Hàn Quốc.\r\n\r\nSản phẩm có khả năng chịu lực và chịu nhiệt tốt, không gây kích ứng da.[:]', 'R541', '', 'publish', 'open', 'closed', '', 'r541', '', '', '2019-09-06 06:14:01', '2019-09-06 06:14:01', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=919', 25, 'product', '', 0),
+(919, 6, '2019-09-06 06:13:35', '2019-09-06 06:13:35', '[:en]Material: Grillamid\r\n\r\nMade in Korea\r\n\r\nProduct can be good bearing and heat resistance, does not irritate the skin.[:vi]Chất liệu: nhựa Grillamid ( một loại thuộc họ TR)\r\n\r\nĐược sản xuất và nhập khẩu từ Hàn Quốc.\r\n\r\nSản phẩm có khả năng chịu lực và chịu nhiệt tốt, không gây kích ứng da.[:]', 'R541', '', 'publish', 'open', 'closed', '', 'r541', '', '', '2019-09-08 13:33:44', '2019-09-08 13:33:44', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=919', 25, 'product', '', 0),
 (920, 6, '2019-09-06 06:14:22', '2019-09-06 06:14:22', '[:en]Material: Grillamid\r\n\r\nMade in Korea\r\n\r\nProduct can be good bearing and heat resistance, does not irritate the skin.[:vi]Chất liệu: nhựa Grillamid ( một loại thuộc họ TR)\r\n\r\nĐược sản xuất và nhập khẩu từ Hàn Quốc.\r\n\r\nSản phẩm có khả năng chịu lực và chịu nhiệt tốt, không gây kích ứng da.[:]', 'R540', '', 'publish', 'open', 'closed', '', 'r540', '', '', '2019-09-06 06:14:40', '2019-09-06 06:14:40', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=920', 28, 'product', '', 0),
 (922, 6, '2019-09-06 06:38:16', '2019-09-06 06:38:16', '', 'S2303', '[:en]<strong>Size: 51-20-145</strong>[:vi]<strong>Kích thước: 51-20-145</strong>[:]', 'publish', 'open', 'closed', '', 's2303', '', '', '2019-09-06 10:08:35', '2019-09-06 10:08:35', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=922', 34, 'product', '', 0),
 (923, 6, '2019-09-06 06:41:35', '2019-09-06 06:41:35', '', 'S2303 - Gold', 'Color: Gold', 'publish', 'closed', 'closed', '', 's2303', '', '', '2019-09-06 06:47:32', '2019-09-06 06:47:32', '', 922, 'https://koreasonata.com/?post_type=product_variation&#038;p=923', 0, 'product_variation', '', 0),
@@ -5045,58 +5060,58 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (935, 6, '2019-09-06 07:18:48', '2019-09-06 07:18:48', '', 'S2301 - Blue', 'Color: Blue', 'publish', 'closed', 'closed', '', 's2301-3', '', '', '2019-09-06 07:25:48', '2019-09-06 07:25:48', '', 932, 'https://koreasonata.com/?post_type=product_variation&#038;p=935', 0, 'product_variation', '', 0),
 (936, 6, '2019-09-06 07:18:49', '2019-09-06 07:18:49', '', 'S2301 - Black', 'Color: Black', 'publish', 'closed', 'closed', '', 's2301-4', '', '', '2019-09-06 07:25:48', '2019-09-06 07:25:48', '', 932, 'https://koreasonata.com/?post_type=product_variation&#038;p=936', 0, 'product_variation', '', 0),
 (937, 6, '2019-09-06 07:26:49', '2019-09-06 07:26:49', '', 'OMEGA', '', 'publish', 'open', 'closed', '', 'omega', '', '', '2019-09-06 08:38:19', '2019-09-06 08:38:19', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=937', 20, 'product', '', 0),
-(938, 6, '2019-09-06 07:31:13', '2019-09-06 07:31:13', '', 'OMEGA', 'Frame Color: Black, Color of Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'omega-copy', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=938', 0, 'product_variation', '', 0),
-(939, 6, '2019-09-06 07:31:15', '2019-09-06 07:31:15', '', 'OMEGA', 'Frame Color: Black, Color of Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'omega-copy-2', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=939', 0, 'product_variation', '', 0),
-(940, 6, '2019-09-06 07:31:16', '2019-09-06 07:31:16', '', 'OMEGA', 'Frame Color: Black, Color of Clip: Brown', 'publish', 'closed', 'closed', '', 'omega-copy-3', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=940', 0, 'product_variation', '', 0),
-(941, 6, '2019-09-06 07:31:17', '2019-09-06 07:31:17', '', 'OMEGA', 'Frame Color: Black, Color of Clip: Green', 'publish', 'closed', 'closed', '', 'omega-copy-4', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=941', 0, 'product_variation', '', 0),
-(942, 6, '2019-09-06 07:31:22', '2019-09-06 07:31:22', '', 'OMEGA', 'Frame Color: Black, Color of Clip: Grey', 'publish', 'closed', 'closed', '', 'omega-copy-5', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=942', 0, 'product_variation', '', 0),
+(938, 6, '2019-09-06 07:31:13', '2019-09-06 07:31:13', '', 'OMEGA', 'Màu gọng kính: Black, Màu Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'omega-copy', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=938', 0, 'product_variation', '', 0),
+(939, 6, '2019-09-06 07:31:15', '2019-09-06 07:31:15', '', 'OMEGA', 'Màu gọng kính: Black, Màu Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'omega-copy-2', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=939', 0, 'product_variation', '', 0),
+(940, 6, '2019-09-06 07:31:16', '2019-09-06 07:31:16', '', 'OMEGA', 'Màu gọng kính: Black, Màu Clip: Brown', 'publish', 'closed', 'closed', '', 'omega-copy-3', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=940', 0, 'product_variation', '', 0),
+(941, 6, '2019-09-06 07:31:17', '2019-09-06 07:31:17', '', 'OMEGA', 'Màu gọng kính: Black, Màu Clip: Green', 'publish', 'closed', 'closed', '', 'omega-copy-4', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=941', 0, 'product_variation', '', 0),
+(942, 6, '2019-09-06 07:31:22', '2019-09-06 07:31:22', '', 'OMEGA', 'Màu gọng kính: Black, Màu Clip: Grey', 'publish', 'closed', 'closed', '', 'omega-copy-5', '', '', '2019-09-06 08:38:17', '2019-09-06 08:38:17', '', 937, 'https://koreasonata.com/?post_type=product_variation&#038;p=942', 0, 'product_variation', '', 0),
 (943, 6, '2019-09-06 07:48:47', '2019-09-06 07:48:47', '', 'OMEGA', '[:en]<strong>Size: 54-20-145</strong>[:vi]<strong>Kích thước: 54-20-145</strong>[:]', 'publish', 'open', 'closed', '', 'omega-2', '', '', '2019-09-06 10:16:27', '2019-09-06 10:16:27', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=943', 21, 'product', '', 0),
-(944, 6, '2019-09-06 07:49:53', '2019-09-06 07:49:53', '', 'OMEGA - Blue-Gold', 'Frame Color: Blue-Gold', 'publish', 'closed', 'closed', '', 'omega', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=944', 0, 'product_variation', '', 0),
-(945, 6, '2019-09-06 07:49:56', '2019-09-06 07:49:56', '', 'OMEGA - Black-Gold', 'Frame Color: Black-Gold', 'publish', 'closed', 'closed', '', 'omega-2', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=945', 0, 'product_variation', '', 0),
-(946, 6, '2019-09-06 07:49:57', '2019-09-06 07:49:57', '', 'OMEGA - Black-Silver', 'Frame Color: Black-Silver', 'publish', 'closed', 'closed', '', 'omega-3', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=946', 0, 'product_variation', '', 0),
-(947, 6, '2019-09-06 07:49:58', '2019-09-06 07:49:58', '', 'OMEGA - Black', 'Frame Color: Black', 'publish', 'closed', 'closed', '', 'omega-4', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=947', 0, 'product_variation', '', 0),
+(944, 6, '2019-09-06 07:49:53', '2019-09-06 07:49:53', '', 'OMEGA - Blue-Gold', 'Màu gọng kính: Blue-Gold', 'publish', 'closed', 'closed', '', 'omega', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=944', 0, 'product_variation', '', 0),
+(945, 6, '2019-09-06 07:49:56', '2019-09-06 07:49:56', '', 'OMEGA - Black-Gold', 'Màu gọng kính: Black-Gold', 'publish', 'closed', 'closed', '', 'omega-2', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=945', 0, 'product_variation', '', 0),
+(946, 6, '2019-09-06 07:49:57', '2019-09-06 07:49:57', '', 'OMEGA - Black-Silver', 'Màu gọng kính: Black-Silver', 'publish', 'closed', 'closed', '', 'omega-3', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=946', 0, 'product_variation', '', 0),
+(947, 6, '2019-09-06 07:49:58', '2019-09-06 07:49:58', '', 'OMEGA - Black', 'Màu gọng kính: Black', 'publish', 'closed', 'closed', '', 'omega-4', '', '', '2019-09-06 08:09:50', '2019-09-06 08:09:50', '', 943, 'https://koreasonata.com/?post_type=product_variation&#038;p=947', 0, 'product_variation', '', 0),
 (949, 6, '2019-09-06 08:14:08', '2019-09-06 08:14:08', '', 'ROMEO', '[:en]<strong>Size: 52-21-145</strong>[:vi]<strong>Kích thước: 52-21-145</strong>[:]', 'publish', 'open', 'closed', '', 'romeo-clip-on', '', '', '2019-09-06 10:15:45', '2019-09-06 10:15:45', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=949', 29, 'product', '', 0),
-(950, 6, '2019-09-06 08:15:45', '2019-09-06 08:15:45', '', 'ROMEO', 'Frame Color: Black, Color of Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'romeo-copy', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=950', 0, 'product_variation', '', 0),
-(951, 6, '2019-09-06 08:15:47', '2019-09-06 08:15:47', '', 'ROMEO', 'Frame Color: Black, Color of Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'romeo-copy-2', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=951', 0, 'product_variation', '', 0),
-(952, 6, '2019-09-06 08:15:48', '2019-09-06 08:15:48', '', 'ROMEO', 'Frame Color: Black, Color of Clip: Brown', 'publish', 'closed', 'closed', '', 'romeo-copy-3', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=952', 0, 'product_variation', '', 0),
-(953, 6, '2019-09-06 08:15:50', '2019-09-06 08:15:50', '', 'ROMEO', 'Frame Color: Black, Color of Clip: Green', 'publish', 'closed', 'closed', '', 'romeo-copy-4', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=953', 0, 'product_variation', '', 0),
-(954, 6, '2019-09-06 08:15:52', '2019-09-06 08:15:52', '', 'ROMEO', 'Frame Color: Black, Color of Clip: Grey', 'publish', 'closed', 'closed', '', 'romeo-copy-5', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=954', 0, 'product_variation', '', 0),
+(950, 6, '2019-09-06 08:15:45', '2019-09-06 08:15:45', '', 'ROMEO', 'Màu gọng kính: Black, Màu Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'romeo-copy', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=950', 0, 'product_variation', '', 0),
+(951, 6, '2019-09-06 08:15:47', '2019-09-06 08:15:47', '', 'ROMEO', 'Màu gọng kính: Black, Màu Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'romeo-copy-2', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=951', 0, 'product_variation', '', 0),
+(952, 6, '2019-09-06 08:15:48', '2019-09-06 08:15:48', '', 'ROMEO', 'Màu gọng kính: Black, Màu Clip: Brown', 'publish', 'closed', 'closed', '', 'romeo-copy-3', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=952', 0, 'product_variation', '', 0),
+(953, 6, '2019-09-06 08:15:50', '2019-09-06 08:15:50', '', 'ROMEO', 'Màu gọng kính: Black, Màu Clip: Green', 'publish', 'closed', 'closed', '', 'romeo-copy-4', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=953', 0, 'product_variation', '', 0),
+(954, 6, '2019-09-06 08:15:52', '2019-09-06 08:15:52', '', 'ROMEO', 'Màu gọng kính: Black, Màu Clip: Grey', 'publish', 'closed', 'closed', '', 'romeo-copy-5', '', '', '2019-09-06 08:18:21', '2019-09-06 08:18:21', '', 949, 'https://koreasonata.com/?post_type=product_variation&#038;p=954', 0, 'product_variation', '', 0),
 (955, 6, '2019-09-06 08:19:40', '2019-09-06 08:19:40', '', 'ROMEO', '[:en]<strong>Size: 52-21-145</strong>[:vi]<strong>Kích thước: 52-21-145</strong>[:]', 'publish', 'open', 'closed', '', 'romeo', '', '', '2019-09-06 10:14:59', '2019-09-06 10:14:59', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=955', 29, 'product', '', 0),
-(956, 6, '2019-09-06 08:20:36', '2019-09-06 08:20:36', '', 'ROMEO - Blue-Gold', 'Frame Color: Blue-Gold', 'publish', 'closed', 'closed', '', 'romeo', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=956', 0, 'product_variation', '', 0),
-(957, 6, '2019-09-06 08:20:38', '2019-09-06 08:20:38', '', 'ROMEO - Black-Gold', 'Frame Color: Black-Gold', 'publish', 'closed', 'closed', '', 'romeo-2', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=957', 0, 'product_variation', '', 0),
-(958, 6, '2019-09-06 08:20:39', '2019-09-06 08:20:39', '', 'ROMEO - Black-Silver', 'Frame Color: Black-Silver', 'publish', 'closed', 'closed', '', 'romeo-3', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=958', 0, 'product_variation', '', 0),
-(959, 6, '2019-09-06 08:20:40', '2019-09-06 08:20:40', '', 'ROMEO - Black', 'Frame Color: Black', 'publish', 'closed', 'closed', '', 'romeo-4', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=959', 0, 'product_variation', '', 0),
+(956, 6, '2019-09-06 08:20:36', '2019-09-06 08:20:36', '', 'ROMEO - Blue-Gold', 'Màu gọng kính: Blue-Gold', 'publish', 'closed', 'closed', '', 'romeo', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=956', 0, 'product_variation', '', 0),
+(957, 6, '2019-09-06 08:20:38', '2019-09-06 08:20:38', '', 'ROMEO - Black-Gold', 'Màu gọng kính: Black-Gold', 'publish', 'closed', 'closed', '', 'romeo-2', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=957', 0, 'product_variation', '', 0),
+(958, 6, '2019-09-06 08:20:39', '2019-09-06 08:20:39', '', 'ROMEO - Black-Silver', 'Màu gọng kính: Black-Silver', 'publish', 'closed', 'closed', '', 'romeo-3', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=958', 0, 'product_variation', '', 0),
+(959, 6, '2019-09-06 08:20:40', '2019-09-06 08:20:40', '', 'ROMEO - Black', 'Màu gọng kính: Black', 'publish', 'closed', 'closed', '', 'romeo-4', '', '', '2019-09-06 08:24:28', '2019-09-06 08:24:28', '', 955, 'https://koreasonata.com/?post_type=product_variation&#038;p=959', 0, 'product_variation', '', 0),
 (961, 6, '2019-09-06 08:33:46', '2019-09-06 08:33:46', '', 'JAMES', '[:en]<strong>Size: 53-19-145</strong>[:vi]<strong>Kích thước: 53-19-145</strong>[:]', 'publish', 'open', 'closed', '', 'james-clip-on', '', '', '2019-09-06 10:13:50', '2019-09-06 10:13:50', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=961', 14, 'product', '', 0),
-(962, 6, '2019-09-06 08:39:22', '2019-09-06 08:39:22', '', 'JAMES - Mirror Blue', 'Color of Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'james', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=962', 0, 'product_variation', '', 0),
-(963, 6, '2019-09-06 08:39:24', '2019-09-06 08:39:24', '', 'JAMES - Mirror Silver', 'Color of Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'james-2', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=963', 0, 'product_variation', '', 0),
-(964, 6, '2019-09-06 08:39:25', '2019-09-06 08:39:25', '', 'JAMES - Brown', 'Color of Clip: Brown', 'publish', 'closed', 'closed', '', 'james-3', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=964', 0, 'product_variation', '', 0);
+(962, 6, '2019-09-06 08:39:22', '2019-09-06 08:39:22', '', 'JAMES - Mirror Blue', 'Màu Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'james', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=962', 0, 'product_variation', '', 0),
+(963, 6, '2019-09-06 08:39:24', '2019-09-06 08:39:24', '', 'JAMES - Mirror Silver', 'Màu Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'james-2', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=963', 0, 'product_variation', '', 0),
+(964, 6, '2019-09-06 08:39:25', '2019-09-06 08:39:25', '', 'JAMES - Brown', 'Màu Clip: Brown', 'publish', 'closed', 'closed', '', 'james-3', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=964', 0, 'product_variation', '', 0);
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
-(965, 6, '2019-09-06 08:39:27', '2019-09-06 08:39:27', '', 'JAMES - Green', 'Color of Clip: Green', 'publish', 'closed', 'closed', '', 'james-4', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=965', 0, 'product_variation', '', 0),
-(966, 6, '2019-09-06 08:39:31', '2019-09-06 08:39:31', '', 'JAMES - Grey', 'Color of Clip: Grey', 'publish', 'closed', 'closed', '', 'james-5', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=966', 0, 'product_variation', '', 0),
+(965, 6, '2019-09-06 08:39:27', '2019-09-06 08:39:27', '', 'JAMES - Green', 'Màu Clip: Green', 'publish', 'closed', 'closed', '', 'james-4', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=965', 0, 'product_variation', '', 0),
+(966, 6, '2019-09-06 08:39:31', '2019-09-06 08:39:31', '', 'JAMES - Grey', 'Màu Clip: Grey', 'publish', 'closed', 'closed', '', 'james-5', '', '', '2019-09-06 08:42:40', '2019-09-06 08:42:40', '', 961, 'https://koreasonata.com/?post_type=product_variation&#038;p=966', 0, 'product_variation', '', 0),
 (967, 6, '2019-09-06 08:43:02', '2019-09-06 08:43:02', '', 'JAMES', '[:en]<strong>Size: 53-19-145</strong>[:vi]<strong>Kích thước: 53-19-145</strong>[:]', 'publish', 'open', 'closed', '', 'james', '', '', '2019-09-06 10:12:49', '2019-09-06 10:12:49', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=967', 13, 'product', '', 0),
-(968, 6, '2019-09-06 08:44:07', '2019-09-06 08:44:07', '', 'JAMES - Black-Gold', 'Frame Color: Black-Gold', 'publish', 'closed', 'closed', '', 'james-6', '', '', '2019-09-06 08:48:08', '2019-09-06 08:48:08', '', 967, 'https://koreasonata.com/?post_type=product_variation&#038;p=968', 0, 'product_variation', '', 0),
-(969, 6, '2019-09-06 08:44:09', '2019-09-06 08:44:09', '', 'JAMES - Black-Silver', 'Frame Color: Black-Silver', 'publish', 'closed', 'closed', '', 'james-7', '', '', '2019-09-06 08:48:08', '2019-09-06 08:48:08', '', 967, 'https://koreasonata.com/?post_type=product_variation&#038;p=969', 0, 'product_variation', '', 0),
-(970, 6, '2019-09-06 08:44:10', '2019-09-06 08:44:10', '', 'JAMES - Black', 'Frame Color: Black', 'publish', 'closed', 'closed', '', 'james-8', '', '', '2019-09-06 08:48:08', '2019-09-06 08:48:08', '', 967, 'https://koreasonata.com/?post_type=product_variation&#038;p=970', 0, 'product_variation', '', 0),
+(968, 6, '2019-09-06 08:44:07', '2019-09-06 08:44:07', '', 'JAMES - Black-Gold', 'Màu gọng kính: Black-Gold', 'publish', 'closed', 'closed', '', 'james-6', '', '', '2019-09-06 08:48:08', '2019-09-06 08:48:08', '', 967, 'https://koreasonata.com/?post_type=product_variation&#038;p=968', 0, 'product_variation', '', 0),
+(969, 6, '2019-09-06 08:44:09', '2019-09-06 08:44:09', '', 'JAMES - Black-Silver', 'Màu gọng kính: Black-Silver', 'publish', 'closed', 'closed', '', 'james-7', '', '', '2019-09-06 08:48:08', '2019-09-06 08:48:08', '', 967, 'https://koreasonata.com/?post_type=product_variation&#038;p=969', 0, 'product_variation', '', 0),
+(970, 6, '2019-09-06 08:44:10', '2019-09-06 08:44:10', '', 'JAMES - Black', 'Màu gọng kính: Black', 'publish', 'closed', 'closed', '', 'james-8', '', '', '2019-09-06 08:48:08', '2019-09-06 08:48:08', '', 967, 'https://koreasonata.com/?post_type=product_variation&#038;p=970', 0, 'product_variation', '', 0),
 (971, 6, '2019-09-06 08:49:05', '2019-09-06 08:49:05', '', 'RUBY', '[:en]<strong>Size: 51-20-145</strong>[:vi]<strong>Kích thước: 51-20-145</strong>[:]', 'publish', 'open', 'closed', '', 'ruby-clip-on', '', '', '2019-09-06 09:13:31', '2019-09-06 09:13:31', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=971', 31, 'product', '', 0),
-(972, 6, '2019-09-06 08:53:43', '2019-09-06 08:53:43', '', 'RUBY - Mirror Blue', 'Color of Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'ruby-copy', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=972', 0, 'product_variation', '', 0),
-(973, 6, '2019-09-06 08:53:44', '2019-09-06 08:53:44', '', 'RUBY - Mirror Silver', 'Color of Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'ruby-copy-2', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=973', 0, 'product_variation', '', 0),
-(974, 6, '2019-09-06 08:53:46', '2019-09-06 08:53:46', '', 'RUBY - Brown', 'Color of Clip: Brown', 'publish', 'closed', 'closed', '', 'ruby-copy-3', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=974', 0, 'product_variation', '', 0),
-(975, 6, '2019-09-06 08:53:48', '2019-09-06 08:53:48', '', 'RUBY - Green', 'Color of Clip: Green', 'publish', 'closed', 'closed', '', 'ruby-copy-4', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=975', 0, 'product_variation', '', 0),
-(976, 6, '2019-09-06 08:53:49', '2019-09-06 08:53:49', '', 'RUBY - Grey', 'Color of Clip: Grey', 'publish', 'closed', 'closed', '', 'ruby-copy-5', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=976', 0, 'product_variation', '', 0),
+(972, 6, '2019-09-06 08:53:43', '2019-09-06 08:53:43', '', 'RUBY - Mirror Blue', 'Màu Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'ruby-copy', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=972', 0, 'product_variation', '', 0),
+(973, 6, '2019-09-06 08:53:44', '2019-09-06 08:53:44', '', 'RUBY - Mirror Silver', 'Màu Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'ruby-copy-2', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=973', 0, 'product_variation', '', 0),
+(974, 6, '2019-09-06 08:53:46', '2019-09-06 08:53:46', '', 'RUBY - Brown', 'Màu Clip: Brown', 'publish', 'closed', 'closed', '', 'ruby-copy-3', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=974', 0, 'product_variation', '', 0),
+(975, 6, '2019-09-06 08:53:48', '2019-09-06 08:53:48', '', 'RUBY - Green', 'Màu Clip: Green', 'publish', 'closed', 'closed', '', 'ruby-copy-4', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=975', 0, 'product_variation', '', 0),
+(976, 6, '2019-09-06 08:53:49', '2019-09-06 08:53:49', '', 'RUBY - Grey', 'Màu Clip: Grey', 'publish', 'closed', 'closed', '', 'ruby-copy-5', '', '', '2019-09-06 08:56:59', '2019-09-06 08:56:59', '', 971, 'https://koreasonata.com/?post_type=product_variation&#038;p=976', 0, 'product_variation', '', 0),
 (977, 6, '2019-09-06 09:02:31', '2019-09-06 09:02:31', '', 'RUBY', '[:en]<strong>Size: 51-20-145</strong>[:vi]<strong>Kích thước: 51-20-145</strong>[:]', 'publish', 'open', 'closed', '', 'ruby', '', '', '2019-09-06 10:11:34', '2019-09-06 10:11:34', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=977', 10, 'product', '', 0),
-(978, 6, '2019-09-06 09:03:41', '2019-09-06 09:03:41', '', 'RUBY - Black-Gold', 'Frame Color: Black-Gold', 'publish', 'closed', 'closed', '', 'ruby-copy-6', '', '', '2019-09-06 09:09:39', '2019-09-06 09:09:39', '', 977, 'https://koreasonata.com/?post_type=product_variation&#038;p=978', 0, 'product_variation', '', 0),
-(979, 6, '2019-09-06 09:03:43', '2019-09-06 09:03:43', '', 'RUBY - Black-Silver', 'Frame Color: Black-Silver', 'publish', 'closed', 'closed', '', 'ruby-copy-7', '', '', '2019-09-06 09:09:39', '2019-09-06 09:09:39', '', 977, 'https://koreasonata.com/?post_type=product_variation&#038;p=979', 0, 'product_variation', '', 0),
-(980, 6, '2019-09-06 09:03:44', '2019-09-06 09:03:44', '', 'RUBY - Black', 'Frame Color: Black', 'publish', 'closed', 'closed', '', 'ruby-copy-8', '', '', '2019-09-06 09:09:39', '2019-09-06 09:09:39', '', 977, 'https://koreasonata.com/?post_type=product_variation&#038;p=980', 0, 'product_variation', '', 0),
+(978, 6, '2019-09-06 09:03:41', '2019-09-06 09:03:41', '', 'RUBY - Black-Gold', 'Màu gọng kính: Black-Gold', 'publish', 'closed', 'closed', '', 'ruby-copy-6', '', '', '2019-09-06 09:09:39', '2019-09-06 09:09:39', '', 977, 'https://koreasonata.com/?post_type=product_variation&#038;p=978', 0, 'product_variation', '', 0),
+(979, 6, '2019-09-06 09:03:43', '2019-09-06 09:03:43', '', 'RUBY - Black-Silver', 'Màu gọng kính: Black-Silver', 'publish', 'closed', 'closed', '', 'ruby-copy-7', '', '', '2019-09-06 09:09:39', '2019-09-06 09:09:39', '', 977, 'https://koreasonata.com/?post_type=product_variation&#038;p=979', 0, 'product_variation', '', 0),
+(980, 6, '2019-09-06 09:03:44', '2019-09-06 09:03:44', '', 'RUBY - Black', 'Màu gọng kính: Black', 'publish', 'closed', 'closed', '', 'ruby-copy-8', '', '', '2019-09-06 09:09:39', '2019-09-06 09:09:39', '', 977, 'https://koreasonata.com/?post_type=product_variation&#038;p=980', 0, 'product_variation', '', 0),
 (982, 6, '2019-09-06 09:14:14', '2019-09-06 09:14:14', '', 'AVA', '[:en]<strong>Size: 50-21-145</strong>\r\n\r\n&nbsp;[:vi]<strong>Kích thước: 50-21-145</strong>[:]', 'publish', 'open', 'closed', '', 'ava-clip-on', '', '', '2019-09-06 10:05:38', '2019-09-06 10:05:38', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=982', 12, 'product', '', 0),
-(983, 6, '2019-09-06 09:22:29', '2019-09-06 09:22:29', '', 'AVA - Mirror Blue', 'Color of Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'ava-copy', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=983', 0, 'product_variation', '', 0),
-(984, 6, '2019-09-06 09:22:31', '2019-09-06 09:22:31', '', 'AVA - Mirror Silver', 'Color of Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'ava-copy-2', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=984', 0, 'product_variation', '', 0),
-(985, 6, '2019-09-06 09:22:32', '2019-09-06 09:22:32', '', 'AVA - Brown', 'Color of Clip: Brown', 'publish', 'closed', 'closed', '', 'ava-copy-3', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=985', 0, 'product_variation', '', 0),
-(986, 6, '2019-09-06 09:23:08', '2019-09-06 09:23:08', '', 'AVA - Green', 'Color of Clip: Green', 'publish', 'closed', 'closed', '', 'ava-copy-4', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=986', 0, 'product_variation', '', 0),
-(987, 6, '2019-09-06 09:23:37', '2019-09-06 09:23:37', '', 'AVA - Grey', 'Color of Clip: Grey', 'publish', 'closed', 'closed', '', 'ava-copy-5', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=987', 0, 'product_variation', '', 0),
+(983, 6, '2019-09-06 09:22:29', '2019-09-06 09:22:29', '', 'AVA - Mirror Blue', 'Màu Clip: Mirror Blue', 'publish', 'closed', 'closed', '', 'ava-copy', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=983', 0, 'product_variation', '', 0),
+(984, 6, '2019-09-06 09:22:31', '2019-09-06 09:22:31', '', 'AVA - Mirror Silver', 'Màu Clip: Mirror Silver', 'publish', 'closed', 'closed', '', 'ava-copy-2', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=984', 0, 'product_variation', '', 0),
+(985, 6, '2019-09-06 09:22:32', '2019-09-06 09:22:32', '', 'AVA - Brown', 'Màu Clip: Brown', 'publish', 'closed', 'closed', '', 'ava-copy-3', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=985', 0, 'product_variation', '', 0),
+(986, 6, '2019-09-06 09:23:08', '2019-09-06 09:23:08', '', 'AVA - Green', 'Màu Clip: Green', 'publish', 'closed', 'closed', '', 'ava-copy-4', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=986', 0, 'product_variation', '', 0),
+(987, 6, '2019-09-06 09:23:37', '2019-09-06 09:23:37', '', 'AVA - Grey', 'Màu Clip: Grey', 'publish', 'closed', 'closed', '', 'ava-copy-5', '', '', '2019-09-06 09:56:01', '2019-09-06 09:56:01', '', 982, 'https://koreasonata.com/?post_type=product_variation&#038;p=987', 0, 'product_variation', '', 0),
 (988, 6, '2019-09-06 09:57:18', '2019-09-06 09:57:18', '', 'AVA', '[:en]<strong>Size: 50-21-145</strong>[:vi]<strong>Kích thước: 50-21-145</strong>[:]', 'publish', 'open', 'closed', '', 'ava', '', '', '2019-09-06 10:04:15', '2019-09-06 10:04:15', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=988', 11, 'product', '', 0),
-(989, 6, '2019-09-06 09:59:44', '2019-09-06 09:59:44', '', 'AVA - Black-Gold', 'Frame Color: Black-Gold', 'publish', 'closed', 'closed', '', 'ava', '', '', '2019-09-06 10:04:13', '2019-09-06 10:04:13', '', 988, 'https://koreasonata.com/?post_type=product_variation&#038;p=989', 0, 'product_variation', '', 0),
-(990, 6, '2019-09-06 09:59:45', '2019-09-06 09:59:45', '', 'AVA - Black-Silver', 'Frame Color: Black-Silver', 'publish', 'closed', 'closed', '', 'ava-2', '', '', '2019-09-06 10:04:13', '2019-09-06 10:04:13', '', 988, 'https://koreasonata.com/?post_type=product_variation&#038;p=990', 0, 'product_variation', '', 0),
-(991, 6, '2019-09-06 09:59:46', '2019-09-06 09:59:46', '', 'AVA - Black', 'Frame Color: Black', 'publish', 'closed', 'closed', '', 'ava-3', '', '', '2019-09-06 10:04:13', '2019-09-06 10:04:13', '', 988, 'https://koreasonata.com/?post_type=product_variation&#038;p=991', 0, 'product_variation', '', 0),
+(989, 6, '2019-09-06 09:59:44', '2019-09-06 09:59:44', '', 'AVA - Black-Gold', 'Màu gọng kính: Black-Gold', 'publish', 'closed', 'closed', '', 'ava', '', '', '2019-09-06 10:04:13', '2019-09-06 10:04:13', '', 988, 'https://koreasonata.com/?post_type=product_variation&#038;p=989', 0, 'product_variation', '', 0),
+(990, 6, '2019-09-06 09:59:45', '2019-09-06 09:59:45', '', 'AVA - Black-Silver', 'Màu gọng kính: Black-Silver', 'publish', 'closed', 'closed', '', 'ava-2', '', '', '2019-09-06 10:04:13', '2019-09-06 10:04:13', '', 988, 'https://koreasonata.com/?post_type=product_variation&#038;p=990', 0, 'product_variation', '', 0),
+(991, 6, '2019-09-06 09:59:46', '2019-09-06 09:59:46', '', 'AVA - Black', 'Màu gọng kính: Black', 'publish', 'closed', 'closed', '', 'ava-3', '', '', '2019-09-06 10:04:13', '2019-09-06 10:04:13', '', 988, 'https://koreasonata.com/?post_type=product_variation&#038;p=991', 0, 'product_variation', '', 0),
 (994, 6, '2019-09-06 10:17:37', '2019-09-06 10:17:37', '', 'SKY', '', 'publish', 'open', 'closed', '', 'sky', '', '', '2019-09-06 10:24:44', '2019-09-06 10:24:44', '', 0, 'https://koreasonata.com/?post_type=product&#038;p=994', 9, 'product', '', 0),
 (995, 6, '2019-09-06 10:19:16', '2019-09-06 10:19:16', '', 'SKY - Black-Blue', 'Frame Color: Black-Blue', 'publish', 'closed', 'closed', '', 'sky-copy', '', '', '2019-09-06 10:24:43', '2019-09-06 10:24:43', '', 994, 'https://koreasonata.com/?post_type=product_variation&#038;p=995', 0, 'product_variation', '', 0),
 (996, 6, '2019-09-06 10:19:17', '2019-09-06 10:19:17', '', 'SKY - Black-Silver', 'Frame Color: Black-Silver', 'publish', 'closed', 'closed', '', 'sky-copy-2', '', '', '2019-09-06 10:24:43', '2019-09-06 10:24:43', '', 994, 'https://koreasonata.com/?post_type=product_variation&#038;p=996', 0, 'product_variation', '', 0),
@@ -5108,23 +5123,28 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (1006, 1, '2019-09-08 08:00:55', '2019-09-08 08:00:55', '', '1566444284804', '', 'inherit', 'open', 'closed', '', '1566444284804', '', '', '2019-09-08 08:00:55', '2019-09-08 08:00:55', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/09/1566444284804.jpg', 0, 'attachment', 'image/jpeg', 0),
 (1007, 1, '2019-09-08 08:00:56', '2019-09-08 08:00:56', '', 'photo-1481285184914-8a731806bbf8', '', 'inherit', 'open', 'closed', '', 'photo-1481285184914-8a731806bbf8', '', '', '2019-09-08 08:00:56', '2019-09-08 08:00:56', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/09/photo-1481285184914-8a731806bbf8.jpg', 0, 'attachment', 'image/jpeg', 0),
 (1009, 1, '2019-09-08 09:11:18', '2019-09-08 09:11:18', '', '5', '', 'inherit', 'open', 'closed', '', '5-13', '', '', '2019-09-08 09:11:18', '2019-09-08 09:11:18', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/wp-content/uploads/2019/09/5.jpg', 0, 'attachment', 'image/jpeg', 0),
-(1010, 1, '2019-09-08 09:19:27', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-09-08 09:19:27', '0000-00-00 00:00:00', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=1010', 0, 'post', '', 0);
+(1010, 1, '2019-09-08 09:19:27', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2019-09-08 09:19:27', '0000-00-00 00:00:00', '', 0, 'http://localhost/2018/freelancer/BE/sotana_lens/?p=1010', 0, 'post', '', 0),
+(1011, 1, '2019-09-08 14:16:13', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2019-09-08 14:16:13', '0000-00-00 00:00:00', '', 0, 'http://localhost:8080/outsource/?post_type=acf-field-group&p=1011', 0, 'acf-field-group', '', 0),
+(1012, 1, '2019-09-08 14:21:17', '2019-09-08 14:21:17', 'a:7:{s:8:\"location\";a:1:{i:0;a:1:{i:0;a:3:{s:5:\"param\";s:12:\"options_page\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:19:\"acf-options-general\";}}}s:8:\"position\";s:6:\"normal\";s:5:\"style\";s:7:\"default\";s:15:\"label_placement\";s:3:\"top\";s:21:\"instruction_placement\";s:5:\"label\";s:14:\"hide_on_screen\";s:0:\"\";s:11:\"description\";s:0:\"\";}', '[:en]Filter group[:]', 'filter-group', 'publish', 'closed', 'closed', '', 'group_5d750db6587e5', '', '', '2019-09-08 14:51:38', '2019-09-08 14:51:38', '', 0, 'http://localhost:8080/outsource/?post_type=acf-field-group&#038;p=1012', 0, 'acf-field-group', '', 0),
+(1013, 1, '2019-09-08 14:21:17', '2019-09-08 14:21:17', 'a:10:{s:4:\"type\";s:8:\"repeater\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";i:0;s:17:\"conditional_logic\";i:0;s:7:\"wrapper\";a:3:{s:5:\"width\";s:0:\"\";s:5:\"class\";s:0:\"\";s:2:\"id\";s:0:\"\";}s:9:\"collapsed\";s:0:\"\";s:3:\"min\";s:0:\"\";s:3:\"max\";s:0:\"\";s:6:\"layout\";s:5:\"table\";s:12:\"button_label\";s:0:\"\";}', 'Filter', 'filter', 'publish', 'closed', 'closed', '', 'field_5d750dbddf4e7', '', '', '2019-09-08 14:51:38', '2019-09-08 14:51:38', '', 1012, 'http://localhost:8080/outsource/?post_type=acf-field&#038;p=1013', 0, 'acf-field', '', 0),
+(1017, 1, '2019-09-08 14:51:03', '2019-09-08 14:51:03', 'a:13:{s:4:\"type\";s:6:\"number\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";i:1;s:17:\"conditional_logic\";i:0;s:7:\"wrapper\";a:3:{s:5:\"width\";s:0:\"\";s:5:\"class\";s:0:\"\";s:2:\"id\";s:0:\"\";}s:13:\"parent_layout\";s:13:\"5d750e0fa9e11\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:3:\"min\";s:0:\"\";s:3:\"max\";s:0:\"\";s:4:\"step\";s:0:\"\";}', 'Min', 'min', 'publish', 'closed', 'closed', '', 'field_5d7515335b0b9', '', '', '2019-09-08 14:51:03', '2019-09-08 14:51:03', '', 1013, 'http://localhost:8080/outsource/?post_type=acf-field&p=1017', 0, 'acf-field', '', 0),
+(1018, 1, '2019-09-08 14:51:03', '2019-09-08 14:51:03', 'a:13:{s:4:\"type\";s:6:\"number\";s:12:\"instructions\";s:0:\"\";s:8:\"required\";i:1;s:17:\"conditional_logic\";i:0;s:7:\"wrapper\";a:3:{s:5:\"width\";s:0:\"\";s:5:\"class\";s:0:\"\";s:2:\"id\";s:0:\"\";}s:13:\"parent_layout\";s:13:\"5d750e0fa9e11\";s:13:\"default_value\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";s:7:\"prepend\";s:0:\"\";s:6:\"append\";s:0:\"\";s:3:\"min\";s:0:\"\";s:3:\"max\";s:0:\"\";s:4:\"step\";s:0:\"\";}', 'Max', 'max', 'publish', 'closed', 'closed', '', 'field_5d75154c5b0ba', '', '', '2019-09-08 14:51:03', '2019-09-08 14:51:03', '', 1013, 'http://localhost:8080/outsource/?post_type=acf-field&p=1018', 1, 'acf-field', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_termmeta`
+-- Cấu trúc bảng cho bảng `wp_termmeta`
 --
 
 CREATE TABLE `wp_termmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
-  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_termmeta`
+-- Đang đổ dữ liệu cho bảng `wp_termmeta`
 --
 
 INSERT INTO `wp_termmeta` (`meta_id`, `term_id`, `meta_key`, `meta_value`) VALUES
@@ -5216,18 +5236,18 @@ INSERT INTO `wp_termmeta` (`meta_id`, `term_id`, `meta_key`, `meta_value`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_terms`
+-- Cấu trúc bảng cho bảng `wp_terms`
 --
 
 CREATE TABLE `wp_terms` (
   `term_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0'
+  `term_group` bigint(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_terms`
+-- Đang đổ dữ liệu cho bảng `wp_terms`
 --
 
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -5315,17 +5335,17 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_term_relationships`
+-- Cấu trúc bảng cho bảng `wp_term_relationships`
 --
 
 CREATE TABLE `wp_term_relationships` (
-  `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `term_order` int(11) NOT NULL DEFAULT '0'
+  `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `term_order` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_term_relationships`
+-- Đang đổ dữ liệu cho bảng `wp_term_relationships`
 --
 
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
@@ -5627,20 +5647,20 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_term_taxonomy`
+-- Cấu trúc bảng cho bảng `wp_term_taxonomy`
 --
 
 CREATE TABLE `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL,
-  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `taxonomy` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `count` bigint(20) NOT NULL DEFAULT '0'
+  `parent` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `count` bigint(20) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_term_taxonomy`
+-- Đang đổ dữ liệu cho bảng `wp_term_taxonomy`
 --
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
@@ -5728,20 +5748,20 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_tm_taskmeta`
+-- Cấu trúc bảng cho bảng `wp_tm_taskmeta`
 --
 
 CREATE TABLE `wp_tm_taskmeta` (
   `meta_id` bigint(20) NOT NULL,
-  `task_id` bigint(20) NOT NULL DEFAULT '0',
+  `task_id` bigint(20) NOT NULL DEFAULT 0,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_tm_tasks`
+-- Cấu trúc bảng cho bảng `wp_tm_tasks`
 --
 
 CREATE TABLE `wp_tm_tasks` (
@@ -5749,29 +5769,29 @@ CREATE TABLE `wp_tm_tasks` (
   `user_id` bigint(20) NOT NULL,
   `type` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `class_identifier` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT '0',
-  `attempts` int(11) DEFAULT '0',
+  `attempts` int(11) DEFAULT 0,
   `description` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `time_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_locked_at` bigint(20) DEFAULT '0',
+  `time_created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `last_locked_at` bigint(20) DEFAULT 0,
   `status` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_trp_dictionary_en_us_vi`
+-- Cấu trúc bảng cho bảng `wp_trp_dictionary_en_us_vi`
 --
 
 CREATE TABLE `wp_trp_dictionary_en_us_vi` (
   `id` bigint(20) NOT NULL,
   `original` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `translated` longtext COLLATE utf8mb4_unicode_ci,
-  `status` int(20) DEFAULT '0',
-  `block_type` int(20) DEFAULT '0'
+  `translated` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(20) DEFAULT 0,
+  `block_type` int(20) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_trp_dictionary_en_us_vi`
+-- Đang đổ dữ liệu cho bảng `wp_trp_dictionary_en_us_vi`
 --
 
 INSERT INTO `wp_trp_dictionary_en_us_vi` (`id`, `original`, `translated`, `status`, `block_type`) VALUES
@@ -5954,19 +5974,19 @@ INSERT INTO `wp_trp_dictionary_en_us_vi` (`id`, `original`, `translated`, `statu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_trp_gettext_en_us`
+-- Cấu trúc bảng cho bảng `wp_trp_gettext_en_us`
 --
 
 CREATE TABLE `wp_trp_gettext_en_us` (
   `id` bigint(20) NOT NULL,
   `original` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `translated` longtext COLLATE utf8mb4_unicode_ci,
-  `domain` longtext COLLATE utf8mb4_unicode_ci,
+  `translated` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `domain` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_trp_gettext_en_us`
+-- Đang đổ dữ liệu cho bảng `wp_trp_gettext_en_us`
 --
 
 INSERT INTO `wp_trp_gettext_en_us` (`id`, `original`, `translated`, `domain`, `status`) VALUES
@@ -6035,19 +6055,19 @@ INSERT INTO `wp_trp_gettext_en_us` (`id`, `original`, `translated`, `domain`, `s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_trp_gettext_vi`
+-- Cấu trúc bảng cho bảng `wp_trp_gettext_vi`
 --
 
 CREATE TABLE `wp_trp_gettext_vi` (
   `id` bigint(20) NOT NULL,
   `original` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `translated` longtext COLLATE utf8mb4_unicode_ci,
-  `domain` longtext COLLATE utf8mb4_unicode_ci,
+  `translated` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `domain` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_trp_gettext_vi`
+-- Đang đổ dữ liệu cho bảng `wp_trp_gettext_vi`
 --
 
 INSERT INTO `wp_trp_gettext_vi` (`id`, `original`, `translated`, `domain`, `status`) VALUES
@@ -6056,18 +6076,18 @@ INSERT INTO `wp_trp_gettext_vi` (`id`, `original`, `translated`, `domain`, `stat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_usermeta`
+-- Cấu trúc bảng cho bảng `wp_usermeta`
 --
 
 CREATE TABLE `wp_usermeta` (
   `umeta_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_usermeta`
+-- Đang đổ dữ liệu cho bảng `wp_usermeta`
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -6087,8 +6107,8 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (14, 1, 'dismissed_wp_pointers', 'wp496_privacy,theme_editor_notice,lingotek-professional-translation,lingotek-translation'),
 (15, 1, 'show_welcome_panel', '1'),
 (17, 1, 'wp_dashboard_quick_press_last_post_id', '1010'),
-(18, 1, 'wp_user-settings', 'libraryContent=browse&category_blog_tab=pop'),
-(19, 1, 'wp_user-settings-time', '1566929649'),
+(18, 1, 'wp_user-settings', 'libraryContent=browse'),
+(19, 1, 'wp_user-settings-time', '1567949567'),
 (20, 1, 'managenav-menuscolumnshidden', 'a:5:{i:0;s:11:\"link-target\";i:1;s:11:\"css-classes\";i:2;s:3:\"xfn\";i:3;s:11:\"description\";i:4;s:15:\"title-attribute\";}'),
 (21, 1, 'metaboxhidden_nav-menus', 'a:1:{i:0;s:12:\"add-post_tag\";}'),
 (22, 1, 'nav_menu_recently_edited', '2'),
@@ -6274,12 +6294,16 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (359, 6, 'metaboxhidden_page', 'a:7:{i:0;s:23:\"acf-group_5d5ebf20d13b5\";i:1;s:23:\"acf-group_5d5d6c65ab61a\";i:2;s:23:\"acf-group_5d419277cbd3e\";i:3;s:23:\"acf-group_5d54292bc33a8\";i:4;s:16:\"commentstatusdiv\";i:5;s:7:\"slugdiv\";i:6;s:9:\"authordiv\";}'),
 (367, 6, 'meta-box-order_product', 'a:4:{s:15:\"acf_after_title\";s:0:\"\";s:4:\"side\";s:101:\"submitdiv,product_catdiv,tagsdiv-product_tag,facebook_metabox,postimagediv,woocommerce-product-images\";s:6:\"normal\";s:173:\"woocommerce-product-data,acf-group_5d5ebf20d13b5,acf-group_5d5d6c65ab61a,acf-group_5d419277cbd3e,acf-group_5d54292bc33a8,slugdiv,postexcerpt,commentsdiv,qtranxs-meta-box-lsb\";s:8:\"advanced\";s:0:\"\";}'),
 (368, 6, 'screen_layout_product', '2'),
-(373, 1, 'session_tokens', 'a:1:{s:64:\"23eae0674c1bbeff68ebf5ab25e3704fc6751b5cc2ff4cf38d1fe72c56e29cfe\";a:4:{s:10:\"expiration\";i:1568101743;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36\";s:5:\"login\";i:1567928943;}}');
+(373, 1, 'session_tokens', 'a:2:{s:64:\"23eae0674c1bbeff68ebf5ab25e3704fc6751b5cc2ff4cf38d1fe72c56e29cfe\";a:4:{s:10:\"expiration\";i:1568101743;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36\";s:5:\"login\";i:1567928943;}s:64:\"095c1ae2e8efd333d29abb6d83775915dcefb4c684de45854eeaca26970c0fb6\";a:4:{s:10:\"expiration\";i:1568122367;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:135:\"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/80.0.182 Chrome/74.0.3729.182 Safari/537.36\";s:5:\"login\";i:1567949567;}}'),
+(376, 1, 'meta-box-order_toplevel_page_acf-options-general', 'a:2:{s:4:\"side\";s:9:\"submitdiv\";s:6:\"normal\";s:23:\"acf-group_5d5ebf20d13b5\";}'),
+(377, 1, 'screen_layout_toplevel_page_acf-options-general', '2'),
+(378, 1, 'closedpostboxes_toplevel_page_acf-options-general', 'a:0:{}'),
+(379, 1, 'metaboxhidden_toplevel_page_acf-options-general', 'a:0:{}');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_users`
+-- Cấu trúc bảng cho bảng `wp_users`
 --
 
 CREATE TABLE `wp_users` (
@@ -6291,12 +6315,12 @@ CREATE TABLE `wp_users` (
   `user_url` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `user_status` int(11) NOT NULL DEFAULT '0',
+  `user_status` int(11) NOT NULL DEFAULT 0,
   `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_users`
+-- Đang đổ dữ liệu cho bảng `wp_users`
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
@@ -6306,7 +6330,7 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_user_registration_sessions`
+-- Cấu trúc bảng cho bảng `wp_user_registration_sessions`
 --
 
 CREATE TABLE `wp_user_registration_sessions` (
@@ -6319,7 +6343,7 @@ CREATE TABLE `wp_user_registration_sessions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_wc_download_log`
+-- Cấu trúc bảng cho bảng `wp_wc_download_log`
 --
 
 CREATE TABLE `wp_wc_download_log` (
@@ -6333,26 +6357,26 @@ CREATE TABLE `wp_wc_download_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_wc_product_meta_lookup`
+-- Cấu trúc bảng cho bảng `wp_wc_product_meta_lookup`
 --
 
 CREATE TABLE `wp_wc_product_meta_lookup` (
   `product_id` bigint(20) NOT NULL,
   `sku` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `virtual` tinyint(1) DEFAULT '0',
-  `downloadable` tinyint(1) DEFAULT '0',
+  `virtual` tinyint(1) DEFAULT 0,
+  `downloadable` tinyint(1) DEFAULT 0,
   `min_price` decimal(10,2) DEFAULT NULL,
   `max_price` decimal(10,2) DEFAULT NULL,
-  `onsale` tinyint(1) DEFAULT '0',
+  `onsale` tinyint(1) DEFAULT 0,
   `stock_quantity` double DEFAULT NULL,
   `stock_status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT 'instock',
-  `rating_count` bigint(20) DEFAULT '0',
-  `average_rating` decimal(3,2) DEFAULT '0.00',
-  `total_sales` bigint(20) DEFAULT '0'
+  `rating_count` bigint(20) DEFAULT 0,
+  `average_rating` decimal(3,2) DEFAULT 0.00,
+  `total_sales` bigint(20) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_wc_product_meta_lookup`
+-- Đang đổ dữ liệu cho bảng `wp_wc_product_meta_lookup`
 --
 
 INSERT INTO `wp_wc_product_meta_lookup` (`product_id`, `sku`, `virtual`, `downloadable`, `min_price`, `max_price`, `onsale`, `stock_quantity`, `stock_status`, `rating_count`, `average_rating`, `total_sales`) VALUES
@@ -6526,7 +6550,7 @@ INSERT INTO `wp_wc_product_meta_lookup` (`product_id`, `sku`, `virtual`, `downlo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_wc_webhooks`
+-- Cấu trúc bảng cho bảng `wp_wc_webhooks`
 --
 
 CREATE TABLE `wp_wc_webhooks` (
@@ -6542,14 +6566,14 @@ CREATE TABLE `wp_wc_webhooks` (
   `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `date_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `api_version` smallint(4) NOT NULL,
-  `failure_count` smallint(10) NOT NULL DEFAULT '0',
-  `pending_delivery` tinyint(1) NOT NULL DEFAULT '0'
+  `failure_count` smallint(10) NOT NULL DEFAULT 0,
+  `pending_delivery` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_api_keys`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_api_keys`
 --
 
 CREATE TABLE `wp_woocommerce_api_keys` (
@@ -6559,7 +6583,7 @@ CREATE TABLE `wp_woocommerce_api_keys` (
   `permissions` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `consumer_key` char(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `consumer_secret` char(43) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nonces` longtext COLLATE utf8mb4_unicode_ci,
+  `nonces` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `truncated_key` char(7) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_access` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -6567,7 +6591,7 @@ CREATE TABLE `wp_woocommerce_api_keys` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_attribute_taxonomies`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_attribute_taxonomies`
 --
 
 CREATE TABLE `wp_woocommerce_attribute_taxonomies` (
@@ -6576,11 +6600,11 @@ CREATE TABLE `wp_woocommerce_attribute_taxonomies` (
   `attribute_label` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `attribute_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attribute_orderby` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attribute_public` int(1) NOT NULL DEFAULT '1'
+  `attribute_public` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_woocommerce_attribute_taxonomies`
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_attribute_taxonomies`
 --
 
 INSERT INTO `wp_woocommerce_attribute_taxonomies` (`attribute_id`, `attribute_name`, `attribute_label`, `attribute_type`, `attribute_orderby`, `attribute_public`) VALUES
@@ -6592,27 +6616,27 @@ INSERT INTO `wp_woocommerce_attribute_taxonomies` (`attribute_id`, `attribute_na
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_downloadable_product_permissions`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_downloadable_product_permissions`
 --
 
 CREATE TABLE `wp_woocommerce_downloadable_product_permissions` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
   `download_id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `order_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `order_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `order_key` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `downloads_remaining` varchar(9) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `access_granted` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `access_expires` datetime DEFAULT NULL,
-  `download_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0'
+  `download_count` bigint(20) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_log`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_log`
 --
 
 CREATE TABLE `wp_woocommerce_log` (
@@ -6621,26 +6645,26 @@ CREATE TABLE `wp_woocommerce_log` (
   `level` smallint(4) NOT NULL,
   `source` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `context` longtext COLLATE utf8mb4_unicode_ci
+  `context` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_order_itemmeta`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_order_itemmeta`
 --
 
 CREATE TABLE `wp_woocommerce_order_itemmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `order_item_id` bigint(20) UNSIGNED NOT NULL,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_order_items`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_order_items`
 --
 
 CREATE TABLE `wp_woocommerce_order_items` (
@@ -6653,35 +6677,35 @@ CREATE TABLE `wp_woocommerce_order_items` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_payment_tokenmeta`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_payment_tokenmeta`
 --
 
 CREATE TABLE `wp_woocommerce_payment_tokenmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `payment_token_id` bigint(20) UNSIGNED NOT NULL,
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_payment_tokens`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_payment_tokens`
 --
 
 CREATE TABLE `wp_woocommerce_payment_tokens` (
   `token_id` bigint(20) UNSIGNED NOT NULL,
   `gateway_id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `type` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_default` tinyint(1) NOT NULL DEFAULT '0'
+  `is_default` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_sessions`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_sessions`
 --
 
 CREATE TABLE `wp_woocommerce_sessions` (
@@ -6692,21 +6716,21 @@ CREATE TABLE `wp_woocommerce_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_woocommerce_sessions`
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_sessions`
 --
 
 INSERT INTO `wp_woocommerce_sessions` (`session_id`, `session_key`, `session_value`, `session_expiry`) VALUES
 (53108, 'ca76ff61f157b13dfc2bc0466a091e4a', 'a:11:{s:4:\"cart\";s:469:\"a:1:{s:32:\"52bb815c32ce4912e3cb0cfb0e35fae9\";a:11:{s:3:\"key\";s:32:\"52bb815c32ce4912e3cb0cfb0e35fae9\";s:10:\"product_id\";i:825;s:12:\"variation_id\";i:827;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:12:\"crystal-grey\";}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"4bf74e9e843ac982f5e4410933d55738\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:1290000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:1290000;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:405:\"a:15:{s:8:\"subtotal\";s:7:\"1290000\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:1:\"0\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:7:\"1290000\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:7:\"1290000\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:424:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_37e1cd4013b94f5b8cb4036b2636885e\";s:5:\"rates\";a:1:{s:15:\"free_shipping:2\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:15:\"free_shipping:2\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:2;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";s:1:\"0\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:11:\"Mặt hàng\";s:46:\"KÍNH SUNBIKE TRẮNG - Crystal-Grey &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:43:\"a:1:{i:0;a:1:{i:0;s:15:\"free_shipping:2\";}}\";s:23:\"chosen_shipping_methods\";s:33:\"a:1:{i:0;s:15:\"free_shipping:2\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1567984407),
 (53109, '7daacef9bc3c1b118680fb9aef45fcf4', 'a:11:{s:4:\"cart\";s:444:\"a:1:{s:32:\"d2f2b11d0c7a62a07f81613d0dfa5e2f\";a:11:{s:3:\"key\";s:32:\"d2f2b11d0c7a62a07f81613d0dfa5e2f\";s:10:\"product_id\";i:937;s:12:\"variation_id\";i:942;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:0:\"\";}s:8:\"quantity\";i:4;s:9:\"data_hash\";s:32:\"8885bcbeb9936a0a14e37e1a52dc37fb\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:0;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:0;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:387:\"a:15:{s:8:\"subtotal\";s:1:\"0\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:1:\"0\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:1:\"0\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:1:\"0\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:393:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_7d376598446cbdca225c2229bc09aaac\";s:5:\"rates\";a:1:{s:15:\"free_shipping:2\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:15:\"free_shipping:2\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:2;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";s:1:\"0\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:11:\"Mặt hàng\";s:15:\"OMEGA &times; 4\";}}}}\";s:25:\"previous_shipping_methods\";s:43:\"a:1:{i:0;a:1:{i:0;s:15:\"free_shipping:2\";}}\";s:23:\"chosen_shipping_methods\";s:33:\"a:1:{i:0;s:15:\"free_shipping:2\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1568006434),
 (53110, 'bbfeccf9a5515b9193c42ca91f67f2e1', 'a:11:{s:4:\"cart\";s:926:\"a:2:{s:32:\"d58e1d860f4b6be3520761a22c3e071f\";a:11:{s:3:\"key\";s:32:\"d58e1d860f4b6be3520761a22c3e071f\";s:10:\"product_id\";i:908;s:12:\"variation_id\";i:909;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:10:\"black-grey\";}s:8:\"quantity\";i:5;s:9:\"data_hash\";s:32:\"3aa2861786c0ed0b56e354236fe27a63\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:6450000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:6450000;s:8:\"line_tax\";i:0;}s:32:\"a827ba9f46ed9fb1c42dbaca66a70ba9\";a:11:{s:3:\"key\";s:32:\"a827ba9f46ed9fb1c42dbaca66a70ba9\";s:10:\"product_id\";i:897;s:12:\"variation_id\";i:898;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:9:\"grey-grey\";}s:8:\"quantity\";i:5;s:9:\"data_hash\";s:32:\"1476350bc233a445ed331a0489973fb7\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:6450000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:6450000;s:8:\"line_tax\";i:0;}}\";s:11:\"cart_totals\";s:408:\"a:15:{s:8:\"subtotal\";s:8:\"12900000\";s:12:\"subtotal_tax\";d:0;s:14:\"shipping_total\";s:1:\"0\";s:12:\"shipping_tax\";d:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";d:0;s:12:\"discount_tax\";d:0;s:19:\"cart_contents_total\";s:8:\"12900000\";s:17:\"cart_contents_tax\";d:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";s:1:\"0\";s:7:\"fee_tax\";d:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";s:8:\"12900000\";s:9:\"total_tax\";d:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";s:22:\"shipping_for_package_0\";s:443:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_5b028293e427154a6303125abc3504f0\";s:5:\"rates\";a:1:{s:15:\"free_shipping:2\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:15:\"free_shipping:2\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:2;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";s:1:\"0\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:72:\"SUNBIKE BLACK - Black-Grey &times; 5, SUNBIKE GREY - Grey-Grey &times; 5\";}}}}\";s:25:\"previous_shipping_methods\";s:43:\"a:1:{i:0;a:1:{i:0;s:15:\"free_shipping:2\";}}\";s:23:\"chosen_shipping_methods\";s:33:\"a:1:{i:0;s:15:\"free_shipping:2\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1568085645),
-(53116, '1', 'a:7:{s:8:\"customer\";s:878:\"a:26:{s:2:\"id\";s:1:\"1\";s:13:\"date_modified\";s:25:\"2019-08-13T17:19:14+00:00\";s:8:\"postcode\";s:5:\"72000\";s:4:\"city\";s:3:\"761\";s:9:\"address_1\";s:13:\"86/33 Âu cơ\";s:7:\"address\";s:13:\"86/33 Âu cơ\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:5:\"72000\";s:13:\"shipping_city\";s:14:\"Hồ Chí Minh\";s:18:\"shipping_address_1\";s:13:\"86/33 Âu cơ\";s:16:\"shipping_address\";s:13:\"86/33 Âu cơ\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:10:\"Cao Hoàng\";s:9:\"last_name\";s:5:\"hoang\";s:7:\"company\";s:9:\"altamedia\";s:5:\"phone\";s:11:\"09035345212\";s:5:\"email\";s:22:\"caohoang2911@gmail.com\";s:19:\"shipping_first_name\";s:3:\"cao\";s:18:\"shipping_last_name\";s:5:\"hoang\";s:16:\"shipping_company\";s:9:\"altamedia\";}\";s:4:\"cart\";s:6:\"a:0:{}\";s:11:\"cart_totals\";s:367:\"a:15:{s:8:\"subtotal\";i:0;s:12:\"subtotal_tax\";i:0;s:14:\"shipping_total\";i:0;s:12:\"shipping_tax\";i:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";i:0;s:12:\"discount_tax\";i:0;s:19:\"cart_contents_total\";i:0;s:17:\"cart_contents_tax\";i:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";i:0;s:7:\"fee_tax\";i:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";i:0;s:9:\"total_tax\";i:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";}', 1568100077),
+(53116, '1', 'a:7:{s:8:\"customer\";s:878:\"a:26:{s:2:\"id\";s:1:\"1\";s:13:\"date_modified\";s:25:\"2019-08-13T17:19:14+00:00\";s:8:\"postcode\";s:5:\"72000\";s:4:\"city\";s:3:\"761\";s:9:\"address_1\";s:13:\"86/33 Âu cơ\";s:7:\"address\";s:13:\"86/33 Âu cơ\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:5:\"72000\";s:13:\"shipping_city\";s:14:\"Hồ Chí Minh\";s:18:\"shipping_address_1\";s:13:\"86/33 Âu cơ\";s:16:\"shipping_address\";s:13:\"86/33 Âu cơ\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:10:\"Cao Hoàng\";s:9:\"last_name\";s:5:\"hoang\";s:7:\"company\";s:9:\"altamedia\";s:5:\"phone\";s:11:\"09035345212\";s:5:\"email\";s:22:\"caohoang2911@gmail.com\";s:19:\"shipping_first_name\";s:3:\"cao\";s:18:\"shipping_last_name\";s:5:\"hoang\";s:16:\"shipping_company\";s:9:\"altamedia\";}\";s:4:\"cart\";s:6:\"a:0:{}\";s:11:\"cart_totals\";s:367:\"a:15:{s:8:\"subtotal\";i:0;s:12:\"subtotal_tax\";i:0;s:14:\"shipping_total\";i:0;s:12:\"shipping_tax\";i:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";i:0;s:12:\"discount_tax\";i:0;s:19:\"cart_contents_total\";i:0;s:17:\"cart_contents_tax\";i:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";i:0;s:7:\"fee_tax\";i:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";i:0;s:9:\"total_tax\";i:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:6:\"a:0:{}\";}', 1568087441),
 (53172, '6', 'a:1:{s:8:\"customer\";s:752:\"a:26:{s:2:\"id\";s:1:\"6\";s:13:\"date_modified\";s:25:\"2019-08-29T04:12:04+00:00\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"79\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"79\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:6:\"Korean\";s:9:\"last_name\";s:6:\"Sonata\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:22:\"gentleromeos@gmail.com\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1568099945),
 (53173, '0c2860ddf78364f8c80bd7cfc0247151', 'a:11:{s:4:\"cart\";s:6:\"a:0:{}\";s:11:\"cart_totals\";s:367:\"a:15:{s:8:\"subtotal\";i:0;s:12:\"subtotal_tax\";i:0;s:14:\"shipping_total\";i:0;s:12:\"shipping_tax\";i:0;s:14:\"shipping_taxes\";a:0:{}s:14:\"discount_total\";i:0;s:12:\"discount_tax\";i:0;s:19:\"cart_contents_total\";i:0;s:17:\"cart_contents_tax\";i:0;s:19:\"cart_contents_taxes\";a:0:{}s:9:\"fee_total\";i:0;s:7:\"fee_tax\";i:0;s:9:\"fee_taxes\";a:0:{}s:5:\"total\";i:0;s:9:\"total_tax\";i:0;}\";s:15:\"applied_coupons\";s:6:\"a:0:{}\";s:22:\"coupon_discount_totals\";s:6:\"a:0:{}\";s:26:\"coupon_discount_tax_totals\";s:6:\"a:0:{}\";s:21:\"removed_cart_contents\";s:908:\"a:2:{s:32:\"e062ec4a637c16f56b1c0ab357bfc986\";a:11:{s:3:\"key\";s:32:\"e062ec4a637c16f56b1c0ab357bfc986\";s:10:\"product_id\";i:825;s:12:\"variation_id\";i:826;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:13:\"crystal-green\";}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"e585c38268e0ac6099538d4c9b6046cd\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:1290000;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:1290000;s:8:\"line_tax\";i:0;}s:32:\"faf0d1b750f2c0a9e33350e4ef2166ac\";a:11:{s:3:\"key\";s:32:\"faf0d1b750f2c0a9e33350e4ef2166ac\";s:10:\"product_id\";i:961;s:12:\"variation_id\";i:962;s:9:\"variation\";a:1:{s:18:\"attribute_pa_color\";s:0:\"\";}s:8:\"quantity\";i:1;s:9:\"data_hash\";s:32:\"5f7487e754085fa367c920687d5987fe\";s:13:\"line_tax_data\";a:2:{s:8:\"subtotal\";a:0:{}s:5:\"total\";a:0:{}}s:13:\"line_subtotal\";d:0;s:17:\"line_subtotal_tax\";i:0;s:10:\"line_total\";d:0;s:8:\"line_tax\";i:0;}}\";s:22:\"shipping_for_package_0\";s:400:\"a:2:{s:12:\"package_hash\";s:40:\"wc_ship_80f5fe7bae3fe2bf9e54af49fb05ddf2\";s:5:\"rates\";a:1:{s:15:\"free_shipping:2\";O:16:\"WC_Shipping_Rate\":2:{s:7:\"\0*\0data\";a:6:{s:2:\"id\";s:15:\"free_shipping:2\";s:9:\"method_id\";s:13:\"free_shipping\";s:11:\"instance_id\";i:2;s:5:\"label\";s:13:\"Free shipping\";s:4:\"cost\";s:1:\"0\";s:5:\"taxes\";a:0:{}}s:12:\"\0*\0meta_data\";a:1:{s:5:\"Items\";s:29:\"JAMES - Mirror Blue &times; 1\";}}}}\";s:25:\"previous_shipping_methods\";s:43:\"a:1:{i:0;a:1:{i:0;s:15:\"free_shipping:2\";}}\";s:23:\"chosen_shipping_methods\";s:33:\"a:1:{i:0;s:15:\"free_shipping:2\";}\";s:22:\"shipping_method_counts\";s:14:\"a:1:{i:0;i:1;}\";s:8:\"customer\";s:691:\"a:26:{s:2:\"id\";s:1:\"0\";s:13:\"date_modified\";s:0:\"\";s:8:\"postcode\";s:0:\"\";s:4:\"city\";s:0:\"\";s:9:\"address_1\";s:0:\"\";s:7:\"address\";s:0:\"\";s:9:\"address_2\";s:0:\"\";s:5:\"state\";s:2:\"01\";s:7:\"country\";s:2:\"VN\";s:17:\"shipping_postcode\";s:0:\"\";s:13:\"shipping_city\";s:0:\"\";s:18:\"shipping_address_1\";s:0:\"\";s:16:\"shipping_address\";s:0:\"\";s:18:\"shipping_address_2\";s:0:\"\";s:14:\"shipping_state\";s:2:\"01\";s:16:\"shipping_country\";s:2:\"VN\";s:13:\"is_vat_exempt\";s:0:\"\";s:19:\"calculated_shipping\";s:0:\"\";s:10:\"first_name\";s:0:\"\";s:9:\"last_name\";s:0:\"\";s:7:\"company\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:5:\"email\";s:0:\"\";s:19:\"shipping_first_name\";s:0:\"\";s:18:\"shipping_last_name\";s:0:\"\";s:16:\"shipping_company\";s:0:\"\";}\";}', 1568100634);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_shipping_zones`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_shipping_zones`
 --
 
 CREATE TABLE `wp_woocommerce_shipping_zones` (
@@ -6716,7 +6740,7 @@ CREATE TABLE `wp_woocommerce_shipping_zones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_woocommerce_shipping_zones`
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_shipping_zones`
 --
 
 INSERT INTO `wp_woocommerce_shipping_zones` (`zone_id`, `zone_name`, `zone_order`) VALUES
@@ -6725,7 +6749,7 @@ INSERT INTO `wp_woocommerce_shipping_zones` (`zone_id`, `zone_name`, `zone_order
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_shipping_zone_locations`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_shipping_zone_locations`
 --
 
 CREATE TABLE `wp_woocommerce_shipping_zone_locations` (
@@ -6736,7 +6760,7 @@ CREATE TABLE `wp_woocommerce_shipping_zone_locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_woocommerce_shipping_zone_locations`
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_shipping_zone_locations`
 --
 
 INSERT INTO `wp_woocommerce_shipping_zone_locations` (`location_id`, `zone_id`, `location_code`, `location_type`) VALUES
@@ -6745,7 +6769,7 @@ INSERT INTO `wp_woocommerce_shipping_zone_locations` (`location_id`, `zone_id`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_shipping_zone_methods`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_shipping_zone_methods`
 --
 
 CREATE TABLE `wp_woocommerce_shipping_zone_methods` (
@@ -6753,11 +6777,11 @@ CREATE TABLE `wp_woocommerce_shipping_zone_methods` (
   `instance_id` bigint(20) UNSIGNED NOT NULL,
   `method_id` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `method_order` bigint(20) UNSIGNED NOT NULL,
-  `is_enabled` tinyint(1) NOT NULL DEFAULT '1'
+  `is_enabled` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wp_woocommerce_shipping_zone_methods`
+-- Đang đổ dữ liệu cho bảng `wp_woocommerce_shipping_zone_methods`
 --
 
 INSERT INTO `wp_woocommerce_shipping_zone_methods` (`zone_id`, `instance_id`, `method_id`, `method_order`, `is_enabled`) VALUES
@@ -6767,7 +6791,7 @@ INSERT INTO `wp_woocommerce_shipping_zone_methods` (`zone_id`, `instance_id`, `m
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_tax_rates`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_tax_rates`
 --
 
 CREATE TABLE `wp_woocommerce_tax_rates` (
@@ -6777,8 +6801,8 @@ CREATE TABLE `wp_woocommerce_tax_rates` (
   `tax_rate` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `tax_rate_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `tax_rate_priority` bigint(20) UNSIGNED NOT NULL,
-  `tax_rate_compound` int(1) NOT NULL DEFAULT '0',
-  `tax_rate_shipping` int(1) NOT NULL DEFAULT '1',
+  `tax_rate_compound` int(1) NOT NULL DEFAULT 0,
+  `tax_rate_shipping` int(1) NOT NULL DEFAULT 1,
   `tax_rate_order` bigint(20) UNSIGNED NOT NULL,
   `tax_rate_class` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -6786,7 +6810,7 @@ CREATE TABLE `wp_woocommerce_tax_rates` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wp_woocommerce_tax_rate_locations`
+-- Cấu trúc bảng cho bảng `wp_woocommerce_tax_rate_locations`
 --
 
 CREATE TABLE `wp_woocommerce_tax_rate_locations` (
@@ -6797,17 +6821,17 @@ CREATE TABLE `wp_woocommerce_tax_rate_locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `wp_berocket_termmeta`
+-- Chỉ mục cho bảng `wp_berocket_termmeta`
 --
 ALTER TABLE `wp_berocket_termmeta`
   ADD UNIQUE KEY `meta_id` (`meta_id`);
 
 --
--- Indexes for table `wp_commentmeta`
+-- Chỉ mục cho bảng `wp_commentmeta`
 --
 ALTER TABLE `wp_commentmeta`
   ADD PRIMARY KEY (`meta_id`),
@@ -6815,7 +6839,7 @@ ALTER TABLE `wp_commentmeta`
   ADD KEY `meta_key` (`meta_key`(191));
 
 --
--- Indexes for table `wp_comments`
+-- Chỉ mục cho bảng `wp_comments`
 --
 ALTER TABLE `wp_comments`
   ADD PRIMARY KEY (`comment_ID`),
@@ -6827,35 +6851,35 @@ ALTER TABLE `wp_comments`
   ADD KEY `woo_idx_comment_type` (`comment_type`);
 
 --
--- Indexes for table `wp_links`
+-- Chỉ mục cho bảng `wp_links`
 --
 ALTER TABLE `wp_links`
   ADD PRIMARY KEY (`link_id`),
   ADD KEY `link_visible` (`link_visible`);
 
 --
--- Indexes for table `wp_masterslider_options`
+-- Chỉ mục cho bảng `wp_masterslider_options`
 --
 ALTER TABLE `wp_masterslider_options`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `option_name` (`option_name`);
 
 --
--- Indexes for table `wp_masterslider_sliders`
+-- Chỉ mục cho bảng `wp_masterslider_sliders`
 --
 ALTER TABLE `wp_masterslider_sliders`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `date_created` (`date_created`);
 
 --
--- Indexes for table `wp_options`
+-- Chỉ mục cho bảng `wp_options`
 --
 ALTER TABLE `wp_options`
   ADD PRIMARY KEY (`option_id`),
   ADD UNIQUE KEY `option_name` (`option_name`);
 
 --
--- Indexes for table `wp_postmeta`
+-- Chỉ mục cho bảng `wp_postmeta`
 --
 ALTER TABLE `wp_postmeta`
   ADD PRIMARY KEY (`meta_id`),
@@ -6863,7 +6887,7 @@ ALTER TABLE `wp_postmeta`
   ADD KEY `meta_key` (`meta_key`(191));
 
 --
--- Indexes for table `wp_posts`
+-- Chỉ mục cho bảng `wp_posts`
 --
 ALTER TABLE `wp_posts`
   ADD PRIMARY KEY (`ID`),
@@ -6873,7 +6897,7 @@ ALTER TABLE `wp_posts`
   ADD KEY `post_author` (`post_author`);
 
 --
--- Indexes for table `wp_termmeta`
+-- Chỉ mục cho bảng `wp_termmeta`
 --
 ALTER TABLE `wp_termmeta`
   ADD PRIMARY KEY (`meta_id`),
@@ -6881,7 +6905,7 @@ ALTER TABLE `wp_termmeta`
   ADD KEY `meta_key` (`meta_key`(191));
 
 --
--- Indexes for table `wp_terms`
+-- Chỉ mục cho bảng `wp_terms`
 --
 ALTER TABLE `wp_terms`
   ADD PRIMARY KEY (`term_id`),
@@ -6889,14 +6913,14 @@ ALTER TABLE `wp_terms`
   ADD KEY `name` (`name`(191));
 
 --
--- Indexes for table `wp_term_relationships`
+-- Chỉ mục cho bảng `wp_term_relationships`
 --
 ALTER TABLE `wp_term_relationships`
   ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`),
   ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
 
 --
--- Indexes for table `wp_term_taxonomy`
+-- Chỉ mục cho bảng `wp_term_taxonomy`
 --
 ALTER TABLE `wp_term_taxonomy`
   ADD PRIMARY KEY (`term_taxonomy_id`),
@@ -6904,7 +6928,7 @@ ALTER TABLE `wp_term_taxonomy`
   ADD KEY `taxonomy` (`taxonomy`);
 
 --
--- Indexes for table `wp_tm_taskmeta`
+-- Chỉ mục cho bảng `wp_tm_taskmeta`
 --
 ALTER TABLE `wp_tm_taskmeta`
   ADD PRIMARY KEY (`meta_id`),
@@ -6912,14 +6936,14 @@ ALTER TABLE `wp_tm_taskmeta`
   ADD KEY `task_id` (`task_id`);
 
 --
--- Indexes for table `wp_tm_tasks`
+-- Chỉ mục cho bảng `wp_tm_tasks`
 --
 ALTER TABLE `wp_tm_tasks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `wp_trp_dictionary_en_us_vi`
+-- Chỉ mục cho bảng `wp_trp_dictionary_en_us_vi`
 --
 ALTER TABLE `wp_trp_dictionary_en_us_vi`
   ADD PRIMARY KEY (`id`),
@@ -6928,7 +6952,7 @@ ALTER TABLE `wp_trp_dictionary_en_us_vi`
 ALTER TABLE `wp_trp_dictionary_en_us_vi` ADD FULLTEXT KEY `original_fulltext` (`original`);
 
 --
--- Indexes for table `wp_trp_gettext_en_us`
+-- Chỉ mục cho bảng `wp_trp_gettext_en_us`
 --
 ALTER TABLE `wp_trp_gettext_en_us`
   ADD PRIMARY KEY (`id`),
@@ -6937,7 +6961,7 @@ ALTER TABLE `wp_trp_gettext_en_us`
 ALTER TABLE `wp_trp_gettext_en_us` ADD FULLTEXT KEY `original_fulltext` (`original`);
 
 --
--- Indexes for table `wp_trp_gettext_vi`
+-- Chỉ mục cho bảng `wp_trp_gettext_vi`
 --
 ALTER TABLE `wp_trp_gettext_vi`
   ADD PRIMARY KEY (`id`),
@@ -6946,7 +6970,7 @@ ALTER TABLE `wp_trp_gettext_vi`
 ALTER TABLE `wp_trp_gettext_vi` ADD FULLTEXT KEY `original_fulltext` (`original`);
 
 --
--- Indexes for table `wp_usermeta`
+-- Chỉ mục cho bảng `wp_usermeta`
 --
 ALTER TABLE `wp_usermeta`
   ADD PRIMARY KEY (`umeta_id`),
@@ -6954,7 +6978,7 @@ ALTER TABLE `wp_usermeta`
   ADD KEY `meta_key` (`meta_key`(191));
 
 --
--- Indexes for table `wp_users`
+-- Chỉ mục cho bảng `wp_users`
 --
 ALTER TABLE `wp_users`
   ADD PRIMARY KEY (`ID`),
@@ -6963,14 +6987,14 @@ ALTER TABLE `wp_users`
   ADD KEY `user_email` (`user_email`);
 
 --
--- Indexes for table `wp_user_registration_sessions`
+-- Chỉ mục cho bảng `wp_user_registration_sessions`
 --
 ALTER TABLE `wp_user_registration_sessions`
   ADD PRIMARY KEY (`session_key`),
   ADD UNIQUE KEY `session_id` (`session_id`);
 
 --
--- Indexes for table `wp_wc_download_log`
+-- Chỉ mục cho bảng `wp_wc_download_log`
 --
 ALTER TABLE `wp_wc_download_log`
   ADD PRIMARY KEY (`download_log_id`),
@@ -6978,7 +7002,7 @@ ALTER TABLE `wp_wc_download_log`
   ADD KEY `timestamp` (`timestamp`);
 
 --
--- Indexes for table `wp_wc_product_meta_lookup`
+-- Chỉ mục cho bảng `wp_wc_product_meta_lookup`
 --
 ALTER TABLE `wp_wc_product_meta_lookup`
   ADD PRIMARY KEY (`product_id`),
@@ -6990,14 +7014,14 @@ ALTER TABLE `wp_wc_product_meta_lookup`
   ADD KEY `min_max_price` (`min_price`,`max_price`);
 
 --
--- Indexes for table `wp_wc_webhooks`
+-- Chỉ mục cho bảng `wp_wc_webhooks`
 --
 ALTER TABLE `wp_wc_webhooks`
   ADD PRIMARY KEY (`webhook_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `wp_woocommerce_api_keys`
+-- Chỉ mục cho bảng `wp_woocommerce_api_keys`
 --
 ALTER TABLE `wp_woocommerce_api_keys`
   ADD PRIMARY KEY (`key_id`),
@@ -7005,14 +7029,14 @@ ALTER TABLE `wp_woocommerce_api_keys`
   ADD KEY `consumer_secret` (`consumer_secret`);
 
 --
--- Indexes for table `wp_woocommerce_attribute_taxonomies`
+-- Chỉ mục cho bảng `wp_woocommerce_attribute_taxonomies`
 --
 ALTER TABLE `wp_woocommerce_attribute_taxonomies`
   ADD PRIMARY KEY (`attribute_id`),
   ADD KEY `attribute_name` (`attribute_name`(20));
 
 --
--- Indexes for table `wp_woocommerce_downloadable_product_permissions`
+-- Chỉ mục cho bảng `wp_woocommerce_downloadable_product_permissions`
 --
 ALTER TABLE `wp_woocommerce_downloadable_product_permissions`
   ADD PRIMARY KEY (`permission_id`),
@@ -7022,14 +7046,14 @@ ALTER TABLE `wp_woocommerce_downloadable_product_permissions`
   ADD KEY `user_order_remaining_expires` (`user_id`,`order_id`,`downloads_remaining`,`access_expires`);
 
 --
--- Indexes for table `wp_woocommerce_log`
+-- Chỉ mục cho bảng `wp_woocommerce_log`
 --
 ALTER TABLE `wp_woocommerce_log`
   ADD PRIMARY KEY (`log_id`),
   ADD KEY `level` (`level`);
 
 --
--- Indexes for table `wp_woocommerce_order_itemmeta`
+-- Chỉ mục cho bảng `wp_woocommerce_order_itemmeta`
 --
 ALTER TABLE `wp_woocommerce_order_itemmeta`
   ADD PRIMARY KEY (`meta_id`),
@@ -7037,14 +7061,14 @@ ALTER TABLE `wp_woocommerce_order_itemmeta`
   ADD KEY `meta_key` (`meta_key`(32));
 
 --
--- Indexes for table `wp_woocommerce_order_items`
+-- Chỉ mục cho bảng `wp_woocommerce_order_items`
 --
 ALTER TABLE `wp_woocommerce_order_items`
   ADD PRIMARY KEY (`order_item_id`),
   ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for table `wp_woocommerce_payment_tokenmeta`
+-- Chỉ mục cho bảng `wp_woocommerce_payment_tokenmeta`
 --
 ALTER TABLE `wp_woocommerce_payment_tokenmeta`
   ADD PRIMARY KEY (`meta_id`),
@@ -7052,27 +7076,27 @@ ALTER TABLE `wp_woocommerce_payment_tokenmeta`
   ADD KEY `meta_key` (`meta_key`(32));
 
 --
--- Indexes for table `wp_woocommerce_payment_tokens`
+-- Chỉ mục cho bảng `wp_woocommerce_payment_tokens`
 --
 ALTER TABLE `wp_woocommerce_payment_tokens`
   ADD PRIMARY KEY (`token_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `wp_woocommerce_sessions`
+-- Chỉ mục cho bảng `wp_woocommerce_sessions`
 --
 ALTER TABLE `wp_woocommerce_sessions`
   ADD PRIMARY KEY (`session_id`),
   ADD UNIQUE KEY `session_key` (`session_key`);
 
 --
--- Indexes for table `wp_woocommerce_shipping_zones`
+-- Chỉ mục cho bảng `wp_woocommerce_shipping_zones`
 --
 ALTER TABLE `wp_woocommerce_shipping_zones`
   ADD PRIMARY KEY (`zone_id`);
 
 --
--- Indexes for table `wp_woocommerce_shipping_zone_locations`
+-- Chỉ mục cho bảng `wp_woocommerce_shipping_zone_locations`
 --
 ALTER TABLE `wp_woocommerce_shipping_zone_locations`
   ADD PRIMARY KEY (`location_id`),
@@ -7080,13 +7104,13 @@ ALTER TABLE `wp_woocommerce_shipping_zone_locations`
   ADD KEY `location_type_code` (`location_type`(10),`location_code`(20));
 
 --
--- Indexes for table `wp_woocommerce_shipping_zone_methods`
+-- Chỉ mục cho bảng `wp_woocommerce_shipping_zone_methods`
 --
 ALTER TABLE `wp_woocommerce_shipping_zone_methods`
   ADD PRIMARY KEY (`instance_id`);
 
 --
--- Indexes for table `wp_woocommerce_tax_rates`
+-- Chỉ mục cho bảng `wp_woocommerce_tax_rates`
 --
 ALTER TABLE `wp_woocommerce_tax_rates`
   ADD PRIMARY KEY (`tax_rate_id`),
@@ -7096,7 +7120,7 @@ ALTER TABLE `wp_woocommerce_tax_rates`
   ADD KEY `tax_rate_priority` (`tax_rate_priority`);
 
 --
--- Indexes for table `wp_woocommerce_tax_rate_locations`
+-- Chỉ mục cho bảng `wp_woocommerce_tax_rate_locations`
 --
 ALTER TABLE `wp_woocommerce_tax_rate_locations`
   ADD PRIMARY KEY (`location_id`),
@@ -7104,231 +7128,231 @@ ALTER TABLE `wp_woocommerce_tax_rate_locations`
   ADD KEY `location_type_code` (`location_type`(10),`location_code`(20));
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `wp_berocket_termmeta`
+-- AUTO_INCREMENT cho bảng `wp_berocket_termmeta`
 --
 ALTER TABLE `wp_berocket_termmeta`
   MODIFY `meta_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_commentmeta`
+-- AUTO_INCREMENT cho bảng `wp_commentmeta`
 --
 ALTER TABLE `wp_commentmeta`
   MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_comments`
+-- AUTO_INCREMENT cho bảng `wp_comments`
 --
 ALTER TABLE `wp_comments`
   MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `wp_links`
+-- AUTO_INCREMENT cho bảng `wp_links`
 --
 ALTER TABLE `wp_links`
   MODIFY `link_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_masterslider_options`
+-- AUTO_INCREMENT cho bảng `wp_masterslider_options`
 --
 ALTER TABLE `wp_masterslider_options`
   MODIFY `ID` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `wp_masterslider_sliders`
+-- AUTO_INCREMENT cho bảng `wp_masterslider_sliders`
 --
 ALTER TABLE `wp_masterslider_sliders`
   MODIFY `ID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `wp_options`
+-- AUTO_INCREMENT cho bảng `wp_options`
 --
 ALTER TABLE `wp_options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20112;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20324;
 
 --
--- AUTO_INCREMENT for table `wp_postmeta`
+-- AUTO_INCREMENT cho bảng `wp_postmeta`
 --
 ALTER TABLE `wp_postmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11301;
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11305;
 
 --
--- AUTO_INCREMENT for table `wp_posts`
+-- AUTO_INCREMENT cho bảng `wp_posts`
 --
 ALTER TABLE `wp_posts`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1019;
 
 --
--- AUTO_INCREMENT for table `wp_termmeta`
+-- AUTO_INCREMENT cho bảng `wp_termmeta`
 --
 ALTER TABLE `wp_termmeta`
   MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
 
 --
--- AUTO_INCREMENT for table `wp_terms`
+-- AUTO_INCREMENT cho bảng `wp_terms`
 --
 ALTER TABLE `wp_terms`
   MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
--- AUTO_INCREMENT for table `wp_term_taxonomy`
+-- AUTO_INCREMENT cho bảng `wp_term_taxonomy`
 --
 ALTER TABLE `wp_term_taxonomy`
   MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
--- AUTO_INCREMENT for table `wp_tm_taskmeta`
+-- AUTO_INCREMENT cho bảng `wp_tm_taskmeta`
 --
 ALTER TABLE `wp_tm_taskmeta`
   MODIFY `meta_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT for table `wp_tm_tasks`
+-- AUTO_INCREMENT cho bảng `wp_tm_tasks`
 --
 ALTER TABLE `wp_tm_tasks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT for table `wp_trp_dictionary_en_us_vi`
+-- AUTO_INCREMENT cho bảng `wp_trp_dictionary_en_us_vi`
 --
 ALTER TABLE `wp_trp_dictionary_en_us_vi`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
 
 --
--- AUTO_INCREMENT for table `wp_trp_gettext_en_us`
+-- AUTO_INCREMENT cho bảng `wp_trp_gettext_en_us`
 --
 ALTER TABLE `wp_trp_gettext_en_us`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
--- AUTO_INCREMENT for table `wp_trp_gettext_vi`
+-- AUTO_INCREMENT cho bảng `wp_trp_gettext_vi`
 --
 ALTER TABLE `wp_trp_gettext_vi`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `wp_usermeta`
+-- AUTO_INCREMENT cho bảng `wp_usermeta`
 --
 ALTER TABLE `wp_usermeta`
-  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
+  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
 
 --
--- AUTO_INCREMENT for table `wp_users`
+-- AUTO_INCREMENT cho bảng `wp_users`
 --
 ALTER TABLE `wp_users`
   MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `wp_user_registration_sessions`
+-- AUTO_INCREMENT cho bảng `wp_user_registration_sessions`
 --
 ALTER TABLE `wp_user_registration_sessions`
   MODIFY `session_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_wc_download_log`
+-- AUTO_INCREMENT cho bảng `wp_wc_download_log`
 --
 ALTER TABLE `wp_wc_download_log`
   MODIFY `download_log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_wc_webhooks`
+-- AUTO_INCREMENT cho bảng `wp_wc_webhooks`
 --
 ALTER TABLE `wp_wc_webhooks`
   MODIFY `webhook_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_api_keys`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_api_keys`
 --
 ALTER TABLE `wp_woocommerce_api_keys`
   MODIFY `key_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_attribute_taxonomies`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_attribute_taxonomies`
 --
 ALTER TABLE `wp_woocommerce_attribute_taxonomies`
   MODIFY `attribute_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_downloadable_product_permissions`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_downloadable_product_permissions`
 --
 ALTER TABLE `wp_woocommerce_downloadable_product_permissions`
   MODIFY `permission_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_log`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_log`
 --
 ALTER TABLE `wp_woocommerce_log`
   MODIFY `log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_order_itemmeta`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_order_itemmeta`
 --
 ALTER TABLE `wp_woocommerce_order_itemmeta`
   MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=425;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_order_items`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_order_items`
 --
 ALTER TABLE `wp_woocommerce_order_items`
   MODIFY `order_item_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_payment_tokenmeta`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_payment_tokenmeta`
 --
 ALTER TABLE `wp_woocommerce_payment_tokenmeta`
   MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_payment_tokens`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_payment_tokens`
 --
 ALTER TABLE `wp_woocommerce_payment_tokens`
   MODIFY `token_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_sessions`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_sessions`
 --
 ALTER TABLE `wp_woocommerce_sessions`
-  MODIFY `session_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53477;
+  MODIFY `session_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54120;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_shipping_zones`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_shipping_zones`
 --
 ALTER TABLE `wp_woocommerce_shipping_zones`
   MODIFY `zone_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_shipping_zone_locations`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_shipping_zone_locations`
 --
 ALTER TABLE `wp_woocommerce_shipping_zone_locations`
   MODIFY `location_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_shipping_zone_methods`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_shipping_zone_methods`
 --
 ALTER TABLE `wp_woocommerce_shipping_zone_methods`
   MODIFY `instance_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_tax_rates`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_tax_rates`
 --
 ALTER TABLE `wp_woocommerce_tax_rates`
   MODIFY `tax_rate_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `wp_woocommerce_tax_rate_locations`
+-- AUTO_INCREMENT cho bảng `wp_woocommerce_tax_rate_locations`
 --
 ALTER TABLE `wp_woocommerce_tax_rate_locations`
   MODIFY `location_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `wp_wc_download_log`
+-- Các ràng buộc cho bảng `wp_wc_download_log`
 --
 ALTER TABLE `wp_wc_download_log`
   ADD CONSTRAINT `fk_wp_wc_download_log_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `wp_woocommerce_downloadable_product_permissions` (`permission_id`) ON DELETE CASCADE;
