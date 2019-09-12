@@ -2,20 +2,20 @@
     get_header();
     // Template Name: Contact
 ?>
-<div class="container">
-    <div class="row" style="margin-top: 20px">
-        <div class="col-md-12">
-            <div class="fixed-width">
-                <div class="pro-title-breadcrumb text-center">
-                    <h4><?php echo the_title() ?></h4>
-                </div>
-                <div class="text-center">
-                    <nav class="woocommerce-breadcrumb">
-                        <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?></nav>
-                </div>
-            </div>
+<div class="breadcrumb-colect prefix" style="margin-bottom: 20px">
+    <div class="fixed-width content-breadcrum">
+        <div class="pro-title-breadcrumb text-center">
+            <h2 style="color: #fff"><?php echo get_the_title() ?></h2>
+
         </div>
+        <nav class="woocommerce-breadcrumb" style="text-align: center">
+                                <a href="<?php echo get_site_url() ?>"><?php echo __('Home', 'localFile') ?></a>&nbsp;&#47;&nbsp;<?php echo the_title() ?>
+                            </nav>
+        <br/>
+        <br/>
     </div>
+</div>
+<div class="container">
     <div class="row" style="margin: 20px 0">
         <div class="col-md-4 col-infomation">
             <div class="box box-addr">
