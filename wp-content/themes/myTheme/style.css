@@ -2549,3 +2549,6 @@ body .owl-carousel .owl-video-tn {
 .menu-pri .dropdown li:last-child a:before {
     background: #fff
 }
+.sidebar-filter .filter-list:last-of-type {
+    display: none !important;
+}
