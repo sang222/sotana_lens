@@ -235,7 +235,7 @@ function submitProductQuick() {
                 $this.removeClass('loading');
                 var mini = res.fragments['.container-mini-cart'];
                 $(".container-mini-cart").remove()
-                $('.header').append(mini);
+                $('#wrapper_mini-cart').append(mini);
                 var modal = res.fragments['.modal-cart-content'];
                 $(".modal-cart-add").empty().append(modal);
                 $("#modalCart").modal('show');
@@ -275,7 +275,7 @@ function submitProductVariable() {
                 $this.removeClass('loading');
                 var mini = res.fragments['.container-mini-cart'];
                 $(".container-mini-cart").remove()
-                $('.header').append(mini);
+                $('#wrapper_mini-cart').append(mini);
                 var modal = res.fragments['.modal-cart-content'];
                 $(".modal-cart-add").empty().append(modal);
                 $("#modalCart").modal('show');
@@ -426,7 +426,7 @@ $(document).on('click', '.remove-product', function (e) {
             var mini = data.fragments['.container-mini-cart'];
             var modal = data.fragments['.modal-cart-content'];
             $(".container-mini-cart").remove()
-            $('.header').append(mini);
+            $('#wrapper_mini-cart').append(mini);
             $('.modal-cart-add').empty().append(modal);
         }, error: function (err) {
             console.log(err);
@@ -454,7 +454,7 @@ $(document).on('click', '.remove-product-variable', function (e) {
         }, success: function (data) {
             var mini = data.fragments['.container-mini-cart'];
             $(".container-mini-cart").remove()
-            $('.header').append(mini);
+            $('#wrapper_mini-cart').append(mini);
             var modal = data.fragments['.modal-cart-content'];
             $(".modal-cart-add").empty().append(modal);
             $(".total-price").text($('.total-price-dropdown').attr('data-total'))
@@ -550,7 +550,7 @@ $(document).on('click', '#modalCart .reduced', function () {
                 if (res) {
                     var mini = res.fragments['.container-mini-cart'];
                     $(".container-mini-cart").remove()
-                    $('.header').append(mini);
+                    $('#wrapper_mini-cart').append(mini);
                     var modal = res.fragments['.modal-cart-content'];
                     $(".modal-cart-add").empty().append(modal);
                     $('#cart-roll').animate({
@@ -589,7 +589,7 @@ $(document).on('click', '#modalCart .increase', function () {
                 if (res) {
                     var mini = res.fragments['.container-mini-cart'];
                     $(".container-mini-cart").remove()
-                    $('.header').append(mini);
+                    $('#wrapper_mini-cart').append(mini);
                     var modal = res.fragments['.modal-cart-content'];
                     $(".modal-cart-add").empty().append(modal);
                     $('#cart-roll').animate({

@@ -85,7 +85,7 @@
             <div class="space">
 
             </div>
-            <div class="right-head d-flex align-items-center">
+            <div class="right-head d-flex align-items-center" id="wrapper_mini-cart">
                 <div class="menu-primary active">
                     <ul class="menu-main-head" id="nav-top">
                         <li class="search-mobile">
