@@ -396,6 +396,8 @@ body ul.list li {
     backface-visibility: hidden;
     width: 100%;
     height: auto;
+    filter: drop-shadow(0 0 5px #fff);
+    -ms-filter: drop-shadow(0 0 5px #fff);
 }
 
 .row-product .product-item .action-detail {

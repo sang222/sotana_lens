@@ -40,7 +40,6 @@ global $post;
                     $args = array(
                         'post_type' => 'news',
                         'post_status' => 'publish',
-                        'orderby' => 'rand',
                         'posts_per_page' => 6,
                         'post__not_in' => array(get_the_ID()),
                     );

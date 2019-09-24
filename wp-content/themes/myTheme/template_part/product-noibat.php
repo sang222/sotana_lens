@@ -28,7 +28,7 @@ $list_cate = get_field('category_product', 'option')['hot_sale'];
         $dem1 = 0;
 
         foreach ($list_cate as $cate_id):
-            $args = array('post_type' => 'product', 'posts_per_page' => 10, 'product_cat' => get_the_category_by_ID($cate_id), 'orderby' => 'rand');
+            $args = array('post_type' => 'product', 'posts_per_page' => 10, 'product_cat' => get_the_category_by_ID($cate_id));
             $loop = new WP_Query($args);
             $dem2 = 1;
             ?>
