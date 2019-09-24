@@ -89,7 +89,7 @@ function viewVariable() {
         //add on
         if (display_price == display_regular_price) {
             $(".current-price").empty();
-            $(".current-price").text(formatCurrency(display_price));
+            // $(".current-price").text('');
         } else {
             $(".current-price").text(formatCurrency(display_regular_price));
             $(".sale-price").text(formatCurrency(display_price));

@@ -214,11 +214,11 @@ $trademark = array();
 
                                         <span class="sale-price" style="text-decoration: line-through">
                                                     <?php if ($first['display_price'] < $first['display_regular_price'] && is_numeric($first['display_price'])) {
-                                                        echo number_format($first['display_price'], 0, ',', '.') . 'đ';
+                                                        echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ';
                                                     } ?>
                                                 </span>
                                         <span class="regular-price">
-                                                <?php if ($first['display_regular_price'] && is_numeric($first['display_regular_price'])) echo number_format($first['display_regular_price'], 0, ',', '.') . 'đ'; ?>
+                                                <?php if ($first['display_regular_price'] && is_numeric($first['display_regular_price'])) echo number_format($first['display_price'], 0, ',', '.') . 'đ'; ?>
                                             </span>
 
                                     <?php endif; ?>
