@@ -2554,3 +2554,6 @@ body .owl-carousel .owl-video-tn {
 .sidebar-filter .filter-list:last-of-type {
     display: none !important;
 }
+#icon-cart-mobile {
+    display: none !important
+}
