@@ -2326,7 +2326,10 @@ body .owl-carousel .owl-video-tn {
 .breadcrumb-colect a {
     color: #ffffff;
 }
-
+img{
+    filter: drop-shadow(0 0 5px #fff);
+    /*-ms-filter: drop-shadow(0 0 5px #fff);*/
+}
 .breadcrumb-colect .content-breadcrum {
     position: relative;
     z-index: 9;

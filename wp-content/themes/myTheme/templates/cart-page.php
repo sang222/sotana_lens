@@ -9,7 +9,7 @@ $items = $woocommerce->cart->get_cart();
         <div class="fixed-width content-breadcrum">
             <div class="pro-title-breadcrumb text-center">
                 <h4><?php
-                    echo  ' Cart';
+                    echo ' Cart';
                     ?> </h4>
 
             </div>
@@ -86,7 +86,7 @@ $items = $woocommerce->cart->get_cart();
                                                 data-product_id="<?php echo $values['product_id'] ?>"
                                                 data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
                                         >
-                                        <?php echo __('Xoá', 'localFile') ?>
+                                            <?php echo __('Xoá', 'localFile') ?>
                                         </small>
                                     <?php else: ?>
                                         <small
@@ -96,7 +96,7 @@ $items = $woocommerce->cart->get_cart();
                                                 data-product_id="<?php echo $values['product_id'] ?>"
                                                 data-product_sku="<?php echo $getProductDetail->get_sku() ?>"
                                         >
-                                        <?php echo __('Xoá', 'localFile') ?>
+                                            <?php echo __('Xoá', 'localFile') ?>
                                         </small>
                                     <?php endif; ?>
 
@@ -116,10 +116,14 @@ $items = $woocommerce->cart->get_cart();
                                         $variable_product1 = new WC_Product_Variation($variation_id);
                                         $regular_price = $variable_product1->regular_price;
                                         $sales_price = $variable_product1->sale_price;
-                                        if ($sales_price > 0) {
+                                        if ($sales_price > 0 && is_numeric($sales_price)) {
                                             echo number_format(($sales_price), 0, ',', '.') . '<u>đ</u>';
                                         } else {
-                                            echo number_format(($regular_price), 0, ',', '.') . '<u>đ</u>';
+                                            if (is_numeric($regular_price)) {
+                                                echo number_format(($regular_price), 0, ',', '.') . '<u>đ</u>';
+                                            } else {
+                                                echo '0đ';
+                                            }
                                         }
                                         ?>
 
@@ -232,11 +236,16 @@ $items = $woocommerce->cart->get_cart();
                                         $variable_product1 = new WC_Product_Variation($variation_id);
                                         $regular_price = $variable_product1->regular_price;
                                         $sales_price = $variable_product1->sale_price;
-                                        if ($sales_price > 0) {
+                                        if ($sales_price > 0 && is_numeric($sales_price)) {
                                             echo number_format(($sales_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
                                         } else {
-                                            echo number_format(($regular_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                            if (is_numeric($regular_price)) {
+                                                echo number_format(($regular_price * $values['quantity']), 0, ',', '.') . '<u>đ</u>';
+                                            } else {
+                                                echo '0đ';
+                                            }
                                         }
+
                                         ?>
                                         </span>
                                     <?php endif; ?>
@@ -255,8 +264,9 @@ $items = $woocommerce->cart->get_cart();
                     <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
-                <span class="text-center d-block empty-shop" ><?php echo __('Cart Empty', 'localFile') ?></span>
-                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
+                <span class="text-center d-block empty-shop"><?php echo __('Cart Empty', 'localFile') ?></span>
+                <a class="text-center d-block " href="<?php echo get_category_link(66); ?> "><span
+                            class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
                 </p>
             <?php endif; ?>
             <div id="empty-cart" class="d-none">
@@ -264,8 +274,9 @@ $items = $woocommerce->cart->get_cart();
                     <img width="100" class="img-fluid m-auto"
                          src="<?php echo esc_url(get_template_directory_uri()) ?>/images/myimage/cart/cart-empty.png"/>
                 <div class="prefix"></div>
-                <span class="text-center d-block empty-shop" ><?php echo __('Cart Empty', 'localFile') ?></span>
-                <a class="text-center d-block " href="<?php echo get_category_link( 66 ); ?> "><span class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
+                <span class="text-center d-block empty-shop"><?php echo __('Cart Empty', 'localFile') ?></span>
+                <a class="text-center d-block " href="<?php echo get_category_link(66); ?> "><span
+                            class="return-shop"><?php echo __('Return shop', 'localFile') ?></span></a>
                 </p>
             </div>
             <div style="text-align: right; margin-top: 20px;">
@@ -277,7 +288,8 @@ $items = $woocommerce->cart->get_cart();
                     </div>
                     <br/>
                     <div class="check-out-cart">
-                        <a href="<?php echo get_permalink(27) ?>" class=" btn-modal-cart btn  btn-xs"><?php echo __('Thanh toán', 'localFile') ?></a>
+                        <a href="<?php echo get_permalink(27) ?>"
+                           class=" btn-modal-cart btn  btn-xs"><?php echo __('Thanh toán', 'localFile') ?></a>
                     </div>
                 </div>
 
