@@ -77,7 +77,8 @@ function clickItemVariableQuick() {
         var display_regular_price = $(this).attr('data-display_regular_price')
         if (display_regular_price != '') {
 
-            $(this).parents('.content-quick').find('.price-regular').text(formatCurrency(display_price));
+            $(this).parents('.content-quick').find('.price-regular').text(formatCurrency(display_regular_price));
+            $(this).parents('.content-quick').find('.price-sale').text(formatCurrency(display_price));
             $("#add-variable").attr('data-variation_id', variation_id);
             $("#add-variable").attr('data-attribute_pa_color', attribute_pa_color);
         }

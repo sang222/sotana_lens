@@ -122,10 +122,13 @@ function viewProduct(product_id, $this) {
 
                 $(".nameQuickview").text(response.data.data['post_title'])
                 $(".description-quick-view").text(response.data.data['post_excerpt'])
-                if (price_sale != '') {
-                    $(".price-sale").empty().text(price_regular)
-                    $(".price-regular").empty().text(price_sale)
-                }else{
+
+                if (price_sale.trim() != '') {
+
+                    $(".price-sale").empty().text(price_sale)
+                    $(".price-regular").empty().text(price_regular)
+                } else {
+                    $(".price-regular").empty();
                     $(".price-sale").empty().text(price_regular)
                 }
 
