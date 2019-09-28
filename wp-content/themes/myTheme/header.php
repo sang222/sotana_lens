@@ -159,7 +159,7 @@
                         ));
                     ?>
                 </div>
-                <div style="display: flex; align-items: center" class="d-none">
+                <div style="display: flex; align-items: center">
                     <div class="container-mini-cart"></div>
                     <div>
                         <div class="menu-toggle">
