@@ -10,6 +10,32 @@ $(document).ready(function () {
     submitProductVariable();
 })
 
+window.addEventListener('resize load', function(event){
+//   console.log($(window).width());
+  var w = $(window).width();
+  if(w <= 767) {
+    // flag = true
+    $("#zoom").elevateZoom({
+        scrollZoom: false,
+        zoomType: "window",
+        cursor: "crosshair",
+        zoomWindowFadeIn: 0,
+        zoomWindowFadeOut: 0
+    });
+    // console.log(flag);
+  } else {
+    // flag = false
+    $("#zoom").elevateZoom({
+        scrollZoom: true,
+        zoomType: "inner",
+        cursor: "crosshair",
+        zoomWindowFadeIn: 500,
+        zoomWindowFadeOut: 750
+    });
+    // console.log(flag);
+  }
+});
+
 function submitProductVariable() {
     $('.add-variable').click(function (e) {
         e.preventDefault();
