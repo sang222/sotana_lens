@@ -19,7 +19,6 @@
  */
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('CONCATENATE_SCRIPTS', false);
 define('DB_NAME', 'outsource');
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -75,3 +74,5 @@ if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+define('CONCATENATE_SCRIPTS', false); //fix error in the admin
