@@ -148,7 +148,7 @@ $trademark = array();
         ?>
         <input type="hidden" id="cate_id" value="<?php echo $cateID ?>"/>
         <div id="collection-id"
-             class="collection-one float-left col-lg-9  col-xs-12 px-0 ml-0 colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
+             class="collection-one float-left col-lg-12  col-xs-12 px-0 ml-0 colection-<?php echo $dem1 + 1 ?>  <?php if ($dem1 > 0) echo 'd-none' ?>">
             <h1 class="title-cate text-left"><?php echo $cate->name ?></h1>
             <div class="grid-uniform product-list md-mg-left-15">
                 <?php
